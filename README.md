@@ -10,7 +10,7 @@ ___
 In memory of:<br \>Matt Taylor (1978-2020), <br \>a dedicated teacher always willing to <br \>spend time with his students.
 </td>
 <td>
-<b>"Engineer by Trade,<br />Scientist by Nature,<br />Artist at Heart"</b><br />
+<b>Engineer by Trade,<br />Scientist by Nature,<br />Artist at Heart"</b><br />
 </td>
 </tr>
 </table>
