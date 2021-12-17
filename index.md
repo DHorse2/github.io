@@ -36,10 +36,10 @@ This series was designed for a general audience to be viewed in order, but feel 
 
 [Thoughts on Matt from the HTM community](https://discourse.numenta.org/t/message-from-numenta-ceo-donna-dubinsky-regarding-matt-taylor/7524)
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=https://youtube.com/playlist?list=PL3yXMgtrZmDqhsFQzwUC9V8MeeVOQ7eZ9" target="_blank">
+<a href="https://www.youtube.com/c/NumentaTheory" target="_blank">
 <img src="Resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png" 
 alt="Thumbnail of Matt on YouTube" width="336" height="188" border="10" /></a><br />
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=https://youtube.com/playlist?list=PL3yXMgtrZmDqhsFQzwUC9V8MeeVOQ7eZ9" target="_blank"/>HTM School with Matt on YouTube.</a>
+<a href="https://www.youtube.com/c/NumentaTheory" target="_blank"/>HTM School with Matt on YouTube.</a>
 
 [Matt was also active on Twitch](https://www.twitch.tv/rhyolight_/videos?filter=all&sort=time)
 His Rhyolight website is no longer available.
