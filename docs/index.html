@@ -1,76 +1,87 @@
-﻿    <div class="without-description">
-        <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        {% if site.description or site.github.project_tagline %}
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-        {% endif %}
-        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
-        <ul>
-            {% if site.show_downloads %}
-            <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
-            <li><a href="{{ site.github.exe_url }}">Download <strong>Exe Install</strong></a></li>
-            {% endif %}
-            <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-        </ul>
-    </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Matt Taylor Disk Optimizer - TaylorDo</title>
+    <link rel="stylesheet" type="text/css" href="PageStyleSheet1.css" />
 
-    <h1 id="the-matt-taylor-disk-optimizer-taylordo">The Matt Taylor Disk Optimizer - TaylorDo</h1>
-    <p>index doc</p>
-    An advanced disk optizer that works out of the box while allowing admins full control of volume and concern management. Temporary terms at end. Help wanted.</p>
-    <hr />
-    <p><a href="QuickStart.md">Skip to TaylorDo <strong>QUICK START</strong></a></p>
-    <hr />
-    <h2 id="about-matt-taylor">About Matt Taylor</h2>
-    <table>
-        <tr>
-            <td width="50%">
-                This product is dedicated in memory of:<br \><b>Matt Taylor (1978-2020)</b>, <br \>a dedicated teacher always willing to spend time with his students.
-            </td>
-            <td>
-                <b>Engineer by Trade,<br />Scientist by Nature,<br />Artist at Heart"</b><br />
-            </td>
-        </tr>
-    </table>
-    <p>
-        <img src="Resources\Page\Taylor_Pic_-_DonnaDubinsky.png"
-             alt="Thumbnail of Matt on YouTube" border="10" />
-    </p>
-    <hr />
-    <p><a href="https://www.forevermissed.com/matthew-taylor/about">The memorial site for Matt can be found here.</a> <br /></p>
-    <hr />
-    <h2 id="developer-comments">Developer comments</h2>
-    <p>I didn't know Matt, but I spent many hours getting to know Matt watching his teaching videos, Q&amp;A and tutorial live streams, HTM School and other work at Numenta. In an effort to closely examine a company and its technology I came to realise what a truly sincere, nice and giving person Matt was. He was a great educator.</p>
-    <p>He was a rare individual and set an example we could all follow. This app is in part a demonstration to students that in using the simplest of languages levels there is, complex and powerful abstractions can be built.</p>
-    <hr />
-    <h3 id="htm-school">HTM School</h3>
-    <p>HTM School is a series of educational videos created by former Numenta Open Source Community Manager Matt Taylor (1978-2020). Watch these videos to see detailed visualizations of HTM systems running, and thoughtful breakdowns of the biological algorithms involved.</p>
-    <p>This series was designed for a general audience to be viewed in order, but feel free to jump into any episode. There is no need to have a background in neuroscience, mathematics, or computer science to understand HTM Theory. For those of you wanting more detailed resources on this subject, please have a look at Numenta’s technical papers.</p>
-    <p><a href="https://discourse.numenta.org/t/message-from-numenta-ceo-donna-dubinsky-regarding-matt-taylor/7524">Thoughts on Matt from the HTM community</a></p>
-    <a href="https://www.youtube.com/c/NumentaTheory" target="_blank">
-        <img src="Resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png"
-             alt="Thumbnail of Matt on YouTube" width="336" height="188" border="10" />
-    </a><br />
-    <a href="https://www.youtube.com/c/NumentaTheory" target="_blank" />HTM School with Matt on YouTube.</a>
-    <p>
-        <a href="https://www.twitch.tv/rhyolight_/videos?filter=all&amp;sort=time">Matt was also active on Twitch</a>
-        His Rhyolight website is no longer available.
-    </p>
-    <hr />
-    <h2 id="remembering-matt-at-numenta">Remembering Matt at Numenta</h2>
-    <p>(<em>Shared by Christy Maver</em>)</p>
-    <p>At today's team meeting, several of us wore tie-dyed, brightly colored, or NuPIC shirts to honor Matt.  We shared stories and some of our favorite memories.  Much like when he was alive, there was a lot of laughter shared today.  He made an impact on all of us that will continue to live on.  Even some of the newer employees who never met him shared their impressions of him, or how they felt like they knew him from watching his videos.</p>
-    <p>It doesn't seem possible that it's been a year.  We miss you, Matt!</p>
-    <p>May 10, 2021</p>
-    <p><img src="https://www.forevermissed.com/lst/m/a/matthew-taylor/p/2517722_1920x1080_f985cc.jpg" alt="alt text" /></p>
-    <hr />
-    <p>Matt contributed my own and many people's education. I hope this project will be instructive for students of scriptology.</p>
-    <hr />
-    <p>If you are able might I suggest you <strong>donate</strong> to the College Fund for Matt's Children.</p>
-    <p>Matt's family have set up a 529 education fund for his two children. Contributions can be made at <a href="https://www.ugift529.com/">https://www.ugift529.com/</a>.</p>
-    <p>
-        Matt and Trinity's daughter is Romy.  Her code is L1E-N7C.
-        Matt and Trinity's son is named Matthew, but he goes by Dean.  Dean's Code is 303-Q2X. Please contribute equally if you can.
-    </p>
-    <hr />
-    <p>There is noone else currently working on this but others can pursue sponship for their work if they wish.</p>
-    <hr />
-    <p>Permission for use granted subject to UN law and pending review of an otherwise permissive FOSS liscense. Freeware for now. Commericial use okay. I dunno... not my thing. Icons and logo (c 2001) David G. Horsman.</p>
+</head>
+<body class="centered">
+    <div class="bodywidthmax">
+        <h1 id="the-matt-taylor-disk-optimizer-taylordo">The Matt Taylor Disk Optimizer - TaylorDo</h1>
+        <div>
+            <table>
+                <tr>
+                    <td class="leftside" width="50%">
+                        <a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a>
+                        <br />
+                        <a href="https://github.com/DHorse2/TaylorDo/blob/master/TaylorDOVs0_3/src/Download/TaylorDoSetup.exe">Download <strong>Executable File</strong></a>
+                    </td>
+                    <td align="right" class="rightside">
+                        <a href="https://github.com/DHorse2/TaylorDo">View On <strong>GitHub</strong></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>An advanced disk optizer that works out of the box while allowing admins full control of volume and concern management. Temporary terms at end. Help wanted.</p>
+        <hr />
+        <p><a href="QuickStart.md">Skip to TaylorDo <strong>QUICK START</strong></a></p>
+        <hr />
+        <h2 id="about-matt-taylor">About Matt Taylor</h2>
+        <table>
+            <tr>
+                <td width="50%">
+                    This product is dedicated in memory of:<br \><b>Matt Taylor (1978-2020)</b>, <br \>a dedicated teacher always willing to spend time with his students.
+                </td>
+                <td>
+                    <b>Engineer by Trade,<br />Scientist by Nature,<br />Artist at Heart"</b><br />
+                </td>
+            </tr>
+        </table>
+        <p>
+            <img class="centered" src="Resources\Page\Taylor_Pic_-_DonnaDubinsky.png"
+                 alt="Thumbnail of Matt on YouTube" border="10" />
+        </p>
+        <hr />
+        <p><a href="https://www.forevermissed.com/matthew-taylor/about">The memorial site for Matt can be found here.</a> <br /></p>
+        <hr />
+        <h2 id="developer-comments">Developer comments</h2>
+        <p>I didn't know Matt, but I spent many hours getting to know Matt watching his teaching videos, Q&amp;A and tutorial live streams, HTM School and other work at Numenta. In an effort to closely examine a company and its technology I came to realise what a truly sincere, nice and giving person Matt was. He was a great educator.</p>
+        <p>He was a rare individual and set an example we could all follow. This app is in part a demonstration to students that in using the simplest of languages levels there is, complex and powerful abstractions can be built.</p>
+        <hr />
+        <h3 id="htm-school">HTM School</h3>
+        <p>HTM School is a series of educational videos created by former Numenta Open Source Community Manager Matt Taylor (1978-2020). Watch these videos to see detailed visualizations of HTM systems running, and thoughtful breakdowns of the biological algorithms involved.</p>
+        <p>This series was designed for a general audience to be viewed in order, but feel free to jump into any episode. There is no need to have a background in neuroscience, mathematics, or computer science to understand HTM Theory. For those of you wanting more detailed resources on this subject, please have a look at Numenta’s technical papers.</p>
+        <p><a href="https://discourse.numenta.org/t/message-from-numenta-ceo-donna-dubinsky-regarding-matt-taylor/7524">Thoughts on Matt from the HTM community</a></p>
+        <a href="https://www.youtube.com/c/NumentaTheory" target="_blank">
+            <img src="Resources\Page\HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png"
+                 alt="Thumbnail of Matt on YouTube" width="336" height="188" border="10" />
+        </a><br />
+        <a href="https://www.youtube.com/c/NumentaTheory" target="_blank" />HTM School with Matt on YouTube.</a>
+        <p>
+            <a href="https://www.twitch.tv/rhyolight_/videos?filter=all&amp;sort=time">Matt was also active on Twitch</a>
+            His Rhyolight website is no longer available.
+        </p>
+        <hr />
+        <h2 id="remembering-matt-at-numenta">Remembering Matt at Numenta</h2>
+        <p>(<em>Shared by Christy Maver</em>)</p>
+        <p>At today's team meeting, several of us wore tie-dyed, brightly colored, or NuPIC shirts to honor Matt.  We shared stories and some of our favorite memories.  Much like when he was alive, there was a lot of laughter shared today.  He made an impact on all of us that will continue to live on.  Even some of the newer employees who never met him shared their impressions of him, or how they felt like they knew him from watching his videos.</p>
+        <p>It doesn't seem possible that it's been a year.  We miss you, Matt!</p>
+        <p>May 10, 2021</p>
+        <p><img class="bodywidthmax" src="https://www.forevermissed.com/lst/m/a/matthew-taylor/p/2517722_1920x1080_f985cc.jpg" alt="alt text" /></p>
+        <hr />
+        <p>Matt contributed my own and many people's education. I hope this project will be instructive for students of scriptology.</p>
+        <hr />
+        <p>If you are able might I suggest you <strong>donate</strong> to the College Fund for Matt's Children.</p>
+        <p>Matt's family have set up a 529 education fund for his two children. Contributions can be made at <a href="https://www.ugift529.com/">https://www.ugift529.com/</a>.</p>
+        <p>
+            Matt and Trinity's daughter is Romy.  Her code is L1E-N7C.
+            Matt and Trinity's son is named Matthew, but he goes by Dean.  Dean's Code is 303-Q2X. Please contribute equally if you can.
+        </p>
+        <hr />
+        <p>There is noone else currently working on this but others can pursue sponship for their work if they wish.</p>
+        <hr />
+        <p>Permission for use granted subject to UN law and pending review of an otherwise permissive FOSS liscense. Freeware for now. Commericial use okay. I dunno... not my thing. Icons and logo (c 2001) David G. Horsman.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿html,body
+{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    width: 500px;
+}
+
+.bodywidthmax {
+    max-width: 500px;
+}
+
+.centered {
+    margin: auto;
+}
+
+
+.leftside div {
+    float: left;
+    text-align: left;
+}
+.rightside div {
+    float: right;
+    text-align: right;
+    justify-content: right;
+}
