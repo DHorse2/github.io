@@ -6,14 +6,18 @@
 }
 
 body {
-    width: 500px;
+    width: 540px;
 }
 
 .bodywidthmax {
-    max-width: 500px;
+    max-width: 540px;
 }
 
 .centered {
+    margin: auto;
+    text-align: center;
+}
+.bodycentered {
     margin: auto;
 }
 
