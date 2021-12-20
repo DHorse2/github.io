@@ -1,5 +1,5 @@
 # The Matt Taylor Disk Optimizer - TaylorDo 
-index doc
+readme doc
 An advanced disk optizer that works out of the box while allowing admins full control of volume and concern management. Temporary terms at end. Help wanted.
 ___
 
