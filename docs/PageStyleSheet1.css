@@ -23,11 +23,27 @@ body {
 
 
 .leftside div {
+    width:auto;
     float: left;
     text-align: left;
 }
 .rightside div {
+    width: auto;
     float: right;
     text-align: right;
     justify-content: right;
+}
+
+.DescTable { 
+    text-align: start;
+    max-width: max-content; 
+    vertical-align: text-top;
+    border: groove;
+    border-block-color: darkslategrey;
+    table-layout:auto;
+}
+
+.DescTableRowLine {
+    float: left;
+    grid-auto-rows:auto;
 }
