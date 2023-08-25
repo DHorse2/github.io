@@ -3,7 +3,8 @@ readme doc
 An advanced disk optizer that works out of the box while allowing admins full control of volume and concern management. Temporary terms at end. Help wanted.
 ___
 
-[Skip to TaylorDo **QUICK START**](QuickStart.md)
+[Skip to TaylorDo **QUICK START**](QuickStart.md) <br />
+[Skip to TalorDo **CODE**](https://github.com/DHorse2/TaylorDo)
 ___
 ## About Matt Taylor
 
