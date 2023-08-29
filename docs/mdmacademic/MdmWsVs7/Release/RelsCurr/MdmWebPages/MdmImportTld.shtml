@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmImportTld.css" />
+    <title>Import Database Transformation Utility</title>
+</head>
+<body id="MdmImportTldBody" class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder BodyMainContainer">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!--x -->
+<!--x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+            </div>
+                <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!--x -->
+                <!--** Content Blocks **-->
+                <!--x -->
+                <!--** Block 1 **-->
+                <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B1D1" class="BodyParaLeft">
+                        <div id="B1C1" class="BodyParaRight CalloutBorder">
+                            <a id="B1C1A" href="#" class="CalloutContent CPA">
+                                <span class="CPA">More...</span>
+    							<span id="B1C1AP1" class="CalloutContent CPP ">
+    							This is a utility created to transform
+    							data between various flat and database
+    							formats.<br><br>
+    							</span>
+    							<span id="B1C1AP2" class="CalloutContent CPP ">
+    							This project included many objectives
+    							not strictly related to database import.
+    							Data transfer between databases using a
+    							standard import/export format is fairly
+    							well addressed in most products.<br><br> 
+    							</span>
+    							<span id="B1C1AP3" class="CalloutContent CPP ">
+    							This product will prove most useful in dealing with
+    							formats that do not come directly from a 
+    							database or require cleaning and transformation.<br><br>
+    							</span>
+    							<span id="B1C1AP4" class="CalloutContent CPP ">
+    							The intial targets addressed pulling data
+    							from a post-relational database to create
+    							an MS SQL or MY SQL schema.
+    							</span>
+                            </a>
+                        </div>
+                        <h3 id="B1D1H1" class="BodyPara cSd CPT">
+    						Import File Processor Schema and Data Conversion
+    					</h3>
+                        <p id="B1D1P1" class="BodyPara aLeft CP">
+    					Convert Exported Text Files to
+    					SQL databases including schemas,
+    					views and aliases.
+    					 <br><br>
+                        </p>
+                	</div>
+    		<p class="FixClear"></p>
+                </div>
+                <!--*-->
+                <!--** Block 2 **-->
+                <div id="DivB2" class="DivB2 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B2D1" class="BodyParaLeft">
+                        <div id="B2C1" class="BodyParaRight CalloutBorder">
+                            <a id="B2C1A" href="#" class="CalloutContent CPA">
+                                <span id="B2C1A1" class="CPA aCenter">
+    							Main <br>Montior <br>Page
+    							</span>
+    							<img id="B2C1Img1Thumb" src="../Images/ImportTld Main Page Start.jpg" 
+    							alt="ImportTld Main Page Start" 
+    							class="CPPImageThumb CPPImageThumbRight CPA"/>
+    							<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg" 
+    							alt="ImportTld Main Page Start" 
+    							class="CalloutBorder CPPImage CPP CPPImageLeft "/>
+                            </a>
+                        </div>
+                        <p id="B2D1P1" class="BodyPara aLeft CPT">
+                            Advanced conversion features launched by an easy
+    						to use interface.<br> 
+                        </p>
+                        <p id="B2D1P2" class="BodyPara aLeft CP">
+    						The main page includes a progress bar and adjustable
+							levels of progress details.  It is a diagnostic utility 
+							and featurse a real-time raw data windows, pause to 
+							examine and detailed exceptions handling. 
+                        </p>
+                        <p id="B2D1P3" class="BodyPara aLeft CP">
+    					<br> 
+                        </p>
+                    </div>
+                	<!--*-->
+                    <div id="B2D2" class="DivP6 BodyParaRight">
+                        <div id="B2C2" class="BodyParaLeft CalloutBorder">
+                            <a id="B2C2A" href="#" class="CalloutContent CPA">
+                                <span id="B2C2A1" class="CPA aCenter">
+    							Database <br>Selection <br>Page
+    							</span>
+    							<img id="B2C2Img1Thumb" src="../Images/ImportTld Db Page Start.jpg" 
+    							alt="ImportTld Database Page Start" 
+    							class="CPPImageThumb CPPImageThumbLeft CalloutContent CPA"/>
+    							<img id="B2C2Img1" src="../Images/ImportTld Db Page Start.jpg" 
+    							alt="ImportTld Database Page Start" 
+    							class="CalloutContent CalloutBorder CPPImage CPP CPPImageLeft "/>
+                            </a>
+                        </div>
+                        <p id="B2D2P1" class="BodyPara CPT aLeft">
+                			The database information page allows entry of the standard
+							database attributes including server, database, filegroup, 
+							user, password, authorization. 
+                        </p>
+                        <p id="B2D2P2" class="BodyPara CP aLeft">
+                		    Implementation of file owner as well as populated drop downs
+							for each database attribute are still pending. 
+                        </p>
+                        <p id="B2D2P3" class="BodyPara aLeft CP">
+    					<br> 
+                        </p>
+                    </div>
+					<p class="FixClear"></p>
+                </div>
+    		<p class="FixClear"></p>
+                <!--*-->
+                <!--** Block 3 **-->
+                <div id="DivB3" class="DivB3 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B3D1" class="BodyParaLeft">
+                    <div id="B3C1" class="BodyParaRight CalloutBorder">
+                        <a id="B3C1A" href="#" class="CalloutContent CPA">
+                            <span id="B3C1A1" class="CPA">More...</span>
+							<span id="B3C1CPP1" class="CalloutContent CPP">
+								  Follow this link to the OSS Overview
+							</span>
+                        </a>
+                    </div>
+                    <h3 id="B3D1H1" class="BodyPara cSd CPT">
+					The Project
+					</h3>
+                    <p id="B3D1P1" class="BodyPara aLeft CP">
+					   The import file processor is part of a much larger C# project.  It consists of a
+					   basic user interface and update processor.  
+                    </p>
+                    <p id="B3D1P2" class="BodyPara aLeft CP">
+					   Most of the work however is performed
+					   by a sophisticated file access module.  The file access module is general in nature
+					   and includes basic I/O and connection functions.  It is extended to include
+					   utility, schema and transformation features as well.
+                    </p>
+                    <p id="B3D1P3" class="BodyPara aLeft CP">
+					   The application is implemented via a complex application framework.  In simple terms
+					   the framework consists first of an application and OSS (Operating System Support) 
+					   MVC threaded infrastructure for distruibuted processing.  Second, the framework provides 
+					   common user interface functionality such as status line areas, update, pause, 
+					   resume, and cancel.
+					</p>
+                    <p id="B3D1P4" class="BodyPara aLeft CP">
+					   Details the wider project and it research objectives are covered in a separate area 
+					   of this site.  It could be summarized as a study pushing the complexity and exploring
+					   the features of the C# .Net platform.
+					   <br><br>
+					</p>
+                	</div>
+					<p class="FixClear"></p>
+                </div>
+    		<p class="FixClear"></p>
+			<br><br>
+                <!--*-->
+                <!--** Block 4 **-->
+                <div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B4D1" class="BodyParaLeft">
+                    <div id="B4C1" class="BodyParaRight CalloutBorder">
+                        <a id="B4C1A" href="../MdmWebPages/MdmDbUtilClass.shtml" class="CalloutContent CPA ">
+                            <span class="CPA">Details</span>
+							<span id="B4C1AP1" class="CalloutContent CPP ">
+							<br><br>
+							</span>
+							<span id="B4C1AP2" class="CalloutContent CPP ">
+							View a conceptual diagram of the file subsystem.
+							<br><br> 
+							</span>
+                        </a>
+                    </div>
+                    <h3 id="B4D1H1" class="BodyPara cSd CPT">
+						File Subsystem<br>
+					</h3>
+                    <p id="B4D1P1" class="BodyPara aLeft CP">
+					Handles SQL, Ascii, Binary and post-relational database files. 
+					Equipped with an auxillary connection. 
+					Comprehensive data format and schema transformation.
+                    </p>
+                	</div>
+					<p class="FixClear"></p>
+                </div>
+                <!--*-->
+                <!--*-->
+            </div>
+        <!--** End of Body Main Center *-->
+   		<p class="FixClear"></p>
+        </div>
+        <!--*-->
+        <!--** End of Main Page Body BodyMainContainer *-->
+    </div>
+    <!--** End of Content Container BodyArea *-->
+    </div>
+    <!--*-->
+</body>
+<!--*-->
+	<!--[if IE 6]>
+	<style type="text/css">
+	html { 
+	overflow-y: hidden; 
+	}
+	body { 
+	overflow-y: auto; 
+	}
+	#bg { 
+	position:absolute; z-index:-1; 
+	}
+	#BodyArea { 
+	position:static; 
+	}
+	</style>
+	<![endif]-->
+</html>

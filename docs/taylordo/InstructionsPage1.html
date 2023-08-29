@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Matt Taylor Disk Optimizer - TaylorDo</title>
+    <link rel="stylesheet" type="text/css" href="..\PageStyleSheet1.css">
+
+</head>
+<body class="bodycentered">
+    <div class="bodywidthmax">
+        <h1>The Matt Taylor Disk Optimizer - TaylorDo</h1>
+
+        <h2>Quick Start</h2>
+
+        <h4>Status: InProgress</h4>
+        <p>Install the product using default settings. You will need to specify what volume type your disks are; System, Development, Archive and Data are the available types. Mixed drives (or if you are unsure) should be typed as Development. No further action is required... once it's done.</p>
+        <hr>
+        <h2>Advanced Users and Admins</h2>
+
+
+        <h3>First Time Use</h3>
+        <p>The first time you optimize (a Yearly) will run quietly for up to 50 hours without significantly impacting your performance while it runs. The time depends on several things such as the state of your drive and prior optimizations and your use of the system.</p>
+
+        <h3>Optimization Scheduling (InProgress)</h3>
+        <p>The task scheduler will replace Windows Defrag with TaylorDo taks for Yearly, Monthly, Weekly and Daily (mid week) optimization.</p>
+
+        <p>The DoTaskOnDemand command will disable all schduled tasks until you issue a DoTasksOnSchedule command is issued. DoTaskReset will recreate the schedule should you need to. Finally, a DoTaskRestoreWindows would remove all entries and restore the standard Windows defragmentation.</p>
+
+        <h3>Customizing Your Zones</h3>
+        <h4>Prioritizing (ordering) your data:</h4>
+        <p>Each volume is divided into up to 21 zones based upon the type or category of information contained therein. The first dozen are system releated and can generally be ignored. If you ever get data in Zone 21 please contact me; this is unassigned and a type of error.</p>
+        <p>For the most part, statistically, you shouldn't need to change the order of these zones. However, the importance of these categories determines their order based on your systems and needs. Examining the report created by any run gives precise information on zone size and location on which to base these decisions.</p>
+        <p>Here is the complete list for the Any Complex Volume script:</p>
+
+        <div>
+            <table class="table1 DescTable">
+                <thead>
+                    <tr>
+                        <th class="tdleft DescTable" scope="col">Zone</th>
+                        <th class="tdright DescTable" scope="col">Description</th>
+                        <!-- <th class="table1tdLeft" scope="col">Zone</th>
+                        <th class="table1tdRight" scope="col">Description</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>1. Boot</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>OS Boot executables.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>2. Boot Data</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Boot Data and files.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>3. Program Hints</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Windows keeps a database of the boot log executables.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>4. Program Hints Data</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Any boot log program hints files.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>5. Programs</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>The programs you use.</span>
+                        </td>
+                    </tr>
+                    <tr>                        <td class="tdleft DescTable">
+                        <span>6. Programs Windows</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Windows OS has a large code base.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>7. Programs Data</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Program data and files.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>8. IDE and Scripts</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Developer and Scripting executables.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>9. Development and ToDo</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>Development and ToDo files and data.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>10. The MFT</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>The OS Master File Table.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>11. The Directories (only)</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>This is the directories (themselves) only. Important.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>12. Windows System Files</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>13. Links and Corporate</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>14. People and Users</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>15. Games</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>16. Shares</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>17. System Other Data</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>18. Reference Information</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>19. Space Hogs (huge items)</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>20. Archives and Backups</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft DescTable">
+                            <span>21. The Twilight Zone<br> Unassigned - Zone 99</span>
+                        </td>
+                        <td class="tdright DescTable">
+                            <span>ToDo</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="tdcenter" colspan="2">
+                            <p>You can change the ordering of zones to match your priorities and individual needs.</p>
+                            <p>Attention Gamers: I need feedback and real world information for an optimized gamer definition. The zone location works out to be correct due to the other zones being much smaller.</p>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <h4>Changing the contents of a zone</h4>
+
+        <p>Where you want to change the composition of a zone you will be working in these two directories.</p>
+
+        <table>
+            <tbody>
+            <tr>
+                <td class="DescTable">
+                    <strong>1. SelectCategory</strong>
+                </td>
+                <td class="tdright DescTable">
+                    <p>This defines what qualifies to be included in the zone. It does NOT include matching items from the zones that preceeded it.</p>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td class="DescTable">
+                    <strong>2. Zones \ <br>ZoneTypeSelect</strong>
+                </td>
+                <td class="tdrigt  DescTable">
+                    <p>This is the more complex select statement(s) that, using SelectCategory, defines what information belongs within the zone. and in addition excludes special catagories that belongs in subsequent zones.
+                    <br>You are always working with (selecting from) what has not been previously placed in a zone. Whatever still remains to be used in a zone.</p>
+                    <br>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Screen Shots:</h2>
+            <hr>
+            <h3>Before</h3>
+                <img class="bodywidthmax" src="../Resources/Page/Dev Disk Before 2021-10-24, 18_58_29.png"
+                    alt="Thumbnail of Matt on YouTube">
+            <hr>
+            <h3>In Progress</h3>
+                <img class="bodywidthmax" src="../Resources/Page/Dev Disk Partial 2021-11-25, 19_12_01.png"
+                    alt="Thumbnail of Matt on YouTube">
+            <hr>
+            <h3>After</h3>
+                <img class="bodywidthmax" src="../Resources/Page/Dev Disk After 2021-11-26, 23_25_38.png"
+                    alt="Thumbnail of Matt on YouTube">
+            <p>Success!</p>
+        <hr>
+        <hr>
+    </div>
+</body>
+</html>

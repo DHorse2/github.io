@@ -1,0 +1,1547 @@
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:StarSymbol;}
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 6 6 2 2 2 3 2 4;}
+@font-face
+	{font-family:"Bookman Old Style";
+	panose-1:2 5 6 4 5 5 5 2 2 4;}
+@font-face
+	{font-family:"Wingdings 2";
+	panose-1:5 2 1 2 1 5 7 7 7 7;}
+@font-face
+	{font-family:"Roman 10cpi";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@StarSymbol";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+h1
+	{margin-top:.55pt;
+	margin-right:72pt;
+	margin-bottom:.3pt;
+	margin-left:72pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:14pt;
+	font-family:"Courier New";
+	text-decoration:underline;}
+h2
+	{margin-top:12pt;
+	margin-right:7.2pt;
+	margin-bottom:3pt;
+	margin-left:- 3.6em;
+	text-indent: 0em;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:12pt;
+	font-family:"Courier New";
+	font-style:italic;
+	text-decoration:underline;}
+h3
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	text-decoration:underline;}
+h4
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:12pt;
+	font-family:"Courier New";
+	font-weight:normal;}
+h5
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;
+	font-style:italic;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.MsoEnvelopeReturn, li.MsoEnvelopeReturn, div.MsoEnvelopeReturn
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	text-align:center;
+	font-size:1.0em;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:12pt;
+	margin-right: 0em;
+	margin-bottom:12pt;
+	margin-left:35.3pt;
+	text-align:center;
+	text-indent:-35.3pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:18pt;
+	font-family:"Courier New";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:.55pt;
+	margin-right:72pt;
+	margin-bottom:.3pt;
+	margin-left:72pt;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:14pt;
+	font-family:"Courier New";
+	font-style:italic;}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top: 0em;
+	margin-right:72pt;
+	margin-bottom:6pt;
+	margin-left:72pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	background:navy;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:Tahoma;}
+span.WW8Num5z0
+	{color:windowtext;}
+span.WW8Num6z0
+	{font-family:Symbol;}
+span.WW8Num7z0
+	{color:windowtext;}
+span.WW8Num13z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num13z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8NumSt2z0
+	{font-family:Wingdings;}
+span.WW8NumSt3z0
+	{font-family:Wingdings;}
+span.WW8NumSt4z0
+	{font-family:Wingdings;}
+span.WW8NumSt5z0
+	{font-family:Wingdings;}
+span.WW8NumSt6z0
+	{font-family:"Wingdings 2";}
+span.WW8NumSt7z0
+	{font-family:"Wingdings 2";}
+span.WW8NumSt8z0
+	{font-family:Wingdings;}
+span.WW8NumSt9z0
+	{font-family:Wingdings;}
+span.WW8NumSt10z0
+	{font-family:Wingdings;}
+span.WW8NumSt11z0
+	{font-family:Wingdings;}
+span.WW8NumSt12z0
+	{font-family:Wingdings;}
+span.WW8NumSt13z0
+	{font-family:Wingdings;}
+span.WW8NumSt14z0
+	{font-family:Wingdings;}
+span.WW8NumSt15z0
+	{font-family:Wingdings;}
+span.WW8NumSt16z0
+	{font-family:Wingdings;}
+span.WW8NumSt17z0
+	{font-family:Wingdings;}
+span.WW8NumSt18z0
+	{font-family:Wingdings;}
+span.WW8NumSt19z0
+	{font-family:Wingdings;}
+span.WW8NumSt20z0
+	{font-family:Wingdings;}
+span.WW8NumSt21z0
+	{font-family:Wingdings;}
+span.WW8NumSt22z0
+	{font-family:Wingdings;}
+span.WW8NumSt23z0
+	{font-family:Wingdings;}
+span.WW8NumSt24z0
+	{font-family:Wingdings;}
+span.HeadingChar
+	{font-family:"Courier New";}
+span.Heading2Char
+	{font-family:"Courier New";
+	font-weight:bold;
+	font-style:italic;
+	text-decoration:underline;}
+span.RTFNum23
+	{color:windowtext;}
+span.RTFNum24
+	{color:windowtext;}
+span.RTFNum25
+	{color:windowtext;}
+span.RTFNum26
+	{color:windowtext;}
+span.RTFNum27
+	{color:windowtext;}
+span.RTFNum29
+	{color:windowtext;}
+span.RTFNum31
+	{font-family:Symbol;}
+span.RTFNum32
+	{font-family:Symbol;}
+span.RTFNum33
+	{font-family:Symbol;}
+span.RTFNum34
+	{font-family:Symbol;}
+span.RTFNum35
+	{font-family:Symbol;}
+span.RTFNum36
+	{font-family:Symbol;}
+span.RTFNum37
+	{font-family:Symbol;}
+span.RTFNum38
+	{font-family:Symbol;}
+span.RTFNum39
+	{font-family:Symbol;}
+span.RTFNum310
+	{font-family:Symbol;}
+span.RTFNum41
+	{font-family:Symbol;
+	color:windowtext;}
+span.RTFNum51
+	{font-family:Symbol;
+	color:windowtext;}
+span.RTFNum61
+	{font-family:Symbol;
+	color:windowtext;}
+span.RTFNum71
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-Absatz-Standardschriftart11111111111
+	{font-family:"Times New Roman";
+	color:windowtext;}
+span.WW-Absatz-Standardschriftart111111111111
+	{font-family:"Times New Roman";
+	color:windowtext;}
+span.WW-Absatz-Standardschriftart1111111111111
+	{font-family:"Times New Roman";
+	color:windowtext;}
+span.WW-Absatz-Standardschriftart11111111111111
+	{font-family:"Times New Roman";
+	color:windowtext;}
+span.WW-RTFNum21
+	{font-family:Symbol;}
+span.WW-RTFNum211
+	{color:windowtext;}
+span.WW-RTFNum22
+	{color:windowtext;}
+span.WW-RTFNum23
+	{color:windowtext;}
+span.WW-RTFNum24
+	{color:windowtext;}
+span.WW-RTFNum25
+	{color:windowtext;}
+span.WW-RTFNum26
+	{color:windowtext;}
+span.WW-RTFNum27
+	{color:windowtext;}
+span.WW-RTFNum28
+	{color:windowtext;}
+span.WW-RTFNum29
+	{color:windowtext;}
+span.WW-DefaultParagraphFont
+	{color:windowtext;}
+span.WW-RTFNum2112
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-RTFNum2111
+	{font-family:Symbol;}
+span.WW-RTFNum21121
+	{color:windowtext;}
+span.WW-RTFNum221
+	{color:windowtext;}
+span.WW-RTFNum231
+	{color:windowtext;}
+span.WW-RTFNum241
+	{color:windowtext;}
+span.WW-RTFNum251
+	{color:windowtext;}
+span.WW-RTFNum261
+	{color:windowtext;}
+span.WW-RTFNum271
+	{color:windowtext;}
+span.WW-RTFNum281
+	{color:windowtext;}
+span.WW-RTFNum291
+	{color:windowtext;}
+span.WW-DefaultParagraphFont1
+	{color:windowtext;}
+span.WW8Num2z0
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num3z0
+	{font-family:Symbol;}
+span.WW-Absatz-Standardschriftart1111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart11111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart111111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart1111111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart11111111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart111111111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart1111111111111111111111111
+	{color:windowtext;}
+span.WW-Absatz-Standardschriftart11111111111111111111111111
+	{color:windowtext;}
+span.WW-DefaultParagraphFont11
+	{color:windowtext;}
+span.Internetlink
+	{color:blue;
+	text-decoration:underline;}
+span.WW-CommentReference
+	{color:windowtext;}
+span.FootnoteSymbol
+	{color:windowtext;}
+span.WW-FootnoteCharacters
+	{color:windowtext;}
+span.WW-FootnoteCharacters1
+	{color:windowtext;}
+span.WW-FootnoteCharacters11
+	{color:windowtext;}
+span.WW-FootnoteCharacters111
+	{color:windowtext;
+	position:relative;
+	top:-.5pt;}
+span.pagenumber
+	{color:windowtext;}
+span.WW8Num1z0
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num3z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num3z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num3z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num4z1
+	{font-family:Symbol;}
+span.WW8Num4z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num4z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num4z4
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num5z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num5z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num5z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num7z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num7z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num7z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num8z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num8z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num8z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num9z0
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num10z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num10z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num10z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num11z0
+	{color:windowtext;}
+span.WW8Num11z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num11z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num11z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num12z0
+	{color:windowtext;}
+span.WW8Num12z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num12z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num12z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num13z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num14z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num14z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num14z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num15z0
+	{font-family:Symbol;}
+span.WW8Num15z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num15z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num15z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num16z1
+	{font-family:Symbol;}
+span.WW8Num16z2
+	{color:windowtext;}
+span.WW8Num16z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num16z4
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num16z5
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num17z0
+	{font-family:Symbol;}
+span.WW8Num17z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num17z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num17z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num18z0
+	{font-family:Symbol;}
+span.WW8Num18z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num18z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num18z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num19z0
+	{color:windowtext;}
+span.WW8Num19z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num19z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num19z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num20z0
+	{font-family:Symbol;}
+span.WW8Num20z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num20z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num20z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num21z0
+	{color:windowtext;}
+span.WW8Num21z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num21z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num21z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num22z1
+	{font-family:Symbol;}
+span.WW8Num22z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num22z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num22z4
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num23z0
+	{color:windowtext;}
+span.WW8Num23z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num23z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num23z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num24z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num24z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num24z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num25z0
+	{color:windowtext;}
+span.WW8Num25z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num25z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num25z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num26z1
+	{font-family:Symbol;}
+span.WW8Num26z2
+	{color:windowtext;}
+span.WW8Num26z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num26z4
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num26z5
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num27z0
+	{color:windowtext;}
+span.WW8Num27z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num27z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num27z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num28z0
+	{font-family:Symbol;}
+span.WW8Num28z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num28z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num28z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num30z0
+	{font-family:Symbol;}
+span.WW8Num30z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num30z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num30z4
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num32z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num32z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num32z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num33z0
+	{font-family:Symbol;}
+span.WW8Num33z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num33z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num33z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num34z0
+	{color:windowtext;}
+span.WW8Num34z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num34z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num34z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num35z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num35z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num35z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num36z1
+	{font-family:Symbol;}
+span.WW8Num36z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW8Num36z4
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num36z5
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num38z0
+	{color:windowtext;}
+span.WW8Num38z1
+	{font-family:"Courier New";
+	color:windowtext;}
+span.WW8Num38z2
+	{font-family:Wingdings;
+	color:windowtext;}
+span.WW8Num38z3
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-WW8Num1z0
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-WW8Num2z0
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-WW8Num3z0
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-WW8Num2z01
+	{font-family:Symbol;
+	color:windowtext;}
+span.WW-WW8Num3z01
+	{font-family:Symbol;
+	color:windowtext;}
+span.BulletSymbols
+	{font-family:StarSymbol;
+	color:windowtext;}
+span.WW-BulletSymbols
+	{font-family:StarSymbol;
+	color:windowtext;}
+span.WW-Internetlink
+	{color:navy;
+	text-decoration:underline;}
+span.Bullets
+	{font-family:StarSymbol;}
+p.Heading, li.Heading, div.Heading
+	{margin-top:.55pt;
+	margin-right:72pt;
+	margin-bottom:.3pt;
+	margin-left:72pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:14pt;
+	font-family:"Courier New";}
+p.Index, li.Index, div.Index
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.TableStyle2, li.TableStyle2, div.TableStyle2
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:47.35pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.35pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.BodyTextforTables, li.BodyTextforTables, div.BodyTextforTables
+	{margin-top: 0em;
+	margin-right:72pt;
+	margin-bottom: 0em;
+	margin-left:14.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-14.4pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.BodyTextBoldforTables, li.BodyTextBoldforTables, div.BodyTextBoldforTables
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:14.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-14.4pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;
+	font-style:italic;
+	text-decoration:underline;}
+p.StyleBodyTextBoldforTablesNotBold, li.StyleBodyTextBoldforTablesNotBold, div.StyleBodyTextBoldforTablesNotBold
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 3.6em;
+	margin-bottom:.0001pt;
+	text-indent:- 3.6em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;
+	text-decoration:underline;}
+p.caption, li.caption, div.caption
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.WW-caption, li.WW-caption, div.WW-caption
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.WW-caption1, li.WW-caption1, div.WW-caption1
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.WW-caption11, li.WW-caption11, div.WW-caption11
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.WW-caption111, li.WW-caption111, div.WW-caption111
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Roman 10cpi";
+	font-weight:bold;}
+p.LmhSceneChange, li.LmhSceneChange, div.LmhSceneChange
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-align:center;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.WW-PlainText, li.WW-PlainText, div.WW-PlainText
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.footer, li.footer, div.footer
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:8pt;
+	font-family:"Roman 10cpi";}
+p.NormalPacked, li.NormalPacked, div.NormalPacked
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.WW-TOAHeading, li.WW-TOAHeading, div.WW-TOAHeading
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:Arial;
+	font-weight:bold;}
+p.LetterheadBigItalic, li.LetterheadBigItalic, div.LetterheadBigItalic
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:16pt;
+	font-family:"Bookman Old Style";
+	font-style:italic;}
+p.LetterheadSmallClassic, li.LetterheadSmallClassic, div.LetterheadSmallClassic
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	line-height:1.0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:8pt;
+	font-family:"Courier New";}
+p.Body, li.Body, div.Body
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Roman 10cpi";}
+p.WW-BodyText3, li.WW-BodyText3, div.WW-BodyText3
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:8pt;
+	font-family:"Roman 10cpi";}
+p.Byline, li.Byline, div.Byline
+	{margin-top:12pt;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	text-align:center;
+	line-height:1.0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.WW-CommentText, li.WW-CommentText, div.WW-CommentText
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Roman 10cpi";}
+p.WW-DocumentMap, li.WW-DocumentMap, div.WW-DocumentMap
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:Tahoma;}
+p.footnotetext, li.footnotetext, div.footnotetext
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Roman 10cpi";}
+p.list, li.list, div.list
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:191.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-148.85pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Roman 10cpi";}
+p.WW-ListBullet, li.WW-ListBullet, div.WW-ListBullet
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Roman 10cpi";}
+p.Logo, li.Logo, div.Logo
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-align:center;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:14pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.WW-NormalIndent, li.WW-NormalIndent, div.WW-NormalIndent
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 3.6em;
+	margin-bottom:.0001pt;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalBullet, li.NormalBullet, div.NormalBullet
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalIndentBullet, li.NormalIndentBullet, div.NormalIndentBullet
+	{margin-top: 0em;
+	margin-right:72pt;
+	margin-bottom:.3pt;
+	margin-left:72pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalNumbered, li.NormalNumbered, div.NormalNumbered
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalIndentNumbered, li.NormalIndentNumbered, div.NormalIndentNumbered
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.Normalref, li.Normalref, div.Normalref
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Arial Narrow";
+	font-style:italic;}
+p.NormalTextBox, li.NormalTextBox, div.NormalTextBox
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	line-height:9pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:9pt;
+	font-family:"Courier New";}
+p.Style1, li.Style1, div.Style1
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.toc1, li.toc1, div.toc1
+	{margin-top:6pt;
+	margin-right:36.85pt;
+	margin-bottom: 0em;
+	margin-left:49.65pt;
+	margin-bottom:.0001pt;
+	text-indent:-35.45pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.toc2, li.toc2, div.toc2
+	{margin-top: 0em;
+	margin-right:36.85pt;
+	margin-bottom:6pt;
+	margin-left:49.65pt;
+	text-indent:-35.45pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:11pt;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.toc3, li.toc3, div.toc3
+	{margin-top: 0em;
+	margin-right:42.55pt;
+	margin-bottom:3pt;
+	margin-left:67.8pt;
+	text-indent:-42.55pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.toc4, li.toc4, div.toc4
+	{margin-top: 0em;
+	margin-right:4.0cm;
+	margin-bottom:3pt;
+	margin-left:1.0cm;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.toc5, li.toc5, div.toc5
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:4.0em;
+	margin-bottom:.0001pt;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:9pt;
+	font-family:"Courier New";}
+p.toc6, li.toc6, div.toc6
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:5.0em;
+	margin-bottom:.0001pt;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:9pt;
+	font-family:"Courier New";}
+p.toc7, li.toc7, div.toc7
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:6.0em;
+	margin-bottom:.0001pt;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:9pt;
+	font-family:"Courier New";}
+p.toc8, li.toc8, div.toc8
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:7.0em;
+	margin-bottom:.0001pt;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:9pt;
+	font-family:"Courier New";}
+p.toc9, li.toc9, div.toc9
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:8.0em;
+	margin-bottom:.0001pt;
+	text-indent:.05pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:9pt;
+	font-family:"Courier New";}
+p.LetterheadNorman, li.LetterheadNorman, div.LetterheadNorman
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:1.0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.Normalnumbered0, li.Normalnumbered0, div.Normalnumbered0
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalCode, li.NormalCode, div.NormalCode
+	{margin-top:3pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	line-height:1.0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalBold, li.NormalBold, div.NormalBold
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.NormalTableCaption, li.NormalTableCaption, div.NormalTableCaption
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.NormalBoldTabs, li.NormalBoldTabs, div.NormalBoldTabs
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;}
+p.NormalAddress, li.NormalAddress, div.NormalAddress
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.TableContents, li.TableContents, div.TableContents
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;
+	font-style:italic;}
+p.WW-header, li.WW-header, div.WW-header
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.WW-header1, li.WW-header1, div.WW-header1
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.WW-heading4, li.WW-heading4, div.WW-heading4
+	{margin-top:.55pt;
+	margin-right:72pt;
+	margin-bottom:.3pt;
+	margin-left:72pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:11.5pt;
+	font-family:"Courier New";
+	font-weight:bold;
+	font-style:italic;}
+p.WW-header12, li.WW-header12, div.WW-header12
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.envelopeaddress, li.envelopeaddress, div.envelopeaddress
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.Text, li.Text, div.Text
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-style:italic;}
+p.WW-header123, li.WW-header123, div.WW-header123
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";}
+p.StyleHeading3Before17ptAfter595pt, li.StyleHeading3Before17ptAfter595pt, div.StyleHeading3Before17ptAfter595pt
+	{margin-top:17pt;
+	margin-right: 0em;
+	margin-bottom:5.95pt;
+	margin-left: 0em;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:ideograph-numeric;
+	font-size:1.0em;
+	font-family:"Courier New";
+	font-weight:bold;
+	text-decoration:underline;}
+ /* Page Definitions */
+ @page Section1
+	{size:612pt 792pt;
+	margin:38pt 66.35pt 82.5pt 66.35pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom: 0em;}
+ul
+	{margin-bottom: 0em;}
+h1, h2 { color:black; }	
+-->
+</style>
+
+<div class=Section1>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-US>Objective</span></u></h2>
+
+<p class=MsoBodyText style='margin-left: 0em'><span lang=EN-US>To secure a position
+providing highly productive business services to clients.</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-US>Skills</span></u></h2>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Microsoft Office, Open Office,
+WordPerfect.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Accounting, bookkeeping and data entry.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Marketing and sales support..  Web
+Marketing..  Portfolio Maintenance.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Report writing including evaluations,
+management reporting, and specifications.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Extensive knowledge of customer service
+and care.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Excellent communications skills.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Presentations, training of staff,
+limited supervision of staff.</span></p>
+
+<p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;margin-bottom:
+.3pt;margin-left: 0em'><span lang=EN-US>Business analysis related to Data and
+document standards and procedures development, productivity, office automation.</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-US>Employment
+History</span></u></h2>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:5.75pt;border-collapse:collapse'>
+ <tr>
+  <td width=232 valign=top style='width:174pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US><span style='text-decoration:none'>&nbsp;</span></span></u></p>
+  </td>
+  <td width=407 valign=top style='width:305.6pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextforTables><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 valign=top style='width:174pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US>20th April 2009 to 8th December
+  2009</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US>Stampede City Pawn, </span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US>MDV Wood, MacroDM projects.</span></u></p>
+  </td>
+  <td width=407 valign=top style='width:305.6pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em;layout-grid-mode:char'><span lang=EN-US>Retail and Web based
+  marketing of used merchandise.&nbsp; Photography, placing of ads, research
+  and pricing.&nbsp; Maintenance, presale preparation, pricing and valuation of
+  in-coming computers.&nbsp; Standard retail operations and turning
+  inventory.&nbsp; Software modifications and enhancements.&nbsp; Bylaws
+  compliance and analysis.&nbsp; Small business consulting.&nbsp; OS support,
+  network implementation and service..  Business document preparation, ad hoc
+  report generation.</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 valign=top style='width:174pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US>1 July 2008 to 1 April 2009</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>Student, Diversified Temp</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>Calgary, Alberta</span></u></p>
+  </td>
+  <td width=407 valign=top style='width:305.6pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em;layout-grid-mode:char'><span lang=EN-US>Performing skills
+  upgrading my focus included IS0 9000 (Total Quality Management,) document
+  management, Microsoft and Open Office upgrading, computer languages, web page
+  authoring..  Continuing upgrading in evenings.</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 valign=top style='width:174pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US>1 Nov 1999 to 17th July 2008</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>MacroDm</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>Gibsons, BC</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>General Services:</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US><span style='text-decoration:none'>&nbsp;</span></span></u></p>
+  </td>
+  <td width=407 valign=top style='width:305.6pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em;layout-grid-mode:char'><span lang=EN-US>Services provided to
+  construction, wood products clients.</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>Small business consulting provide on
+  operations and marketing analysis.</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>Skills upgrading started in November.. 
+  Eight weeks preparation for move to Calgary.</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=232 valign=top style='width:174pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em;
+  layout-grid-mode:char'><u><span lang=EN-US>1999 to May 2008</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>MacroDm</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>Gibsons, BC</span></u></p>
+  <p class=BodyTextBoldforTables style='margin-left: 0em;text-indent: 0em'><u><span
+  lang=EN-US>General Services:</span></u></p>
+  </td>
+  <td width=407 valign=top style='width:305.6pt;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em;layout-grid-mode:char'><span lang=EN-US>Providing sub-contract
+  trades services for construction, wood products, and landscaping.</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>Some small business consulting (operations
+  and marketing analysis.)</span></p>
+  <p class=BodyTextforTables style='margin: 0em;margin-bottom:.0001pt;
+  text-indent: 0em'><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-US>Industry
+expertise</span></u></h2>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
+ <tr>
+  <td width="33%" valign=top style='width:33.34%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>CATV
+  / Broadcasting</span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.34%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Call
+  centre</span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.32%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Electrical</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="33%" valign=top style='width:33.34%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Wholesale
+  / retail distribution</span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.34%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Legal</span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.32%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Landscaping</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="33%" valign=top style='width:33.34%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Food
+  processing</span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.34%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Distribution</span></p>
+  </td>
+  <td width="33%" valign=top style='width:33.32%;padding: 0em 5.75pt 0em 5.75pt'>
+  <p class=NormalIndentBullet style='margin-top: 0em;margin-right: 0em;
+  margin-bottom:.3pt;margin-left: 0em;layout-grid-mode:char'><span lang=EN-US>Manufacturing</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoBodyText style='margin-left: 0em'><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+

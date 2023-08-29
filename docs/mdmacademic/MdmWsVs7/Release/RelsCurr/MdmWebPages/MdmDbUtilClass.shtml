@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Mdm Page Template Wide -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmDbUtilClass.css" />
+    <title>Database and Schema Conversion Module</title>
+</head>
+<body id="MdmDbUtilClassBody" class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!--x -->
+<!--x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+            </div>
+                <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!--x -->
+                <!--** Content Blocks **-->
+                <!--** Block 1 **-->
+                <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B1D1" class="BodyParaLeft">
+                    <div id="B1C1" class="BodyParaRight CalloutBorder">
+                        <a id="B1C1A" href="#" class="CalloutContent CPA ">
+						<span>
+                            <span class="CPA">Utilities<br>and Validation</span>
+							<span id="B1C1AP1" class="CalloutContent CPP ">
+							Basic database <br>connection handling
+							</span>
+							<span id="B1C1AP2" class="CalloutContent CPP ">
+							Flat file (Import/Export)<br> 
+							</span>
+							<span id="B1C1AP3" class="CalloutContent CPP ">
+							Post Relation or <br>
+							Mulit-valued databases<br>
+							</span>
+							<span id="B1C1AP4" class="CalloutContent CPP ">
+							Schema and Data Handling
+							</span>
+						</span>
+                        </a>
+                    </div>
+                    <h3 id="B1D1H1" class="BodyPara">
+						<span class="cSd f14">
+						The File Subsystem<br>
+						</span>
+					</h3>
+                    <p id="B1D1P1" class="BodyPara aLeft CP">
+					The file subsystem is a large set 
+					of classes intended to handle Ascii, 
+					binary, SQL databases and post-relational 
+					object databases (also known as 
+					mulit-valued or PICK databases)
+                    </p>
+                    <p id="B1D1P2" class="BodyPara aLeft CP">
+					These classes are not intended to address  
+					the rudimentary needs of simple applications.  These require
+					little more that a basic connection string and may already
+					have classes to handle security such as user name and password.  
+					Permission and authorization may already be in place or built 
+					into the application.
+                    </p>
+   		<p class="FixClear"></p>
+                	</div>
+                </div>
+                <!--*-->
+                <!--** Block 3 **-->
+                <div id="DivB3" class="DivB3 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B3D1" class="BodyParaLeft">
+                    <div id="B3C1" class="BodyParaRight CalloutBorder">
+                        <a id="B3C1A" href="#" class="CalloutContent CP">
+                            <span id="B3C1A1" class="CPA aCenter">
+							Completion<br>
+							Status<br>
+							Report</span>
+							<span id="B3C1CPP1" class="CalloutContent CPP">
+								  Under Construction...
+							</span>
+                        </a>
+                    </div>
+                    <h3 id="B3D1H1" class="BodyPara">
+						<span class="cSd f14">
+						Features Scope and Requirements
+						<br><br>
+						File Formats
+						</span>
+					</h3>
+					<ul class="BodyPara lB0">
+					<li>Basic database connectivity.</li>
+                    <li>Schema conversion and creation</li>
+                    <li>MS SQL and MY SQL</li>
+                    <li>Native and ADO access</li>
+                    <li>Several ascii formats and binary file access.</li>
+					<li>Support for post-relational database formats.</li>
+					<li>UI support for system, server, and security.</li>
+					<li>Robust defaults stategy</li>
+					<li>UI support for file group and owner.</li>
+                    <h3 id="B3D1H1" class="BodyPara">
+						<span class="cSd f14">
+						<br>Functionality
+						</span>
+					</h3>
+ 					</ul>
+					<ul class="BodyPara lB0">
+					<li>Integration with MVC infrastructure.</li>
+					<li>Preprocessing file creation, deletion, clearing.</li>
+					<li>Row key validation for existance and absence.</li>
+					<li>Independant auxilary connection to database.</li>
+					<li>Creation of tables, views and aliases.</li>
+					<li>Buffer, row/line or item processing modes.</li>
+					<li>Inclusion of language virtualization extensions.</li>
+					<li>Integration with OSS infrastructure.</li>
+					<li>Robust exceptions handling.</li>
+ 					</ul>
+                	</div>
+                </div>
+                <!--** Block 4 **-->
+                <div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
+					<img id="B4Img1" src="../Images/File System Functional Overview.jpg" 
+					alt="File System Functional Overview" 
+					class="B4Img1"/>
+                </div>
+                <!--*-->
+                <!--*-->
+            </div>
+        <!--** End of Body Main Center *-->
+   		<p class="FixClear"></p>
+        </div>
+        <!--*-->
+        <!--** End of Main Page Body BodyMainContainer *-->
+    </div>
+    <!--** End of Content Container BodyArea *-->
+    </div>
+    <!--*-->
+</body>
+</html>

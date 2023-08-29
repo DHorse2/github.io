@@ -1,0 +1,55 @@
+/* MdmMenu */
+/* -- Menu -- */
+
+.MenuBlock{
+float: left;
+width: 110px;
+height: 100%;
+overflow-x:visible;
+text-align: center;
+}
+ 
+#MenuBar {
+/* Position */
+height: 30px;
+width: 550px;
+overflow-x:visible;
+text-align: center;
+vertical-align:middle;
+/* Margin and Padding */
+margin:auto;
+}
+
+/* unvisited link */
+a.MenuBlock:link {
+/* Background */
+background-image: url(../Images/MenuTile.jpg);
+background-repeat:repeat-x;
+}      
+/* -- Menu Links -- */
+/* visited link */
+a.MenuBlock:visited {
+background-image: url(../Images/MenuTile.jpg);
+}
+/* mouse over link */
+a.MenuBlock:hover {
+/* Background */
+background-image: url(../Images/HoverBg.jpg);
+}
+/* selected link */
+a.MenuBlock:active {
+background-image: url(../Images/MenuTile.jpg);
+}
+ 
+/* -- Menu Links -- */
+#MdmHomeLink{
+ }
+#MdmServicesLink{
+ }
+#MdmSwLink{
+ }
+#MdmProductLink{
+ }
+#MdmLinksLink{
+ }
+

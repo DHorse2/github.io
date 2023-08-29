@@ -1,0 +1,12 @@
+	<!--[if IE 6]>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ LANGUAGE="jscript" %>
+<%
+Response.AddHeader("Cache-Control", "post-check=120,pre-check=240");
+%>
+
+	<![endif]-->
+	
+<!-- Mdm Page Header Include (c)2011 David Horsman & Macroscope Design Matrix -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMain.css" />
+    <title>Professional and Personal Site for Dave Horsman</title>
+</head>
+<body class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Left Column **-->
+            <div id="BodyMainLeft">
+                <div id="BodyMainLeftOuter">
+                    <div id="BodyMainLeftInner">
+                        <!--* Left Column Content **-->
+                        <h4 id="H3TopLeft">
+                            Come inside...
+                        </h4>
+                        <div id="LeftMenuContainer1" class="LeftMenuContainer LeftColClass fText f10 ">
+                            <p id="LeftHeader1" class="LeftColHeading eB f14 cBlack">
+                                Development Projects
+                            </p>
+							<!-- IN PROGRESS NOTE lnumbered altering list presentation... -->
+                            <ul class="MenuList LeftMenuList lNumbered LeftColClass">
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmImportTld.shtml">C# database schema<br>
+                                    and data converter </a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmNetAppFrame.shtml">C# application framework</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmNetGenList.shtml">C++ virtualized generic list</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmDbUtilClass.shtml">File conversion module </a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmOutlookUtil.shtml">Outlook folder integration</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmWinDesktop.shtml">Windows desktop best practices</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a class="LeftMenuItem" href="../MdmWebPages/MdmWebDev.shtml">Web development</a></li>
+                                <!--x -->
+                            </ul>
+                        </div>
+                        <div id="LeftMenuContainer2" class="LeftMenuContainer LeftColClass fText f10 ">
+                            <p id="LeftHeader2" class="LeftColHeading eB f14 cBlack">
+                                Career Historical
+                            </p>
+                            <ul class="MenuList LeftMenuList">
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="../MdmResume/MdmResume.shtml">Resume</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a href="">Major Accomplishments</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a href="">Applied Technology Research</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a href="">Cognitive Science Project</a></li>
+                                <!--x -->
+                                <li class="LeftMenuItem"><a href=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter">
+<!--x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+               	<div id="DivP0" class="BodyParaBox">
+                <div id="DivP1" class="BodyParaLeft">
+                    <div id="DivC1" class="BodyParaRight CalloutBorder">
+                        <p id="C1P1" class="CalloutContent CP">
+                            Scalable robust business applications.
+                        </p>
+                        <p id="C1P2" class="CalloutContent CP">
+						About this page...  It is a fairly
+                            <br />
+						busy looking and I generally prefer
+                            <br />
+						a mostly white look with limited colour 
+                            <br />
+						accents.  In this case I wanted a lot
+                            <br />
+						of colour and to 300 characters needed
+                            <br />
+						for search engine requirements.  It is
+                            <br />
+						written for a technical audience and is
+                            <br />
+						still under construction. 
+                        </p>
+                    </div>
+                    <h3 id="H3TopCentre1" class="BodyPara cSd">
+                        A Focus on Software Development</h3>
+                    <p id="P1" class="BodyPara">
+                        Welcome to my professional and business web page. In a nutshell I provide scalable
+                        business applications.
+                    </p>
+                    <p id="P2" class="BodyPara">
+                        As a software developer my focus centres mainly on applications design and development.
+                        My usual role has been to product a great deal of code. Though a committed generalist,
+                        the field does require a certain amount of specialization in C#, C++ and a great
+                        deal of work with multi-valued database languages.
+                    </p>
+                </div>
+				<br clear="all">
+				<br>
+                <!--*-->
+                <!--*-->
+                <div id="DivP3" class="BodyParaRight">
+                    <div id="DivC2" class="BodyParaLeft CalloutBorder">
+                        <p id="C2P1" class="CalloutContent CP">
+                            Development in C#, C++, and
+                            <br />
+                            VBA using SQL Server,
+                            <br />
+                            MY SQL and Access.
+                            <br />
+                            MS Office automation.
+                        </p>
+                        <p id="C2P2" class="CalloutContent CP">
+                            Post-relational multi-valued
+                            <br />
+                            database development.
+                        </p>
+                    </div>
+                    <p id="P3" class="BodyPara">
+                        Automation and workflow are also an interest of mine and resulted in work with Outlook
+                        VBA classes. I've also worked on MS Access applications. Scripting, templates and
+                        standards development work has also been a component along with high production
+                        user interfaces.
+                    </p>
+                    <p id="P4" class="BodyPara">
+                        Working for small developers and small businesses ranging to two hundred staff
+						has meant wearing a lot of varied hats and many interesting projects.  The opportunity
+						to include small business consulting has also been challenging.
+                    </p>
+                </div>
+				<br clear="all">
+				<br>
+                <!--*-->
+                <!--*-->
+                <div id="DivP5" class="BodyParaLeft">
+                    <div id="DivC3" class="BodyParaRight CalloutBorder">
+                        <p id="C3" class="CalloutContent CP">
+                            Hand coded web pages and  
+                            <br />
+                            using WPF and Silverlight.
+                        </p>
+                    </div>
+                    <p id="P5" class="BodyPara CP">
+                        With a background including work in markup languages, communications protocols and
+                        database transfer and conversion I have naturally been following XML and Web service
+                        technology closely. My own focus has been more on hand-coded web pages than vendor
+                        WYSIWYG tools. Current work includes a heavy emphasis on WPF and Silverlight along
+                        with on-going work with CSS2 and transitional HTML.
+                    </p>
+                </div>
+				<br clear="all">
+				<br>
+                <!--*-->
+                <!--*-->
+                <div id="DivP6" class="BodyParaRight">
+                    <div id="DivC4" class="BodyParaLeft CalloutBorder">
+                        <p id="C4" class="CalloutContent CP">
+                            Commercial business applications.
+                            <br />
+                            Advanced code, data and text utilities.
+                        </p>
+                    </div>
+                    <p id="P6" class="BodyPara">
+                        My more complex applications have targeted areas such as service billing, accounting,
+                        sales order entry and inventory control, communications, and control system interfaces.
+                        Advanced development tools included code conversion, generation, data conversion
+                        and search utilities.
+                    </p>
+                </div>
+				<br clear="all">
+				<br>
+                <!--*-->
+                <!--*-->
+                <div id="DivP7" class="BodyParaRight">
+                    <div id="DivC5" class="BodyParaRight CalloutBorder">
+                        <p id="C5" class="CalloutContent CP">
+                            Changes and improvement
+                            <br />
+                            to existing applications.
+                        </p>
+                    </div>
+                    <p id="P7" class="BodyPara">
+                        A sizeable portion of my consulting work has involved modifications and enhancements
+                        to existing applications. The ability to be efficient and cost effective in this
+                        form of contracting is critical. In this regard I not only employ RAD and Agile
+                        methodology but have a particular focus on low cost solutions.
+                    </p>
+                </div>
+                </div>
+    		<br clear="all">
+				<br>
+                <!--*-->
+                <!--*-->
+            </div>
+            <!--** End of Body Main Center *-->
+            <!--** Right Column **-->
+            <div id="BodyMainRight">
+                <div id="BodyMainRightOuter">
+                    <div id="BodyMainRightInner">
+                        <!--* Right Column Content **-->
+                        <h4 id="H3TopRight">
+                            Hmmm no
+                            <br>
+                            advertising...
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!--*-->
+        <!--** End of Main Page Body BodyMainContainer *-->
+    </div>
+    <!--** End of Content Container BodyArea *-->
+    </div>
+    <!--*-->
+</body>
+<!--*-->
+</html>

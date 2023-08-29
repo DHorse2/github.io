@@ -1,0 +1,709 @@
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:StarSymbol;}
+@font-face
+	{font-family:"\@StarSymbol";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:11.9pt;
+	margin-right: 0em;
+	margin-bottom:.3pt;
+	margin-left: 0em;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:12pt;
+	font-family:"Times New Roman";
+	text-decoration:underline;}
+h2
+	{margin-top:5.65pt;
+	margin-right: 0em;
+	margin-bottom:.3pt;
+	margin-left: 0em;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:12pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+h3
+	{margin-top:5.65pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:1.0em;
+	font-family:"Times New Roman";
+	font-style:italic;
+	text-decoration:underline;}
+h4
+	{margin-top:6.25pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:8.5pt;
+	font-family:Arial;
+	font-style:italic;}
+h5
+	{margin-top:6.25pt;
+	margin-right: 0em;
+	margin-bottom:.3pt;
+	margin-left: 0em;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+h6
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:7.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:7.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:7.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-align:center;
+	font-size:1.4em;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6pt;
+	margin-right: 0em;
+	margin-bottom:6pt;
+	margin-left: 0em;
+	line-height:12pt;
+	font-size:12pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoEnvelopeReturn, li.MsoEnvelopeReturn, div.MsoEnvelopeReturn
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom:3pt;
+	margin-left: 0em;
+	text-align:center;
+	font-size:1.0em;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+span.MsoPageNumber
+	{font-family:"Times New Roman";}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:2.85pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin-top:12pt;
+	margin-right: 0em;
+	margin-bottom:12pt;
+	margin-left:35.3pt;
+	text-align:center;
+	text-indent:-35.3pt;
+	font-size:18pt;
+	font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:2.85pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:1.0em;
+	font-family:"Times New Roman";
+	font-style:italic;}
+span.WW8Num2z0
+	{font-family:Symbol;}
+span.Bullets
+	{font-family:StarSymbol;}
+span.WW-Internetlink
+	{color:navy;
+	text-decoration:underline;}
+p.Heading, li.Heading, div.Heading
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.Index, li.Index, div.Index
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.TableContents, li.TableContents, div.TableContents
+	{margin-top:2.85pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{margin-top:2.85pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+p.Text, li.Text, div.Text
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.Heading10, li.Heading10, div.Heading10
+	{margin: 0em;
+	margin-bottom:.0001pt;
+	text-indent: 0em;
+	page-break-after:avoid;
+	font-size:7.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.ListContents, li.ListContents, div.ListContents
+	{margin-top: 0em;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left:11.35pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.35pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";}
+p.ListHeading, li.ListHeading, div.ListHeading
+	{margin-top:5.65pt;
+	margin-right: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-bottom:.0001pt;
+	line-height:12pt;
+	font-size:1.0em;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+ /* Page Definitions */
+ @page Section1
+	{size:612pt 792pt;
+	margin:75.9pt 66.35pt 72pt 66.35pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom: 0em;}
+ul
+	{margin-bottom: 0em;}
+
+h1, h2 { color:black; }	
+
+-->
+</style>
+
+<div class=Section1>
+
+<h1 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Objective</span></h1>
+
+<p class=MsoBodyText><span lang=EN-GB style='color:black'>To continue providing
+the best office and IT services concurrent to ongoing educational and IT
+development.</span></p>
+
+<h1 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Employment History</span></h1>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>April 2009 - Dec
+2009. . . . . . . . . . . . . . . . . . . . . .  MacroDM (contracting, Calgary, Alberta) </span></h2>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Marketing &amp;
+IT Contracts with Stampede City Pawn and Mdv Wood.</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Retail and Web based marketing of used
+merchandise..  Photography, placing of ads, research and pricing..  Maintenance,
+presale preparation, pricing and valuation of in-coming computers..  Standard
+retail operations and turning inventory..  Software modifications and
+enhancements..  Bylaws compliance..  Small business consulting..  OS support,
+network implementation and service.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Other Business:</span></u></h3>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Development Pawn Shop Management application..  MS Access 2003, VBA.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Enhance and debug a clientâ€™s rudimentary existing application.. 
+Focus on compliance, reporting and user interface.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Complete scope of post-relational project repositioning service
+billing application as a data centre application using IBM Universe
+technologies (post-relational)..  Scope includes data and code migration from
+previous platforms as well as detailed design for web front end and n-tier
+functionality.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Commence Phase 2 of C# data migration / mediation project started in
+'08..  Details available.</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>May</span><span
+lang=EN-GB> 2008 - Mar 2009. . . . . . . . . . . . . . . . . . . . . . .  MacroDM (contracting,
+Calgary, Alberta)</span></h2>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Part time
+office services with Diversified Staffing.</span></u></h3>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Full time
+skills training and in-house development project.</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Full time Agile project on C# Dot Net
+platform (Browser based application and partial framework.).  Project processes post-relational
+database schema, data and standard export format files into MySQL and SQL
+Server databases.</span></p>
+
+<p class=ListHeading><span lang=EN-GB>Other business and upgrading:. .  </span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>ISO 9000-9004, total quality management. Review of coding standards
+and methodology.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Update / review of Ms Server, CM, Office and Open Office products..  Enterprise
+document management.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>C# &amp; .Net..  MySQL..  MS SQL Sever..  Server high availability.. 
+Native XML. RIA.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Detailed research on Oil &amp; Gas Industry per document management
+and GIS technology..  Minor placement.</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>1999 - </span><span
+lang=EN-GB>May</span><span lang=EN-GB> 2008. . . . . . . . . . . . . . . . . . . .  . . . . . . . . . . .  MacroDM
+(contracting, Gibsons, BC)</span></h2>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Development
+&amp; Consulting Services</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Broad business and IT skills provided to
+a coastal community..  Dozens of clients and projects lasting from 2 to 40
+weeks, the following list addresses only relevant IT projects, studies and long
+term clients.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>1992 - 2009. . . . . . . . .  Mdv
+Wood, Michael Vaughan, Small Business Consultant. . . .  Gibsons, BC</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>As a small business client I provided
+business analysis, operations support, and product development, assisted with
+administrative duties and recommended strategies for products, service
+offerings and diversification.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>2005 . . . . . . . . . . . . . . . . . . . . .  Membership
+Maintenance Application, Developer. . . . . . . . . . . . . . . . . . .  Gibsons, BC</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Development of an MS Access based membership
+maintenance application..  This included custom forms development using Outlook.. 
+Provided volunteer services including database and membership communications.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>2002 - 2004 . . . . . . . .  MacroDM
+Web and Document Standards, Developer. . . . . . . . . . . . . .  Gibsons, BC</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>The purpose of this project was to create
+object based standards to cover all document creation in use by word
+processing, spreadsheets and mark-up languages with a particular focus on: HTML
+and CSS..  Cross browser comparison of compatibility, scripting and object
+features..  Rendering and browser fault tolerance variations..  Changes in MS
+product suite in relation to web trends..  Paragraph as object, usage of IDs, <i>CSS
+classes and tags..  </i>HTML classes and ID's..  Web compatible document styles,
+template definition and usage..  Strategies for RDBMS document storage and
+search requirements.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>2002 . . . . . . . . . . . . . . . . . . . . .  Outlook
+Replication Classes, Developer. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  Gibsons,
+BC</span></u></h3>
+
+<p class=MsoBodyText><b><i><span lang=EN-GB>VBA set of classes including custom
+forms</span></i></b><span lang=EN-GB>..  The focus of this project was to
+automatically and dynamically create a mirrored folder structure located where
+the user stored documents..  This open method of organization allowed service
+staff to permanently save emails in standard format where the same folders
+could store whatever other documents created or exported using other tools.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>1999 - </span></u><u><span
+lang=EN-GB>May</span><span lang=EN-GB> 2008. . . . . . . . . . . . . . . .  Axion, Joint and Other
+Development. . . . . . . . . . . . . . . . . . . . . . . . . . . .  Gibsons, BC</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Axion, MacroDM and upgrade projects:
+Design of solutions for web based billing application..  Scope, requirement and
+preliminary design for web based intelligent search application..  WSH utilities
+for Word and IE..  VB OSS classes..  HTML / CSS2 web site development..  Module
+and class design for use with J2EE / Netbeans..  Web application migration plans
+and design for n-tier enterprise service billing application.</span></p>
+
+<p class=MsoBodyText><span lang=EN-GB>Consulting and administrative tasks to
+these clients such as: Transcription services, IT Security consulting,
+Strategic advice related to regulatory and government communications. Research
+into product certification..  Consulting on service delivery, standards and
+business models..  </span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>1999 - </span><span
+lang=EN-GB>May</span><span lang=EN-GB> 2008. . . . . . . . . . . . . . . . . . . .  Contract Trades
+Services. . . . . .  . . . . . . . . . . .  Gibsons, BC</span></h2>
+
+<p class=MsoBodyText><span lang=EN-GB>Electrical, operation support,
+renovations and landscaping for <u>Mark Stipec Construction, Adriatic Electric,
+MDV Wood, Baker French, Nicholas Simmons, Bob Goodrich Construction</u> and
+many other clients and referral business. </span></p>
+
+<p class=MsoBodyText><span lang=EN-GB>Trades work in landscaping/gardening (16
+years), renovations (8 years) and residential electrical (7 years).</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>1996 - 1999. . . . . . . . . . . . . . . . . . . . . . . . . . .  Memex
+Systems Ltd. . . . . . . . . . . . . . . . . . . . . . . . . .  Gibsons, BC</span></h2>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Consultant /
+Software Developer - Technology agreement</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Conversion of a distributed billing
+application to a Windows OO design and prototyping. Developed using Clarion
+IDE, Oracle and ODBC compliant database..  The role primarily involved OO
+design, database design, coaching and mentoring as an industry expert.. 
+Subsequent review of project and recommendations..  </span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>1986 - 1996. . . . . . . . . . . . . . . . . . . . . . . . . . .  MacroScope
+Design Matrix. . . . . . . . . . . . . .  Vancouver, BC</span></h2>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Software
+Developer</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>A contributing author of the PC to
+mainframe link product PKHarmony..  Research into OOD / OOP, Accessibility UI's
+and cognitive science.</span></p>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Applications
+development:</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Code conversion and deployment..  Relational
+database and dictionary tools..  Distributed OSS infrastructure..  Service
+billing..  IDE tools..  Communications (2 applications)</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>1978 -1996. . . . . . . . . . . . . . . . . . . . . . . . . . . .  Axion
+Computer Systems Ltd. . . . . . . . . .  . . . . . . . . . . .  Vancouver, BC</span></h2>
+
+<h3 style='margin-left: 0em;text-indent: 0em'><u><span lang=EN-GB>Consultant /
+Software Developer / Software Manager / Customer Service</span></u></h3>
+
+<p class=MsoBodyText><span lang=EN-GB>Over a long career involvement with this
+company, duties ultimately included overall responsibility for all code.. . 
+Major achievements were numerous and often involved pioneering new technologies
+and paradigms.</span></p>
+
+<h1 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Skills, Expertise
+and Industries</span></h1>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Skills / Expertise</span></h2>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Browser, desktop, distributed and enterprise applications using C#,
+VB, DotNet, MySQL and SQL Server, PICK.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Excellent knowledge of OOD/OOP, SDLC, Project Management, market and
+product development.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>MS Office, Open Office, numerous web and multimedia products..  Vast
+experience in technology evaluation.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>IT Specializations:</span></b><span lang=EN-GB> Billing, Communications,
+Accounting, Advanced tools for development, conversion and search.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>Database design</span></b><b><span lang=EN-GB>:</span></b><span
+lang=EN-GB>.  MY SQL, MS SQL, MsAccess, Universe, UniData, Pick, Open Systems, Oracle
+compliance. <b>. . </b>Multi-dimensional / post-relational databases and other OLAP
+/ BI.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>OS</span></b><span lang=EN-GB>: Windows XP, Vista, Linux.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>Languages</span></b><b><span lang=EN-GB>:</span></b><span
+lang=EN-GB> C#, VB/VBA, Java, C, post-relational Basic, LISP, COBOL.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>Scripting</span></b><b><span lang=EN-GB>:</span></b><span
+lang=EN-GB> JavaScript, VBScript, WSH, Shell scripting, proprietary tools.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>Methodologies:</span></b><span lang=EN-GB> including Agile, SA, SD,
+RAD, and Booch.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>Other technology</span></b><b><span lang=EN-GB>:</span></b><span
+lang=EN-GB>.  PHP, PERL, Clarion, Cognos, some NetBeans, some C++..  Several post-relational
+IDE's.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>Design: </span></b><span lang=EN-GB>UML, GUI &amp; OO design for Web
+and Windows applications..  Standards development.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><b><span
+lang=EN-GB>W3C initiatives:</span></b><span lang=EN-GB> XML, XHTML, DTD, XPATH,
+XLINK, XSLT, SGML, DOM, DHTML and CSS2.</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Services</span></h2>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Experience providing Scope, summary and detailed requirements, and
+other specifications</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Standards development, Technology evaluations, other technical
+writing.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Management of development projects and small production teams.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Quality Assurance, testing, troubleshooting, installations, training
+and technical help desk.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>ECommerce, PAC, EDI for bank and credit card POS.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>OS support, system, application and device integration interfaces,
+communications protocols.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Development tools for conversion, migration, deployment,
+dictionaries, search, automation and IDE's.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Prototypes for websites, infrastructure, hand-coded OO classes,
+accessibility and user interfaces.</span></p>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Evaluation,
+in-house and prototype</span></h2>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Hand-coded OO system utility classes, . . Hand coding of HTML
+including template design and AJAX scripting.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Limited Forte, Java2, NetBeans, J2EE, COM / DCOM / ActiveX..  CORBA.. 
+SOAP..  UML.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Designs, prototypes and product for accessibility, automation, synchronization,
+release management, IDE modules.</span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Current post-relational platforms..  Ms SQL, My SQL, IBM U2 and
+database technology stagnation..  </span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Theory and principles of colour themes (web design). . . 2D &amp; 3D
+graphics tools (see web page). </span></p>
+
+<p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:Symbol'>·<span
+style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-GB>Internal coding standards for document management, Web, OOD, OOP.</span></p>
+
+<h1 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>Accomplishments</span></h1>
+
+<p class=ListHeading><span lang=EN-GB>Major contributor or co-author of the
+following software applications:</span></p>
+
+<p class=ListContents><span lang=EN-GB>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse'>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em .54em 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>MacroDM Web and Document Standards ('02, '04)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>SMS broadcast customer care. ('96 - â€™99)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Mdm post-relational to SQL import utility ('08-'09)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Addressable communications. ('93 - â€™96)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Minor VBA driven applications. ('02 - '05)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>PickTr.  ('87 - â€™91)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>K-Bil billing and customer care. ('86 - '02)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Mdm OSS..  ('84 - â€™92)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Accessibility technology. ('91)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>OO in structured languages, IDE tools. ('87 - â€™95)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>SRT search &amp; conversion tools. ('88 -.  '91)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Extensive cognitive science research. ('84 - current)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Real-time context sensitive UI's. ('84 - 85)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>PKHarmony..  ('86 - '92).  </span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents><span lang=EN-GB style='font-size:9pt;font-family:
+  Symbol'>·<span style='font:7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+  lang=EN-GB>Property development &amp; accounting. ('82 - '85)</span></p>
+  </td>
+  <td width="50%" valign=top style='width:50.0%;padding: 0em 5.4pt 0em 5.4pt'>
+  <p class=ListContents style='margin-left: 0em;text-indent: 0em'><span
+  lang=EN-GB>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<h2 style='margin-left: 0em;text-indent: 0em'><span lang=EN-GB>&nbsp;</span></h2>
+
+</div>

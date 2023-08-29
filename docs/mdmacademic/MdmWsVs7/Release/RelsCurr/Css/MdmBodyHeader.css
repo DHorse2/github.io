@@ -1,0 +1,86 @@
+/* Body Header CSS */
+
+/* MdmBodyHeader */
+/* -- Body Header -- */    
+body {
+text-align:center;
+/* Default is Top */
+padding:0px 0px 25px 0px;
+margin:0px;
+}
+
+.BodyBox {
+padding:25px 0px 25px 0px;
+}
+
+.BodyBoxTop {
+padding:25px 0px 25px 0px;
+}
+
+.BodyBoxSide {
+padding:0px 25px 0px 25px;
+}
+
+.BodyBoxed {
+padding:25px;
+}
+
+/* Body Image Background */    
+#BodyBg {
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url("../Images/BackgroundBlueSpiral.jpg");
+z-index:-2;
+}
+/* Body Div */
+#BodyArea { }
+/* -- Body Main -- */    
+/* not in use */
+#BodyMain {
+width:inherit;
+/* height:inherit; */
+display:block;
+}
+/* -- Body Container -- */    
+#BodyMainContainer { }
+#BodyMainContainerBg { }
+/* ----------------- */  
+/* -- Body Container Divisions -- */    
+#BodyMainTop {
+/* Position */
+position:absolute;
+top:3px;
+/* Size */
+width:95%; 
+min-width:600px; 
+max-width:800px; 
+height:60px;
+/* Alignment */
+text-align:center;
+margin:auto;
+overflow:hidden;
+}
+
+#BodyMainCenter {
+/* Position */
+position:absolute;
+top:63px;
+/* Size */
+width:95%; 
+/* Alignment */
+text-align:left;
+margin:auto;
+overflow:auto;
+}
+/* ----------------- */  
+#SpacerBottom{
+position:absolute;
+left:0px;
+height:30px;
+display:block;
+}
+
+/* ----------------- */  

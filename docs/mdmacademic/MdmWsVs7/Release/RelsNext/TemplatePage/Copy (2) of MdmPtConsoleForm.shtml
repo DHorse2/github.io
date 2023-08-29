@@ -1,0 +1,363 @@
+	<!--** Body Console Form Blocks **-->
+	<form id="BodyConsoleTestBoxForm" action="fnDebugFormUpdate()" method="post">
+		<!-- * -->
+		<fieldset><legend>Browser Type</legend >
+		<!-- * -->
+		<label for="formBrowser">Browser </label>
+		<select id="formBrowser" 
+			onchange="fnDebugParameterSet(this, 'Browser', this.options[this.selectedIndex].value)" >
+            <option id="formBrowser_MSIE" value="MSIE">Internet Explorer</option>
+            <option id="formBrowser_FireFox" value="FireFox" selected>FireFox</option>
+            <option id="formBrowser_Chrome" value="Chrome">Chrome</option>
+            <option id="formBrowser_Safari" value="Safari">Safari</option>
+            <option id="formBrowser_Opera" value="Opera">Opera</option>
+            <option id="formBrowser_Netscape" value="Netscape">Netscape</option>
+        </select>
+		<p ></p>
+		</fieldset>
+		<p ></p>
+		<!-- * -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Event Capture and Page Write Methodology</legend>
+		<!-- * -->
+		Add Elements to DOM: <br >
+		<label for="formImgLoadUseDOM">imgLoadUseDOM </label>
+		<input id="formImgLoadUseDOM" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'imgLoadUseDOM', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Use innerHTML for content: <br >
+		<label for="formImgLoadUseInner">imgLoadUseInner </label>
+		<input id="formImgLoadUseInner" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'imgLoadUseInner', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Single Event Listener (dispatcher): <br >
+		<label for="formImgLoadUseEventHandler">imgLoadUseEventHandler </label>
+		<input id="formImgLoadUseEventHandler" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'imgLoadUseEventHandler', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Controls clearing of <br >
+		elBodyMenuImageContainer for testing: <br >
+		<label for="formImgLoadEventTest">imgLoadEventTest </label>
+		<input id="formImgLoadEventTest" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'imgLoadEventTest', 'Toggle')" 
+			>
+		<p ></p>
+		</fieldset>
+		<p ></p>
+		<!-- * -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>User Interface Features</legend>
+		Mouse Hover activation of image display:<br >
+		<label for="formEventMouseOverEnabled">eventMouseOverEnabled </label>
+		<input id="formEventMouseOverEnabled" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'eventMouseOverEnabled', 'Toggle')" 
+			>
+		<p ></p>
+		</fieldset>
+		<p ></p>
+		<!-- * -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Animation Control</legend>
+		Object Moves From Origin to Destination: <br >
+		<label for="formMoveIsOn">moveIsOn </label>
+		<input id="formMoveIsOn" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'moveIsOn', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Transition and Filters are used: <br >
+		<label for="formFilterIsOn">filterIsOn </label>
+		<input id="formFilterIsOn" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'filterIsOn', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Growing image during animation: <br >
+		<label for="formFilterResizeIsOn">filterResizeIsOn </label>
+		<input id="formFilterResizeIsOn" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'filterResizeIsOn', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Timers use elapsed time instead of a step count: <br >
+		<label for="formTimerUseTime">timerUseTime </label>
+		<input id="formTimerUseTime" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'timerUseTime', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Menu Thumbnail Small Image Size: <br >
+		<label for="formOObjImageSizeSmall">oObjImageSizeSmall </label>
+		<input id="formOObjImageSizeSmall" type=text
+			size=10 maxlength=10 value="150"
+			onchange="fnDebugParameterSet(this, 'oObjImageSizeSmall', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Menu Thumbnail Large Image Size: <br >
+		<label for="formOObjImageSizeLarge">oObjImageSizeLarge </label>
+		<input id="formOObjImageSizeLarge" type=text
+			size=10 maxlength=10 value="500"
+			onchange="fnDebugParameterSet(this, 'oObjImageSizeLarge', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Menu Thumbnail Small Image Ratio<br >
+		of Width to Height (decimal value): <br >
+		<label for="formOObjImageSizeRatio">oObjImageSizeRatio </label>
+		<input id="formOObjImageSizeRatio" type=text
+			size=5 maxlength=5 value = "0.7"
+			onchange="fnDebugParameterSet(this, 'oObjImageSizeRatio', this.value)" 
+			>
+		</fieldset>
+		<hr>
+		<!-- * -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Timer Control</legend>
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Basic Controls</legend>
+		<!-- * -->
+		Timer control by Item or Menu Group: <br >
+		<label for="formTimerMethod">timerMethod </label>
+		<select id="formTimerMethod" 
+			onchange="fnDebugParameterSet(this, 'timerMethod', this.options[this.selectedIndex].value)" >
+            <option id="formTimerMethod_timerMethodGroup" value="timerMethodGroup" selected>timerMethodGroup</option>
+            <option id="formTimerMethod_timerMethodItem" value="timerMethodItem">timerMethodItem</option>
+        </select>
+		<p ></p>
+		<!-- * -->
+		Transitions started by Method call<br >
+		or by altering filter value or visibility: <br >
+		<label for="formFilterMethod">filterMethod </label>
+		<select id="formFilterMethod" 
+			onchange="fnDebugParameterSet(this, 'filterMethod', this.options[this.selectedIndex].value)" >
+            <option id="formFilterMethod_filterMethodPlay" value="filterMethodPlay" selected>filterMethodPlay</option>
+            <option id="formFilterMethod_filterMethodVisible" value="filterMethodVisible">filterMethodVisible</option>
+        </select>
+		<p ></p>
+		<!-- * -->
+		Manner by which images move across the screen: <br >
+		<label for="formElementMoveMethod">elementMoveMethod </label>
+		<select id="formElementMoveMethod" 
+			onchange="fnDebugParameterSet(this, 'elementMoveMethod', this.options[this.selectedIndex].value)" >
+            <option id="formElementMoveMethod_elementMoveMethodDirect" 
+			value="elementMoveMethodDirect">elementMoveMethodDirect</option>
+            <option id="formElementMoveMethod_elementMoveMethodSlideDown" 
+			value="elementMoveMethodSlideDown">elementMoveMethodSlideDown</option>
+            <option id="formElementMoveMethod_elementMoveMethodSlideSide" 
+			value="elementMoveMethodSlideSide">elementMoveMethodSlideSide</option>
+            <option id="formElementMoveMethod_elementMoveMethodRandom" 
+			value="elementMoveMethodRandom" selected>elementMoveMethodRandom</option>
+        </select>
+		<p ></p>
+		</fieldset>
+		<p ></p>
+		<!-- * end of Basic Controls -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Logging</legend>
+		Trace & Log Timer activity: <br >
+		<label for="formDebugTimer">debugTimer </label>
+		<input id="formDebugTimer" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'debugTimer', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Trace & Log Move activity: <br >
+		<label for="formDebugTimerMove">debugTimerMove </label>
+		<input id="formDebugTimerMove" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'debugTimerMove', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Trace & Log Filters and Transition activity: <br >
+		<label for="formDebugTimerTransition">debugTimerTransition </label>
+		<input id="formDebugTimerTransition" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'debugTimerTransition', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Trace & Log Timer activity for individual images: <br >
+		<label for="formDebugTimerDetail">debugTimerDetail </label>
+		<input id="formDebugTimerDetail" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'debugTimerDetail', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Trace & Log Mouse Events: <br >
+		<label for="formDebugLogEvents">debugLogEvents </label>
+		<input id="formDebugLogEvents" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'debugLogEvents', 'Toggle')" 
+			>
+		<p ></p>
+		</fieldset>
+		<p ></p>
+		<!-- * end of Logging -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Timer Move and Transition timing</legend>
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Move timing</legend>
+		Duration of movement: <br >
+		<label for="formElementMoveDuration">elementMoveDuration </label>
+		<input id="formElementMoveDuration" type=text
+			size=3 maxlength=3 value="2"
+			onchange="fnDebugParameterSet(this, 'elementMoveDuration', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Number of Steps to accomplish movement: <br >
+		<label for="formElementMoveStepMax">elementMoveStepMax </label>
+		<input id="formElementMoveStepMax" type=text
+			size=5 maxlength=5 value="80"
+			onchange="fnDebugParameterSet(this, 'elementMoveStepMax', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Frequency Interval that the Timer fires: <br >
+		<label for="formElementMoveInterval">elementMoveInterval </label>
+		<input id="formElementMoveInterval" type=text
+			size=5 maxlength=5 value="50"
+			onchange="fnDebugParameterSet(this, 'elementMoveInterval', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Delay before the Timer Starts: <br >
+		<label for="formElementMoveDelay">elementMoveDelay </label>
+		<input id="formElementMoveDelay" type=text
+			size=5 maxlength=5 value="0"
+			onchange="fnDebugParameterSet(this, 'elementMoveDelay', this.value)" 
+			>
+		<p ></p>
+		</fieldset>
+		<p ></p>
+		<!-- * end of Move timing -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Transition timing</legend>
+		Duration of transition: <br >
+		<label for="formFilterDuration">filterDuration </label>
+		<input id="formFilterDuration" type=text
+			size=3 maxlength=3 value="2"
+			onchange="fnDebugParameterSet(this, 'filterDuration', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Number of Steps to accomplish transition: <br >
+		<label for="formFilterStepMax">filterStepMax </label>
+		<input id="formFilterStepMax" type=text
+			size=5 maxlength=5 value="80"
+			onchange="fnDebugParameterSet(this, 'filterStepMax', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Frequency Interval that the Timer fires: <br >
+		<label for="formFilterInterval">filterInterval </label>
+		<input id="formFilterInterval" type=text
+			size=5 maxlength=5 value="200"
+			onchange="fnDebugParameterSet(this, 'filterInterval', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Delay before the Timer Starts: <br >
+		<label for="formFilterDelay">filterDelay </label>
+		<input id="formFilterDelay" type=text
+			size=5 maxlength=5 value="250"
+			onchange="fnDebugParameterSet(this, 'filterDelay', this.value)" 
+			>
+		<p ></p>
+		<!-- * -->
+		Duration of transition based on Move Duration:<br >
+		Usually filterDuration is the same as<br >
+		elementDuration plus an adjustment.<br >
+		A non-zero value indicates this <br >
+		feature is on. Usually this adjustment<br >
+		is one additional second.<br > <br >
+		<label for="formFilterDurationAdjustment">filterDurationAdjustment </label>
+		<input id="formFilterDurationAdjustment" type=text
+			size=3 maxlength=3 value="1"
+			onchange="fnDebugParameterSet(this, 'filterDurationAdjustment', this.value)" 
+			>
+		</fieldset>
+		<!-- * end of Transition timing -->
+		</fieldset>
+		<!-- * end of Timer Move and Transition timing -->
+		</fieldset>
+		<hr>
+		<!-- * end of Timer Control -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Debugger Control</legend>
+		Enter the debugger when errors occur: <br >
+		<label for="formErrorUseDebugOnError">errorUseDebugOnError </label>
+		<input id="formErrorUseDebugOnError" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'errorUseDebugOnError', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Enter the debugger after each Log entry: <br >
+		<label for="formErrorUseDebugOnAll">errorUseDebugOnAll </label>
+		<input id="formErrorUseDebugOnAll" type=checkbox 
+			onchange="fnDebugSetToggleerrorUseDebugOnAll', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Allow degguger usage: <br >
+		<label for="formDebugIsOn">debugIsOn </label>
+		<input id="formDebugIsOn" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'debugIsOn', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Display debug messages in an alert box: <br >
+		<label for="formDebugDoAlert">debugDoAlert </label>
+		<input id="formDebugDoAlert" type=checkbox 
+			onchange="fnDebugParameterSet(this, 'debugDoAlert', 'Toggle')" 
+			>
+		<p ></p>
+		<!-- * -->
+		Error Severity that causes the debugger to be invoked: <br >
+		<label for="formErrorDebugLevel">errorDebugLevel </label>
+		<select id="formErrorDebugLevel" 
+			onchange="fnDebugParameterSet(this, 'errorDebugLevel', this.options[this.selectedIndex].value)" >
+            <option id="formErrorDebugLevel_errorDidNotOccur" value="errorDidNotOccur">errorDidNotOccur</option>
+            <option id="formErrorDebugLevel_errorComment" value="errorComment">errorComment</option>
+            <option id="formErrorDebugLevel_errorWarn" value="errorWarn">errorWarn</option>
+            <option id="formErrorDebugLevel_errorSevere" value="errorSevere" selected>errorSevere</option>
+            <option id="formErrorDebugLevel_errorFatal" value="errorFatal">errorFatal</option>
+        </select>
+		</fieldset>
+		<hr>
+		<!-- * end of Debugger Control -->
+<!--x ------------------------------------------------------------------------------------- -->
+		<fieldset><legend>Page Load Optimaization</legend>
+		Delay Java initialization functions<br >
+		until after Page Load: <br >
+		<label for="formJavaLoadDelay">javaLoadDelay </label>
+		<input id="formJavaLoadDelay" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'javaLoadDelay', 'Toggle')" 
+			>
+		<div><br >
+		<!-- * -->
+		Delay downloading Body Content images<br >
+		until after Page Load: <br >
+		<label for="formBodyImageLoadDelay">bodyImageLoadDelay </label>
+		<input id="formBodyImageLoadDelay" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'bodyImageLoadDelay', 'Toggle')" 
+			>
+		<div><br >
+		<!-- * -->
+		Delay loading Menu Thumbnail images<br >
+		until after Page Load: <br >
+		<label for="formMenuImageLoadDelay">menuImageLoadDelay </label>
+		<input id="formMenuImageLoadDelay" type=checkbox checked 
+			onchange="fnDebugParameterSet(this, 'menuImageLoadDelay', 'Toggle')" 
+			>
+		</fieldset>
+		<!-- * end of Page Load Optimaization -->
+		<!-- * -->
+		<hr>
+	</form>
+	<!--** End of Body Console Form Blocks **-->

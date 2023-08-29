@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmResume.css" />
+    <title>Career History Section for Dave Horsman</title>
+	
+</head>
+<body class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Left Column **-->
+            <div id="BodyMainLeft">
+                <div id="BodyMainLeftOuter">
+                    <div id="BodyMainLeftInner">
+                        <!--* Left Column Content **-->
+                        <h4 id="H4TopLeft">
+                            Career History and Methodology
+                        </h4>
+                        <div id="LeftMenuContainer1" class="LeftMenuContainer fText LeftColClass fText eI f10 ">
+                            <p id="LeftHeader1" class="LeftColHeading fText eB eI f12 cBlack">
+                                View a resume...
+                            </p>
+                            <ul class="LeftMenuList">
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="MdmRsmIt.shtml">IT and Consulting</a></li>
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="MdmRsmOffice.shtml">Executive Assistant</a></li>
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="MdmRsmConstruction.shtml">Construction Subcontractor</a></li>
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="MdmRsmRetail.shtml">Building Supply Representative</a></li>
+                            </ul>
+                        </div>
+                        <!--* Left Column Sub-menu 2 Content **-->
+                        <div id="LeftMenuContainer2" class="LeftMenuContainer fText LeftColClass fText eI f10 ">
+                            <p id="LeftHeader2" class="LeftColHeading fText eB eI f12 cBlack">
+                                Organizing your search...<br>
+								(Under Construction)
+                            </p>
+                            <ul class="LeftMenuList">
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="">Folder and browser usage</a></li>
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="">Folder templates and links</a></li>
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="">Document templates and snippets</a></li>
+                                <!-- x -->
+                                <li class="LeftMenuItem"><a href="">Email programs and sites</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter">
+                <!--x -->
+<!--x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+                <!--*-->
+                <div id="DivD0" class="BodyParaBox">
+                <!--*-->
+                <!--*-->
+                <div id="DivD3" class="BodyParaLeft">
+                    <div id="DivC3" class="BodyParaRight CalloutBorder">
+                        <p id="C3P1" class="BodyCallout">
+						Combining Projects for Efficiency.<br>
+						PC Document Management.<br> 
+						Industry Research.<br>
+						Resume Writing.<br>
+						Work Search.
+                        </p>
+                    </div>
+                    <h3 id="H3Centre1" class="cSd">
+                        PC based Career Management</h3>
+                    <p id="D3P1" class="BodyPara">
+					   	Upon arriving in Calgary in '08 I had fallen behind and needed to
+						not only do and great deal of IT indusrty research.
+						I also wanted to become more active on the web.
+                    </p>
+                    <p id="D3P2" class="BodyPara">
+						I also had a need for some filler/student work while upgrading 
+						so I decided (in my typical fashion,) to be effecient by achieving
+						more than one goal within a single project. 
+						That is, to combine using the research on the current IT industry with
+						desktop system / document management practices I had been using for IT 
+						technical and web clients.  Clearly a sensible additional goal would be
+						to obtain some basic work to live and study. 
+                    </p>
+                    <p id="D3P3" class="BodyPara">
+                        If you have arrived here to see my resume it can be found in the 
+						menus to the left.  
+						The other materail on this page is first intended to provide 
+						guidance to novices wanting to use their home systems for work search 
+						or internet research in general.
+						The second purpose is to provide some guidance on useful techniques
+						and potential pitfalls involved in reformatting documents between
+						various word processing and web formats.  
+                    </p>
+                    <p id="D3P2" class="BodyPara">
+                    </p>
+                </div>
+				<br clear="all">
+                <!--*-->
+                <!--*-->
+                <div id="DivD2" class="BodyParaRight">
+                    <div id="DivC2" class="BodyParaLeft CalloutBorder">
+                        <p id="C2P1" class="BodyCallout">
+						   Becoming a renaissance man.<br>
+                            From IT to log homes...<br>
+							Accounting to sales and marketing<br>  
+							Grean foresty to the arts...<br>
+							Landscape, Renovation and electrical...<br> 
+                        </p>
+                    </div>
+                    <h3 id="H2Centre1" class="cSd">
+                        Broadening my skills and life experience</h3>
+                    <p id="D2P1" class="BodyPara">
+                        During the mid ninties I decided reduce my IT practive to a part time effort
+						and take the time to pursue other more rounded interests.  My favourite area
+						was without a doubt specialized light landscaping.  Renovations and electrical
+						were also both challenging, interesting and varied work.  Skills development and
+						variety were only one part of it though.  
+                    </p>
+                    <p id="D2P2" class="BodyPara">
+					    Ten years of small town life was wonderful and the work allowed me to make
+						some great bonds with people like Mark, Damir, and Nick to mention a few.
+						I also have a great debt of gratitude to Michael Vaughan for the chance to 
+						act as his business consultant but even more so for the wonderful 
+						work in specialty woods, artistic wood products and beautifully unique 
+						timber-frame homes.
+                    </p>
+                </div>
+				<br clear="all">
+                <!--*-->
+                <!--*-->
+                <div id="DivD1" class="BodyParaLeft">
+                    <div id="DivC1" class="BodyParaRight CalloutBorder">
+                        <p id="C1P1" class="BodyCallout">
+						Career management and search <br> 
+						is a great area to combinge <br>
+						writing skills and desktop <br>
+						document management.
+                        </p>
+                        <p id="C1P2" class="BodyCallout">
+    					A varied career helps by <br> 
+						creating an ocean of details <br>
+						to emphasise, relegate or omit. 
+                        </p>
+                    </div>
+                    <h3 id="H1Centre1" class="cSd">
+                        Resumes, CV's and Writing</h3>
+                    <p id="D1P1" class="BodyPara">
+                        Resume writing is a good area to apply writing skills.  
+						For example, you are addressing a skilled and difficult audience.  
+						It employs sales and marketing skills requiring the author to be
+						clear and concise.  
+						The IT resume here is unfortunately a good example of not being 
+						nearly clear and concise enough (a revision is in the works.) 
+                    </p>
+                    <p id="D1P2" class="BodyPara">
+						It might be folly to call resume creation creative writing here, 
+						yet that is precisely what it is.
+						That statement will be accepted by many readers but likely be taken 
+						as a euphemism for creative distortion by others.  
+						The readership will include varied roles, levels of responsibility 
+						and size of organization.
+                    </p>
+                    <p id="D1P3" class="BodyPara">
+                        An effective resume requires entegrity, accuracy and honesty.
+						It includes the need to balance distracting and irrelevant detail 
+						from points of direct interest to the reader.
+                    </p>
+                    <p id="D1P4" class="BodyPara">
+						With a diverse background the different targeted resumes shown
+						here may seem to discuss different people or be written by different
+						authors but that is not the case.  They are based solely on my
+						own 30 year career. 
+                    </p>
+                    <p id="D1P5" class="BodyPara">
+						I have always felt resume writing has many of the same characteristics that
+						bother me about statistics.  
+						Its all in the presentation...  
+						Nothing short of a face to face interview and at least a brief look at a 
+						person's work really gives minimally accurate idea their true abilities 
+						and personality. 
+						<br><br>
+                    </p>
+                    <h3 id="H1Centre1" class="cSd">
+                        Portfolio... free software and mentoring</h3>
+                    <p id="D1P6" class="BodyPara">
+					    In '08 I found myself in the uncomfortable position that my entire portfolio
+						very much consisted of other compainies' proprietary software.  
+						Good bragging rights but not something you can actually show anyone...  
+						In addition, the prototypes and incomplete study projects I did have 
+						available were not very impressive in my own view.
+						I decided that the main goals of my upgrading for C# and web enabling 
+						applications would have to include some significant work that I could 
+						distribute however I chose. 
+                    </p>
+                    <p id="D1P7" class="BodyPara">
+						As I add content to this site I will be including much of the work in the 
+						form of a portfolio.  
+						During this site construction phase please feel free 
+						to contact me if your needs are specialized enough to require one of the 
+						utilities that appear here.  
+						None are open source or in the form of downloadable installs at this time 
+						so just send me an email. 
+						<br><br>
+                    </p>
+                </div>
+                <!--*-->
+                <!--*-->
+            </div>
+            </div>
+            <!--** End of Body Main Center *-->
+            <!--** Right Column **-->
+            <div id="BodyMainRight">
+                <div id="BodyMainRightOuter">
+                    <div id="BodyMainRightInner">
+                        <!--* Right Column Content **-->
+                        <h4 id="H3TopRight">
+                            Hmmm no
+                            <br>
+                            advertising...
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!--*-->
+        </div>
+        <!--** End of Main Page Body *-->
+    </div>
+    <!--** End of Content Container *-->
+    <!--*-->
+</body>
+<!--*-->
+	<!--[if IE 6]>
+	<style type="text/css">
+	html { 
+	overflow-y: hidden; 
+	}
+	body { 
+	overflow-y: auto; 
+	}
+	#bg { 
+	position:absolute; z-index:-1; 
+	}
+	#BodyArea { 
+	position:static; 
+	}
+	</style>
+	<![endif]-->
+</html>

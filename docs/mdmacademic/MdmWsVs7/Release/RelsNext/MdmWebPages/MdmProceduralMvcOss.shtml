@@ -1,0 +1,185 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Mdm Page Template Wide - (c)2011 David Horsman & Macroscope Design Matrix -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmProceduralMvcOss.css" />
+    <title>Import Database Transformation Utility</title>
+</head>
+<body id="MdmProceduralMvcOssBody" class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!-- x -->
+<!-- x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+            </div>
+                <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!-- x -->
+                <!--** Content Blocks **-->
+                <!--** Block 1 **-->
+                <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B1D1" class="BodyParaLeft">
+                        <div id="B1C1" class="BodyParaRight CalloutBorder">
+                            <a id="B1C1A" href="#" class="CalloutContent CPA ">
+                                <span class="CPA">CPA</span>
+    							<span id="B1C1AP1" class="CalloutContent CPP ">
+    							B1C1AP1<br><br>
+    							</span>
+    							<span id="B1C1AP2" class="CalloutContent CPP ">
+    							B1C1AP2<br><br> 
+    							</span>
+    							<span id="B1C1AP3" class="CalloutContent CPP ">
+    							B1C1AP3<br><br>
+    							</span>
+    							<span id="B1C1AP4" class="CalloutContent CPP ">
+    							B1C1AP4
+    							</span>
+                            </a>
+                        </div>
+                        <h3 id="B1D1H1" class="BodyPara cSd CPT">
+    						B1D1H1<br>
+                            B1D1H1<br>
+    						B1D1H1
+    					</h3>
+                        <p id="B1D1P1" class="BodyPara aLeft CP">
+    					B1D1P1
+                        </p>
+   						<p class="FixClear"></p>
+                	</div>
+                </div>
+                <!--*-->
+                <!--** Block 2 **-->
+                <div id="DivB2" class="DivB2 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B2D1" class="BodyParaRight">
+                        <div id="B2C1" class="CalloutBorder BodyParaLeft">
+                            <a id="B2C1A" href="#" class="CalloutContent CP">
+                                <span id="B2C1A1" class="CPA aLeft">
+    							Main<br>
+    							Page
+    							</span>
+    							<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg" 
+    							alt="B2C1Img1" 
+    							class="CPPImage CPPImageRight CalloutContent CPP"/>
+                            </a>
+                        </div>
+                        <p id="B2D1P1" class="BodyPara aLeft">
+                            B2D1P1
+    						<br> 
+                        </p>
+                        <p id="B2D1P2" class="BodyPara aLeft">
+    					<br> 
+                        </p>
+   						<p class="FixClear"></p>
+                    </div>
+                	<!--*-->
+                    <div id="B2D2" class="DivP6 BodyParaLeft">
+                        <div id="B2C2" class="BodyParaRight CalloutBorder">
+                            <a id="B2C2A" href="#" class="CalloutContent CP">
+                                <span id="B2C2A1" class="CPA">
+    							B2C2A1<br>B2C2A1 Line 2
+    							</span>
+    							<img id="B2C2Img1" src="../Images/ImportTld Db Page Start.jpg" 
+    							alt="B2C2Img1" 
+    							class="CPPImage CPPImageLeft CalloutContent CPP"/>
+                            </a>
+                        </div>
+                        <p id="B2D2P1" class="BodyPara CP aLeft">
+                		<br> 
+                        </p>
+                        <p id="B2D2P2" class="BodyPara CP aLeft">
+                		<br> 
+                        </p>
+                        <p id="B2D2P3" class="BodyPara CP aLeft">
+                		<br> 
+                        </p>
+   						<p class="FixClear"></p>
+                    </div>
+                </div>
+                <!--** Block 3 **-->
+                <div id="DivB3" class="DivB3 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B3D1" class="BodyParaLeft">
+                        <div id="B3C1" class="BodyParaRight CalloutBorder">
+                            <a id="B3C1A" href="#" class="CalloutContent CP">
+                                <span id="B3C1A1" class="CPA">B3C1A1</span>
+    							<span id="B3C1CPP1" class="CalloutContent CPP">
+    								  B3C1CPP1
+    							</span>
+                            </a>
+                        </div>
+                        <h3 id="B3D1H1" class="BodyPara cSd CP">
+    					B3D1H1
+    					</h3>
+                        <p id="B3D1P1" class="BodyPara aLeft CP">
+    					B3D1P1
+                        </p>
+                        <p id="B3D1P2" class="BodyPara aLeft CP">
+    					B3D1P2
+    					</p>
+                        <p id="B3D1P3" class="BodyPara aLeft CP">
+    					B3D1P3
+    					</p>
+                        <p id="B3D1P4" class="BodyPara aLeft CP">
+    					B3D1P4
+    					</p>
+   						<p class="FixClear"></p>
+                	</div>
+                </div>
+                <!--*-->
+            </div>
+        <!--** End of Body Main Center *-->
+        </div>
+        <!--*-->
+        <!--** End of Main Page Body BodyMainContainer *-->
+    </div>
+    <!--** End of Content Container BodyArea *-->
+    </div>
+    <!--*-->
+</body>
+<!--*-->
+	<!--[if IE 6]>
+	<style type="text/css">
+	html { 
+	overflow-y: hidden; 
+	}
+	body { 
+	overflow-y: auto; 
+	}
+	#bg { 
+	position:absolute; z-index:-1; 
+	}
+	#BodyArea { 
+	position:static; 
+	}
+	</style>
+	<![endif]-->
+</html>

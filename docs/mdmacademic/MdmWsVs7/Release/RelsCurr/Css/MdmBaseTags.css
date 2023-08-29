@@ -1,0 +1,423 @@
+/* MdmBaseTags */
+/* -- Fonts Standard-- */
+/* body, blocks */
+/* body,
+/* div,
+/* para, span */
+/* p,
+/* span,
+/* font size */
+big,
+small,
+/* decoration */
+i,
+b,
+strong,
+/* list */
+li,
+ol,
+ul,
+/* table */
+td,
+th,
+tbody,
+/* links */
+a,
+/* -- Fonts Standard-- */
+.fNormal,
+.fStandard,
+.fText
+{
+font-family: 
+ "Courier New", 
+ "Courier", 
+ "Times New Roman", 
+ "serif",
+ "Times New Roman",
+ "Georgia",
+ "Palatino Linotype",
+ "Sylfaen",
+ "Garamond",
+ "Book Antiqua",
+ "Bookman Old Style"     
+;
+}
+
+.fStandard {
+font-size: 10pt;
+}
+
+.fNormal {
+font-size: 14pt;
+}
+
+.ftext {
+margin-top: 3pt;
+}
+
+/* -- Links -- */
+
+
+/* -- Fonts Fancy -- */
+
+.fPromo, 
+.fBlurb,
+.fTiny
+{
+font-family: cursive, Storybook, "MS Sans Serif", "Courier New";
+}
+
+.fPromo {
+font-size: 12pt;
+}
+
+.fBlurb 
+{
+font-size: 12pt;
+}
+
+.fTiny
+{
+font-size: 8pt;
+}
+
+/* -- Fonts Code -- */
+
+.fCode
+{
+font-family: "Courier, monospace", 
+Monaco,
+"Lucida Console",
+Consolas,
+"Andale Mono",
+"Bitstream Vera Sans Mono",
+"Lucida Sans Typewriter",
+"DejaVu Sans Mono",
+monospace
+;
+font-size: 10pt;
+LINE-HEIGHT: 11pt;
+list-style: lower-roman;
+}
+
+.fDiploma
+{
+font-family: 
+Diploma, 
+Storybook, 
+OldCentury, 
+cursive
+;
+font-size: 14pt;
+list-style: lower-roman;
+}
+
+.fTest
+{
+font-family: "Windsor Lt BT";
+list-style: lower-roman;
+}
+
+
+/* -- Headings -- */
+
+H1, 
+H2, 
+H3, 
+H4, 
+H5, 
+H6
+{
+font-family: Diploma, Storybook, cursive;
+text-align: center;
+color:#666699; /* cPd */ 
+}
+
+H1
+{
+font-size: 20pt;
+}
+
+H2
+{
+font-size: 18pt;
+}
+
+H3
+{
+font-size: 16pt;
+}
+
+H4
+{
+font-size: 12pt;
+}
+
+H5
+{
+font-size: 12pt;
+}
+
+H6
+{
+font-size: 10pt;
+}
+
+
+/* -- Table of Contents */
+.Toc1
+{
+}
+.Toc2
+{
+}
+.Toc3
+{
+}
+.Toc4
+{
+}
+.Toc5
+{
+}
+.Toc6
+{
+}
+
+
+/* -- Standard Captions -- */
+.Caption
+{
+color: firebrick;
+}
+.Caption2
+{
+color: crimson;
+}
+
+
+/* -- Title -- */
+.Title
+{
+color: blue;
+font-size: 24pt;
+}
+.Title2
+{
+color: royalblue;
+font-size: 20pt
+}
+
+/* -- Layout - Indent  -- */
+.Indent05
+{
+margin-left: 0.5cm;
+}
+.Indent10
+{
+margin-left: 1cm;
+}
+.Indent15
+{
+margin-left: 1.5cm;
+}
+
+
+/* -- Decoration -- */
+.eB
+{
+font-weight: bold;
+}
+.eI
+{
+font-style: italic;
+}
+.eU
+{
+text-decoration: underline;
+}
+.eBI
+{
+font-style: italic;
+font-weight: bold;
+}
+.eBU
+{
+font-weight: bold;
+text-decoration: underline;
+}
+.eBIU
+{
+font-style: italic;
+font-weight: bold;
+text-decoration: underline;
+}
+.eIU
+{
+font-style: italic;
+text-decoration: underline;
+}
+
+
+/* -- Lists -- */
+.lB0
+{
+list-style: outside url(../Images/lb0bult.gif);
+padding-left:25px;
+text-indent:-0px;
+}
+.lB1
+{
+list-style: outside url(../Images/lb1bult.gif) ;
+margin-left: 1.5cm;
+}
+.lB2
+{
+list-style: url(lb2bult.gif) outside;
+margin-left: 2.0cm;
+}
+.lRoman
+{
+list-style: upper-roman;
+}
+.lNumbered
+{
+list-style: decimal;
+}
+.lRomanLower
+{
+list-style: lower-roman;
+}
+
+/* -- Fonts -- */
+
+/* -- Fonts Size -- */
+.f8
+{
+font-size: 8pt;
+}
+.f10
+{
+font-size: 10pt;
+}
+.f11
+{
+font-size: 11pt;
+}
+.f12
+{
+font-size: 12pt;
+}
+.f14
+{
+font-size: 14pt;
+}
+.f16
+{
+font-size: 16pt;
+}
+.f18
+{
+font-size: 18pt;
+}
+.f20
+{
+font-size: 20pt;
+}
+.f24
+{
+font-size: 24pt;
+}
+.f28
+{
+font-size: 28pt;
+}
+.f32
+{
+font-size: 32pt;
+}
+.f36
+{
+font-size: 36pt;
+}
+
+/* Alignment */
+.aLeft{ text-align:left; }
+.aRight{ text-align:right; }
+.aCenter{ text-align:center; }
+
+/* -- Borders -- */
+.BorderThin{
+/* Border */
+border-style:outset;
+/* border-style:groove; */
+border-width:4px;
+/* border:solid; */
+border-color: #DADCE4;
+} 
+
+.BorderThick{
+/* Border */
+border-style:outset;
+border-width:10px;
+border-color: #3e3d66;
+}
+/* -- end -- */
+/* -- */
+
+/* -- HACKS AND FIXES -- */
+.FixPara{ 
+/* Position */
+position:relative;
+height:10px;
+}
+
+.FixClear { 
+/* Position */
+position:relative;
+/* Size */
+height: 1px;
+clear: both;
+display:block;
+content: ".";
+}
+
+.FixClear2 { 
+/* Position */
+/* Size */
+height: 1px;
+}
+
+.FixClear2:after {
+/* Position */
+position:relative;
+/* Size */
+height: 1px;
+clear: both;
+display:block;
+content: ".";
+}
+
+.FixClear1 { 
+/* Position */
+position:relative;
+/* Size */
+height: 1px;
+width:100%;
+}
+
+.FixClear1:after {
+/* Position */
+/* Size */
+height: 1px;
+clear: both;
+visibility: hidden;
+display:block;
+content: ".";
+}
+
+.FixClear2{
+overflow: auto; 
+height: 1%;
+}
+

@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- ------------------------------------------------------------------------------------- -->
+<!-- Mdm Javascript Documentation Page - (c)2011 David Horsman & Macroscope Design Matrix --> 
+<!-- ------------------------------------------------------------------------------------- -->
+<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+<!-- * -->
+<!-- <link rel="stylesheet" type="text/css" href="../Css/MdmDebugTagHover.css" /> -->
+<!-- ------------------------------------------------------------------------------------- -->
+<!-- SCRIPT -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.jss" /> -->
+<!-- * -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmStandardFuntions.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElement.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElementEvent.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmWindow.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmError.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmAnimation.jss" /> -->
+<!-- * -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmBodyBox.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmLayout.jss" /> -->
+<!-- * -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenu.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImage.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImageCollection.jss" /> -->
+<!-- * -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- * -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmDebugTagHover.jss" /> -->
+<!-- * -->
+<!-- * -->
+<!-- SCRIPT -->
+<!--END OF SCRIPT -->
+<!-- * -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmJavaDoc.css" />
+    <title>Professional and Personal Site for Dave Horsman</title>
+    <link rel="shortcut icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.png" />
+</head>
+<!--END OF HEAD -->
+<!-- * -->
+<body>
+<p style="text-align:left">
+<br />
+<br />-------------------------------------------------------------------------------------
+<br />Section function documentation
+<br />-------------------------------------------------------------------------------------
+<br />last updated 2011/06/15
+<br />
+<br />This code is organizised as
+<br />Major Sections:
+<br />     Pre load Head Script
+<br />     HTML
+<br />     Post load Script
+<br />Sections: 
+<br />     for example Animation
+<br />SubSections: 
+<br />     for example animation is divided into:
+<br />     Filters (transitions)
+<br />     Move Actions
+<br />     Timers.
+<br />SectionBlocks: containing functions, variables or content
+<br />
+<br />The complete list:
+<br />         Section Console / Debug / UI Form Parameters function (s)
+<br />         Section Object Animation function (s)
+<br />         Sub-Section Filter Management function (s)
+<br />         SectionBlock Filter Create / Control function (s)
+<br />         SectionBlock Filter Support function (s):
+<br />         SectionBlock Filter Matrix Control function (s)
+<br />         SectionBlock Filter Primary Command  function (s)
+<br />         SectionBlock Filter Get / Set function (s)
+<br />         Sub-Section Timer Management function (s)
+<br />         SectionBlock Timers Primary Commands function (s)
+<br />         Set Filter & Move function (s) for Timers
+<br />         SectionBlock Timer Task Related (Filter / Move) Commands function (s)
+<br />         SectionBlock Timer Control function (s)
+<br />         SectionBlock Timer User Interface function (s)
+<br />         Section Body Content Images Html Build function (s)
+<br />         Section Menu Images Html Build function (s) (Groups / Items)
+<br />         Section Other function (s) (empty)
+<br />         Section Window function (s)
+<br />         SectionBlock Window Events and Methods function (s)
+<br />         SectionBlock Window Events (Load, Resize) function (s)
+<br />         SectionBlock Window and Container Layout function (s)
+<br />         SectionBlock Window Session function (s)
+<br />         SectionBlock Window Cookies function (s)
+<br />         SectionBlock Window Document function (s)
+<br />         Section Standard and Utility function (s)
+<br />         Standard function (s) - Math 
+<br />         Standard function (s) - Font Size 
+<br />         Section Debug and Error Management function (s)
+<br />         SectionBlock Application Debug & Error function (s)
+<br />         SectionBlock Window & Script Exceptions & Error function (s)
+<br />         Section Body Content Mouse Events function (s)
+<br />         Section Element function (s)
+<br />         SectionBlock Element support function (s)
+<br />         SectionBlock Element Get function (s)
+<br />         SectionBlock Element Position & Dimension function (s)
+<br />         Section Console function (s)
+<br />         Section Layout Management function (s)
+<br />         Section Mouse Events function (s)
+<br />         Section (Menu Image) Element Item function (s)
+<br />         SectionBlock Element Item Play function (s)
+<br />         SectionBlock Element (Menu Image) Show / Hide function (s)
+<br />         SectionBlock Show Toggle function (s)
+<br />         SectionBlock (Menu) Groups and Ranges Show / Hide function (s)
+<br />         SectionBlock (Menu) Show function (s)
+<br />         SectionBlock (Menu) Hide function (s)
+<br />         SectionBlock Element Item Objects (Menu Images) Get & Index function (s)
+<br />
+<br />------------------------------------------------
+<br />SectionBlock GLOBAL / COMMON function
+<br />------------------------------------------------
+<br />SectionBlock STANDARD function
+<br />------------------------------------------------
+<br />Global
+<br />		 fnDocumentLoadInit
+<br />Elements
+<br />		fnElementPosGet
+<br />Layout
+<br />		fnLayoutSelectByIndex
+<br />Menu Images
+<br />		fnMenuImagesHtmlBuild
+<br />Mouse
+<br />		fnElementEventMouseOver
+<br />		fnElementEventMouseOut
+<br />		fnElementEventClick
+<br />
+<br />------------------------------------------------
+<br />SectionBlock Menu function
+<br />------------------------------------------------
+<br />Menu Image Show / Hide
+<br />Menu Show
+<br />		fnElementGroupShowRange
+<br />		fnElementItemShowIndex
+<br />		fnElementGroupShowStack
+<br />		fnElementItemToggle
+<br />		fnElementItemShow
+<br />Menu Hide
+<br />		fnElementGroupToggleRange
+<br />		fnElementItemHide
+<br />Menu Object Selection
+<br />		fnElementItemGetAllFromIndex
+<br />		fnElementItemGetDescription
+<br />		fnElementItemGetName
+<br />		fnElementItemIndexSetFromObj
+<br />		fnElementItemIndexSetFromName
+<br />
+<br />------------------------------------------------
+<br />SectionBlock LAYOUT MANAGEMENT function
+<br />------------------------------------------------
+<br />		fnLayoutCheck
+<br />		fnLayoutRefresh
+<br />		fnLayoutNext
+<br />
+<br />------------------------------------------------
+<br />SectionBlock STANDARD function
+<br />------------------------------------------------
+<br />Math Functions
+<br />		fnMathNumberRandomGetByRange
+<br />Font Size Control
+<br />		fnFontSizeIncrease
+<br />		fnFontSizeDecrease
+<br />
+<br />------------------------------------------------
+<br />SectionBlock OBJECT ANIMATION function
+<br />------------------------------------------------
+<br />Filter (Transition, Transform) Get by Index or Name
+<br />		fnFilterGetByIndex
+<br />
+<br />------------------------------------------------
+<br />SectionBlock FILTER MANAGEMENT function
+<br />------------------------------------------------
+<br />General
+<br />		fnFilterResetThenAnimate
+<br />Filter Store / Restore
+<br />		fnFilterStore
+<br />		fnFilterRestore
+<br />Animate Object
+<br />		fnFilterAnimate
+<br />Filter Specific Functions
+<br />		StyleBackground
+<br />				fnFilterBackgroundToggle
+<br />		Matrix
+<br />			  	fnFilterSpin
+<br />				fnFilterSetRotation
+<br />				fnFilterResize
+<br />		fnSlideStyleToggle
+<br />				fnSlideStyleToggle
+<br />		Other
+<br />			 	OtherFunction...
+<br />Filter Get / Set
+<br />		fnFilterGetByIndex
+<br />		fnFilterGetRandom
+<br />Filter Timing Get By Index
+<br />		fnFilterTimingGetByIndex
+<br />		fnFilterTimingGetRandom
+<br />
+<br />------------------------------------------------
+<br />SectionBlock DOCUMENT EVENTS function
+<br />------------------------------------------------
+<br />		window.onload
+<br />		window.resize
+<br />		window.error
+<br />
+<br />------------------------------------------------
+<br />
+<br />-------------------------------------------------------------------------------------
+<br />Section Body Layout Objects
+<br />-------------------------------------------------------------------------------------
+<br />
+<br />------------------------------------------------
+<br />SectionBlock GLOBAL LAYOUT Objects
+<br />------------------------------------------------
+<br />Body
+<br />BodyArea
+<br />BodyMainContainer
+<br />
+<br />BodyBanner  (Hide / Show, copy to Bottom)
+<br />BodyBannerBottom  (Hide / Show, copy to Bottom)
+<br />
+<br />BodyMainLeft
+<br />BodyMainLeftSave
+<br />BodyMainLeftOuter
+<br />BodyMainLeftInner
+<br />BodyMenuLayout1
+<br />MenuLeft1
+<br />MenuLeft1Save
+<br />MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+<br />MenuLeft2
+<br />MenuLeft2Save
+<br />MenuContainerLeft2
+<br />MenuLeft3
+<br />MenuLeft3Save
+<br />MenuContainerLeft3
+<br />
+<br />BodyMainCenter
+<br />BodyMainCenterColumns
+<br />
+<br />BodyMainCenterTop (Hide / Show)
+<br />BodyMainCenterTopLeft
+<br />BodyMainCenterTopRight
+<br />BodyBanner  (Hide / Show, copy to Bottom)
+<br />
+<br />BodyMainCenterCenter
+<br />
+<br />BodyMainCenterBottom  (Hide / Show)
+<br />BodyBannerBottom  (Hide / Show, copy to Bottom)
+<br />
+<br />BodyMainRight
+<br />BodyMainRightSave
+<br />BodyMainRightOuter
+<br />BodyMainRightInner
+<br />BodyMenuLayout2
+<br />MenuRight1
+<br />MenuContainerRight1 (Hide / Show, copy to TopRight)
+<br />MenuRight2
+<br />MenuContainerRight2
+<br />MenuRight3
+<br />MenuContainerRight3
+<br />
+<br />BodyMainRightFar
+<br />
+<br />BodyImageContainer
+<br />BodyMenuImageContainer
+<br />
+<br />ColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
+<br />
+<br />-------------------------------------------------------------------------------------
+<br />-------------------------------------------------------------------------------------
+<br />
+<br />-------------------------------------------------------------------------------------
+<br />Section Body Layout Management
+<br />(STANDARD FUNCTIONS)
+<br />(GLOBAL / COMMON)
+<br />-------------------------------------------------------------------------------------
+<br />
+<br />-----------------------------------------------
+<br />SectionBlock Layout Management Notes / Documentation:
+<br />-----------------------------------------------
+<br />Layouts available:
+<br />
+<br />1 Standard
+<br />	 		 Banner at Top
+<br />			 Body Center
+<br />			 Menu1 at Left
+<br />			 Menu2 at Right
+<br />2 Reading Mode Hide
+<br />			 Body Center
+<br />			 Hidden Menu1 at Left
+<br />			 Hidden Menu2 at Right
+<br />	 		 Hidden Banner at Bottom
+<br />3 Windowed
+<br />			 Body Center
+<br />			 Menu1 at Center Top Left
+<br />			 Menu2 at Center Top Right
+<br />	 		 Banner at Center Bottom
+<br />4 Reading Mode Show
+<br />			 Body Center (Top Left)
+<br />			 All Other at Right
+<br />			 	 Menu1 at Top Left
+<br />			 	 Menu2 at Top Right
+<br />	 		 	 Banner at Bottom
+<br />
+<br />------------------------------------------------
+<br />Layout User Interface Toggles:
+<br />Animation Toggles:
+<br />			  Toggle Step 1 of 2 Step Animations
+<br />			  Toggle 2 Step Animations
+<br />			  Toggle Random Animations
+<br />			  Toggle All Animations
+<br />Layout Toggles:
+<br />		  	  Full Screen
+<br />		  	  Font Sizing Ui
+<br />			  Callout Display
+<br />Analyzed Layout Area Links:
+<br />		  	  Blocks
+<br />			  		Paragraph
+<br />			  		Paragraph
+<br />					   ...
+<br />		  	  Screen Area (Collapsable)
+<br />			  		 Body Area
+<br />			  		 Body Area
+<br />			  		    ...
+<br />Data Entry Field
+<br />
+<br />Console Messages
+<br />
+<br />Instant Messaging Area
+<br />			   
+<br />------------------------------------------------
+<br />Optoin Toggles:
+<br />	 		 Hidden Banner
+<br />			 Hidden Menu1
+<br />			 Hidden Menu2
+<br />			 Hidden Menu 1 & 2
+<br />			 Hidden All
+<br />
+<br />
+<br />------------------------------------------------------------------------------------- 
+<br />------------------------------------------------------------------------------------- 
+<br />
+<br />------------------------------------------------------------------------------------- 
+<br />SectionBlock Filter / Transition Notes
+<br />
+<br />0 Box in.  
+<br />1 Box out.  
+<br />2 Circle in.  
+<br />3 Circle out.  
+<br />4 Wipe up.  
+<br />5 Wipe down.  
+<br />6 Wipe right.  
+<br />7 Wipe left.  
+<br />8 Vertical blinds.  
+<br />9 Horizontal blinds.  
+<br />10 Checkerboard across.  
+<br />11 Checkerboard down.  
+<br /> 12 Random dissolve. 
+<br /> 13 Split vertical in. 
+<br /> 14 Split vertical out.  
+<br /> 15 Split horizontal in.  
+<br /> 16 Split horizontal out.  
+<br /> 17 Strips left down.  
+<br /> 18 Strips left up.  
+<br /> 19 Strips right down.  
+<br /> 20 Strips right up.  
+<br /> 21 Random bars horizontal.  
+<br /> 22 Random bars vertical.  
+<br /> 23 Random transition from above possible values. 
+<br />
+<br />------------------------------------------------
+<br /> SectionBlock Filter Create / Control function (s)
+<br />------------------------------------------------
+<br /> 
+<br /> Ms:
+<br /> Apply, Play, Stop:
+<br /> BlendTrans, RevealTrans, Barn, Blinds, Compositor, Fade, 
+<br /> GradientWipe, Inset, Iris, Pixelate, RadialWipe, RandomBars, 
+<br /> RandomDissolve, Slide, Spiral, Stretch, Strips, Wheel, Zigzag
+<br /> note: Compositor has no stop.
+<br /> 
+<br /> Enabled:
+<br /> Alpha, AlphaImageLoader, Barn, BasicImage, Blinds, Blur, 
+<br /> MotionBlur, BlendTrans, Chroma, DropShadow, Emboss, Engrave, 
+<br /> Fade, FlipH, FlipV, Glow, Gradient, GradientWipe, Gray, Inset, 
+<br /> Iris, Invert, Light, MaskFilter, Matrix, Pixelate, RadialWipe, 
+<br /> RandomBars, RandomDissolve, Redirect, RevealTrans, Shadow, 
+<br /> Slide, Spiral, Stretch, Strips, Wave, Wheel, Xray, Zigzag
+<br /> 
+<br /> ------------------------------------------------------------------------------------- 
+<br /> ------------------------------------------------------------------------------------- 
+<br />
+<br /> ------------------------------------------------------------------------------------- 
+<br /> Section HTML Body Content
+<br /> ------------------------------------------------------------------------------------- 
+<br /> Main Body Layout Objects:
+<br />
+<br /> BodyArea
+<br /> BodyMainContainer
+<br />
+<br /> BodyBanner  (Hide / Show, copy to Bottom)
+<br />
+<br /> BodyMainLeft
+<br /> MenuLeft1
+<br /> MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+<br /> MenuLeft2
+<br /> MenuContainerLeft2
+<br /> MenuLeft3
+<br /> MenuContainerLeft3
+<br />
+<br /> BodyMainCenter
+<br /> BodyMainCenterColumns
+<br />
+<br /> BodyMainCenterTop (Hide / Show)
+<br /> BodyMainCenterTopLeft
+<br /> BodyMainCenterTopRight
+<br />
+<br /> BodyMainCenterCenter
+<br />
+<br /> BodyMainCenterBottom  (Hide / Show)
+<br /> BodyMainCenterBottomBanner
+<br />
+<br /> BodyMainRight
+<br /> MenuRight1
+<br /> MenuContainerRight1 (Hide / Show, copy to TopRight)
+<br /> MenuRight2
+<br /> MenuContainerRight2
+<br /> MenuRight3
+<br /> MenuContainerRight3
+<br />
+<br /> BodyImageContainer
+<br /> BodyMenuImageContainer
+<br />
+<br />
+<br /> ------------------------------------------------------------------------------------- 
+<br /> ------------------------------------------------------------------------------------- 
+</p>
+</body>

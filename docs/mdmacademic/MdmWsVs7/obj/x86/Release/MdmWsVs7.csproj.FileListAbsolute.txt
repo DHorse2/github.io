@@ -1,0 +1,4 @@
+C:\MdmWsVs7\obj\x86\Release\ResolveAssemblyReference.cache
+C:\MdmWsVs7\obj\x86\Release\Project1.Properties.Resources.resources
+C:\MdmWsVs7\obj\x86\Release\GenerateResource.read.1.tlog
+C:\MdmWsVs7\obj\x86\Release\GenerateResource.write.1.tlog

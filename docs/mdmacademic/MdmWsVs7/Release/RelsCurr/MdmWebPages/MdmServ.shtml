@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+   <meta name="Author" content="David G. Horsman" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmServ.css" />
+   <title>Mdm Services</title>
+</head>
+<!--***************-->
+<body id="MdmServBody" class="BodyBox">
+<!--***************-->
+<img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg">
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!--x -->
+<!--x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+            </div>
+                <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!--x -->
+                <!--** Content Blocks **-->
+
+
+               <!--*-->
+                <!--** Block 1 **-->
+                <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B1D1" class="BodyParaLeft">
+
+                    <h1 id="B3D1H1" class="BodyPara">
+						<span class="cSd f14">
+						MacroscopeDM Services
+						</span>
+					</h1>
+
+<!--***************-->
+<H4>
+Development
+</H4>
+<!--***************-->
+<div class="fPromo eBI">
+					<ul class="BodyPara lB1">
+<LI>Detailed design, development, and system testing
+<LI>Object oriented, script and procedural languages
+<LI>Specifications of ISO quality, UML diagrams
+<LI>Database design used with:
+					<ul class="BodyPara lB2">
+<LI>SQL
+<LI>Pick/MV Base/Revelation
+<LI>Ms Access
+<LI>Oracle
+<LI>Clarion</LI>
+					</ul>
+<LI>Product conversions to OO implementations
+<LI>Senior developer/team positions using:
+					<ul class="BodyPara lB2">
+<LI>Visual Basic
+<LI>Clarion
+<LI>Pick/MV Base/Revelation Open Insight
+<LI>Business Basic
+<LI>COBOL</LI>
+					</ul>
+</LI>
+					</ul>
+</div>
+
+
+<!--***************-->
+<H4>
+Consulting
+</H4>
+<!--***************-->
+<div class="fPromo eBI">
+<UL id="lb1">
+<LI>Applications Scope, Summary and Detailed Requirements
+<LI>Business Analysis and Consulting 
+<LI>System Planning, Evaluation, Selection, 
+        Upgrades</LI>    
+</UL>
+</div>
+
+<!--***************-->
+<H4>
+Support
+</H4>
+<!--***************-->
+<div class="fPromo"><span class="eBI">
+<UL id="lb1">
+<LI>Windows (98,NT,95,31), Dos, Pick, Revelation
+<LI>Technical Help Desk
+<LI>Troubleshooting and Debugging</LI>  
+</UL>
+</div>
+
+
+
+
+
+                    <div id="B3C1" class="BodyParaRight CalloutBorder">
+                        <a id="B3C1A" href="#" class="CalloutContent CP">
+                            <span id="B3C1A1" class="CPA aCenter">
+							Completion<br>
+							Status<br>
+							Report</span>
+							<span id="B3C1CPP1" class="CalloutContent CPP">
+								  Under Construction...
+							</span>
+                        </a>
+                    </div>
+                    <h3 id="B3D1H1" class="BodyPara">
+						<span class="cSd f14">
+						Features Scope and Requirements
+						<br><br>
+						File Formats
+						</span>
+					</h3>
+					<ul class="BodyPara lB0">
+					<li>Basic database connectivity.</li>
+                    <li>Schema conversion and creation</li>
+                    <li>MS SQL and MY SQL</li>
+                    <li>Native and ADO access</li>
+                    <li>Several ascii formats and binary file access.</li>
+					<li>Support for post-relational database formats.</li>
+					<li>UI support for system, server, and security.</li>
+					<li>Robust defaults stategy</li>
+					<li>UI support for file group and owner.</li>
+                    <h3 id="B3D1H1" class="BodyPara">
+						<span class="cSd f14">
+						<br>Functionality
+						</span>
+					</h3>
+ 					</ul>
+					<ul class="BodyPara lB0">
+					<li>Integration with MVC infrastructure.</li>
+					<li>Preprocessing file creation, deletion, clearing.</li>
+					<li>Row key validation for existance and absence.</li>
+					<li>Independant auxilary connection to database.</li>
+					<li>Creation of tables, views and aliases.</li>
+					<li>Buffer, row/line or item processing modes.</li>
+					<li>Inclusion of language virtualization extensions.</li>
+					<li>Integration with OSS infrastructure.</li>
+					<li>Robust exceptions handling.</li>
+ 					</ul>
+
+
+
+
+					<!--** End of B1D1 *-->
+   						<p class="FixClear"></p>
+                	</div>
+        		<!--** End of DivB1 *-->
+   						<p class="FixClear"></p>
+                </div>
+
+
+
+<!--***************-->
+                <!--*-->
+                <!--*-->
+            </div>
+        <!--** End of Body Main Center *-->
+        </div>
+        <!--*-->
+        <!--** End of Main Page Body BodyMainContainer *-->
+    </div>
+    <!--** End of Content Container BodyArea *-->
+    </div>
+    <!--*-->
+</body>
+</html>

@@ -1,0 +1,218 @@
+/* Body Paragraph Styling and Floating */
+
+/* -- Styling - Specific Instances -- */
+#DivC1 { margin-top:5px; }
+/* -------------------------------------------- */
+/* -- Body Paragraph Content -- */
+.BodyParaBox{
+/* Position */
+/* Size */
+min-width:150px;
+min-height:100px;
+/* Alignment */
+padding:10px;
+/* Border */
+border-color:grey;
+}
+
+.BodyPara{
+/* Alignment */
+margin:0px 10px 0px 10px;
+/* Background */
+background:#F5FEFF;
+}
+
+p.BodyPara  {
+/* Alignment */
+text-indent:20px;
+padding:0px 10px 5px 10px;
+}
+
+span.BodyPara  {
+/* Alignment */
+text-indent:20px;
+padding:0px 10px 5px 10px;
+}
+
+/* -- Floats -- */
+.BodyParaLeft{
+/* Position */
+position:relative;
+/* Alignment */
+float:left; 
+}
+
+.BodyParaRight{
+/* Position */
+position:relative;
+/* Alignment */
+float:right; 
+}
+
+/* -- Background -- */
+.BodyParaBoxBg {
+/* Background */
+background: url(../Images/TransparentWhiteBg75.png);
+}
+
+/* -- end -- */
+
+/* -------------------------------------------- */
+/* -- Body Callouts Container -- */
+
+/* CPA - Callout Link Anchor (shows) */
+/* CPP - Callout Popup (shows on hover) */
+/* CPT - Callout Paragraph Top (1) - Start of Callout Content (Body Paragraphs) */
+/* CP  - Callout Paragraph - additional content (Paragraph 2,3,4,...) */
+
+/* -- Body Callouts -- */
+.CalloutContent{
+/* Position */
+/* Size */
+height:100%;
+/* Alignment */
+float:none;
+text-align:left;
+display:block;
+/* Layering */
+z-index:5;
+}
+
+.CalloutBorder{
+/* Alignment */
+padding:0px;
+margin:10px 10px 0px 10px;
+/* Border */
+border-style:solid;
+/* border-style:groove; */
+border-width:8px;
+/* border:solid; */
+border-color:#999933; /* cPcd */ 
+/* Background */
+background-color:#FFFFCC;
+/* Border */
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+} 
+
+/* -- Callout Block -- */  
+.DivB{
+/* Position */
+position:absolute; 
+top:35px;
+left:20px;
+/* Size */
+height:125px;
+}
+
+/* -- end -- */
+
+/* ------ Callout Syling ----------- */  
+/* -- Callout Paragraph -- */  
+.CP {
+/* Alignment */
+padding:5px 10px 10px 10px;
+}  
+
+/* -- Callout Link -- */  
+.CPA { 
+/* Alignment */
+display:block;
+padding:5px 10px 10px 10px;
+}
+
+.CPA a { 
+/* Size */
+width:100%;
+height:100%;
+/* Alignment */
+display:block;
+}
+
+/* NOT FIREFOX COMPATABLE - USE ID */
+a .CPP{ display:none; }
+
+/* NOT FIREFOX COMPATABLE */
+a:hover .CPP{ display:inline; }
+
+/* NOT FIREFOX COMPATABLE - USE ID */
+#LinkId .CPP{ display:none; }
+
+/* NOT FIREFOX COMPATABLE */
+#LinkId:hover .CPP{ display:inline; }
+
+/* -- Callout Paragraph Popup -- */  
+.CPP {
+/* Alignment */
+padding:5px 5px 10px 10px;
+}
+
+/* -- Callout Image Popup -- */  
+.CPPImageThumb{
+/* Size */
+width:100px;
+/* Alignment */
+padding:1px;
+margin:auto;
+/* Layering */
+z-index:3;
+/* Border */
+border:0px;
+}
+
+.CPPImageThumbRight{
+}
+
+.CPPImageThumbLeft{
+}
+
+.CPPImage{
+/* Alignment */
+margin-top:-10px;
+margin-left:-10px;
+margin-right:-10px;
+padding: 0px 0px 5px 0px;
+}
+
+.CPPImageRight{
+/* Position */
+position:absolute;
+top:0px;
+left:0px;
+/* Size */
+/* Alignment */
+float:right;
+/* Layering */
+z-index:4;
+}
+
+.CPPImageLeft{
+/* Position */
+position:absolute;
+top:0px;
+right:0px;
+/* Size */
+/* Alignment */
+float:left;
+/* Layering */
+z-index:4;
+}
+
+/* ------- Generic Box ---------- */  
+.DivB98{
+/* Position */
+position:absolute; 
+top:25px;
+left:100px;
+}
+
+.DivB99{
+/* Position */
+position:absolute; 
+top:200px;
+left:350px;
+}
+/* -- end -- */
+
+/* ----------------- */  
+     

@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+	<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+   <meta name="Author" content="David G. Horsman">
+   <title>Suggestions</title>
+   <link rel="stylesheet" href="mdmstyle.css">
+   <link rel="stylesheet" href="kbclrs.css">
+<SCRIPT LANGUAGE = JavaScript>
+<!--
+function form1validate()
+{
+  if (form1.username.value == ""){
+     alert("Please provide your email address or fill in 'none'")
+  }
+  if (form1.company.value == ""){
+     alert("Please provide your company name")
+  }
+  if (form1.LongDescription.value == ""){
+     alert("Please provide some details in the Details box")
+  }
+  if (form1.username.value == "" || form1.company.value == "" || form1.LongDescription.value == ""){
+     return false
+  }
+  
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY background=image8e.jpg topmargin=0>
+<!--***************-->
+<!--***************-->
+<center>
+<form action="http://www.uniserve.com/cgi-bin/formmail.pl" onsubmit="return form1validate()" method="POST" id=form1 name=form1>
+<input type="hidden" name="recipient" value="harvey_horsman@bc.sympatico.ca (Suggestion Box), gold_spec@sunshine.net (Suggestion Box)">
+<input type="hidden" name="redirect" value="http://users.uniserve.ca/~sn3280/macnames.htm">
+<input type="hidden" name="subject" value="Suggestion Box">
+<!--input type="hidden" name="required" value="company,LongDescription,username"->
+<!--*************-->
+<table CELLSPACING=0 cellpadding=4 width=100% border=0>
+<!--***************-->
+<!--***************-->
+<caption>
+<div Class="fPromo h4 cTc eI eB">
+The Suggestion Box
+<div>
+</caption>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+Your name: 
+</td>
+<td width=65%>
+<input type="text" name="realname" size=40>
+</td>
+</tr>
+<!--**x***********-->
+<tr>
+<td width=35% align=right>
+*Company: 
+</td>
+<td width=65%>
+<input type="text" name="company" size=40>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+*Email address: 
+</td>
+<td width=65%>
+<input type="text" name="username" size=40>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td colspan=2>
+* indicates fields that are required.<br>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+Area within the KBil system: 
+</td>
+<td width=65%>
+<input type="text" name="SystemModule" size=40>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+Subject:
+</td>
+<td width=65%>
+<input type="text" name="ShortDescription" size=40>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=center valign=top>
+*Your comments or suggestion: 
+</td>
+<td width=65%>
+<textarea name="LongDescription" rows=10 cols=30></textarea>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=100% align=center colspan=2>
+<input type="submit" name="SubmitButton" value="Submit">
+</td>
+</tr>
+<!--***************-->
+</form>
+<!--***************-->
+<!--***************-->
+</table>
+<!--***************-->
+<!--***************-->
+<!--***************-->
+</center>
+</BODY>
+</HTML>

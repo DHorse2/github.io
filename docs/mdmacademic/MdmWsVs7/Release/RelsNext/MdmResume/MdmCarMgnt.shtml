@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmCarMgnt.css" />
+    <title>Career History Section for Dave Horsman</title>
+	
+</head>
+<body class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Left Column **-->
+            <div id="BodyMainLeft">
+                <div id="BodyMainLeftOuter">
+                    <div id="BodyMainLeftInner">
+                        <!--* Left Column Content **-->
+                        <h4 id="H4TopLeft">
+                            Career Topics
+                        </h4>
+                        <!--* Left Column Sub-menu 2 Content **-->
+                        <div id="LeftMenuContainer2" class="LeftMenuContainer fText MenuColumnClass fText eI f10 ">
+                            <p id="LeftHeader1" class="MenuColumnHeading fText eB eI f12 cBlack">
+                                View sample resumes...
+                            </p>
+                            <ul class="LeftMenuList">
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="./MdmResume/MdmRsmIt.shtml">IT and Consulting</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="./MdmResume/MdmRsmOffice.shtml">Office Administrative Assistant</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="./MdmResume/MdmRsmConstruction.shtml">Construction Subcontractor</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="./MdmResume/MdmRsmRetail.shtml">Building Supply Representative</a></li>
+                            </ul>
+                        </div>
+                        <!--* Left Column Sub-menu 3 Content **-->
+                        <div id="LeftMenuContainer3" class="LeftMenuContainer fText MenuColumnClass fText eI f10 ">
+                            <p id="LeftHeader3" class="MenuColumnHeading fText eB eI f12 cBlack">
+                                Desktop Management...<br>
+                            </p>
+                            <ul class="LeftMenuList">
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="">Folder and browser usage</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="">Folder templates and links</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="">Document templates and snippets</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="">Email programs and sites</a></li>
+                            </ul>
+                        </div>
+                        <!--* Left Column Sub-menu 1 Content **-->
+                        <div id="LeftMenuContainer1" class="LeftMenuContainer fText MenuColumnClass fText eI f10 ">
+                            <p id="LeftHeader1" class="MenuColumnHeading fText eB eI f12 cBlack">
+                                Dave's Stuff...
+                            </p>
+                            <ul class="LeftMenuList">
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="./MdmResume/MdmRsmIt.shtml">IT and Consulting</a></li>
+                                <!-- x -->
+                                <li class="MenuListItem"><a href="./MdmResume/MdmResume.shtml">Career Home</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter">
+                <!-- x -->
+<!-- x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+                <!--*-->
+                <div id="DivD0" class="BodyParaBox">
+                <!--*-->
+                <!--*-->
+                <!--*-->
+                <!--*-->
+                <div id="DivD3" class="BodyParaLeft">
+                    <div id="DivC3" class="BodyParaRight CalloutBorder">
+                        <p id="C3P1" class="BodyCallout">
+						Combining Projects for Efficiency.<br>
+						PC Document Management.<br> 
+						Industry Research.<br>
+						Resume Writing.<br>
+						Work Search.
+                        </p>
+                    </div>
+                    <h3 id="H3Centre1" class="BodyPara cSd">
+                        PC based Career Management</h3>
+                    <p id="D3P1" class="BodyPara">
+						I had a need for some work while upgrading and was researching
+						the IT industry at the same time so I decided 
+						to combine a number of related tasks within a single project. 
+                    </p>
+                    <p id="D3P3" class="BodyPara">
+						The other materail on this page is first intended to provide 
+						guidance to novices wanting to use their home systems for work search 
+						or internet research in general.
+                    </p>
+                    <p id="D3P2" class="BodyPara">
+                        If you have arrived here to see my resume it can be found in the 
+						menus to the left.
+						<br><br>
+                    </p>
+                </div>
+				<br clear="all">
+                <!--*-->
+                <!--*-->
+                <div id="DivD1" class="BodyParaLeft">
+                    <div id="DivC1" class="BodyParaRight CalloutBorder">
+                        <p id="C1P1" class="BodyCallout">
+						Career management and search <br> 
+						is a great area to combine <br>
+						writing skills and desktop <br>
+						document management.
+                        </p>
+                    </div>
+                    <h3 id="H1Centre1" class="BodyPara cSd">
+                        Resumes, CV's and Writing</h3>
+                    <p id="D1P1" class="BodyPara">
+                        Resume writing is a good area to apply writing skills.  
+						For example, you are addressing a skilled, difficult and even varied audience.  
+						It employs sales and marketing skills requiring the author to be
+						clear and concise.  
+                    </p>
+                    <p id="D1P2" class="BodyPara">
+						It might be folly to call resume creation creative writing here, 
+						yet that is precisely what it is.
+						That statement will be accepted by many readers but likely be taken 
+						as a euphemism for creative distortion by others.  
+						The resume readership will include varied roles, levels of responsibility 
+						and size of organization.
+                    </p>
+                    <p id="D1P3" class="BodyPara">
+                        An effective resume requires entegrity, accuracy and honesty.
+						It includes the need to balance distracting and irrelevant detail 
+						from points of direct interest to the reader.  It combines the need
+						to be predictable and easily read with the requirement to stand out
+						and be noticed.
+						<br><br>
+                    </p>
+                </div>
+                <!--*-->
+                <!--*-->
+            </div>
+                <br clear="all">
+                <br>
+            </div>
+            <!--** End of Body Main Center *-->
+            <!--** Right Column **-->
+            <div id="BodyMainRight">
+                <div id="BodyMainRightOuter">
+                    <div id="BodyMainRightInner">
+                        <!--* Right Column Content **-->
+                        <h4 id="H3TopRight">
+                            Hmmm no
+                            <br>
+                            advertising...
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!--*-->
+        </div>
+        <!--** End of Main Page Body *-->
+    </div>
+    <!--** End of Content Container *-->
+    <!--*-->
+</body>
+<!--*-->
+	<!--[if IE 6]>
+	<style type="text/css">
+	html { 
+	overflow-y: hidden; 
+	}
+	body { 
+	overflow-y: auto; 
+	}
+	#bg { 
+	position:absolute; z-index:-1; 
+	}
+	#BodyArea { 
+	position:static; 
+	}
+	</style>
+	<![endif]-->
+</html>

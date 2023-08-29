@@ -1,0 +1,98 @@
+A:hover
+{
+    COLOR: fuchsia
+}
+A:active
+{
+    COLOR: fuchsia
+}
+A:link
+{
+    COLOR: mediumblue
+}
+A:visited
+{
+    COLOR: blueviolet
+}
+UL
+{
+    MARGIN-BOTTOM: 0em;
+    MARGIN-TOP: 0em;
+}
+OL
+{
+    MARGIN-BOTTOM: 0em;
+    MARGIN-TOP: 0em;
+}
+#cPl
+{
+    COLOR: #00b0f0
+}
+#cPd
+{
+    COLOR: navy
+}
+#cSl
+{
+    COLOR: #00aeae
+}
+#cSd
+{
+    COLOR: #00504b
+}
+#cP
+{
+    COLOR: blue
+}
+#cS
+{
+    COLOR: #006868
+}
+#cTh
+{
+    COLOR: red
+}
+#cTb
+{
+    COLOR: black
+}
+#cTc
+{
+    COLOR: red
+}
+#cTt
+{
+    COLOR: navy
+}
+#cTb2
+{
+    COLOR: navy
+}
+#cTl
+{
+    COLOR: black
+}
+#cTs
+{
+    COLOR: #6a6a6a
+}
+#cTcS
+{
+    COLOR: black
+}
+#cRed
+{
+    COLOR: red
+}
+#cBlack
+{
+    COLOR: black
+}
+#cBlue
+{
+    COLOR: blue
+}
+#cTeal
+{
+    COLOR: teal
+}

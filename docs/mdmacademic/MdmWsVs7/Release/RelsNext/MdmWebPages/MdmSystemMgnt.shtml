@@ -1,0 +1,360 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+  <!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+  <!-- Mdm Application Framework - (c)2011 David Horsman & Macroscope Design Matrix -->
+  <html>
+  <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+      <meta name="Author" content="David G. Horsman" />
+      <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+      <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmSystemMgnt.css" />
+      <title>Mdm Desktop and System Management Recommendations</title>
+  </head>
+  <body id="MdmImportTldBody" class="BodyBox">
+      <!--*-->
+      <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+      <!--*-->
+      <!--** Body Area **-->
+      <div id="BodyArea" class="BodyAreaClass">
+          <!--*-->
+          <div id="BodyMainContainer" class="BodyMainBorder BodyMainContainer">
+              <!--** Center Main Column **-->
+              <div id="BodyMainTop">
+                  <!-- x -->
+                    <h2 id="" class="">
+						<span id="B0D0H1" class="BodyPara BorderThin cSd f20">
+						Mdm Desktop and System Management Recommendations
+						</span>
+					</h2>
+                <!-- x -->
+  <!-- x -->
+  <!--** Menu Blocks **-->
+  <!--#include virtual="../../RelsBuildStage.shtml"-->
+  <!--#if expr="${RelsBuild}=RelsNext" -->
+      <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+  <!--#elif expr="${RelsBuild}=RelsCurr" -->
+      <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+  <!--#else -->
+      <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+      <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+  <!--#endif -->
+  <!--*-->
+              </div>
+                  <!--*-->
+              <!--** Center Main Column **-->
+              <div id="BodyMainCenter" class="BorderThin">
+                  <!-- x -->
+                  <!--** Content Blocks **-->
+                  <!-- x -->
+                  <!--** Block 1 **-->
+				  <div>
+				<div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg BodyParaLeft">
+                          <div id="B1C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
+                              <a id="B1C1A" href="#" class="CPA">
+                                  <span class="BodyParaGround CPA aCenter">More...</span>
+      							<span id="B1C1AP1" class="CalloutContent CPP ">
+      							This is a utility created to transform
+      							data between various flat and database
+      							formats.<br><br>
+      							</span>
+      							<span id="B1C1AP2" class="CalloutContent CPP ">
+      							This project included many objectives
+      							not strictly related to database import.
+      							Data transfer between databases using a
+      							standard import/export format is fairly
+      							well addressed in most products.<br><br> 
+      							</span>
+      							<span id="B1C1AP3" class="CalloutContent CPP ">
+      							This product will prove most useful in dealing with 
+      							formats that do not come directly from a 
+      							database or require cleaning and transformation.<br><br>
+      							</span>
+      							<span id="B1C1AP4" class="CalloutContent CPP ">
+      							The intial targets addressed pulling data
+      							from a post-relational database to create
+      							an MS SQL or MY SQL schema.
+      							</span>
+                              </a>
+                          </div>
+                          <h3 id="B1D1H1" class="BodyPara cSd CPT">
+						  Mdm Desktop and System Management Recommendations
+						  </h3>
+                          <p id="B1D1P1" class="BodyPara CP">
+						  I have spent a great deal time doing technology evaluation
+						  and this includes strong focus on the user interface.
+						  I have an ongoing interest in fast, flexible and intuitive 
+						  implementations.
+						  <br /><br />
+						  I am a fairly strong advocate of using the OS as intended 
+						  while making small changes to come up with the required UI 
+						  features. I think we are now at a point that we would benefit by
+						  having some voice system running as well.  It turns out this fact creates
+						  more of an argument for a simple naming convention that uses
+						  complete words. 
+                          </p>
+                          <div id="B1C2" class="BodyParaRight CalloutBox CalloutBorder ">
+  								<!-- x -->
+                              <a id="B1C2A" href="#" class="CPA">
+                                  <span id="B2C1A1" class="h3 BodyParaGround CPA">
+      							Windows<br>in a nutshell</span>
+							<span id="B1D1P2" class="CalloutContent CPP ">
+							  <br />
+							  The strengths in Windows is not to be found in the graphical user interface (GUI.)  
+							  There is a "click the icon" based interaction and of course the icons and layout itself.
+							  Desktop layout aside, that interaction is equivalent to clicking open an
+							  item in a folder and is in fact what is occuring via the explorer.
+							  <br /><br />
+							</span>
+							  <span id="B1D1P4" class="CalloutContent CPP ">
+							  A probably much more important basic principal is that
+							  Windows is basically document driven.  
+							  In simple terms any "thing" you click should be opened 
+							  by the program that is meant to handle it.  
+							  If you happened to click an actual program, it will simply open
+							  using either the last or no item all.  
+							  In theory you would then ignore document type and navigate 
+							  within a sensible folder definition.
+							  <br />
+							  </span>
+							  <br />
+							<!-- x -->
+                              </a>
+                          </div><!--** End of B1C2 *-->
+                  	<div id="B1D2" class="BodyParaLeft CalloutBorder">
+					<p id="B1D2P1" class="BodyPara CP">
+						There are a very few basic concepts the user needs to understand:<br />  
+						<ul id="C2L1" class="BodyPara BodyParaLast BodyList lB0">
+							<li>Creating and managing folders on disk.</li>
+							<li>The explorer is quite simple and must be learned.</li>
+							<li>Organizing data and document folders makes the system much more useful.</li>
+							<li>Creating an extensive system of short-cuts and links for navigating.</li>
+							<li>Having (hopefully) context accessible folder templates for entities.</li>
+							<li>Always use descriptive easy to understand naming.</li>
+						</ul>
+					</p>
+  				<br class="FixFloat" />
+				</div><!--** End of B1D2 *-->
+                  	<!--*-->
+				<p id="B1D1P5" class="BodyPara CP">
+				  Due to workarounds using the browser has one
+				  critical rule, otherwise the IE8 usage is fairly direct and open.
+				  <br /><br />
+				</p>
+				<p id="B1D1P6" class="BodyPara BodyParaLast CP">
+				  The Favorites forlder is intended to hold any open
+				  topics where folder structure is being changed.
+				  This is specifically required for any topics where 
+				  documents and hierarchy are being captured from the 
+				  Internet.
+				  <br /><br />
+				</p>
+				<!--*-->
+			</div><!--** End of DivB1 *-->
+			<!--*-->
+			<div id="DivB264" class="DivB264 BodyParaRight ">
+				  <!--** Block 2 - Import / Export **-->
+				<div id="DivB2" class="DivB2 BodyParaBox BorderThin BodyParaBoxBg">
+					<div id="B2D1" class="BodyParaLeft">
+						  <div id="B2C1" class="BodyParaRight CalloutBorder">
+							  <a id="B2C1A" href="#" class="CalloutContent CPA">
+								  <span id="B2C1A1" class="CPA aCenter">
+								Import / Export <br>Management <br>Page
+								</span>
+								<img id="B2C1Img1Thumb" src="../Images/ImportTld Main Page Start.jpg" 
+								alt="ImportTld Main Page Start" 
+								class="CPPImageThumb CPPImageThumbRight CPA"/>
+								<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg" 
+								alt="ImportTld Main Page Start" 
+								class="CalloutBorder CPPImage CPP CPPImageLeft "/>
+							  </a>
+						  </div>
+					<h3 id="B2D1H1" class="BodyPara cSd CPT">
+						Data Mediation
+					</h3>
+						  <p id="B2D1P1" class="BodyPara CPT">
+							  Advanced conversion features launched by an easy
+							to use interface.<br> 
+						  </p>
+						  <p id="B2D1P2" class="BodyPara CP">
+							The main page includes a progress bar and adjustable
+							levels of progress details.  It is a diagnostic utility 
+							and featurse a real-time raw data windows, pause to 
+							examine and detailed exceptions handling. 
+						  </p>
+						  <p id="B2D1P3" class="BodyPara BodyParaLast CP">
+						<br> 
+						  </p>
+					  </div>
+					<!--*-->
+					<p class="FixClear"></p>
+				  </div>
+				  <!--*-->
+				  <!--** Block 2 - Database File System **-->
+				  <div id="DivB6" class="DivB6 BodyParaBox BorderThin BodyParaBoxBg">
+					<!--*-->
+					  <div id="B6D1" class="DivP6 BodyParaRight">
+						  <div id="B6C1" class="BodyParaLeft CalloutBorder">
+							  <a id="B6C1A" href="#" class="CalloutContent CPA">
+								  <span id="B6C1A1" class="h4 CPA aCenter">
+								Database <br>Selection <br>Page
+								</span>
+								<img id="B6C1Img1Thumb" src="../Images/ImportTld Db Page Start.jpg" 
+								alt="ImportTld Database Page Start" 
+								class="CPPImageThumb CPPImageThumbLeft CPA"/>
+								<img id="B6C1Img1" src="../Images/ImportTld Db Page Start.jpg" 
+								alt="ImportTld Database Page Start" 
+								class="CalloutContent CalloutBorder CPPImage CPP CPPImageLeft "/>
+							  </a>
+						  </div><!--** End of B6C1 **-->
+					<h3 id="B6D1H1" class="BodyPara cSd CPT">
+						Database File Selection
+					</h3>
+						  <p id="B6D1P1" class="BodyPara CPT">
+							The database information page allows entry of the standard
+							database attributes including server, database, filegroup, 
+							user, password, authorization. 
+						  </p>
+						  <p id="B6D1P2" class="BodyPara CP">
+							Implementation of file owner as well as populated drop downs
+							for each database attribute are still pending. 
+						  </p>
+						  <p id="B6D1P3" class="BodyPara BodyParaLast CP"><br> </p>
+					  </div><!--** End of B6D1 **-->
+					<p class="FixClear"></p>
+				  </div><!--** End of DivB6 **-->
+				  <!--*-->
+				  <!--** Block 4 - File Subsystem **-->
+				  <div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
+				  <!--*-->
+					<div id="B4D1" class="BodyParaLeft">
+					  <div id="B4C1" class="BodyParaRight CalloutBorder">
+						  <a id="B4C1A" href="../MdmWebPages/MdmDbUtilClass.shtml" class="CalloutContent CPA ">
+							  <span class="h4 CPA">Details</span>
+							<span id="B4C1AP1" class="CalloutContent CPP ">
+							<br><br>
+							</span>
+							<span id="B4C1AP2" class="CalloutContent CPP ">
+							View a conceptual diagram of the file subsystem.
+							<br><br> 
+							</span>
+						  </a>
+					  </div><!--** End of B4C1 *-->
+					  <h3 id="B4D1H1" class="BodyPara h3 cSd CPT">
+						File Subsystem<br>
+					</h3>
+					  <p id="B4D1P1" class="BodyPara BodyParaLast CP">
+					Handles SQL, Ascii, Binary and post-relational database files. 
+					Equipped with an auxillary connection. 
+					Comprehensive data format and schema transformation.
+					  </p>
+					</div><!--** End of B4D1 *-->
+					<p class="FixClear"></p>
+				  </div><!--** End of DivB4 *-->
+				  <!--*-->
+			</div><!--** End of DivB264 **-->
+			  <!--*-->
+			  <!--*-->
+			  <!--** Block 3 - The Project **-->
+			  <div id="DivB3" class="DivB3 BodyParaBox BorderThin BodyParaBoxBg">
+				<div id="B3D1" class="BodyParaLeft">
+				  <div id="B3C1" class="BodyParaRight CalloutBorder">
+					  <a id="B3C1A" href="#" class="CalloutContent CPA">
+						  <span id="B3C1A1" class="CPA">More...</span>
+						<span id="B3C1CPP1" class="CalloutContent CPP">
+							  Follow this link to the OSS Overview
+						</span>
+					  </a>
+				  </div><!--** End of B3C1 *-->
+				  <h3 id="B3D1H1" class="BodyPara cSd CPT">
+				The Project
+				</h3>
+				  <p id="B3D1P1" class="BodyPara CP">
+				The requirements for this project were that is first and
+				foremost produce the necessary classes that could be used
+				for any typical business application under .Net.  
+				  </p>
+				  <p id="B3D1P2" class="BodyPara CP">
+				Second, was the need to implement all of the relevant
+				features from the existing Axion / MDM OSS module in an
+				appropriate manner.  This would include a small number of
+				enhancements and changes opportune to endeavour.
+				  </p>
+				  <p id="B3D1P3" class="BodyPara CP">
+				Third, was a desire to implement a small set of 
+				language and string extensions and features not already 
+				existing in .Net. 
+				</p>
+				  <p id="B3D1P4" class="BodyPara CP">
+				Fourth involves a trip down the rabbit hole and a number
+				of issues. 
+				To deeply explore the effects and costs of deferring the 
+				creation of clean classes to save time early in the project. 
+				Transcription of classes and code from other environments.
+				The manual process of code conversion to C# with a view to
+				automated processes.
+				In general, an further evaluation of the requirements to 
+				create OO classes from platforms other than .Net.
+				</p>
+				  <p id="B3D1P5" class="BodyPara CP">
+				Six, a more pragmatic approach code conversion where
+				some determination would be made regarding implementing
+				the existing applicaitons under C#.  
+				This included the user interface, in particular maintenance 
+				and data entry forms as well as existing generated forms.
+				It also included file, database, transaction and distributed 
+				processing issues.
+				Last was comparison of web enabling existing applications 
+				versus the use of Silverlight under C#.
+				</p>
+				  <p id="B3D1P6" class="BodyPara BodyParaLast CP">
+				Finally, I was interested in exploring features of C# that
+				I was not properly familiar with in a hands on fashion.
+				In particular this included weak object types and introspection
+				but also included features such as LINQ, generics, WPF /
+				Silverlight, etc. 
+				<br /><br />
+				</p>
+			   </div><!--** End of B3D1 *-->
+				<p class="FixClear"></p>
+			</div><!--** End of B3 *-->
+			  <!--*-->
+			  <!--*-->
+			<p class="FixClear"></p>
+			<br><br>
+			<!--*-->
+			</div>
+			<!--** End of Body Main Center *-->
+     		<p class="FixClear"></p>
+          </div>
+          <!--*-->
+          <!--** End of Main Page Body BodyMainContainer *-->
+      </div>
+      <!--** End of Content Container BodyArea *-->
+      </div>
+      <!--*-->
+  </body>
+  <!--*-->
+  	<!--[if IE 6]>
+  	<style type="text/css">
+  	html { 
+  	overflow-y: hidden; 
+  	}
+  	body { 
+  	overflow-y: auto; 
+  	}
+  	#bg { 
+  	position:absolute; z-index:-1; 
+  	}
+  	#BodyArea { 
+  	position:static; 
+  	}
+  	</style>
+  	<![endif]-->
+  </html>

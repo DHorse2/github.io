@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+	<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+   <meta name="Author" content="David G. Horsman">
+   <title>Subscribe to the KBilgram</title>
+   <link rel="stylesheet" href="mdmstyle.css">
+   <link rel="stylesheet" href="kbclrs.css">
+<SCRIPT LANGUAGE = JavaScript>
+<!--
+function SubscribeClicked()
+{
+document.form1.subscribe.checked = true
+document.form1.unsubscribe.checked = false
+}
+
+function UnsubscribeClicked()
+{
+document.form1.subscribe.checked = false
+document.form1.unsubscribe.checked = true
+}
+
+function form1validate()
+{
+  if (form1.realname.value == ""){
+     alert("Please provide your name for us")
+  }
+  if (form1.username.value == ""){
+     alert("Please provide your email address")
+  }
+  if (form1.subscribe.value == "on"){
+     form1.subject.value = "subscribe"
+  }
+  if (form1.unsubscribe.value == "on"){
+     form1.subject.value = "unsubscribe"
+  }
+  if (form1.realname.value == "" || form1.username.value == ""){
+     return false
+  }
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY background=image8e.jpg topmargin=0>
+<!--***************-->
+<!--***************-->
+<center>
+<form action="http://www.uniserve.com/cgi-bin/formmail.pl" onsubmit="return form1validate()" method="POST" id=form1 name=form1>
+<input type="hidden" name="recipient" value="harvey_horsman@bc.sympatico.ca (KBilgram), gold_spec@sunshine.net (KBilgram)">
+<input type="hidden" name="redirect" value="http://users.uniserve.ca/~sn3280/macnames.htm">
+<input type="hidden" name="subject" value="KBilgram"> 
+<!--input type="hidden" name="required" value="realname,username"-->
+<!--input type="hidden" name="missing_fields_redirect" value="http://users.uniserve.ca/~sn3280/macerr.html"-->
+<!--*************-->
+<table CELLSPACING=0 cellpadding=4 width=100% border=0>
+<!--***************-->
+<!--***************-->
+<caption>
+<div Class="fPromo h4 cTc eI eB">
+Subscribe to the KBilgram
+<div>
+</caption>
+<!--***************-->
+<tr>
+<td colspan=2>
+KBilgrams are sent to our users to keep you 
+informed of news, changes and new features
+in KBil.
+<br>
+</td>
+</tr>
+<tr>
+<td width=35% align=right>
+*Your name: 
+</td>
+<td width=65%>
+<input type="text" name="realname" size=40 value="">
+</td>
+</tr>
+<!--**x***********-->
+<tr>
+<td width=35% align=right>
+*Company: 
+</td>
+<td width=65%>
+<input type="text" name="company" size=40 value="">
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td colspan=2>
+* indicates fields that are required.<br>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+*Your Email address: 
+</td>
+<td width=65%>
+<input type="text" name="username" size=40 value="">
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+Phone number & ext.: 
+</td>
+<td width=65%>
+<input type="text" name="userphone" size=40>
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=35% align=right>
+*Subscription:
+</td>
+<td width=65%>
+Subscribe 
+<input type="checkbox" checked name="subscribe" onclick="SubscribeClicked()" value="on">
+ Unsubscribe 
+<input type="checkbox" name="unsubscribe" onclick="UnsubscribeClicked()" value="on">
+</td>
+</tr>
+<!--***************-->
+<tr>
+<td width=100% align=center colspan=2>
+<input type="submit" name="SubmitButton" value="Submit">
+</td>
+</tr>
+<!--***************-->
+</form>
+<!--***************-->
+<!--***************-->
+</table>
+<!--***************-->
+<!--***************-->
+<!--***************-->
+</center>
+</BODY>
+</HTML>

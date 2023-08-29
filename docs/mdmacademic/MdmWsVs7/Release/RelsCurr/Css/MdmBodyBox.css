@@ -1,0 +1,328 @@
+/* MdmBodyBox */
+/* -- Body Divisions 3 Columns -- */
+/* -- 
+Left
+ Outer
+   Inner
+Center
+  Top
+    Main
+Right
+ Outer
+   Inner
+-- */
+
+/* Mdm Body Container CSS */
+#BodyMainContainer {
+/* Position */
+position:relative;
+/* Size */
+width:100%;
+min-height:650px;
+height:auto;
+/* Alignment */
+overflow-y:visible;
+}
+  
+#BodyMainContainerBg {
+/* Position */
+position:absolute;
+/* Size */
+width:1000px;
+min-height:650px;
+/* Background */
+background:#e1e2e5;
+/* for IE */
+filter:alpha(opacity=65);
+/* CSS3 standard */
+opacity:0.65;
+}
+  
+.BodyMainBorder {
+/* Border */
+border-top:5px solid #3e3d66;
+border-bottom:5px solid #3e3d66;
+}
+
+.BodyMainBorderTop {
+/* Border */
+border-top:5px solid #3e3d66;
+border-bottom:5px solid #3e3d66;
+}
+
+.BodyMainBorderSide {
+/* Border */
+border-left:5px solid #3e3d66;
+border-right:5px solid #3e3d66;
+}
+
+.BodyMainBorderBoxed {
+/* Border */
+border:5px solid #3e3d66;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+/* -- end -- */
+
+/* Mdm Body CENTER Container */
+
+#BodyMainCenter {
+/* Position */
+position:relative;
+top:0px;
+left:0px; 
+/* Size */
+width:60%; 
+height:inherit;
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+/* Alignment */
+overflow:auto;
+}
+
+#BodyMainCenterFixed {
+/* Position */
+position:absolute;
+top:0px;
+left:20%; 
+/* Size */
+width:60%; 
+height:inherit;
+/* Alignment */
+overflow:auto;
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+}
+/* -- end -- */
+       
+/* -------------------------------------------- */
+/* -- Generic Menu List  -- */
+.MenuList { }
+.MenuItem { }
+/* -- end -- */
+       
+/* -------------------------------------------- */
+/* Mdm Body LEFT Container */
+/* -- Container -- */
+
+#BodyMainLeft {
+/* Position */
+position:absolute;
+top:0%;
+left:0%; 
+/* Size */
+width:20%;
+height:100%;
+/* Alignment */
+overflow:hidden;
+}
+
+#BodyMainLeftOuter {
+/* Position */
+padding-left:10%;
+/* Size */
+width:90%;
+height:100%;
+/* Alignment */
+float:left;
+overflow:hidden; 
+/* Layering */
+z-index:20;
+/* Background */
+background:#ffffff url(../Images/SwirlsLeft.gif) repeat-y left top;
+}
+
+#BodyMainLeftInner {
+/* Position */
+/* Size */
+width:90%;
+height:100%;
+/* Alignment */
+float:right;
+padding-right:10%;
+margin-right:0px;
+overflow:hidden; 
+/* Layering */
+z-index:21;
+/* Background */
+background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
+}
+/* -- end -- */
+       
+/* -------------------------------------------- */
+/* Mdm Body LEFT Container */
+/* -- Styling -- */
+
+/* -- Column Styling -- */
+.LeftMenuContainer { position:relative; }
+
+.LeftColClass{
+/* Alignment */
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+/* Decoration */
+color: #EEE;
+/* Layering */
+}
+
+/* Headings and text */
+.LeftColHeading{
+/* Alignment */
+text-align:center;
+/* Border */
+border-bottom: 10px solid #000;
+border-top: 1px solid #000;
+border-left: 1px solid #000;
+border-right: 1px solid #000;
+}
+
+.LeftMenuContainer p { margin-bottom:0px; }
+
+/* -- Lists -- */
+.LeftMenuItem { }
+
+.LeftMenuList { }
+
+.LeftMenuContainer ul {
+/* Alignment */
+margin-left: 0px;
+margin-top: 0px;
+padding-left: 0px;
+/* Decoration */
+list-style-type: none;
+font-size:10pt;
+}
+
+/* -- Links -- */
+.LeftMenuContainer a {
+/* Alignment */
+display: block;
+/* Background */
+background-color: #036;
+/* Border */
+border-bottom: 1px solid #eee;
+border-left: 1px solid #000;
+border-right: 1px solid #000;
+/* Decoration */
+color: #EEE;
+text-decoration:none;
+}
+
+.LeftMenuContainer a:link, #navlist a:visited {
+/* Decoration */
+color: #EEE;
+text-decoration: none;
+}
+/* -- end -- */
+       
+/* -------------------------------------------- */
+/* Mdm Body RIGHT Container */
+/* -- Container -- */
+
+#BodyMainRight {
+/* Position */
+position:absolute;
+top:0px;
+left:80%; 
+/* Size */
+width:20%;
+height:100%;
+/* Alignment */
+overflow:hidden;
+}
+
+#BodyMainRightOuter {
+/* Position */
+/* Alignment */
+float:right;
+/* Size */
+width:100%;
+height:100%;
+/* Layering */
+z-index:20;
+/* Background */
+background:#ffffff url(../Images/SwirlsRight.gif) repeat-y right top;
+}
+
+#BodyMainRightInner {
+/* Position */
+/* Size */
+width:100%;
+height:100%;
+/* Alignment */
+float:left;
+/* Layering */
+z-index:21;
+/* Background */
+background:transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
+}
+
+.RightMenuContainer {
+/* Position */
+position:relative;
+/* Size */
+width: 200px;
+}
+/* -- end -- */
+       
+/* -------------------------------------------- */
+/* Mdm Body Right Menu */
+/* -- Styling -- */
+
+/* -- Column Styling -- */
+.RightColClass{ color: #EEE; }
+
+/* Headings and text */
+.RightColHeading{
+/* Size */
+width: 152px;
+/* Alignment */
+margin:0px 0px 0px 0px;
+padding: 3px 3px 3px 3px;
+text-align:center;
+/* Border */
+border-bottom: 10px solid #000;
+border-top: 1px solid #000;
+border-left: 1px solid #000;
+border-right: 1px solid #000;
+}
+
+/* -- Lists -- */
+.RightMenuItem { }
+
+.RightMenuList { }
+
+.RightMenuContainer ul {
+/* Alignment */
+margin-left: 0;
+margin-top: 0;
+padding-left: 0;
+list-style-type: none;
+/* Decoration */
+font-size:10pt;
+}
+
+/* -- Links -- */
+.RightMenuContainer a {
+/* Size */
+width: 157px;
+/* Alignment */
+text-decoration:none;
+display: block;
+padding: 3px 3px 3px 0px;
+/* Decoration */
+color: #EEE;
+/* Background */
+background-color: #036;
+/* Border */
+border-bottom: 1px solid #eee;
+}
+
+.RightMenuContainer a:link, #navlist a:visited {
+/* Decoration */
+color: #EEE;
+text-decoration: none;
+}
+/* -- end -- */
+       

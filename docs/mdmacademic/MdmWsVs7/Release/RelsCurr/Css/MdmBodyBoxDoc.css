@@ -1,0 +1,270 @@
+/* MdmBodyBox */
+/* Mdm Body Container CSS */
+#BodyArea{
+/* Position */
+position:relative;
+/* Size */
+/* Alignment */
+padding:25px;
+}
+
+#BodyMainContainer {
+/* Position */
+position:relative;
+top:0px;
+left:0px;
+/* Size */
+min-width:95%;
+max-width:1200px;
+padding:25px;
+/* */
+/*
+*/
+/* height:auto; */
+/* Background */
+background: url(../Images/TransparentBg30.png);
+/* Alignment */
+margin:auto;
+overflow:visible;
+}
+
+.BodyMainBorder {
+/* Border */
+border-width:7px;
+border:solid;
+border-color: #3e3d66;
+border-style:outset;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+}
+
+/* -- Centre Area-- */
+#BodyMainTop {
+/* Position */
+position:static;
+/* Size */
+min-width:600px; 
+min-height:60px;
+/* Alignment */
+text-align:center;
+}
+
+#BodyMainCenter {
+/* Position */
+position:static;
+/* Size */
+min-height:675px;
+max-height:1900px;
+/*
+min-height:70%;
+max-height:95%;
+*/
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+/* Alignment */
+margin:15px;
+}
+/* -- end -- */
+/* -- */
+/* ----------------- */  
+
+.DivB{
+/* Position */
+position:relative; 
+top:35px;
+left:20px;
+/* Size */
+height:125px;
+/* Alignment */
+}
+
+/* ------ Callout Paragram Popup ----------- */  
+.CPA{
+/* Position */
+/* Size */
+/* Alignment */
+}
+
+.CPP{ 
+/* Position */
+/* Size */
+/* Alignment */
+}
+
+.CPPImage{
+/* Alignment */
+ margin-left:-10px;
+ margin-top:5px;
+ padding: 0px 0px 5px 0px;
+ border:10px;
+}
+
+.CPPImageRight{
+/* Position */
+ position:absolute;
+/* Size */
+ top:0px;
+ left:0px;
+}
+
+.CPPImageLeft{
+/* Position */
+/* Size */
+/* Alignment */
+}
+
+/* ------ Callout Paragram ----------- */
+.CP{ 
+/* Position */
+/* Size */
+/* Alignment */
+}  
+
+/* NOT FIREFOX COMPATABLE - USE ID */
+#LinkId .CPP{
+display:none;
+}
+
+/* NOT FIREFOX COMPATABLE */
+#LinkId:hover .CPP{
+display:inline;
+}
+/* ----------------- */  
+/* ----------------- */  
+/* -- Body Paragraph Content -- */
+.BodyParaBoxOuter{
+/* Position */
+/* Size */
+/* Alignment */
+margin:auto;
+padding:10px 10px 10px 10px;
+/* Border */
+border-color:grey;
+/* Background */
+background:#F5FEFF;
+/* for IE */
+[if !Gecko] filter:alpha(opacity=65);
+/* CSS3 standard */
+[if !Gecko] opacity:0.65;
+}
+
+/* -- Body Paragraph Content -- */
+.BodyParaBox{
+/* Position */
+/* Size */
+width:250px;
+height:80%;
+/* Alignment */
+margin:auto;
+padding:10px 10px 10px 10px;
+border-color:grey;
+background:#F5FEFF;
+/* Background */
+/* for IE */
+[if !Gecko] filter:alpha(opacity=99);
+/* CSS3 standard */
+[if !Gecko] opacity:0.99;
+}
+
+.BodyParaBoxBg{
+/* Background */
+background:#F5FEFF;
+/* for IE */
+[if !Gecko] filter:alpha(opacity=65);
+/* CSS3 standard */
+[if !Gecko] opacity:0.65;
+}
+
+p.BodyAddrPara  {
+/* Alignment */
+padding:0px 15px 0px 15px;
+}
+
+.BodyAddrPara{
+/* Alignment */
+margin:0px 10px 0px 10px;
+/* Background */
+background:#F5FEFF;
+/* for IE */
+[if !Gecko] filter:alpha(opacity=100);
+/* CSS3 standard */
+[if !Gecko] opacity:1;
+}
+
+p.BodyPara  {
+/* Alignment */
+text-indent:20px;
+padding:0px 15px 5px 15px;
+}
+
+.BodyPara{
+/* Alignment */
+margin:0px 10px 0px 10px;
+/* Background */
+background:#F5FEFF;
+/* for IE */
+[if !Gecko] filter:alpha(opacity=100);
+/* CSS3 standard */
+[if !Gecko] opacity:1;
+}
+
+p.BodyPara  {
+/* Alignment */
+text-indent:20px;
+padding:0px 15px 5px 15px;
+}
+
+.BodyParaLeft{
+/* Alignment */
+float:left; 
+/* Background */
+background:none;
+/* for IE */
+[if !Gecko] filter:alpha(opacity=100);
+/* CSS3 standard */
+[if !Gecko] opacity:1.0;
+}
+
+.BodyParaRight{
+/* Alignment */
+float:right; 
+/* Background */
+background:none;
+/* for IE */
+[if !Gecko] filter:alpha(opacity=100);
+/* CSS3 standard */
+[if !Gecko] opacity:1.0;
+}
+
+/* -- Body Callouts -- */
+.CalloutContent{
+/* Alignment */
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+text-align:justify;
+z-index:15;
+}
+   
+.CalloutBorder{
+/* Border */
+border-style:solid;
+/* border-style:groove; */
+border-width:8px;
+/* border:solid; */
+border-color:#999933; /* cPcd */ 
+/* Border */
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+/* Background */
+background-color:#FFFFCC;
+/* Alignment */
+margin:0px 0px 0px 15px;
+padding:5px 5px 5px 5px;
+} 
+/* 0px 0px 0px 0px; */
+/* 5px 5px 5px 5px; */
+/* 10px 10px 10px 10px; */
+/* 15px 15px 15px 15px; */
+
+/* -- end -- */
+/* -- */

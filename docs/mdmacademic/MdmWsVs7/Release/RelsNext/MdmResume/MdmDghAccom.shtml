@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Mdm Page Template Wide -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmDghAccom.css" />
+    <title>Career Accomplishments for Dave Horsman</title>
+</head>
+<body id="MdmDbUtilClassBody" class="BodyBox">
+    <!--*-->
+    <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!--*-->
+        <div id="BodyMainContainer" class="BodyMainBorder">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!-- x -->
+<!-- x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+            </div>
+                <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!-- x -->
+                <!--*-->
+                <!--** Block 7 **-->
+   		<p class="FixClear"></p>
+                <div id="DivB7" class="DivB7 BodyParaBox BorderThin BodyParaBoxBg">
+                	<div id="B7D1" class="BodyParaLeft">
+                    <div id="B7C1" class="BodyParaRight CalloutBox CalloutBorder">
+                        <a id="B7C1A" href="#" class="CalloutContent CP">
+                            <span id="B7C1A1" class="h4 CPA">Completion <br>Status <br>Reports</span>
+							<span p id="B7C1CPP1" class="CalloutContent CPP">
+							<br>
+							Under Construction...
+							</span>
+                        </a>
+                    </div>
+                    <h3 id="B7D1H1" class="BodyPara h3 cSd">
+						Accomplishments for Dave Horsman
+					</h3>
+                    <h4 id="B7D1H2a" class="BodyPara h4">
+					Published Software Applications
+					</h4>
+					<ul class="BodyPara BodyList lNumbered ">
+					Author or co-author, major contributor of the following software applications:
+<li class="BodyListItem lNumbered ">K-Bil billing and customer care. (&rsquo;86-&rsquo;02, &rsquo;09-&rsquo;11)</li>
+<li class="BodyListItem lNumbered ">SMS broadcast customer care. (&rsquo;96-&rsquo;99, &rsquo;09-&rsquo;11)</li>
+<li class="BodyListItem lNumbered ">Mdm OSS.  (&rsquo;84-&rsquo;92)</li>
+<li class="BodyListItem lNumbered ">PKHarmony.  (&rsquo;86-&rsquo;92)  </li>
+<li class="BodyListItem lNumbered ">MacroDM Web and Document Standards (&rsquo;02, &rsquo;04, &rsquo;11)</li>
+<li class="BodyListItem lNumbered ">Mdm post-relational to SQL import utility (&rsquo;08-&rsquo;10)</li>
+<li class="BodyListItem lNumbered ">Minor VBA driven applications. (&rsquo;02-&rsquo;05)</li>
+<li class="BodyListItem lNumbered ">Property development & accounting. (&rsquo;82-&rsquo;85)</li>
+ 					</ul>
+                    <h4 id="B7D1H2b" class="BodyPara h4">
+					Applied Research and Development, other published applications
+					</h4>
+					<ul class="BodyPara BodyList lB0">
+					The following projects were note worthy due to their original technology:
+<li class="BodyListItem lNumbered ">SRT search & conversion tools. (&rsquo;88-&rsquo;91)</li>
+<li class="BodyListItem lNumbered ">Real-time context sensitive UI&rsquo;s. (&rsquo;84-85)</li>
+<li class="BodyListItem lNumbered ">PickTr smart communications. (&rsquo;87-&rsquo;91)</li>
+<li class="BodyListItem lNumbered ">Addressable communications. (&rsquo;93-&rsquo;96)</li>
+<li class="BodyListItem lNumbered ">OO standards for structured languages. (&rsquo;87-&rsquo;95)</li>
+<li class="BodyListItem lNumbered ">IDE and release management tools. (&rsquo;87-&rsquo;95)</li>
+<li class="BodyListItem lNumbered ">Extensive cognitive science research. (&rsquo;84-current)</li>
+<li class="BodyListItem lNumbered ">Mdm post-relational to SQL import utility (&rsquo;08-&rsquo;10)</li>
+<li class="BodyListItem lNumbered ">Accessibility technology. (&rsquo;91)</li>
+ 					</ul>
+                    <h4 id="B7D1H2c" class="BodyPara h4">
+					Industry Expertise
+					</h4>
+					<ul class="BodyPara BodyList lB0">
+					The applied the greatest focus to these industries:
+<li class="BodyListItem lNumbered ">Cable communications and broadcasting.</li>
+<li class="BodyListItem lNumbered ">Accounting and management reporting. Project accounting.</li>
+<li class="BodyListItem lNumbered ">Wholesale sales and distribution. Retail sales, POS.</li>
+<li class="BodyListItem lNumbered ">Computer system links, interfaces, data and funds transfer.</li>
+<li class="BodyListItem lNumbered ">Software developer IDE tools.</li>
+<li class="BodyListItem lNumbered ">Property management and development.</li>
+<li class="BodyListItem lNumbered ">Specialty Woodfibre.</li>
+<li class="BodyListItem lNumbered ">Artisans and artists.</li>
+ 					</ul>
+   					<p id="B7D1P1" class="BodyPara"></p>
+                	</div>
+   		<p class="FixClear"></p>
+                </div>
+   		<p class="FixClear"></p>
+                <!--** End of Block 7 **-->
+                <!--*-->
+                <!--*-->
+                <!--** Block 1 **-->
+                <!--*-->
+                <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+                <div id="DivD1" class="BodyParaRight">
+                    <div id="DivC4" class="BodyParaLeft CalloutBox CalloutBorder">
+                        <p id="C4P1" class="BodyCallout">
+						Business applications ranging<br>
+						from minimal to highly complex.<br>
+						Extensive effective original R&D.<br>
+						Reliable, cost effective solutions.
+                        </p>
+                    </div>
+                    <h3 id="D1H1Centre1" class="BodyPara cSd">
+                    20 years development experience.</h3>
+                    <p id="D1P1" class="BodyPara">
+					My work has been with small companies on a variety of business
+					applications.  It has also included a great deal of work on
+					communications, interfaces and development tools.
+                    </p>
+                    <p id="D1P2" class="BodyPara">
+					Pushing the envelope while maintaing stable applications
+					has been the rule.  Examples include pioneering IDE tools,
+					smart adaptive communications protocols, unique and fast
+					OLAP, real-time self-regulating user interfaces, cheap
+					and effective small business document/portfolio management 
+					systems.  Continous education is the norm in IT and I feel
+					this should be in combination with a partial effort in
+					research.
+                    </p>
+                    <p id="D1P2" class="BodyPara">
+					It is my hope to provide good service to a few clients and
+					hopefully make some new friends along the way.
+					<br><br>
+                    </p>
+                </div>
+				<br clear="all">
+                </div>
+   		<p class="FixClear"></p>
+                <!--*-->
+                <!--*-->
+                <div id="DivB3" class="DivB3 BodyParaBox BorderThin BodyParaBoxBg">
+                <div id="DivD3" class="BodyParaLeft">
+                    <div id="DivC3" class="BodyParaRight CalloutBox CalloutBorder">
+                        <p id="C3P1" class="BodyCallout">
+						Combining Projects for Efficiency.<br>
+						PC Document Management.<br> 
+						Industry Research.<br>
+						Resume Writing.<br>
+						Work Search.
+                        </p>
+                    </div>
+                    <h3 id="H3Centre1" class="BodyPara cSd">
+                        PC based Career Management<br>
+						(Document, Folder and Research Management)</h3>
+                    <p id="D3P1" class="BodyPara">
+					   	Upon arriving in Calgary in '08 I had fallen behind and needed to
+						not only do a great deal of IT indusrty research.
+						I also wanted to become more active on the web.
+                    </p>
+                    <p id="D3P2" class="BodyPara">
+						I also had a need for some filler/student work while upgrading 
+						so I decided (in my typical fashion,) to be effecient by achieving
+						more than one goal within a single project. 
+						That is, to combine using the research on the current IT industry with
+						desktop system / document management practices I had been using for IT 
+						technical and web clients.  Clearly a sensible additional goal would be
+						to obtain some basic work to live and study. 
+                    </p>
+                    <p id="D3P3" class="BodyPara">
+                        If you have arrived here to see my resume it can be found in the 
+						menus to the left.  
+						The other materail on this page is first intended to provide 
+						guidance to novices wanting to use their home systems for work search 
+						or internet research in general.
+						The second purpose is to provide some guidance on useful techniques
+						and potential pitfalls involved in reformatting documents between
+						various word processing and web formats.
+						<br><br>  
+                    </p>
+                </div>
+				<br clear="all">
+                </div>
+   		<p class="FixClear"></p>
+                <!--*-->
+                <!--*-->
+                <div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
+                <div id="DivD4" class="BodyParaRight">
+                    <div id="DivC4" class="BodyParaLeft CalloutBox CalloutBorder">
+                        <p id="C4P1" class="BodyCallout">
+						   Becoming a renaissance man.<br>
+                            From IT to log homes...<br>
+							Accounting to sales and marketing<br>  
+							Grean foresty to the arts...<br>
+							Landscape, Renovation and electrical...<br> 
+                        </p>
+                    </div>
+                    <h3 id="D4H1Centre1" class="BodyPara cSd">
+                        Broadening my skills and life experience</h3>
+                    <p id="D4P1" class="BodyPara">
+                        During the mid ninties I decided reduce my IT practive to a part time effort
+						and take the time to pursue other more rounded interests.  My favourite area
+						was without a doubt specialized light landscaping.  Renovations and electrical
+						were also both challenging, interesting and varied work.  Skills development and
+						variety were only one part of it though.  
+                    </p>
+                    <p id="D4P2" class="BodyPara">
+					    Ten years of small town life was wonderful and the work allowed me to make
+						some great bonds with people like Mark, Damir, and Nick to mention a few.
+						I also have a great debt of gratitude to Michael Vaughan for the chance to 
+						act as his business consultant but even more so for the wonderful 
+						work in specialty woods, artistic wood products and beautifully unique 
+						timber-frame homes.
+						<br><br>
+                    </p>
+                </div>
+				<br clear="all">
+                </div>
+   		<p class="FixClear"></p>
+                <!--*-->
+                <!--*-->
+                <div id="DivB5" class="DivB5 BodyParaBox BorderThin BodyParaBoxBg">
+                <div id="DivD5" class="BodyParaLeft">
+                    <div id="DivC5" class="BodyParaRight CalloutBox CalloutBorder">
+                        <p id="C5P1" class="BodyCallout">
+						Career management and search <br> 
+						is a great area to combinge <br>
+						writing skills and desktop <br>
+						document management.
+                        </p>
+                        <p id="C5P2" class="BodyCallout">
+    					A varied career helps by <br> 
+						creating an ocean of details <br>
+						to emphasise, relegate or omit. 
+                        </p>
+                    </div>
+                    <h3 id="D5H1Centre1" class="BodyPara cSd">
+                        Portfolio... free software and mentoring</h3>
+                    <p id="D5P1" class="BodyPara">
+					    In '08 I found myself in the uncomfortable position that my entire portfolio
+						very much consisted of other compainies' proprietary software.  
+						Good bragging rights but not something you can actually show anyone...  
+						In addition, the prototypes and incomplete study projects I did have 
+						available were not up to standards in my own view.
+						I decided that the main goals of my upgrading for C# and web enabling 
+						applications would have to include some significant work that I could 
+						distribute however I chose. 
+                    </p>
+                    <p id="D5P2" class="BodyPara">
+						As I add content to this site I will be including much of the work in the 
+						form of a portfolio.  
+						During this site construction phase please feel free 
+						to contact me if your needs are specialized enough to require one of the 
+						utilities that appear here.  
+						None are open source or in the form of downloadable installs at this time 
+						so just send me an email with any questions you might have.
+                    </p>
+                    <p id="D5P2" class="BodyPara">
+					The recent C# framework has been an enjoyable and productive effort.  
+					As part of the development process many different features and patterns
+					within .Net have gotten some attention.  Though not the fast way to complete
+					the project, it met all it's goals and was a great ride!  
+					It has moved forward but the original aim was research into conversion 
+					of multivalued applications to the .Net platform along with 
+					language virtualization and extension.
+					<br><br> 
+                    </p>
+                </div>
+				<br clear="all">
+                </div>
+                <!--*-->
+                <!--*-->
+			<!--** End of Body Main Center *-->
+			<p class="FixClear"></p>
+        </div>
+        <!--*-->
+        <!--** End of Main Page Body BodyMainContainer *-->
+    </div>
+    <!--** End of Content Container BodyArea *-->
+    </div>
+    <!--*-->
+</body>
+</html>

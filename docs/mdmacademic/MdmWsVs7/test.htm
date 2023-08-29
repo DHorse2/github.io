@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Sun, 01 May 2011 21:01:57 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<SCRIPT><!-- fnSetRotation function --> 
+//oObj input requires that a matrix filter be applied. 
+//deg input defines the requested angle of rotation.
+var deg2radians = Math.PI * 2 / 360;
+function fnSetRotation(oObj, deg)
+{    rad = deg * deg2radians ;
+    costheta = Math.cos(rad);
+    sintheta = Math.sin(rad);
+
+    oObj.filters.item(0).M11 = costheta;
+    oObj.filters.item(0).M12 = -sintheta;
+    oObj.filters.item(0).M21 = sintheta;
+    oObj.filters.item(0).M22 = costheta;
+
+}
+
+<!-- fnResize function --> 
+//oObj input requires that a matrix filter be applied. 
+//flMultiplier input defines the amount by which the oObj is resized.
+function fnResize(oObj, flMultiplier)
+{    oObj.filters.item(0).M11 *= flMultiplier;
+    oObj.filters.item(0).M12 *= flMultiplier;
+    oObj.filters.item(0).M21 *= flMultiplier;
+    oObj.filters.item(0).M22 *= flMultiplier;
+}
+
+
+var iCount = 400;
+<!-- fnSpin function --> 
+function fnSpin(oObj)
+{
+
+<!-- The function chosen for flMultiple defines size changes in the animation. -->
+	var flMultiple = iCount/720; 
+	iCount += 4;
+
+<!-- The number of 360-degree rotations is three. -->
+	if (iCount>=360*3)     {
+	oObj.onfilterchange = null;
+	}
+
+	fnSetRotation(oObj, iCount);
+	fnResize(oObj, flMultiple);
+}
+</SCRIPT>
+  </head>
+  <body>
+
+<!-- When loaded, the onfilterchange event is fired as the filter makes 
+its initial settings.  This starts the animation.-->
+<DIV ID="oDiv" STYLE="position:absolute; 
+	filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"
+		onfilterchange="fnSpin(this)"
+    onmouseover="fnSpin(this)" 
+    >
+	<DIV STYLE=" background-color: lightblue; padding:5;">
+	    SOME TEXT<BR/>
+	    SOME TEXT<BR/>
+	    SOME TEXT<BR/>
+	    SOME TEXT<BR/>
+	</DIV>
+</DIV>
+
+
+
+  </body>
+</html>

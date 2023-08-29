@@ -1,0 +1,117 @@
+/* Mdm Page Template Wide CSS */
+
+#MdmImportTldBody {  
+    width:203.0em;
+    height:170.0em;
+    padding: .5em;
+}
+
+#BodyMainContainer{
+   width:200.0em;
+   height:165.0em;
+}
+
+#BodyMainContainerBg{
+   width:200.0em;
+   height:165.0em;
+}
+
+/* ----------------- */  
+
+.DivB1{
+  position:absolute; 
+  top: 2.5em;
+  left: 2em;
+  height:18.5em;
+  z-index:2;
+}
+
+#B1D1P1{ 
+   border-bottom:1px solid black;
+}
+
+#B1C1A .CPP{
+   display:none;
+}
+
+#B1C1A:hover .CPP{
+   display:block;
+   z-index:1;
+}
+
+/* ----------------- */  
+
+.DivB2{
+  position:absolute; 
+  top: 2em;
+  left:45.0em;
+  height:16.5em;
+  z-index:3;
+}
+
+#B2D2P3{ 
+   border-bottom:1px solid black;
+}
+
+/* Callout Para Poup */
+#B2C1A { 
+  z-index:2;
+}
+
+#B2C1A .CPP{
+   display:none;
+}
+
+#B2C1A:hover .CPP{
+   display:block;
+}
+
+#B2C1Img1 {
+   position:absolute;
+   top: 0em;
+   left: 0em;
+   z-index:4;
+ }
+
+#B2C2A { 
+  z-index:1;
+}
+#B2C2A .CPP{
+   display:none;
+}
+
+#B2C2A:hover .CPP{
+   display:block;
+}
+
+
+/* ----------------- */  
+
+.DivB3{
+  position:absolute; 
+  top:27.0em;
+  left: 3.5em;
+  height:39.0em;
+  width:42.5em;
+  z-index:1;
+}
+
+#B3D1P4{ 
+   border-bottom:1px solid black;
+}
+
+#B3C1A .CPP{
+   display:none;
+}
+
+#B3C1A:hover .CPP{
+   display:block;
+   z-index:1;
+}
+
+/* ----------------- */  
+.DivP6{
+	   width:25.0em;
+}
+/* ----------------- */  
+

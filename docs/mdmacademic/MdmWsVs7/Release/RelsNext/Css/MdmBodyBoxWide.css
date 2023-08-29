@@ -1,0 +1,74 @@
+/* MdmBodyBox */
+/* Mdm Body Container CSS */
+/* -- Body Divisions 3 Columns -- */
+
+.BodyBox { }
+.BodyBg { }
+       
+#BodyMainContainer {
+/* Position */
+position:relative;
+top: 0em;
+left: 0em;
+/* Size */
+min-width:95%;
+max-width:200.0em;
+min-height:80.0em;
+height:auto;
+/* Background */
+background: url(../Images/TransparentBg30.png);
+/* Alignment */
+padding-right: 2.5em;
+padding-bottom: 2.5em;
+margin-left: 2.5em;
+margin-right: 2.5em;
+/* margin-bottom: 2.5em; */
+overflow:visible;
+}
+  
+#BodyMainContainer2 {
+/* Position */
+position:relative;
+/* Size */
+max-width:200.0em;
+min-height:20.0em;
+/* Background */
+background: url(../Images/TransparentBg30.png);
+/* Alignment */
+/* margin: 0em; */
+/* padding: 2.5em; */
+overflow:visible;
+}
+
+.BodyMainBorder {
+/* Border */
+border-width: 1.5em;
+border:solid;
+border-color: #3e3d66;
+-moz-border-radius: 1em;
+-webkit-border-radius: 1em;
+}
+/* -- end -- */
+
+/* -- Centre Area-- */
+#BodyMainTop { }
+
+#BodyMainCenter {
+/* Position */
+position:relative;
+top: 0em;
+left: 0em; 
+/* Size */
+/* height:95%; */
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+margin-left: 2.5em;
+margin-right: 2.5em;
+padding-bottom: 2.5em;
+margin-bottom: 2.5em;
+}
+
+.BodyMainCenterBg { background: url(../Images/TransparentWhiteBg50.png); }
+/* -- end -- */
+
+/* -------------------------------------------- */

@@ -1,27 +1,69 @@
 ﻿html,body
 {
-    padding: 0;
-    margin: 0;
+    padding: 10;
+    margin: 10;
     height: 100%;
 }
-
-body {
-    width: 540px;
+/* body {
+    width: 520px;
+} */
+p {
+    max-width: 450px;
+    word-wrap: normal;
 }
-
+img {
+    border: 10;
+    border: groove;
+}
+/* ------------------------------------ */
 .bodywidthmax {
-    max-width: 540px;
+    max-width: 720px;
 }
-
 .centered {
-    margin: auto;
     text-align: center;
+    align-items: center;
 }
 .bodycentered {
-    margin: auto;
+    align-items: center;
+    /* text-align: center; */
+    /* margin: auto; */
 }
-
-
+/* ------------------------------------ */
+.tablestd{
+    width: inherit;
+}
+.tdright td {
+    text-align: right;
+    border: groove;
+    width: 50%;
+}
+.tdleft td {
+    text-align: left;
+    border: groove;
+    width: 50%;
+}
+.tdcenter td {
+    text-align: center;
+    border: groove;
+    width: 80%;
+    column-span: all;
+}
+/* ------------------------------------ */
+.table1 {
+    width: 80%;
+    border: gray;
+}
+.table1tdLeft {
+    width: 20%;
+    border: gray;
+    margin-top: 0;
+}
+.table1tdright {
+    width: 80%;
+    border: gray;
+    margin-top: 0;
+}
+/* ------------------------------------ */
 .leftside div {
     width:auto;
     float: left;
@@ -33,17 +75,18 @@ body {
     text-align: right;
     justify-content: right;
 }
-
+/* ------------------------------------ */
 .DescTable { 
+    /* width: 50%; */
     text-align: start;
-    max-width: max-content; 
+    /* max-width: max-content;  */
     vertical-align: text-top;
     border: groove;
     border-block-color: darkslategrey;
     table-layout:auto;
 }
-
 .DescTableRowLine {
     float: left;
     grid-auto-rows:auto;
 }
+/* ------------------------------------ */

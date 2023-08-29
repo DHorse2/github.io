@@ -1,0 +1,446 @@
+#tButton
+{
+    COLOR: red;
+    FONT-FAMILY: Normal;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.1em;
+}
+#TxtBttns
+{
+    COLOR: red;
+    FONT-FAMILY: Normal;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.1em;
+}
+#fStandard
+{
+    COLOR: black;
+    FONT-FAMILY: 'Courier New', Courier, Arial, 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1em;
+    LIST-STYLE: lower-roman
+}
+#fNormal
+{
+    COLOR: black;
+    FONT-FAMILY: 'Courier New', Courier, Arial, 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1.4em;
+    LIST-STYLE: lower-roman
+}
+#fText
+{
+    COLOR: black;
+    LIST-STYLE: lower-roman;
+    MARGIN-TOP: .3em
+}
+#fPromo
+{
+    COLOR: navy;
+    FONT-FAMILY: cursive, Storybook, 'MS Sans Serif', 'Courier New';
+    FONT-SIZE: 1.2em;
+    LIST-STYLE: lower-roman inside
+}
+#fPromoBIcPd
+{
+    COLOR: #000000;
+    FONT-FAMILY: "Courier New", Courier, mono;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 1.2em;
+    list-style-type: lower-roman;
+; list-style-position: inside; clip:  rect(   )
+; font-variant: normal; line-height: normal
+}
+#fPromoIcPd
+{
+    COLOR: #000080;
+    FONT-FAMILY: cursive, Storybook, 'MS Sans Serif', 'Courier New';
+    FONT-STYLE: italic;
+    FONT-SIZE: 1.4em;
+    list-style-type: lower-roman;
+}
+#TxtClrs
+{
+    COLOR: #000080;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+    list-style-type: lower-roman;
+}
+#fPromoBIcP
+{
+    COLOR: #0000ff;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.1em;
+}
+#TxtClrs6
+{
+    COLOR: #0000ff;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.1em;
+}
+#TxtClrs1
+{
+    COLOR: #0000ff;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#fPromoBIcPl
+{
+    COLOR: #1e90ff;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#TxtClrs2
+{
+    COLOR: #1e90ff;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#fPromoBIcSd
+{
+    COLOR: #006400;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#TxtClrs3
+{
+    COLOR: #006400;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#fPromoBIcS
+{
+    COLOR: #008000;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#TxtClrs4
+{
+    COLOR: #008000;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#fPromoBIcSl
+{
+    COLOR: #556b2f;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#TxtClrs5
+{
+    COLOR: #556b2f;
+    FONT-FAMILY: Promo;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+}
+#fBlurb
+{
+    COLOR: blue;
+    LIST-STYLE: lower-roman
+}
+#fCode
+{
+    COLOR: black;
+    FONT-FAMILY: 'Times New Roman', 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1em;
+    LINE-HEIGHT: 1.1em;
+    LIST-STYLE: lower-roman
+}
+#fTiny
+{
+    COLOR: navy;
+    FONT-SIZE: 0.8em;
+    LIST-STYLE: lower-roman
+}
+#fDiploma
+{
+    COLOR: black;
+    FONT-FAMILY: Diploma, Storybook, OldCentury, Franciscan, Quill, Signature, Arial, 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1.4em;
+    LIST-STYLE: lower-roman
+}
+#fTest
+{
+    FONT-FAMILY: 'Windsor Lt BT';
+    LIST-STYLE: lower-roman
+}
+#H1
+{
+    FONT-SIZE:  3.6em
+}
+#H2
+{
+    FONT-SIZE:  3.2em
+}
+#H3
+{
+    COLOR: red;
+    FONT-FAMILY: cursive, Storybook, 'MS Sans Serif', 'Courier New';
+    FONT-STYLE: Italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE:  2.4em
+}
+#TxtH1
+{
+    COLOR: blue;
+    FONT-FAMILY: sans serif;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;
+} 
+#H4
+{
+    COLOR: red;
+    FONT-FAMILY: Times New Roman;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE:  2.4em;   
+}
+#TxtH2
+{
+    COLOR: red;
+    FONT-FAMILY: Times New Roman;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.4em;   
+}
+#H5
+{
+    FONT-SIZE: 2.0em
+}
+#H6
+{
+    FONT-SIZE: 1.6em
+}
+#Toc1
+{
+}
+#Toc2
+{
+}
+#Toc3
+{
+}
+#Toc4
+{
+}
+#Toc5
+{
+}
+#Toc6
+{
+}
+#Caption
+{
+    COLOR: firebrick
+    FONT-FAMILY: Arial;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.2em;
+}
+#TxtCpt
+{
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.2em;
+} 
+#Caption2
+{
+    COLOR: crimson
+}
+#Title
+{
+    COLOR: blue;
+    FONT-STYLE: Italic;
+    FONT-WEIGHT: Normal;
+    FONT-SIZE:  2.8em;
+}
+#TxtTtl1
+{
+    COLOR: blue;
+    FONT-STYLE: Italic;
+    FONT-WEIGHT: Normal;
+    FONT-SIZE:  2.8em;
+}
+#Title2
+{
+    COLOR: red;
+    FONT-STYLE: Italic;
+    FONT-WEIGHT: Normal;
+    FONT-SIZE:  2.4em;
+}
+#TxtTtl2
+{   
+    COLOR: red;
+    FONT-STYLE: Italic;
+    FONT-WEIGHT: Normal;
+    FONT-SIZE:  2.4em;
+}
+#Indent05
+{
+    MARGIN-LEFT: 0.5cm
+}
+#Indent10
+{
+    MARGIN-LEFT: 1cm
+}
+#Indent15
+{
+    MARGIN-LEFT: 1.5cm
+}
+#eB
+{
+    FONT-WEIGHT: bold
+}
+#eI
+{
+    FONT-STYLE: italic
+}
+#eU
+{
+    TEXT-DECORATION: underline
+}
+#eBI
+{
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold
+}
+#eBU
+{
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: underline
+}
+#eBIU
+{
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: underline
+}
+#eIU
+{
+    FONT-STYLE: italic;
+    TEXT-DECORATION: underline
+}
+#lB0
+{
+    LIST-STYLE: url(lb0bult.gif);
+    MARGIN-LEFT: 0em
+}
+#lB1
+{
+    list-style: URL(lb1bult.gif) outside;
+    color: blue;
+    font-weight: Bold;
+    font-style: italic;
+    font-size: 1.2em;
+}
+#lB2
+{
+    list-style: URL(lb2bult.gif) outside;
+    color: navy;
+    font-weight: Bold;
+    font-style: italic;
+    font-size: 1em;
+}
+#Blst1
+{
+    list-style: URL(lb1bult.gif) outside;
+    color: blue;
+    font-weight: Bold;
+    font-style: italic;
+    font-size: 1.2em;
+}
+#Blst2
+{
+    list-style: URL(lb2bult.gif) outside;
+    color: navy;
+    font-weight: Bold;
+    font-style: italic;
+    font-size: 1em;
+}
+#lRoman
+{
+    LIST-STYLE: upper-roman
+}
+#lNumbered
+{
+    LIST-STYLE: decimal
+}
+#lRomanLower
+{
+    LIST-STYLE: lower-roman
+}
+#f8
+{
+    FONT-SIZE: 0.8em
+}
+#f10
+{
+    FONT-SIZE: 1em
+}
+#f11
+{
+    FONT-SIZE: 1.1em
+}
+#f12
+{
+    FONT-SIZE: 1.2em
+}
+#f14
+{
+    FONT-SIZE: 1.4em
+}
+#f16
+{
+    FONT-SIZE: 1.6em
+}
+#f18
+{
+    FONT-SIZE: 1.8em
+}
+#f20
+{
+    FONT-SIZE: 2.0em
+}
+#f24
+{
+    FONT-SIZE:  2.4em
+}
+#f28
+{
+    FONT-SIZE:  2.8em
+}
+#f32
+{
+    FONT-SIZE:  3.2em
+}
+#f36
+{
+    FONT-SIZE:  3.6em
+}

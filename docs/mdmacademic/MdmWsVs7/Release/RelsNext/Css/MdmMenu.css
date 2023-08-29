@@ -1,0 +1,277 @@
+/* MdmMenu */
+/* ----------------------------------------------------------------------------- */
+/* -- View Bar -- */
+/* -------------------------------------------- */
+
+.BodyLayoutToggle { }
+.BodyConsoleToggle { }
+.BodyConsoleLog { }
+
+
+.ViewToggleBar { 
+/* Position */
+/* width: 12.0em; */
+width: 100%;
+/* Alignment */
+text-align: center;
+vertical-align:middle;
+/* Margin and Padding */
+margin: auto;
+padding:0%;
+}
+
+.ViewToggleBlockContainer { 
+/* Alignment */
+float: left;
+/* Margin and Padding */
+margin: 0em; 
+padding: 1px 1px 1px 1px; 
+/* Background */
+background-color:#000;
+}
+
+.ViewToggleBlockContainerOuter { 
+/* Alignment */
+float: left;
+/* Margin and Padding */
+margin: 0em; 
+padding: 0em; 
+}
+
+.ViewToggleBlockContainerOuterTop:hover { 
+/* Size */
+/* Border */
+border-left: .3em solid white;
+border-right: .4em solid white;
+}
+
+.ViewToggleBlockContainerOuterTopZero:hover {
+/* Size */
+height:100%;
+width:100%;
+/* Alignment */
+float: left;
+text-align: center;
+border-left: .3em solid black;
+border-right: .4em solid black;
+}
+
+
+.ViewToggleButton { 
+/* Alignment */
+float: left;
+text-align: center;
+/* Font */
+color: #EEE;
+/* Margin and Padding */
+padding:  .3em .2em  .3em .2em;
+margin: 1px 1px 1px 1px; 
+/* margin: 0em 0em 1px 1px; */
+/* Background */
+background-color: #036;
+/* Border */
+border: .2em outset #EEE;
+/* Decoration */
+text-decoration:none;
+}
+
+.ViewToggleButton:hover {
+/* Font */
+color: #036;
+/* Background */
+background-color:#EEE;
+/* Border */
+/* border-left: .4em inset #036; */
+/* border-right:.5em inset #036; */
+/* border-color:#036; */
+border: .2em inset blue;
+}
+
+.ViewToggleBlockLabel { 
+/* Margin and Padding */
+margin: 1px 1px 1px .2em; 
+}
+
+.ViewToggleBlock {
+/* Margin and Padding */
+margin: 1px 1px 1px .2em; 
+}
+
+.ViewToggleBlockEnd {
+
+}
+
+/* ----------------------------------------------------------------------------- */
+/* locations of toggle view */
+
+#BodyViewToggleContainerCenter {
+margin: 0em 0em 0em 1.5em;
+display:none;
+}
+
+#BodyViewToggleContainerLeft { 
+margin: .5em 0em 0em 0em;
+display:block;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* -- Menu -- */
+#MenuBar {
+/* Position */
+height: 3em;
+width: 56.0em;
+min-width:56.0em;
+overflow-x:visible;
+text-align: center;
+vertical-align:middle;
+/* Margin and Padding */
+margin:auto;
+padding:0%;
+}
+
+.MenuBlock{
+float: left;
+overflow-x:visible;
+text-align: center;
+padding:0%;
+margin:0%;
+}
+ 
+/* link */
+.MenuBlockLink {
+width: 20%;
+height: 100%;
+}
+
+/* unvisited link */
+a.MenuBlockLink:link {
+/* Background */
+background-image: url(../Images/MenuTile.jpg);
+background-repeat:repeat-x;
+}      
+/* -- Menu Links -- */
+/* visited link */
+a.MenuBlockLink:visited {
+background-image: url(../Images/MenuTile.jpg);
+}
+/* mouse over link */
+a.MenuBlockLink:hover {
+/* Background */
+background-image: url(../Images/HoverBg.jpg);
+}
+/* selected link */
+a.MenuBlockLink:active {
+background-image: url(../Images/MenuTile.jpg);
+}
+ 
+/* -- Menu Links -- */
+#MdmHomeLink{
+ }
+#MdmServicesLink{
+ }
+#MdmSwLink{
+ }
+#MdmProductLink{
+ }
+#MdmLinksLink{
+ }
+
+/* ----------------------------------------------------------------------------- */
+/* -------------------------------------------- */
+/* -- Menu Containter -- */
+/* -------------------------------------------- */
+.MenuContainer { 
+/* Size */
+/* width:157px; */
+width:inherit; 
+}
+
+.MenuContainer p { margin-bottom: 0em; }
+
+.MenuContainer ul {
+/* Alignment */
+margin-left: 0em;
+margin-top: 0em;
+padding-left: 0em;
+/* Decoration */
+list-style-type: none;
+font-size:1em;
+}
+
+/* -- Links -- */
+.MenuContainer div, .MenuContainer a, .MenuContainer span {
+/* Alignment */
+display: block;
+/* Background */
+background-color: #036;
+/* Border */
+border-bottom: 1px solid #eee;
+border-left: 1px solid #000;
+border-right: 1px solid #000;
+/* Decoration */
+color: #EEE;
+text-decoration:none;
+}
+
+.MenuContainer a:link, .MenuContainer a:visited, #navlist a:visited {
+/* Decoration */
+color: #EEE;
+text-decoration: none;
+}
+/* -------------------------------------------- */
+/* -- Menu Basic Column and Heading -- */
+/* -------------------------------------------- */
+.MenuColumnClass {
+/* Size */
+width:inherit; 
+/* width:15.0em; */
+/* Alignment */
+margin: 0em 0em 0em 0em;
+padding: 0em 0em 0em 0em;
+/* Decoration */
+color:#000;
+/* Layering */
+}
+
+/* Headings and text */
+.MenuColumnHeading{
+/* Alignment */
+margin-left: 0em;
+margin-top: 0em;
+text-align:center;
+/* Border */
+border-bottom: 1em solid #000;
+border-top: 1px solid #000;
+border-left: 1px solid #000;
+border-right: 1px solid #000;
+}
+
+.MchDark{
+/* Font */
+color: black;
+background-color:#EEE;
+}
+/* ----------------------------------------------------------------------------- */
+/* -------------------------------------------- */
+/* -- Generic Menu List  -- */
+/* -------------------------------------------- */
+.MenuList { }
+/* */
+.MenuItem { }
+/* -- Lists -- */
+.MenuListItem {
+font-size: 0.9em;
+text-align:center;
+}
+
+.MenuListItemLast{
+/* Border */
+border-bottom: .4em solid black;
+}
+
+.MenuListItem a:hover {
+/* Hover verrides font in class */
+background-color:#EEE;
+color: #036;
+}
+/* */

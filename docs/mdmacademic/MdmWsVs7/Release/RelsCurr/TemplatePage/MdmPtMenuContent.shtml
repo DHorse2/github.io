@@ -1,0 +1,39 @@
+                <!--** Menu Blocks **-->
+                <div id="MenuBar" class="BorderThin">
+                    <!--  class="MenuBlock -->
+                    <div id="MdmHomeLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" 
+						href="../MdmWebPages/MdmMain.shtml" 
+						alt="The MacroScope home page">Home </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmServicesLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" 
+						href="../MdmWebPages/MdmServ.shtml" 
+						alt="Services available from MacroScope">
+                            Services </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmSwLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" 
+						href="../MdmWebPages/MdmSw.shtml" 
+						alt="Software products offered by MacroScope">
+                            Software </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmProductLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" 
+						href="../MdmWebPages/MdmProd.shtml" 
+						alt="Products and merchandise available through MacroScope">
+                            Products </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmLinksLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" 
+						href="../MdmWebPages/MdmLink.shtml" 
+						alt="Friendly, helpful and interesting links">
+                            Other Links </a>
+                    </div>
+                    <!--*-->
+                </div>
+                <!--** End of Menu Blocks **-->

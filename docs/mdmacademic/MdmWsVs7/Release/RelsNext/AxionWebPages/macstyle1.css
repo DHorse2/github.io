@@ -1,0 +1,291 @@
+.fDropButton
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 0.8em;
+    LIST-STYLE: lower-roman;
+    font-weight: bold;
+    font-style: normal
+}
+.fStandard
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+    FONT-SIZE: 1.2em;
+    LIST-STYLE: lower-roman;
+    font-weight: bold
+}
+.fNormal
+{
+    COLOR: black;
+    FONT-FAMILY: 'Courier New', Courier, Arial, 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1.4em;
+    LIST-STYLE: lower-roman
+}
+.fText
+{
+    COLOR: black;
+    LIST-STYLE: lower-roman;
+    MARGIN-TOP: .3em
+}
+.fPromo
+{
+    COLOR: navy;
+    FONT-FAMILY: cursive, Storybook, 'MS Sans Serif', 'Courier New';
+    FONT-SIZE: 1.2em;
+    LIST-STYLE: lower-roman
+; font-weight: bold
+}
+.fBlurb
+{
+    COLOR: blue;
+    LIST-STYLE: lower-roman
+}
+.fCode
+{
+    COLOR: black;
+    FONT-FAMILY: 'Times New Roman', 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1em;
+    LINE-HEIGHT: 1.1em;
+    LIST-STYLE: lower-roman
+}
+.fTiny
+{
+    COLOR: navy;
+    FONT-SIZE: 0.8em;
+    LIST-STYLE: lower-roman
+}
+.fDiploma
+{
+    COLOR: black;
+    FONT-FAMILY: Diploma, Storybook, OldCentury, Franciscan, Quill, Signature, Arial, 'MS Sans Serif', 'MS Serif';
+    FONT-SIZE: 1.4em;
+    LIST-STYLE: lower-roman
+}
+.fTest
+{
+    FONT-FAMILY: 'Windsor Lt BT';
+    LIST-STYLE: lower-roman
+}
+.H1
+{
+    FONT-SIZE: 2.4em
+; font-style: normal; font-weight: bold; color: #00CCFF
+; font-family: "Lucida Handwriting", Garamond, "Book Antiqua"
+; text-align: center
+}
+.H2
+{
+    FONT-SIZE: 3.0em
+; color: #0000FF
+; font-style: normal; font-weight: normal; font-family: Georgia, "Times New Roman", Times, serif
+; text-align: center
+}
+.H3
+{
+    COLOR: #FF0000;
+    FONT-SIZE: 1.4em; font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: center
+}
+.H4
+{
+    COLOR: #FF0000;
+    FONT-SIZE: 1.4em
+; font-family: Georgia, "Times New Roman", Times, serif; font-style: italic
+; font-weight: bolder
+}
+.H5
+{
+    FONT-SIZE: 2.0em
+}
+.H6
+{
+    FONT-SIZE: 1.6em
+}
+.Toc1
+{
+}
+.Toc2
+{
+}
+.Toc3
+{
+}
+.Toc4
+{
+}
+#Toc5
+{
+}
+#Toc6
+{
+}
+.Caption
+{
+    COLOR: #000000; 
+    font-family: "Times New Roman", Times, serif; 
+    font-size: 1.2em; 
+    font-style: normal; 
+    font-weight: bold
+}
+.Caption2
+{
+    COLOR: #0000FF; 
+    font-family: "Lucida Handwriting", Garamond, "Book Antiqua"; 
+    font-size:  3.6em; 
+   font-style: italic;
+   font-weight: bold
+; text-align: center
+}
+.Title
+{
+    COLOR: #0099FF;
+    FONT-SIZE:  3.2em
+; font-weight: bold; font-style: italic
+; vertical-align: middle
+; text-align: center
+}
+.Title2
+{
+    COLOR: #FF0000;
+    FONT-SIZE: 1.6em
+; font-weight: bold
+; font-family: "Lucida Handwriting", Garamond, "Book Antiqua"; font-style: normal
+}
+.Indent05
+{
+    MARGIN-LEFT: 0.5cm
+}
+.Indent10
+{
+    MARGIN-LEFT: 1cm
+}
+.Indent15
+{
+    MARGIN-LEFT: 1.5cm
+}
+.eB
+{
+    FONT-WEIGHT: bold
+}
+.eI
+{
+    FONT-STYLE: italic
+}
+.eU
+{
+    TEXT-DECORATION: underline
+}
+.eBI
+{
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold
+}
+.eBU
+{
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: underline
+}
+.eBIU
+{
+    FONT-STYLE: italic;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: underline
+}
+.eIU
+{
+    FONT-STYLE: italic;
+    TEXT-DECORATION: underline
+}
+.lB0
+{
+    LIST-STYLE: url(lb0bult.gif) outside;
+    MARGIN-LEFT: 0em;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 1em;
+    line-height: 3em; 
+    margin-top: 0em;
+    top: 0em; 
+    left: 5em;
+}
+.lB1
+{
+    LIST-STYLE: url(lb1bult.gif) outside;
+    MARGIN-LEFT: 1cm
+}
+.lB2
+{
+    LIST-STYLE: url(lb2bult.gif) outside;
+    MARGIN-LEFT: 1.5cm
+}
+.lRoman
+{
+    LIST-STYLE: upper-roman
+}
+.lNumbered
+{
+    LIST-STYLE: decimal
+}
+.lRomanLower
+{
+    LIST-STYLE: lower-roman
+}
+.f8
+{
+    FONT-SIZE: 0.8em
+}
+.f10
+{
+    FONT-SIZE: 1em
+}
+.f11
+{
+    FONT-SIZE: 1.1em
+}
+.f12
+{
+    FONT-SIZE: 1.2em
+}
+.f14
+{
+    FONT-SIZE: 1.4em
+}
+.f16
+{
+    FONT-SIZE: 1.6em
+}
+.f18
+{
+    FONT-SIZE: 1.8em
+}
+.f20
+{
+    FONT-SIZE: 2.0em
+}
+.f24
+{
+    FONT-SIZE:  2.4em
+}
+.f28
+{
+    FONT-SIZE:  2.8em
+}
+.f32
+{
+    FONT-SIZE:  3.2em
+}
+.f36
+{
+    FONT-SIZE:  3.6em
+}
+.title3 {  font-family: "Lucida Handwriting", Garamond, "Book Antiqua"; font-size: 1.8em; font-weight: bolder; color: #FFFF00}
+.title4 {  font-size: 1.6em; font-weight: bolder; color: #FFFF00}
+.title5 {  font-size: 1.6em; font-weight: bolder; color: #FF0000; font-style: italic; text-align: center}
+.Caption3 {  font-family: Arial, Helvetica, sans-serif; font-size: 1.4em; font-weight: bold; color: #0000FF; text-align: center}
+.Caption4 {  text-align: center; vertical-align: middle}
+.Text1 {  font-family: Arial, Helvetica, sans-serif; font-size: 1.6em; font-style: italic; font-weight: bold; color: #000000; text-align: center}
+.Text2 {  font-family: Arial, Helvetica, sans-serif; font-size: 1.4em; font-style: italic; font-weight: bold; color: #FF0000; text-align: center; vertical-align: middle; text-transform: uppercase; line-height: normal; font-variant: normal}
+.Text3 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 2.0em; font-weight: bold; color: #0000FF; text-align: center; vertical-align: middle}
+.Text4 {  font-family: "Lucida Handwriting", Garamond, "Book Antiqua"; font-size: 1.4em; font-style: italic; font-weight: bold; color: #0000FF; text-align: left}
+.Text5 {  font-family: "Lucida Handwriting", Garamond, "Book Antiqua"; font-size: 1.2em; color: #0000FF; text-align: center}
+.Text6 {  font-family: Arial, Helvetica, sans-serif; font-size: 1.2em; color: #FF0000; text-align: center}
+.Text7 {  font-family: Arial, Helvetica, sans-serif; font-size: 1.2em; font-style: italic; font-weight: bold; color: #000000; text-align: left; vertical-align: text-bottom}

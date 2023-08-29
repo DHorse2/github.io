@@ -1,0 +1,245 @@
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1, h2
+	{color:black;
+	}	
+h1
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:20.0pt;
+	font-family:Arial;}
+h2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoEnvelopeReturn, li.MsoEnvelopeReturn, div.MsoEnvelopeReturn
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.Header2, li.Header2, div.Header2
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-style:italic;}
+p.Heading2JobPosition, li.Heading2JobPosition, div.Heading2JobPosition
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+p.Heading2JobPostionLine2, li.Heading2JobPostionLine2, div.Heading2JobPostionLine2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+p.Heading2JobPostionLine2CxSpFirst, li.Heading2JobPostionLine2CxSpFirst, div.Heading2JobPostionLine2CxSpFirst
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+p.Heading2JobPostionLine2CxSpMiddle, li.Heading2JobPostionLine2CxSpMiddle, div.Heading2JobPostionLine2CxSpMiddle
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+p.Heading2JobPostionLine2CxSpLast, li.Heading2JobPostionLine2CxSpLast, div.Heading2JobPostionLine2CxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+ /* Page Definitions */
+ @page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 89.85pt 72.0pt 89.85pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+
+h1, h2 { color:black; }	
+-->
+
+</style>
+
+
+<div class=Section1>
+
+<h1>Objective</h1>
+
+<p class=MsoNormal>I am looking to apply my extensive trades and customer
+service skills where I can of great value to both clients and the sales team.</p>
+
+<h1>Relevant Experience</h1>
+
+<h2>Highest quality customer service.</h2>
+
+<p class=MsoNormal>Direct sales to individual private clients of construction and
+landscape services..  Some retail experience..  Historical customer service,
+support, technical sales and marketing support.</p>
+
+<h2>Maintain positive relationships and develop new business.</h2>
+
+<p class=MsoNormal>Client consultations, project planning and reporting.. 
+Advise customers on methods, materials and purchasing..  Purchasing and
+expedition of materials..  Experience with Web based sales.</p>
+
+<h2>Professional and prompt telephone inquiries.</h2>
+
+<p class=MsoNormal>Extensive phone work handling inquiries and fielding
+questions from clients and prospects within specialized industries.</p>
+
+<h2>Knowledge of the products sold, usage and prices.</h2>
+
+<p class=MsoNormal>Strong skills in absorbing detailed information..  Broad and
+detailed hands-on industry experience performing renovations, electrical and light
+landscaping..  Small project purchasing and estimating.</p>
+
+<h2>Maintain up-to-date knowledge of new products on the market.</h2>
+
+<p class=MsoNormal>Long term interest in trends in materials and techniques
+combined with the ability to conduct in depth product research..  Able to work
+directly from material data sheets.</p>
+
+<h2>Provide information on use and care of merchandise.</h2>
+
+<p class=MsoNormal>Strong existing knowledge of most products used in home repair
+and improvement..  Knowledgeable in periodic maintenance of tools, equipment and
+property.</p>
+
+<h2>Maintain stock, displays and general housekeeping within store.</h2>
+
+<p class=MsoNormal>General high standards for product presentation and
+cleanliness..  Highly energetic and willing to perform <u>all</u> tasks a job
+involves.</p>
+
+<h2>Participate in training programs as required.</h2>
+
+<p class=MsoNormal>Interested in periodic training and new product knowledge.. 
+Generally proactive in independently researching new products and techniques.</p>
+
+<h2>Company procedures.</h2>
+
+<p class=MsoNormal>Excellent understanding of sales transactions, paperwork,
+refunds, back orders, credit memo’s and special orders..  Knowledgeable in
+promotional pricing, inventory control, sales order processing and general book
+keeping procedures.</p>
+
+<h1>Relevant Employment History</h1>
+
+<p class=Heading2JobPosition>Electical Subcontractor. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  Oct
+2001 - Apr 2008</p>
+
+<p class=Heading2JobPostionLine2>Addriatic Electric Ltd.</p>
+
+<p class=MsoNormal>Electrician apprentice role for a residential service
+company..  An additional focus on providing carpentry services..  Part-time /
+full-time role.</p>
+
+<p class=Heading2JobPosition>Renovations Subcontractor. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  Oct
+2001 - May 2004</p>
+
+<p class=Heading2JobPostionLine2CxSpFirst>Renaissance Renovations, Mark Stipek
+Construction, </p>
+
+<p class=Heading2JobPostionLine2CxSpLast>Bob Goodrich Construction.</p>
+
+<p class=MsoNormal>Subcontract and private client small scale renovations,
+repairs, and insurance contracts in a rural community market..  Carpenter’s
+helper..  Master landscape services.</p>
+
+<p class=Heading2JobPosition>Operations Contractor. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  May
+1996 - May 2009</p>
+
+<p class=Heading2JobPostionLine2>MDV Wood</p>
+
+<p class=MsoNormal>Provided varied hands-on assistance to this specialty woods
+company related to physical plant as well as being a frequent assistant.. 
+Business, production and marketing analysis, research and consultation.</p>
+
+<h1>Education</h1>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal>7 years apprenticeship training in electrical.</li>
+ <li class=MsoNormal>2 years work based training in carpentry.</li>
+ <li class=MsoNormal>Self instruction, review and advancement in algebra,
+     statistics, grammar, technical writing, accounting, marketing, linguistics,
+     colour theory, popular computer applications, total quality management,
+     systems analysis, cognitive science, Web technologies and computer
+     languages.</li>
+ <li class=MsoNormal>4 months training - MS Office Applications - CDI college
+     (1995)</li>
+ <li class=MsoNormal>Historical programming (IBM) and system analysis (BCIT)
+     and 3 years supervised self-instruction for software development.</li>
+</ul>
+
+</div>

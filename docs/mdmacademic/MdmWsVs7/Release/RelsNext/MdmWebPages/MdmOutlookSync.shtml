@@ -1,0 +1,186 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+  <!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+  <!-- Mdm Application Framework - (c)2011 David Horsman & Macroscope Design Matrix -->
+  <html>
+  <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+      <meta name="Author" content="David G. Horsman" />
+      <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+      <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
+      <link rel="stylesheet" type="text/css" href="../Css/MdmOutlookSync.css" />
+      <title>Outlook Folder Synchronization to Disk</title>
+  </head>
+  <body id="MdmImportTldBody" class="BodyBox">
+      <!--*-->
+      <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
+      <!--*-->
+      <!--** Body Area **-->
+      <div id="BodyArea" class="BodyAreaClass">
+          <!--*-->
+          <div id="BodyMainContainer" class="BodyMainBorder BodyMainContainer">
+              <!--** Center Main Column **-->
+              <div id="BodyMainTop">
+                  <!-- x -->
+  <!-- x -->
+  <!--** Menu Blocks **-->
+  <!--#include virtual="../../RelsBuildStage.shtml"-->
+  <!--#if expr="${RelsBuild}=RelsNext" -->
+      <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+  <!--#elif expr="${RelsBuild}=RelsCurr" -->
+      <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+  <!--#else -->
+      <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+      <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+  <!--#endif -->
+  <!--*-->
+              </div>
+                  <!--*-->
+              <!--** Center Main Column **-->
+              <div id="BodyMainCenter" class="BorderThin">
+                  <!-- x -->
+                  <!--** Content Blocks **-->
+                  <!-- x -->
+                  <!--** Block 1 **-->
+                  <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+                  	<div id="B1D1" class="BodyParaLeft">
+                          <h3 id="B1D1H1" class="BodyPara cSd CPT">
+						  Outlook Folder Synchronization to Disk
+      					</h3>
+                          <p id="B1D1P1" class="BodyPara aLeft CP">
+						  There are a number of more obscure issues involved with Outlook.  
+						  Like many applications it uses one or more large database files for storage.
+						  
+						  Thus a duplicate though often differnt
+						  folder structure is create both on disk and in Outlook itself.
+						  <br /><br />
+						  A second more widespread issue is that when searching the
+						  system you must perform one search on disk and a separate search
+						  using Outlook.  
+						  Our document management standard required certain types of documents
+						  for specific folders to be present in the directory either as an original or a link.
+						  </p>
+                          <p id="B1D1P2" class="BodyPara aLeft CP">
+						  This outlook project allows the user to specify a root directory
+						  on disk for each root directory in Outlook.  
+						  Any changes made to Outlooks folders is reflected in the underlying
+						  disk folders. 
+						  </p>
+                          <p id="B1D1P3" class="BodyPara aLeft CP">
+						  This raises the question of if a users wants all email and attachments
+						  to be both searchable and accessible under Windows.  
+						  The alternative used here to indicate what email and documents should 
+						  be duplicated in the file system. 
+						  </p>
+                          <h3 id="B1D1H2" class="BodyPara cSd CPT">
+						  <br>
+						  Expected Usage
+        				  </h3>
+                          <p id="B1D1P4" class="BodyPara aLeft CP">
+						  The first release of this add-on restricts itself to duplicating the 
+						  folder structure.
+						  It is left to the user to do a save on email and attachements that 
+						  are important enough.
+						  My own preference is to save it all automatically.  
+						  However that in turn requires being able to exclude any or each 
+						  folder(s) from save.
+						  </p>
+                          <p id="B1D1P5" class="BodyPara aLeft CP">
+						  My own internal policy requires shared and consistent directory structures.
+						  Where they are indeed shared this would be ideal.  
+						  More often, there is a dual approach being used, and this is consistent in
+						  systems, user software, and programs such as Outlook.
+						  There is one very flat set of folders to oranize a company, area or subject.
+						  There is also a comparatively deep folder structure that defines the area 
+						  hierarchically, organizationally and subjectively. 
+						  </p>
+                          <p id="B1D1P6" class="BodyPara aLeft CP">
+						  Again for myself, this is dual structure is quite acceptable and even    
+						  encouraged. However, I additionally include a requirement for adding 
+						  numerous links or shortcuts in order to allow navigation between the two easily.  
+						  Flat vs. hierarchical are both valid and very useful organizational styles 
+						  that should be employed dynamically and as needed.
+						  This is similar to keeping an independent set of mirrowed Outlook folders somewhere 
+						  in the subject directory.  For example, in a folder called MailFolders. 
+						  </p>
+                          <p id="B1D1P7" class="BodyPara aLeft CP">
+                          </p>
+                  	<div id="B1D2" class="BodyParaRight CalloutBorder">
+                          <p id="B1D2P1" class="BodyPara aLeft CP">
+						  I find the VBA environment to be quite useful. 
+						  The workflow related and custom
+						  fields and features of Office and in this particular, Outlook are
+						  fairly powerful.
+                          </p>
+                          <p id="B1D2P5" class="BodyPara aLeft CP">
+						  Customized forms seem an under utilized resource as well.  
+						  A case in point,  
+						  you will freqently see departments codifying data into form 
+						  text fields informally, where it is self-evident that a properly
+						  defined field would be far more appropriate. 
+						  The simplest and most common example putting the correct keyword
+						  in a reply subject line.
+      					 <br /><br />
+                          </p>
+                    </div>
+                  	<!--*-->
+						  <h3 id="B1D2H3" class="BodyPara cSd CPT">
+  						  The Project
+  						  </h3>
+                          <p id="B1D1P8" class="BodyPara aLeft CP">
+		  				  This was evaluative project and self-contained so there is no fee wanted for
+						  this code just registration.
+						  I would probably want to clean up the code before or with a client-user.  I am
+						  definitely planning to use it myself. 
+                          </p>
+                          <p id="B1D1P9" class="BodyPara aLeft CP">
+						  Although there is lots of room for developing with VBA this project was just
+						  part of larger volume of work in scripting technologies and time management.
+						  With a goal towards document transparency you are ideally looking 
+						  to expose both the data and better still the application model.  I find the
+						  combination of Windows (shell) and Office scripting fairly powerfull.
+      					  <br /><br />
+                          </p>
+                          <p id="B1D1P10" class="BodyPara aLeft CP">
+      					  <br /><br />
+                          </p>
+                  	</div>
+                  	<!--*-->
+      		<p class="FixClear"></p>
+                  <!--*-->
+                  <!--*-->
+              </div>
+          <!--** End of Body Main Center *-->
+     		<p class="FixClear"></p>
+          </div>
+          <!--*-->
+          <!--** End of Main Page Body BodyMainContainer *-->
+      </div>
+      <!--** End of Content Container BodyArea *-->
+      </div>
+      <!--*-->
+  </body>
+  <!--*-->
+  	<!--[if IE 6]>
+  	<style type="text/css">
+  	html { 
+  	overflow-y: hidden; 
+  	}
+  	body { 
+  	overflow-y: auto; 
+  	}
+  	#bg { 
+  	position:absolute; z-index:-1; 
+  	}
+  	#BodyArea { 
+  	position:static; 
+  	}
+  	</style>
+  	<![endif]-->
+  </html>

@@ -1,0 +1,116 @@
+/* Body Paragraph Styling and Floating */
+
+/* -- Styling - Specific Instances -- */
+#DivC1{
+margin-top:5px;
+}
+
+/* -------------------------------------------- */
+/* -- Body Paragraph Content -- */
+.BodyParaBox{
+/* Position */
+position:absolute;
+top:45px;
+/* Size */
+width:100%;
+/* Alignment */
+text-align:left; 
+float:none;
+}
+
+.BodyPara{
+padding-top:0em;
+padding-left:1em;
+padding-right:1em;
+}
+
+/* -- Floats -- */
+.BodyParaLeft{
+float:left; 
+z-index:20;
+}
+
+.BodyParaRight{
+float:right; 
+z-index:20;
+}
+/* -- end -- */
+
+/* -------------------------------------------- */
+/* -- Body Callouts Container -- */
+.CalloutContent{
+margin:0px 10px 5px 5px;
+z-index:21;
+}
+
+.CalloutBorder{
+/* Border */
+border-style:solid;
+/* border-style:groove; */
+border-width:8px;
+/* border:solid; */
+border-color:#999933; /* cPcd */ 
+/* Background */
+background-color:#CC9866;
+text-indent:-0.75em;
+margin:0px 10px 0px 10px;
+padding-left:1em;
+/* Border */
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+} 
+
+/* -- Callout Block -- */  
+.DivB{
+  position:absolute; 
+  top:35px;
+  left:20px;
+  height:125px;
+}
+
+/* -- end -- */
+
+/* ------ Callout Syling ----------- */  
+/* -- Callout Paragraph -- */  
+.CP{ 
+}  
+
+/* -- Callout Link -- */  
+.CPA{
+}
+
+/* NOT FIREFOX COMPATABLE - USE ID */
+#LinkId .CPP{
+   display:none;
+}
+
+/* NOT FIREFOX COMPATABLE */
+#LinkId:hover .CPP{
+   display:inline;
+}
+
+/* -- Callout Paragraph Popup -- */  
+.CPP{ 
+}
+
+/* -- Callout Image Popup -- */  
+.CPPImage{
+   margin-left:-10px;
+   margin-top:5px;
+   padding: 0px 0px 5px 0px;
+   border:10px;
+}
+
+.CPPImageRight{
+   position:absolute;
+   top:0px;
+   left:0px;
+   z-index:4;
+}
+
+.CPPImageLeft{
+}
+
+/* ----------------- */  
+
+
