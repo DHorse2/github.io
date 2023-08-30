@@ -51,16 +51,34 @@ img {
 /* ------------------------------------ */
 .table1 {
     width: 80%;
-    border: gray;
+    /* border: gray; */
 }
 .table1tdLeft {
     width: 20%;
-    border: gray;
+    border: 0;
     margin-top: 0;
 }
 .table1tdright {
     width: 80%;
-    border: gray;
+    border: 0;
+    margin-top: 0;
+}
+.table2 {
+    width: 80%;
+    border: groove;
+    border-block-color: lightblue;
+    /* border: gray; */
+}
+.table2tdLeft {
+    width: 20%;
+    border: groove;
+    border-block-color: lightgray;
+    margin-top: 0;
+}
+.table2tdright {
+    width: 80%;
+    border: groove;
+    border-block-color: lightgray;
     margin-top: 0;
 }
 /* ------------------------------------ */
@@ -81,8 +99,8 @@ img {
     text-align: start;
     /* max-width: max-content;  */
     vertical-align: text-top;
-    border: groove;
-    border-block-color: darkslategrey;
+    /* border: groove;
+    border-block-color: darkslategrey; */
     table-layout:auto;
 }
 .DescTableRowLine {
