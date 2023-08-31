@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"derive":["Deserialize_enum","Name","Serialize_enum","VariantName"],"fn":["main"],"mod":["clip_form","clip_util","stdmd"]};

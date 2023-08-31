@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["type_is_equal","type_name_from_id","type_name_of","type_name_of_val","type_of_val"],"mod":["range","sequence","type_form","type_format"],"trait":["NamedAny"]};

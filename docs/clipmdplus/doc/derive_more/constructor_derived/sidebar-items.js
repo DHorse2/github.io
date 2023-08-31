@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["expand","struct_body","tuple_body"]};

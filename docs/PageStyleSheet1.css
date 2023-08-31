@@ -4,9 +4,9 @@
     margin: 10;
     height: 100%;
 }
-/* body {
-    width: 520px;
-} */
+body {
+    width: 600px;
+}
 p {
     max-width: 450px;
     word-wrap: normal;
@@ -14,6 +14,11 @@ p {
 img {
     border: 10;
     border: groove;
+}
+/* ------------------------------------ */
+.picsmall {
+    size: 150px;
+    max-width: 250px;
 }
 /* ------------------------------------ */
 .bodywidthmax {
@@ -26,21 +31,27 @@ img {
 .bodycentered {
     align-items: center;
     /* text-align: center; */
-    /* margin: auto; */
+    margin: auto;
+    align-content: center;
+    align-items: center;
+    align-self: center;    
 }
 /* ------------------------------------ */
 .tablestd{
     width: inherit;
+    margin: 20px;
 }
 .tdright td {
     text-align: right;
     border: groove;
     width: 50%;
+    margin: 20px;
 }
 .tdleft td {
     text-align: left;
     border: groove;
     width: 50%;
+    margin: 20px;
 }
 .tdcenter td {
     text-align: center;

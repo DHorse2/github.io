@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["generics_and_exprs"]};
