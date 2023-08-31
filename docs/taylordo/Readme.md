@@ -34,13 +34,13 @@ HTM School is a series of educational videos created by former Numenta Open Sour
 
 This series was designed for a general audience to be viewed in order, but feel free to jump into any episode. There is no need to have a background in neuroscience, mathematics, or computer science to understand HTM Theory. For those of you wanting more detailed resources on this subject, please have a look at Numenta’s technical papers.
 
-[![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg)](https://digitalocean.com)
-
 [Thoughts on Matt from the HTM community](https://discourse.numenta.org/t/message-from-numenta-ceo-donna-dubinsky-regarding-matt-taylor/7524)
 
 [![Thumbnail of Matt on YouTube](../Resources/Page/HTM_School_Ep5_Thumbnail_YouTube_hqdefault.png "HTM School with Matt on YouTube.")](href="https://www.youtube.com/c/NumentaTheory")
 
+
 [Matt was also active on Twitch](https://www.twitch.tv/rhyolight_/videos?filter=all&sort=time)
+
 His Rhyolight website is no longer available.
 ___
 ## Remembering Matt at Numenta
