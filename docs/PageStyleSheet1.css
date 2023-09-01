@@ -137,14 +137,13 @@ piccol {
 }
 /* ------------------------------------ */
 /* Source: https://www.w3schools.com/howto/howto_js_image_zoom.asp */
-* {box-sizing: border-box;}
 
+* {box-sizing: border-box;}
 .img-zoom-container {
   position: relative;
   /* width: 15em; */
   height: fit-content;
 }
-
 .img-zoom-lens {
     position: absolute;
     /* border: 1em solid #d4d4d4; */
@@ -155,15 +154,14 @@ piccol {
     width: 100px;
     height: 100px;
 }
-
 .img-zoom-result {
     position: absolute;
     border: 1em groove lightblue;
     /*set the size of the result div:*/
     /* width: 300px; */
     /* height: 300px; */
-    width: 80em;
-    height: 80em;
+    width: 200em;
+    height: 200em;
     /* width: auto; */
     /* width: inherit; */
 }
