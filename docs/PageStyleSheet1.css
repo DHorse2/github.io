@@ -8,7 +8,7 @@ body {
     width: 600px;
 }
 p {
-    max-width: 450px;
+    max-width: inherit;
     word-wrap: normal;
 }
 img {
@@ -20,7 +20,10 @@ img {
     size: 150px;
     max-width: 250px;
 }
-/* ------------------------------------ */
+.pictiny {
+    size: 50px;
+    max-width: 150px;
+}/* ------------------------------------ */
 .bodywidthmax {
     max-width: 720px;
 }
@@ -37,27 +40,36 @@ img {
     align-self: center;    
 }
 /* ------------------------------------ */
-.tablestd{
+.tablestd {
     width: inherit;
-    margin: 20px;
+    margin: 1em;
+    border: medium groove;
+    border-color: lightblue;
 }
-.tdright td {
-    text-align: right;
-    border: groove;
+.tdleft {
+    /* text-align: left; */
+    border: thick groove;
+    border-color: lightblue;
     width: 50%;
-    margin: 20px;
+    /* height: fit-content; */
+    margin: 1em;
 }
-.tdleft td {
-    text-align: left;
-    border: groove;
+.tdright {
+    /* text-align: left; */
+    border: thick groove;
+    border-color: lightblue;
     width: 50%;
-    margin: 20px;
+    /* height: fit-content; */
+    margin: 1em;
 }
-.tdcenter td {
+.tdcenter {
     text-align: center;
+    /* align-content: center; */
     border: groove;
-    width: 80%;
+    width: 90%;
     column-span: all;
+    height: fit-content;
+    margin: 1em;
 }
 /* ------------------------------------ */
 .table1 {
@@ -107,15 +119,56 @@ img {
 /* ------------------------------------ */
 .DescTable { 
     /* width: 50%; */
-    text-align: start;
+    /* text-align: start; */
     /* max-width: max-content;  */
     vertical-align: text-top;
     /* border: groove;
     border-block-color: darkslategrey; */
-    table-layout:auto;
+    /* table-layout:auto; */
 }
 .DescTableRowLine {
     float: left;
     grid-auto-rows:auto;
+}
+/* ------------------------------------ */
+/* Source: https://www.w3schools.com/howto/howto_js_image_zoom.asp */
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+  /* width: 15em; */
+  height: fit-content;
+}
+
+.img-zoom-lens {
+    position: absolute;
+    /* border: 1em solid #d4d4d4; */
+    /*set the size of the lens:*/
+    /* width: auto; */
+    /* width: 35em; */
+    /* height: 50em; */
+    width: 100px;
+    height: 100px;
+}
+
+.img-zoom-result {
+    position: absolute;
+    border: 1em groove lightblue;
+    /*set the size of the result div:*/
+    /* width: 300px; */
+    /* height: 300px; */
+    width: 60em;
+    height: 70em;
+    /* width: auto; */
+    /* width: inherit; */
+}
+.img-zoom-result-container {
+    position: absolute;
+    /* float: left; */
+    /* float: right; */
+    /* top: 5em; */
+    /* right: 200px; */
+    /* height: auto; */
+    z-index: 900;
 }
 /* ------------------------------------ */

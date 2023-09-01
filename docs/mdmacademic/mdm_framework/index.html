@@ -1,39 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MacroDm - Mdm Win Link - David G Horsman projects.</title>
-    <link rel="stylesheet" type="text/css" href="..\PageStyleSheet1.css">
+    <title>MacroDm - Mdm Framework<br>David G Horsman projects.</title>
+    <link rel="stylesheet" type="text/css" href="..\..\PageStyleSheet1.css">
+    <script>
+        function imageZoom(imgID, resultId, resultIdBox ) {
+            var img, lens, result, cx, cy;
+            img = document.getElementById(imgID);
+            result = document.getElementById(resultId);
+            resultBox = document.getElementById(resultIdBox);
+            /* Create lens: */
+            lens = document.createElement("DIV");
+            lens.setAttribute("class", "img-zoom-lens img-zoom-result-container");
+            /* Insert lens: */
+            img.parentElement.insertBefore(lens, img);
+            parX = img.parentElement.offsetWidth;
+            parY = img.parentElement.offsetHeight;
 
+            /* Calculate the ratio between result DIV and lens: */
+            cx = result.offsetWidth / lens.offsetWidth;
+            cy = result.offsetHeight / lens.offsetHeight;
+
+            /* Set background properties for the result DIV */
+            result.style.backgroundImage = "url('" + img.src + "')";
+            result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+
+            /* Execute a function when someone moves the cursor over the image, or the lens: */
+            lens.addEventListener("mousemove", moveLens);
+            img.addEventListener("mousemove", moveLens);
+            /* And also for touch screens: */
+            lens.addEventListener("touchmove", moveLens);
+            img.addEventListener("touchmove", moveLens);
+            
+            function moveLens(e) {
+                var pos, x, y;
+                /* Prevent any other actions that may occur when moving over the image */
+                e.preventDefault();
+                /* Get the cursor's x and y positions: */
+                pos = getCursorPos(e);
+            
+                /* Calculate the position of the lens: */
+                x = pos.x - (lens.offsetWidth / 2);
+                y = pos.y - (lens.offsetHeight / 2);
+
+                xBox = e.pageX + img.width;
+                yBox = e.pageY;
+            
+                /* Prevent the lens from being positioned outside the image: */
+                if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+                if (x < 0) {x = 0;}
+                if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+                if (y < 0) {y = 0;}
+
+                /* Set the position of the lens: */
+                // lens.style.left = x + "px";
+                // lens.style.top = y + "px";
+
+                /* Display what the lens "sees": */
+                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+                result.style.left = xBox + "px";
+                result.style.top = yBox + "px";
+                resultBox.style.left = xBox + "px";
+                resultBox.style.top = yBox + "px";
+            }
+            
+            function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /* Get the x and y positions of the image: */
+                a = img.getBoundingClientRect();
+                /* Calculate the cursor's x and y coordinates, relative to the image: */
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /* Consider any page scrolling: */
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return {x : x, y : y};
+            }
+        } 
+    </script>
 </head>
 <body class="bodycentered">
-    <div class="bodywidthmax">
-        <h1 class="centered" id="MacroDm-DavidGHorsmanj-projects">MacroDm - Mdm Win Link - David G Horsman projects</h1>
+    <div class="bodycentered bodywidthmax">
+        <h1 class="centered" id="MacroDm-DavidGHorsmanj-projects">MacroDm - Mdm Framework - David G Horsman projects</h1>
         <!-- <div class="centered"> -->
-            <table class="table1 DescTable">
-                <tbody class="table1 DescTable">
-                <tr>
+            <table class="tablestd DescTable">
+                <tbody class="DescTable">
+                <tr class="">
                     <td class="tdleft DescTable">
-                        <a href="https:TaylorDo/index.html"><strong>TaylorDo Disk Optimizer.</strong></a>
+                        <!-- <a href="https:TaylorDo/index.html"><strong>TaylorDo Disk Optimizer.</strong></a> -->
+                        <p><span>Back to </span><a href="../../../index.html"><strong>Home</strong></a></p>
                     </td>
-                </tr>
-                <tr>
                     <td class="tdright DescTable">
-                        <a href="https:clipmdplus/index.html"><strong>Clipboard Md Plus.</strong></a>
+                        <!-- <a href="https:clipmdplus/index.html"><strong>Clipboard Md Plus.</strong></a> -->
                     </td>
                 </tr>
-                <tr>
-                    <td class="tdright DescTable">
-                        <a href="https:mdmacademic/index.html"><strong>Academic, protypes and research.</strong></a>
+                <tr class="tablestd">
+                    <td class="tdleft">
+                        <!-- <a href="https:mdmacademic/index.html"><strong>Academic, protypes and research.</strong></a> -->
+                        <h2><strong>Example:</strong></h2>
+                        <code>
+                            #region  Mdm Core<br>
+                            using Mdm.Oss;<br>
+                            using Mdm.Oss.Components;<br>
+                            using Mdm.Oss.Console;<br>
+                            using Mdm.Oss.Decl;<br>
+                            using Mdm.Oss.File.Ui;<br>
+                            using Mdm.Oss.Run.Control;<br>
+                            using Mdm.Oss.Std;<br>
+                            using Mdm.Oss.Sys;<br>
+                            using Mdm.Oss.Thread;<br>
+                            using Mdm.World;<br>
+                            #endregion<br>
+                            #region Mdm WinUtil, System Shell32, WshRuntime<br>
+                            //using Mdm.Oss.WinUtil;<br>
+                            //          add shell32.dll reference<br>
+                            //          or COM Microsoft Shell Controls and Automation<br>
+                            //using Shell32;<br>
+                            //          At first, Project &gt; Add Reference &gt; COM &gt; Windows ScriptItemPassed Host Object Model.<br>
+                            //using IWshRuntimeLibrary;<br>
+                            #endregion<br>
+                            #region  Mdm Db and File<br>
+                            using Mdm.Oss.File;<br>
+                            using Mdm.Oss.File.Control;<br>
+                            using Mdm.Oss.File.RunControl;<br>
+                            using Mdm.Oss.File.Db;<br>
+                            using Mdm.Oss.File.Db.Data;<br>
+                            using Mdm.Oss.File.Db.Table;<br>
+                            using Mdm.Oss.File.Db.Thread;<br>
+                            //using Mdm.Oss.File.Properties;<br>
+                            #endregion<br>
+                            #region  Mdm File Types<br>
+                            using Mdm.Oss.File.Type;<br>
+                            using Mdm.Oss.File.Type.Link;<br>
+                            using Mdm.Oss.File.Type.Sql;<br>
+                            using Mdm.Oss.File.Type.Srt.Script;<br>
+                            #endregion<br>
+                            #region Mdm Srt (Search, replace and transform)<br>
+                            using Mdm.Srt;<br>
+                            using Mdm.Srt.Core;<br>
+                            using Mdm.Srt.Transform;<br>
+                            using Mdm.Srt.Script;<br>
+                            #endregion<br>
+                            #endregion<br>
+                        </code>
                     </td>
-                </tr>
-                <tr>
-                    <td class="tdright DescTable">
-                        <a href="https:winlink/index.html"><strong>Win Link Md.</strong></a>
-                    </td>
-                </tr>
+                    <td class="tdright">
+                        <!-- <a href="https:winlink/index.html"><strong>Win Link Md.</strong></a> -->
+                        <!-- g:\m\d\Code\mdCSharp\Mdm3ShortcutUtilsPhase2\Mdm1Oss1\Mdm1Oss1Clipboard1\Mdm1Oss1Clipboard1\Backup\Mdm1Oss1Decl1\PickSyntax.cs -->
+                            <h2>
+                                Multivalued Syntax Class<br>
+                                This implements part of the syntax for multivalued database languages, sometimes referred to as post-relational database systems.
+                            </h2>
+                                <p> At this first level, basic language
+                                features are implemented as methods.  File, printer
+                                and display I/O are not implemented at this level.
+                                The second level will implement print and
+                                display I/O.  The third level implements file I/O.
+                                The fourth level includes many multivalued feutures
+                                amoung other string extensions in the MickString class.</p>
+                                <p> The development goal is to implement functions
+                                and syntax that is abscent from C# and particularly
+                                useful or effecient.  By implementing a sufficient
+                                core set of language features, it should be relatively
+                                easy to convert mutlivalued classes to C# versions.</p>
+                                <p> The functions in this class include Ins(ert),
+                                Del(ete), Field, IConv(ert), OConv(ert), Len(gth),
+                                SpaceFill, StringFill, Stop, Trim, and a TCL Read</p>
+                                <p> In the multivalued database platforms, the
+                                term TCL is an acronym for Terminal Control Language
+                                and is the console language for the environment.  The
+                                is also a PROC(edure) script language that can contain
+                                TCL commands and would be similar to BAT files on DOS
+                                platforms.  The programming language for these platforms
+                                is DataBasic and is a form of Dartmouth Basic with
+                                built in features for handling multivalues.</p>
+                                <h2>Remarks</h2>
+                                <p>todo</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdleft">
+                            <div class="img-zoom-container" >
+                                <!-- <hr> -->
+                                <p class="centered"><br><b>"The class structure"</b><br><br></p>
+                                <img id="mdm_framework_class_structure" class="picsmall centered"  src="../MdmWsVs7/Release/RelsNext/Images/ProjectScrollView.jpg" alt="The Framework class structure">
+                                <!-- onmouseover="imageZoom(mdm_framework_class_structure, mdm_framework_class_structure_result)" -->
+                                <!-- width="300" height="240"  -->
+                            </div>
+                            <!-- <p class="picsmall centered">
+                            <span class="centered"><br><b>"The class structure"</b><br><br></span>
+                            <img class="pictiny centered" src="../MdmWsVs7/Release/RelsNext/Images/ProjectScrollView.jpg"
+                                alt="David G Horsman, author">
+                            </p> -->
+                        </td>
+                        <td class="tdright">
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         <!-- </div> -->
-    </div>
+        <div id="mdm_framework_class_structure_result_box" class="">
+            <!-- <hr> -->
+            <div id="mdm_framework_class_structure_result" class="img-zoom-result img-zoom-result-container"></div>
+        </div>
+        </div>
+    <!-- <div class="img-zoom-container container1">
+        <div id="mdm_framework_class_structure_result" class="img-zoom-result img-zoom-result-container"></div>
+    </div> -->
+    <script>
+        imageZoom("mdm_framework_class_structure", "mdm_framework_class_structure_result", "mdm_framework_class_structure_result_box");
+    </script>
 </body>
 </html>
