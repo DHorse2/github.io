@@ -23,7 +23,12 @@ img {
 .pictiny {
     size: 50px;
     max-width: 150px;
-}/* ------------------------------------ */
+}
+piccol {
+    size: 200px;
+    max-width: 250px;
+}
+/* ------------------------------------ */
 .bodywidthmax {
     max-width: 720px;
 }
@@ -66,7 +71,7 @@ img {
     text-align: center;
     /* align-content: center; */
     border: groove;
-    width: 90%;
+    width: 100%;
     column-span: all;
     height: fit-content;
     margin: 1em;
@@ -157,8 +162,8 @@ img {
     /*set the size of the result div:*/
     /* width: 300px; */
     /* height: 300px; */
-    width: 60em;
-    height: 70em;
+    width: 80em;
+    height: 80em;
     /* width: auto; */
     /* width: inherit; */
 }
