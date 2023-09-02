@@ -1,0 +1,86 @@
+/* Default CSS */
+
+/* Transition */
+/*
+-webkit-transtion:
+-moz-transtion:
+-o-transtion:
+*/
+/* Ease Out
+-webkit-transtion: all 1s ease-in-out;
+-moz-transtion: all 1s ease-in-out;
+-o-transtion: all 1s ease-in-out;
+*/
+#skew { 
+transform:skew(35deg);
+}
+
+#scale{ 
+transform:scale(1,0.5);
+}
+
+#rotate{ 
+transform:rotate(45deg);
+}
+
+#translate{ 
+transform:translate(1.0em, 2.0em);
+}
+
+#rotate-skew-scale-translate { 
+transform:skew(30deg) scale(1.1,1.1) rotate(45deg) translate(2.0em);
+}
+
+#{ 
+transform:
+}
+
+/* ------------------------------------------------ */
+/*
+
+	filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
+					onfilterchange="fnSpin(this)"
+					onmouseover="fnReset(this)"
+
+                    
+     <DIV STYLE="width:100%; filter:
+    progid:DXImageTransform.Microsoft.MotionBlur(strength=13, direction=310)
+    progid:DXImageTransform.Microsoft.Blur(pixelradius=2)
+    progid:DXImageTransform.Microsoft.Wheel(duration=3);">
+*/    
+/* ------------------------------------------------ */
+/*
+HTML 
+<ELEMENT STYLE="filter:progid:DXImageTransform.Microsoft.Slide(sProperties)" ... >
+Internet Explorer 5.5 or later 
+
+Scripting
+object.style.filter ="progid:DXImageTransform.Microsoft.Slide(sProperties)"
+
+*/
+/* ------------------------------------------------ */
+/*
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+*/
+/* ------------------------------------------------ */
+/*
+	<div id="MdmImportTldl" 
+		 class="imgThumbLarge MenuImageBorder MenuImageContainer"
+      	 onmouseout="fnMenuImgHide(MdmImportTldlImage, MdmImportTldl, 1, false)"
+    	 onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldlImage, MdmImportTldl, 600, 1, false); fnReset(this)"
+    	 width=" 0em"
+    	 height=" 0em"
+  	STYLE="position:absolute;
+  	display:none; 
+filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
+  	onfilterchange="fnSpin(this)"
+		 >
+
+<!--     onmouseover="fnMenuImgShowStack(MdmSystemMgnt, MdmWebDevImage, MdmWebDev, 150, 1, true)" --> 
+         
+*/
+         	

@@ -1,0 +1,40 @@
+/* ------------------------------------ */
+/* Source: https://www.w3schools.com/howto/howto_js_image_zoom.asp */
+
+* {box-sizing: border-box;}
+.img-zoom-container {
+  position: relative;
+  /* width: 15em; */
+  height: fit-content;
+}
+.img-zoom-lens {
+    position: absolute;
+    /* border: 1em solid #d4d4d4; */
+    /*set the size of the lens:*/
+    /* width: auto; */
+    /* width: 35em; */
+    /* height: 50em; */
+    width: 100px;
+    height: 100px;
+}
+.img-zoom-result {
+    position: absolute;
+    border: 1em groove lightblue;
+    /*set the size of the result div:*/
+    /* width: 300px; */
+    /* height: 300px; */
+    width: 200em;
+    height: 200em;
+    /* width: auto; */
+    /* width: inherit; */
+}
+.img-zoom-result-container {
+    position: absolute;
+    /* float: left; */
+    /* float: right; */
+    /* top: 5em; */
+    /* right: 200px; */
+    /* height: auto; */
+    z-index: 900;
+}
+/* ------------------------------------ */

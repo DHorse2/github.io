@@ -1,0 +1,454 @@
+/* Body Paragraph Styling and Floating */
+
+/* -- Styling - Specific Instances -- */
+
+/* -------------------------------------------- */
+/* -- Body Column Content -- */
+.ColumnType1 {
+/* Size */
+width:48%;
+/* width:39%; */
+/* min-width:35.0em;  */
+/* max-width:35.0em; */
+}
+
+.ColumnType2 {
+/* Size */
+width:39%;
+min-width:25.0em; 
+max-width:35.0em;
+}
+
+.ColumnType3 {
+/* Size */
+width:39%;
+min-width:25.0em; 
+}
+
+.ColumnType4 {
+/* Size */
+/* width:39%; */
+min-width:25.0em; 
+/* Alignment */
+text-align: center;
+}
+
+.ColumnTypeFixed { }
+
+/* -- Body Paragraph Content -- */
+
+.DivBox {
+/* Position */
+position: relative;
+height: 100%;
+}
+
+.BodyParaBox{
+/* Position */
+position: relative;
+/* Size */
+/* Alignment */
+/* padding: 0.5em; */
+/* Border */
+border-color: Gray;
+margin: 1%;
+}
+/* padding:0.5em 0.5em 0.5em 0.5em; */
+/* Alignment */
+/* float:none; */
+
+.BodyParaBox1{
+/* Position */
+position: relative;
+/* Size */
+min-width:25.0em;
+min-height:15.0em;
+/* Alignment */
+/* padding:0.5em; */
+/* Border */
+border-color: Gray;
+}
+
+.BodyPara {
+/* Alignment */
+padding: 0.5em 0.5em 1em 0.5em ;
+/* padding:2em; */
+/* padding: 0.5em; */
+margin: 0em 0.5em 0em 0em;
+/* Background */
+background: #F5FEFF;
+/* Border */
+border-bottom: none;
+border-right: 0.1em solid black;
+}
+
+.BodyParaIndent {
+/* padding:2em; */
+padding-left: 1em;
+}
+
+.BodyParaGround {
+/* Alignment */
+padding:0.5em 0.5em 0.25em 0.5em;
+margin: 0em 0.5em 0em 0em;
+/* Background */
+background:#F5FEFF;
+}
+
+.BodyParaLast{
+/* Border */
+border-right:0.1em solid black;
+border-bottom: 0.1em solid black;
+}
+
+/* -------------------------------------------- */
+
+h.BodyPara  {
+/* Alignment */
+text-align:center;
+/* Decoration */
+font-weight: bold;
+}
+
+p.BodyPara  {
+/* Alignment */
+/* text-align:justify; */
+text-indent:1em;
+font-size:1em;
+}
+/* padding: 0em 0.5em 0.25em 0.5em; */
+
+span.BodyPara  {
+/* Alignment */
+text-indent: 0em;
+}
+
+/*
+a.BodyPara  {
+text-indent:1em;
+padding: 0em;
+margin: 0em;
+}
+/* padding: 0em 0.5em 0.25em 0.5em; */
+
+h1.BodyPara, h2.BodyPara, h3.BodyPara, h4.BodyPara, h5.BodyPara, h6.BodyPara 
+ .h1.BodyPara, .h2.BodyPara, .h3.BodyPara, .h4.BodyPara, .h5.BodyPara, .h6.BodyPara {
+/* Alignment */
+text-indent: 0em;
+}
+
+/* -- Floats -- */
+.BodyParaLeft {
+/* Position */
+position: relative;
+/* Size */
+/* width: 100%; */
+/* Alignment */
+padding: 0%;
+/* margin-left: 0.75em; */
+margin-left: 2%;
+float: left; 
+text-align: justify;
+}
+
+.BodyParaRight {
+/* Position */
+position: relative;
+/* Size */
+/* width: 100%; */
+/* Alignment */
+padding: 0;
+margin-right: 2%;
+float:right; 
+text-align: left;
+}
+
+/* -- Background -- */
+.BodyParaBoxBg {
+/* Background */
+background: url(../Images/Common/TransparentWhiteBg75.png);
+}
+
+/* -------------------------------------------- */
+/* -- Body Callouts Container -- */
+
+.BodyList { 
+text-align:left;
+/* margin:0.25em 0.25em 0em 0em; */
+padding:0.5em 0.25em 0em 0.25em;
+}
+
+.BodyListItem { 
+margin-top: 0em; 
+margin-bottom: 0em;
+padding-top: 0em;
+padding-bottom:0.25em;
+text-indent:-0em;
+text-align:left;
+}
+/* -- end -- */
+
+/* -- end -- */
+
+/* -------------------------------------------- */
+/* -- Body Callouts Container -- */
+
+/* CPA - Callout Link Anchor (shows) */
+/* CPP - Callout Popup (shows on hover) */
+/* CPT - Callout Paragraph Top (1) - Start of Callout Content (Body Paragraphs) */
+/* CP  - Callout Paragraph - additional content (Paragraph 2,3,4,...) */
+
+/* -- Body Callouts -- */
+.CalloutBox {
+/* Position */
+/* Size */
+width: 50%;
+max-width: 40.0em;
+/* Alignment */
+text-align: left;
+display: block;
+/* Background */
+background-color: #FFFFCC;
+/* Layering */
+z-index: 4;
+}
+
+.CalloutBox2 {
+/* Position */
+/* Size */
+/* width: 50%; */
+max-width: 50%;
+/* Alignment */
+text-align: left;
+display: block;
+/* Background */
+background-color: #FFFFCC;
+/* Layering */
+z-index: 4;
+}
+
+.CalloutBox3 {
+/* Position */
+/* Size */
+/* width: 50%; */
+/* max-width: 50%; */
+/* Alignment */
+/* margin:0.25em 0.25em 0em 0em; */
+/* padding: 0em 0.25em 0em 0.25em; */
+/* padding:1.5em */
+text-align: left;
+display: block;
+/* Background */
+background-color: #FFFFCC;
+/* Layering */
+z-index: 4;
+}
+
+.CalloutBoxSmall {
+/* Position */
+/* Size */
+width:25%;
+}
+
+.CalloutBoxBg {
+/* Background */
+background-color: #FFFFCC;
+}
+
+.CalloutContent{
+/* Position */
+/* height:100%; */
+/* Alignment */
+margin: 0em;
+/* padding: 0em; */
+padding:0.25em;
+float:none;
+text-align:left;
+/* display:block; */
+/* Font Size */
+font-size:1em;
+/* Font Color */
+color:#000;
+}
+
+.CalloutContentBgLight{
+/* Color */
+color:#000;
+}
+
+.CalloutContentBgDark{
+/* Color */
+color:#000;
+/* Background */
+background-color:#FFFFCC;
+}
+
+.CalloutBorder{
+/* Alignment 0.5em 1em 0.5em 0.5em; */
+padding:0.5em;
+margin:0.5em 1em 0.5em 0.5em;
+/* Border */
+border-style:solid;
+/* border-style:groove; */
+border-width:0.5em;
+/* border:solid; */
+border-color:#999933; /* cPcd */ 
+/* Border */
+-moz-border-radius: 0.5em;
+-webkit-border-radius: 0.5em;
+} 
+/* padding:0.5em 0.5em 0.5em 0.5em; */
+
+.CalloutBorderFull
+{
+/* Border */
+border-style:solid;
+/* border-style:groove; */
+border-width: .4em;
+/* border:solid; */
+border-color:#999933; /* cPcd */ 
+/* Border */
+-moz-border-radius: 0.5em;
+-webkit-border-radius: 0.5em;
+/* Alignment */
+margin: 0em 0em 0.5em 0em;
+padding: 0em 0em 0em 0em;
+} 
+
+/* -- Callout Block -- */  
+.DivB{
+/* Position */
+position:absolute; 
+top:35em;
+left:1em;
+/* Size */
+height:120.25em;
+}
+
+/* -- end -- */
+
+/* ------ Callout Styling ----------- */  
+/* -- Callout Paragraph -- additional content (Paragraph 2,3,4,...) */
+.CP {
+/* Alignment */
+/* padding:0.5em; */
+/* margin:0.25em 0.25em 0em 0em; */
+padding:0.5em 1.5em 0.75em 0.5em;
+/* Layering */
+z-index: 1004;
+}  
+/* padding:0.25em 0.5em 0.5em 0.5em; */
+
+/* -- Callout Title -- Heading or Title for a group of paragraphs (CP's) */
+.CPT { }
+
+/* -- Callout Link -- */  
+.CPA { 
+/* Alignment */
+display:block;
+padding: 0em;
+text-decoration:none;
+/* Layering */
+z-index: 4;
+}
+/* padding:0.25em 0.5em 0.5em 0.5em; */
+
+/* NOT FIREFOX COMPATABLE - USE ID */
+/* a .CPP{ display:none; }
+
+/* NOT FIREFOX COMPATABLE */
+/* a:hover .CPP{ display:block; }
+
+/* FIREFOX COMPATABLE - USE ID */
+#LinkId .CPP{ display:none; }
+
+/* FIREFOX COMPATABLE - USE ID */
+#LinkId:hover .CPP{ display:block; }
+
+/* -- Callout Paragraph Popup -- */  
+.CPP {
+/* Alignment */
+padding:0.25em 0.25em 0.5em 0.5em;
+/* Layering */
+z-index: 1004;
+}
+
+/* -- Callout Image Popup -- */  
+.CPPImageThumb{
+/* Size */
+width:10.0em;
+/* Alignment */
+padding:0.1em;
+margin:auto;
+/* Layering */
+z-index: 1004;
+/* Border */
+border: 0em;
+}
+
+.CPPImageThumbRight{
+}
+
+.CPPImageThumbLeft{
+}
+
+.CPPImage2{
+/* Alignment */
+margin-top:-0.5em;
+margin-left:1em;
+margin-right:1em;
+padding: 0em 0em 0.25em 0em;
+z-index: 1004;
+}
+
+.CPPImage{
+/* Alignment */
+margin-top:-0.5em;
+margin-left:-0.5em;
+margin-right:-0.5em;
+padding: 0em 0em 0.25em 0em;
+z-index: 1004;
+}
+
+.CPPImageRight{
+/* Position */
+position:absolute;
+top:0%;
+left:0%;
+/* Size */
+/* Alignment */
+float:right;
+/* Layering */
+z-index: 1004;
+}
+
+.CPPImageLeft{
+/* Position */
+position:absolute;
+top:0%;
+right:0%;
+/* Size */
+/* Alignment */
+float:left;
+/* Layering */
+z-index: 1004;
+}
+
+/* ------- Generic Box ---------- */  
+.DivB98{
+/* Position */
+position:absolute; 
+top: 2.5em;
+left:10.0em;
+}
+
+.DivB99{
+/* Position */
+position:absolute; 
+top:20.0em;
+left:35.0em;
+}
+/* -- end -- */
+
+/* ----------------- */  
+     

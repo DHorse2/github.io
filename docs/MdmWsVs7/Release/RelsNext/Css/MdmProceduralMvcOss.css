@@ -1,0 +1,247 @@
+/* Default CSS */
+
+/* ----------------- */
+#MdmProceduralMvcOssBody { }
+
+#BodyMainContainer{
+/* Size */
+min-width:120.0em;
+}
+
+/* ----------------- */  
+.BodyPara{
+/* Border */
+border-right:1px solid black;
+}
+
+/* -- Centre Area-- */
+#BodyMainTop { }
+
+#BodyMainCenter {
+/* Position */
+position:relative;
+top: 6.3em;
+left:1%; 
+/* Size */
+min-height:1%;
+/* Alignment */
+padding-bottom: 2.5em;
+}
+/* ----------------- */  
+
+.DivB1{
+/* Position */
+position:relative; 
+top: 3.5em;
+left: 2em;
+/* Size */
+width:35.0em;
+height:17.5em;
+/* Alignment */
+/* Layering */
+z-index:2;
+}
+
+#B1C1 { }
+
+#B1D1P1{ 
+/* Border */
+border-bottom: .3em solid black;
+}
+
+a .CPP{
+/* Layering */
+display:none;
+}
+
+a:hover .CPP{
+/* Layering */
+display:block;
+/* Layering */
+z-index:1;
+}
+
+#B1C1AOrig .CPP{
+/* Layering */
+display:none;
+}
+
+#B1C1AOrig:hover .CPP{
+/* Layering */
+display:block;
+/* Layering */
+z-index:1;
+}
+
+/* ----------------- */  
+
+.DivB2{
+/* Position */
+position:absolute; 
+top: 2em;
+left:55.0em;
+/* Size */
+/* Alignment */
+/* Layering */
+z-index:3;
+}
+
+#B2D1 { 
+/* Size */
+width:20.0em;
+}
+
+#B2D1P2{ 
+/* Border */
+border-bottom:1px solid black;
+}
+
+#B2D2P3{ 
+/* Border */
+border-bottom:1px solid black;
+}
+
+/* Callout Para Poup */
+#B2C1A { 
+/* Layering */
+z-index:2;
+}
+
+#B2C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B2C1A:hover .CPP{
+/* Layering */
+display:block;
+}
+
+#B2C1Img1Thumb { }
+
+#B2C1Img1 {
+/* Position */
+position:absolute;
+top: 0em;
+left: 0em;
+/* Size */
+width:50.0em;
+height:50.0em;
+/* Alignment */
+/* Layering */
+z-index:4;
+}
+
+#B2C2A { 
+/* Layering */
+z-index:1;
+}
+
+#B2C2A .CPP{
+/* Layering */
+display:none;
+}
+
+#B2C2A:hover .CPP{
+/* Layering */
+display:block;
+}
+
+#B2C2Img1Thumb { }
+
+#B2C2Img1 {
+/* Position */
+/* Size */
+width:50.0em;
+height:50.0em;
+/* Alignment */
+/* Layering */
+z-index:4;
+}
+
+#B2C2Img1Orig {
+/* Position */
+position:absolute;
+top: 0em;
+left: 0em;
+/* Size */
+width:50.0em;
+height:50.0em;
+/* Alignment */
+/* Layering */
+z-index:4;
+}
+
+/* ----------------- */  
+
+.DivB3{
+/* Position */
+position:relative; 
+top: 5em;
+left: 3.5em;
+/* Size */
+height:39.0em;
+width:42.5em;
+/* Alignment */
+margin-bottom: 5em;
+/* Layering */
+z-index:1;
+}
+
+#B3D1P4{ 
+/* Border */
+border-bottom:1px solid black;
+}
+
+#B3C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B3C1A:hover .CPP{
+/* Layering */
+display:block;
+/* Layering */
+z-index:1;
+}
+
+/* ----------------- */  
+
+.DivB4{
+/* Position */
+position:absolute; 
+top:42.0em;
+left:70.0em;
+/* Size */
+height:18.5em;
+/* Alignment */
+margin-right: 5em;
+/* Layering */
+z-index:2;
+}
+
+#B4D1P1{ 
+/* Border */
+border-bottom:1px solid black;
+}
+
+#B4C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B4C1A:hover .CPP{
+/* Layering */
+display:block;
+/* Layering */
+z-index:1;
+}
+
+
+/* ----------------- */  
+.DivP6{
+/* Size */
+width:25.0em;
+}
+/* ----------------- */  
+

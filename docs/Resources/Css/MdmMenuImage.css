@@ -1,0 +1,171 @@
+/* Default CSS */
+
+#mdm_framework_class_structure_result_box {
+    /* position: relative; */
+    width: auto;
+}
+
+#Dummy {
+/* Alignment */
+display: block;
+/* Background */
+background-color: #036;
+/* Border */
+border-bottom: .2em solid #eee;
+border-left: .2em solid #000;
+border-right: .2em solid #000;
+/* Decoration */
+color: #EEE;
+text-decoration:none;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* -------------------------------------------- */
+/* -- Menu Image Containter -- */
+/* -------------------------------------------- */
+/* #BodyMenuImageContainer { 
+/* Layout / Visibility */
+/* display: none;
+/* Size * /
+width:auto;
+height:auto;
+/* } */
+/* ----------------- */  
+/* ----------------- */  
+.MenuImageBox { 
+/* Position */
+position:absolute;
+/* Size */
+/* width:auto; */
+height:auto;
+/* Alignment */
+padding: 0em;
+margin: 0em;
+/* Background */
+background-color: #036;
+/* Decoration */
+color: #EEE;
+text-decoration:none;
+text-align:center;
+/* Layout / Visibility */
+display:block;
+}
+
+.MenuImageBoxBorder{
+/* Position */
+/* Alignment */
+padding: 0em;
+margin: 0em;
+/* Border */
+border-style:solid;
+/* border-style:groove; */
+border-width:6px;
+/* border:solid; */
+border-color:#999933; /* cPcd */ 
+/* Border */
+-moz-border-radius: 1em;
+-webkit-border-radius: 1em;
+/* Layout / Visibility */
+/* display:inherit; */
+}
+
+/* ----------------- */  
+/* ----------------- */  
+.MenuImageBoxLink { 
+/* Position */
+position:relative;
+/* Size */
+width:100%;
+text-align:center;
+}
+
+/* ----------------- */  
+/* ----------------- */  
+#MenuImgDiv1x { 
+/* Position */
+position:absolute;
+/* Position */
+position:relative;
+}
+
+/* -- Menu Thumb Small -- */
+.imgThumbSmall{
+}
+
+.MenuThumb{ 
+/* Position */
+position:relative;
+margin:auto;
+}
+
+.MenuThumbLarge { 
+/* Position */
+position:relative;
+margin:auto;
+}
+
+/* -- Menu Thumb Large -- */
+.imgThumbLarge{
+}
+
+.MenuThumbLarge { 
+}
+
+/* position:absolute; */
+/* -ms-transform: rotate(45deg) 3s ease-in-out; */
+/* progid:DXImageTransform.Microsoft.Slide(slideStyle='HIDE', duration=3, bands=1)" */
+
+/*
+filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5');
+onfilterchange:"fnSpin(this)";
+onmouseover:"fnReset(this)";
+
+-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')";
+
+-ms-filter:"progid:DXImageTransform.Microsoft.MotionBlur(strength=13, direction=310)
+    progid:DXImageTransform.Microsoft.Blur(pixelradius=5)
+    progid:DXImageTransform.Microsoft.Wheel(duration=3)";
+
+-ms-filter:"progid:DXImageTransform.Microsoft.Wheel(duration=3)";
+filter:progid:DXImageTransform.Microsoft.Wheel(duration=3)
+progid:DXImageTransform.Microsoft.Slide(slideStyle='HIDE', duration=3, bands=1);
+
+-ms-filter:"progid:DXImageTransform.Microsoft.MotionBlur(strength=13, direction=310)
+    progid:DXImageTransform.Microsoft.Blur(pixelradius=5)
+    progid:DXImageTransform.Microsoft.Wheel(duration=3)";
+filter:
+    progid:DXImageTransform.Microsoft.MotionBlur(strength=13, direction=310)
+    progid:DXImageTransform.Microsoft.Blur(pixelradius=2)
+    progid:DXImageTransform.Microsoft.Wheel(duration=3);
+
+-webkit-transform: rotate(45deg) 3s ease-in-out;
+-moz-transform: rotate(45deg) 3s ease-in-out;
+-o-transform: rotate(45deg) 3s ease-in-out;
+-ms-filter:"rotate(45deg) 3s ease-in-out";
+filter: rotate(45deg) 3s ease-in-out
+
+onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldlImage, MdmImportTldl, 600, 1, false); fnReset(this)"
+width=" 0em"
+height=" 0em"
+STYLE="position:absolute;
+display:none; 
+filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
+onfilterchange="fnSpin(this)"
+*/
+
+.MenuThumb1{ 
+/* Layout / Visibility */
+display:inherit;
+}
+
+/* -- Menu Thumb Visibility -- */
+.MenuThumbShow{ 
+/* Layout / Visibility */
+display:block
+}
+
+.MenuThumbHide{ 
+/* Layout / Visibility */
+display:none;
+}
+

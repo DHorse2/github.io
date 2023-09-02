@@ -1,0 +1,89 @@
+/* MdmBaseTags */
+/* Colours */
+/* Colours - Main Blue */
+
+/* Primary */
+.cP { 
+color:#6666CC;
+ /* cP */ 
+}
+/* (P)rimary Dark */ 
+.cPd { 
+color:#666699;
+ /* cPd */ 
+}
+/* (P)rimary Light */
+.cPl 
+{ 
+color:#CCCCFF;
+ /* cPl */ 
+}
+
+/* Secondary */
+/* Colours - Brownish */ 
+.cS 
+{ 
+color:#CC9966;
+ /* cS */ 
+}
+.cSd 
+{ 
+color:#996633;
+ /* cSd */ 
+}
+.cSl 
+{ 
+color:#FFFFCC;
+ /* cSl */ 
+}
+
+/* Primary Complement */
+/* Colours - Greenish */
+.cPc 
+{ 
+color:#CCCC66;
+ /* cPc */ 
+}
+.cPcd 
+{ 
+color:#999933;
+ /* cPcd */ 
+}
+.cPcl 
+{ 
+color:#FFFFCC;
+ /* cPcl */ 
+}
+
+/* Secondary Complement */
+/* Colours - Purple */
+.cSc 
+{ 
+color:#9966CC;
+ /* cSc */ 
+}
+.cScd 
+{ 
+color:#663399;
+ /* cScd */ 
+}
+.cScl 
+{ 
+color:#FFCCFF;
+ /* cScl */ 
+}
+
+.cBlack
+{
+color:black;
+}
+
+.cWhite
+{
+color:white;
+}
+
+.cRed
+{
+color:red;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MacroDm - Mdm Framework - David G Horsman projects.</title>
+    <meta name="Author" content="David G. Horsman" >
+    <meta name="created" content="20 Aug 2023 00:00:01 GMT" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmBaseTags.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmColourPallet.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmBodyHeader.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmImageZoom.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmMenu.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmMenuImage.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmBodyBox.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmBodyText.css" >
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmMain.css" >
+    <link rel="shortcut icon" href="../Resources/Icon/MdmControlLeft.ico" type="image/x-icon" >
+    <link rel="apple-touch-icon" href="../Resources/Icon/MdmControlLeft.png" >
+    <!-- * -->
+    <link rel="stylesheet" type="text/css" href="../Resources/Css/MdmLocalTables.css">
+    <script src="../Resources/js/imageZoom.js"></script>
+</head>
+<body id="BodyBox" class="BodyBox">
+    <!--*-->
+    <div id="BodyMainCenterCenter" class="BodyParaBox BodyMainContainer BodyMainBorder">
+        <h2 class="h2 BodyPara cSd" id="MacroDm-DavidGHorsmanj-projects">MacroDm - Mdm Framework<br>David G Horsman projects</h2>
+        <!-- <div class="centered"> -->
+            <table class="tablestd TextTop">
+                <tbody class="TextTop">
+                <tr class="">
+                    <td class="BodyPara tdleft TextTop">
+                        <!-- <a href="https:TaylorDo/index.html"><strong>TaylorDo Disk Optimizer.</strong></a> -->
+                        <p><span>Back to </span><a href="../github_home/index.html"><strong>Home</strong></a></p>
+                    </td>
+                    <td class="BodyPara tdright TextTop">
+                        <!-- <a href="https:clipmdplus/index.html"><strong>Clipboard Md Plus.</strong></a> -->
+                    </td>
+                </tr>
+                <tr class="tablestd">
+                    <td class="BodyPara tdleft">
+                        <!-- <a href="https:mdmacademic/index.html"><strong>Academic, protypes and research.</strong></a> -->
+                        <h2><strong>Example:</strong></h2>
+                        <code>
+                            #region  Mdm Core<br>
+                            using Mdm.Oss;<br>
+                            using Mdm.Oss.Components;<br>
+                            using Mdm.Oss.Console;<br>
+                            using Mdm.Oss.Decl;<br>
+                            using Mdm.Oss.File.Ui;<br>
+                            using Mdm.Oss.Run.Control;<br>
+                            using Mdm.Oss.Std;<br>
+                            using Mdm.Oss.Sys;<br>
+                            using Mdm.Oss.Thread;<br>
+                            using Mdm.World;<br>
+                            #endregion<br>
+                            #region Mdm WinUtil, System Shell32, WshRuntime<br>
+                            //using Mdm.Oss.WinUtil;<br>
+                            //          add shell32.dll reference<br>
+                            //          or COM Microsoft Shell Controls and Automation<br>
+                            //using Shell32;<br>
+                            //          At first, Project &gt; Add Reference &gt; COM &gt; Windows ScriptItemPassed Host Object Model.<br>
+                            //using IWshRuntimeLibrary;<br>
+                            #endregion<br>
+                            #region  Mdm Db and File<br>
+                            using Mdm.Oss.File;<br>
+                            using Mdm.Oss.File.Control;<br>
+                            using Mdm.Oss.File.RunControl;<br>
+                            using Mdm.Oss.File.Db;<br>
+                            using Mdm.Oss.File.Db.Data;<br>
+                            using Mdm.Oss.File.Db.Table;<br>
+                            using Mdm.Oss.File.Db.Thread;<br>
+                            //using Mdm.Oss.File.Properties;<br>
+                            #endregion<br>
+                            #region  Mdm File Types<br>
+                            using Mdm.Oss.File.Type;<br>
+                            using Mdm.Oss.File.Type.Link;<br>
+                            using Mdm.Oss.File.Type.Sql;<br>
+                            using Mdm.Oss.File.Type.Srt.Script;<br>
+                            #endregion<br>
+                            #region Mdm Srt (Search, replace and transform)<br>
+                            using Mdm.Srt;<br>
+                            using Mdm.Srt.Core;<br>
+                            using Mdm.Srt.Transform;<br>
+                            using Mdm.Srt.Script;<br>
+                            #endregion<br>
+                            #endregion<br>
+                        </code>
+                    </td>
+                    <td class="BodyPara tdright">
+                        <!-- <a href="https:winlink/index.html"><strong>Win Link Md.</strong></a> -->
+                        <!-- g:\m\d\Code\mdCSharp\Mdm3ShortcutUtilsPhase2\Mdm1Oss1\Mdm1Oss1Clipboard1\Mdm1Oss1Clipboard1\Backup\Mdm1Oss1Decl1\PickSyntax.cs -->
+                            <h2>Language Extensions<br>
+                                Multivalued Syntax Class<br>
+                            </h2>
+                                <p>This implements part of the syntax for multivalued database languages, sometimes referred to as post-relational database systems.</p>
+                                <p> At this first level, basic language
+                                features are implemented as methods.  File, printer
+                                and display I/O are not implemented at this level.
+                                The second level will implement print and
+                                display I/O.  The third level implements file I/O.
+                                The fourth level includes many multivalued feutures
+                                amoung other string extensions in the MickString class.</p>
+                                <p> The development goal is to implement functions
+                                and syntax that is abscent from C# and particularly
+                                useful or effecient.  By implementing a sufficient
+                                core set of language features, it should be relatively
+                                easy to convert mutlivalued classes to C# versions.</p>
+                                <p> The functions in this class include Ins(ert),
+                                Del(ete), Field, IConv(ert), OConv(ert), Len(gth),
+                                SpaceFill, StringFill, Stop, Trim, and a TCL Read</p>
+                                <p> In the multivalued database platforms, the
+                                term TCL is an acronym for Terminal Control Language
+                                and is the console language for the environment.  The
+                                is also a PROC(edure) script language that can contain
+                                TCL commands and would be similar to BAT files on DOS
+                                platforms.  The programming language for these platforms
+                                is DataBasic and is a form of Dartmouth Basic with
+                                built in features for handling multivalues.</p>
+                                <h2>Remarks</h2>
+                                <p>This was successful. todo</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdcenter" colspan="2">
+                            <div class="img-zoom-container" >
+                                <!-- <hr> -->
+                                <p class="centered"><br><b>"The class structure"</b><br><br></p>
+                                <img id="mdm_framework_class_structure" class="centered piccol"  src="../MdmWsVs7/Release/RelsNext/Images/ProjectScrollView.jpg" alt="The Framework class structure">
+                                <!-- onmouseover="imageZoom(mdm_framework_class_structure, mdm_framework_class_structure_result)" -->
+                                <!-- width="300" height="240"  -->
+                            </div>
+                            <!-- <p class="picsmall centered">
+                            <span class="centered"><br><b>"The class structure"</b><br><br></span>
+                            <img class="pictiny centered" src="../MdmWsVs7/Release/RelsNext/Images/ProjectScrollView.jpg"
+                                alt="David G Horsman, author">
+                            </p> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <!-- </div> -->
+        <div id="mdm_framework_class_structure_result_box" class="">
+            <!-- <hr> -->
+            <div id="mdm_framework_class_structure_result" class="img-zoom-result img-zoom-result-container"></div>
+        </div>
+    </div>
+    <!-- <div class="img-zoom-container container1">
+        <div id="mdm_framework_class_structure_result" class="img-zoom-result img-zoom-result-container"></div>
+    </div> -->
+    <script>
+        imageZoom("mdm_framework_class_structure", "mdm_framework_class_structure_result", "mdm_framework_class_structure_result_box", 6);
+    </script>
+</body>
+</html>
