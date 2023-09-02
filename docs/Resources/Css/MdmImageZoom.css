@@ -8,14 +8,14 @@
   height: fit-content;
 }
 .img-zoom-lens {
-    position: absolute;
+    position: relative;
     /* border: 1em solid #d4d4d4; */
     /*set the size of the lens:*/
     /* width: auto; */
     /* width: 35em; */
     /* height: 50em; */
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
 }
 .img-zoom-result {
     position: absolute;
@@ -23,8 +23,8 @@
     /*set the size of the result div:*/
     /* width: 300px; */
     /* height: 300px; */
-    width: 200em;
-    height: 200em;
+    width: 50em;
+    height: 50em;
     /* width: auto; */
     /* width: inherit; */
 }
