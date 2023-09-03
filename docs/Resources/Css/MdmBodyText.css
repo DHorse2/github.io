@@ -71,15 +71,19 @@ border-color: Gray;
 
 .BodyPara {
 /* Alignment */
-padding: 0.5em 0.5em 1em 0.5em ;
+padding: 1em;
+/* padding: 0.5em 0.5em 1em 0.5em ; */
 /* padding:2em; */
 /* padding: 0.5em; */
-margin: 0em 0.5em 0em 0em;
+margin: 1em;
+/* margin: 0em 0.5em 0em 0em; */
 /* Background */
-background: #F5FEFF;
+/* background: #F5FEFF; */
+background: url(../Images/Common/TransparentWhiteBg50.png);
 /* Border */
-border-bottom: none;
-border-right: 0.1em solid black;
+border-bottom: groove;
+/* border-bottom: none; */
+/* border-right: 0.1em solid black; */
 }
 
 .BodyParaIndent {

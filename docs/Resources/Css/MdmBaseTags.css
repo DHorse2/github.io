@@ -160,12 +160,17 @@ H6, .h6
 font-family: Diploma, Storybook, cursive;
 text-align: center;
 color:#666699; /* cPd */
-margin: 0em 0.5em 0em 0em; /* 0em; */
-padding: 0.5em 0.5em 0.25em 0.5em; /*.5em; */
+margin: 1em;
+/* margin: 0em 0.5em 0em 0em;  */
+/* 0em; */
+padding: 1em;
+/* padding: 0.5em 0.5em 0.25em 0.5em;  */
+/*.5em; */
 font-weight: bold;
 /* Border */
 /* border-right: none; */
 /* border-bottom: 0.1em solid black; */
+border-bottom: 1em solid black;
 }
 
 Hem1, .Hem1

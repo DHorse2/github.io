@@ -1,49 +1,19 @@
-﻿/* ----------------- */  
-/* Tags: */
-img {
-    border: 10;
-    border: groove;
-}
-.picsmall {
-    size: 150px;
-    max-width: 250px;
-}
-.pictiny {
-    size: 50px;
-    max-width: 150px;
-}
-.piccol {
-    size: 200px;
-    max-width: 250px;
-}
-/* ------------------------------------ */
-body {
-    width: 600px;
-}
-.bodywidth {
-    width: 600px;
-    max-width: 800px;
-}
-.bodywidthmax {
-    max-width: 800px;
-}
-.centered {
-    text-align: center;
-    align-items: center;
-}
-/* ------------------------------------ */
+﻿/* ------------------------------------ */
 .tablestd {
     /* width:fit-content; */
     width: inherit;
     border: medium groove;
     border-color: lightblue;
-    background: transparent url(../Images/Common/TransparentWhiteBg50.png) repeat-y left top;
+    background: url(../Images/Common/TransparentWhiteBg50.png) repeat-y left top;
+    /* background: transparent url(../Images/Common/TransparentWhiteBg50.png) repeat-y left top; */
     /* for IE */
     /* filter: alpha(opacity=65); */
     /* CSS3 standard */
     /* opacity:0.65; */
-    margin: 1%;
-    padding: 1%;
+    /* margin: 1em; */
+    padding: 1em;
+    /* margin: 1%;
+    padding: 1%; */
     /* padding: 1% 0% 1% 0%; */
     /* display:block; */
 }
@@ -51,10 +21,10 @@ body {
     /* text-align: left; */
     border: thick groove;
     border-color: lightblue;
-    width: 48%;
+    width: 50%;
     height: fit-content;
-    margin: 1%;
-    padding: 1%;
+    margin: 1em;
+    padding: 1em;
     /* padding: 1% 0% 1% 0%; */
     /* display:block; */
     background: #e1e2e5;
@@ -67,10 +37,10 @@ body {
     /* text-align: left; */
     border: thick groove;
     border-color: lightblue;
-    width: 48%;
+    width: 50%;
     height: fit-content;
-    margin: 1%;
-    padding: 1%;
+    margin: 1em;
+    padding: 1em;
     /* padding: 1% 0% 1% 0%; */
     /* display:block; */
     background: #e1e2e5;
@@ -81,14 +51,15 @@ body {
     /* align-content: center; */
     border: thick groove;
     border-color: lightblue;
-    width: 98%;
+    width: 100%;
     height: fit-content;
-    margin: 1%;
-    padding: 1%;
+    margin: 1em;
+    padding: 1em;
     /* padding: 1% 0% 1% 0%; */
     display:block;
     background: #e1e2e5;
 }
+/* ------------------------------------ */
 /* ------------------------------------ */
 .table1 {
     width: 80%;
@@ -105,6 +76,8 @@ body {
     border: 0;
     margin-top: 0;
 }
+/* ------------------------------------ */
+/* ------------------------------------ */
 .table2 {
     width: 100%;
     border: groove;
@@ -124,6 +97,7 @@ body {
     margin-top: 0;
 }
 /* ------------------------------------ */
+/* ------------------------------------ */
 .leftside div {
     width:auto;
     float: left;
@@ -136,6 +110,41 @@ body {
     justify-content: right;
 }
 /* ------------------------------------ */
+/* ------------------------------------ */
 .TextTop {
     vertical-align: text-top;
+}
+/* ------------------------------------ */
+/* Elements */
+body {
+    width: 600px;
+}
+.bodywidth {
+    width: 600px;
+    max-width: 800px;
+}
+.bodywidthmax {
+    max-width: 800px;
+}
+.centered {
+    text-align: center;
+    align-items: center;
+}
+/* ----------------- */  
+/* Tags: */
+img {
+    border: 10;
+    border: groove;
+}
+.picsmall {
+    size: 150px;
+    max-width: 250px;
+}
+.pictiny {
+    size: 50px;
+    max-width: 150px;
+}
+.piccol {
+    size: 200px;
+    max-width: 250px;
 }
