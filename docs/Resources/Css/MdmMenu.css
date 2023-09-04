@@ -3,9 +3,9 @@
 /* -- View Bar -- */
 /* -------------------------------------------- */
 
-.BodyLayoutToggle { }
-.BodyConsoleToggle { }
-.BodyConsoleLog { }
+/* .BodyLayoutToggle { } */
+/* .BodyConsoleToggle { } */
+/* .BodyConsoleLog { } */
 
 
 .ViewToggleBar { 
@@ -97,9 +97,7 @@ margin: 1px 1px 1px .2em;
 margin: 1px 1px 1px .2em; 
 }
 
-.ViewToggleBlockEnd {
-
-}
+/* .ViewToggleBlockEnd { } */
 
 /* ----------------------------------------------------------------------------- */
 /* locations of toggle view */
@@ -165,16 +163,11 @@ background-image: url(../Images/Common/MenuTile.jpg);
 }
  
 /* -- Menu Links -- */
-#MdmHomeLink{
- }
-#MdmServicesLink{
- }
-#MdmSwLink{
- }
-#MdmProductLink{
- }
-#MdmLinksLink{
- }
+/* #MdmHomeLink{ } */
+/* #MdmServicesLink{ } */
+/* #MdmSwLink{ } */
+/* #MdmProductLink{ } */
+/* #MdmLinksLink{ } */
 
 /* ----------------------------------------------------------------------------- */
 /* -------------------------------------------- */
@@ -255,9 +248,9 @@ background-color:#EEE;
 /* -------------------------------------------- */
 /* -- Generic Menu List  -- */
 /* -------------------------------------------- */
-.MenuList { }
+/* .MenuList { } */
 /* */
-.MenuItem { }
+/* .MenuItem { } */
 /* -- Lists -- */
 .MenuListItem {
 font-size: 0.9em;

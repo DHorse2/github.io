@@ -20,7 +20,7 @@
 .tdleft {
     /* text-align: left; */
     border: thick groove;
-    border-color: lightblue;
+    /* border-color: lightblue; */
     width: 50%;
     height: fit-content;
     margin: 1em;
@@ -36,7 +36,7 @@
 .tdright {
     /* text-align: left; */
     border: thick groove;
-    border-color: lightblue;
+    /* border-color: lightblue; */
     width: 50%;
     height: fit-content;
     margin: 1em;

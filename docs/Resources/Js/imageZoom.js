@@ -1,4 +1,4 @@
-function imageZoom(imgId, resultId, resultIdBox, zoomRatio ) {
+function imageZoom(imgId, resultId, resultIdBox, zoomRatio, passedClass) {
     var img, lens, result, cx, cy, parX, parY;
     //
     img = document.getElementById(imgId);
@@ -7,7 +7,9 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio ) {
     //
     /* Create lens: */
     lens = document.createElement("DIV");
-    lens.setAttribute("class", "img-zoom-lens img-zoom-result-container");
+    lens.setAttribute("class", passedClass);
+    // lens.setAttribute(style, "border: none")
+    /* "img-zoom-lens img-zoom-result-container"); */
     //
     /* Insert lens: */
     img.parentElement.insertBefore(lens, img);
@@ -15,6 +17,7 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio ) {
     // The parent's height and width.
     parX = img.parentElement.offsetWidth;
     parY = img.parentElement.offsetHeight;
+    zoomRatio = zoomRatio / 50;
     //
     /* Calculate the ratio between result DIV and lens: */
     cx = result.offsetWidth / lens.offsetWidth / zoomRatio;
@@ -44,10 +47,6 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio ) {
         x = pos.x - (lens.offsetWidth / 2);
         y = pos.y - (lens.offsetHeight / 2);
         //
-        // Set the position of the lens:
-        lens.style.left = x + "px";
-        lens.style.top = y + "px";
-        //
         // Calculate the position of the zoom window:
         xBox = e.pageX + (img.width / 2);
         yBox = e.pageY - 200;
@@ -58,6 +57,10 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio ) {
         if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
         if (y < 0) {y = 0;}
         //
+        // Set the position of the lens:
+        lens.style.left = x + "px";
+        lens.style.top = y + "px";
+        //
         /* Display what the lens "sees": */
         result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
         // result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
@@ -65,6 +68,8 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio ) {
         result.style.left = xBox + "px";
         result.style.top = yBox + "px";
         //
+        // resultIdBox.style.left = xBox + "px";
+        // resultIdBox.style.top = yBox + "px";
         resultBox.style.left = xBox + "px";
         resultBox.style.top = yBox + "px";
     }

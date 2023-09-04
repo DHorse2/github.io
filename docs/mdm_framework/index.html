@@ -26,97 +26,117 @@
         <!-- <div class="centered"> -->
             <table class="tablestd TextTop">
                 <tbody class="TextTop">
-                <tr class="">
-                    <td class="BodyPara tdleft TextTop">
-                        <!-- <a href="https:TaylorDo/index.html"><strong>TaylorDo Disk Optimizer.</strong></a> -->
-                        <p><span>Back to </span><a href="../github_home/index.html"><strong>Home</strong></a></p>
-                    </td>
-                    <td class="BodyPara tdright TextTop">
-                        <!-- <a href="https:clipmdplus/index.html"><strong>Clipboard Md Plus.</strong></a> -->
-                    </td>
-                </tr>
-                <tr class="tablestd">
-                    <td class="BodyPara tdleft">
-                        <!-- <a href="https:mdmacademic/index.html"><strong>Academic, protypes and research.</strong></a> -->
-                        <h2><strong>Example:</strong></h2>
-                        <code>
-                            #region  Mdm Core<br>
-                            using Mdm.Oss;<br>
-                            using Mdm.Oss.Components;<br>
-                            using Mdm.Oss.Console;<br>
-                            using Mdm.Oss.Decl;<br>
-                            using Mdm.Oss.File.Ui;<br>
-                            using Mdm.Oss.Run.Control;<br>
-                            using Mdm.Oss.Std;<br>
-                            using Mdm.Oss.Sys;<br>
-                            using Mdm.Oss.Thread;<br>
-                            using Mdm.World;<br>
-                            #endregion<br>
-                            #region Mdm WinUtil, System Shell32, WshRuntime<br>
-                            //using Mdm.Oss.WinUtil;<br>
-                            //          add shell32.dll reference<br>
-                            //          or COM Microsoft Shell Controls and Automation<br>
-                            //using Shell32;<br>
-                            //          At first, Project &gt; Add Reference &gt; COM &gt; Windows ScriptItemPassed Host Object Model.<br>
-                            //using IWshRuntimeLibrary;<br>
-                            #endregion<br>
-                            #region  Mdm Db and File<br>
-                            using Mdm.Oss.File;<br>
-                            using Mdm.Oss.File.Control;<br>
-                            using Mdm.Oss.File.RunControl;<br>
-                            using Mdm.Oss.File.Db;<br>
-                            using Mdm.Oss.File.Db.Data;<br>
-                            using Mdm.Oss.File.Db.Table;<br>
-                            using Mdm.Oss.File.Db.Thread;<br>
-                            //using Mdm.Oss.File.Properties;<br>
-                            #endregion<br>
-                            #region  Mdm File Types<br>
-                            using Mdm.Oss.File.Type;<br>
-                            using Mdm.Oss.File.Type.Link;<br>
-                            using Mdm.Oss.File.Type.Sql;<br>
-                            using Mdm.Oss.File.Type.Srt.Script;<br>
-                            #endregion<br>
-                            #region Mdm Srt (Search, replace and transform)<br>
-                            using Mdm.Srt;<br>
-                            using Mdm.Srt.Core;<br>
-                            using Mdm.Srt.Transform;<br>
-                            using Mdm.Srt.Script;<br>
-                            #endregion<br>
-                            #endregion<br>
-                        </code>
-                    </td>
-                    <td class="BodyPara tdright">
-                        <!-- <a href="https:winlink/index.html"><strong>Win Link Md.</strong></a> -->
-                        <!-- g:\m\d\Code\mdCSharp\Mdm3ShortcutUtilsPhase2\Mdm1Oss1\Mdm1Oss1Clipboard1\Mdm1Oss1Clipboard1\Backup\Mdm1Oss1Decl1\PickSyntax.cs -->
-                            <h2>Language Extensions<br>
+                    <tr class="tablestd">
+                        <td class="BodyPara tdleft" colspan="2">
+                            <h2 class="h2 BodyPara cSd"><strong>Framework Overview:</strong></h2>
+                            <p class="BodyPara">
+                            including <strong>OSS Operating System Support</strong><br>
+                            a <strong>MVVM</strong> Model-View View-Model Framework.
+                            </p>
+                            <p class="BodyPara BodyParaLeft">
+                                This framework version includes trace, status line, logging, threaded messaging (both user interface and functions,) console, disk and database file I/O, error handling, start/pause/cancel, progress bar and other features. 
+                            </p>
+                            <!-- file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs7/Release/RelsNext/MdmWebPages/MdmNetAppFrame.shtml -->
+                            <a class="BodyPara BodyParaLeft" href="..//MdmWsVs7/Release/RelsNext/MdmWebPages/MdmNetAppFrame.shtml"><strong>A detailed discussion and summary documentation.</strong></a>
+                        </td>
+                        <!-- <td class="BodyPara tdleft"> -->
+                            <!-- <a href="https:mdmacademic/index.html"><strong>Academic, protypes and research.</strong></a> -->
+                            <!-- <h2 class="h2 BodyPara cSd"><strong>Example:</strong></h2> -->
+                        <!-- </td> -->
+                    </tr>
+                    <tr>
+                        <td class="tdleft">
+                            <!-- <a href="https:mdmacademic/index.html"><strong>Academic, protypes and research.</strong></a> -->
+                            <h2 class="h2 BodyPara cSd"><strong>Component Namespaces:</strong></h2>
+                            <code class="BodyPara BodyParaLeft">
+                                #region  Mdm Core<br>
+                                using Mdm.Oss;<br>
+                                using Mdm.Oss.Components;<br>
+                                using Mdm.Oss.Console;<br>
+                                using Mdm.Oss.Decl;<br>
+                                using Mdm.Oss.File.Ui;<br>
+                                using Mdm.Oss.Run.Control;<br>
+                                using Mdm.Oss.Std;<br>
+                                using Mdm.Oss.Sys;<br>
+                                using Mdm.Oss.Thread;<br>
+                                using Mdm.World;<br>
+                                #endregion<br><br>
+                                #region Mdm WinUtil, <br>
+                                //      System Shell32, <br>
+                                //      WshRuntime<br>
+                                using Mdm.Oss.WinUtil;<br>
+                                //          add shell32.dll reference<br>
+                                //          or COM Microsoft Shell Controls <br>
+                                //          and Automation<br>
+                                using Shell32;<br>
+                                //          At first, Project &gt; <br>Add Reference &gt; COM &gt; <br>Windows ScriptItemPassed <br>Host Object Model.<br>
+                                using IWshRuntimeLibrary;<br>
+                                #endregion<br><br>
+                                #region  Mdm Db and File<br>
+                                using Mdm.Oss.File;<br>
+                                using Mdm.Oss.File.Control;<br>
+                                using Mdm.Oss.File.RunControl;<br>
+                                using Mdm.Oss.File.Db;<br>
+                                using Mdm.Oss.File.Db.Data;<br>
+                                using Mdm.Oss.File.Db.Table;<br>
+                                using Mdm.Oss.File.Db.Thread;<br>
+                                using Mdm.Oss.File.Properties;<br>
+                                #endregion<br><br>
+                                #region  Mdm File Types<br>
+                                using Mdm.Oss.File.Type;<br>
+                                using Mdm.Oss.File.Type.Link;<br>
+                                using Mdm.Oss.File.Type.Sql;<br>
+                                using Mdm.Oss.File.Type.Srt.Script;<br>
+                                #endregion<br><br>
+                                #region Mdm Srt <br>(Search, replace and transform)<br>
+                                using Mdm.Srt;<br>
+                                using Mdm.Srt.Core;<br>
+                                using Mdm.Srt.Transform;<br>
+                                using Mdm.Srt.Script;<br>
+                                #endregion<br>
+                            </code>
+                        </td>
+                        <td class="tdright">
+                            <!-- <a href="https:winlink/index.html"><strong>Win Link Md.</strong></a> -->
+                            <!-- g:\m\d\Code\mdCSharp\Mdm3ShortcutUtilsPhase2\Mdm1Oss1\Mdm1Oss1Clipboard1\Mdm1Oss1Clipboard1\Backup\Mdm1Oss1Decl1\PickSyntax.cs -->
+                            <h2 class="h2 BodyPara cSd">Language Extensions<br>
                                 Multivalued Syntax Class<br>
                             </h2>
-                                <p>This implements part of the syntax for multivalued database languages, sometimes referred to as post-relational database systems.</p>
-                                <p> At this first level, basic language
-                                features are implemented as methods.  File, printer
-                                and display I/O are not implemented at this level.
-                                The second level will implement print and
-                                display I/O.  The third level implements file I/O.
-                                The fourth level includes many multivalued feutures
-                                amoung other string extensions in the MickString class.</p>
-                                <p> The development goal is to implement functions
-                                and syntax that is abscent from C# and particularly
-                                useful or effecient.  By implementing a sufficient
-                                core set of language features, it should be relatively
-                                easy to convert mutlivalued classes to C# versions.</p>
-                                <p> The functions in this class include Ins(ert),
-                                Del(ete), Field, IConv(ert), OConv(ert), Len(gth),
-                                SpaceFill, StringFill, Stop, Trim, and a TCL Read</p>
-                                <p> In the multivalued database platforms, the
-                                term TCL is an acronym for Terminal Control Language
-                                and is the console language for the environment.  The
-                                is also a PROC(edure) script language that can contain
-                                TCL commands and would be similar to BAT files on DOS
-                                platforms.  The programming language for these platforms
-                                is DataBasic and is a form of Dartmouth Basic with
-                                built in features for handling multivalues.</p>
-                                <h2>Remarks</h2>
-                                <p>This was successful. todo</p>
+                            <p class="BodyParaLeft">This implements part of the syntax for multivalued database languages, sometimes referred to as post-relational database systems.</p>
+                            <p class="BodyParaLeft"> At this first level, basic language
+                            features are implemented as methods.  File, printer
+                            and display I/O are not implemented at this level.
+                            The second level will implement print and
+                            display I/O.  The third level implements file I/O.
+                            The fourth level includes many multivalued feutures
+                            amoung other string extensions in the MickString class.</p>
+                            <p class="BodyParaLeft"> The development goal is to implement functions
+                            and syntax that is abscent from C# and particularly
+                            useful or effecient.  By implementing a sufficient
+                            core set of language features, it should be relatively
+                            easy to convert mutlivalued classes to C# versions.</p>
+                            <p class="BodyParaLeft"> The functions in this class include Ins(ert),
+                            Del(ete), Field, IConv(ert), OConv(ert), Len(gth),
+                            SpaceFill, StringFill, Stop, Trim, and a TCL Read</p>
+                            <p class="BodyParaLeft"> In the multivalued database platforms, the
+                            term TCL is an acronym for Terminal Control Language
+                            and is the console language for the environment.  The
+                            is also a PROC(edure) script language that can contain
+                            TCL commands and would be similar to BAT files on DOS
+                            platforms.  The programming language for these platforms
+                            is DataBasic and is a form of Dartmouth Basic with
+                            built in features for handling multivalues.</p>
+                            <h2 class="h2 BodyPara cSd">Remarks</h2>
+                            <p class="BodyParaLeft">This was successful. todo</p>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <td class="BodyPara tdleft TextTop">
+                            <!-- <a href="https:TaylorDo/index.html"><strong>TaylorDo Disk Optimizer.</strong></a> -->
+                            <p><span>Back to </span><a href="../github_home/index.html"><strong>Home</strong></a></p>
+                        </td>
+                        <td class="BodyPara tdright TextTop">
+                            <!-- <a href="https:clipmdplus/index.html"><strong>Clipboard Md Plus.</strong></a> -->
                         </td>
                     </tr>
                     <tr>
@@ -137,17 +157,18 @@
                     </tr>
                 </tbody>
             </table>
-        <!-- </div> -->
-        <div id="mdm_framework_class_structure_result_box" class="">
-            <!-- <hr> -->
-            <div id="mdm_framework_class_structure_result" class="img-zoom-result img-zoom-result-container"></div>
-        </div>
-        <script>
-            imageZoom("mdm_framework_class_structure", "mdm_framework_class_structure_result", "mdm_framework_class_structure_result_box", 5);
-        </script>
+            <!-- </div> -->
+            <div id="mdm_framework_class_structure_result_box" class="">
+                <!-- <hr> -->
+                <div id="mdm_framework_class_structure_result" class="img-zoom-result-container img-zoom-result"></div>
+            </div>
         </div>
     <!-- <div class="img-zoom-container container1">
         <div id="mdm_framework_class_structure_result" class="img-zoom-result img-zoom-result-container"></div>
     </div> -->
+<script>
+    imageZoom("mdm_framework_class_structure", "mdm_framework_class_structure_result", "mdm_framework_class_structure_result_box", 100,"img-zoom-lens");
+    // not: img-zoom-result img-zoom-result-container
+</script>
 </body>
 </html>

@@ -1615,7 +1615,7 @@ function fnBrowserGetVs()
 	  class="BodyBox" 
 	  >
      <!--*-->
-     <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" >
+     <!-- <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" > -->
      <!--*-->
      <!--** Section Body Area **-->
      <!--** <div id="BodyArea" class="BodyAreaClass"> **-->
