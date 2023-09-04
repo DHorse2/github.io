@@ -1,0 +1,62 @@
+    <!--*-->
+<!-- <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" /> -->
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!-- Container -->
+        <div id="BodyMainContainer" class="BodyMainBorder BodyMainContainer">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!-- x -->
+<!-- x -->
+<!--** Menu Blocks **-->
+<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
+<!--#endif -->
+<!--*-->
+            </div>
+            <!-- BodyMainTop -->
+            <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!--** Content Blocks **-->
+                <!--** Block Wrapper **-->
+                <div id="DivB2c" class="">
+                    <div id="DivB2o" class="BodyParaBoxOuter">
+                        <!--** Block 1 **-->
+                        <div id="DivB1i" class="DivB1 BodyParaBox">
+                            <div id="B1D1" class="BodyParaLeft">
+                                <div id="B1C1" class="BodyParaRight CalloutBorder">
+                                    <a id="B1C1A" href="#" class="CalloutContent CP"><span id="B1C1A1" class="CPA">Photo
+                                    </span>
+                                        <img id="B2C1Img1" src="../Images/DghPhoto61.jpg" alt="ImportTld Database Page Start"
+                                            class="CPPImage CPPImageLeft CalloutContent CPP" />
+                                    </a>
+                                </div>
+                                <!--** Contact Block **-->
+                                <p id="B1D1P1" class="BodyAddrPara aLeft CP">
+                                    Dave Horsman
+                                </p>
+                                <p id="B1D1P2" class="BodyAddrPara aLeft CP">
+                                    618 Elbow Drive SW, Calgary, AB, T2S 2H7<br>
+                                    Cell: 403.305.0143
+                                </p>
+                                <p id="B1D1P4" class="BodyAddrPara aLeft CP">
+                                    Mailto: david_horsman@hotmail.com
+                                </p>
+								<br>
+                            </div>
+                            <!-- B1D1 -->
+                            <div class="FixClear"><p></p></div>
+                        </div>
+                        <!-- DivB1i -->
+                        <!--*-->
+                        <!--** Document Block **-->
+                        <div id="DivB2i" class="DivB2 BodyParaBox">
+                            <div id="B2D1P1" class="BodyPara aLeft CP">

@@ -1,0 +1,7 @@
+C:\MdmWsVs8\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\MdmWsVs8\obj\x86\Debug\Project1.Properties.Resources.resources
+C:\MdmWsVs8\obj\x86\Debug\MdmWsVs8.csproj.GenerateResource.Cache
+C:\MdmWsVs8\bin\Debug\MdmWsVs8.dll
+C:\MdmWsVs8\bin\Debug\MdmWsVs8.pdb
+C:\MdmWsVs8\obj\x86\Debug\MdmWsVs8.dll
+C:\MdmWsVs8\obj\x86\Debug\MdmWsVs8.pdb

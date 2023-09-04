@@ -1,0 +1,167 @@
+	<!--[if IE 6]>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<![endif]-->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<!-- Mdm Page Template for Testing - (c)2011 David Horsman & Macroscope Design Matrix -->
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+    <meta name="Author" content="David G. Horsman" />
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxDoc.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/MdmPageTemplateDoc.css" />
+    <title>Standard Document Template</title>
+</head>
+<body id="MdmPageDocTemplate">
+    <!--*-->
+<!-- <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" /> -->
+    <!--*-->
+    <!--** Body Area **-->
+    <div id="BodyArea" class="BodyAreaClass">
+        <!-- Container -->
+        <div id="BodyMainContainer" class="BodyMainBorder BodyMainContainer">
+            <!--** Center Main Column **-->
+            <div id="BodyMainTop">
+                <!-- x -->
+                <!--** Menu Blocks **-->
+                <div id="MenuBar" class="BorderThin">
+                    <!--  class="MenuBlock -->
+                    <div id="MdmHomeLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" href="../MdmWebPages/MdmMain.html"
+                            alt="The MacroScope home page">Home </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmServicesLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" href="MdmServ.html" alt="Services available from MacroScope">
+                            Services </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmSwLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" href="MdmSw.html" alt="Software products offered by MacroScope">
+                            Software </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmProductLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" href="MdmProd.html" alt="Products and merchandise available through MacroScope">
+                            Products </a>
+                    </div>
+                    <!--*-->
+                    <div id="MdmLinksLink" class="MenuBlock">
+                        <a class="MenuBlock fText eI eB eU f12 cBlack" href="MdmLink.html" alt="Friendly, helpful and interesting links">
+                            Other Links </a>
+                    </div>
+                    <!--*-->
+                </div>
+                <!--** End of Menu Blocks **-->
+            </div>
+            <!-- BodyMainTop -->
+            <!--*-->
+            <!--** Center Main Column **-->
+            <div id="BodyMainCenter" class="BorderThin">
+                <!--** Content Blocks **-->
+                <!--** Block Wrapper **-->
+                <div id="DivB2c" class="">
+                    <div id="DivB2o" class="BodyParaBoxOuter">
+                        <!--** Block 1 **-->
+                        <div id="DivB1i" class="DivB1 BodyParaBox">
+                            <div id="B1D1" class="BodyParaLeft">
+                                <div id="B1C1" class="BodyParaRight CalloutBorder">
+                                    <a id="B1C1A" href="#" class="CalloutContent CP"><span id="B1C1A1" class="CPA">Photo
+                                    </span>
+                                        <img id="B2C1Img1" src="../Images/DghPhoto61.jpg" alt="ImportTld Database Page Start"
+                                            class="CPPImage CPPImageLeft CalloutContent CPP" />
+                                    </a>
+                                </div>
+                                <!--** Contact Block **-->
+                                <p id="B1D1P1" class="BodyAddrPara aLeft CP">
+                                    Dave Horsman
+                                </p>
+                                <p id="B1D1P2" class="BodyAddrPara aLeft CP">
+                                    618 Elbow Drive SW, Calgary, AB, T2S 2H7<br>
+                                    Cell: 403.305.0143
+                                </p>
+                                <p id="B1D1P4" class="BodyAddrPara aLeft CP">
+                                    Mailto: david_horsman@hotmail.com
+                                </p>
+								<br>
+                            </div>
+                            <!-- B1D1 -->
+                            <div class="FixClear"><p></p></div>
+                        </div>
+                        <!-- DivB1i -->
+                        <!--*-->
+                        <!--** Document Block **-->
+                        <div id="DivB2i" class="DivB2 BodyParaBox">
+                            <div id="B2D1P1" class="BodyPara aLeft CP">
+                                <!--* DOCUMENT GOES HERE *-->
+                                <!--#include file="Resume_Dgh BldgVs1_0A.htm"-->
+                            </div>
+                            <!--** Footer Block **-->
+                            <div id="B3D1" class="BodyParaLeft">
+                                <div id="B3C1" class="BodyParaRight CalloutBorder">
+                                    <a id="B3C1A" href="#" class="CalloutContent CP"><span id="B3C1A1" class="CPA">B3C1A1</span>
+                                        <span id="B3C1CPP1" class="CalloutContent CPP">B3C1CPP1 </span></a>
+                                </div>
+                                <h3 id="B3D1H1" class="BodyPara cSd CP">
+                                    B3D1H1
+                                </h3>
+                                <p id="B3D1P1" class="BodyPara aLeft CP">
+                                    B3D1P1
+                                </p>
+                                <p id="B3D1P2" class="BodyPara aLeft CP">
+                                    B3D1P2
+                                </p>
+                                <p id="B3D1P3" class="BodyPara aLeft CP">
+                                    B3D1P3
+                                </p>
+                                <p id="B3D1P4" class="BodyPara aLeft CP">
+                                    B3D1P4
+                                </p>
+                            </div>
+                            <!-- D3D1 -->
+                            <div class="FixClear"><p></p></div>
+                        </div>
+                        <!-- DivB2i -->
+                        <!--*-->
+                    </div>
+                    <!-- DivB2o -->
+                </div>
+                <!-- DivB2c -->
+            </div>
+            <!-- BodyMainCenter -->
+        </div>
+        <!-- BodyMainContainer -->
+        <!--** End of Body Main Center *-->
+        <!--<div class="FixClear"><p>BodyMainContainer</p></div>-->
+    </div>
+    <!--** Body Area **-->
+    <!--*-->
+    <!--** End of Main Page Body BodyMainContainer *-->
+    <!--** End of Content Container BodyArea *-->
+    <!--*-->
+    <!--<div class="FixClear"><p>Body</p></div>-->
+</body>
+<!--*-->
+<!--[if IE 6]>
+	<style type="text/css">
+	html { 
+	overflow-y: hidden; 
+	}
+	body { 
+	overflow-y: auto; 
+	}
+	#bg { 
+	position:absolute; z-index:-1; 
+	}
+	#BodyArea { 
+	position:static; 
+	}
+	</style>
+	<![endif]-->
+</html>

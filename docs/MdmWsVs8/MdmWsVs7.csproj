@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A42B1E76-04B1-4366-8845-35184BC7B978}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Project1</RootNamespace>
+    <AssemblyName>MdmWsVs8</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Release\RelsNext\Images\MdmControlLeft.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Release\RelsBuildStage.shtml" />
+    <Content Include="Release\RelsNext\AxionWebPages\addr5a.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\addr5s.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\ardnrtbl.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\ardnrtbl.jpg" />
+    <Content Include="Release\RelsNext\AxionWebPages\AxionSolutionFile.sln" />
+    <Content Include="Release\RelsNext\AxionWebPages\BALLADE.MID" />
+    <Content Include="Release\RelsNext\AxionWebPages\button1.swf" />
+    <Content Include="Release\RelsNext\AxionWebPages\Copy of macdefau.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\Copy of machome.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\easyyel.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\hrv002.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\hrvtoon4.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\image8e.jpg" />
+    <Content Include="Release\RelsNext\AxionWebPages\inst002.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\kbclrs.css" />
+    <Content Include="Release\RelsNext\AxionWebPages\kbil1.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\kbil2.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\kbilwave.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\kbilwave.jpg" />
+    <Content Include="Release\RelsNext\AxionWebPages\kbilwave1.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\lb0bult.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\lb1bult.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\lb2bult.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\letter.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\loaded.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\macacc.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macbrwse.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macclrs.css" />
+    <Content Include="Release\RelsNext\AxionWebPages\macdefau.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macdetl.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macerr.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\machist.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\machome.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\maclinks.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macmenu.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macmlac.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macmlkg.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macmlsb.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macmlsu.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macmltr.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macnames.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macrels.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macserv.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macstyle.css" />
+    <Content Include="Release\RelsNext\AxionWebPages\macstyle1.css" />
+    <Content Include="Release\RelsNext\AxionWebPages\macsubs.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macsyst.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\mactop.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macwelco.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macwelco2.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macwhat.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macwho.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\macwo.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\mangr1a.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\mangr1s.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\mlogoc.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\New HTML Page1.htm" />
+    <Content Include="Release\RelsNext\AxionWebPages\NewEasyYellow.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\peoplea.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\peoples.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\plat2a.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\plat2s.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\sldclear.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\Solution1.sln" />
+    <Content Include="Release\RelsNext\AxionWebPages\tvpig3a.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\tvpig3s.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\wbult36.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\white006.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\wrkorda.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\wrkords.gif" />
+    <Content Include="Release\RelsNext\AxionWebPages\yellw001.gif" />
+    <Content Include="Release\RelsNext\Components\SmButtonContent.shtml" />
+    <Content Include="Release\RelsNext\Components\SmButtonContentSamples.shtml" />
+    <Content Include="Release\RelsNext\Css\aProgrammingNotes.css" />
+    <Content Include="Release\RelsNext\Css\JefferyABeckerGenList.css" />
+    <Content Include="Release\RelsNext\Css\MdmBaseTags.css" />
+    <Content Include="Release\RelsNext\Css\MdmBodyBox.css" />
+    <Content Include="Release\RelsNext\Css\MdmBodyBoxA.css" />
+    <Content Include="Release\RelsNext\Css\MdmBodyBoxDoc.css" />
+    <Content Include="Release\RelsNext\Css\MdmBodyBoxWide.css" />
+    <Content Include="Release\RelsNext\Css\MdmBodyHeader.css" />
+    <Content Include="Release\RelsNext\Css\MdmBodyText.css" />
+    <Content Include="Release\RelsNext\Css\MdmCarMgnt.css" />
+    <Content Include="Release\RelsNext\Css\MdmCntrctAv.css" />
+    <Content Include="Release\RelsNext\Css\MdmColourPallet.css" />
+    <Content Include="Release\RelsNext\Css\MdmDbUtilClass.css" />
+    <Content Include="Release\RelsNext\Css\MdmDebugTagHover.css" />
+    <Content Include="Release\RelsNext\Css\MdmDghAccom.css" />
+    <Content Include="Release\RelsNext\Css\MdmDghCarBio.css" />
+    <Content Include="Release\RelsNext\Css\MdmFloatingCallout.css" />
+    <Content Include="Release\RelsNext\Css\MdmImportTld.css" />
+    <Content Include="Release\RelsNext\Css\MdmMain.css" />
+    <Content Include="Release\RelsNext\Css\MdmMenu.css" />
+    <Content Include="Release\RelsNext\Css\MdmMenuImage.css" />
+    <Content Include="Release\RelsNext\Css\MdmNetAppFrame.css" />
+    <Content Include="Release\RelsNext\Css\MdmNetVirList.css" />
+    <Content Include="Release\RelsNext\Css\MdmOutlookSync.css" />
+    <Content Include="Release\RelsNext\Css\MdmPageTemplateDoc.css" />
+    <Content Include="Release\RelsNext\Css\MdmPageTemplateWide.css" />
+    <Content Include="Release\RelsNext\Css\MdmPickTr.css" />
+    <Content Include="Release\RelsNext\Css\MdmProceduralMvcOss.css" />
+    <Content Include="Release\RelsNext\Css\MdmResume.css" />
+    <Content Include="Release\RelsNext\Css\MdmServ.css" />
+    <Content Include="Release\RelsNext\Css\MdmSrt.css" />
+    <Content Include="Release\RelsNext\Css\MdmSystemMgnt.css" />
+    <Content Include="Release\RelsNext\Css\MdmTransformDb.css" />
+    <Content Include="Release\RelsNext\Css\MdmWebDev.css" />
+    <Content Include="Release\RelsNext\Css\MdmWebUi.css" />
+    <Content Include="Release\RelsNext\Css\MediaAnimation.css" />
+    <Content Include="Release\RelsNext\Css\MediaTypePrint.css" />
+    <Content Include="Release\RelsNext\Css\Temp.css" />
+    <Content Include="Release\RelsNext\Images\BackgroundBlueSpiral.jpg" />
+    <Content Include="Release\RelsNext\Images\DghPhoto61.jpg" />
+    <Content Include="Release\RelsNext\Images\File Converter\Application Framework Simple Structure.jpg" />
+    <Content Include="Release\RelsNext\Images\File Converter\Class Hierarchy.jpg" />
+    <Content Include="Release\RelsNext\Images\File Converter\Class Methods Inherited.jpg" />
+    <Content Include="Release\RelsNext\Images\File Converter\File System Functional Overview.jpg" />
+    <Content Include="Release\RelsNext\Images\File Converter\Logical Definition.jpg" />
+    <Content Include="Release\RelsNext\Images\File Converter\ProjectFolderList.jpg" />
+    <Content Include="Release\RelsNext\Images\File System Functional Overview - Copy.jpg" />
+    <Content Include="Release\RelsNext\Images\File System Functional Overview 1x1.jpg" />
+    <Content Include="Release\RelsNext\Images\File System Functional Overview 1x2.jpg" />
+    <Content Include="Release\RelsNext\Images\File System Functional Overview 1x3.jpg" />
+    <Content Include="Release\RelsNext\Images\File System Functional Overview 1x4.jpg" />
+    <Content Include="Release\RelsNext\Images\File System Functional Overview.jpg" />
+    <Content Include="Release\RelsNext\Images\HoverBg.jpg" />
+    <Content Include="Release\RelsNext\Images\ImportTld Db Page Start.jpg" />
+    <Content Include="Release\RelsNext\Images\ImportTld Main Page Start.jpg" />
+    <Content Include="Release\RelsNext\Images\JefferyABeckerGenList.jpg" />
+    <Content Include="Release\RelsNext\Images\lb1bult.gif" />
+    <Content Include="Release\RelsNext\Images\McontrollerMethodList.jpg" />
+    <Content Include="Release\RelsNext\Images\MdmControlLeft.ico" />
+    <Content Include="Release\RelsNext\Images\MdmControlLeft.png" />
+    <Content Include="Release\RelsNext\Images\MdmPc11 - 00055.jpg" />
+    <Content Include="Release\RelsNext\Images\MdmPc11 - 00056.jpg" />
+    <Content Include="Release\RelsNext\Images\MdmPc11 - 00067.jpg" />
+    <Content Include="Release\RelsNext\Images\MdmPc11 - 00068.jpg" />
+    <Content Include="Release\RelsNext\Images\MdmWsVs8 Colour Compliments.jpg" />
+    <Content Include="Release\RelsNext\Images\MenuTile.jpg" />
+    <Content Include="Release\RelsNext\Images\New Bitmap Image %282%29.bmp" />
+    <Content Include="Release\RelsNext\Images\New Bitmap Image.bmp" />
+    <Content Include="Release\RelsNext\Images\ProjectScrollView.jpg" />
+    <Content Include="Release\RelsNext\Images\SpacerVert30.gif" />
+    <Content Include="Release\RelsNext\Images\SwirlsEdge.gif" />
+    <Content Include="Release\RelsNext\Images\SwirlsLeft.gif" />
+    <Content Include="Release\RelsNext\Images\SwirlsRight.gif" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmBlank.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmCogSciProj.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmDbUtilClass.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmDghAccom.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmDghCarBio.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmImportTld.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmKBil.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmMvvcProj.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmNetAppFrame.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmNetVirList.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmOutlookSync.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmPickOss.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmPickTr.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmResume.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmRsmIt.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmSrt.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmSystemMgnt.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmTechRsrch.jpg" />
+    <Content Include="Release\RelsNext\Images\Thumbnails\MdmWebDev.jpg" />
+    <Content Include="Release\RelsNext\Images\TransparentBg30.png" />
+    <Content Include="Release\RelsNext\Images\TransparentBg50.png" />
+    <Content Include="Release\RelsNext\Images\TransparentWhiteBg50.png" />
+    <Content Include="Release\RelsNext\Images\TransparentWhiteBg75.png" />
+    <Content Include="Release\RelsNext\Images\Web\HtmlCss Standards.jpg" />
+    <Content Include="Release\RelsNext\MdmResume\MdmResume - Copy3.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmCarMgnt.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmCntrctAv.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmDghAccom.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmDghCarBio.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmResume.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmRsmConstruction.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmRsmIt.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmRsmOffice.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\MdmRsmRetail.shtml" />
+    <Content Include="Release\RelsNext\MdmResume\Resume_Dgh BldgVs1_0A.htm" />
+    <Content Include="Release\RelsNext\MdmResume\Resume_Dgh ConstructionVs10A.htm" />
+    <Content Include="Release\RelsNext\MdmResume\Resume_Dgh OfficeVs6A.htm" />
+    <Content Include="Release\RelsNext\MdmResume\Resume_Dgh StdVs22aA.htm" />
+    <Content Include="Release\RelsNext\MdmWebPages\JefferyABeckerGenList.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmDbUtilClass.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmImportTld.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmMain.shtml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Release\RelsNext\MdmWebPages\MdmMainMenuImages.html" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmNetAppFrame.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmNetVirList.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmOutlookSync.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmPickTr.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmProceduralMvcOss.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmServ.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmSrt.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmSystemMgnt.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmTransformDb.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmWebDev.shtml" />
+    <Content Include="Release\RelsNext\MdmWebPages\MdmWebUi.shtml" />
+    <Content Include="Release\RelsNext\RelsBuildStage.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPageTemplate.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPageTemplateDoc.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPageTemplateDocTest.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPageTemplateWide.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtConsoleForm.shtml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtDocBottom.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtDocGoesHere.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtDocHeader.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtDocIE6Cond.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtDocTop.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtMenuContent.shtml" />
+    <Content Include="Release\RelsNext\TemplatePage\MdmPtViewMenu.shtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Release\RelsNext\AxionWebPages\a a Favorites CorpMdm.lnk" />
+    <None Include="Release\RelsNext\AxionWebPages\a d Dev Mdm.lnk" />
+    <None Include="Release\RelsNext\AxionWebPages\AxionSolutionFile.suo" />
+    <None Include="Release\RelsNext\AxionWebPages\Solution1.suo" />
+    <None Include="Release\RelsNext\GMdmMarketingPromoteMdmWebSiteReleaseMdmWsVs8RelsNextMdmWebPages.lnk" />
+    <None Include="Release\RelsNext\Images\File System Functional Overview 1x2.xcf" />
+    <None Include="Release\RelsNext\MdmJs\MdmJsParamInit.jss" />
+    <None Include="Release\RelsNext\MdmJs\MdmJsParamSet.jss" />
+    <None Include="Release\RelsNext\MdmJs\MdmPageJava.jss" />
+    <None Include="Release\RelsNext\MdmWebPages.lnk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Release\RelsNext\AcsWebPages\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
