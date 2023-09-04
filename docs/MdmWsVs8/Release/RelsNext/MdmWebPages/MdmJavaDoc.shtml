@@ -7,30 +7,30 @@
 <!-- <link rel="stylesheet" type="text/css" href="../Css/MdmDebugTagHover.css" /> -->
 <!-- ------------------------------------------------------------------------------------- -->
 <!-- SCRIPT -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.js" /> -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmStandardFuntions.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElement.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElementEvent.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmWindow.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmError.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmAnimation.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmStandardFuntions.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElement.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElementEvent.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmWindow.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmError.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmAnimation.js" /> -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmBodyBox.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmLayout.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmBodyBox.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmLayout.js" /> -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenu.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImage.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImageCollection.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenu.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImage.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImageCollection.js" /> -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmDebugTagHover.jss" /> -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmDebugTagHover.js" /> -->
 <!-- * -->
 <!-- * -->
 <!-- SCRIPT -->

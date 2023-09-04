@@ -11,27 +11,27 @@
 <!-- * -->
 <!-- ------------------------------------------------------------------------------------- -->
 <!-- SCRIPT -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.js" > -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmStandardFuntions.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElement.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmAnimation.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmStandardFuntions.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElement.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmAnimation.js" > -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmBodyBox.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmLayout.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmBodyBox.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmLayout.js" > -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenu.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImage.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImageCollection.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenu.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImage.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImageCollection.js" > -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" > -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" > -->
 <!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmDebugTagHover.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmDebugTagHover.js" > -->
 <!-- * -->
 <!-- * -->
 <!-- SCRIPT -->
@@ -2703,7 +2703,7 @@ fnLayoutSelectByIndex(layoutStandard);
 -->
 <!-- Section Post Document Load Script -->
 <!-- SCRIPT -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.jss" > -->
+<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.js" > -->
 <SCRIPT type="text/javascript">
 <!-- Script Content Goes After Next Line -->
 <!--
@@ -2731,11 +2731,11 @@ function fnDebugParameterInit()
 <!--** Javascript Parameter Init Blocks **-->
 <!--#include virtual="../../RelsBuildStage.shtml"-->
 <!--#if expr="${RelsBuild}=RelsNext" -->
-    <!--#include virtual="/release/RelsNext/MdmJs/MdmJsParamInit.jss"-->
+    <!--#include virtual="/release/RelsNext/MdmJs/MdmJsParamInit.js"-->
 <!--#elif expr="${RelsBuild}=RelsCurr" -->
-    <!--#include virtual="/release/RelsCurr/MdmJs/MdmJsParamInit.jss"-->
+    <!--#include virtual="/release/RelsCurr/MdmJs/MdmJsParamInit.js"-->
 <!--#else -->
-    <!--#include virtual="../../MdmJs/MdmJsParamInit.jss"-->
+    <!--#include virtual="../../MdmJs/MdmJsParamInit.js"-->
     <!--#include virtual="/release/RelsNotInitError.htm"-->
 <!--#endif -->
     debugStateLoadFirst = false;
@@ -2748,11 +2748,11 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 <!--** Javascript Parameter Set Blocks **-->
 <!--#include virtual="../../RelsBuildStage.shtml"-->
 <!--#if expr="${RelsBuild}=RelsNext" -->
-    <!--#include virtual="/release/RelsNext/MdmJs/MdmJsParamSet.jss"-->
+    <!--#include virtual="/release/RelsNext/MdmJs/MdmJsParamSet.js"-->
 <!--#elif expr="${RelsBuild}=RelsCurr" -->
-    <!--#include virtual="/release/RelsCurr/MdmJs/MdmJsParamSet.jss"-->
+    <!--#include virtual="/release/RelsCurr/MdmJs/MdmJsParamSet.js"-->
 <!--#else -->
-    <!--#include virtual="../../MdmJs/MdmJsParamSet.jss"-->
+    <!--#include virtual="../../MdmJs/MdmJsParamSet.js"-->
     <!--#include virtual="/release/RelsNotSetError.htm"-->
 <!--#endif -->
 }

@@ -275,9 +275,9 @@
     <None Include="Release\RelsNext\AxionWebPages\Solution1.suo" />
     <None Include="Release\RelsNext\GMdmMarketingPromoteMdmWebSiteReleaseMdmWsVs8RelsNextMdmWebPages.lnk" />
     <None Include="Release\RelsNext\Images\File System Functional Overview 1x2.xcf" />
-    <None Include="Release\RelsNext\MdmJs\MdmJsParamInit.jss" />
-    <None Include="Release\RelsNext\MdmJs\MdmJsParamSet.jss" />
-    <None Include="Release\RelsNext\MdmJs\MdmPageJava.jss" />
+    <None Include="Release\RelsNext\MdmJs\MdmJsParamInit.js" />
+    <None Include="Release\RelsNext\MdmJs\MdmJsParamSet.js" />
+    <None Include="Release\RelsNext\MdmJs\MdmPageJava.js" />
     <None Include="Release\RelsNext\MdmWebPages.lnk" />
   </ItemGroup>
   <ItemGroup>
