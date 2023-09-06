@@ -115,7 +115,7 @@
 /// ClipMdPlus Macro Library - Struct &amp; Enum Name, Variants
 ///
 /// Provides simple syntax to the item and variant names.
-/// 
+///
 /// proc_macro_derive:
 ///     use super::super::Name;
 ///     use super::super::VariantName;
@@ -124,7 +124,7 @@
 ///     Name
 ///     Named for T
 ///     VariantName
-///     
+///   
 
 </span><span class="comment">// #![recursion_limit = &quot;128&quot;]
 // derive_name macros
@@ -166,7 +166,7 @@
     <span class="kw">let </span>item_ident = <span class="kw-2">&amp;</span>ast.ident;
 
     <span class="comment">// let _quote_mark = &#39;&quot;&#39;;
-    
+  
     </span><span class="kw">if let </span>Data::Enum(r#enum) = <span class="kw-2">&amp;</span>ast.data {
         <span class="kw">let </span>ident = <span class="kw-2">&amp;</span>ast.ident;
         <span class="kw">let </span>quoted_ident = <span class="macro">format!</span>(<span class="string">&quot;{}&quot;</span>, ident);
@@ -201,7 +201,7 @@
             });
         }
         <span class="kw">let </span>gen_variant = <span class="macro">quote! </span>{
-            
+    
             <span class="kw">impl </span>#ident {
                 <span class="kw">fn </span>variant_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
                     <span class="kw">match </span><span class="self">self </span>{

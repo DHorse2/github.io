@@ -480,7 +480,7 @@
 </span><span class="kw">use </span>std::collections::HashMap;
 <span class="comment">// use syn::*;
 </span><span class="kw">use </span>syn::{<span class="self">self</span>, parse_quote, Arm, Data};
-<span class="kw">use </span>syn::{Attribute, DataEnum, DeriveInput, Expr, ExprLit, ExprParen, Fields, Lit, parse2, parse_macro_input, Variant}; <span class="comment">// path, tokens, Token, 
+<span class="kw">use </span>syn::{Attribute, DataEnum, DeriveInput, Expr, ExprLit, ExprParen, Fields, Lit, parse2, parse_macro_input, Variant}; <span class="comment">// path, tokens, Token,
 
 
 // ! Crates -------------------------------------------------------
@@ -488,7 +488,7 @@
 // serde_enum
 // use std::collections::HashMap;
 // use syn::*;
-// use syn::{Attribute, DataEnum, DeriveInput, Expr, ExprLit, ExprParen, Fields, Lit, parse2, parse_macro_input, Variant}; // path, tokens, Token, 
+// use syn::{Attribute, DataEnum, DeriveInput, Expr, ExprLit, ExprParen, Fields, Lit, parse2, parse_macro_input, Variant}; // path, tokens, Token,
 </span><span class="attr">#[derive(Debug, derive_more::Display, Clone, Copy, PartialEq, Eq, Hash)]
 </span><span class="kw">enum </span>NamingStyle {
     SnakeCase,
@@ -511,7 +511,7 @@
 }
 <span class="comment">// ! Serialization -------------------------------------------------------
 // You need to mark your macro with #[macro_export] and then mark the module with #[macro_use]:
-// #[proc_macro]. 
+// #[proc_macro].
 // This doesn&#39;t apply to proc_macro_derive. #[allow(unused_macros)] needed for libraries.
 // ! (serde) Serialization -------------------------------------------------------
 </span><span class="doccomment">/// doc todo create_ser_arms
@@ -631,7 +631,7 @@
     // };
     // out.into()
 </span>}
-<span class="doccomment">/// doc todo SnakeCase 
+<span class="doccomment">/// doc todo SnakeCase
 </span><span class="comment">// #[proc_macro_derive(SnakeCase)]
 // pub fn to_snake_case(v: &amp;str) -&gt; String {
 </span><span class="attr">#[allow(unused_macros)]

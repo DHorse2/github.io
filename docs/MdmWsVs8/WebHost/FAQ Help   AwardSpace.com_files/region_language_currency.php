@@ -231,5 +231,5 @@ document.write('<a href="javascript:void(0);" onClick="change_region(\'Asia\',\'
 document.write('<a href="javascript:void(0);" onClick="change_region(\'Other\',\'EUR\')" id=\'region_Other\'>Other</a>');
 document.write('</span></span>');
 
-window.onload = switch_region; 
+window.onload = switch_region;
 

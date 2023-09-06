@@ -7,12 +7,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title></title>
-    
+ 
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<SCRIPT><!-- fnSetRotation function --> 
-//oObj input requires that a matrix filter be applied. 
+<SCRIPT><!-- fnSetRotation function -->
+//oObj input requires that a matrix filter be applied.
 //deg input defines the requested angle of rotation.
 var deg2radians = Math.PI * 2 / 360;
 function fnSetRotation(oObj, deg)
@@ -27,8 +27,8 @@ function fnSetRotation(oObj, deg)
 
 }
 
-<!-- fnResize function --> 
-//oObj input requires that a matrix filter be applied. 
+<!-- fnResize function -->
+//oObj input requires that a matrix filter be applied.
 //flMultiplier input defines the amount by which the oObj is resized.
 function fnResize(oObj, flMultiplier)
 {    oObj.filters.item(0).M11 *= flMultiplier;
@@ -39,12 +39,12 @@ function fnResize(oObj, flMultiplier)
 
 
 var iCount = 400;
-<!-- fnSpin function --> 
+<!-- fnSpin function -->
 function fnSpin(oObj)
 {
 
 <!-- The function chosen for flMultiple defines size changes in the animation. -->
-	var flMultiple = iCount/720; 
+	var flMultiple = iCount/720;
 	iCount += 4;
 
 <!-- The number of 360-degree rotations is three. -->
@@ -59,12 +59,12 @@ function fnSpin(oObj)
   </head>
   <body>
 
-<!-- When loaded, the onfilterchange event is fired as the filter makes 
+<!-- When loaded, the onfilterchange event is fired as the filter makes
 its initial settings.  This starts the animation.-->
-<DIV ID="oDiv" STYLE="position:absolute; 
+<DIV ID="oDiv" STYLE="position:absolute;
 	filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')"
 		onfilterchange="fnSpin(this)"
-    onmouseover="fnSpin(this)" 
+    onmouseover="fnSpin(this)"
     >
 	<DIV STYLE=" background-color: lightblue; padding:5;">
 	    SOME TEXT<BR/>

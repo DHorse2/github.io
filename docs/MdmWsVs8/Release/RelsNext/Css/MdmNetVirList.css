@@ -3,7 +3,7 @@
 /* ----------------- */
 #BodyH1 {
 /* Position */
-position:relative; 
+position:relative;
 top:1%;
 left:20%;
 /* Size */
@@ -15,11 +15,11 @@ text-align:center;
 background: url(../Images/TransparentBg30.png);
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB1{
 /* Position */
-position:relative; 
+position:relative;
 top:1%;
 /* Layout */
 float: left;
@@ -31,11 +31,11 @@ margin:1%;
 }
 
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB2{
 /* Position */
-position:relative; 
+position:relative;
 top:1%;
 /* Layout */
 float: right;
@@ -45,20 +45,20 @@ width: 47%;
 margin:1%;
 }
 
-#B2D1 { 
+#B2D1 {
 /* Size */
 width:45%;
 }
 
-#B2D2 { 
+#B2D2 {
 /* Size */
 width:45%;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 /* Callout Para Poup */
-#B2C1 { 
+#B2C1 {
 /* Layering */
 z-index:2;
 }
@@ -93,9 +93,9 @@ height:50.0em;
 z-index:4;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
-#B2C2A { 
+#B2C2A {
 /* Layering */
 z-index:1;
 }
@@ -110,7 +110,7 @@ display:none;
 display:block;
 }
 
-#B2C2Img1Thumb { 
+#B2C2Img1Thumb {
 height:9.0em;
 }
 
@@ -124,11 +124,11 @@ height:50.0em;
 z-index:4;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB3{
 /* Position */
-position:relative; 
+position:relative;
 top:1%;
 /* Layout */
 float: left;
@@ -138,11 +138,11 @@ width: 47%;
 margin:1%;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB4{
 /* Position */
-position:relative; 
+position:relative;
 top:1%;
 /* Layout */
 float: left;
@@ -152,10 +152,10 @@ width: 47%;
 margin:1%;
 }
 
-/* ----------------- */  
+/* ----------------- */
 .DivP6{
 /* Position */
-position:relative; 
+position:relative;
 top:1%;
 /* Size */
 width:47%;
@@ -164,5 +164,5 @@ float: left;
 /* Alignment */
 margin:1%;
 }
-/* ----------------- */  
+/* ----------------- */
 

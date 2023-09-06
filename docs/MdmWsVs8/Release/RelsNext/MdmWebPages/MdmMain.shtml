@@ -16,14 +16,14 @@
     <title>Professional and Personal Site for Dave Horsman</title>
     <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon" >
     <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png" >
-	<!-- <script src="../MdmJs/mdm_template_scripts_top.js"></script>
-	<script src="../MdmJs/inline.js"></script> -->
+	<!-- <script src="../MdmJs/inline.js"></script> -->
+	<!-- <script src="../MdmJs/MdmPageJava.js"></script> -->
 </head>
 <!--END OF HEAD -->
 <!-- ..................................................................................... -->
 <!-- Section HTML Body Content -->
 <!-- ..................................................................................... -->
-<!-- 
+<!--
 // Main Body Layout Objects:
 //
 // BodyArea
@@ -71,13 +71,19 @@
     <!--BODY -->
     <!-- * 	  onfocus='fnDocumentLoadInit()' -->
 <body id="BodyBox"
-	  class="BodyBox " 
+	  class="BodyBox "
 	  >
-	  <!-- * -->
-	  <!-- ** Section Body Area ** -->
-     <!-- ** <div id="BodyArea" class="BodyAreaClass"> ** -->
-		<script src="../MdmJs/mdm_template_scripts.js"></script>
-		<script src="../MdmJs/inline.js"></script>
+		<!-- <script src="../MdmJs/mdm_template_scripts_inline.js"></script> -->
+		<!-- <script src="../MdmJs/MdmJsParamInit.js"></script> -->
+		<!-- <script src="../MdmJs/MdmPageJava.js"></script> -->
+		<!-- <object name="PageJava" data="../MdmJs/MdmPageJava.js" type="text/javascript"></object> -->
+		<!-- <script src="../MdmJs/MdmPageJava.js"></script> -->
+		<!-- <div w3-include-html="../MdmJs/MdmPageJava.js"></div> -->
+		<!-- * -->
+		<!-- ** Section Body Area ** -->
+		<!-- ** <div id="BodyArea" class="BodyAreaClass"> ** -->
+		<!-- <script src="../MdmJs/mdm_template_scripts.js"></script> -->
+		<!-- <script src="../MdmJs/inline.js"></script> -->
         <!-- * -->
         <div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
 				<!-- ..................................................................................... -->
@@ -224,20 +230,20 @@
       <div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText f10 ">
           <!-- * -->
           <p id="MenuGroup1Header" class="MenuColumnHeading eB f12 cBlack"
-onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt17', 'MdmWebDev18Image', 'MdmWebDev18', oObjImageSizeSmall, 1, 8, true, false);" 
+onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt17', 'MdmWebDev18Image', 'MdmWebDev18', oObjImageSizeSmall, 1, 8, true, false);"
               	>
       	 <span class="fMicro">Click menu headings to see thumbnail menus<br ></span>
          Development Projects
          </p>
-<!-- IN PROGRESS NOTE lnumbered altering list presentation... 
+<!-- IN PROGRESS NOTE lnumbered altering list presentation...
 onmouseover=fnElementGroupShowStack(LeftHeader1)
 -->
     <ul id="MenuGroup1" class="MenuList lNumbered MenuColumnClass">
         <!-- 1 -->
         <li class="MenuListItem">
 		<!-- x onmouseover="fnElementGroupShowStack(img1MenuLine, img1);"-->
-		<a id="MdmImportTldMenuLine" 
-		   class="MenuListItem" 
+		<a id="MdmImportTldMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmImportTld.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTld11Image', 'MdmImportTld11', oObjImageSizeSmall, 1, 1, false, true);"
 		   >
@@ -247,8 +253,8 @@ onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTld11Ima
 		</li>
         <!-- 2 -->
         <li class="MenuListItem">
-		<a id="MdmNetAppFrameMenuLine" 
-    		class="MenuListItem" 
+		<a id="MdmNetAppFrameMenuLine"
+    		class="MenuListItem"
     		href="../MdmWebPages/MdmNetAppFrame.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmImportTld11', 'MdmNetAppFrame12Image', 'MdmNetAppFrame12', oObjImageSizeSmall, 1, 2, false, true);"
 		   	>
@@ -257,8 +263,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmImportTld11', 'MdmNetAppFrame12Image
 		</li>
         <!-- 3 -->
         <li class="MenuListItem">
-		<a id="MdmWebUiMenuLine" 
-		   class="MenuListItem" 
+		<a id="MdmWebUiMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmWebUi.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmNetAppFrame12', 'MdmWebUi13Image', 'MdmWebUi13', oObjImageSizeSmall, 1, 3, false, true);"
 		   >
@@ -267,8 +273,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmNetAppFrame12', 'MdmWebUi13Image', '
 		</li>
         <!-- 4 -->
         <li class="MenuListItem">
-		<a id="MdmDbUtilClassMenuLine" 
-		   class="MenuListItem" 
+		<a id="MdmDbUtilClassMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmDbUtilClass.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmWebUi13', 'MdmDbUtilClass14Image', 'MdmDbUtilClass14', oObjImageSizeSmall, 1, 4, false, true);"
 		   >
@@ -277,8 +283,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmWebUi13', 'MdmDbUtilClass14Image', '
 		</li>
         <!-- 5 -->
         <li class="MenuListItem">
-		<a id="MdmOutlookSyncMenuLine" 
-		   class="MenuListItem" 
+		<a id="MdmOutlookSyncMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmOutlookSync.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmDbUtilClass14', 'MdmOutlookSync15Image', 'MdmOutlookSync15', oObjImageSizeSmall, 1, 5, false, true);"
 		   >
@@ -287,8 +293,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmDbUtilClass14', 'MdmOutlookSync15Ima
 		</li>
         <!-- 6 -->
         <li class="MenuListItem">
-		<a id="MdmNetVirListMenuLine" 
-		   class="MenuListItem" 
+		<a id="MdmNetVirListMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmNetVirList.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmOutlookSync15', 'MdmNetVirList16Image', 'MdmNetVirList16', oObjImageSizeSmall, 1, 6, false, true);"
 		   >
@@ -297,8 +303,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmOutlookSync15', 'MdmNetVirList16Imag
 		</li>
         <!-- 7 -->
         <li class="MenuListItem">
-		<a id="MdmSystemMgntMenuLine" 
-		   class="MenuListItem" 
+		<a id="MdmSystemMgntMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmSystemMgnt.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmNetVirList16', 'MdmSystemMgnt17Image', 'MdmSystemMgnt17', oObjImageSizeSmall, 1, 7, false, true);"
 		   >
@@ -307,8 +313,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmNetVirList16', 'MdmSystemMgnt17Image
 		</li>
         <!-- 8 -->
         <li class="MenuListItem MenuListItemLast">
-		<a id="MdmWebDevMenuLine"  
-		   class="MenuListItem" 
+		<a id="MdmWebDevMenuLine"
+		   class="MenuListItem"
 		   href="../MdmWebPages/MdmWebDev.shtml"
 onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', 'MdmWebDev18', oObjImageSizeSmall, 1, 8, false, true);"
 		   >
@@ -329,7 +335,7 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
       <!-- * Left Column Content Second Menu ** -->
       <div id="DivC21" class="MenuColumnClass CalloutContent CalloutBorderFull">
 			<h4 id="C21H1" class="h4">
-        		About this page...  
+        		About this page...
 			</h4>
 			<p id="C21P1" class="aLeft Indent15 Pad5">
 				There is a large number of text boxes on this page to
@@ -337,20 +343,20 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
         	</p>
       </div>
 <!-- Menu Group 2 ..................................................................................... -->
-      <div id="MenuContainerLeft2" 
+      <div id="MenuContainerLeft2"
 		   class="MenuContainer MenuColumnClass fText f10 "
 		   >
-           <p id="MenuGroup2Header" 
+           <p id="MenuGroup2Header"
   		   	  class="MenuColumnHeading eB f12 cBlack"
-              onmousedown="fnElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio23', 'MdmDghAccom24Image', 'MdmDghAccom24', oObjImageSizeSmall, 2, 4, true, false);" 
+              onmousedown="fnElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio23', 'MdmDghAccom24Image', 'MdmDghAccom24', oObjImageSizeSmall, 2, 4, true, false);"
   			  >
            Career
            </p>
            <ul id="MenuGroup2" class="MenuList">
                         <!-- 1 -->
                         <li class="MenuListItem">
-						<a id="MdmResumeMenuLine" 
-                  		    class="MenuListItem" 
+						<a id="MdmResumeMenuLine"
+                  		    class="MenuListItem"
     						href="../MdmResume/MdmResume.shtml"
    		   					onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft2', 'MdmResume21Image', 'MdmResume21', oObjImageSizeSmall, 2, 1, false, true);"
     						>
@@ -359,8 +365,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
                 		</li>
                         <!-- 2 -->
                         <li class="MenuListItem">
-						<a id="MdmRsmItMenuLine" 
-                		    class="MenuListItem" 
+						<a id="MdmRsmItMenuLine"
+                		    class="MenuListItem"
     						href="../MdmResume/MdmRsmIt.shtml"
    		   					onmouseover="fnElementGroupShowStack(0, 'MdmResume21', 'MdmRsmIt22Image', 'MdmRsmIt22', oObjImageSizeSmall, 2, 2, false, true);"
     						>
@@ -369,8 +375,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
                 		</li>
                         <!-- 3 -->
                         <li class="MenuListItem">
-						<a id="MdmDghCarBioMenuLine" 
-                		    class="MenuListItem" 
+						<a id="MdmDghCarBioMenuLine"
+                		    class="MenuListItem"
     						href="../MdmResume/MdmDghCarBio.shtml"
    		   					onmouseover="fnElementGroupShowStack(0, 'MdmRsmIt22', 'MdmDghCarBio23Image', 'MdmDghCarBio23', oObjImageSizeSmall, 2, 3, false, true);"
     						>
@@ -379,8 +385,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
                 		</li>
                         <!-- 4 -->
                         <li class="MenuListItem MenuListItemLast">
-						<a id="MdmDghAccomMenuLine" 
-                		    class="MenuListItem" 
+						<a id="MdmDghAccomMenuLine"
+                		    class="MenuListItem"
     						href="../MdmResume/MdmDghAccom.shtml"
    		   					onmouseover="fnElementGroupShowStack(0, 'MdmDghCarBio23', 'MdmDghAccom24Image', 'MdmDghAccom24', oObjImageSizeSmall, 2, 4, false, true);"
     						>
@@ -406,24 +412,24 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
                         still under construction. (Vs1.2Beta)
                     </p>
                     <p id="C22P2" class="aCenter">
-						The theme is conservative with soft colour 
+						The theme is conservative with soft colour
 						using numerous optionally expanding callouts and images.
                     </p>
                 </div>
 <!-- Menu Group 3 ..................................................................................... -->
-                <div id="MenuContainerLeft3" 
+                <div id="MenuContainerLeft3"
 					 class="MenuContainer MenuColumnClass fText f10 "
 					 >
-                    <p id="MenuGroup3Header" 
+                    <p id="MenuGroup3Header"
 					   class="MenuColumnHeading eB f12 cBlack"
-                    	onmousedown="fnElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj32', 'MdmMvvmProj33Image', 'MdmMvvmProj33', oObjImageSizeSmall, 3, 3, true, false);" 
+                    	onmousedown="fnElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj32', 'MdmMvvmProj33Image', 'MdmMvvmProj33', oObjImageSizeSmall, 3, 3, true, false);"
 					   >
                     Applied Research
                     </p>
                     <ul id="MenuGroup3" class="MenuList">
                         <!-- 1 -->
                         <li class="MenuListItem">
-						<a id="MdmTechRsrchMenuLine" 
+						<a id="MdmTechRsrchMenuLine"
 						   href=""
    		   				   onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft3', 'MdmTechRsrch31Image', 'MdmTechRsrch31', oObjImageSizeSmall, 3, 1, false, true);"
 						   >
@@ -498,8 +504,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
         <div id="ViewToggleBarCopy" class="ViewToggleBar" >
 <!-- * -->
 			<div id="BodyConsoleViewButtonCopy" class="ViewToggleBlockContainer" >
-                <div id="BodyLayoutToggleCopy" 
-            	     class="BodyLayoutToggle ViewToggleButton 
+                <div id="BodyLayoutToggleCopy"
+            	     class="BodyLayoutToggle ViewToggleButton
 					 MenuListItem  BorderThin "
                      onmousedown="fnLayoutNext(0);"
             	     >
@@ -508,8 +514,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
             </div>
 <!-- ..................................................................................... -->
 			<div id="BodyConsoleMouseOverButtonCopy" class="ViewToggleBlockContainer" >
-					<div id="BodyConsoleMouseOverToggleCopy" 
-						 class="BodyConsoleToggle ViewToggleButton 
+					<div id="BodyConsoleMouseOverToggleCopy"
+						 class="BodyConsoleToggle ViewToggleButton
 						 ViewToggleBlockLabel MenuListItem BorderThin "
 						 onmousedown="fnBodyConsoleToggle('ConsoleMouseOver');"
 						 >
@@ -521,8 +527,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
 				<!-- Note: No Hide for buttons -->
 				<div id="BodyConsoleDebugTogglesCopy" class="ViewToggleBlockContainerOuter" >
 					<div id="BodyConsoleDebugButtonCopy" class="ViewToggleBlockContainer" >
-						<div id="BodyConsoleDebugToggleCopy" 
-							 class="BodyConsoleToggle ViewToggleButton 
+						<div id="BodyConsoleDebugToggleCopy"
+							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin "
 							 onmousedown="fnBodyConsoleToggle('ConsoleDebug');"
 							 >
@@ -531,15 +537,15 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
 					</div> <!-- end of BodyConsoleDebugButton -->
 					<!-- * -->
 					<div id="BodyConsoleDebugMainTogglesCopy" class="ViewToggleBlockContainer">
-						<div id="BodyConsoleDebugOnErrorToggleCopy" 
-							 class="BodyConsoleLog ViewToggleButton 
+						<div id="BodyConsoleDebugOnErrorToggleCopy"
+							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
 							 onmousedown="fnBodyConsoleToggle('ConsoleDebugOnError');"
 							 >
 							o
 						</div>
-						<div id="BodyConsoleDebugAllToggleCopy" 
-							 class="BodyConsoleLog ViewToggleButton 
+						<div id="BodyConsoleDebugAllToggleCopy"
+							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
 							 onmousedown="fnBodyConsoleToggle('ConsoleDebugAll');"
 							 >
@@ -549,29 +555,29 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
 				</div> <!-- end of BodyConsoleDebugToggles -->
 				<!-- * -->
 				<div id="BodyConsoleDebugTypesTogglesCopy" class="ViewToggleBlockContainer">
-					<div id="BodyConsoleDebugMoveToggleCopy" 
-						 class="BodyConsoleLog ViewToggleButton 
+					<div id="BodyConsoleDebugMoveToggleCopy"
+						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin "
 						 onmousedown="fnBodyConsoleToggle('ConsoleDebugMove');"
 						 >
 						m
 					</div>
-					<div id="BodyConsoleDebugTransitionToggleCopy" 
-						 class="BodyConsoleLog ViewToggleButton 
+					<div id="BodyConsoleDebugTransitionToggleCopy"
+						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
 						 onmousedown="fnBodyConsoleToggle('ConsoleDebugTransition');"
 						 >
 						t
 					</div>
-					<div id="BodyConsoleDebugDetailToggleCopy" 
-						 class="BodyConsoleLog ViewToggleButton 
+					<div id="BodyConsoleDebugDetailToggleCopy"
+						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
 						 onmousedown="fnBodyConsoleToggle('ConsoleDebugDetail');"
 						 >
 						d
 					</div>
-					<div id="BodyConsoleDebugEventsToggleCopy" 
-						 class="BodyConsoleLog ViewToggleButton 
+					<div id="BodyConsoleDebugEventsToggleCopy"
+						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
 						 onmousedown="fnBodyConsoleToggle('ConsoleDebugEvents');"
 						 >
@@ -583,8 +589,8 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
             <div id="BodyConsoleBoxButtonsCopy" class="" >
 				<div id="BodyConsoleBoxTogglesCopy" class="ViewToggleBlockContainerOuter" >
 					<div id="BodyConsoleBoxButtonCopy" class="ViewToggleBlockContainer" >
-						<div id="BodyConsoleToggleCopy" 
-							 class="BodyConsoleToggle ViewToggleButton 
+						<div id="BodyConsoleToggleCopy"
+							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin"
 							 onmousedown="fnBodyConsoleToggle('ConsoleAll');"
 							 >
@@ -593,22 +599,22 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
 					</div> <!-- end of BodyConsoleBoxButton -->
 					<!-- * -->
 					<div id="BodyConsoleLogTogglesCopy" class="ViewToggleBlockContainer" >
-						<div id="BodyConsoleErrorToggleCopy" 
-							 class="BodyConsoleLog ViewToggleButton 
+						<div id="BodyConsoleErrorToggleCopy"
+							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
 							 onmousedown="fnBodyConsoleToggle('ConsoleError');"
 							 >
 							e
 						</div>
-						<div id="BodyConsoleEventToggleCopy" 
-							 class="BodyConsoleLog ViewToggleButton 
+						<div id="BodyConsoleEventToggleCopy"
+							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
 							 onmousedown="fnBodyConsoleToggle('ConsoleEvent');"
 							 >
 							v
 						</div>
-						<div id="BodyConsoleStateToggleCopy" 
-							 class="BodyConsoleLog ViewToggleButton 
+						<div id="BodyConsoleStateToggleCopy"
+							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
 							 onmousedown="fnBodyConsoleToggle('ConsoleState');"
 							 >
@@ -618,15 +624,15 @@ onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt17', 'MdmWebDev18Image', '
                 </div> <!-- end of BodyConsoleBoxToggles -->
 				<!-- * -->
 				<div id="BodyConsoleAuxillaryTogglesCopy" class="ViewToggleBlockContainer" >
-					<div id="BodyConsoleTestToggleCopy" 
-						 class="BodyConsoleLog ViewToggleButton 
+					<div id="BodyConsoleTestToggleCopy"
+						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin"
 						 onmousedown="fnBodyConsoleToggle('ConsoleTest');"
 						 >
 						T
 					</div>
-					<div id="BodyConsoleClearToggleCopy" 
-						 class="BodyConsoleLog ViewToggleButton 
+					<div id="BodyConsoleClearToggleCopy"
+						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
 						 onmousedown="fnBodyConsoleToggle('ConsoleClear');"
 						 >
@@ -733,20 +739,20 @@ Test Data
 					</a>
     					<ul id="B11C1L1" class="BodyList lB0">
     						<li id="B11C1L1I1" class="BodyListItem">
-    						Language skills and Applications 
+    						Language skills and Applications
 							knowledge, design and development.</li>
     						<li id="B11C1L1I3" class="BodyListItem">
-    						Specialized industry and 
+    						Specialized industry and
 							tools knowledge.</li>
     						<li id="B11C1L1I4" class="BodyListItem">
     						Free Code.</li>
     						<li id="B11C1L1I5" class="BodyListItem">
-    						Your also interested in the 
+    						Your also interested in the
 							Applied R&#38;D Projects.</li>
     						<li id="B11C1L1I6" class="BodyListItem">
     						You need or are developing the same App.</li>
     						<li id="B11C1L1I7" class="BodyListItem">
-    						Pick, U2, multivalued Object DB, 
+    						Pick, U2, multivalued Object DB,
 							database utilities.</li>
     						<li id="B11C1L1I8" class="BodyListItem">
     						Personal Info (resume).</li>
@@ -829,7 +835,7 @@ Test Data
                 <div id="DivBox14" class="BodyParaLeft ColumnType1">
                     <div id="DivCalloutB14C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
                         <h4 id="B14C1H1" class="BodyParaGround CP">
-                            that was a long list... 
+                            that was a long list...
                         </h4>
                 	</div> <!-- end of DivC5 -->
                     <p id="B14P1" class="BodyPara">
@@ -837,8 +843,8 @@ Test Data
 						With that said, my focus is always first and foremost on producing code and designs.
                     </p>
                     <p id="B14P2" class="BodyPara">
-                        I have mainly served small developers and small enterprise clients.  
-						This resulted in my frequently providing most services found in the SDLC 
+                        I have mainly served small developers and small enterprise clients.
+						This resulted in my frequently providing most services found in the SDLC
 						as well as product development roles.
                     </p>
                     <p id="B14P3" class="BodyPara BodyParaLast ">
@@ -847,7 +853,7 @@ Test Data
 						drawing on a much broader than typical background of experience.
                     </p>
 					<br >
-                </div> 
+                </div>
 				<!-- end of DivBox14 -->
 				<br class="aClearBoth" >
 <!-- * -->
@@ -898,7 +904,7 @@ Test Data
 						</li>
 						<li id="DivCalloutB15C1L2I5" class="BodyListItem lB0 ">
 							<span class="eB">Details:</span>
-							Performs detailed rather than summary tracing.  
+							Performs detailed rather than summary tracing.
 							Typically detaile mode applies to menu items where as summary mode refers
 							to the group of menu items.
 						</li>
@@ -964,7 +970,7 @@ Test Data
 						</li>
 						<li id="DivCalloutB15C1L4I5" class="BodyListItem lB0 ">
 							<span class="eB">Clear all images:</span>
-							Clicking this button clears all large and thumbnail images 
+							Clicking this button clears all large and thumbnail images
                             currently being displayed.<br >
 						</li>
 						<li id="DivCalloutB15C1L4I6" class="BodyListItem lB0 ">
@@ -974,7 +980,6 @@ Test Data
                             It is mainly intended for view changes, zone resizes or unanticpated
                             errors.<br >
                             It requires at least the retention of previous state to be efficient.
-                            
 						</li>
 					</ul><!-- * End of DivCalloutB15C1L4-->
 					<!-- -->
@@ -996,8 +1001,8 @@ Test Data
 			There are two button controls that change the view of the web page or
 			alter how the animations behave.
 			The rest of the buttons consist of two groups.
-			The first group controls various debugging features, the second group controls a 
-			text, event and state console.  
+			The first group controls various debugging features, the second group controls a
+			text, event and state console.
 			The console is used display error, event and trace messages as well as access a large number
 			of configuration and control programmer's variables via a form.
 			Students interested in javascript, web page development and animation will find these two groups useful.
@@ -1017,13 +1022,13 @@ Test Data
 			<p id="B15C2P1a" class="BodyPara CPP">
 				I want peers and students to look at this style and code, not use it necessarily.
 				The parts I might use, particularly the calls, will all be revised first.
-				But I always intented to use AJAX (and now two other libraries.) 
-				<span class = "eU">It is industry standards that I support</span> and endorse, not a mix or third party solutions.
+				But I always intented to use AJAX (and now two other libraries.)
+				<span class="eU">It is industry standards that I support</span> and endorse, not a mix or third party solutions.
 				And in coding style, I am generally pro complex (but brief) snytax (like $(?)).
-				AND I cant' emphasise enough, I don't actually recommend <span class = "eU">hand-coding </span> in a production environment, but <span class = "eU">in the classroom </span> yes.
+				AND I cant' emphasise enough, I don't actually recommend <span class="eU">hand-coding </span> in a production environment, but <span class="eU">in the classroom </span> yes.
 			</p>
 			<p id="B15C2P1b" class="BodyPara CPP">
-				This is an <span class = "eU">educational</span>, training , prototype, platform evaluation <span class = "eU">project</span> 
+				This is an <span class="eU">educational</span>, training , prototype, platform evaluation <span class="eU">project</span>
 				intended to have some residual and potential economic value.
 				It is a high priority, in that it advances critical path points in three projects that
 				would otherwise stall.
@@ -1032,14 +1037,14 @@ Test Data
 				  There are tons of educational script samples out there...
 				  So I'm not sure that "look at what's unique about this incomplete project"
 				  is really of great value to the community.
-				  In fact what I really would rather do is make the .Net database layer from another project open. 
+				  In fact what I really would rather do is make the .Net database layer from another project open.
 				  There are hardly any samples of C# code that abstract a layer over
 				  the databases (integrated with MVC app, or whatever.)  when I looked.
-				  Code snipets are in no way the same thing.  
+				  Code snipets are in no way the same thing.
 				  That pattern (layer, component or class) is way more compatilbe with MVC and DB models as well as both current or best practices.
 			</p>
 			<p id="B15C2P1d" class="BodyPara CPP">
-				HAVING SAID THAT... <span class = "eU eB">I would greatly appreciate any feedback, criticism or comment from senior web developers and peers.</span>
+				HAVING SAID THAT... <span class="eU eB">I would greatly appreciate any feedback, criticism or comment from senior web developers and peers.</span>
 				I think we'll all learn something from it.
 				Who knows? Maybe the world will become a...
 				OK let's not get silly now.
@@ -1047,7 +1052,7 @@ Test Data
 			<p id="B15C2P1e" class="BodyPara CPP">
 				I am looking for criticism, deficiencies, strenghths, QA issues, recommended current/best practices and that sort of thing.
 				Collecting other code samples is now on my todo list.
-				If you can spare a few minutes or more though please have a look and contact me.  
+				If you can spare a few minutes or more though please have a look and contact me.
 				This can be via email (david_horsman &#64;hotmail.com), openly in ITT (IT Toolbox) forums or any manner you like and I will try to use.
 			</p>
 			<p id="B15C2P2" class="BodyPara CPP">
@@ -1061,24 +1066,24 @@ Test Data
 				(Note to developers and students.)
 			</h4>
 			<p id="B15C2P3" class="BodyPara CPP">
-				This site was in most respects developed 100% without online research.  
-				With two exceptions all solutions developed or found on the site were either 
+				This site was in most respects developed 100% without online research.
+				With two exceptions all solutions developed or found on the site were either
 				taken directly from my existing manuals or stumbled upon without aid of any sort.
 				There serveral examples of inactive code, inactive failed attempts, UI redundancy
-				and functions that perform similar or duplicated functionality.  
-				<span class = "eU">These functions are for demonstratioin purposes and I am concerned that 
-				anyone giving me a hand might misunderstand that and waste their valuable time.  
+				and functions that perform similar or duplicated functionality.
+				<span class="eU">These functions are for demonstratioin purposes and I am concerned that
+				anyone giving me a hand might misunderstand that and waste their valuable time.
 				I want those comments too, but not under a mistaken understanding.</span>
 			</p>
 			<p id="B15C2P4" class="BodyPara CPP">
 				It is also very important to start off aware that this site is a script equivalent of POJ.
 				It deliberately makes no use of external frameworks (including AJAX) and attempts to
-				find solutions (if possible) within the domain and restraints of JavaScript and DOM alone 
-				(like that wasn't contradictory).  
+				find solutions (if possible) within the domain and restraints of JavaScript and DOM alone
+				(like that wasn't contradictory).
 				There are frequent times when exploring english like sytnax that performance is being ignored.
 			</p>
 			<p id="B15C2P4Note" class="BodyPara BodyParaIndent CPP">
-				<span class = "eB">Note: </span>
+				<span class="eB">Note: </span>
 				The CSS is intended to explore OO CSS concepts along with CSS functional, attribute and text decoration usage stratagies.
 				The CSS is, like the JavaScript, is simple in it's syntax and a bit verbose.
 				POSH, XML and OOD, though not used, and their relationship to CSS at a logical and implementation level are central to the CSS too.
@@ -1091,12 +1096,12 @@ Test Data
 				and a variety of loops or patterns that navigate or access the page.
 				My intent is to ultimately revise and only leave active only the script that might be considered
 				a good (or best) practive given the above constraints as well as retain the sub-optimum or incorrect
-				solutions, failed tests, etc.  
+				solutions, failed tests, etc.
 				For example AJAX functions would be chosen before using a function from this library.
 			</p>
 			<p id="B15C2P6" class="BodyPara CPP">
 				My intent is to ultimately revise and leave active only the script that might be considered
-				a good (or best) practive given the above constraints.  At the same time I hope to retain 
+				a good (or best) practive given the above constraints.  At the same time I hope to retain
 				the sub-optimum or incorrect solutions, failed tests, etc. in some well presented form if it
 				serves an instructional purpose.
 				This should result in a history that consists of the script free version, the POJscript versions,
@@ -1110,15 +1115,15 @@ Test Data
 				troubleshooting or developing.
 				Thankfully, developers rarely have to do hard invistegation and find their own solutions and workarounds.
 				While this is great, it tends to alter troubleshooting into the art of good browser research.
-				Obviously, this in combination with hand coding was an imense advantage to my skills development; 
+				Obviously, this in combination with hand coding was an imense advantage to my skills development;
 				I already know how to learn libraries like AJAX or JQuery quickly and effeciently.
 			</p>
 			<p id="B15C2P8" class="BodyPara CPP">
-				By way of amusing example, it turns out that of the two problems I looked up on the net 
-				or drew upon memory to solve (like the BR clear both) had an oddly circular relationship to 
+				By way of amusing example, it turns out that of the two problems I looked up on the net
+				or drew upon memory to solve (like the BR clear both) had an oddly circular relationship to
 				internet research vs. ?bench? research.
 				One of these two solutions was obsolete and I had indepently found the right solution currently in use.
-				What was interesting is I didn't know that and failed locate that in subsequent code review searchs with any success until 
+				What was interesting is I didn't know that and failed locate that in subsequent code review searchs with any success until
 				I "discovered" solution. (not DIVitis but nesting your floats in an outer float.)
 				Only once I knew the answer was I able to phrase the question.
 			</p>
@@ -1126,7 +1131,7 @@ Test Data
 				Risks, rationale and whining...
 			</h4>
 			<p id="B15C2P9" class="BodyPara CPP">
-				Potential clients and of course consultancies have tended to slam my lack of activity in PHP and ASP 
+				Potential clients and of course consultancies have tended to slam my lack of activity in PHP and ASP
 				and my decision to put the effort there last; it is admitedly poor business economics on my part.
 				Respectfully, I get that, but given my time are very limited resources they should only be done
 				at the time needed or it would throw off other tasks.
@@ -1135,21 +1140,21 @@ Test Data
 			<p id="B15C2P10a" class="BodyPara CPP">
 			MOVE THIS related career economics thoughts.<br ><br >
 				Yes I strive to be an egoless programmer but...<br >
-				Across the table (during the previous three years) there was a simple (or understandable) business decision 
+				Across the table (during the previous three years) there was a simple (or understandable) business decision
 				to not take a risk with mid-level students and developers like myself in the 1-4 experience range.
 				As in there were dozens of C# and Web developers with 7 years experience out begging for jobs.
-				I'm an IDE tools, data, code and legacy software expert, but I can accept the percieved risks and caution I 
-				encountered on the part of prospects during this and the previous development project.  
+				I'm an IDE tools, data, code and legacy software expert, but I can accept the percieved risks and caution I
+				encountered on the part of prospects during this and the previous development project.
 				But that should cut both ways.
 			</p>
 			<p id="B15C2P10b" class="BodyPara CPP">
 				However, the best overall strategy, tailored to my needs, personality and value to a client was the one adopted.
-				In many respects, I just wanted to see how it turned out provided all the goals were met.  
-				This is worth mentioning in that I saw the "attitude" on the other side of the table as short sited in that a 
-				demonstated tendency toward long term loyalty was on the tableto the first decision maker to take the risk.  
+				In many respects, I just wanted to see how it turned out provided all the goals were met.
+				This is worth mentioning in that I saw the "attitude" on the other side of the table as short sited in that a
+				demonstated tendency toward long term loyalty was on the tableto the first decision maker to take the risk.
 				On the other hand, my initially junior now senior rates (after 2 years effort) were increasing
 				at a rate of 100% per year and if now stable, are still very inexpensive.
-				Anyone smart enough to take the bait, or even back a technology would have that value at the rate then, 
+				Anyone smart enough to take the bait, or even back a technology would have that value at the rate then,
 				not today regardless of wether it would rapidly stabilize at or below current market value.
 				With the resources, there are many large companies that are able to implement that to varrying degrees through policy.
 				So I think I can make a sound business case that I am of "great value"
@@ -1159,7 +1164,6 @@ Test Data
 			</p>
 			<p id="B15C2P10" class="BodyPara CPP">
 			ON TOPIC:
-				
 			</p>
 		</div>
 			<!-- -->
@@ -1170,7 +1174,7 @@ Test Data
 			The third is programatically; to alter configuration via calls to the same component as the form.
 		</p>
 		<p id="B15P5" class="BodyPara CP">
-			The Web Template Project is typically of many projects I plan.  
+			The Web Template Project is typically of many projects I plan.
 			I know that the greatest cost effectiveness can be gained by encorporating multiple goals within a project.
 			In this case...
 		</p>
@@ -1185,7 +1189,7 @@ Test Data
 					Additionally, it provides over 10,000 lines of javascript, HTML and style sheets for educational purposes.
 				</li>
 				<li id="B15P5L4I4" class="BodyListItem lB0 ">
-					Also, it provided further research for my document, web and coding standards. 
+					Also, it provided further research for my document, web and coding standards.
 					(Particularly, verbose coding techniques and web POSH strategies.)
 				</li>
 				<li id="B15P5L4I5" class="BodyListItem lB0 ">
@@ -1193,7 +1197,7 @@ Test Data
 					benchmarking the JavaScript environment on various browsers and client systems.
 				</li>
 				<li id="B15P5L4I6" class="BodyListItem lB0 ">
-					Last, it is the foundation work in terms of standard, style and strategy prior to 
+					Last, it is the foundation work in terms of standard, style and strategy prior to
 					Web Enabling an enterprise application.
 				</li>
 			</ul>
@@ -1205,7 +1209,7 @@ Test Data
                     <div id="DivCallout1" class="BodyParaRight CalloutBox CalloutBorder">
     			 		<a id="B1C1A1" href="../MdmWebPages/MdmNetAppFrame.shtml" class="BodyParaGround CPA aCenter">
                             <span id="B1C1H1" class="h4 CP">
-                                See inside a 
+                                See inside a
         						major C# development effort!
     						</span>
      					</a>
@@ -1231,14 +1235,14 @@ Test Data
                     </div> <!-- end of DivC1 -->
                     <!-- * -->
                     <p id="B1P2" class="BodyPara">
-                        In applications design and development, the sound business case, 
-						close attention to business rules but also to user interface design 
+                        In applications design and development, the sound business case,
+						close attention to business rules but also to user interface design
 						will lead to a quality product.
 					</p>
                     <p id="B1P3" class="BodyPara BodyParaLast">
 						Though mainly focused on producing a great deal of clean code;
-						I am also committed to maintaining a broad base of skills. 
-						My longest specialization is with multi-valued database languages,  
+						I am also committed to maintaining a broad base of skills.
+						My longest specialization is with multi-valued database languages,
                         and more recently in C# with a lesser focus on C++.
                     </p>
 					<br >
@@ -1246,18 +1250,18 @@ Test Data
                 <!-- * -->
                 <!-- * -->
                 <div id="DivBox2" class="BodyParaRight ColumnType1">
-                    <div id="DivCallout2" 
+                    <div id="DivCallout2"
                         class="BodyParaLeft CalloutBox CalloutBorder"
                         >
                         <!-- * -->
                         <h4 id="C2H1" class="BodyParaGround CP">
-                            Scalable Robust 
+                            Scalable Robust
 							Applications, Products and Services!
                         </h4>
                         <!-- * -->
      					<ul id="C2L1" class="BodyList lB0">
      						<li id="C2L1I1" class="BodyListItem">
-                                 Development in C#, C++, 
+                                 Development in C#, C++,
      							and VBA using SQL Server,
      							MY SQL and Access.
      						</li><li id="C2L1I2" class="BodyListItem">
@@ -1266,12 +1270,12 @@ Test Data
                                  Large complex business
                                  and utility applications.
      						</li><li id="C2L1I4" class="BodyListItem">
-     						    Web Page development 
-     							(XML, HTML4/5, CSS2, 
-     							JavaScipt, templates, 
+     						    Web Page development
+     							(XML, HTML4/5, CSS2,
+     							JavaScipt, templates,
      							automated content.
      						</li><li id="C2L1I5" class="BodyListItem">
-                                 Post-relational 
+                                 Post-relational
      							multi-valued database development.
      						</li><li id="C2L1I6" class="BodyListItem">
                                  Several software products.
@@ -1281,30 +1285,30 @@ Test Data
                     </div>  <!-- end of DivC2 -->
                 	<!-- * -->
                     <p id="B2P1" class="BodyPara">
-					The bulk of my work has been in Service Billing, 
-					Customer Care, standard billing, accounting, 
-					invertory and sales order processing, management reporting and OLAP.  
-					This required a lot of transaction processing and 
+					The bulk of my work has been in Service Billing,
+					Customer Care, standard billing, accounting,
+					invertory and sales order processing, management reporting and OLAP.
+					This required a lot of transaction processing and
 					electronic interchange of data as well as data
-					conversion and cleansing.  
-					Secondary specializations included a good deal of 
-					both commercial and proprietary IDE and Communications 
+					conversion and cleansing.
+					Secondary specializations included a good deal of
+					both commercial and proprietary IDE and Communications
 					Applications.</p>
                         <!-- * -->
 					<p id="B2P2" class="BodyPara">
 					This no nonsense background combined business expertise
 					complimented by experience writing development
 					tools and utilities dating to the mid 80's.
-                    This also includes work on more light weight solutions in 
-					automation, workflow, Outlook VBA classes and 
-					MS Access applications. 
+                    This also includes work on more light weight solutions in
+					automation, workflow, Outlook VBA classes and
+					MS Access applications.
                     </p>
                         <!-- * -->
                     <p id="B2P3" class="BodyPara">
-					Document management and portfolio management for small 
-					business proved to a rewarding area of focus.  
-					Scripting, templates and development standards have been 
-					a business area complimented by development of high 
+					Document management and portfolio management for small
+					business proved to a rewarding area of focus.
+					Scripting, templates and development standards have been
+					a business area complimented by development of high
 					production user interfaces.
                     </p>
                         <!-- * -->
@@ -1319,36 +1323,36 @@ Test Data
                 <!-- * -->
                 <!-- * -->
                 <div id="DivBox3" class="BodyParaLeft ColumnType1">
-<!-- When loaded, the onfilterchange event is fired as the filter makes 
+<!-- When loaded, the onfilterchange event is fired as the filter makes
 its initial settings.  This starts the animation.-->
-    					<!-- onfilterchange="fnFilterSpin(C3P1, filterIndexPassed);" -->
-    					<!-- onmouseover="fnFilterResetThenAnimate(C3P1, filterIndexPassed);" -->					 
-                    <div id="DivCallout3" 
+					<!-- onfilterchange="fnFilterSpin(C3P1, filterIndexPassed);" -->
+					<!-- onmouseover="fnFilterResetThenAnimate(C3P1, filterIndexPassed);" -->
+					<div id="DivCallout3"
     					class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder"
-    					 >
-<!--					STYLE="position:absolute; --> 
+					>
+<!--					STYLE="position:absolute; -->
 <!-- filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5');" -->
 <!--					onfilterchange="fnFilterSpin(DivC3, filterIndexPassed);" -->
 <!--					onmouseover="fnFilterResetThenAnimate(DivC3, filterIndexPassed);" -->
-<!-- -->					
+<!-- -->
         					<!-- onfilterchange="fnFilterSpin(this, filterIndexPassed);" -->
         					<!-- onmouseover="fnFilterResetThenAnimate(this);" -->
-                        <h4 id="C3H1" 
+                        <h4 id="C3H1"
 							class="BodyParaGround CP">
-                            Hand coded web pages and  
+                            Hand coded web pages and
                             using WPF and Silverlight.
                         </h4>
                     </div> <!-- end of DivC3 -->
                     <p id="B3P5" class="BodyPara BodyParaLast">
                         With a background including work in markup languages, communications protocols and
                         database transfer and conversion I have naturally been following XML and Web service
-                        technology closely. My own focus has been on hand-coded web pages, script and 
-						templates as opposed to vendor tools. Current work includes a heavy emphasis 
+                        technology closely. My own focus has been on hand-coded web pages, script and
+						templates as opposed to vendor tools. Current work includes a heavy emphasis
 						on WPF and Silverlight along with on-going work with CSS2 and transitional HTML4.
 						<br ><br >
-						This web site itself was an evaluation project where the requirement was to be 100% 
+						This web site itself was an evaluation project where the requirement was to be 100%
 						Java free, retain an attractive look, be interesting, and be easy to update.<br ><br >
-                    </p>		
+                    </p>
                 <!-- * -->
 <!--					<DIV STYLE="width:100%; filter:-->
 <!--    progid:DXImageTransform.Microsoft.MotionBlur(strength=14, direction=310)-->
@@ -1361,7 +1365,7 @@ its initial settings.  This starts the animation.-->
                 <!-- * -->
                 <!-- * -->
                 <div id="DivBox4" class="BodyParaRight ColumnType1">
-                    <div id="DivCallout4" 
+                    <div id="DivCallout4"
                     class="BodyParaLeft CalloutBox CalloutBorder">
                         <h4 id="C4H1" class="BodyParaGround CP">
                             Commercial business applications.
@@ -1398,32 +1402,32 @@ its initial settings.  This starts the animation.-->
                 <div id="DivBox6" class="BodyParaLeft">
                     <div id="DivCalloutB6C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
                         <h4 id="C6H1" class="BodyParaGround CP">
-                            Free Script &#38; Automation Stuff: 
+                            Free Script &#38; Automation Stuff:
                         </h4>
                 	</div> <!-- end of DivCallout6 -->
                     <h4 id="B6H1" class="BodyPara cSd">
-					Javascript: 
+					Javascript:
 					</h4>
 					<p id="B6P1" class="BodyPara">
-					The javascript for the user interface template 
-					along with the animated thumbnails (with random effects) will be available 
-					soon, I'm just not sure when.  
+					The javascript for the user interface template
+					along with the animated thumbnails (with random effects) will be available
+					soon, I'm just not sure when.
 					</p>
 					<p id="B6P2" class="BodyPara">
-					This is mainly a "load test" in terms of testings javascripts limitations for 
-					complexity on the client side.  This was done by having the framework 
+					This is mainly a "load test" in terms of testings javascripts limitations for
+					complexity on the client side.  This was done by having the framework
 					interact heavily with the animation.
 					</p>
 					<p id="B6P3" class="BodyPara">
-					This is first and foremost an instructional and academic project.  
-					In includes a number of console features as well as alternate user interface strategies.  
+					This is first and foremost an instructional and academic project.
+					In includes a number of console features as well as alternate user interface strategies.
 					There is also a java free earlier version with some rudimentary effects.
 					</p>
                     <h4 id="B6H2" class="BodyPara cSd">
 					VBA for MSO 2003:
 					</h4>
 					<p id="B6P4" class="BodyPara BodyParaLast">
-					The Outlook folder replications classes could be cleaned up and 
+					The Outlook folder replications classes could be cleaned up and
 					useful as a starting point for some projects.
 					</p><br >
             	</div> <!-- end of DivBox6 -->
@@ -1431,33 +1435,33 @@ its initial settings.  This starts the animation.-->
                 <div id="DivBox6c" class="BodyParaLeft">
                     <div id="DivCallout6c" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
                         <h4 id="B6cH1" class="BodyParaGround CP">
-                            Copyrighted free loaners? 
+                            Copyrighted free loaners?
                         </h4>
                 	</div> <!-- end of DivCallout6c -->
                     <h4 id="B6cH2" class="BodyPara cSd">
 						Multivalued Technology
 					</h4>
 					<p id="B6cL2I4L3" class="BodyPara BodyParaLast">
-					I have a mass of quite poweful PICK (or if you prefer, U2/Universe) code at my disposal.  
+					I have a mass of quite poweful PICK (or if you prefer, U2/Universe) code at my disposal.
 					Some of the in house tools are available on a conditional basis to assist other developers, peers and users.</p><br >
             	</div> <!-- end of DivBox6c -->
 			<!-- * -->
                <div id="DivBox6d" class="BodyParaLeft">
                     <div id="DivCallout6d" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
                         <h4 id="B6dH1" class="BodyParaGround CP">
-                            Potential Open Source? 
+                            Potential Open Source?
                         </h4>
                 	</div> <!-- end of DivCallout6d -->
 					<h4 id="B6dH2" class="BodyPara cSd">
 						C# &#38; .NET
 					</h4>
 					<p id="B6dP1" class="BodyPara">
-					At the point it is unlikely that the Database Conversion, 
+					At the point it is unlikely that the Database Conversion,
 					File System and MVVM Framework will be open source.
 					I am totaly open to discussion of the idea but saddly have zero experience with the business model.</p>
 					<p id="B6dP2" class="BodyPara">
 					Why I thought it is useful was first it's educational value, the project was evaluative and academic in nature and scope.
-					Previously, I was unable to find any examples or peers giving away C# database layers of any sort, 
+					Previously, I was unable to find any examples or peers giving away C# database layers of any sort,
 					there being a pretty substantial sample in that area.</p>
 					<p id="B6dP3" class="BodyPara BodyParaLast">
 					For more on why you need similar components, see its DB detail page for the rationelle.</p>
@@ -1518,17 +1522,17 @@ its initial settings.  This starts the animation.-->
 <!-- 2 Layout Area 2 (Right) of 2 -->
 <div id="BodyMenuLayout2" class="BodyMenuLayout2 BodyMenuLayout">
 <!-- MenuRight1 -->
-<div id = "MenuRight1" class="MenuRight1 BodyMenuGroupLayout">
+<div id="MenuRight1" class="MenuRight1 BodyMenuGroupLayout">
     <h4 id="H3TopRight">
     	Come inside...
     </h4>
 	<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
-    <div id="MenuContainerRight1" 
+    <div id="MenuContainerRight1"
         class="MenuContainer MenuColumnClass fText f10 "
         >
-        <p id="MenuGroup4Header" 
+        <p id="MenuGroup4Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss47', 'MdmBlank48Image', 'MdmBlank48', oObjImageSizeSmall, 4, 8, true, false);" 
+           onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss47', 'MdmBlank48Image', 'MdmBlank48', oObjImageSizeSmall, 4, 8, true, false);"
     	   >
         Software
         Products
@@ -1539,7 +1543,7 @@ its initial settings.  This starts the animation.-->
               <!-- 1 -->
               <li class="MenuListItem">
               <a id="MdmImportTldMenuLineRight"
-                  class="MenuListItem " 
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmImportTld.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTld41Image', 'MdmImportTld41', oObjImageSizeSmall, 4, 1, false, true);"
                   >
@@ -1547,8 +1551,8 @@ its initial settings.  This starts the animation.-->
               and data converter </a></li>
               <!-- 2 -->
               <li class="MenuListItem">
-              <a id="MdmKBilMenuLine" 
-                  class="MenuListItem " 
+              <a id="MdmKBilMenuLine"
+                  class="MenuListItem "
                   href="../AxionWebPages/macdefau.htm"
                   onmouseover="fnElementGroupShowStack(0, 'MdmImportTld41', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true);"
                   >
@@ -1557,48 +1561,48 @@ its initial settings.  This starts the animation.-->
               System</a></li>
               <!-- 3 -->
               <li class="MenuListItem">
-              <a id="MdmNetAppFrame4MenuLine" 
-                  class="MenuListItem " 
+              <a id="MdmNetAppFrame4MenuLine"
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmNetAppFrame.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MdmKBil42', 'MdmNetAppFrame43Image', 'MdmNetAppFrame43', oObjImageSizeSmall, 4, 3, false, true);"
                   >
               C# Application Framework</a></li>
               <!-- 4 -->
               <li class="MenuListItem">
-              <a id="MdmSrtMenuLine" 
-                  class="MenuListItem " 
+              <a id="MdmSrtMenuLine"
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmSrt.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MdmNetAppFrame43', 'MdmSrt44Image', 'MdmSrt44', oObjImageSizeSmall, 4, 4, false, true);"
                   >
               SRT Code Conversion Tool</a></li>
               <!-- 5 -->
               <li class="MenuListItem">
-              <a id="MdmPickTrMenuLine" 
-                  class="MenuListItem " 
+              <a id="MdmPickTrMenuLine"
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmPickTr.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MdmSrt44', 'MdmPickTr45Image', 'MdmPickTr45', oObjImageSizeSmall, 4, 5, false, true);"
                   >
               PickTR Adaptive Communications Protocol</a></li>
               <!-- 6 -->
               <li class="MenuListItem">
-                  <a id="MdmOutlookSyncMenuLineRight" 
-                  class="MenuListItem " 
+                  <a id="MdmOutlookSyncMenuLineRight"
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmOutlookSync.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MdmPickTr45', 'MdmOutlookSync46Image', 'MdmOutlookSync46', oObjImageSizeSmall, 4, 6, false, true);"
                   >
               Outlook folder to disk sync add-on</a></li>
               <!-- 7 -->
               <li class="MenuListItem">
-                  <a id="MdmPickOssMenuLine" 
-                  class="MenuListItem " 
+                  <a id="MdmPickOssMenuLine"
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmPickOss.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MdmOutlookSync46', 'MdmPickOss47Image', 'MdmPickOss47', oObjImageSizeSmall, 4, 7, false, true);"
                   >
               Pick Application Framework</a></li>
               <!-- 8 -->
               <li class="MenuListItem MenuListItemLast">
-                  <a id="MdmOtherApps" 
-                  class="MenuListItem " 
+                  <a id="MdmOtherApps"
+                  class="MenuListItem "
                   href="../MdmWebPages/MdmBlank.shtml"
                   onmouseover="fnElementGroupShowStack(0, 'MdmPickOss47', 'MdmBlank48Image', 'MdmBlank48', oObjImageSizeSmall, 4, 8, false, true);"
                   >
@@ -1674,92 +1678,19 @@ its initial settings.  This starts the animation.-->
 <div id="BodyTempContainer" class="BodyTempContainer" ></div> <!-- end of BodyTempContainer -->
 <!-- ..................................................................................... -->
 <!-- ..................................................................................... -->
-<!-- Section Document Initialization
-// onlayoutcomplete="fnDocumentLoadInit();";
-fnDocumentLoadInit();
-//
-fnMenuImagesHtmlBuild();
-//
-// Choose Standard Layout
-fnLayoutSelectByIndex(layoutStandard);
--->
-<!-- Section Post Document Load Script -->
-<!-- SCRIPT -->
-<!-- Script language="javascript" src="../TemplatePage/MdmPageJava.js" > -->
-<!-- <script type="text/javascript"> -->
-<!--
-// 
-// ...................................... //
-// ..................................................................................... _//
-// Major Section Post Document Load function (s):
-// ..................................................................................... _//
-//
-// ..................................................................................... _//
-// ...................................... //
-// Section Console / Debug / UI Form Parameters function (s)
-// ...................................... //
-// 
--->
-<!-- ** Javascript Parameter Init Blocks ** -->
-<!--#include virtual="../../RelsBuildStage.shtml"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
-    <!--#include virtual="/release/RelsNext/MdmJs/MdmJsParamInit.js"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
-    <!--#include virtual="/release/RelsCurr/MdmJs/MdmJsParamInit.js"-->
-<!--#else -->
-    <!--#include virtual="../../MdmJs/MdmJsParamInit.js"-->
-    <!--#include virtual="/release/RelsNotInitError.htm"-->
-<!--#endif -->
-<!-- ..................................................................................... -->
-<!-- ..................................................................................... -->
-<!-- ** Javascript Parameter Set Blocks ** -->
-<!--#include virtual="../../RelsBuildStage.shtml"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
-    <!--#include virtual="/release/RelsNext/MdmJs/MdmJsParamSet.js"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
-    <!--#include virtual="/release/RelsCurr/MdmJs/MdmJsParamSet.js"-->
-<!--#else -->
-    <!--#include virtual="../../MdmJs/MdmJsParamSet.js"-->
-    <!--#include virtual="/release/RelsNotSetError.htm"-->
-<!--#endif -->
-<!-- ..................................................................................... -->
-<!-- ..................................................................................... -->
-<script src="../MdmJs/mdm_template_scripts_bottom.js"></script>
+<!-- <script src="../MdmJs/mdm_template_scripts_bottom.js"></script> -->
+<!-- <script src="../MdmJs/mdm_template_scripts.js"></script> -->
+<!-- <script src="../MdmJs/inline.js"></script> -->
+<script src="../MdmJs/mdm_template_scripts.js"></script>
+<script src="../../RelsBuildStage.shtml"></script>
+<script src="../MdmJs/MdmJsParamInit.js"></script>
+<script src="../MdmJs/MdmJsParamSet.js"></script>
+<script src="../MdmJs/mdm_template_scripts_inline.js"></script>
 <!--END OF SCRIPT -->
 <!-- * -->
-</body> <!-- end of BodyBox -->
+</body>
+<!-- end of BodyBox -->
 <!-- * -->
 <!-- * -->
 <!-- ..................................................................................... -->
 </html>
-// .....................................................................................
-// #include virtual="/release/RelsNext/TemplatePage/MdmPtDocHeader.shtml" >
-// <link rel="stylesheet" type="text/css" href="../Css/MdmDebugTagHover.css" >
-// .....................................................................................
-// SCRIPT
-// Script language="javascript" src="../TemplatePage/MdmPageJava.js" >
-// *
-// Script language="javascript" src="../TemplatePage/MdmStandardFuntions.js" >
-// Script language="javascript" src="../TemplatePage/MdmElement.js" >
-// Script language="javascript" src="../TemplatePage/MdmTimer.js" >
-// Script language="javascript" src="../TemplatePage/MdmAnimation.js" >
-// *
-// Script language="javascript" src="../TemplatePage/MdmBodyBox.js" >
-// Script language="javascript" src="../TemplatePage/MdmLayout.js" >
-// *
-// Script language="javascript" src="../TemplatePage/MdmMenu.js" >
-// Script language="javascript" src="../TemplatePage/MdmMenuImage.js" >
-// Script language="javascript" src="../TemplatePage/MdmMenuImageCollection.js" >
-// *
-// Script language="javascript" src="../TemplatePage/MdmTimer.js" >
-// *
-// Script language="javascript" src="../TemplatePage/MdmDebugTagHover.js" >
-// *
-// *
-// END OF SCRIPT
-// *
-// *
-// <link rel="shortcut icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.ico" type="image/x-icon" >
-// <link rel="apple-touch-icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.png" >
-// *
-// *

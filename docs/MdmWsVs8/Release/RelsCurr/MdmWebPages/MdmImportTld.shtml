@@ -61,11 +61,11 @@
     							not strictly related to database import.
     							Data transfer between databases using a
     							standard import/export format is fairly
-    							well addressed in most products.<br><br> 
+    							well addressed in most products.<br><br>
     							</span>
     							<span id="B1C1AP3" class="CalloutContent CPP ">
     							This product will prove most useful in dealing with
-    							formats that do not come directly from a 
+    							formats that do not come directly from a
     							database or require cleaning and transformation.<br><br>
     							</span>
     							<span id="B1C1AP4" class="CalloutContent CPP ">
@@ -96,26 +96,26 @@
                                 <span id="B2C1A1" class="CPA aCenter">
     							Main <br>Montior <br>Page
     							</span>
-    							<img id="B2C1Img1Thumb" src="../Images/ImportTld Main Page Start.jpg" 
-    							alt="ImportTld Main Page Start" 
+    							<img id="B2C1Img1Thumb" src="../Images/ImportTld Main Page Start.jpg"
+    							alt="ImportTld Main Page Start"
     							class="CPPImageThumb CPPImageThumbRight CPA"/>
-    							<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg" 
-    							alt="ImportTld Main Page Start" 
+    							<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg"
+    							alt="ImportTld Main Page Start"
     							class="CalloutBorder CPPImage CPP CPPImageLeft "/>
                             </a>
                         </div>
                         <p id="B2D1P1" class="BodyPara aLeft CPT">
                             Advanced conversion features launched by an easy
-    						to use interface.<br> 
+    						to use interface.<br>
                         </p>
                         <p id="B2D1P2" class="BodyPara aLeft CP">
     						The main page includes a progress bar and adjustable
-							levels of progress details.  It is a diagnostic utility 
-							and featurse a real-time raw data windows, pause to 
-							examine and detailed exceptions handling. 
+							levels of progress details.  It is a diagnostic utility
+							and featurse a real-time raw data windows, pause to
+							examine and detailed exceptions handling.
                         </p>
                         <p id="B2D1P3" class="BodyPara aLeft CP">
-    					<br> 
+    					<br>
                         </p>
                     </div>
                 	<!--*-->
@@ -125,25 +125,25 @@
                                 <span id="B2C2A1" class="CPA aCenter">
     							Database <br>Selection <br>Page
     							</span>
-    							<img id="B2C2Img1Thumb" src="../Images/ImportTld Db Page Start.jpg" 
-    							alt="ImportTld Database Page Start" 
+    							<img id="B2C2Img1Thumb" src="../Images/ImportTld Db Page Start.jpg"
+    							alt="ImportTld Database Page Start"
     							class="CPPImageThumb CPPImageThumbLeft CalloutContent CPA"/>
-    							<img id="B2C2Img1" src="../Images/ImportTld Db Page Start.jpg" 
-    							alt="ImportTld Database Page Start" 
+    							<img id="B2C2Img1" src="../Images/ImportTld Db Page Start.jpg"
+    							alt="ImportTld Database Page Start"
     							class="CalloutContent CalloutBorder CPPImage CPP CPPImageLeft "/>
                             </a>
                         </div>
                         <p id="B2D2P1" class="BodyPara CPT aLeft">
                 			The database information page allows entry of the standard
-							database attributes including server, database, filegroup, 
-							user, password, authorization. 
+							database attributes including server, database, filegroup,
+							user, password, authorization.
                         </p>
                         <p id="B2D2P2" class="BodyPara CP aLeft">
                 		    Implementation of file owner as well as populated drop downs
-							for each database attribute are still pending. 
+							for each database attribute are still pending.
                         </p>
                         <p id="B2D2P3" class="BodyPara aLeft CP">
-    					<br> 
+    					<br>
                         </p>
                     </div>
 					<p class="FixClear"></p>
@@ -166,7 +166,7 @@
 					</h3>
                     <p id="B3D1P1" class="BodyPara aLeft CP">
 					   The import file processor is part of a much larger C# project.  It consists of a
-					   basic user interface and update processor.  
+					   basic user interface and update processor.
                     </p>
                     <p id="B3D1P2" class="BodyPara aLeft CP">
 					   Most of the work however is performed
@@ -176,13 +176,13 @@
                     </p>
                     <p id="B3D1P3" class="BodyPara aLeft CP">
 					   The application is implemented via a complex application framework.  In simple terms
-					   the framework consists first of an application and OSS (Operating System Support) 
-					   MVC threaded infrastructure for distruibuted processing.  Second, the framework provides 
-					   common user interface functionality such as status line areas, update, pause, 
+					   the framework consists first of an application and OSS (Operating System Support)
+					   MVC threaded infrastructure for distruibuted processing.  Second, the framework provides
+					   common user interface functionality such as status line areas, update, pause,
 					   resume, and cancel.
 					</p>
                     <p id="B3D1P4" class="BodyPara aLeft CP">
-					   Details the wider project and it research objectives are covered in a separate area 
+					   Details the wider project and it research objectives are covered in a separate area
 					   of this site.  It could be summarized as a study pushing the complexity and exploring
 					   the features of the C# .Net platform.
 					   <br><br>
@@ -204,7 +204,7 @@
 							</span>
 							<span id="B4C1AP2" class="CalloutContent CPP ">
 							View a conceptual diagram of the file subsystem.
-							<br><br> 
+							<br><br>
 							</span>
                         </a>
                     </div>
@@ -212,8 +212,8 @@
 						File Subsystem<br>
 					</h3>
                     <p id="B4D1P1" class="BodyPara aLeft CP">
-					Handles SQL, Ascii, Binary and post-relational database files. 
-					Equipped with an auxillary connection. 
+					Handles SQL, Ascii, Binary and post-relational database files.
+					Equipped with an auxillary connection.
 					Comprehensive data format and schema transformation.
                     </p>
                 	</div>
@@ -235,17 +235,17 @@
 <!--*-->
 	<!--[if IE 6]>
 	<style type="text/css">
-	html { 
-	overflow-y: hidden; 
+	html {
+	overflow-y: hidden;
 	}
-	body { 
-	overflow-y: auto; 
+	body {
+	overflow-y: auto;
 	}
-	#bg { 
-	position:absolute; z-index:-1; 
+	#bg {
+	position:absolute; z-index:-1;
 	}
-	#BodyArea { 
-	position:static; 
+	#BodyArea {
+	position:static;
 	}
 	</style>
 	<![endif]-->

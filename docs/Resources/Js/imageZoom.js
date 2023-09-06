@@ -9,7 +9,7 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio, passedClass) {
     lens = document.createElement("DIV");
     lens.setAttribute("class", passedClass);
     // lens.setAttribute(style, "border: none")
-    /* "img-zoom-lens img-zoom-result-container"); */
+    /* "img-zoom-lens img-zoom-result-container");*/
     //
     /* Insert lens: */
     img.parentElement.insertBefore(lens, img);
@@ -52,10 +52,10 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio, passedClass) {
         yBox = e.pageY - 200;
         //
         // Prevent the lens from being positioned outside the image:
-        if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-        if (x < 0) {x = 0;}
-        if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-        if (y < 0) {y = 0;}
+        if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth; }
+        if (x < 0) {x = 0; }
+        if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight; }
+        if (y < 0) {y = 0; }
         //
         // Set the position of the lens:
         lens.style.left = x + "px";

@@ -56,7 +56,7 @@
     							B1C1AP1<br><br>
     							</span>
     							<span id="B1C1AP2" class="CalloutContent CPP ">
-    							B1C1AP2<br><br> 
+    							B1C1AP2<br><br>
     							</span>
     							<span id="B1C1AP3" class="CalloutContent CPP ">
     							B1C1AP3<br><br>
@@ -87,17 +87,17 @@
     							Main<br>
     							Page
     							</span>
-    							<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg" 
-    							alt="B2C1Img1" 
+    							<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg"
+    							alt="B2C1Img1"
     							class="CPPImage CPPImageRight CalloutContent CPP"/>
                             </a>
                         </div>
                         <p id="B2D1P1" class="BodyPara aLeft">
                             B2D1P1
-    						<br> 
+    						<br>
                         </p>
                         <p id="B2D1P2" class="BodyPara aLeft">
-    					<br> 
+    					<br>
                         </p>
    						<p class="FixClear"></p>
                     </div>
@@ -108,19 +108,19 @@
                                 <span id="B2C2A1" class="CPA">
     							B2C2A1<br>B2C2A1 Line 2
     							</span>
-    							<img id="B2C2Img1" src="../Images/ImportTld Db Page Start.jpg" 
-    							alt="B2C2Img1" 
+    							<img id="B2C2Img1" src="../Images/ImportTld Db Page Start.jpg"
+    							alt="B2C2Img1"
     							class="CPPImage CPPImageLeft CalloutContent CPP"/>
                             </a>
                         </div>
                         <p id="B2D2P1" class="BodyPara CP aLeft">
-                		<br> 
+                		<br>
                         </p>
                         <p id="B2D2P2" class="BodyPara CP aLeft">
-                		<br> 
+                		<br>
                         </p>
                         <p id="B2D2P3" class="BodyPara CP aLeft">
-                		<br> 
+                		<br>
                         </p>
    						<p class="FixClear"></p>
                     </div>
@@ -168,17 +168,17 @@
 <!--*-->
 	<!--[if IE 6]>
 	<style type="text/css">
-	html { 
-	overflow-y: hidden; 
+	html {
+	overflow-y: hidden;
 	}
-	body { 
-	overflow-y: auto; 
+	body {
+	overflow-y: auto;
 	}
-	#bg { 
-	position:absolute; z-index:-1; 
+	#bg {
+	position:absolute; z-index:-1;
 	}
-	#BodyArea { 
-	position:static; 
+	#BodyArea {
+	position:static;
 	}
 	</style>
 	<![endif]-->

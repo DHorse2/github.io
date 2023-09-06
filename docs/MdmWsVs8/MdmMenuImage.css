@@ -6,7 +6,7 @@
 /* -------------------------------------------- */
 /* -- Menu Image Containter -- */
 /* -------------------------------------------- */
-#MenuImageContainer { 
+#MenuImageContainer {
 }
 
 #MenuImageBorder{
@@ -18,16 +18,16 @@ border-style:solid;
 /* border-style:groove; */
 border-width:8px;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Border */
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
 }
 
-/* ----------------- */  
-/* ----------------- */  
+/* ----------------- */
+/* ----------------- */
 
-MenuImageBox { 
+MenuImageBox {
 /* Alignment */
 padding:0px;
 margin:0px;
@@ -41,37 +41,37 @@ text-align:center;
 display: block;
 }
 
-MenuImageBoxLink { 
+MenuImageBoxLink {
 
 }
 
- 
-/* ----------------- */  
-/* ----------------- */  
-#MenuImgDiv1x { 
+
+/* ----------------- */
+/* ----------------- */
+#MenuImgDiv1x {
 position:absolute;
 }
 
 /* -- Menu Thumb Small -- */
 .imgThumbSmall{
-position:absolute; 
+position:absolute;
 display:none;
 }
 
-.MenuThumb{ 
+.MenuThumb{
 
 }
 
 /* -- Menu Thumb Large -- */
 .imgThumbLarge{
-position:absolute; 
+position:absolute;
 display:none;
 }
 
-/* #MdmImportTldImage { */ 
+/* #MdmImportTldImage { */
 /* #MenuImageContainer img */
 /* .MenuThumbLarge { */
-.MenuThumbLarge { 
+.MenuThumbLarge {
 }
 /* position:absolute; */
 /* -ms-transform: rotate(45deg) 3s ease-in-out; */
@@ -110,21 +110,21 @@ onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldlImage, MdmImportTldl
 width="0px"
 height="0px"
 STYLE="position:absolute;
-display:none; 
+display:none;
 filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
 onfilterchange="fnSpin(this)"
 */
 
-.MenuThumb1{ 
+.MenuThumb1{
 display:none;
 }
 
 /* -- Menu Thumb Visibility -- */
-.MenuThumbShow{ 
+.MenuThumbShow{
 display:block
 }
 
-.MenuThumbHide{ 
+.MenuThumbHide{
 display:none;
 }
 

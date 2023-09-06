@@ -1,12 +1,11 @@
-<script type="text/javascript">
-<!--
+// text/javascript
 // ServerIsOn (Page came from server not local)
 serverIsOn = true;
-// 
-function fnDebugParameterInit() 
+//
+function fnDebugParameterInit()
 {
 	var tempSelected = false;
-	var elementObject =  document.createElement('input');
+	var elementObject = document.createElement('input');
 	//
 	////////////////////////////////////////////////
 	// Toggled Variables
@@ -59,15 +58,15 @@ function fnDebugParameterInit()
 	elementObject = document.getElementById('formDebugTimerDetail');
 	if (debugTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = document.getElementById('formDebugLogEvents'); 
+	elementObject = document.getElementById('formDebugLogEvents');
 	if (debugLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Debugger Control
-	elementObject = document.getElementById('formErrorUseDebugOnError'); // enter debugger on errors
+	elementObject = document.getElementById('formErrorUseDebugOnError');// enter debugger on errors
 	if (errorUseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = document.getElementById('formErrorUseDebugOnAll'); // enter debugger after any message
+	elementObject = document.getElementById('formErrorUseDebugOnAll');// enter debugger after any message
 	if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugIsOn');
@@ -91,7 +90,7 @@ function fnDebugParameterInit()
 	// Fields with values
 	////////////////////////////////////////////////
 	tempSelected = false;
-	elementObject =  document.createElement('option');
+	elementObject = document.createElement('option');
 	////////////////////////////////////////////////
 	// Browser
 	elementObject = document.getElementById('formBrowser_MSIE');
@@ -117,24 +116,24 @@ function fnDebugParameterInit()
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Debug Control
-	elementObject = document.getElementById('formErrorDebugLevel_errorDidNotOccur'); 
-	if (errorDebugLevel ==  errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorDidNotOccur');
+	if (errorDebugLevel == errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorComment'); 
-	if (errorDebugLevel ==  errorComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorComment');
+	if (errorDebugLevel == errorComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorWarn'); 
-	if (errorDebugLevel ==  errorWarn) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorWarn');
+	if (errorDebugLevel == errorWarn) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorSevere'); 
-	if (errorDebugLevel ==  errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorSevere');
+	if (errorDebugLevel == errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorFatal'); 
-	if (errorDebugLevel ==  errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorFatal');
+	if (errorDebugLevel == errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
 	if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorSevere').selected = true; }
 	//
-	elementObject =  document.createElement('input');
+	elementObject = document.createElement('input');
 	////////////////////////////////////////////////
 	// Menu Image Size
 	elementObject = document.getElementById('formOObjImageSizeSmall');
@@ -156,7 +155,7 @@ function fnDebugParameterInit()
 	elementObject = document.getElementById('formElementMoveStepMax');
 	elementObject.value = elementMoveStepMax;
 	//
-	elementObject = document.getElementById('formElementMoveInterval'); 
+	elementObject = document.getElementById('formElementMoveInterval');
 	elementObject.value = elementMoveInterval;
 	//
 	elementObject = document.getElementById('formElementMoveDelay');
@@ -164,22 +163,22 @@ function fnDebugParameterInit()
 	//
 	////////////////////////////////////////////////
 	// Filter / Transition Duration
-	elementObject = document.getElementById('formFilterDuration'); 
+	elementObject = document.getElementById('formFilterDuration');
 	elementObject.value = filterDuration;
-	// 
+	//
 	elementObject = document.getElementById('formFilterStepMax');
 	elementObject.value = filterStepMax;
 	//
-	elementObject = document.getElementById('formFilterInterval'); 
+	elementObject = document.getElementById('formFilterInterval');
 	elementObject.value = filterInterval;
 	//
 	elementObject = document.getElementById('formFilterDelay');
 	elementObject.value = filterDelay;
 	//
-	elementObject = document.getElementById('formFilterDurationAdjustment'); 
+	elementObject = document.getElementById('formFilterDurationAdjustment');
 	elementObject.value = filterDurationAdjustment;
 	//
-	elementObject =  document.createElement('option');
+	elementObject = document.createElement('option');
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Timer control by Item or Menu Group
@@ -222,4 +221,3 @@ function fnDebugParameterInit()
     debugStateLoadFirst = false;
 	//
 }
-</script>

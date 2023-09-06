@@ -1,6 +1,6 @@
 /* MdmBodyBox */
 /* -- Body Divisions 3 Columns -- */
-/* -- 
+/* --
 ////////////////////////////////////////////////
 Left
  Outer
@@ -12,7 +12,7 @@ Right
  Outer
    Inner
 -- */
-/* -- 
+/* --
 ////////////////////////////////////////////////
 //
 // BodyArea
@@ -95,7 +95,7 @@ z-index:3;
 /* Position */
 position:absolute;
 top: 6.3em;
-left:1%; 
+left:1%;
 /* Size */
 min-height:40.0em;
 }
@@ -103,7 +103,7 @@ min-height:40.0em;
 /* -------------------------------------------- */
 /* BodyMainCenterTop */
 /* -------------------------------------------- */
-#BodyMainCenterTop, .BodyMainCenterTop { 
+#BodyMainCenterTop, .BodyMainCenterTop {
 /* Position */
 /* Size */
 width:auto;
@@ -118,7 +118,7 @@ padding-top:1.0em;
 position:relative;
 left:1%;
 /* Size */
-width:48%; 
+width:48%;
 height:40.0em;
 /* Alignment */
 overflow:hidden;
@@ -129,12 +129,12 @@ margin: 0em 0em 0em 0em;
 padding: 0em 0em 0em 0em;
 }
 /* BodyMainCenterTopRight */
-#BodyMainCenterTopRight, .BodyMainCenterTopRight { 
+#BodyMainCenterTopRight, .BodyMainCenterTopRight {
 /* Position */
 position:relative;
 /* left:50%; */
 /* Size */
-width:48%; 
+width:48%;
 height:40.0em;
 /* Alignment */
 overflow:hidden;
@@ -148,7 +148,7 @@ z-index:3;
 /* */
 /* -------------------------------------------- */
 /* BodyMainCenterCenter */
-#BodyMainCenterCenter, .BodyMainCenterCenter { 
+#BodyMainCenterCenter, .BodyMainCenterCenter {
 /* Position */
 /* Size */
 /* Layout */
@@ -162,31 +162,31 @@ display:block;
 /* -------------------------------------------- */
 /* BodyMainCenterBottom */
 /* -------------------------------------------- */
-#BodyMainCenterBottom, .BodyMainCenterBottom { 
+#BodyMainCenterBottom, .BodyMainCenterBottom {
 /* Position */
 /* Size */
-width:100%; 
+width:100%;
 display:none;
 }
 /* BodyMainCenterBottomLeft */
-#BodyMainCenterBottomLeft, .BodyMainCenterBottomLeft { 
+#BodyMainCenterBottomLeft, .BodyMainCenterBottomLeft {
 /* Position */
 position:relative;
 top:0%;
 left:0%;
 /* Size */
-width:50%; 
+width:50%;
 /* Layout / Visibility */
 display:none;
 }
 /* BodyMainCenterBottomRight */
-#BodyMainCenterBottomRight, .BodyMainCenterBottomRight { 
+#BodyMainCenterBottomRight, .BodyMainCenterBottomRight {
 /* Position */
 position:relative;
 top:0%;
 left:50%;
 /* Size */
-width:50%; 
+width:50%;
 /* Layout / Visibility */
 display:none;
 }
@@ -198,12 +198,12 @@ display:none;
 /* Right Area is BodyMenuLayout2 */
 /* -------------------------------------------- */
 /* BodyLayout1 */
-.BodyMenuLayout { 
+.BodyMenuLayout {
 /* Position */
 position:static;
 /* position:relative; */
 /* Size */
-/* width:inherit; */ 
+/* width:inherit; */
 /* height:inherit; */
 height:auto;
 /* Layout / Visibility */
@@ -218,7 +218,7 @@ display:block;
 /* Left Groups 1, 2, 3 */
 /* Right Groups 1, 2, 3 */
 /* -------------------------------------------- */
-.BodyMenuGroupLayout { 
+.BodyMenuGroupLayout {
 /* Position */
 position:static;
 /* Size */
@@ -228,14 +228,14 @@ display:block;
 /* -------------------------------------------- */
 /* BodyBanner */
 /* -------------------------------------------- */
-.BodyBanner { 
+.BodyBanner {
 /* Position */
 position:relative;
 display:block;
 }
 /* BodyBanner */
 /* Not In Use */
-#BodyBannerTop, .BodyBannerTop { 
+#BodyBannerTop, .BodyBannerTop {
 /* Position */
 position:relative;
 /* Layout / Visibility */
@@ -243,7 +243,7 @@ display:block;
 margin: 0em;
 }
 /* BodyBanner */
-#BodyBannerBottom, .BodyBannerBottom { 
+#BodyBannerBottom, .BodyBannerBottom {
 /* Position */
 position:relative;
 /* Layout / Visibility */
@@ -259,9 +259,9 @@ margin: 0em;
 /* Position */
 position:relative;
 top:0%;
-left:20%; 
+left:20%;
 /* Size */
-width:60%; 
+width:60%;
 height:inherit;
 /* Alignment */
 overflow:auto;
@@ -318,7 +318,7 @@ width:90%;
 height:100%;
 /* Alignment */
 float:left;
-overflow:hidden; 
+overflow:hidden;
 /* Layering */
 z-index:20;
 /* Background */
@@ -335,7 +335,7 @@ height:100%;
 /* Alignment */
 float:right;
 margin-right: 0em;
-overflow:hidden; 
+overflow:hidden;
 /* Layering */
 z-index:21;
 /* Background */
@@ -349,7 +349,7 @@ background:transparent url(../Images/Common/SwirlsEdge.gif) repeat-y right top;
 /* -- Column Styling -- */
 /* MenuContainerLeft1 (Hide / Show, copy to TopLeft) */
 /* MenuLeft1 */
-#MenuLeft1, .MenuLeft1 { 
+#MenuLeft1, .MenuLeft1 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -374,13 +374,13 @@ position:static;
 display:block;
 }
 /* MenuLeft3 */
-#MenuLeft3, .MenuLeft3 { 
+#MenuLeft3, .MenuLeft3 {
 /* Position */
 position:static;
 /* Layout / Visibility */
 display:block;
 }
-#MenuContainerLeft3, .MenuContainerLeft3 { 
+#MenuContainerLeft3, .MenuContainerLeft3 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -457,7 +457,7 @@ background:transparent url(../Images/Common/SwirlsEdge.gif) repeat-y left top;
 /* MenuContainerRight1 (Hide / Show, copy to TopLeft) */
 /* -------------------------------------------- */
 /* MenuRight1 */
-#MenuRight1, .MenuRight1 { 
+#MenuRight1, .MenuRight1 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -471,7 +471,7 @@ display:block;
 }
 
 /* MenuRight2 */
-#MenuRight2, .MenuRight2 { 
+#MenuRight2, .MenuRight2 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -479,14 +479,14 @@ display:block;
 }
 
 #MenuContainerRight2, .MenuContainerRight2 {
-/* position:inherit; */ 
+/* position:inherit; */
 position:relative;
 /* Layout / Visibility */
 display:block;
 }
 
 /* MenuRight3 */
-#MenuRight3, .MenuRight3 { 
+#MenuRight3, .MenuRight3 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -494,7 +494,7 @@ display:block;
 }
 
 #MenuContainerRight3 {
-/* position:inherit; */ 
+/* position:inherit; */
 position:relative;
 /* Layout / Visibility */
 display:block;
@@ -504,27 +504,27 @@ display:block;
 /* ----------------------------------------------------------------------------- */
 /* Body Layout Mangement (View Toggle)
 /* -------------------------------------------- */
-#BodyViewToggleContainerLeft { 
+#BodyViewToggleContainerLeft {
 /* Layout / Visibility */
 display:block;
 }
 
-#BodyViewToggleContainerCenter { 
+#BodyViewToggleContainerCenter {
 /* Layout / Visibility */
 display:none;
 }
 
-.BodyViewToggle { 
+.BodyViewToggle {
 width: 5em;
 margin: 0em;
 /* Decoration */
 color: #EEE;
 /* Background */
 background-color: #036;
-}       
+}    
 
 /* padding:1.0em 1em 1em 1em; */
-/* */      
+/* */   
 /* ----------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------- */
 /* BodyConsoleTop */
@@ -535,13 +535,13 @@ background-color: #036;
 z-index:500;
 }
 
-.BodyConsoleBox { 
+.BodyConsoleBox {
 /* Position */
 position:relative;
 /* Size */
-width:100%; 
+width:100%;
 height:30.0em;
-/* height:40.0em; */ 
+/* height:40.0em; */
 /* Layout / Visibility */
 margin:1.0em 0em 0em 0em;
 padding-top:0%;
@@ -557,7 +557,7 @@ z-index:500;
 position:absolute;
 Top:0%;
 /* Size */
-width:31%; 
+width:31%;
 height:95%;
 /* height:100%; */
 /* Alignment */
@@ -581,7 +581,7 @@ z-index:500;
 position:absolute;
 Top:8%;
 /* Size */
-width:96%; 
+width:96%;
 height:85%;
 /* height:100%; */
 /* Alignment */
@@ -606,39 +606,39 @@ left:2%;
 }
 
 /* -------------------------------------------- */
-.BodyConsoleEventBox { 
+.BodyConsoleEventBox {
 /* Position */
 left:35%;
 }
 
 /* -------------------------------------------- */
-.BodyConsoleStateBox { 
+.BodyConsoleStateBox {
 /* Position */
 left:68%;
 }
 
 /* StateTextBox & TestBox is contained in StateBox */
-.BodyConsoleStateTextBox { 
+.BodyConsoleStateTextBox {
 /* Position */
 left:2%;
 /* Size */
-width:46%; 
+width:46%;
 }
 
 /* -------------------------------------------- */
-.BodyConsoleTestBox { 
+.BodyConsoleTestBox {
 /* Position */
 left:50%;
 /* Size */
-width:46%; 
+width:46%;
 }
 
-.BodyConsoleTestBoxDisplay { 
+.BodyConsoleTestBoxDisplay {
 /* Position */
 position:static;
 left:2%;
 /* Size */
-width:96%; 
+width:96%;
 }
 
 .BodyConsoleTestTextBox {
@@ -646,7 +646,7 @@ width:96%;
 position:static;
 /* Top:8%; */
 /* Size */
-width:96%; 
+width:96%;
 /* height:85%; */
 /* height:100%; */
 /* Alignment */
@@ -664,12 +664,12 @@ background: url(../Images/Common/TransparentWhiteBg75.png);
 z-index:500;
 }
 
-.BodyConsoleTestBoxInput { 
+.BodyConsoleTestBoxInput {
 /* Position */
 position:static;
 left:2%;
 /* Size */
-width:auto; 
+width:auto;
 /* Alignment */
 text-align:left;
 /* More Alignment */

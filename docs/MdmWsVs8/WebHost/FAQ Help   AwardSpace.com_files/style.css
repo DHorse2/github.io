@@ -197,7 +197,7 @@ a:hover  {
 
 /* IE7 Fix */
 
-#nav li:hover, #nav li.hover {  
+#nav li:hover, #nav li.hover {
 	position: static;
 }
 /*>>>>> Layout <<<<<*/

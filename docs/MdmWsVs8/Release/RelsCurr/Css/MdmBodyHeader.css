@@ -1,7 +1,7 @@
 /* Body Header CSS */
 
 /* MdmBodyHeader */
-/* -- Body Header -- */    
+/* -- Body Header -- */ 
 body {
 text-align:center;
 /* Default is Top */
@@ -25,7 +25,7 @@ padding:0px 25px 0px 25px;
 padding:25px;
 }
 
-/* Body Image Background */    
+/* Body Image Background */ 
 #BodyBg {
 position:fixed;
 top:0;
@@ -37,26 +37,26 @@ z-index:-2;
 }
 /* Body Div */
 #BodyArea { }
-/* -- Body Main -- */    
+/* -- Body Main -- */ 
 /* not in use */
 #BodyMain {
 width:inherit;
 /* height:inherit; */
 display:block;
 }
-/* -- Body Container -- */    
+/* -- Body Container -- */ 
 #BodyMainContainer { }
 #BodyMainContainerBg { }
-/* ----------------- */  
-/* -- Body Container Divisions -- */    
+/* ----------------- */
+/* -- Body Container Divisions -- */ 
 #BodyMainTop {
 /* Position */
 position:absolute;
 top:3px;
 /* Size */
-width:95%; 
-min-width:600px; 
-max-width:800px; 
+width:95%;
+min-width:600px;
+max-width:800px;
 height:60px;
 /* Alignment */
 text-align:center;
@@ -69,13 +69,13 @@ overflow:hidden;
 position:absolute;
 top:63px;
 /* Size */
-width:95%; 
+width:95%;
 /* Alignment */
 text-align:left;
 margin:auto;
 overflow:auto;
 }
-/* ----------------- */  
+/* ----------------- */
 #SpacerBottom{
 position:absolute;
 left:0px;
@@ -83,4 +83,4 @@ height:30px;
 display:block;
 }
 
-/* ----------------- */  
+/* ----------------- */

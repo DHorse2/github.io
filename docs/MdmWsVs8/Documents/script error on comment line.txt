@@ -2,23 +2,23 @@ Re:   Expected ';'  Syntax error  and Object expected errors
 
 Hi folks,
 
-I am experiencing javascript errors in IE8 that appear on comment lines.  These are not legitmate errors and do not occur in other browsers.  I am wondering what the possible cause could be.  
+I am experiencing javascript errors in IE8 that appear on comment lines.  These are not legitmate errors and do not occur in other browsers.  I am wondering what the possible cause could be.
 
 What are the known causes of misleading and erroneous line numbers in script errors?
 
 By way of apology... beyond the error messages occuring after page load there really are no more specific additional details due to the difficult and obscure (misleading) way it occurs.
 
-The list of errors:  
-  Expected ';'  MdmMain.shtml, line 2622 character 35  
-  Syntax error  MdmMain.shtml, line 4097 character 1  
-  Object expected  MdmMain.shtml, line 3623 character 1  
+The list of errors:
+  Expected ';'  MdmMain.shtml, line 2622 character 35
+  Syntax error  MdmMain.shtml, line 4097 character 1
+  Object expected  MdmMain.shtml, line 3623 character 1
 
-To my knowledge, none of them "should" occur and the first two appear on comment lines.  
+To my knowledge, none of them "should" occur and the first two appear on comment lines.
 
 My system info:
-Windows XP Pro  
-Vs 5.1.2600 SP3 Build 2600  
-IE Vs 8.0.6001.18702  
+Windows XP Pro
+Vs 5.1.2600 SP3 Build 2600
+IE Vs 8.0.6001.18702
 
 This site's version uses HTML 4 transitioinal and behaves well on other browsers.
 
@@ -29,14 +29,14 @@ The first two errors that are a problem for me:
 
 Message: Expected ';' Line: 2622  Char: 35  Code: 0
 
-Message: Syntax error Line: 4097  Char: 1  Code: 0 
+Message: Syntax error Line: 4097  Char: 1  Code: 0
 
-Both these errors occur on comment lines in the script.  
+Both these errors occur on comment lines in the script.
 
 I was able to remove other errors by avoiding the use of innerHTML.  The innerHTML bug is the only solution or explanation I have been able to find on line.  I have performed browser resets and other general solutions but they do not affect the problem.
 
-Are there other causes I should be looking at?  
-Should I be looking at other innerHTML usages in the code?  
+Are there other causes I should be looking at?
+Should I be looking at other innerHTML usages in the code?
 Is there any chance that server side includes are an issue?
 
 Any hints or guidance would be appreciated.

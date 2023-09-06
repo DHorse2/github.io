@@ -14,7 +14,7 @@ top:45px;
 /* Size */
 width:100%;
 /* Alignment */
-text-align:left; 
+text-align:left;
 float:none;
 }
 
@@ -26,12 +26,12 @@ padding-right:1em;
 
 /* -- Floats -- */
 .BodyParaLeft{
-float:left; 
+float:left;
 z-index:20;
 }
 
 .BodyParaRight{
-float:right; 
+float:right;
 z-index:20;
 }
 /* -- end -- */
@@ -49,7 +49,7 @@ border-style:solid;
 /* border-style:groove; */
 border-width:8px;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Background */
 background-color:#CC9866;
 text-indent:-0.75em;
@@ -58,11 +58,11 @@ padding-left:1em;
 /* Border */
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
-} 
+}
 
-/* -- Callout Block -- */  
+/* -- Callout Block -- */
 .DivB{
-  position:absolute; 
+  position:absolute;
   top:35px;
   left:20px;
   height:125px;
@@ -70,12 +70,12 @@ padding-left:1em;
 
 /* -- end -- */
 
-/* ------ Callout Syling ----------- */  
-/* -- Callout Paragraph -- */  
-.CP{ 
-}  
+/* ------ Callout Syling ----------- */
+/* -- Callout Paragraph -- */
+.CP{
+}
 
-/* -- Callout Link -- */  
+/* -- Callout Link -- */
 .CPA{
 }
 
@@ -89,11 +89,11 @@ padding-left:1em;
    display:inline;
 }
 
-/* -- Callout Paragraph Popup -- */  
-.CPP{ 
+/* -- Callout Paragraph Popup -- */
+.CPP{
 }
 
-/* -- Callout Image Popup -- */  
+/* -- Callout Image Popup -- */
 .CPPImage{
    margin-left:-10px;
    margin-top:5px;
@@ -111,6 +111,6 @@ padding-left:1em;
 .CPPImageLeft{
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 

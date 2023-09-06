@@ -39,14 +39,14 @@ padding:0px 10px 5px 10px;
 /* Position */
 position:relative;
 /* Alignment */
-float:left; 
+float:left;
 }
 
 .BodyParaRight{
 /* Position */
 position:relative;
 /* Alignment */
-float:right; 
+float:right;
 }
 
 /* -- Background -- */
@@ -87,18 +87,18 @@ border-style:solid;
 /* border-style:groove; */
 border-width:8px;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Background */
 background-color:#FFFFCC;
 /* Border */
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
-} 
+}
 
-/* -- Callout Block -- */  
+/* -- Callout Block -- */
 .DivB{
 /* Position */
-position:absolute; 
+position:absolute;
 top:35px;
 left:20px;
 /* Size */
@@ -107,21 +107,21 @@ height:125px;
 
 /* -- end -- */
 
-/* ------ Callout Syling ----------- */  
-/* -- Callout Paragraph -- */  
+/* ------ Callout Syling ----------- */
+/* -- Callout Paragraph -- */
 .CP {
 /* Alignment */
 padding:5px 10px 10px 10px;
-}  
+}
 
-/* -- Callout Link -- */  
-.CPA { 
+/* -- Callout Link -- */
+.CPA {
 /* Alignment */
 display:block;
 padding:5px 10px 10px 10px;
 }
 
-.CPA a { 
+.CPA a {
 /* Size */
 width:100%;
 height:100%;
@@ -141,13 +141,13 @@ a:hover .CPP{ display:inline; }
 /* NOT FIREFOX COMPATABLE */
 #LinkId:hover .CPP{ display:inline; }
 
-/* -- Callout Paragraph Popup -- */  
+/* -- Callout Paragraph Popup -- */
 .CPP {
 /* Alignment */
 padding:5px 5px 10px 10px;
 }
 
-/* -- Callout Image Popup -- */  
+/* -- Callout Image Popup -- */
 .CPPImageThumb{
 /* Size */
 width:100px;
@@ -198,21 +198,21 @@ float:left;
 z-index:4;
 }
 
-/* ------- Generic Box ---------- */  
+/* ------- Generic Box ---------- */
 .DivB98{
 /* Position */
-position:absolute; 
+position:absolute;
 top:25px;
 left:100px;
 }
 
 .DivB99{
 /* Position */
-position:absolute; 
+position:absolute;
 top:200px;
 left:350px;
 }
 /* -- end -- */
 
-/* ----------------- */  
-     
+/* ----------------- */
+  

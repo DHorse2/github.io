@@ -207,7 +207,7 @@
     /// hyperlink_type: The document type that the link specifies.
     /// process_name:   Which process (application?) handles the link?
     /// process_startup_info: The additional info needed to launch the process.
-/// &lt;/summary&gt; 
+/// &lt;/summary&gt;
 
 </span><span class="attr">#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 </span><span class="kw">pub struct </span>HyperlinkMeta {
@@ -261,7 +261,7 @@
             process_startup_info: <span class="prelude-val">Some</span>(ProcessStartInfo::default()),
         }
     }
-    
+  
     <span class="comment">//     public HyperlinkMeta(string PassedProcessName, int iPassedHyperlinkType, int iPassedDocumentType) {
     </span><span class="doccomment">/// Creates a new hyperlink and sets the process name, link type and document type.
     </span><span class="kw">pub fn </span>new_document_type(passed_process_name: <span class="kw-2">&amp;</span>str, passed_hyperlink_type: HyperlinkTypeIs, passed_document_type: DocumentTypeIs) -&gt; <span class="self">Self </span>{
@@ -299,7 +299,7 @@
 </span><span class="doccomment">/// HyperlinkList
 /// &lt;summary&gt;
 /// Dictionary list containing unique hyperlinks.
-/// &lt;/summary&gt; 
+/// &lt;/summary&gt;
 </span><span class="comment">// Dictionary&lt;string, HyperlinkMeta&gt; HyperlinkList = new Dictionary&lt;string, HyperlinkMeta&gt;();
 </span><span class="attr">#[derive(Clone, Debug, PartialEq)]
 </span><span class="kw">pub struct </span>HyperlinkList { hashmap: HashMap&lt;String, HyperlinkMeta&gt; }
@@ -315,7 +315,7 @@
 </span><span class="doccomment">/// HyperlinkTypeIs
 /// &lt;summary&gt;
 /// Hyperlink types.
-/// &lt;/summary&gt; 
+/// &lt;/summary&gt;
 </span><span class="attr">#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 </span><span class="kw">pub enum </span>HyperlinkTypeIs {
     <span class="doccomment">/// A web url link.
@@ -341,7 +341,7 @@
 </span><span class="doccomment">/// DocumentTypeIs
 /// &lt;summary&gt;
 /// Document type hyperlink points to.
-/// &lt;/summary&gt; 
+/// &lt;/summary&gt;
 </span><span class="attr">#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 </span><span class="kw">pub enum </span>DocumentTypeIs {
     <span class="doccomment">/// MS Word (r) formatted document.
@@ -351,7 +351,7 @@
     <span class="doccomment">/// An Open Office document.
     </span>OpenOfficeDocument,
     <span class="doccomment">/// Plain text.
-    </span><span class="comment">// #[default] 
+    </span><span class="comment">// #[default]
     </span>TextDocument,
     <span class="doccomment">/// Text that is a programming language.
     </span>CodeDocument,

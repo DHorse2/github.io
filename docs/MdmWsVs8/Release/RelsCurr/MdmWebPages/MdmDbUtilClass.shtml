@@ -56,7 +56,7 @@
 							Basic database <br>connection handling
 							</span>
 							<span id="B1C1AP2" class="CalloutContent CPP ">
-							Flat file (Import/Export)<br> 
+							Flat file (Import/Export)<br>
 							</span>
 							<span id="B1C1AP3" class="CalloutContent CPP ">
 							Post Relation or <br>
@@ -74,18 +74,18 @@
 						</span>
 					</h3>
                     <p id="B1D1P1" class="BodyPara aLeft CP">
-					The file subsystem is a large set 
-					of classes intended to handle Ascii, 
-					binary, SQL databases and post-relational 
-					object databases (also known as 
+					The file subsystem is a large set
+					of classes intended to handle Ascii,
+					binary, SQL databases and post-relational
+					object databases (also known as
 					mulit-valued or PICK databases)
                     </p>
                     <p id="B1D1P2" class="BodyPara aLeft CP">
-					These classes are not intended to address  
+					These classes are not intended to address
 					the rudimentary needs of simple applications.  These require
 					little more that a basic connection string and may already
-					have classes to handle security such as user name and password.  
-					Permission and authorization may already be in place or built 
+					have classes to handle security such as user name and password.
+					Permission and authorization may already be in place or built
 					into the application.
                     </p>
    		<p class="FixClear"></p>
@@ -144,8 +144,8 @@
                 </div>
                 <!--** Block 4 **-->
                 <div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
-					<img id="B4Img1" src="../Images/File System Functional Overview.jpg" 
-					alt="File System Functional Overview" 
+					<img id="B4Img1" src="../Images/File System Functional Overview.jpg"
+					alt="File System Functional Overview"
 					class="B4Img1"/>
                 </div>
                 <!--*-->

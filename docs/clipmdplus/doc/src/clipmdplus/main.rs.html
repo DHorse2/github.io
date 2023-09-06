@@ -313,22 +313,22 @@
 </span>)]
 </span><span class="doccomment">//! doc for ClipMdPlus main
 //! Normal crate documentation goes here.
-//! 
+//!
 //! todo Design note. Move utility modules and macros to lib.
 //! todo Features could be used to optimize compile time like they did.
 //! Features are: OS (required?), History, Clipboard (no hist), Window, ProcMacros.
 //! At lower detail level WindowTypes (ie egui, web), Specific macros and
 //! crates could all be easily excluded in a clear (to the dev) manner.
 //! It&#39;s a discussion topic for later releases.
-//! 
-//! The next Project Phase Task is connect to Windows (known) 
+//!
+//! The next Project Phase Task is connect to Windows (known)
 //! and then Linux (new to me) clipboards.
 //!
-//! As to documentation standards, again follow the derive_more crate. 
+//! As to documentation standards, again follow the derive_more crate.
 //! Sample to follow from the derive_more crate:
 //!------------------------------------------------------------
 //! ## Feature flags
-//! 
+//!
 //! # `clipmdplus`
 //!
 //! [![Build Status](https://github.com/DHorse2/clipmdplus/project_admin/something.svg)](https://github.com/DHorse2/clipmdplus/project_admin)
@@ -352,7 +352,7 @@
 //! ! clipboard_meta: ClipboardMeta = ClipboardMeta::new();
 //! Clipmd!(&quot;Named&quot;)
 //! clipboard_meta: ClipboardMeta = Clipmd!(&quot;Named&quot;);
-//! 
+//!
 //!
 //! assert!(MyInt(11) == MyInt(5) + 6.into());
 //! assert!((5, 6) == Point2D { x: 5, y: 6 }.into());
@@ -505,7 +505,7 @@
 // #[doc(hidden)]
 // #[doc(alias = &quot;TheAlias&quot;)]
 // FFI might need this for clarity and search:
-// #[doc(alias = &quot;lib_name_do_something&quot;)] 
+// #[doc(alias = &quot;lib_name_do_something&quot;)]
 // !------------------------------------------------------------
 // #![warn(missing_docs)]
 // #![allow(unused_macros, unused_imports)]
@@ -540,7 +540,7 @@
 </span><span class="kw">extern crate </span>clipmdplus_macro;
 <span class="kw">pub use </span><span class="kw">crate</span>::clipmdplus_macro::Name;
 <span class="kw">pub use </span><span class="kw">crate</span>::clipmdplus_macro::VariantName;
-<span class="comment">// 
+<span class="comment">//
 </span><span class="kw">pub use </span><span class="kw">crate</span>::clipmdplus_macro::Deserialize_enum;
 <span class="kw">pub use </span><span class="kw">crate</span>::clipmdplus_macro::Serialize_enum;
 

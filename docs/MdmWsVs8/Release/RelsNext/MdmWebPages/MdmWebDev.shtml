@@ -63,11 +63,11 @@
       							not strictly related to database import.
       							Data transfer between databases using a
       							standard import/export format is fairly
-      							well addressed in most products.<br><br> 
+      							well addressed in most products.<br><br>
       							</span>
       							<span id="B1C1AP3" class="CalloutContent CPP ">
       							This product will prove most useful in dealing with
-      							formats that do not come directly from a 
+      							formats that do not come directly from a
       							database or require cleaning and transformation.<br><br>
       							</span>
       							<span id="B1C1AP4" class="CalloutContent CPP ">
@@ -152,17 +152,17 @@
   <!--*-->
   	<!--[if IE 6]>
   	<style type="text/css">
-  	html { 
-  	overflow-y: hidden; 
+  	html {
+  	overflow-y: hidden;
   	}
-  	body { 
-  	overflow-y: auto; 
+  	body {
+  	overflow-y: auto;
   	}
-  	#bg { 
-  	position:absolute; z-index:-1; 
+  	#bg {
+  	position:absolute; z-index:-1;
   	}
-  	#BodyArea { 
-  	position:static; 
+  	#BodyArea {
+  	position:static;
   	}
   	</style>
   	<![endif]-->

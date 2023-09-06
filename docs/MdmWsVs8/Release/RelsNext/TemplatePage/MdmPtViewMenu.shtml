@@ -1,10 +1,10 @@
 <!-- MenuRight2 - BodyViewToggle and BodyConsole -->
-    <div id="MenuContainerRight2" 
+    <div id="MenuContainerRight2"
         class="MenuContainer MenuColumnClass fText f10 "
         >
-        <p id="MenuGroup5Header" 
+        <p id="MenuGroup5Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss47', 'MdmBlank48Image', 'MdmBlank48', oObjImageSizeSmall, 5, 8, true, false)" 
+           onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss47', 'MdmBlank48Image', 'MdmBlank48', oObjImageSizeSmall, 5, 8, true, false)"
     	   >
     	    Flexibile User Interface Design<br >
     		(Toggle these settings)
@@ -15,7 +15,7 @@
             <!-- fnLayoutNext -->
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuViewToggleLink"
-                class="MenuListItem " 
+                class="MenuListItem "
     			onmousedown="fnLayoutNext(0)"
                 >
     		Change View<br >(4 Options)
@@ -23,40 +23,40 @@
 <!-- x ------------------------------------------------------------------------------------- -->
             <!-- ConsoleAll -->
             <li class="MenuListItem">
-            	<span id="MenuConsoleToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleAll')"
                 >
             Console for Events, Errors and Messages (C)
     		</span></li>
             <!-- ConsoleError -->
             <li class="MenuListItem">
-            	<span id="MenuConsoleErrorToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleErrorToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleError')"
                 >
             View Errors and Log (e)
     		</span></li>
             <!-- ConsoleEvent -->
             <li class="MenuListItem">
-            	<span id="MenuConsoleEventToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleEventToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleEvent')"
                 >
             View Events (v)
     		</span></li>
             <!-- ConsoleState -->
             <li class="MenuListItem MenuListItemLast">
-            	<span id="MenuConsoleStateToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleStateToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleState')"
                 >
             View Messages and Test Area (s)
     		</span></li>
             <!-- ConsoleClear -->
             <li class="MenuListItem MenuListItemLast">
-            	<span id="MenuConsoleClearToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleClearToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleClear')"
                 >
             CLear Errors and Log (c)
@@ -64,56 +64,56 @@
 <!-- x ------------------------------------------------------------------------------------- -->
             <!-- ConsoleDebug -->
             <li class="MenuListItem">
-            	<span id="MenuConsoleDebugToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleDebugToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebug')"
                 >
             Toggle Debug Button's Visibility (D)
     		</span></li>
             <!-- ConsoleDebugMove -->
             <li class="MenuListItem">
-            	<span id="MenuConsoleDebugMoveToggleLink" 
-                class="MenuListItem " 
+            	<span id="MenuConsoleDebugMoveToggleLink"
+                class="MenuListItem "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebugMove')"
                 >
             Toggle Debug Movement (m)
     		</span></li>
             <!-- ConsoleDebugTransition -->
             <li class="MenuListItem">
-            	<span id="MenuConsoleDebugTransitionToggleLink" 
-                class="MenuListItem  " 
+            	<span id="MenuConsoleDebugTransitionToggleLink"
+                class="MenuListItem  "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebugTransition')"
                 >
             Toggle Debug Transitions (t)
     		</span></li>
             <!-- ConsoleDebugDetail -->
             <li class="MenuListItem MenuListItemLast">
-            	<span id="MenuConsoleDebugDetailToggleLink" 
-                class="MenuListItem  " 
+            	<span id="MenuConsoleDebugDetailToggleLink"
+                class="MenuListItem  "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebugDetail')"
                 >
             Toggle Debug Details (d)
     		</span></li>
             <!-- ConsoleDebugOnError -->
             <li class="MenuListItem MenuListItemLast">
-            	<span id="MenuConsoleDebugOnErrorToggleLink" 
-                class="MenuListItem  " 
+            	<span id="MenuConsoleDebugOnErrorToggleLink"
+                class="MenuListItem  "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebugOnError')"
                 >
             Toggle Debug Stop on OnError Messages (o)
     		</span></li>
             <!-- ConsoleDebugAll -->
             <li class="MenuListItem MenuListItemLast">
-            	<span id="MenuConsoleDebugAllToggleLink" 
-                class="MenuListItem  " 
+            	<span id="MenuConsoleDebugAllToggleLink"
+                class="MenuListItem  "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebugAll')"
                 >
             Toggle Debug Stop on All Messages (a)
     		</span></li>
             <!-- ConsoleDebugEvents -->
             <li class="MenuListItem MenuListItemLast">
-            	<span id="MenuConsoleDebugEventsToggleLink" 
-                class="MenuListItem  " 
+            	<span id="MenuConsoleDebugEventsToggleLink"
+                class="MenuListItem  "
     			onmousedown="fnBodyConsoleToggle('ConsoleDebugEvents')"
                 >
             Toggle Log (Mouse) Event Messages (v)
@@ -121,24 +121,24 @@
 <!-- x ------------------------------------------------------------------------------------- -->
             <!-- BodyFontToggle -->
             <li class="MenuListItem">
-                <span id="MenuViewZoomLink" 
-                class="MenuListItem " 
+                <span id="MenuViewZoomLink"
+                class="MenuListItem "
     			onmousedown="fnLayoutFontSize('BodyFontToggle')"
                 >
             Font Size Controls
     		</span></li>
             <!-- BodyFontZoomIn -->
             <li class="MenuListItem">
-                <span id="MenuFontZoomInLink" 
-                class="MenuListItem " 
+                <span id="MenuFontZoomInLink"
+                class="MenuListItem "
     			onmousedown="fnLayoutFontSize('BodyFontZoomIn')"
                 >
             Bigger Text
     		</span></li>
             <!-- BodyFontZoomOut -->
             <li class="MenuListItem  MenuListItemLast">
-                <span id="MenuFontZoomOutLink" 
-                class="MenuListItem " 
+                <span id="MenuFontZoomOutLink"
+                class="MenuListItem "
     			onmousedown="fnLayoutFontSize('BodyFontZoomOut')"
                 >
             SmallerText

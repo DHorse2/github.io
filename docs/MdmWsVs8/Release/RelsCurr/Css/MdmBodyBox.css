@@ -1,6 +1,6 @@
 /* MdmBodyBox */
 /* -- Body Divisions 3 Columns -- */
-/* -- 
+/* --
 Left
  Outer
    Inner
@@ -23,7 +23,7 @@ height:auto;
 /* Alignment */
 overflow-y:visible;
 }
-  
+
 #BodyMainContainerBg {
 /* Position */
 position:absolute;
@@ -37,7 +37,7 @@ filter:alpha(opacity=65);
 /* CSS3 standard */
 opacity:0.65;
 }
-  
+
 .BodyMainBorder {
 /* Border */
 border-top:5px solid #3e3d66;
@@ -71,9 +71,9 @@ border:5px solid #3e3d66;
 /* Position */
 position:relative;
 top:0px;
-left:0px; 
+left:0px;
 /* Size */
-width:60%; 
+width:60%;
 height:inherit;
 /* Background */
 background: url(../Images/TransparentWhiteBg50.png);
@@ -85,9 +85,9 @@ overflow:auto;
 /* Position */
 position:absolute;
 top:0px;
-left:20%; 
+left:20%;
 /* Size */
-width:60%; 
+width:60%;
 height:inherit;
 /* Alignment */
 overflow:auto;
@@ -95,13 +95,13 @@ overflow:auto;
 background: url(../Images/TransparentWhiteBg50.png);
 }
 /* -- end -- */
-       
+    
 /* -------------------------------------------- */
 /* -- Generic Menu List  -- */
 .MenuList { }
 .MenuItem { }
 /* -- end -- */
-       
+    
 /* -------------------------------------------- */
 /* Mdm Body LEFT Container */
 /* -- Container -- */
@@ -110,7 +110,7 @@ background: url(../Images/TransparentWhiteBg50.png);
 /* Position */
 position:absolute;
 top:0%;
-left:0%; 
+left:0%;
 /* Size */
 width:20%;
 height:100%;
@@ -126,7 +126,7 @@ width:90%;
 height:100%;
 /* Alignment */
 float:left;
-overflow:hidden; 
+overflow:hidden;
 /* Layering */
 z-index:20;
 /* Background */
@@ -142,14 +142,14 @@ height:100%;
 float:right;
 padding-right:10%;
 margin-right:0px;
-overflow:hidden; 
+overflow:hidden;
 /* Layering */
 z-index:21;
 /* Background */
 background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
 }
 /* -- end -- */
-       
+    
 /* -------------------------------------------- */
 /* Mdm Body LEFT Container */
 /* -- Styling -- */
@@ -215,7 +215,7 @@ color: #EEE;
 text-decoration: none;
 }
 /* -- end -- */
-       
+    
 /* -------------------------------------------- */
 /* Mdm Body RIGHT Container */
 /* -- Container -- */
@@ -224,7 +224,7 @@ text-decoration: none;
 /* Position */
 position:absolute;
 top:0px;
-left:80%; 
+left:80%;
 /* Size */
 width:20%;
 height:100%;
@@ -265,7 +265,7 @@ position:relative;
 width: 200px;
 }
 /* -- end -- */
-       
+    
 /* -------------------------------------------- */
 /* Mdm Body Right Menu */
 /* -- Styling -- */
@@ -325,4 +325,4 @@ color: #EEE;
 text-decoration: none;
 }
 /* -- end -- */
-       
+    

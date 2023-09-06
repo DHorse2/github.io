@@ -1,7 +1,7 @@
 /* MdmBodyBox */
 /* Mdm Body Container CSS */
 /* -- Body Divisions 3 Columns -- */
-       
+    
 #BodyMainContainer {
 /* Position */
 position:relative;
@@ -19,7 +19,7 @@ background: url(../Images/TransparentBg30.png);
 padding-bottom:25px;
 overflow:visible;
 }
-  
+
 .BodyMainBorder {
 /* Border */
 border-width:15px;
@@ -37,7 +37,7 @@ border-color: #3e3d66;
 /* Position */
 position:relative;
 top:0px;
-left:0px; 
+left:0px;
 /* Size */
 /* Background */
 background: url(../Images/TransparentWhiteBg50.png);

@@ -2,7 +2,7 @@
 
 /* ----------------------------------------------------------------------------- */
 /* MdmBodyHeader */
-/* -- Body Header -- */    
+/* -- Body Header -- */ 
 body {
 text-align: center;
 /* Default is Top */
@@ -19,7 +19,7 @@ background-repeat:no-repeat;
 padding: 2.5em 0em 2.5em 0em;
 }
 
-/* Body Image Background */    
+/* Body Image Background */ 
 .BodyBoxBg {
 position:fixed;
 top:0;
@@ -40,7 +40,7 @@ margin:0;
 padding:0;
 }
 /* ----------------------------------------------------------------------------- */
-/* -- Body Main -- */    
+/* -- Body Main -- */ 
 /* not in use */
 .BodyMain {
 width:auto;
@@ -74,12 +74,13 @@ border-right: .5em solid #3e3d66;
 .BodyMainBorderBoxed {
 /* Border */
 border: .5em solid #3e3d66;
+border-radius: 1em;
 -moz-border-radius: 1em;
 -webkit-border-radius: 1em;
 }
 
 /* ----------------------------------------------------------------------------- */
-/* -- Body Container -- */    
+/* -- Body Container -- */ 
 /* -------------------------------------------- */
 /* Mdm Body Container CSS */
 /* Body Container Divisions */
@@ -97,7 +98,7 @@ overflow-y:visible;
 /* Layout / Visibility */
 display:block;
 }
-  
+
 #BodyMainContainerOld {
 width:100%;
 height:100%;
@@ -105,7 +106,7 @@ margin: 0em 0em 0em 0em;
 padding: 0em 0em 0em 0em;
 }
 
-/* ----------------- */  
+/* ----------------- */
 .BodyMainContainerBg {
 /* Position */
 position:absolute;
@@ -119,19 +120,19 @@ filter: alpha(opacity=65);
 /* CSS3 standard */
 opacity:0.65;
 }
-  
-/* ----------------- */  
+
+/* ----------------- */
 /* -------------------------------------------- */
 /* Mdm Body Image Containter */
 /* -------------------------------------------- */
-.BodyImageContainer{ 
+.BodyImageContainer{
 /* Layout / Visibility */
 display:block;
 /* Layering */
 z-index:400;
 }
 
-.BodyMenuImageContainer{ 
+.BodyMenuImageContainer{
 /* Layout / Visibility */
 display:block;
 /* Layering */
@@ -174,7 +175,7 @@ background:
 /* Position */
 position:absolute;
 top: 6.3em;
-left:1%; 
+left:1%;
 /* Size */
 min-height:40.0em;
 }
@@ -195,7 +196,7 @@ width:auto;
 height:auto;
 }
 
-/* ----------------- */  
+/* ----------------- */
 /* -- Default Spacer -- */
 .SpacerBottom {
 position:absolute;
@@ -204,5 +205,5 @@ height: 3em;
 display:block;
 }
 
-/* ----------------- */  
+/* ----------------- */
 /* ----------------------------------------------------------------------------- */

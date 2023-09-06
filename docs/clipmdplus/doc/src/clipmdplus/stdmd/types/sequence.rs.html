@@ -74,7 +74,7 @@
 // use serde::de::{MapAccess, SeqAccess};
 // use serde::ser::SerializeStruct;
 </span><span class="kw">use </span>serde::{
-    <span class="comment">// forward_to_deserialize_any, forward_to_deserialize_any_helper, 
+    <span class="comment">// forward_to_deserialize_any, forward_to_deserialize_any_helper,
     </span>Deserialize, Serialize,
 };
 <span class="comment">//
@@ -84,7 +84,7 @@
 <span class="comment">// temporary
 </span><span class="doccomment">/// A trivial sequence object .
 </span><span class="attr">#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-</span><span class="kw">pub struct </span>Sequence { 
+</span><span class="kw">pub struct </span>Sequence {
     <span class="doccomment">/// The current value.
     </span>current: i32,
     <span class="doccomment">/// The sequence range that is selected.
@@ -109,24 +109,24 @@
     </span>}
 }
 <span class="attr">#[allow(dead_code, unused_imports)] </span><span class="comment">// object creation (pre debug)
-</span><span class="kw">impl </span>Sequence { 
+</span><span class="kw">impl </span>Sequence {
     <span class="doccomment">/// &lt;summary&gt;
     /// Open the clipboard database file.
-    /// &lt;/summary&gt; 
+    /// &lt;/summary&gt;
     </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self
     </span>{
         <span class="self">Self</span>::default()
     }
     <span class="doccomment">/// &lt;summary&gt;
     /// Open the clipboard database file.
-    /// &lt;/summary&gt; 
+    /// &lt;/summary&gt;
     </span><span class="kw">pub fn </span>sequence_get(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32
     {
         <span class="self">self</span>.current
     }
     <span class="doccomment">/// &lt;summary&gt;
     /// Open the clipboard database file.
-    /// &lt;/summary&gt; 
+    /// &lt;/summary&gt;
     </span><span class="kw">pub fn </span>sequence_set(<span class="kw-2">&amp;mut </span><span class="self">self</span>, sequence_number_passed: i32) -&gt; bool
     {
         <span class="self">self</span>.current = sequence_number_passed;

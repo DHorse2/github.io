@@ -4,7 +4,7 @@
 
 .BodyBox { }
 .BodyBg { }
-       
+    
 #BodyMainContainer {
 /* Position */
 position:relative;
@@ -25,7 +25,7 @@ margin-right: 2.5em;
 /* margin-bottom: 2.5em; */
 overflow:visible;
 }
-  
+
 #BodyMainContainer2 {
 /* Position */
 position:relative;
@@ -57,7 +57,7 @@ border-color: #3e3d66;
 /* Position */
 position:relative;
 top: 0em;
-left: 0em; 
+left: 0em;
 /* Size */
 /* height:95%; */
 /* Background */

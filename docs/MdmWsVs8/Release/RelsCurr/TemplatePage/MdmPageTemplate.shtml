@@ -93,7 +93,7 @@
                         E
                     </p>
                 </div>
-				<br clear="all">
+				<br>
                 <!--*-->
                 <!--*-->
                 <div id="DivP3" class="BodyParaRight">
@@ -132,17 +132,17 @@
 <!--*-->
 	<!--[if IE 6]>
 	<style type="text/css">
-	html { 
-	overflow-y: hidden; 
+	html {
+	overflow-y: hidden;
 	}
-	body { 
-	overflow-y: auto; 
+	body {
+	overflow-y: auto;
 	}
-	#bg { 
-	position:absolute; z-index:-1; 
+	#bg {
+	position:absolute; z-index:-1;
 	}
-	#BodyArea { 
-	position:static; 
+	#BodyArea {
+	position:static;
 	}
 	</style>
 	<![endif]-->

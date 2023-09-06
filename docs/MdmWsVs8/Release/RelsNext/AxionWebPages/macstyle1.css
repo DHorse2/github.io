@@ -121,17 +121,17 @@
 }
 .Caption
 {
-    COLOR: #000000; 
-    font-family: "Times New Roman", Times, serif; 
-    font-size: 1.2em; 
-    font-style: normal; 
+    COLOR: #000000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2em;
+    font-style: normal;
     font-weight: bold
 }
 .Caption2
 {
-    COLOR: #0000FF; 
-    font-family: "Lucida Handwriting", Garamond, "Book Antiqua"; 
-    font-size:  3.6em; 
+    COLOR: #0000FF;
+    font-family: "Lucida Handwriting", Garamond, "Book Antiqua";
+    font-size:  3.6em;
    font-style: italic;
    font-weight: bold
 ; text-align: center
@@ -200,11 +200,11 @@
 {
     LIST-STYLE: url(lb0bult.gif) outside;
     MARGIN-LEFT: 0em;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
-    line-height: 3em; 
+    line-height: 3em;
     margin-top: 0em;
-    top: 0em; 
+    top: 0em;
     left: 5em;
 }
 .lB1

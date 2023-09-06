@@ -43,7 +43,7 @@ border-style:outset;
 /* Position */
 position:static;
 /* Size */
-min-width:600px; 
+min-width:600px;
 min-height:60px;
 /* Alignment */
 text-align:center;
@@ -66,11 +66,11 @@ margin:15px;
 }
 /* -- end -- */
 /* -- */
-/* ----------------- */  
+/* ----------------- */
 
 .DivB{
 /* Position */
-position:relative; 
+position:relative;
 top:35px;
 left:20px;
 /* Size */
@@ -78,14 +78,14 @@ height:125px;
 /* Alignment */
 }
 
-/* ------ Callout Paragram Popup ----------- */  
+/* ------ Callout Paragram Popup ----------- */
 .CPA{
 /* Position */
 /* Size */
 /* Alignment */
 }
 
-.CPP{ 
+.CPP{
 /* Position */
 /* Size */
 /* Alignment */
@@ -114,11 +114,11 @@ height:125px;
 }
 
 /* ------ Callout Paragram ----------- */
-.CP{ 
+.CP{
 /* Position */
 /* Size */
 /* Alignment */
-}  
+}
 
 /* NOT FIREFOX COMPATABLE - USE ID */
 #LinkId .CPP{
@@ -129,8 +129,8 @@ display:none;
 #LinkId:hover .CPP{
 display:inline;
 }
-/* ----------------- */  
-/* ----------------- */  
+/* ----------------- */
+/* ----------------- */
 /* -- Body Paragraph Content -- */
 .BodyParaBoxOuter{
 /* Position */
@@ -216,7 +216,7 @@ padding:0px 15px 5px 15px;
 
 .BodyParaLeft{
 /* Alignment */
-float:left; 
+float:left;
 /* Background */
 background:none;
 /* for IE */
@@ -227,7 +227,7 @@ background:none;
 
 .BodyParaRight{
 /* Alignment */
-float:right; 
+float:right;
 /* Background */
 background:none;
 /* for IE */
@@ -244,14 +244,14 @@ padding:0px 0px 0px 0px;
 text-align:justify;
 z-index:15;
 }
-   
+
 .CalloutBorder{
 /* Border */
 border-style:solid;
 /* border-style:groove; */
 border-width:8px;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Border */
 -moz-border-radius: 10px;
 -webkit-border-radius: 10px;
@@ -260,7 +260,7 @@ background-color:#FFFFCC;
 /* Alignment */
 margin:0px 0px 0px 15px;
 padding:5px 5px 5px 5px;
-} 
+}
 /* 0px 0px 0px 0px; */
 /* 5px 5px 5px 5px; */
 /* 10px 10px 10px 10px; */

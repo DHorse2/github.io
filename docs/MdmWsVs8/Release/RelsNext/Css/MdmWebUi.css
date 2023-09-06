@@ -1,15 +1,15 @@
 /* Default CSS */
 
 /* ----------------- */
-body { 
+body {
 /* Size */
 height:auto;
 /* Alignment */
 padding: 0em;
 margin: 0em;
 }
-  
-#BodyArea{ 
+
+#BodyArea{
 /* Alignment */
 padding: 0em;
 margin: 0em;
@@ -25,7 +25,7 @@ padding-bottom: 2.5em;
 margin-bottom: 2.5em;
 }
 
-/* ----------------- */  
+/* ----------------- */
 /* -- Centre Area-- */
 #BodyMainTop { }
 
@@ -34,7 +34,7 @@ margin-bottom: 2.5em;
 position:relative;
 /* top: 6.3em; Might be needed */
 top:0%;
-left:0%; 
+left:0%;
 /* Size */
 width:100%;
 height:100%;
@@ -45,11 +45,11 @@ padding-bottom: 2.5em;
 margin-bottom: 2.5em;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivSection1{
 /* Position */
-position:absolute; 
+position:absolute;
 top: 0em;
 left: 0em;
 /* Size */
@@ -69,9 +69,9 @@ left:1%;
 overflow-y:scroll;
 }
 
-/* ----------------- */  
+/* ----------------- */
 /* Callout Para Pop up */
-#DivCallout1 { 
+#DivCallout1 {
 /* max-width:50%; */
 /* Layering */
 z-index:2;
@@ -96,12 +96,12 @@ display:block;
 
 #C1Img1Thumb { }
 
-/* ----------------- */  
+/* ----------------- */
 
 #DivCallout2 {
 }
 
-#C2A { 
+#C2A {
 /* Layering */
 z-index:2;
 }
@@ -145,17 +145,17 @@ display:none;
 z-index:4;
 }
 
-/* ----------------- */  
-#DivBox1 { 
+/* ----------------- */
+#DivBox1 {
 /* Size */
 /* width:20.0em; */
 }
 
-/* ----------------- */  
-#DivCallout3 { 
+/* ----------------- */
+#DivCallout3 {
 /* Size */
 /* width:25.0em; */
-width:50%; 
+width:50%;
 }
 
 /* ----------------- */

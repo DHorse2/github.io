@@ -1,6 +1,6 @@
-<script type="text/javascript">
-<!--
-function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) 
+// type= "text/javascript">
+
+function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 {
     // ** Javascript Parameter Set Blocks **
 	if (varValuePassed == 'Toggle') {
@@ -51,7 +51,7 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 			case 'debugTimerDetail':
 				if (elementPassed.checked) { debugTimerDetail = false; } else { debugTimerDetail = true; }
 				break;
-			case 'debugLogEvents': 
+			case 'debugLogEvents':
 				if (elementPassed.checked) { debugLogEvents = false; } else { debugLogEvents = true; }
 				break;
 			// Debugger Control
@@ -106,29 +106,30 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 				browserIsFF = false;
 				browserIsSA = false;
 				browserIsOP = false;
-				browserIsNE = false; 
+				browserIsNE = false;
 				//
 				switch(varValuePassed) {
 					case 'Firefox': browserIsFF = true; browserType = varValuePassed;
                         browserAnimationIsMozilla = true; browserEventsIsFf = true;
 						break;
-					case 'Chrome': browserIsCH = true; browserType = varValuePassed;					
-                        browserAnimationIsMozilla = true; browserEventsIsFf = false;
+					case 'Chrome': browserIsCH = true;browserType = varValuePassed;
+						browserAnimationIsMozilla = true;browserEventsIsFf = false;
 						break;
-					case 'Opera': browserIsOP = true; browserType = varValuePassed;					
-                        browserAnimationIsMozilla = true; browserEventsIsFf = false;
+					case 'Opera': browserIsOP = true;browserType = varValuePassed;
+                        browserAnimationIsMozilla = true;browserEventsIsFf = false;
 						break;
-					case 'Netscape': browserIsNE = true; browserType = varValuePassed;					
-                        browserAnimationIsMozilla = true; browserEventsIsFf = true;
+					case 'Netscape': browserIsNE = true;browserType = varValuePassed;
+                        browserAnimationIsMozilla = true;browserEventsIsFf = true;
 						break;
-					case 'Safari': browserIsSA = true; browserType = varValuePassed;					
-                        browserAnimationIsMozilla = true; browserEventsIsFf = true;
+					case 'Safari': browserIsSA = true;browserType = varValuePassed;
+                        browserAnimationIsMozilla = true;browserEventsIsFf = true;
 						break;
-					case 'MSIE': browserIsIE = true; browserType = varValuePassed;					
-                        browserAnimationIsMozilla = true; browserEventsIsFf = false;
+					case 'MSIE': browserIsIE = true;browserType = varValuePassed;
+                        browserAnimationIsMozilla = true;browserEventsIsFf = false;
 						break;
-					default: browserIsIE = true; browserType = 'MSIE';
-                        browserAnimationIsMozilla = true; browserEventsIsFf = false;
+					default:
+					browserIsIE = true;browserType = 'MSIE';
+                        browserAnimationIsMozilla = true;browserEventsIsFf = false;
 						break;
 				}
 				break;
@@ -137,17 +138,18 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 			// Debug Control
 			case 'errorDebugLevel':
 				switch(varValuePassed) {
-					case 'errorDidNotOccur': errorDebugLevel =  errorDidNotOccur;
+					case 'errorDidNotOccur': errorDebugLevel = errorDidNotOccur;
 						break;
-					case 'errorComment': errorDebugLevel =  errorComment;
+					case 'errorComment': errorDebugLevel = errorComment;
 						break;
-					case 'errorWarn': errorDebugLevel =  errorWarn;
+					case 'errorWarn': errorDebugLevel = errorWarn;
 						break;
-					case 'errorSevere': errorDebugLevel =  errorSevere;
+					case 'errorSevere': errorDebugLevel = errorSevere;
 						break;
-					case 'errorFatal': errorDebugLevel =  errorFatal;
+					case 'errorFatal': errorDebugLevel = errorFatal;
 						break;
-					default: errorDebugLevel =  errorSevere;
+					default:
+					errorDebugLevel = errorSevere;
 						break;
 				}
 				break;
@@ -156,22 +158,22 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 			// Menu Image Size
 			case 'oObjImageSizeSmall':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp > 5) { 
-					oObjImageSizeSmall = varValuePassed; 
+				if (temp && temp > 5)  {
+					oObjImageSizeSmall = varValuePassed;
 				}
 				break;
 				//
 			case 'oObjImageSizeLarge':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp > 10) { 
-					oObjImageSizeLarge = varValuePassed; 
+				if (temp && temp > 10)  {
+					oObjImageSizeLarge = varValuePassed;
 				}
 				break;
 				//
 			case 'oObjImageSizeRatio':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp > 0 && temp < 10) { 
-					oObjImageSizeRatio = varValuePassed; 
+				if (temp && temp > 0 && temp < 10)  {
+					oObjImageSizeRatio = varValuePassed;
 				}
 				break;
 				//
@@ -179,9 +181,9 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 			// Animation Control
 			////////////////////////////////////////////////
 			// Movement Duration
-			case 'elementMoveDuration': 
+			case 'elementMoveDuration':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
+				if (temp && temp >= 0)  {
 					elementMoveDuration = varValuePassed;
                     elementMoveStepsPerSecond = elementMoveStepMax / elementMoveDuration;
 				}
@@ -189,32 +191,32 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 				//
 			case 'elementMoveStepMax':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					elementMoveStepMax = varValuePassed; 
+				if (temp && temp >= 0)  {
+					elementMoveStepMax = varValuePassed;
                     elementMoveStepsPerSecond = elementMoveStepMax / elementMoveDuration;
 				}
 				break;
 				//
-			case 'elementMoveInterval': 
+			case 'elementMoveInterval':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					elementMoveInterval = varValuePassed; 
+				if (temp && temp >= 0)  {
+					elementMoveInterval = varValuePassed;
 				}
 				break;
 				//
 			case 'elementMoveDelay':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					elementMoveDelay = varValuePassed; 
+				if (temp && temp >= 0)  {
+					elementMoveDelay = varValuePassed;
 				}
 				break;
 				//
 			////////////////////////////////////////////////
 			// Filter / Transition Duration
-			case 'filterMoveDuration': 
+			case 'filterMoveDuration':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					filterMoveDuration = varValuePassed; 
+				if (temp && temp >= 0)  {
+					filterMoveDuration = varValuePassed;
 					// clear Adjustment to avoid overriding user entry later
 					filterMoveDurationAdjustment = 0;
                     filterStepsPerSecond = filterStepMax / filterDuration;
@@ -224,37 +226,37 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 				//
 			case 'filterMoveStepMax':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					filterMoveStepMax = varValuePassed; 
+				if (temp && temp >= 0)  {
+					filterMoveStepMax = varValuePassed;
                     filterStepsPerSecond = filterStepMax / filterDuration;
                     filterDurationOverride = true;
 				}
 				break;
 				//
-			case 'filterMoveInterval': 
+			case 'filterMoveInterval':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					filterMoveInterval = varValuePassed; 
+				if (temp && temp >= 0)  {
+					filterMoveInterval = varValuePassed;
                     filterDurationOverride = true;
 				}
 				break;
 				//
 			case 'filterMoveDelay':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					filterMoveDelay = varValuePassed; 
+				if (temp && temp >= 0)  {
+					filterMoveDelay = varValuePassed;
                     filterDurationOverride = true;
 				}
 				break;
 				// Usually filterDuration is the same as
 				// elementDuration plus an adjustment.
-				// a non-zero value indicates this 
+				// a non-zero value indicates this
 				// feature is on. Usually this adjustment
 				// is one additional second.
-			case 'filterMoveDurationAdjustment': 
+			case 'filterMoveDurationAdjustment':
 				var temp = parseInt(varValuePassed);
-				if (temp && temp >= 0) { 
-					filterMoveDurationAdjustment = varValuePassed; 
+				if (temp && temp >= 0)  {
+					filterMoveDurationAdjustment = varValuePassed;
 					if (filterDurationAdjustment) { filterDuration = elementMoveDuration + filterDurationAdjustment; }
                     filterDurationOverride = true;
 				}
@@ -298,17 +300,17 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 			case 'elementMoveMethod':
 				switch(varValuePassed) {
 					case 'elementMoveMethodDirect':
-						elementMoveMethod = elementMoveMethodDirect; // Slide diagonally to destination
+						elementMoveMethod = elementMoveMethodDirect;// Slide diagonally to destination
 						break;
 					case 'elementMoveMethodSlideDown':
-						elementMoveMethod = elementMoveMethodSlideDown; // Slide down, then sideways
+						elementMoveMethod = elementMoveMethodSlideDown;// Slide down, then sideways
 						break;
 					case 'elementMoveMethodSlideSide':
-						elementMoveMethod = elementMoveMethodSlideSide; // Slide sideways, then down
+						elementMoveMethod = elementMoveMethodSlideSide;// Slide sideways, then down
 						break;
 					case 'elementMoveMethodRandom':
 					default:
-						elementMoveMethod = elementMoveMethodRandom; // Use random choice each time
+						elementMoveMethod = elementMoveMethodRandom;// Use random choice each time
 						break;
 				}
 				break;
@@ -320,4 +322,3 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
 	}
 //
 }
-</script>

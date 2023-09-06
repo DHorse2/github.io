@@ -384,7 +384,7 @@
 //! create_derive!(&quot;as_ref&quot;, as_ref, AsRef, as_ref_derive, as_ref);
 //! This crate could be forked to add Name and VariantName.
 //! Note: The usage of features optimizes compile time.
-//! 
+//!
 //! The original dommentation continues now continues:
 //!
 //! [![Build Status](https://github.com/JelteF/derive_more/workflows/CI/badge.svg)](https://github.com/JelteF/derive_more/actions)
@@ -668,7 +668,7 @@
 
 <span class="macro">macro_rules! </span>create_derive(
     <span class="comment">// Module, Trait, FunctionName, TraitAttributes, *
-    </span>(<span class="macro-nonterminal">$feature</span>: literal, <span class="macro-nonterminal">$mod_</span>: ident, <span class="macro-nonterminal">$trait_</span>: ident, <span class="macro-nonterminal">$fn_name</span>: ident $(,<span class="macro-nonterminal">$attribute</span>: ident)* $(,)<span class="question-mark">?</span>) =&gt; 
+    </span>(<span class="macro-nonterminal">$feature</span>: literal, <span class="macro-nonterminal">$mod_</span>: ident, <span class="macro-nonterminal">$trait_</span>: ident, <span class="macro-nonterminal">$fn_name</span>: ident $(,<span class="macro-nonterminal">$attribute</span>: ident)* $(,)<span class="question-mark">?</span>) =&gt;
         {
         <span class="attr">#[cfg(feature = <span class="macro-nonterminal">$feature</span>)]
         #[proc_macro_derive(<span class="macro-nonterminal">$trait_</span>, attributes($(<span class="macro-nonterminal">$attribute</span>),<span class="kw-2">*</span>))]

@@ -5,7 +5,7 @@
 <TITLE>Filters and Transitions Interactive Demo</TITLE>
 <style>
 IMG {border:2px solid black}
-BODY{ 
+BODY{
 margin:0;
 background:white;
 font-family:verdana;
@@ -24,7 +24,7 @@ width:100%;
 padding: 10px;
 border-top:1px solid #CCCCCC;
 border-bottom:1px solid #000000;
-color:black; 
+color:black;
 font-size:8pt;
 }
 .title{
@@ -97,7 +97,7 @@ function switchContent(obj) {
 }
 
 function getControlObject(controlName) {
-    var obj=null;    
+    var obj=null; 
 
    for (x=0; x < document.all(controlName).length; x++) {
        objTemp = document.all(controlName,x);
@@ -152,7 +152,7 @@ function changeFilter() {
             pixelateFilterChange();
         }
         else if (selectedValue.indexOf('DropShadow')!=-1) {
-            imgObj.style.backgroundColor='';        
+            imgObj.style.backgroundColor='';
             imgObjText.innerHTML = "<BR>The image, dark red text, and sky blue background make up the content of the filtered SPAN.";
             oControlsSpan.innerHTML = oDropShadowControls.innerHTML;
             dropShadowFilterChange();
@@ -186,7 +186,7 @@ function changeFilter() {
             waveFilterChange();
         }
         else if (selectedValue.indexOf('Blur')!=-1) {
-            imgObj.style.backgroundColor='';        
+            imgObj.style.backgroundColor='';
             imgObjText.innerHTML = "<BR>The image, dark red text, and sky blue background make up the content of the filtered SPAN.";
             oControlsSpan.innerHTML = oBlurControls.innerHTML;
             blurFilterChange();
@@ -207,7 +207,7 @@ function changeFilter() {
             imgObj.style.filter='';
             oControlsSpan.innerHTML = featuresHeader + 'No filter is currently selected.';
     }
-    updateFilterCode();       
+    updateFilterCode();    
 }
 
 function updateFilterCode() {
@@ -327,7 +327,7 @@ function alphaFilterChange(){
         controlObject = getControlObject("finishOpacityList");
         enableControlObject("finishOpacityList");
         var finishOpacity = controlObject.options[controlObject.selectedIndex].value;
-        
+     
         cmd  = cmd + ",finishOpacity=" + finishOpacity ;
 
         if (style==1){
@@ -354,8 +354,8 @@ function alphaFilterChange(){
             disableControlObject("startYList");
             disableControlObject("finishYList");
         }
-        
-    } 
+     
+    }
     else{
         disableControlObject("finishOpacityList");
         disableControlObject("startXList");
@@ -363,14 +363,14 @@ function alphaFilterChange(){
         disableControlObject("startYList");
         disableControlObject("finishYList");
     }
-   
+
     cmd  = cmd + ")'";
     eval(cmd);
     updateFilterCode();
     highlightText(cmd);
 }
 function alphaImageLoaderFilterChange(){
-    var cmd; 
+    var cmd;
     var controlObject = getControlObject("srcList");
     var src = controlObject.options[controlObject.selectedIndex].value;
     controlObject = getControlObject("sizingMethodList");
@@ -408,7 +408,7 @@ function blurFilterChange(){
     var pixelRadius = controlObject.options[controlObject.selectedIndex].value;
     controlObject = getControlObject("makeShadowSwitch");
     var makeShadow = controlObject.checked;
-    var cmd = "imgObj.style.filter='progid:DXImageTransform.Microsoft.Blur( PixelRadius="+ pixelRadius +"," + "MakeShadow=" + makeShadow;     
+    var cmd = "imgObj.style.filter='progid:DXImageTransform.Microsoft.Blur( PixelRadius="+ pixelRadius +"," + "MakeShadow=" + makeShadow;  
     if (makeShadow){
 
     	controlObject = getControlObject("shadowOpacityList");
@@ -618,7 +618,7 @@ function completeTransCode(imgText) {
     scriptBlock = scriptBlock + '}\n'
     buttonBlock = '\<BR\>\<BR\>\n<BUTTON onclick="doTrans()">Play Transition</BUTTON>\n'
     fullBlock = '\<HEAD\>\n\<SCRIPT\>\n' + scriptBlock + '\<\/SCRIPT\>\n\<\/HEAD\>\n\<BODY\>\n' + imgText + buttonBlock + '\<\/BODY\>';
-    return(fullBlock);  
+    return(fullBlock);
 }
 
 function barnTransChange(){
@@ -685,7 +685,7 @@ function randomBarsTransChange(){
     var orientation =  controlObject.options[controlObject.selectedIndex].value;
     cmd = "imgObj.style.filter='progid:DXImageTransform.Microsoft.RandomBars()'";
     eval(cmd);
-    cmd = "imgObj.filters[0].orientation='" + orientation + "';"; 
+    cmd = "imgObj.filters[0].orientation='" + orientation + "';";
     eval(cmd);
     sRandomBarsOrientationText = cmd;
    updateTransCode();
@@ -696,7 +696,7 @@ function randomDissolveTransChange(){
     var duration =  controlObject.options[controlObject.selectedIndex].value;
     cmd = "imgObj.style.filter='progid:DXImageTransform.Microsoft.RandomDissolve()'";
     eval(cmd);
-    cmd = "imgObj.filters[0].duration='" + duration + "';"; 
+    cmd = "imgObj.filters[0].duration='" + duration + "';";
     eval(cmd);
     sRandomDissolveOrientationText = cmd;
    updateTransCode();
@@ -841,14 +841,14 @@ You can use the controls on the left side of the window to apply and modify vari
 <!--Filter-->
 <SPAN id=filterSection style="DISPLAY: none" isSource="TRUE">
 Select a filter:&nbsp;
-<SELECT id=oSelect onchange=changeFilter()> 
+<SELECT id=oSelect onchange=changeFilter()>
   <OPTION value=progid:DXImageTransform.Microsoft.Alpha SELECTED>Alpha</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.AlphaImageLoader>AlphaImageLoader</OPTION>
-  <OPTION value=progid:DXImageTransform.Microsoft.BasicImage >BasicImage</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Blur>Blur</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Chroma>Chroma</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.DropShadow>DropShadow</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Emboss >Emboss</OPTION> 
+  <OPTION value=progid:DXImageTransform.Microsoft.BasicImage >BasicImage</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Blur>Blur</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Chroma>Chroma</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.DropShadow>DropShadow</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Emboss >Emboss</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.Engrave>Engrave</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.Glow>Glow</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.Gradient>Gradient</OPTION>
@@ -857,104 +857,104 @@ Select a filter:&nbsp;
   <OPTION value=progid:DXImageTransform.Microsoft.Shadow>Shadow</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.Wave>Wave</OPTION>
   </SELECT><hr></SPAN>
-  
-<!--Transition  --> 
+
+<!--Transition  -->
 <SPAN id=transitionSection style="DISPLAY: none" isSource="TRUE">
 Select a transition:
-<SELECT id=oSelect onchange=changeTrans()> 
-<OPTION value=progid:DXImageTransform.Microsoft.Barn() SELECTED>Barn</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Blinds()>Blinds</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Checkerboard()>Checkerboard</OPTION> 
+<SELECT id=oSelect onchange=changeTrans()>
+<OPTION value=progid:DXImageTransform.Microsoft.Barn() SELECTED>Barn</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Blinds()>Blinds</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Checkerboard()>Checkerboard</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.Fade()>Fade</OPTION>
-  <OPTION value=progid:DXImageTransform.Microsoft.GradientWipe()>GradientWipe</OPTION>  
-  <OPTION value=progid:DXImageTransform.Microsoft.Inset()>Inset</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Iris()>Iris</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Pixelate()>Pixelate</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.RadialWipe()>RadialWipe</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.RandomBars()>Random Bars</OPTION> 
+  <OPTION value=progid:DXImageTransform.Microsoft.GradientWipe()>GradientWipe</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Inset()>Inset</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Iris()>Iris</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Pixelate()>Pixelate</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.RadialWipe()>RadialWipe</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.RandomBars()>Random Bars</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.RandomDissolve()>Random Dissolve</OPTION>
-  <OPTION value=progid:DXImageTransform.Microsoft.Slide()>Slide</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Spiral()>Spiral</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Stretch()>Stretch</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.CrStrips()>Strips</OPTION> 
-  <OPTION value=progid:DXImageTransform.Microsoft.Wheel()>Wheel</OPTION> 
+  <OPTION value=progid:DXImageTransform.Microsoft.Slide()>Slide</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Spiral()>Spiral</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Stretch()>Stretch</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.CrStrips()>Strips</OPTION>
+  <OPTION value=progid:DXImageTransform.Microsoft.Wheel()>Wheel</OPTION>
   <OPTION value=progid:DXImageTransform.Microsoft.Zigzag()>Zigzag</OPTION>
-  </SELECT> 
-  
+  </SELECT>
+
 &nbsp;<BUTTON onclick=transStart(oImg) width="25">Play</BUTTON><hr></SPAN>
 
 <!--Alpha  -->
 <SPAN id=oAlphaControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Style: 
-<SELECT onchange=alphaFilterChange() name=styleList> 
-<OPTION value=0>0 - Uniform Opacity</OPTION> 
-<OPTION value=1 SELECTED>1 - Linear Opacity Change</OPTION> 
-<OPTION value=2>2 - Radial Opacity Change</OPTION> 
+Style:
+<SELECT onchange=alphaFilterChange() name=styleList>
+<OPTION value=0>0 - Uniform Opacity</OPTION>
+<OPTION value=1 SELECTED>1 - Linear Opacity Change</OPTION>
+<OPTION value=2>2 - Radial Opacity Change</OPTION>
 <OPTION value=3>3 - Rectangular Opacity Change</OPTION>
 </SELECT>  <BR/><BR/>
-Opacity: 
-<SELECT onchange=alphaFilterChange() name=opacityList> 
-<OPTION value=0>0</OPTION> 
+Opacity:
+<SELECT onchange=alphaFilterChange() name=opacityList>
+<OPTION value=0>0</OPTION>
 <OPTION value=25 SELECTED>25</OPTION>
-<OPTION value=50>50</OPTION> 
-<OPTION value=75>75</OPTION> 
+<OPTION value=50>50</OPTION>
+<OPTION value=75>75</OPTION>
 <OPTION value=100>100</OPTION>
 </SELECT>
-&nbsp;&nbsp; FinishOpacity: 
-<SELECT onchange=alphaFilterChange() name=finishOpacityList> 
-<OPTION value=0>0</OPTION> 
+&nbsp;&nbsp; FinishOpacity:
+<SELECT onchange=alphaFilterChange() name=finishOpacityList>
+<OPTION value=0>0</OPTION>
 <OPTION value=25>25</OPTION>
-<OPTION value=50>50</OPTION> 
-<OPTION value=75>75</OPTION> 
+<OPTION value=50>50</OPTION>
+<OPTION value=75>75</OPTION>
 <OPTION value=100 SELECTED>100</OPTION>
-</SELECT> <BR/><BR/> 
-StartX: 
-<SELECT onchange=alphaFilterChange() name=startXList> 
-<OPTION value=0 SELECTED>0</OPTION> 
+</SELECT> <BR/><BR/>
+StartX:
+<SELECT onchange=alphaFilterChange() name=startXList>
+<OPTION value=0 SELECTED>0</OPTION>
 <OPTION value=25>25</OPTION>
-<OPTION value=50>50</OPTION> 
-<OPTION value=75>75</OPTION> 
+<OPTION value=50>50</OPTION>
+<OPTION value=75>75</OPTION>
 <OPTION value=100>100</OPTION>
-</SELECT> 
-&nbsp;&nbsp; FinishX: 
-<SELECT onchange=alphaFilterChange() name=finishXList> 
-<OPTION value=0>0</OPTION> 
+</SELECT>
+&nbsp;&nbsp; FinishX:
+<SELECT onchange=alphaFilterChange() name=finishXList>
+<OPTION value=0>0</OPTION>
 <OPTION value=25>25</OPTION>
-<OPTION value=50>50</OPTION> 
-<OPTION value=75>75</OPTION> 
+<OPTION value=50>50</OPTION>
+<OPTION value=75>75</OPTION>
 <OPTION value=100 SELECTED>100</OPTION>
-</SELECT> 
-<BR/><BR/> 
-StartY: 
-<SELECT onchange=alphaFilterChange() name=startYList> 
-<OPTION value=0>0</OPTION> 
+</SELECT>
+<BR/><BR/>
+StartY:
+<SELECT onchange=alphaFilterChange() name=startYList>
+<OPTION value=0>0</OPTION>
 <OPTION value=25>25</OPTION>
-<OPTION value=50>50</OPTION> 
-<OPTION value=75>75</OPTION> 
+<OPTION value=50>50</OPTION>
+<OPTION value=75>75</OPTION>
 <OPTION value=100 SELECTED>100</OPTION>
-</SELECT> 
-&nbsp;&nbsp; FinishY: 
-<SELECT onchange=alphaFilterChange() name=finishYList> 
-<OPTION value=0 SELECTED>0</OPTION> 
+</SELECT>
+&nbsp;&nbsp; FinishY:
+<SELECT onchange=alphaFilterChange() name=finishYList>
+<OPTION value=0 SELECTED>0</OPTION>
 <OPTION value=25>25</OPTION>
-<OPTION value=50>50</OPTION> 
-<OPTION value=75>75</OPTION> 
+<OPTION value=50>50</OPTION>
+<OPTION value=75>75</OPTION>
 <OPTION value=100>100</OPTION>
-</SELECT>  
+</SELECT>
 </SPAN>
 
 <!--AlphaImageLoader -->
 <SPAN id=oAlphaImageLoaderControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Src (source image): 
-<SELECT onchange=alphaImageLoaderFilterChange() name=srcList> 
-<OPTION value='notebook.GIF'  SELECTED>Spiral Bound</OPTION> 
-<OPTION value='MOUSE2.GIF'>Mouse</OPTION> 
-</SELECT>  
-<BR/><BR/>SizingMethod: 
-<SELECT onchange=alphaImageLoaderFilterChange() name=sizingMethodList> 
-<OPTION value='crop' SELECTED>Crop - Crop at boundaries</OPTION> 
+Src (source image):
+<SELECT onchange=alphaImageLoaderFilterChange() name=srcList>
+<OPTION value='notebook.GIF'  SELECTED>Spiral Bound</OPTION>
+<OPTION value='MOUSE2.GIF'>Mouse</OPTION>
+</SELECT>
+<BR/><BR/>SizingMethod:
+<SELECT onchange=alphaImageLoaderFilterChange() name=sizingMethodList>
+<OPTION value='crop' SELECTED>Crop - Crop at boundaries</OPTION>
 <OPTION value='image'>Image - Normal image size</OPTION>
-<OPTION value='scale'>Scale - Scale to window</OPTION> 
+<OPTION value='scale'>Scale - Scale to window</OPTION>
 </SELECT><BR/><BR/><BR/><BR/>
 
 
@@ -963,24 +963,24 @@ Src (source image):
 <!-- Gradient -->
 <SPAN id=oGradientControls style="DISPLAY: none" isSource="TRUE"><BR/>
 GradientType:
-<SELECT onchange=gradientFilterChange() name=GradientTypeList> 
-<OPTION SELECTED value=0>0</OPTION> 
-<OPTION value=1>1</OPTION> 
+<SELECT onchange=gradientFilterChange() name=GradientTypeList>
+<OPTION SELECTED value=0>0</OPTION>
+<OPTION value=1>1</OPTION>
 </SELECT>
 <BR/><BR/>
 
 StartColorStr:
-<SELECT onchange=gradientFilterChange() name=StartColorStrList> 
-<OPTION SELECTED value=#ff00ff>#ff00ff</OPTION> 
+<SELECT onchange=gradientFilterChange() name=StartColorStrList>
+<OPTION SELECTED value=#ff00ff>#ff00ff</OPTION>
 <OPTION value=#006400>#006400</OPTION>
-<OPTION value=#0000ff>#0000ff</OPTION> 
+<OPTION value=#0000ff>#0000ff</OPTION>
 <OPTION value=#7b68ee>#7b68ee</OPTION>
 <OPTION value=#ffe4e1>#ffe4e1</OPTION>
 <OPTION value=#7fffd4>#7fffd4</OPTION>
 <OPTION value=#ff8c00>#ff8c00</OPTION>
 <OPTION value=#ff4500>#ff4500</OPTION>
 <OPTION value=#00ff99>#00ff99</OPTION>
-<OPTION value=#ffdead>#ffdead</OPTION> 
+<OPTION value=#ffdead>#ffdead</OPTION>
 </SELECT>
 <BR/><BR/>
 
@@ -989,13 +989,13 @@ EndColorStr:&nbsp;
 <OPTION SELECTED value=#00ff99>#00ff99</OPTION>
 <OPTION value=#ff00ff>#ff00ff</OPTION>
 <OPTION value=#006400>#006400</OPTION>
-<OPTION value=#0000ff>#0000ff</OPTION> 
+<OPTION value=#0000ff>#0000ff</OPTION>
 <OPTION value=#7b68ee>#7b68ee</OPTION>
 <OPTION value=#ffe4e1>#ffe4e1</OPTION>
 <OPTION value=#7fffd4>#7fffd4</OPTION>
 <OPTION value=#ff8c00>#ff8c00</OPTION>
 <OPTION value=#ff4500>#ff4500</OPTION>
-<OPTION value=#ffdead>#ffdead</OPTION>   
+<OPTION value=#ffdead>#ffdead</OPTION>
 </SELECT>
 
 <BR/><BR/><BR/><BR/>
@@ -1005,24 +1005,24 @@ EndColorStr:&nbsp;
 <!-- Glow -->
 <SPAN id=oGlowControls style="DISPLAY: none" isSource="TRUE"><BR/>
 Color:
-<SELECT onchange=glowFilterChange() name=GlowColorList> 
-<OPTION SELECTED value=#ff00ff>#ff00ff</OPTION> 
+<SELECT onchange=glowFilterChange() name=GlowColorList>
+<OPTION SELECTED value=#ff00ff>#ff00ff</OPTION>
 <OPTION value=#006400>#006400</OPTION>
-<OPTION value=#0000ff>#0000ff</OPTION> 
+<OPTION value=#0000ff>#0000ff</OPTION>
 <OPTION value=#7b68ee>#7b68ee</OPTION>
 <OPTION value=#ffe4e1>#ffe4e1</OPTION>
 <OPTION value=#7fffd4>#7fffd4</OPTION>
 <OPTION value=#ff8c00>#ff8c00</OPTION>
 <OPTION value=#ff4500>#ff4500</OPTION>
 <OPTION value=#00ff99>#00ff99</OPTION>
-<OPTION value=#ffdead>#ffdead</OPTION> 
+<OPTION value=#ffdead>#ffdead</OPTION>
 </SELECT>
 <BR/><BR/>
 Strength:
-<SELECT onchange=glowFilterChange() name=GlowStrengthList> 
-<OPTION SELECTED value=5>5</OPTION> 
+<SELECT onchange=glowFilterChange() name=GlowStrengthList>
+<OPTION SELECTED value=5>5</OPTION>
 <OPTION value=1>1</OPTION>
-<OPTION value=3>3</OPTION> 
+<OPTION value=3>3</OPTION>
 <OPTION value=8>8</OPTION>
 <OPTION value=12>12</OPTION>
 <OPTION value=20>20</OPTION>
@@ -1035,10 +1035,10 @@ Strength:
 <!-- Motion Blur -->
 <SPAN id=oMotionBlurControls style="DISPLAY: none" isSource="TRUE"><BR/>
 Direction:
-<SELECT onchange=motionBlurFilterChange() name=MotionBlurDirectionList> 
-<OPTION SELECTED value=0>0</OPTION> 
+<SELECT onchange=motionBlurFilterChange() name=MotionBlurDirectionList>
+<OPTION SELECTED value=0>0</OPTION>
 <OPTION value=45>45</OPTION>
-<OPTION value=90>90</OPTION> 
+<OPTION value=90>90</OPTION>
 <OPTION value=135>135</OPTION>
 <OPTION value=180>180</OPTION>
 <OPTION value=225>225</OPTION>
@@ -1047,10 +1047,10 @@ Direction:
 </SELECT>
 <BR/><BR/>
 Strength:
-<SELECT onchange=motionBlurFilterChange() name=MotionBlurStrengthList> 
-<OPTION SELECTED value=5>5</OPTION> 
+<SELECT onchange=motionBlurFilterChange() name=MotionBlurStrengthList>
+<OPTION SELECTED value=5>5</OPTION>
 <OPTION value=1>1</OPTION>
-<OPTION value=3>3</OPTION> 
+<OPTION value=3>3</OPTION>
 <OPTION value=8>8</OPTION>
 <OPTION value=12>12</OPTION>
 <OPTION value=20>20</OPTION>
@@ -1064,10 +1064,10 @@ Strength:
 <!-- Shadow --><BR/>
 <SPAN id=oShadowControls style="DISPLAY: none" isSource="TRUE">
 Direction:
-<SELECT onchange=shadowFilterChange() name=ShadowDirectionList> 
-<OPTION SELECTED value=0>0</OPTION> 
+<SELECT onchange=shadowFilterChange() name=ShadowDirectionList>
+<OPTION SELECTED value=0>0</OPTION>
 <OPTION value=45>45</OPTION>
-<OPTION value=90>90</OPTION> 
+<OPTION value=90>90</OPTION>
 <OPTION value=135>135</OPTION>
 <OPTION value=180>180</OPTION>
 <OPTION value=225>225</OPTION>
@@ -1076,10 +1076,10 @@ Direction:
 </SELECT>
 <BR/><BR/>
 Color:
-<SELECT onchange=shadowFilterChange() name=ShadowColorList> 
-<OPTION SELECTED value=#ff00ff>#ff00ff</OPTION> 
+<SELECT onchange=shadowFilterChange() name=ShadowColorList>
+<OPTION SELECTED value=#ff00ff>#ff00ff</OPTION>
 <OPTION value=#006400>#006400</OPTION>
-<OPTION value=#0000ff>#0000ff</OPTION> 
+<OPTION value=#0000ff>#0000ff</OPTION>
 <OPTION value=#7b68ee>#7b68ee</OPTION>
 <OPTION value=#ffe4e1>#ffe4e1</OPTION>
 <OPTION value=#7fffd4>#7fffd4</OPTION>
@@ -1090,9 +1090,9 @@ Color:
 </SELECT>
 <BR/><BR/>
 Strength:
-<SELECT onchange=shadowFilterChange() name=ShadowStrengthList> 
-<OPTION SELECTED value=5>5</OPTION> 
-<OPTION value=3>3</OPTION> 
+<SELECT onchange=shadowFilterChange() name=ShadowStrengthList>
+<OPTION SELECTED value=5>5</OPTION>
+<OPTION value=3>3</OPTION>
 <OPTION value=8>8</OPTION>
 <OPTION value=12>12</OPTION>
 <OPTION value=20>20</OPTION>
@@ -1105,22 +1105,22 @@ Strength:
 <!-- Wave -->
 <SPAN id=oWaveControls style="DISPLAY: none" isSource="TRUE"><BR/>
 Freq:
-<SELECT onchange=waveFilterChange() name=WaveFreqList> 
-<OPTION SELECTED value=1>1</OPTION> 
+<SELECT onchange=waveFilterChange() name=WaveFreqList>
+<OPTION SELECTED value=1>1</OPTION>
 <OPTION value=3>3</OPTION>
-<OPTION value=6>6</OPTION> 
+<OPTION value=6>6</OPTION>
 <OPTION value=8>8</OPTION>
 <OPTION value=12>12</OPTION>
 <OPTION value=50>50</OPTION>
 </SELECT>
 <BR/><BR/>
 LightStrength:
-<SELECT onchange=waveFilterChange() name=WaveLightStrengthList> 
-<OPTION SELECTED value=10>10</OPTION> 
+<SELECT onchange=waveFilterChange() name=WaveLightStrengthList>
+<OPTION SELECTED value=10>10</OPTION>
 <OPTION value=20>20</OPTION>
 <OPTION value=30>30</OPTION>
 <OPTION value=40>40</OPTION>
-<OPTION value=50>50</OPTION> 
+<OPTION value=50>50</OPTION>
 <OPTION value=60>60</OPTION>
 <OPTION value=70>70</OPTION>
 <OPTION value=80>80</OPTION>
@@ -1129,12 +1129,12 @@ LightStrength:
 </SELECT>
 <BR/><BR/>
 Phase:
-<SELECT onchange=waveFilterChange() name=WavePhaseList> 
-<OPTION SELECTED value=10>10</OPTION> 
+<SELECT onchange=waveFilterChange() name=WavePhaseList>
+<OPTION SELECTED value=10>10</OPTION>
 <OPTION value=20>20</OPTION>
 <OPTION value=30>30</OPTION>
 <OPTION value=40>40</OPTION>
-<OPTION value=50>50</OPTION> 
+<OPTION value=50>50</OPTION>
 <OPTION value=60>60</OPTION>
 <OPTION value=70>70</OPTION>
 <OPTION value=80>80</OPTION>
@@ -1143,10 +1143,10 @@ Phase:
 </SELECT>
 <BR/><BR/>
 Strength:
-<SELECT onchange=waveFilterChange() name=WaveStrengthList> 
-<OPTION SELECTED value=5>5</OPTION> 
+<SELECT onchange=waveFilterChange() name=WaveStrengthList>
+<OPTION SELECTED value=5>5</OPTION>
 <OPTION value=1>1</OPTION>
-<OPTION value=3>3</OPTION> 
+<OPTION value=3>3</OPTION>
 <OPTION value=8>8</OPTION>
 <OPTION value=12>12</OPTION>
 <OPTION value=20>20</OPTION>
@@ -1160,76 +1160,76 @@ Strength:
 
 <!--Emboss -->
 <SPAN id=oEmbossControls style="DISPLAY: none" isSource="TRUE">
-Bias: 
-<SELECT onchange=embossFilterChange() name=biasList> 
-<OPTION value=-0.9>-0.9</OPTION> 
-<OPTION value=-0.5>-0.5</OPTION> 
-<OPTION value=-0.2>-0.2</OPTION> 
-<OPTION value=0.00 SELECTED>0.00</OPTION> 
-<OPTION value=0.2>0.2</OPTION> 
-<OPTION value=0.5>0.5</OPTION> 
-<OPTION value=0.9>0.9</OPTION> 
+Bias:
+<SELECT onchange=embossFilterChange() name=biasList>
+<OPTION value=-0.9>-0.9</OPTION>
+<OPTION value=-0.5>-0.5</OPTION>
+<OPTION value=-0.2>-0.2</OPTION>
+<OPTION value=0.00 SELECTED>0.00</OPTION>
+<OPTION value=0.2>0.2</OPTION>
+<OPTION value=0.5>0.5</OPTION>
+<OPTION value=0.9>0.9</OPTION>
 </SELECT><BR/><BR/><BR/><BR/>
 
 </SPAN>
 
 <!--Engrave -->
 <SPAN id=oEngraveControls style="DISPLAY: none" isSource="TRUE">
-Bias: 
-<SELECT onchange=engraveFilterChange() name=biasList> 
-<OPTION value=-0.9>-0.9</OPTION> 
-<OPTION value=-0.5>-0.5</OPTION> 
-<OPTION value=-0.2>-0.2</OPTION> 
-<OPTION value=0.00 SELECTED>0.00</OPTION> 
-<OPTION value=0.2>0.2</OPTION> 
-<OPTION value=0.5>0.5</OPTION> 
-<OPTION value=0.9>0.9</OPTION> 
+Bias:
+<SELECT onchange=engraveFilterChange() name=biasList>
+<OPTION value=-0.9>-0.9</OPTION>
+<OPTION value=-0.5>-0.5</OPTION>
+<OPTION value=-0.2>-0.2</OPTION>
+<OPTION value=0.00 SELECTED>0.00</OPTION>
+<OPTION value=0.2>0.2</OPTION>
+<OPTION value=0.5>0.5</OPTION>
+<OPTION value=0.9>0.9</OPTION>
 </SELECT><BR/><BR/><BR/><BR/>
 
 </SPAN>
 
 <!--Blur  -->
 <SPAN id=oBlurControls style="DISPLAY: none" isSource="TRUE"><BR/>
-PixelRadius: 
-<SELECT onchange=blurFilterChange() name=pixelRadiusList> 
-<OPTION value=0>0</OPTION> 
-<OPTION value=5 SELECTED>5</OPTION> 
-<OPTION value=10>10</OPTION> 
+PixelRadius:
+<SELECT onchange=blurFilterChange() name=pixelRadiusList>
+<OPTION value=0>0</OPTION>
+<OPTION value=5 SELECTED>5</OPTION>
+<OPTION value=10>10</OPTION>
 <OPTION value=20>20</OPTION>
 </SELECT> <BR/><BR/>
 <INPUT onclick=blurFilterChange() type=checkbox name=makeShadowSwitch>
  MakeShadow</INPUT>
-<BR><BR>ShadowOpacity: 
-<SELECT onchange=blurFilterChange() name=shadowOpacityList> 
+<BR><BR>ShadowOpacity:
+<SELECT onchange=blurFilterChange() name=shadowOpacityList>
 <OPTION value=0.00>0.00</OPTION> <OPTION value=0.25>0.25</OPTION>
-<OPTION value=0.50>0.50</OPTION> <OPTION value=0.75>0.75</OPTION> 
+<OPTION value=0.50>0.50</OPTION> <OPTION value=0.75>0.75</OPTION>
 <OPTION value=1.00 SELECTED>1.00</OPTION>
 </SELECT> <BR/><BR/>
 </SPAN>
 <!-- Pixelate -->
 <SPAN id=oPixelateFilterControls style="DISPLAY: none" isSource="TRUE"><BR/>
 MaxSquare:
-<SELECT onchange=pixelateFilterChange() name=maxSquareFList> 
-<OPTION value=2>2</OPTION> 
-<OPTION value=5>5</OPTION> 
-<OPTION value=10 SELECTED>10</OPTION> 
-<OPTION value=25>25</OPTION> 
+<SELECT onchange=pixelateFilterChange() name=maxSquareFList>
+<OPTION value=2>2</OPTION>
+<OPTION value=5>5</OPTION>
+<OPTION value=10 SELECTED>10</OPTION>
+<OPTION value=25>25</OPTION>
 <OPTION value=50>50</OPTION>
-</SELECT> 
+</SELECT>
 <BR/><BR/><BR/><BR/>
 </SPAN>
 <!-- DropShadow -->
 <SPAN id=oDropShadowControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Color: 
-<SELECT onchange=dropShadowFilterChange() name=shadowColorList> 
-<OPTION value=DDDDDD>Light Gray (DDDDDD)</OPTION> 
-<OPTION value=999999 SELECTED>Dark Gray (999999)</OPTION> 
-<OPTION value=000000>Black (000000)</OPTION> 
-<OPTION value=FFFF00>Yellow (FFFF00)</OPTION> 
+Color:
+<SELECT onchange=dropShadowFilterChange() name=shadowColorList>
+<OPTION value=DDDDDD>Light Gray (DDDDDD)</OPTION>
+<OPTION value=999999 SELECTED>Dark Gray (999999)</OPTION>
+<OPTION value=000000>Black (000000)</OPTION>
+<OPTION value=FFFF00>Yellow (FFFF00)</OPTION>
 <OPTION value=0000FF>Blue (0000FF)</OPTION>
 </SELECT>
 <BR><BR>
-OffX: <SELECT onchange=dropShadowFilterChange() name=OffsetXList> 
+OffX: <SELECT onchange=dropShadowFilterChange() name=OffsetXList>
 <OPTION value=-5>-5</OPTION>
 <OPTION value=-3>-3</OPTION>
 <OPTION value=-1>-1</OPTION>
@@ -1237,7 +1237,7 @@ OffX: <SELECT onchange=dropShadowFilterChange() name=OffsetXList>
 <OPTION value=3>3</OPTION>
 <OPTION value=5 SELECTED>5</OPTION>
 </SELECT>
-OffY: <SELECT onchange=dropShadowFilterChange() name=OffsetYList> 
+OffY: <SELECT onchange=dropShadowFilterChange() name=OffsetYList>
 <OPTION value=-5>-5</OPTION>
 <OPTION value=-3>-3</OPTION>
 <OPTION value=-1>-1</OPTION>
@@ -1245,270 +1245,270 @@ OffY: <SELECT onchange=dropShadowFilterChange() name=OffsetYList>
 <OPTION value=3>3</OPTION>
 <OPTION value=5 SELECTED>5</OPTION>
 </SELECT><BR><BR>
-<INPUT onclick=dropShadowFilterChange() type=checkbox CHECKED name=positiveSwitch>Positive</INPUT> 
+<INPUT onclick=dropShadowFilterChange() type=checkbox CHECKED name=positiveSwitch>Positive</INPUT>
 </SPAN>
 <!--Chroma-->
 <SPAN id=oChromaControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Color: 
-<SELECT onchange=chromaFilterChange() name=chromaColorList> 
+Color:
+<SELECT onchange=chromaFilterChange() name=chromaColorList>
 <OPTION value='#FFFFFF' SELECTED>White (FFFFFF)</OPTION>
 <OPTION value='#87CEEB'>Sky blue (87CEEB)</OPTION>
 <OPTION value='#8B0000'>Dark red(8B0000)</OPTION>
-<OPTION value='#000000'>Black (000000)</OPTION> 
+<OPTION value='#000000'>Black (000000)</OPTION>
 </SELECT><BR/><BR/><BR/><BR/>
 
 </SPAN>
 <!--BasicImage -->
-<SPAN 
+<SPAN
 id=oBasicImageControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Rotation: 
-<SELECT onchange=basicImageFilterChange() name=rotationList> 
-<OPTION value=0 SELECTED>0 - 0 degrees</OPTION> 
-<OPTION value=1>1 - 90 degrees</OPTION> 
-<OPTION value=2>2 - 180 degrees</OPTION> 
+Rotation:
+<SELECT onchange=basicImageFilterChange() name=rotationList>
+<OPTION value=0 SELECTED>0 - 0 degrees</OPTION>
+<OPTION value=1>1 - 90 degrees</OPTION>
+<OPTION value=2>2 - 180 degrees</OPTION>
 <OPTION value=3>3 - 270 degrees</OPTION>
 </SELECT><BR/><BR/>
-Opacity: <SELECT onchange=basicImageFilterChange() name=basicImageOpacityList> 
-<OPTION value=0.00>0.00</OPTION> 
-<OPTION value=0.25>0.25</OPTION> 
-<OPTION value=0.50>0.50</OPTION> 
-<OPTION value=0.75>0.75</OPTION> 
+Opacity: <SELECT onchange=basicImageFilterChange() name=basicImageOpacityList>
+<OPTION value=0.00>0.00</OPTION>
+<OPTION value=0.25>0.25</OPTION>
+<OPTION value=0.50>0.50</OPTION>
+<OPTION value=0.75>0.75</OPTION>
 <OPTION value=1.00 SELECTED>1.00</OPTION>
 </SELECT><BR><BR/>
-<INPUT onclick=basicImageFilterChange() type=checkbox name=mirrorSwitch>Mirror</INPUT> 
+<INPUT onclick=basicImageFilterChange() type=checkbox name=mirrorSwitch>Mirror</INPUT>
 <INPUT onclick=basicImageFilterChange() type=checkbox name=invertSwitch>Invert</INPUT><BR><BR/>
-<INPUT onclick=basicImageFilterChange() type=checkbox name=xraySwitch>X-Ray</INPUT> 
+<INPUT onclick=basicImageFilterChange() type=checkbox name=xraySwitch>X-Ray</INPUT>
 <INPUT onclick=basicImageFilterChange() type=checkbox name=grayscaleSwitch>Grayscale</INPUT>
 </SPAN>
 <!--Barn -->
 <SPAN id=oBarnControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Motion: 
-<SELECT onchange=barnTransChange() name=barnMotionList> 
-<OPTION value=out SELECTED>Out - From inside outward</OPTION> 
-<OPTION value=in>In - From outside inward</OPTION> 
+Motion:
+<SELECT onchange=barnTransChange() name=barnMotionList>
+<OPTION value=out SELECTED>Out - From inside outward</OPTION>
+<OPTION value=in>In - From outside inward</OPTION>
 </SELECT> <BR/><BR/>
-Orientation: 
-<SELECT onchange=barnTransChange() name=barnVerticalList> 
-<OPTION value=horizontal>Horizontal</OPTION> 
-<OPTION value=vertical SELECTED>Vertical</OPTION> 
-</SELECT> 
+Orientation:
+<SELECT onchange=barnTransChange() name=barnVerticalList>
+<OPTION value=horizontal>Horizontal</OPTION>
+<OPTION value=vertical SELECTED>Vertical</OPTION>
+</SELECT>
 </SPAN>
 
 <!--Blinds -->
 <SPAN id=oBlindsControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Bands: <SELECT onchange=blindsTransChange() name=blindsBandsList> 
+Bands: <SELECT onchange=blindsTransChange() name=blindsBandsList>
 <OPTION value=2>2</OPTION>
-<OPTION value=4>4</OPTION> 
-<OPTION value=6>6</OPTION> 
-<OPTION value=8>8</OPTION> 
+<OPTION value=4>4</OPTION>
+<OPTION value=6>6</OPTION>
+<OPTION value=8>8</OPTION>
 <OPTION value=10 SELECTED>10</OPTION>
-</SELECT> 
-Direction: 
-<SELECT onchange=blindsTransChange() name=blindsDirectionList> 
-<OPTION value=up SELECTED>Up</OPTION> 
-<OPTION value=down>Down</OPTION> 
-<OPTION value=left>Left</OPTION> 
+</SELECT>
+Direction:
+<SELECT onchange=blindsTransChange() name=blindsDirectionList>
+<OPTION value=up SELECTED>Up</OPTION>
+<OPTION value=down>Down</OPTION>
+<OPTION value=left>Left</OPTION>
 <OPTION value=right>Right</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Checkerboard  -->
 <SPAN id=oCheckerboardControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Direction: <SELECT onchange=checkerboardTransChange() name=checkerboardDirectionList> 
-<OPTION value=up>Up</OPTION> 
-<OPTION value=down>Down</OPTION> 
-<OPTION value=left>Left</OPTION> 
+Direction: <SELECT onchange=checkerboardTransChange() name=checkerboardDirectionList>
+<OPTION value=up>Up</OPTION>
+<OPTION value=down>Down</OPTION>
+<OPTION value=left>Left</OPTION>
 <OPTION value=right SELECTED>Right</OPTION>
 </SELECT><BR><BR>
-SquaresX: <SELECT onchange=checkerboardTransChange() name=squaresXList> 
-<OPTION value=2 SELECTED>2</OPTION> 
-<OPTION value=4>4</OPTION> 
-<OPTION value=6>6</OPTION> 
-<OPTION value=8>8</OPTION> 
-<OPTION value=10>10</OPTION> 
+SquaresX: <SELECT onchange=checkerboardTransChange() name=squaresXList>
+<OPTION value=2 SELECTED>2</OPTION>
+<OPTION value=4>4</OPTION>
+<OPTION value=6>6</OPTION>
+<OPTION value=8>8</OPTION>
+<OPTION value=10>10</OPTION>
 <OPTION value=12>12</OPTION>
-<OPTION value=50>50</OPTION> 
-</SELECT> 
-SquaresY: <SELECT onchange=checkerboardTransChange() name=squaresYList> 
-<OPTION value=2 SELECTED>2</OPTION> 
-<OPTION value=4>4</OPTION> 
-<OPTION value=6>6</OPTION> 
-<OPTION value=8>8</OPTION> 
-<OPTION value=10>10</OPTION> 
+<OPTION value=50>50</OPTION>
+</SELECT>
+SquaresY: <SELECT onchange=checkerboardTransChange() name=squaresYList>
+<OPTION value=2 SELECTED>2</OPTION>
+<OPTION value=4>4</OPTION>
+<OPTION value=6>6</OPTION>
+<OPTION value=8>8</OPTION>
+<OPTION value=10>10</OPTION>
 <OPTION value=12>12</OPTION>
-<OPTION value=50>50</OPTION> 
+<OPTION value=50>50</OPTION>
 </SELECT> </SPAN>
 
 <!--Fade -->
 <SPAN id=oFadeControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Overlap: <SELECT onchange=fadeTransChange() name=fadeOverlapList> 
-<OPTION value=0.00>0.00</OPTION> 
-<OPTION value=0.25>0.25</OPTION> 
-<OPTION value=0.50>0.50</OPTION> 
-<OPTION value=0.75>0.75</OPTION> 
+Overlap: <SELECT onchange=fadeTransChange() name=fadeOverlapList>
+<OPTION value=0.00>0.00</OPTION>
+<OPTION value=0.25>0.25</OPTION>
+<OPTION value=0.50>0.50</OPTION>
+<OPTION value=0.75>0.75</OPTION>
 <OPTION value=1.00 SELECTED>1.00</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Iris  -->
-<SPAN id=oIrisControls 
+<SPAN id=oIrisControls
 style="DISPLAY: none" isSource="TRUE"><BR/>
-IrisStyle: <SELECT onchange=irisTransChange() name=irisStyleList> 
-<OPTION value=DIAMOND>Diamond</OPTION> 
-<OPTION value=CIRCLE>Circle</OPTION> 
-<OPTION value=CROSS>Cross</OPTION> 
-<OPTION value=PLUS SELECTED>Plus</OPTION> 
-<OPTION value=SQUARE>Square</OPTION> 
+IrisStyle: <SELECT onchange=irisTransChange() name=irisStyleList>
+<OPTION value=DIAMOND>Diamond</OPTION>
+<OPTION value=CIRCLE>Circle</OPTION>
+<OPTION value=CROSS>Cross</OPTION>
+<OPTION value=PLUS SELECTED>Plus</OPTION>
+<OPTION value=SQUARE>Square</OPTION>
 <OPTION value=STAR>Star</OPTION>
 </SELECT> <BR><BR>
-Motion: <SELECT onchange=irisTransChange() name=irisMotionList> 
-<OPTION value=out SELECTED>Out - From inside outward</OPTION> 
-<OPTION value=in>In - From outside inward</OPTION> 
-</SELECT> 
+Motion: <SELECT onchange=irisTransChange() name=irisMotionList>
+<OPTION value=out SELECTED>Out - From inside outward</OPTION>
+<OPTION value=in>In - From outside inward</OPTION>
+</SELECT>
 </SPAN>
 
 <!--Pixelate Trans -->
 
 <SPAN id=oPixelateTransControls style="DISPLAY: none" isSource="TRUE"><BR/>
-MaxSquare: <SELECT onchange=pixelateTransChange() name=maxSquareTransList> 
+MaxSquare: <SELECT onchange=pixelateTransChange() name=maxSquareTransList>
 <OPTION value=2>2</OPTION>
 <OPTION value=5>5</OPTION>
 <OPTION value=10>10</OPTION>
-<OPTION value=25>25</OPTION> 
+<OPTION value=25>25</OPTION>
 <OPTION value=50 SELECTED>50</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--RadialWipe  -->
-<SPAN id=oRadialWipeControls 
+<SPAN id=oRadialWipeControls
 style="DISPLAY: none" isSource="TRUE"><BR/>
-WipeStyle: <SELECT onchange=radialWipeTransChange() name=radialWipeStyleList> 
-<OPTION value=CLOCK SELECTED>Clock</OPTION> 
-<OPTION value=WEDGE>Wedge</OPTION> 
+WipeStyle: <SELECT onchange=radialWipeTransChange() name=radialWipeStyleList>
+<OPTION value=CLOCK SELECTED>Clock</OPTION>
+<OPTION value=WEDGE>Wedge</OPTION>
 <OPTION value=RADIAL>Radial</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--RandomBars -->
 
 
 <SPAN id=oRandomBarsControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Orientation: <SELECT onchange=randomBarsTransChange() name=randomBarsVerticalList> 
-<OPTION value=horizontal SELECTED>Horizontal</OPTION> 
-<OPTION value=vertical>Vertical</OPTION> 
-</SELECT> 
+Orientation: <SELECT onchange=randomBarsTransChange() name=randomBarsVerticalList>
+<OPTION value=horizontal SELECTED>Horizontal</OPTION>
+<OPTION value=vertical>Vertical</OPTION>
+</SELECT>
  </SPAN>
 
  <SPAN id=oRandomDissolveControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Duration: <SELECT onchange=randomDissolveTransChange() name=randomDissolveVerticalList> 
-<OPTION value=.5 SELECTED>.5</OPTION> 
-<OPTION value=1>1</OPTION> 
+Duration: <SELECT onchange=randomDissolveTransChange() name=randomDissolveVerticalList>
+<OPTION value=.5 SELECTED>.5</OPTION>
+<OPTION value=1>1</OPTION>
 <OPTION value=3>3</OPTION>
-<OPTION value=6>6</OPTION> 
-<OPTION value=10>10</OPTION> 
-</SELECT> 
+<OPTION value=6>6</OPTION>
+<OPTION value=10>10</OPTION>
+</SELECT>
  </SPAN>
- 
+
 <!--Slide -->
 <SPAN id=oSlideControls style="DISPLAY: none" isSource="TRUE"><BR/>
-SlideStyle: <SELECT onchange=slideTransChange() name=slideStyleList> 
-<OPTION value=HIDE SELECTED>Hide</OPTION> 
-<OPTION value=PUSH>Push</OPTION> 
+SlideStyle: <SELECT onchange=slideTransChange() name=slideStyleList>
+<OPTION value=HIDE SELECTED>Hide</OPTION>
+<OPTION value=PUSH>Push</OPTION>
 <OPTION  value=SWAP>Swap</OPTION>
 </SELECT> <BR/><BR/>
-Bands: <SELECT onchange=slideTransChange() name=slideBandsList> 
-<OPTION value=1 SELECTED>1</OPTION> 
-<OPTION value=3>3</OPTION> 
-<OPTION value=5>5</OPTION> 
-<OPTION value=10>10</OPTION> 
+Bands: <SELECT onchange=slideTransChange() name=slideBandsList>
+<OPTION value=1 SELECTED>1</OPTION>
+<OPTION value=3>3</OPTION>
+<OPTION value=5>5</OPTION>
+<OPTION value=10>10</OPTION>
 <OPTION value=25>25</OPTION>
 <OPTION value=50>50</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Spiral  -->
 <SPAN id=oSpiralControls style="DISPLAY: none" isSource="TRUE"><BR/>
-GridSizeX: <SELECT onchange=spiralTransChange() name=spiralGridSizeXList> 
-<OPTION value=8>8</OPTION> 
-<OPTION value=16 SELECTED>16</OPTION> 
-<OPTION value=32>32</OPTION> 
+GridSizeX: <SELECT onchange=spiralTransChange() name=spiralGridSizeXList>
+<OPTION value=8>8</OPTION>
+<OPTION value=16 SELECTED>16</OPTION>
+<OPTION value=32>32</OPTION>
 <OPTION value=64>64</OPTION>
-</SELECT> 
-GridSizeY: <SELECT onchange=spiralTransChange() name=spiralGridSizeYList> 
-<OPTION value=8>8</OPTION> 
-<OPTION value=16 SELECTED>16</OPTION> 
-<OPTION value=32>32</OPTION> 
+</SELECT>
+GridSizeY: <SELECT onchange=spiralTransChange() name=spiralGridSizeYList>
+<OPTION value=8>8</OPTION>
+<OPTION value=16 SELECTED>16</OPTION>
+<OPTION value=32>32</OPTION>
 <OPTION value=64>64</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Stretch  -->
 <SPAN id=oStretchControls style="DISPLAY: none" isSource="TRUE"><BR/>
-StretchStyle: <SELECT onchange=stretchTransChange() name=stretchStyleList> 
-<OPTION value=HIDE>Hide</OPTION> 
-<OPTION value=PUSH>Push</OPTION> 
+StretchStyle: <SELECT onchange=stretchTransChange() name=stretchStyleList>
+<OPTION value=HIDE>Hide</OPTION>
+<OPTION value=PUSH>Push</OPTION>
 <OPTION value=SPIN SELECTED>Spin</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Strips -->
 <SPAN id=oStripsControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Motion: <SELECT onchange=stripsTransChange() name=movementList> 
-<OPTION value=leftup>Left-up</OPTION> 
-<OPTION value=leftdown SELECTED>Left-down</OPTION> 
-<OPTION value=rightup>Right-up</OPTION> 
+Motion: <SELECT onchange=stripsTransChange() name=movementList>
+<OPTION value=leftup>Left-up</OPTION>
+<OPTION value=leftdown SELECTED>Left-down</OPTION>
+<OPTION value=rightup>Right-up</OPTION>
 <OPTION value=rightdown>Right-down</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Wheel  -->
 <SPAN id=oWheelControls style="DISPLAY: none" isSource="TRUE"><BR/>
-Spokes: 
-<SELECT onchange=wheelTransChange() name=spokesList> 
-<OPTION value=2>2</OPTION> 
-<OPTION value=4 SELECTED>4</OPTION> 
-<OPTION value=6>6</OPTION> 
-<OPTION value=8>8</OPTION> 
+Spokes:
+<SELECT onchange=wheelTransChange() name=spokesList>
+<OPTION value=2>2</OPTION>
+<OPTION value=4 SELECTED>4</OPTION>
+<OPTION value=6>6</OPTION>
+<OPTION value=8>8</OPTION>
 <OPTION value=10>10</OPTION>
-</SELECT> 
+</SELECT>
 </SPAN>
 
 <!--Wipe -->
 <SPAN id=oWipeControls style="DISPLAY: none" isSource="TRUE"><BR/>
-GradientSize: <SELECT onchange=wipeTransChange() name=gradientSizeList> 
-<OPTION value=0.00>0.00</OPTION> 
-<OPTION value=0.25 SELECTED>0.25</OPTION> 
-<OPTION value=0.50>0.50</OPTION> 
-<OPTION value=0.75>0.75</OPTION> 
+GradientSize: <SELECT onchange=wipeTransChange() name=gradientSizeList>
+<OPTION value=0.00>0.00</OPTION>
+<OPTION value=0.25 SELECTED>0.25</OPTION>
+<OPTION value=0.50>0.50</OPTION>
+<OPTION value=0.75>0.75</OPTION>
 <OPTION value=1.00>1.00</OPTION>
 </SELECT><BR><BR>
-WipeStyle: <SELECT onchange=wipeTransChange() name=wipeStyleList> 
-<OPTION value=0 SELECTED>0 - Left-to-right motion</OPTION> 
+WipeStyle: <SELECT onchange=wipeTransChange() name=wipeStyleList>
+<OPTION value=0 SELECTED>0 - Left-to-right motion</OPTION>
 <OPTION value=1>1 - Top-to-bottom motion</OPTION>
 </SELECT><BR><BR>
-Motion: <SELECT onchange=wipeTransChange() name=wipeReverseSwitch> 
-<OPTION  value=forward SELECTED>Forward</OPTION> 
+Motion: <SELECT onchange=wipeTransChange() name=wipeReverseSwitch>
+<OPTION  value=forward SELECTED>Forward</OPTION>
 <OPTION  value=reverse>Reverse</OPTION>
 </SELECT>
 </SPAN>
 
 <!--ZigZag  -->
 <SPAN id=oZigzagControls style="DISPLAY: none" isSource="TRUE"><BR/>
-GridSizeX: 
-<SELECT onchange=zigzagTransChange() name=zigzagGridSizeXList> 
-<OPTION value=8>8</OPTION> 
-<OPTION value=16 SELECTED>16</OPTION> 
-<OPTION value=32>32</OPTION> 
+GridSizeX:
+<SELECT onchange=zigzagTransChange() name=zigzagGridSizeXList>
+<OPTION value=8>8</OPTION>
+<OPTION value=16 SELECTED>16</OPTION>
+<OPTION value=32>32</OPTION>
 <OPTION value=64>64</OPTION>
-<OPTION value=100>100</OPTION> 
-</SELECT> 
+<OPTION value=100>100</OPTION>
+</SELECT>
 GridSizeY: <SELECT onchange=zigzagTransChange() name=zigzagGridSizeYList>
-<OPTION value=8>8</OPTION> 
-<OPTION value=16 SELECTED>16</OPTION> 
-<OPTION value=32>32</OPTION> 
+<OPTION value=8>8</OPTION>
+<OPTION value=16 SELECTED>16</OPTION>
+<OPTION value=32>32</OPTION>
 <OPTION value=64>64</OPTION>
-<OPTION value=100>100</OPTION> 
-</SELECT> 
+<OPTION value=100>100</OPTION>
+</SELECT>
 </SPAN>
 <BR/><BR/><BR/><BR/>
 <!-- Copyright --><A class="copyright" HREF="http://www.microsoft.com/isapi/gomscom.asp?TARGET=/info/cpyright.htm">&copy; 2007 Microsoft Corporation. All rights reserved. Terms of use.</A></BLOCKQUOTE></BODY>

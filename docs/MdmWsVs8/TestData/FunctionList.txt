@@ -28,8 +28,8 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(313)://          SectionBlock Window Cookies function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(314)://          SectionBlock Window Document function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(315)://          Section Standard and Utility function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(316)://          Standard function (s) - Math 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(317)://          Standard function (s) - Font Size 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(316)://          Standard function (s) - Math
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(317)://          Standard function (s) - Font Size
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(318)://          Section Debug and Error Management function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(319)://          SectionBlock Application Debug & Error function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(320)://          SectionBlock Window & Script Exceptions & Error function (s)
@@ -50,15 +50,15 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(335)://          SectionBlock (Menu) Hide function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(336)://          SectionBlock Element Item Objects (Menu Images) Get & Index function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(1495):// Filter Pointers (to function library)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(1784):function fnBrowserGetVs() 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(1784):function fnBrowserGetVs()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3439):// Major Section Post Document Load function (s):
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3444):// Section Console / Debug / UI Form Parameters function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3447):function fnDebugParameterInit() 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3666):function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3447):function fnDebugParameterInit()
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3666):function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3990):// Section Object Animation function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(3995):// Sub-Section Filter Management function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4000):// SectionBlock Filter Create / Control function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4019):function fnFilterControlCreate(filterPlayAll, startIndex, endIndex, 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4019):function fnFilterControlCreate(filterPlayAll, startIndex, endIndex,
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4053):function fnFilterStore(oObjPassed, filterIndexPassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4064):function fnFilterRestore(oObjPassed, filterIndexPassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4073):// SectionBlock Filter Support function (s):
@@ -73,13 +73,13 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4207):function fnFilterSetRotation(oObjPassed, filterIndexPassed, deg)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4225):function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4258):// SectionBlock Filter Primary Command  function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4270):function fnFilterGet(filterPlayAll, startIndex, endIndex, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4364):function fnFilterSet(filterPlayAll, startIndex, endIndex, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4383):function fnFilterEnable(filterPlayAll, startIndex, endIndex, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4410):function fnFilterApply(filterPlayAll, startIndex, endIndex, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4442):function fnFilterPlay(playDirection, filterPlayAll, startIndex, endIndex, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4490):function fnFilterStop(filterPlayAll, startIndex, endIndex, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4523):// function Filter Pause 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4270):function fnFilterGet(filterPlayAll, startIndex, endIndex,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4364):function fnFilterSet(filterPlayAll, startIndex, endIndex,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4383):function fnFilterEnable(filterPlayAll, startIndex, endIndex,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4410):function fnFilterApply(filterPlayAll, startIndex, endIndex,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4442):function fnFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4490):function fnFilterStop(filterPlayAll, startIndex, endIndex,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4523):// function Filter Pause
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4527):// function Filter Rewind / Forward
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4533):function fnFilterTimingGetByIndex()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4542):function fnFilterTimingGetRandom()
@@ -89,7 +89,7 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4555):// function GetBy:
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4559):function fnFilterGetByIndex(
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4923):function fnFilterGetByTagName(filterTagNamePassed)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4936):function fnFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex, 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4936):function fnFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4959):// Sub-Section Timer Management function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4964):// SectionBlock Timers Primary Commands function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4975):// Set Filter & Move function (s) for Timers
@@ -97,19 +97,19 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(4986):function fnTimerDurationSet()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5030):function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5060):function fnTimerItemAbort(timerType, timerGroup, timerId, UseRoot)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5088):function fnTimerInitialize(timerType, timerGroup, timerId,  
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5307):function fnTimerStart(timerType, timerGroup, timerId, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5413):function fnTimerSet(timerType, timerGroup, timerId, 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5088):function fnTimerInitialize(timerType, timerGroup, timerId,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5307):function fnTimerStart(timerType, timerGroup, timerId,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5413):function fnTimerSet(timerType, timerGroup, timerId,
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5475):// SectionBlock Timer Task Related (Filter / Move) Commands function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5481):function fnTimerStartFilter(playDirection, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5579):function fnTimerStartMove(playDirection, 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5481):function fnTimerStartFilter(playDirection,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5579):function fnTimerStartMove(playDirection,
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5708):function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5814):function fnTimerItemDoStepFilter(timerType, timerGroup, timerId)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(5991):function fnTimerGroupDoStepMove(timerType, timerGroup, timerId)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6094):function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6425):// SectionBlock Timer Control function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6433):function fnTimerGetElapsed(timerType, timerGroup, timerId) {
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6466):function fnTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6466):function fnTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6488):function fnTimerMoveTest(timerType, timerGroup, timerId)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6511):// SectionBlock Timer User Interface function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(6516):function fnTimerLogText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction)
@@ -127,7 +127,7 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7406):// Section Other function (s) (empty)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7413):// Section Window function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7418):// SectionBlock Window Events and Methods function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7424):function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed) 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7424):function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7473):function fnFunctionDoExecuteByName(functionName, context /*, args */) {
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7490):function fnFunctionDoExecuteJsNode(node) {
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7525):// SectionBlock Window Events (Load, Resize) function (s)
@@ -135,7 +135,7 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7566):// SectionBlock Window and Container Layout function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7572):function fnWindowContainerHeightGetAll()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7594):function fnWindowResize() {
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7825):function fnWindowPopupOpen() 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7825):function fnWindowPopupOpen()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7839):function fnWindowClientWidth() {
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7870):// SectionBlock Window Session function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7876):function fnWindowSessionLoad() {
@@ -147,21 +147,21 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7925):// SectionBlock Window Document function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7931):function fnDocumentLoadInit()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7969):// Section Standard and Utility function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7973):// Standard function (s) - Math 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7973):// Standard function (s) - Math
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7975):function fnMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7985):// Standard function (s) - Font Size 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7985):// Standard function (s) - Font Size
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7987):function fnFontSizeIncrease()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(7994):function fnFontSizeDecrease()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8001):function fnTextReplace(textPassed, stringFind, stringReplace)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8021):// Section Debug and Error Management function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8026):// SectionBlock Application Debug & Error function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8031):function fnDebugStart(debugOptionPassed, debugMessagePassed)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8068):function fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8093):function fnErrorOccured(UseDebug, UseSingeLinePassed, errorMsgPassed, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8292):function fnErrorOccuredAction(errorMsgPassed, 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8068):function fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8093):function fnErrorOccured(UseDebug, UseSingeLinePassed, errorMsgPassed,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8292):function fnErrorOccuredAction(errorMsgPassed,
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8314):// SectionBlock Window & Script Exceptions & Error function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8324):function fnWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed) 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8370):function fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed) 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8324):function fnWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed)
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8370):function fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8397):// Section Body Content Mouse Events function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8411):function fnElementEventMouseOver(menuImage)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8442):function fnElementEventMouseOut(menuImage)
@@ -173,13 +173,13 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8567):function fnElementObjectCreate()
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8753):// SectionBlock Element Get function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8758):function fnElementGetFromId(IdPassed) { return document.getElementById(IdPassed); }
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8763):function fnElementGetRef(elementObject, elementObjectId, elementNamePassed) 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8781):function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed) 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8814):function fnElementCreate(elementPassed, elementLayoutFirstPassed) 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8835):function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8763):function fnElementGetRef(elementObject, elementObjectId, elementNamePassed)
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8781):function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed)
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8814):function fnElementCreate(elementPassed, elementLayoutFirstPassed)
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8835):function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8880):function fnElementGetFromElement(
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8953):function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(9029):function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(8953):function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId)
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(9029):function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(9088):// SectionBlock Element Position & Dimension function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(9094):function fnElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, elementHeightDefault)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(9109):function fnElementPosCalculate(elementPassed)
@@ -206,10 +206,10 @@ Find all "function ", Match case, Find Results 1, Current Document
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10859):function fnElementEventGet(e)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10869):// Section (Menu Image) Element Item function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10873):// SectionBlock Element Item Play function (s)
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10880):function fnElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10893):function fnElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10906):function fnElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, 
-  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10919):function fnElementPlay(playDirection, IsImageLarge, 
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10880):function fnElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10893):function fnElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10906):function fnElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+  C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(10919):function fnElementPlay(playDirection, IsImageLarge,
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(11321):// SectionBlock Element (Menu Image) Show / Hide function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(11337):// SectionBlock Show Toggle function (s)
   C:\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml(11343):function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)

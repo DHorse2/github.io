@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <!-- ------------------------------------------------------------------------------------- -->
-<!-- Mdm Javascript Documentation Page - (c)2011 David Horsman & Macroscope Design Matrix --> 
+<!-- Mdm Javascript Documentation Page - (c)2011 David Horsman & Macroscope Design Matrix -->
 <!-- ------------------------------------------------------------------------------------- -->
 <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
 <!-- * -->
@@ -68,9 +68,9 @@
 //      Pre load Head Script
 //      HTML
 //      Post load Script
-// Sections: 
+// Sections:
 //      for example Animation
-// SubSections: 
+// SubSections:
 //      for example animation is divided into:
 //      Filters (transitions)
 //      Move Actions
@@ -103,8 +103,8 @@
 //          SectionBlock Window Cookies function (s)
 //          SectionBlock Window Document function (s)
 //          Section Standard and Utility function (s)
-//          Standard function (s) - Math 
-//          Standard function (s) - Font Size 
+//          Standard function (s) - Math
+//          Standard function (s) - Font Size
 //          Section Debug and Error Management function (s)
 //          SectionBlock Application Debug & Error function (s)
 //          SectionBlock Window & Script Exceptions & Error function (s)
@@ -352,7 +352,7 @@
 // Console Messages
 //
 // Instant Messaging Area
-//			   
+//			
 ///////////////////////////////////////////////
 // Optoin Toggles:
 // 	 		 Hidden Banner
@@ -368,31 +368,31 @@
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // SectionBlock Filter / Transition Notes
-// 
-// 0 Box in.  
-// 1 Box out.  
-// 2 Circle in.  
-// 3 Circle out.  
-// 4 Wipe up.  
-// 5 Wipe down.  
-// 6 Wipe right.  
-// 7 Wipe left.  
-// 8 Vertical blinds.  
-// 9 Horizontal blinds.  
-// 10 Checkerboard across.  
-// 11 Checkerboard down.  
-// 12 Random dissolve. 
-// 13 Split vertical in. 
-// 14 Split vertical out.  
-// 15 Split horizontal in.  
-// 16 Split horizontal out.  
-// 17 Strips left down.  
-// 18 Strips left up.  
-// 19 Strips right down.  
-// 20 Strips right up.  
-// 21 Random bars horizontal.  
-// 22 Random bars vertical.  
-// 23 Random transition from above possible values. 
+//
+// 0 Box in.
+// 1 Box out.
+// 2 Circle in.
+// 3 Circle out.
+// 4 Wipe up.
+// 5 Wipe down.
+// 6 Wipe right.
+// 7 Wipe left.
+// 8 Vertical blinds.
+// 9 Horizontal blinds.
+// 10 Checkerboard across.
+// 11 Checkerboard down.
+// 12 Random dissolve.
+// 13 Split vertical in.
+// 14 Split vertical out.
+// 15 Split horizontal in.
+// 16 Split horizontal out.
+// 17 Strips left down.
+// 18 Strips left up.
+// 19 Strips right down.
+// 20 Strips right up.
+// 21 Random bars horizontal.
+// 22 Random bars vertical.
+// 23 Random transition from above possible values.
 //
 // ------------------------------------------------------------------------------------- _//
 // ------------------------------------------------------------------------------------- _//

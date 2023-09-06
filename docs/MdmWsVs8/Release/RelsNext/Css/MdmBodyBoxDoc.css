@@ -43,7 +43,7 @@ border-style:outset;
 /* Position */
 position:static;
 /* Size */
-min-width:60.0em; 
+min-width:60.0em;
 min-height:6.0em;
 /* Alignment */
 text-align:center;
@@ -66,11 +66,11 @@ margin: 1.5em;
 }
 /* -- end -- */
 /* -- */
-/* ----------------- */  
+/* ----------------- */
 
 .DivB{
 /* Position */
-position:relative; 
+position:relative;
 top: 3.5em;
 left: 2em;
 /* Size */
@@ -78,14 +78,14 @@ height:12.5em;
 /* Alignment */
 }
 
-/* ------ Callout Paragram Popup ----------- */  
+/* ------ Callout Paragram Popup ----------- */
 .CPA{
 /* Position */
 /* Size */
 /* Alignment */
 }
 
-.CPP{ 
+.CPP{
 /* Position */
 /* Size */
 /* Alignment */
@@ -114,11 +114,11 @@ height:12.5em;
 }
 
 /* ------ Callout Paragram ----------- */
-.CP{ 
+.CP{
 /* Position */
 /* Size */
 /* Alignment */
-}  
+}
 
 /* NOT FIREFOX COMPATABLE - USE ID */
 #LinkId .CPP{
@@ -129,8 +129,8 @@ display:none;
 #LinkId:hover .CPP{
 display:block;
 }
-/* ----------------- */  
-/* ----------------- */  
+/* ----------------- */
+/* ----------------- */
 /* -- Body Paragraph Content -- */
 .BodyParaBoxOuter{
 /* Position */
@@ -216,7 +216,7 @@ padding: 0em 1.5em .5em 1.5em;
 
 .BodyParaLeft{
 /* Alignment */
-float:left; 
+float:left;
 /* Background */
 background:none;
 /* for IE */
@@ -227,7 +227,7 @@ background:none;
 
 .BodyParaRight{
 /* Alignment */
-float:right; 
+float:right;
 /* Background */
 background:none;
 /* for IE */
@@ -244,14 +244,14 @@ padding: 0em 0em 0em 0em;
 text-align:justify;
 z-index:15;
 }
-   
+
 .CalloutBorder{
 /* Border */
 border-style:solid;
 /* border-style:groove; */
 border-width: .8em;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Border */
 -moz-border-radius: 1em;
 -webkit-border-radius: 1em;
@@ -260,7 +260,7 @@ background-color:#FFFFCC;
 /* Alignment */
 margin: 0em 0em 0em 1.5em;
 padding: .5em .5em .5em 0.5em;
-} 
+}
 
 .CalloutBorderFull
 {
@@ -269,7 +269,7 @@ border-style:solid;
 /* border-style:groove; */
 border-width: .8em;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Border */
 -moz-border-radius: 1em;
 -webkit-border-radius: 1em;
@@ -278,7 +278,7 @@ background-color:#FFFFCC;
 /* Alignment */
 margin: 0em 0em 0em 1.5em;
 padding: 0em 0em 0em 0em;
-} 
+}
 
 /* 0em 0em 0em 0em; */
 /* .5em .5em .5em 0.5em; */

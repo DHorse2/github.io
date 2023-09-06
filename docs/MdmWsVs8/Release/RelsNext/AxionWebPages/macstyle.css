@@ -211,14 +211,14 @@
     FONT-STYLE: italic;
     FONT-WEIGHT: bold;
     FONT-SIZE: 1.4em;
-} 
+}
 #H4
 {
     COLOR: red;
     FONT-FAMILY: Times New Roman;
     FONT-STYLE: italic;
     FONT-WEIGHT: bold;
-    FONT-SIZE:  2.4em;   
+    FONT-SIZE:  2.4em;
 }
 #TxtH2
 {
@@ -226,7 +226,7 @@
     FONT-FAMILY: Times New Roman;
     FONT-STYLE: italic;
     FONT-WEIGHT: bold;
-    FONT-SIZE: 1.4em;   
+    FONT-SIZE: 1.4em;
 }
 #H5
 {
@@ -269,7 +269,7 @@
     FONT-STYLE: italic;
     FONT-WEIGHT: bold;
     FONT-SIZE: 1.2em;
-} 
+}
 #Caption2
 {
     COLOR: crimson
@@ -296,7 +296,7 @@
     FONT-SIZE:  2.4em;
 }
 #TxtTtl2
-{   
+{
     COLOR: red;
     FONT-STYLE: Italic;
     FONT-WEIGHT: Normal;

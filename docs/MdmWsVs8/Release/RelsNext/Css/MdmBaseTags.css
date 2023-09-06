@@ -27,10 +27,10 @@ a, .a,
 .fNormal,
 .fStandard,
 .fText {
-font-family: 
- "Courier New", 
- "Courier", 
- "Times New Roman", 
+font-family:
+ "Courier New",
+ "Courier",
+ "Times New Roman",
  "serif",
  "Times New Roman",
  "Georgia",
@@ -38,7 +38,7 @@ font-family:
  "Sylfaen",
  "Garamond",
  "Book Antiqua",
- "Bookman Old Style"     
+ "Bookman Old Style"  
 ;
 font-size: 1em;
 }
@@ -50,16 +50,16 @@ margin-bottom: 0.5em;
 }
 
 /* (c)olour: */
-/* (P)rimary             cP     color:#6666CC; cP */ 
-/* (P)rimary Dark        cPd    color:#666699; cPd */ 
-/* (P)rimary Light       cPl    color:#CCCCFF;cPl */ 
-/* (S)econdary           cS     color:#CC9966; cS */ 
-/* (S)econdary Dark      cSd    color:#996633; cSd */ 
-/* (S)econdary Light     cSl    color:#FFFFCC; cSl */ 
+/* (P)rimary             cP     color:#6666CC; cP */
+/* (P)rimary Dark        cPd    color:#666699; cPd */
+/* (P)rimary Light       cPl    color:#CCCCFF;cPl */
+/* (S)econdary           cS     color:#CC9966; cS */
+/* (S)econdary Dark      cSd    color:#996633; cSd */
+/* (S)econdary Light     cSl    color:#FFFFCC; cSl */
 
 /* a:visited, .a:visited, a:hover, .a:hover { } */
 
-/* p { 
+/* p {
 margin-top: 0em;
 padding-top: 0em;
 margin-bottom: 0em;
@@ -83,7 +83,7 @@ margin-top: .3em;
 /* -- Links -- */
 
 /* -- Fonts Fancy -- */
-.fPromo, 
+.fPromo,
 .fBlurb,
 .fTiny,
 .fMicro
@@ -95,7 +95,7 @@ font-family: cursive, Storybook, "MS Sans Serif", "Courier New";
 font-size: 1.2em;
 }
 
-.fBlurb 
+.fBlurb
 {
 font-size: 1.2em;
 }
@@ -114,7 +114,7 @@ font-size: .6em;
 
 .fCode
 {
-font-family: "Courier, monospace", 
+font-family: "Courier, monospace",
 Monaco,
 "Lucida Console",
 Consolas,
@@ -131,10 +131,10 @@ list-style: lower-roman;
 
 .fDiploma
 {
-font-family: 
-Diploma, 
-Storybook, 
-OldCentury, 
+font-family:
+Diploma,
+Storybook,
+OldCentury,
 cursive
 ;
 font-size: 1.4em;
@@ -266,7 +266,7 @@ font-size: 2.0em
 /* -- Layout - Margin  -- */
  .Margin0
  { margin: 0em 0em 0em 0em; }
- .Margin5 
+ .Margin5
  { margin: .5em .5em .5em 0.5em; }
  .Margin10
  { margin: 1em 1em 1em 1em; }
@@ -278,7 +278,7 @@ font-size: 2.0em
 /* -- Layout - Indent  -- */
  .Indent0
  { text-indent: 0em; }
- .Indent5 
+ .Indent5
  { text-indent: 0.5em; }
  .Indent10
  { text-indent: 1em; }
@@ -454,7 +454,7 @@ border-style:outset;
 /* border-style:solid; */
 border-width:.4em;
 border-color: #DADCE4;
-} 
+}
 
 .BorderThick{
 /* Border */
@@ -466,7 +466,7 @@ border-color: #3e3d66;
 /* -- */
 
 /* -- HACKS AND FIXES -- */
-.FixPara{ 
+.FixPara{
 /* Position */
 display:block;
 /* Alignment */
@@ -476,7 +476,7 @@ clear: both;
 content: ".";
 }
 
-.FixFloat{ 
+.FixFloat{
 /* Position */
 display:block;
 /* Alignment */
@@ -495,7 +495,7 @@ height: .2em;
 clear: both;
 }
 
-.FixClear { 
+.FixClear {
 /* Position */
 position:relative;
 /* Size */
@@ -505,7 +505,7 @@ display:block;
 content: ".";
 }
 
-.FixClear2 { 
+.FixClear2 {
 /* Position */
 /* Size */
 height: .2em;
@@ -521,7 +521,7 @@ display:block;
 content: ".";
 }
 
-.FixClear1 { 
+.FixClear1 {
 /* Position */
 position:relative;
 /* Size */
@@ -540,7 +540,7 @@ content: ".";
 }
 
 .FixClear3{
-overflow: auto; 
+overflow: auto;
 height: 1%;
 }
 

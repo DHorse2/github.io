@@ -62,7 +62,7 @@
 /* ------------------------------------ */
 /* ------------------------------------ */
 .table1 {
-    width: 80%;
+    width: 100%;
     /* border: gray; */
     background: url(../Images/Common/TransparentBg50.png);
 }
@@ -130,7 +130,7 @@ body {
     text-align: center;
     align-items: center;
 }
-/* ----------------- */  
+/* ----------------- */
 /* Tags: */
 img {
     border: 10;

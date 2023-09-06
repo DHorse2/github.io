@@ -115,11 +115,11 @@ a{
 	background:url(default/submenu_on_bgr.jpg) repeat-y left top;
 }
 
-#nav li ul li.current_page_item a:link, 
-#nav li ul li.current_page_item a:visited, 
-#nav li ul li a:hover, 
-#nav li ul li:hover a, 
-#nav li ul li.current_page_parent a:link, 
+#nav li ul li.current_page_item a:link,
+#nav li ul li.current_page_item a:visited,
+#nav li ul li a:hover,
+#nav li ul li:hover a,
+#nav li ul li.current_page_parent a:link,
 #nav li ul li.current_page_parent a:visited  {
 	color:#0c3542;
 	background:url(default/submenu_on_bgr.jpg) repeat-y left top;
@@ -1774,7 +1774,7 @@ a.h3_small_link{
 .twitter a{
 	display: block;
 	width: 60px;
-	height: 60px; 
+	height: 60px;
 	background:transparent url(default/twitter.png) no-repeat;
 }
 .twitter a:hover {
@@ -1783,7 +1783,7 @@ a.h3_small_link{
 .facebook a{
 	display: block;
 	width: 60px;
-	height: 60px; 
+	height: 60px;
 	background:transparent url(default/facebook.png) no-repeat;
 }
 .facebook a:hover {
@@ -1792,7 +1792,7 @@ a.h3_small_link{
 .rsss a{
 	display: block;
 	width: 60px;
-	height: 60px; 
+	height: 60px;
 	background:transparent url(default/rsss.png) no-repeat;
 }
 .rsss a:hover {
@@ -2083,7 +2083,7 @@ th .tip_box_top{
 	height:12px;
 	display:block;
 	background:transparent url(default/tip_bottom.png) no-repeat top left;
-	line-height:1px; 
+	line-height:1px;
 	font-size:0px;
 }
 a.tip_link:hover .tip_box,a.tip_link.hover .tip_box{
@@ -2091,7 +2091,7 @@ a.tip_link:hover .tip_box,a.tip_link.hover .tip_box{
 }
 
 /* IE7 Fix */
-a.tip_link:hover, a.tip_link.hover{  
+a.tip_link:hover, a.tip_link.hover{
 	position: static;
 }
 

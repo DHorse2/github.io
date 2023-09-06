@@ -241,7 +241,7 @@
 /// Length can vary from a byte to mega or gibabytes potentially.
 </span><span class="attr">#[derive(Clone, Debug, Deserialize, Serialize)]
 </span><span class="kw">pub struct </span>IDataObject {
-    <span class="comment">// &amp;[u8]/Vec&lt;u8&gt;/[u8; N]	postgres::types::Type::BYTEA 
+    <span class="comment">// &amp;[u8]/Vec&lt;u8&gt;/[u8; N]	postgres::types::Type::BYTEA
     </span>i_data: Box&lt;Blob&gt;,
     <span class="comment">// i_data: Box&lt;dyn Any&gt;,
     // i_data: Arc&lt;Box&lt;dyn Any&gt;&gt;,
@@ -354,7 +354,7 @@
 //     where
 //         // V: Visitor&lt;&#39;de&gt;,
 //         D: serde::Deserializer&lt;&#39;de&gt;,
-//     {    
+//     {  
 // // ------------------
 //         // Field
 //         enum Field {            // IDataObject
@@ -404,7 +404,7 @@
 //                             0u64 =&gt; Ok(Field::Field0),
 //                             _ =&gt; Ok(Field::Ignore),
 //                         }
-                
+  
 //             }
 //             fn visit_str&lt;E&gt;(self, value: &amp;str) -&gt; Result&lt;Self::Value, E&gt;
 //                 where
@@ -426,7 +426,7 @@
 //                     }, // the whole struct???
 //                     _ =&gt; Err(de::Error::unknown_field(value, FIELDS)),
 //                     // &quot;datetimeutc &quot; =&gt; Ok(DataCreationTime::datetimeutc),
-//                 }                
+//                 }  
 //             }
 //         }
 

@@ -9,7 +9,7 @@ position:absolute;
 width:100.0em;
 height:65.0em;
 }
-  
+
 #BodyMainContainerBg {
 /* Position */
 position:absolute;
@@ -23,7 +23,7 @@ filter:alpha(opacity=65);
 /* CSS3 standard */
 opacity:0.65;
 }
-  
+
 .BodyMainBorder {
 /* Border */
 border-width: .5em;
@@ -39,9 +39,9 @@ border-color: #3e3d66;
 /* Position */
 position:absolute;
 top: 0em;
-left:20.0em; 
+left:20.0em;
 /* Size */
-width:60.0em; 
+width:60.0em;
 height:inherit;
 /* Background */
 background: url(../Images/TransparentWhiteBg50.png);
@@ -54,7 +54,7 @@ overflow:auto;
 /* Position */
 position:absolute;
 top: 0em;
-left: 0em; 
+left: 0em;
 /* Size */
 width:20.0em;
 height:inherit;
@@ -69,7 +69,7 @@ padding-left:10%;
 /* Size */
 width:90%;
 height:inherit;
-overflow:hidden; 
+overflow:hidden;
 /* Background */
 background:#ffffff url(../Images/SwirlsLeft.gif) repeat-y left top;
 }
@@ -81,7 +81,7 @@ z-index:21;
 /* Size */
 width:100%;
 height:inherit;
-overflow:hidden; 
+overflow:hidden;
 /* Background */
 background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
 }
@@ -91,7 +91,7 @@ background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
 /* Position */
 position:absolute;
 top: 0em;
-left:80.0em; 
+left:80.0em;
 /* Size */
 width:20.0em;
 height:inherit;
@@ -159,12 +159,12 @@ padding-bottom: .5em;
 
 .BodyParaLeft{
 position:relative;
-float:left; 
+float:left;
 }
 
 .BodyParaRight{
       position:relative;
-      float:right; 
+      float:right;
   }
 
   /* -- Body Callouts -- */
@@ -173,22 +173,22 @@ float:left;
        text-align:justify;
       z-index:5;
    }
-   
+
   .CalloutBorder{
       /* Border */
       border-style:solid;
       /* border-style:groove; */
       border-width: .8em;
       /* border:solid; */
-      border-color:#999933; /* cPcd */ 
+      border-color:#999933; /* cPcd */
       /* Background */
       background-color:#FFFFCC;
       /* Border */
       -moz-border-radius: 1em;
       -webkit-border-radius: 1em;
        padding: .5em .5em 1em 1em;
-   } 
-      
+   }
+   
 /* -- end -- */
 /* -- */
 
@@ -198,4 +198,4 @@ margin-top: .5em;
 
 /* -- end -- */
 /* -- */
-       
+    

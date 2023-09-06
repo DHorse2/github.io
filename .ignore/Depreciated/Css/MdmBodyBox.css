@@ -1,0 +1,677 @@
+/* MdmBodyBox */
+/* -- Body Divisions 3 Columns -- */
+/* -- 
+////////////////////////////////////////////////
+Left
+ Outer
+   Inner
+Center
+  Top
+    Main
+Right
+ Outer
+   Inner
+-- */
+/* -- 
+////////////////////////////////////////////////
+//
+// BodyArea
+// BodyMainContainer
+//
+// BodyBanner  (Hide / Show, copy to Bottom)
+//
+// BodyMainLeft
+// MenuLeft1
+// MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+// MenuLeft2
+// MenuContainerLeft2
+// MenuLeft3
+// MenuContainerLeft3
+//
+// BodyMainCenter
+// BodyMainCenterColumns
+//
+// BodyMainCenterTop (Hide / Show)
+// BodyMainCenterTopLeft
+// BodyMainCenterTopRight
+//
+// BodyMainCenterCenter
+//
+// BodyMainCenterBottom  (Hide / Show)
+// BodyBannerBottom
+//
+// BodyMainRight
+// MenuRight1
+// MenuContainerRight1 (Hide / Show, copy to TopRight)
+// MenuRight2
+// MenuContainerRight2
+// MenuRight3
+// MenuContainerRight3
+//
+// BodyImageContainer
+// BodyMenuImageContainer
+//
+////////////////////////////////////////////////
+-- */
+/* ----------------------------------------------------------------------------- */
+/* Mdm Body CENTER Container */
+/* -------------------------------------------- */
+#BodyMainCenter, .BodyMainCenter {
+/* Position */
+position:relative;
+top:0%;
+/* Size */
+width:60%;
+/* height:100%; */
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+/* Alignment */
+float: left;
+/* Layout / Visibility */
+display:block;
+}
+
+#BodyMainCenterAbs, .BodyMainCenterAbs {
+/* Position */
+position:absolute;
+top:0%;
+left:20%;
+/* Size */
+width:60%;
+/* height:100%; */
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+/* Alignment */
+/* overflow:auto; */
+/* Layout / Visibility */
+display:block;
+/* Layering */
+z-index:3;
+}
+
+#BodyMainCenterOld {
+/* Position */
+position:absolute;
+top: 6.3em;
+left:1%;
+/* Size */
+min-height:40.0em;
+}
+
+/* -------------------------------------------- */
+/* BodyMainCenterTop */
+/* -------------------------------------------- */
+#BodyMainCenterTop, .BodyMainCenterTop { 
+/* Position */
+/* Size */
+width:auto;
+/* Layout / Visibility */
+display:block;
+padding-top:1.0em;
+}
+
+/* BodyMainCenterTopLeft */
+#BodyMainCenterTopLeft, .BodyMainCenterTopLeft {
+/* Position */
+position:relative;
+left:1%;
+/* Size */
+width:48%;
+height:40.0em;
+/* Alignment */
+overflow:hidden;
+/* Layout / Visibility */
+float:left;
+display:none;
+margin: 0em 0em 0em 0em;
+padding: 0em 0em 0em 0em;
+}
+/* BodyMainCenterTopRight */
+#BodyMainCenterTopRight, .BodyMainCenterTopRight { 
+/* Position */
+position:relative;
+/* left:50%; */
+/* Size */
+width:48%;
+height:40.0em;
+/* Alignment */
+overflow:hidden;
+/* Layout / Visibility */
+display:none;
+margin: 0em 0em 0em 0em;
+padding: 0em 0em 0em 0em;
+/* Layering */
+z-index:3;
+}
+/* */
+/* -------------------------------------------- */
+/* BodyMainCenterCenter */
+#BodyMainCenterCenter, .BodyMainCenterCenter { 
+/* Position */
+/* Size */
+/* Layout / Visibility */
+padding: 2% 0% 2% 0%;
+display:block;
+}
+/* */
+/* -------------------------------------------- */
+/* BodyMainCenterBottom */
+/* -------------------------------------------- */
+#BodyMainCenterBottom, .BodyMainCenterBottom { 
+/* Position */
+/* Size */
+width:100%;
+display:none;
+}
+/* BodyMainCenterBottomLeft */
+#BodyMainCenterBottomLeft, .BodyMainCenterBottomLeft { 
+/* Position */
+position:relative;
+top:0%;
+left:0%;
+/* Size */
+width:50%;
+/* Layout / Visibility */
+display:none;
+}
+/* BodyMainCenterBottomRight */
+#BodyMainCenterBottomRight, .BodyMainCenterBottomRight { 
+/* Position */
+position:relative;
+top:0%;
+left:50%;
+/* Size */
+width:50%;
+/* Layout / Visibility */
+display:none;
+}
+/* */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* Menu Layout */
+/* Left Area is BodyMenuLayout1 */
+/* Right Area is BodyMenuLayout2 */
+/* -------------------------------------------- */
+/* BodyLayout1 */
+.BodyMenuLayout { 
+/* Position */
+position:static;
+/* position:relative; */
+/* Size */
+/* width:inherit; */ 
+/* height:inherit; */
+height:auto;
+/* Layout / Visibility */
+display:block;
+}
+
+#BodyMenuLayout1, .BodyMenuLayout1 { }
+/* BodyLayout2 */
+#BodyMenuLayout2, .BodyMenuLayout2 { }
+/* -------------------------------------------- */
+/* Menu Group Layout */
+/* Left Groups 1, 2, 3 */
+/* Right Groups 1, 2, 3 */
+/* -------------------------------------------- */
+.BodyMenuGroupLayout { 
+/* Position */
+position:static;
+/* Size */
+/* Layout / Visibility */
+display:block;
+}
+/* -------------------------------------------- */
+/* BodyBanner */
+/* -------------------------------------------- */
+.BodyBanner { 
+/* Position */
+position:relative;
+display:block;
+}
+/* BodyBanner */
+/* Not In Use */
+#BodyBannerTop, .BodyBannerTop { 
+/* Position */
+position:relative;
+/* Layout / Visibility */
+display:block;
+margin: 0em;
+}
+/* BodyBanner */
+#BodyBannerBottom, .BodyBannerBottom { 
+/* Position */
+position:relative;
+/* Layout / Visibility */
+display:none;
+margin: 0em;
+}
+/* ----------------------------------------------------------------------------- */
+/* -------------------------------------------- */
+/* not in use */
+/* -------------------------------------------- */
+/* */
+#BodyMainCenterFixed, .BodyMainCenterFixed {
+/* Position */
+position:relative;
+top:0%;
+left:20%;
+/* Size */
+width:60%;
+height:inherit;
+/* Alignment */
+overflow:auto;
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+}
+/* -- end -- */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* LEFT Menu Container */
+/* -------------------------------------------- */
+/* -- Container -- */
+#x{
+top:0%;
+left:0%;
+}
+
+#BodyMainLeft, .BodyMainLeft {
+/* Position */
+position: relative;
+top: 0%;
+/* Size */
+width: 20%;
+height: 100%;
+/* Alignment */
+float: left;
+/* Layering */
+/* Layout / Visibility */
+display: block;
+}
+
+#BodyMainLeftAbs {
+/* Position */
+position:absolute;
+top:0%;
+left:0%;
+/* Size */
+width:20%;
+height:100%;
+/* Alignment */
+/* Layout / Visibility */
+display:block;
+}
+
+/* -------------------------------------------- */
+/* Visually Tiled Margin (Left) */
+/* -------------------------------------------- */
+#BodyMainLeftOuter, .BodyMainLeftOuter {
+/* Position */
+position:static;
+padding-left:10%;
+/* Size */
+width:90%;
+height:100%;
+/* Alignment */
+float:left;
+overflow:hidden;
+/* Layering */
+z-index:20;
+/* Background */
+background:#ffffff url(../Images/SwirlsLeft.gif) repeat-y left top;
+}
+/* Visually Tiled Margin (Right) */
+#BodyMainLeftInner, .BodyMainLeftInner {
+/* Position */
+position:static;
+padding-right:10%;
+/* Size */
+width:90%;
+height:100%;
+/* Alignment */
+float:right;
+margin-right: 0em;
+overflow:hidden;
+/* Layering */
+z-index:21;
+/* Background */
+background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
+}
+/* -- end -- */
+/* -------------------------------------------- */
+/* LEFT Menu Blocks */
+/* -------------------------------------------- */
+/* -- Styling -- */
+/* -- Column Styling -- */
+/* MenuContainerLeft1 (Hide / Show, copy to TopLeft) */
+/* MenuLeft1 */
+#MenuLeft1, .MenuLeft1 { 
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+#MenuContainerLeft1, .MenuContainerLeft1 {
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+/* MenuLeft2 */
+#MenuLeft2, .MenuLeft2 {
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+#MenuContainerLeft2, .MenuContainerLeft2 {
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+/* MenuLeft3 */
+#MenuLeft3, .MenuLeft3 { 
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+#MenuContainerLeft3, .MenuContainerLeft3 { 
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+/* -- end -- */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* RIGHT Menu Container */
+/* -------------------------------------------- */
+/* -- Container -- */
+.BodyMainRight, #BodyMainRight {
+/* Position */
+position: relative;
+top: 0%;
+/* Size */
+width: 20%;
+height: 100%;
+/* Alignment */
+float: right;
+/* Layout / Visibility */
+display: block;
+}
+
+#BodyMainRightAbs {
+/* Position */
+position:absolute;
+top:0%;
+left:80%;
+/* Size */
+width:20%;
+height:100%;
+/* Alignment */
+/* Layout / Visibility */
+display:block;
+/* Layering */
+z-index:3;
+}
+
+/* -------------------------------------------- */
+/* Visually Tiled Margin (Left) */
+/* -------------------------------------------- */
+#BodyMainRightOuter, .BodyMainRightOuter {
+/* Position */
+position:static;
+/* Size */
+width:100%;
+height:100%;
+/* Alignment */
+margin-right: 0em;
+overflow:hidden;
+/* Layering */
+z-index:20;
+/* Background */
+background:#ffffff url(../Images/SwirlsRight.gif) repeat-y right top;
+}
+/* Visually Tiled Margin (Right) */
+#BodyMainRightInner, .BodyMainRightInner {
+/* Position */
+position:static;
+padding-left:10%;
+/* Size */
+width:80%;
+height:100%;
+/* Alignment */
+margin-right: 0em;
+overflow:hidden;
+/* Layering */
+z-index:21;
+/* Background */
+background:transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
+}
+/* -------------------------------------------- */
+/* MenuContainerRight1 (Hide / Show, copy to TopLeft) */
+/* -------------------------------------------- */
+/* MenuRight1 */
+#MenuRight1, .MenuRight1 { 
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+
+#MenuContainerRight1, .MenuContainerRight1 {
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+
+/* MenuRight2 */
+#MenuRight2, .MenuRight2 { 
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+
+#MenuContainerRight2, .MenuContainerRight2 {
+/* position:inherit; */ 
+position:relative;
+/* Layout / Visibility */
+display:block;
+}
+
+/* MenuRight3 */
+#MenuRight3, .MenuRight3 { 
+/* Position */
+position:static;
+/* Layout / Visibility */
+display:block;
+}
+
+#MenuContainerRight3 {
+/* position:inherit; */ 
+position:relative;
+/* Layout / Visibility */
+display:block;
+}
+/* -- end -- */
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* Body Layout Mangement (View Toggle)
+/* -------------------------------------------- */
+#BodyViewToggleContainerLeft { 
+/* Layout / Visibility */
+display:block;
+}
+
+#BodyViewToggleContainerCenter { 
+/* Layout / Visibility */
+display:none;
+}
+
+.BodyViewToggle { 
+width: 5em;
+margin: 0em;
+/* Decoration */
+color: #EEE;
+/* Background */
+background-color: #036;
+}       
+
+/* padding:1.0em 1em 1em 1em; */
+/* */      
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+/* BodyConsoleTop */
+/* -------------------------------------------- */
+/* */
+#BodyConsoleTop {
+/* Layering */
+z-index:500;
+}
+
+.BodyConsoleBox { 
+/* Position */
+position:relative;
+/* Size */
+width:100%;
+height:30.0em;
+/* height:40.0em; */ 
+/* Layout / Visibility */
+margin:1.0em 0em 0em 0em;
+padding-top:0%;
+display:none;
+/* Background */
+background: url(../Images/BackgroundBlueSpiral.jpg);
+/* Layering */
+z-index:500;
+}
+
+.BodyConsoleDetailBox {
+/* Position */
+position:absolute;
+Top:0%;
+/* Size */
+width:31%;
+height:95%;
+/* height:100%; */
+/* Alignment */
+text-align:center;
+/* More Alignment */
+overflow-x:auto;
+overflow-y:auto;
+/* Layout / Visibility */
+float:left;
+display:none;
+margin: 0em 0em 0em 0em;
+padding: 0em 0em 0em 0em;
+/* Background */
+background: url(../Images/TransparentWhiteBg75.png);
+/* Layering */
+z-index:500;
+}
+
+.BodyConsoleTextBox {
+/* Position */
+position:absolute;
+Top:8%;
+/* Size */
+width:96%;
+height:85%;
+/* height:100%; */
+/* Alignment */
+text-align:left;
+/* More Alignment */
+overflow-x:auto;
+overflow-y:auto;
+/* Layout / Visibility */
+float:left;
+margin: 0em 0em 0em 0em;
+padding: 0em 0em 0em 0em;
+/* Background */
+background: url(../Images/TransparentWhiteBg75.png);
+/* Layering */
+z-index:500;
+}
+
+/* -------------------------------------------- */
+.BodyConsoleErrorBox {
+/* Position */
+left:2%;
+}
+
+/* -------------------------------------------- */
+.BodyConsoleEventBox { 
+/* Position */
+left:35%;
+}
+
+/* -------------------------------------------- */
+.BodyConsoleStateBox { 
+/* Position */
+left:68%;
+}
+
+/* StateTextBox & TestBox is contained in StateBox */
+.BodyConsoleStateTextBox { 
+/* Position */
+left:2%;
+/* Size */
+width:46%;
+}
+
+/* -------------------------------------------- */
+.BodyConsoleTestBox { 
+/* Position */
+left:50%;
+/* Size */
+width:46%;
+}
+
+.BodyConsoleTestBoxDisplay { 
+/* Position */
+position:static;
+left:2%;
+/* Size */
+width:96%;
+}
+
+.BodyConsoleTestTextBox {
+/* Position */
+position:static;
+/* Top:8%; */
+/* Size */
+width:96%;
+/* height:85%; */
+/* height:100%; */
+/* Alignment */
+text-align:left;
+/* More Alignment */
+overflow-x:auto;
+overflow-y:auto;
+/* Layout / Visibility */
+float:left;
+margin: 0em 0em 0em 0em;
+padding: 0em 0em 0em 0em;
+/* Background */
+background: url(../Images/TransparentWhiteBg75.png);
+/* Layering */
+z-index:500;
+}
+
+.BodyConsoleTestBoxInput { 
+/* Position */
+position:static;
+left:2%;
+/* Size */
+width:auto;
+/* Alignment */
+text-align:left;
+/* More Alignment */
+overflow-x:visible;
+overflow-y:auto;
+}
+
+
+/* -- end -- */
+/* */

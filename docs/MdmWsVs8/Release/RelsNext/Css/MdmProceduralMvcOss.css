@@ -8,7 +8,7 @@
 min-width:120.0em;
 }
 
-/* ----------------- */  
+/* ----------------- */
 .BodyPara{
 /* Border */
 border-right:1px solid black;
@@ -21,17 +21,17 @@ border-right:1px solid black;
 /* Position */
 position:relative;
 top: 6.3em;
-left:1%; 
+left:1%;
 /* Size */
 min-height:1%;
 /* Alignment */
 padding-bottom: 2.5em;
 }
-/* ----------------- */  
+/* ----------------- */
 
 .DivB1{
 /* Position */
-position:relative; 
+position:relative;
 top: 3.5em;
 left: 2em;
 /* Size */
@@ -44,7 +44,7 @@ z-index:2;
 
 #B1C1 { }
 
-#B1D1P1{ 
+#B1D1P1{
 /* Border */
 border-bottom: .3em solid black;
 }
@@ -73,11 +73,11 @@ display:block;
 z-index:1;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB2{
 /* Position */
-position:absolute; 
+position:absolute;
 top: 2em;
 left:55.0em;
 /* Size */
@@ -86,23 +86,23 @@ left:55.0em;
 z-index:3;
 }
 
-#B2D1 { 
+#B2D1 {
 /* Size */
 width:20.0em;
 }
 
-#B2D1P2{ 
+#B2D1P2{
 /* Border */
 border-bottom:1px solid black;
 }
 
-#B2D2P3{ 
+#B2D2P3{
 /* Border */
 border-bottom:1px solid black;
 }
 
 /* Callout Para Poup */
-#B2C1A { 
+#B2C1A {
 /* Layering */
 z-index:2;
 }
@@ -132,7 +132,7 @@ height:50.0em;
 z-index:4;
 }
 
-#B2C2A { 
+#B2C2A {
 /* Layering */
 z-index:1;
 }
@@ -172,11 +172,11 @@ height:50.0em;
 z-index:4;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB3{
 /* Position */
-position:relative; 
+position:relative;
 top: 5em;
 left: 3.5em;
 /* Size */
@@ -188,7 +188,7 @@ margin-bottom: 5em;
 z-index:1;
 }
 
-#B3D1P4{ 
+#B3D1P4{
 /* Border */
 border-bottom:1px solid black;
 }
@@ -205,11 +205,11 @@ display:block;
 z-index:1;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB4{
 /* Position */
-position:absolute; 
+position:absolute;
 top:42.0em;
 left:70.0em;
 /* Size */
@@ -220,7 +220,7 @@ margin-right: 5em;
 z-index:2;
 }
 
-#B4D1P1{ 
+#B4D1P1{
 /* Border */
 border-bottom:1px solid black;
 }
@@ -238,10 +238,10 @@ z-index:1;
 }
 
 
-/* ----------------- */  
+/* ----------------- */
 .DivP6{
 /* Size */
 width:25.0em;
 }
-/* ----------------- */  
+/* ----------------- */
 

@@ -54,79 +54,79 @@
 						  Outlook Folder Synchronization to Disk
       					</h3>
                           <p id="B1D1P1" class="BodyPara aLeft CP">
-						  There are a number of more obscure issues involved with Outlook.  
+						  There are a number of more obscure issues involved with Outlook.
 						  Like many applications it uses one or more large database files for storage.
-						  
+						
 						  Thus a duplicate though often differnt
 						  folder structure is create both on disk and in Outlook itself.
-						  <br /><br />
+						  <br><br>
 						  A second more widespread issue is that when searching the
 						  system you must perform one search on disk and a separate search
-						  using Outlook.  
+						  using Outlook.
 						  Our document management standard required certain types of documents
 						  for specific folders to be present in the directory either as an original or a link.
 						  </p>
                           <p id="B1D1P2" class="BodyPara aLeft CP">
 						  This outlook project allows the user to specify a root directory
-						  on disk for each root directory in Outlook.  
+						  on disk for each root directory in Outlook.
 						  Any changes made to Outlooks folders is reflected in the underlying
-						  disk folders. 
+						  disk folders.
 						  </p>
                           <p id="B1D1P3" class="BodyPara aLeft CP">
 						  This raises the question of if a users wants all email and attachments
-						  to be both searchable and accessible under Windows.  
-						  The alternative used here to indicate what email and documents should 
-						  be duplicated in the file system. 
+						  to be both searchable and accessible under Windows.
+						  The alternative used here to indicate what email and documents should
+						  be duplicated in the file system.
 						  </p>
                           <h3 id="B1D1H2" class="BodyPara cSd CPT">
 						  <br>
 						  Expected Usage
         				  </h3>
                           <p id="B1D1P4" class="BodyPara aLeft CP">
-						  The first release of this add-on restricts itself to duplicating the 
+						  The first release of this add-on restricts itself to duplicating the
 						  folder structure.
-						  It is left to the user to do a save on email and attachements that 
+						  It is left to the user to do a save on email and attachements that
 						  are important enough.
-						  My own preference is to save it all automatically.  
-						  However that in turn requires being able to exclude any or each 
+						  My own preference is to save it all automatically.
+						  However that in turn requires being able to exclude any or each
 						  folder(s) from save.
 						  </p>
                           <p id="B1D1P5" class="BodyPara aLeft CP">
 						  My own internal policy requires shared and consistent directory structures.
-						  Where they are indeed shared this would be ideal.  
+						  Where they are indeed shared this would be ideal.
 						  More often, there is a dual approach being used, and this is consistent in
 						  systems, user software, and programs such as Outlook.
 						  There is one very flat set of folders to oranize a company, area or subject.
-						  There is also a comparatively deep folder structure that defines the area 
-						  hierarchically, organizationally and subjectively. 
+						  There is also a comparatively deep folder structure that defines the area
+						  hierarchically, organizationally and subjectively.
 						  </p>
                           <p id="B1D1P6" class="BodyPara aLeft CP">
-						  Again for myself, this is dual structure is quite acceptable and even    
-						  encouraged. However, I additionally include a requirement for adding 
-						  numerous links or shortcuts in order to allow navigation between the two easily.  
-						  Flat vs. hierarchical are both valid and very useful organizational styles 
+						  Again for myself, this is dual structure is quite acceptable and even 
+						  encouraged. However, I additionally include a requirement for adding
+						  numerous links or shortcuts in order to allow navigation between the two easily.
+						  Flat vs. hierarchical are both valid and very useful organizational styles
 						  that should be employed dynamically and as needed.
-						  This is similar to keeping an independent set of mirrowed Outlook folders somewhere 
-						  in the subject directory.  For example, in a folder called MailFolders. 
+						  This is similar to keeping an independent set of mirrowed Outlook folders somewhere
+						  in the subject directory.  For example, in a folder called MailFolders.
 						  </p>
                           <p id="B1D1P7" class="BodyPara aLeft CP">
                           </p>
                   	<div id="B1D2" class="BodyParaRight CalloutBorder">
                           <p id="B1D2P1" class="BodyPara aLeft CP">
-						  I find the VBA environment to be quite useful. 
+						  I find the VBA environment to be quite useful.
 						  The workflow related and custom
 						  fields and features of Office and in this particular, Outlook are
 						  fairly powerful.
                           </p>
                           <p id="B1D2P5" class="BodyPara aLeft CP">
-						  Customized forms seem an under utilized resource as well.  
-						  A case in point,  
-						  you will freqently see departments codifying data into form 
+						  Customized forms seem an under utilized resource as well.
+						  A case in point,
+						  you will freqently see departments codifying data into form
 						  text fields informally, where it is self-evident that a properly
-						  defined field would be far more appropriate. 
+						  defined field would be far more appropriate.
 						  The simplest and most common example putting the correct keyword
 						  in a reply subject line.
-      					 <br /><br />
+      					 <br><br>
                           </p>
                     </div>
                   	<!--*-->
@@ -137,18 +137,18 @@
 		  				  This was evaluative project and self-contained so there is no fee wanted for
 						  this code just registration.
 						  I would probably want to clean up the code before or with a client-user.  I am
-						  definitely planning to use it myself. 
+						  definitely planning to use it myself.
                           </p>
                           <p id="B1D1P9" class="BodyPara aLeft CP">
 						  Although there is lots of room for developing with VBA this project was just
 						  part of larger volume of work in scripting technologies and time management.
-						  With a goal towards document transparency you are ideally looking 
+						  With a goal towards document transparency you are ideally looking
 						  to expose both the data and better still the application model.  I find the
 						  combination of Windows (shell) and Office scripting fairly powerfull.
-      					  <br /><br />
+      					  <br><br>
                           </p>
                           <p id="B1D1P10" class="BodyPara aLeft CP">
-      					  <br /><br />
+      					  <br><br>
                           </p>
                   	</div>
                   	<!--*-->
@@ -169,17 +169,17 @@
   <!--*-->
   	<!--[if IE 6]>
   	<style type="text/css">
-  	html { 
-  	overflow-y: hidden; 
+  	html {
+  	overflow-y: hidden;
   	}
-  	body { 
-  	overflow-y: auto; 
+  	body {
+  	overflow-y: auto;
   	}
-  	#bg { 
-  	position:absolute; z-index:-1; 
+  	#bg {
+  	position:absolute; z-index:-1;
   	}
-  	#BodyArea { 
-  	position:static; 
+  	#BodyArea {
+  	position:static;
   	}
   	</style>
   	<![endif]-->

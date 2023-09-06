@@ -165,7 +165,7 @@
 // !------------------------------------------------------------
 // !------------------------------------------------------------
 // (function pointers)
-// fn(_) -&gt; _ 
+// fn(_) -&gt; _
 
 // (traits)
 // Fn(t) -&gt; U
@@ -189,7 +189,7 @@
 }
 <span class="comment">// Any
 </span><span class="doccomment">/// The type name done another way. (todo student)
-</span><span class="kw">pub fn </span>type_name_of&lt;T&gt;(<span class="kw">_</span>: <span class="kw-2">&amp;</span>T) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str 
+</span><span class="kw">pub fn </span>type_name_of&lt;T&gt;(<span class="kw">_</span>: <span class="kw-2">&amp;</span>T) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str
 <span class="kw">where
     </span>T: Any,
     T: <span class="question-mark">?</span>Sized
@@ -200,11 +200,11 @@
     </span>ty_name
 }
 <span class="doccomment">/// Given a TypeId it returns its name as a static str.
-</span><span class="kw">pub fn </span>type_name_from_id&lt;T: <span class="question-mark">?</span>Sized + Any, I&gt;(i: <span class="kw-2">&amp;</span>TypeId) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str 
+</span><span class="kw">pub fn </span>type_name_from_id&lt;T: <span class="question-mark">?</span>Sized + Any, I&gt;(i: <span class="kw-2">&amp;</span>TypeId) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str
 <span class="kw">where
     </span>I: <span class="question-mark">?</span>Sized,
 {
-    <span class="comment">// r#&quot;Does not reflect the RUST type system use of a unique id for each type.  
+    <span class="comment">// r#&quot;Does not reflect the RUST type system use of a unique id for each type.
     // It&#39;s not available as a readable string&quot;#;
     // format!(&quot;{}&quot;, TypeId::of::&lt;I&gt;()).as_str()
     // TypeId::of::&lt;I&gt;().to_string()
@@ -220,7 +220,7 @@
     <span class="comment">// t.type_id()
 </span>}
 <span class="comment">//
-</span><span class="doccomment">/// Compare the types of two Sized objects. 
+</span><span class="doccomment">/// Compare the types of two Sized objects.
 </span><span class="kw">pub fn </span>type_is_equal&lt;T: <span class="question-mark">?</span>Sized  + <span class="lifetime">&#39;static</span>, U: <span class="question-mark">?</span>Sized  + <span class="lifetime">&#39;static</span>&gt;(<span class="kw">_</span>: <span class="kw-2">&amp;</span>T, <span class="kw">_</span>: <span class="kw-2">&amp;</span>U) -&gt; bool {
     <span class="comment">// if let TypeId::of::&lt;T&gt;() = TypeId::of::&lt;U&gt;() {
     //     return true

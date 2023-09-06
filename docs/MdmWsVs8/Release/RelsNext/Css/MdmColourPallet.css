@@ -3,74 +3,74 @@
 /* Colours - Main Blue */
 
 /* Primary */
-.cP { 
+.cP {
 color:#6666CC;
- /* cP */ 
+ /* cP */
 }
-/* (P)rimary Dark */ 
-.cPd { 
+/* (P)rimary Dark */
+.cPd {
 color:#666699;
- /* cPd */ 
+ /* cPd */
 }
 /* (P)rimary Light */
-.cPl 
-{ 
+.cPl
+{
 color:#CCCCFF;
- /* cPl */ 
+ /* cPl */
 }
 
 /* Secondary */
-/* Colours - Brownish */ 
-.cS 
-{ 
+/* Colours - Brownish */
+.cS
+{
 color:#CC9966;
- /* cS */ 
+ /* cS */
 }
-.cSd 
-{ 
+.cSd
+{
 color:#996633;
- /* cSd */ 
+ /* cSd */
 }
-.cSl 
-{ 
+.cSl
+{
 color:#FFFFCC;
- /* cSl */ 
+ /* cSl */
 }
 
 /* Primary Complement */
 /* Colours - Greenish */
-.cPc 
-{ 
+.cPc
+{
 color:#CCCC66;
- /* cPc */ 
+ /* cPc */
 }
-.cPcd 
-{ 
+.cPcd
+{
 color:#999933;
- /* cPcd */ 
+ /* cPcd */
 }
-.cPcl 
-{ 
+.cPcl
+{
 color:#FFFFCC;
- /* cPcl */ 
+ /* cPcl */
 }
 
 /* Secondary Complement */
 /* Colours - Purple */
-.cSc 
-{ 
+.cSc
+{
 color:#9966CC;
- /* cSc */ 
+ /* cSc */
 }
-.cScd 
-{ 
+.cScd
+{
 color:#663399;
- /* cScd */ 
+ /* cScd */
 }
-.cScl 
-{ 
+.cScl
+{
 color:#FFCCFF;
- /* cScl */ 
+ /* cScl */
 }
 
 .cBlack

@@ -1,0 +1,140 @@
+/* Mdm Page Template Wide CSS */
+
+#BodyMainContainer{
+/* Size */
+min-width:265.0em;
+max-width:270.0em;
+min-height:185.0em;
+max-height:220.0em;
+}
+
+
+/* ----------------- */  
+/* -- Centre Area-- */
+#BodyMainCenter {
+/* Position */
+position:relative;
+/* top:2 6.3em; */
+left:1%;
+/* Size */
+width:250.0em;
+height:175.0em;
+min-height:40.0em;
+/* Alignment */
+}
+
+/* ----------------- */  
+
+#B0D0H1{ 
+/* Position */
+position:relative;
+top: 0.25em;
+left:5.0em;
+/* Size */
+width:15.0em;
+/* Alignment */
+padding: 0em;
+text-align:center;
+/* Background */
+background: url(../Images/TransparentWhiteBg50.png);
+}
+
+/* ----------------- */  
+
+.DivB1{
+/* Position */
+position:relative;
+/* Size */
+width:48.0em;
+/* Alignment */
+float: left;
+margin: 2%;
+/* Layering */
+z-index:2;
+}
+
+#B1C1A .CPP{
+/* Alignment */
+display:none;
+}
+
+#B1C1A:hover .CPP{
+/* Alignment */
+display:block;
+/* Layering */
+z-index:1;
+}
+
+#B1C1AOrig:hover .CPP{
+/* Alignment */
+display:block;
+/* Layering */
+z-index:1;
+}
+/* ----------------- */  
+
+.DivB3{
+/* Position */
+position:relative;
+/* Size */
+width:32.5em;
+min-height:45.0em;
+/* Alignment */
+float: left;
+margin: 2%;
+/* Layering */
+z-index:1;
+}
+
+
+#B3C1 {
+/* Size */
+max-width:35%;
+/* Alignment */
+text-align:center;
+}
+
+#B3C1A .CPP{
+/* Alignment */
+display:none;
+}
+
+#B3C1A:hover .CPP{
+/* Alignment */
+display:block;
+z-index:1;
+}
+
+/* ----------------- */  
+
+.DivB4{
+/* Position */
+position:relative;
+/* Size */
+width:70%;
+height:90%;
+/* Alignment */
+float: right;
+margin: 2%;
+/* Layering */
+z-index:1;
+}
+
+
+#B4Img1{
+/* Position */
+position: absolute;
+top: 0em;
+left: 0em;
+/* Size */
+width: 100%;
+height: 100%;
+}
+
+/* ----------------- */  
+.DivP6{
+/* Size */
+width:25.0em;
+}
+/* ----------------- */  
+

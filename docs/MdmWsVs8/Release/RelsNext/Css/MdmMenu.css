@@ -8,7 +8,7 @@
 .BodyConsoleLog { }
 
 
-.ViewToggleBar { 
+.ViewToggleBar {
 /* Position */
 /* width: 12.0em; */
 width: 100%;
@@ -20,25 +20,25 @@ margin: auto;
 padding:0%;
 }
 
-.ViewToggleBlockContainer { 
+.ViewToggleBlockContainer {
 /* Alignment */
 float: left;
 /* Margin and Padding */
-margin: 0em; 
-padding: 1px 1px 1px 1px; 
+margin: 0em;
+padding: 1px 1px 1px 1px;
 /* Background */
 background-color:#000;
 }
 
-.ViewToggleBlockContainerOuter { 
+.ViewToggleBlockContainerOuter {
 /* Alignment */
 float: left;
 /* Margin and Padding */
-margin: 0em; 
-padding: 0em; 
+margin: 0em;
+padding: 0em;
 }
 
-.ViewToggleBlockContainerOuterTop:hover { 
+.ViewToggleBlockContainerOuterTop:hover {
 /* Size */
 /* Border */
 border-left: .3em solid white;
@@ -57,7 +57,7 @@ border-right: .4em solid black;
 }
 
 
-.ViewToggleButton { 
+.ViewToggleButton {
 /* Alignment */
 float: left;
 text-align: center;
@@ -65,7 +65,7 @@ text-align: center;
 color: #EEE;
 /* Margin and Padding */
 padding:  .3em .2em  .3em .2em;
-margin: 1px 1px 1px 1px; 
+margin: 1px 1px 1px 1px;
 /* margin: 0em 0em 1px 1px; */
 /* Background */
 background-color: #036;
@@ -87,14 +87,14 @@ background-color:#EEE;
 border: .2em inset blue;
 }
 
-.ViewToggleBlockLabel { 
+.ViewToggleBlockLabel {
 /* Margin and Padding */
-margin: 1px 1px 1px .2em; 
+margin: 1px 1px 1px .2em;
 }
 
 .ViewToggleBlock {
 /* Margin and Padding */
-margin: 1px 1px 1px .2em; 
+margin: 1px 1px 1px .2em;
 }
 
 .ViewToggleBlockEnd {
@@ -109,7 +109,7 @@ margin: 0em 0em 0em 1.5em;
 display:none;
 }
 
-#BodyViewToggleContainerLeft { 
+#BodyViewToggleContainerLeft {
 margin: .5em 0em 0em 0em;
 display:block;
 }
@@ -136,7 +136,7 @@ text-align: center;
 padding:0%;
 margin:0%;
 }
- 
+
 /* link */
 .MenuBlockLink {
 width: 20%;
@@ -148,7 +148,7 @@ a.MenuBlockLink:link {
 /* Background */
 background-image: url(../Images/MenuTile.jpg);
 background-repeat:repeat-x;
-}      
+}   
 /* -- Menu Links -- */
 /* visited link */
 a.MenuBlockLink:visited {
@@ -163,7 +163,7 @@ background-image: url(../Images/HoverBg.jpg);
 a.MenuBlockLink:active {
 background-image: url(../Images/MenuTile.jpg);
 }
- 
+
 /* -- Menu Links -- */
 #MdmHomeLink{
  }
@@ -180,10 +180,10 @@ background-image: url(../Images/MenuTile.jpg);
 /* -------------------------------------------- */
 /* -- Menu Containter -- */
 /* -------------------------------------------- */
-.MenuContainer { 
+.MenuContainer {
 /* Size */
 /* width:157px; */
-width:inherit; 
+width:inherit;
 }
 
 .MenuContainer p { margin-bottom: 0em; }
@@ -223,7 +223,7 @@ text-decoration: none;
 /* -------------------------------------------- */
 .MenuColumnClass {
 /* Size */
-width:inherit; 
+width:inherit;
 /* width:15.0em; */
 /* Alignment */
 margin: 0em 0em 0em 0em;

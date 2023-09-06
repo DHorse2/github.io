@@ -50,134 +50,134 @@
                   <!--** Block 1 **-->
                   <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
                           <h3 id="B1D1H1" class="BodyPara cSd CPT">
-      						Jeffery Becker's<br />
-  							Generics based List<br />
+      						Jeffery Becker's<br>
+  							Generics based List<br>
   							"LazyList"
       					</h3>
                           <p id="B1D1P1" class="BodyPara aLeft CP">
-  						This framework includes trace, status line, logging, 
+  						This framework includes trace, status line, logging,
   						threaded messaging (both user interface and functions,)
-  						console, disk and database file I/O, error handling,  
+  						console, disk and database file I/O, error handling,
   						start/pause/cancel, progress bar and other features.
                           </p>
                   	<div id="B1D2" class="BodyParaLeft CalloutBorder">
                         <h4 id="B1D2H1" class="BodyPara cSd CPT">
-      						Jeffery Becker's<br />
-      						code<br /><br />
+      						Jeffery Becker's<br>
+      						code<br><br>
       					</h4>
                           <p id="B1D2P1" class="BodyPara aLeft CP">
 						  <code>
-using System;<br />
-using System.Collections.Generic;<br />
-using System.Text;<br />
-namespace Example<br />
-{<br />
-    public class LazyList<T> : IList<T><br />
-    {<br />
-        private List<T> _innerList;<br />
-        private IEnumerable<T> _lazyLoader;<br />
-        private void ensureList()<br />
-        {<br />
-            if(_innerList == null)<br />
-                _innerList = new List<T>(_lazyLoader);<br />
-        }<br />
-        #region IList<T> Members<br />
-        public int IndexOf(T item)<br />
-        {<br />
-            ensureList();<br />
-            ensureList();<br />
-            return _innerList.IndexOf(item);<br />
-        }<br />
-        public void Insert(int index, T item)<br />
-        {<br />
-            ensureList();<br />
-            _innerList.Insert(index, item);<br />
-        }<br />
-        public void RemoveAt(int index)<br />
-        {<br />
-            ensureList();<br />
-            _innerList.RemoveAt(index);<br />
-        }<br />
-        public T this[int index]<br />
-        {<br />
-            get<br />
-            {<br />
-                ensureList();<br /> 
-                return _innerList[index];<br />
-            }<br />
-            set<br />
-            {<br />
-                ensureList();<br /> 
-                _innerList[index] = value;<br />
-            }<br />
-        }<br />
-        #endregion<br />
-<br />
-        #region ICollection<T> Members<br />
-        public void Add(T item)<br />
-        {<br />
-            ensureList();<br />
-            _innerList.Add(item);<br />
-        }<br />
-        public void Clear()<br />
-        {<br />
-            ensureList();<br />
-            _innerList.Clear();<br />
-        }<br />
-        public bool Contains(T item)<br />
-        {<br />
-            ensureList();<br />
-            return _innerList.Contains(item);<br />
-        }<br />
-        public void CopyTo(T[] array, int arrayIndex)<br />
-        {<br />
-            ensureList();<br />
-            _innerList.CopyTo(array, arrayIndex);<br />
-        }<br />
-        public int Count<br />
-        {<br />
-            get { ensureList();  return _innerList.Count; }<br />
-        }<br />
-        public bool IsReadOnly<br />
-        {<br />
-            get { return false; }<br />
-        }<br />
-        public bool Remove(T item)<br />
-        {<br />
-            ensureList();<br />
-            return _innerList.Remove(item);<br />
-        }<br />
-        #endregion<br />
-<br />
-        #region IEnumerable<T> Members<br />
-        public IEnumerator<T> GetEnumerator()<br />
-        {<br />
-            ensureList();<br />
-            return _innerList.GetEnumerator();<br />
-        }<br />
-        #endregion<br />
-<br />
-        #region IEnumerable Members<br />
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()<br />
-        {<br />
-            ensureList();<br />
-            return _innerList.GetEnumerator();<br />
-        }<br />
-        #endregion<br />
-    }<br />
-}<br />
+using System;<br>
+using System.Collections.Generic;<br>
+using System.Text;<br>
+namespace Example<br>
+{<br>
+    public class LazyList<T> : IList<T><br>
+    {<br>
+        private List<T> _innerList;<br>
+        private IEnumerable<T> _lazyLoader;<br>
+        private void ensureList()<br>
+        {<br>
+            if(_innerList == null)<br>
+                _innerList = new List<T>(_lazyLoader);<br>
+        }<br>
+        #region IList<T> Members<br>
+        public int IndexOf(T item)<br>
+        {<br>
+            ensureList();<br>
+            ensureList();<br>
+            return _innerList.IndexOf(item);<br>
+        }<br>
+        public void Insert(int index, T item)<br>
+        {<br>
+            ensureList();<br>
+            _innerList.Insert(index, item);<br>
+        }<br>
+        public void RemoveAt(int index)<br>
+        {<br>
+            ensureList();<br>
+            _innerList.RemoveAt(index);<br>
+        }<br>
+        public T this[int index]<br>
+        {<br>
+            get<br>
+            {<br>
+                ensureList();<br>
+                return _innerList[index];<br>
+            }<br>
+            set<br>
+            {<br>
+                ensureList();<br>
+                _innerList[index] = value;<br>
+            }<br>
+        }<br>
+        #endregion<br>
+<br>
+        #region ICollection<T> Members<br>
+        public void Add(T item)<br>
+        {<br>
+            ensureList();<br>
+            _innerList.Add(item);<br>
+        }<br>
+        public void Clear()<br>
+        {<br>
+            ensureList();<br>
+            _innerList.Clear();<br>
+        }<br>
+        public bool Contains(T item)<br>
+        {<br>
+            ensureList();<br>
+            return _innerList.Contains(item);<br>
+        }<br>
+        public void CopyTo(T[] array, int arrayIndex)<br>
+        {<br>
+            ensureList();<br>
+            _innerList.CopyTo(array, arrayIndex);<br>
+        }<br>
+        public int Count<br>
+        {<br>
+            get { ensureList();  return _innerList.Count; }<br>
+        }<br>
+        public bool IsReadOnly<br>
+        {<br>
+            get { return false; }<br>
+        }<br>
+        public bool Remove(T item)<br>
+        {<br>
+            ensureList();<br>
+            return _innerList.Remove(item);<br>
+        }<br>
+        #endregion<br>
+<br>
+        #region IEnumerable<T> Members<br>
+        public IEnumerator<T> GetEnumerator()<br>
+        {<br>
+            ensureList();<br>
+            return _innerList.GetEnumerator();<br>
+        }<br>
+        #endregion<br>
+<br>
+        #region IEnumerable Members<br>
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()<br>
+        {<br>
+            ensureList();<br>
+            return _innerList.GetEnumerator();<br>
+        }<br>
+        #endregion<br>
+    }<br>
+}<br>
 </code>
                           </p>
                       </div>
                   	<!--*-->
                           <p id="B1D1P2" class="BodyPara aLeft CP">
-  						The pre-existing design additionally includes secure user 
-  						sign-on, company control, smart file locking and metrics, 
-						hardware usage configuration, scheduled tasks with input, 
-						minor accounting controls, resource management and other features.  
-  						These features were placed in a later phase pending the finalized 
+  						The pre-existing design additionally includes secure user
+  						sign-on, company control, smart file locking and metrics,
+						hardware usage configuration, scheduled tasks with input,
+						minor accounting controls, resource management and other features.
+  						These features were placed in a later phase pending the finalized
   						design of the first set which were more closely tied to the
-  						.Net IDE framework.  
+  						.Net IDE framework.
                           </p>
                           <div id="B1C2" class="BodyParaRight">
   								<!-- x -->
@@ -185,32 +185,32 @@ namespace Example<br />
                                   <span id="B2C1A1" class="CPA aCenter">
       							MVVM<br>Controller<br>list of<br>methods.
       							</span>
-      							<img id="B1C2Img1Thumb" src="../Images/McontrollerMethodList.jpg" 
-      							alt="ImportTld Main Page Start" 
+      							<img id="B1C2Img1Thumb" src="../Images/McontrollerMethodList.jpg"
+      							alt="ImportTld Main Page Start"
       							class="CPPImageThumb CPPImageThumbRight CPA"/>
   								<!-- x -->
-  								<!-- <div id="B1C2ImgSet" 
+  								<!-- <div id="B1C2ImgSet"
       							class="CalloutBorder CPP"> -->
       							<img id="B1C2Img1" src="../Images/McontrollerMethodList.jpg"
-      							alt="ImportTld Main Page Start" 
+      							alt="ImportTld Main Page Start"
       							class="CPPImage CPP CPPImageLeft CalloutBorder "/>
   								<!-- </div> -->
   								<!-- x -->
                               </a>
                           </div>
                           <p id="B1D1P4" class="BodyPara aLeft CP">
-  						There is first the expectation that a consistent UI will 
-  						be developed regardless.  
-  						Second, an application specific design is expected to handle 
-  						issues like exceptions and cross thread communications.  
-  						Finally, there are many  feautures so pervasive that 
-  						integration is reasonable. 
-      					 <br /><br />
+  						There is first the expectation that a consistent UI will
+  						be developed regardless.
+  						Second, an application specific design is expected to handle
+  						issues like exceptions and cross thread communications.
+  						Finally, there are many  feautures so pervasive that
+  						integration is reasonable.
+      					 <br><br>
                           </p>
                   	</div>
                   	<!--*-->
       		<!-- <p class="FixClear"></p> -->
-				<!-- <br clear="all"> -->
+				<!-- <br> -->
                   </div>
                   <!--*-->
                   <!--*-->
@@ -227,17 +227,17 @@ namespace Example<br />
   <!--*-->
   	<!--[if IE 6]>
   	<style type="text/css">
-  	html { 
-  	overflow-y: hidden; 
+  	html {
+  	overflow-y: hidden;
   	}
-  	body { 
-  	overflow-y: auto; 
+  	body {
+  	overflow-y: auto;
   	}
-  	#bg { 
-  	position:absolute; z-index:-1; 
+  	#bg {
+  	position:absolute; z-index:-1;
   	}
-  	#BodyArea { 
-  	position:static; 
+  	#BodyArea {
+  	position:static;
   	}
   	</style>
   	<![endif]-->

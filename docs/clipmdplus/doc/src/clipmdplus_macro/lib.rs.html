@@ -220,7 +220,7 @@
 //! It exists to create a #[derive(clipboard_thingy, todo clarify...)]
 //! I&#39;m learning this feature of RUST, beyond that many of these macros are useful.
 //! For example, using macro_rules! would be less restrictive.
-//! 
+//!
 //! use super::super::Name;
 //! use super::super::Deserialize_enum;
 //! use super::super::Serialize_enum;
@@ -255,7 +255,7 @@
 // use std::collections::HashMap;
 // // use syn::*;
 // use syn::{self, parse_quote, Arm, Data};
-// use syn::{Attribute, DataEnum, DeriveInput, Expr, ExprLit, ExprParen, Fields, Lit, parse2, parse_macro_input, Variant}; // path, tokens, Token, 
+// use syn::{Attribute, DataEnum, DeriveInput, Expr, ExprLit, ExprParen, Fields, Lit, parse2, parse_macro_input, Variant}; // path, tokens, Token,
 
 // ! serde_enum ------------------------------------------------------------
 // mod serde_enum;
@@ -327,7 +327,7 @@
         <span class="attr">#[doc = <span class="macro-nonterminal">$doc</span>]
         </span><span class="kw">pub const </span><span class="macro-nonterminal">$name</span>: <span class="kw-2">&amp;</span>str = <span class="macro-nonterminal">$value</span>;
 
-        <span class="comment">// use std::fmt; 
+        <span class="comment">// use std::fmt;
         // impl fmt::Display for $name {
         //     fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
         //         write!(f, $value)

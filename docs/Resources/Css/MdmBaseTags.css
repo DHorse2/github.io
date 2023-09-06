@@ -3,34 +3,44 @@
 /* body, blocks */
 /* body,
 /* div,
+
 /* para, span */
 p, .p,
 span, .span,
+
 /* font size */
 big, .big,
 small, .small,
+
 /* decoration */
 i, .i,
 b, .b,
 strong,
+
 /* list */
 li, .li,
 ol, .li,
 ul, .ul,
+
 /* table */
 td, .td,
 th, .th,
+
 tbody,
+
 /* links */
 a, .a,
+
 /* -- Fonts Standard-- */
 .fNormal,
 .fStandard,
-.fText {
-font-family: 
- "Courier New", 
- "Courier", 
- "Times New Roman", 
+.fText
+/* ------------------- */
+{
+font-family:
+ "Courier New",
+ "Courier",
+ "Times New Roman",
  "serif",
  "Times New Roman",
  "Georgia",
@@ -38,7 +48,7 @@ font-family:
  "Sylfaen",
  "Garamond",
  "Book Antiqua",
- "Bookman Old Style"     
+ "Bookman Old Style"  
 ;
 font-size: 1em;
 }
@@ -50,16 +60,16 @@ margin-bottom: 0.5em;
 }
 
 /* (c)olour: */
-/* (P)rimary             cP     color:#6666CC; cP */ 
-/* (P)rimary Dark        cPd    color:#666699; cPd */ 
-/* (P)rimary Light       cPl    color:#CCCCFF;cPl */ 
-/* (S)econdary           cS     color:#CC9966; cS */ 
-/* (S)econdary Dark      cSd    color:#996633; cSd */ 
-/* (S)econdary Light     cSl    color:#FFFFCC; cSl */ 
+/* (P)rimary             cP     color:#6666CC; cP */
+/* (P)rimary Dark        cPd    color:#666699; cPd */
+/* (P)rimary Light       cPl    color:#CCCCFF;cPl */
+/* (S)econdary           cS     color:#CC9966; cS */
+/* (S)econdary Dark      cSd    color:#996633; cSd */
+/* (S)econdary Light     cSl    color:#FFFFCC; cSl */
 
 /* a:visited, .a:visited, a:hover, .a:hover { } */
 
-/* p { 
+/* p {
 margin-top: 0em;
 padding-top: 0em;
 margin-bottom: 0em;
@@ -83,7 +93,7 @@ margin-top: .3em;
 /* -- Links -- */
 
 /* -- Fonts Fancy -- */
-.fPromo, 
+.fPromo,
 .fBlurb,
 .fTiny,
 .fMicro
@@ -95,7 +105,7 @@ font-family: cursive, Storybook, "MS Sans Serif", "Courier New";
 font-size: 1.2em;
 }
 
-.fBlurb 
+.fBlurb
 {
 font-size: 1.2em;
 }
@@ -114,7 +124,7 @@ font-size: .6em;
 
 .fCode
 {
-font-family: "Courier, monospace", 
+font-family: "Courier, monospace",
 Monaco,
 "Lucida Console",
 Consolas,
@@ -131,10 +141,10 @@ list-style: lower-roman;
 
 .fDiploma
 {
-font-family: 
-Diploma, 
-Storybook, 
-OldCentury, 
+font-family:
+Diploma,
+Storybook,
+OldCentury,
 cursive
 ;
 font-size: 1.4em;
@@ -150,6 +160,25 @@ list-style: lower-roman;
 
 /* -- Headings -- */
 
+H1, .h1
+{ font-size: 20pt; }
+
+H2, .h2
+{ font-size: 18pt; }
+
+H3, .h3
+{ font-size: 14pt; }
+
+H4, .h4
+{ font-size: 12pt; }
+
+H5, .h5
+{ font-size: 10pt; }
+
+H6, .h6
+{ font-size: 10pt; }
+
+/* Heaing common styles */
 H1, .h1,
 H2, .h2,
 H3, .h3,
@@ -160,7 +189,24 @@ H6, .h6
 font-family: Diploma, Storybook, cursive;
 text-align: center;
 color:#666699; /* cPd */
-margin: 1em;
+/* margin: 0em; */
+padding: .5em;
+font-weight: bold;
+}
+
+/* Heaing common styles */
+H1, .h1,
+H2, .h2,
+H3, .h3,
+H4, .h4,
+H5, .h5,
+H6, .h6
+{
+font-family: Diploma, Storybook, cursive;
+text-align: center;
+color:#666699; /* cPd */
+/* margin: 1em; */
+margin-bottom: 1em;
 /* margin: 0em 0.5em 0em 0em;  */
 /* 0em; */
 padding: 1em;
@@ -168,9 +214,15 @@ padding: 1em;
 /*.5em; */
 font-weight: bold;
 /* Border */
+border: groove;
+/* border-right: 0.2em solid black; */
 /* border-right: none; */
+border-top: 0.35em groove;
+border-bottom: 0.5em groove;
+border-left: 0.25em groove;
+border-right: 0.5em groove;
 /* border-bottom: 0.1em solid black; */
-border-bottom: 0.1em solid black;
+/* border-bottom: 0.1em solid black; */
 }
 
 Hem1, .Hem1
@@ -190,39 +242,6 @@ Hem5, .Hem5
 
 Hem6, .Hem6
 { font-size: 1em; }
-
-H1, .h1,
-H2, .h2,
-H3, .h3,
-H4, .h4,
-H5, .h5,
-H6, .h6
-{
-font-family: Diploma, Storybook, cursive;
-text-align: center;
-color:#666699; /* cPd */
-margin: 0em;
-padding: .5em;
-font-weight: bold;
-}
-
-H1, .h1
-{ font-size: 20pt; }
-
-H2, .h2
-{ font-size: 18pt; }
-
-H3, .h3
-{ font-size: 14pt; }
-
-H4, .h4
-{ font-size: 12pt; }
-
-H5, .h5
-{ font-size: 10pt; }
-
-H6, .h6
-{ font-size: 10pt; }
 
 /* -- Table of Contents */
 .Toc1
@@ -271,7 +290,7 @@ font-size: 2.0em
 /* -- Layout - Margin  -- */
  .Margin0
  { margin: 0em 0em 0em 0em; }
- .Margin5 
+ .Margin5
  { margin: .5em .5em .5em 0.5em; }
  .Margin10
  { margin: 1em 1em 1em 1em; }
@@ -283,7 +302,7 @@ font-size: 2.0em
 /* -- Layout - Indent  -- */
  .Indent0
  { text-indent: 0em; }
- .Indent5 
+ .Indent5
  { text-indent: 0.5em; }
  .Indent10
  { text-indent: 1em; }
@@ -459,7 +478,7 @@ border-style:outset;
 /* border-style:solid; */
 border-width:.4em;
 border-color: #DADCE4;
-} 
+}
 
 .BorderThick{
 /* Border */
@@ -471,7 +490,7 @@ border-color: #3e3d66;
 /* -- */
 
 /* -- HACKS AND FIXES -- */
-.FixPara{ 
+.FixPara{
 /* Position */
 display:block;
 /* Alignment */
@@ -481,7 +500,7 @@ clear: both;
 content: ".";
 }
 
-.FixFloat{ 
+.FixFloat{
 /* Position */
 display:block;
 /* Alignment */
@@ -500,7 +519,7 @@ height: .2em;
 clear: both;
 }
 
-.FixClear { 
+.FixClear {
 /* Position */
 position:relative;
 /* Size */
@@ -510,7 +529,7 @@ display:block;
 content: ".";
 }
 
-.FixClear2 { 
+.FixClear2 {
 /* Position */
 /* Size */
 height: .2em;
@@ -526,7 +545,7 @@ display:block;
 content: ".";
 }
 
-.FixClear1 { 
+.FixClear1 {
 /* Position */
 position:relative;
 /* Size */
@@ -545,7 +564,7 @@ content: ".";
 }
 
 .FixClear3{
-overflow: auto; 
+overflow: auto;
 height: 1%;
 }
 

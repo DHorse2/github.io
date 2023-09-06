@@ -1,4 +1,4 @@
-﻿# The Matt Taylor Disk Optimizer - TaylorDo 
+﻿# The Matt Taylor Disk Optimizer - TaylorDo
 
 ## Quick Start
 
@@ -52,13 +52,13 @@ Where you want to change the composition of a zone you will be working in these 
 
 ## Screen Shots
 ### Before
-<img src="Resources/Page/Dev Disk Before 2021-10-24, 18_58_29.png" 
+<img src="Resources/Page/Dev Disk Before 2021-10-24, 18_58_29.png"
 alt="Thumbnail of Matt on YouTube">
 ### In Progress
-<img src="Resources/Page/Dev Disk Partial 2021-11-25, 19_12_01.png" 
+<img src="Resources/Page/Dev Disk Partial 2021-11-25, 19_12_01.png"
 alt="Thumbnail of Matt on YouTube">
 ### After
-<img src="Resources/Page/Dev Disk After 2021-11-26, 23_25_38.png" 
+<img src="Resources/Page/Dev Disk After 2021-11-26, 23_25_38.png"
 alt="Thumbnail of Matt on YouTube">
 Success!
 

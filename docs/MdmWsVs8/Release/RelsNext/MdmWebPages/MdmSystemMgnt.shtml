@@ -69,11 +69,11 @@
       							not strictly related to database import.
       							Data transfer between databases using a
       							standard import/export format is fairly
-      							well addressed in most products.<br><br> 
+      							well addressed in most products.<br><br>
       							</span>
       							<span id="B1C1AP3" class="CalloutContent CPP ">
-      							This product will prove most useful in dealing with 
-      							formats that do not come directly from a 
+      							This product will prove most useful in dealing with
+      							formats that do not come directly from a
       							database or require cleaning and transformation.<br><br>
       							</span>
       							<span id="B1C1AP4" class="CalloutContent CPP ">
@@ -89,15 +89,15 @@
                           <p id="B1D1P1" class="BodyPara CP">
 						  I have spent a great deal time doing technology evaluation
 						  and this includes strong focus on the user interface.
-						  I have an ongoing interest in fast, flexible and intuitive 
+						  I have an ongoing interest in fast, flexible and intuitive
 						  implementations.
-						  <br /><br />
-						  I am a fairly strong advocate of using the OS as intended 
-						  while making small changes to come up with the required UI 
+						  <br><br>
+						  I am a fairly strong advocate of using the OS as intended
+						  while making small changes to come up with the required UI
 						  features. I think we are now at a point that we would benefit by
 						  having some voice system running as well.  It turns out this fact creates
 						  more of an argument for a simple naming convention that uses
-						  complete words. 
+						  complete words.
                           </p>
                           <div id="B1C2" class="BodyParaRight CalloutBox CalloutBorder ">
   								<!-- x -->
@@ -105,31 +105,31 @@
                                   <span id="B2C1A1" class="h3 BodyParaGround CPA">
       							Windows<br>in a nutshell</span>
 							<span id="B1D1P2" class="CalloutContent CPP ">
-							  <br />
-							  The strengths in Windows is not to be found in the graphical user interface (GUI.)  
+							  <br>
+							  The strengths in Windows is not to be found in the graphical user interface (GUI.)
 							  There is a "click the icon" based interaction and of course the icons and layout itself.
 							  Desktop layout aside, that interaction is equivalent to clicking open an
 							  item in a folder and is in fact what is occuring via the explorer.
-							  <br /><br />
+							  <br><br>
 							</span>
 							  <span id="B1D1P4" class="CalloutContent CPP ">
 							  A probably much more important basic principal is that
-							  Windows is basically document driven.  
-							  In simple terms any "thing" you click should be opened 
-							  by the program that is meant to handle it.  
+							  Windows is basically document driven.
+							  In simple terms any "thing" you click should be opened
+							  by the program that is meant to handle it.
 							  If you happened to click an actual program, it will simply open
-							  using either the last or no item all.  
-							  In theory you would then ignore document type and navigate 
+							  using either the last or no item all.
+							  In theory you would then ignore document type and navigate
 							  within a sensible folder definition.
-							  <br />
+							  <br>
 							  </span>
-							  <br />
+							  <br>
 							<!-- x -->
                               </a>
                           </div><!--** End of B1C2 *-->
                   	<div id="B1D2" class="BodyParaLeft CalloutBorder">
 					<p id="B1D2P1" class="BodyPara CP">
-						There are a very few basic concepts the user needs to understand:<br />  
+						There are a very few basic concepts the user needs to understand:<br>
 						<ul id="C2L1" class="BodyPara BodyParaLast BodyList lB0">
 							<li>Creating and managing folders on disk.</li>
 							<li>The explorer is quite simple and must be learned.</li>
@@ -145,15 +145,15 @@
 				<p id="B1D1P5" class="BodyPara CP">
 				  Due to workarounds using the browser has one
 				  critical rule, otherwise the IE8 usage is fairly direct and open.
-				  <br /><br />
+				  <br><br>
 				</p>
 				<p id="B1D1P6" class="BodyPara BodyParaLast CP">
 				  The Favorites forlder is intended to hold any open
 				  topics where folder structure is being changed.
-				  This is specifically required for any topics where 
-				  documents and hierarchy are being captured from the 
+				  This is specifically required for any topics where
+				  documents and hierarchy are being captured from the
 				  Internet.
-				  <br /><br />
+				  <br><br>
 				</p>
 				<!--*-->
 			</div><!--** End of DivB1 *-->
@@ -167,11 +167,11 @@
 								  <span id="B2C1A1" class="CPA aCenter">
 								Import / Export <br>Management <br>Page
 								</span>
-								<img id="B2C1Img1Thumb" src="../Images/ImportTld Main Page Start.jpg" 
-								alt="ImportTld Main Page Start" 
+								<img id="B2C1Img1Thumb" src="../Images/ImportTld Main Page Start.jpg"
+								alt="ImportTld Main Page Start"
 								class="CPPImageThumb CPPImageThumbRight CPA"/>
-								<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg" 
-								alt="ImportTld Main Page Start" 
+								<img id="B2C1Img1" src="../Images/ImportTld Main Page Start.jpg"
+								alt="ImportTld Main Page Start"
 								class="CalloutBorder CPPImage CPP CPPImageLeft "/>
 							  </a>
 						  </div>
@@ -180,16 +180,16 @@
 					</h3>
 						  <p id="B2D1P1" class="BodyPara CPT">
 							  Advanced conversion features launched by an easy
-							to use interface.<br> 
+							to use interface.<br>
 						  </p>
 						  <p id="B2D1P2" class="BodyPara CP">
 							The main page includes a progress bar and adjustable
-							levels of progress details.  It is a diagnostic utility 
-							and featurse a real-time raw data windows, pause to 
-							examine and detailed exceptions handling. 
+							levels of progress details.  It is a diagnostic utility
+							and featurse a real-time raw data windows, pause to
+							examine and detailed exceptions handling.
 						  </p>
 						  <p id="B2D1P3" class="BodyPara BodyParaLast CP">
-						<br> 
+						<br>
 						  </p>
 					  </div>
 					<!--*-->
@@ -205,11 +205,11 @@
 								  <span id="B6C1A1" class="h4 CPA aCenter">
 								Database <br>Selection <br>Page
 								</span>
-								<img id="B6C1Img1Thumb" src="../Images/ImportTld Db Page Start.jpg" 
-								alt="ImportTld Database Page Start" 
+								<img id="B6C1Img1Thumb" src="../Images/ImportTld Db Page Start.jpg"
+								alt="ImportTld Database Page Start"
 								class="CPPImageThumb CPPImageThumbLeft CPA"/>
-								<img id="B6C1Img1" src="../Images/ImportTld Db Page Start.jpg" 
-								alt="ImportTld Database Page Start" 
+								<img id="B6C1Img1" src="../Images/ImportTld Db Page Start.jpg"
+								alt="ImportTld Database Page Start"
 								class="CalloutContent CalloutBorder CPPImage CPP CPPImageLeft "/>
 							  </a>
 						  </div><!--** End of B6C1 **-->
@@ -218,12 +218,12 @@
 					</h3>
 						  <p id="B6D1P1" class="BodyPara CPT">
 							The database information page allows entry of the standard
-							database attributes including server, database, filegroup, 
-							user, password, authorization. 
+							database attributes including server, database, filegroup,
+							user, password, authorization.
 						  </p>
 						  <p id="B6D1P2" class="BodyPara CP">
 							Implementation of file owner as well as populated drop downs
-							for each database attribute are still pending. 
+							for each database attribute are still pending.
 						  </p>
 						  <p id="B6D1P3" class="BodyPara BodyParaLast CP"><br> </p>
 					  </div><!--** End of B6D1 **-->
@@ -242,7 +242,7 @@
 							</span>
 							<span id="B4C1AP2" class="CalloutContent CPP ">
 							View a conceptual diagram of the file subsystem.
-							<br><br> 
+							<br><br>
 							</span>
 						  </a>
 					  </div><!--** End of B4C1 *-->
@@ -250,8 +250,8 @@
 						File Subsystem<br>
 					</h3>
 					  <p id="B4D1P1" class="BodyPara BodyParaLast CP">
-					Handles SQL, Ascii, Binary and post-relational database files. 
-					Equipped with an auxillary connection. 
+					Handles SQL, Ascii, Binary and post-relational database files.
+					Equipped with an auxillary connection.
 					Comprehensive data format and schema transformation.
 					  </p>
 					</div><!--** End of B4D1 *-->
@@ -278,7 +278,7 @@
 				  <p id="B3D1P1" class="BodyPara CP">
 				The requirements for this project were that is first and
 				foremost produce the necessary classes that could be used
-				for any typical business application under .Net.  
+				for any typical business application under .Net.
 				  </p>
 				  <p id="B3D1P2" class="BodyPara CP">
 				Second, was the need to implement all of the relevant
@@ -287,30 +287,30 @@
 				enhancements and changes opportune to endeavour.
 				  </p>
 				  <p id="B3D1P3" class="BodyPara CP">
-				Third, was a desire to implement a small set of 
-				language and string extensions and features not already 
-				existing in .Net. 
+				Third, was a desire to implement a small set of
+				language and string extensions and features not already
+				existing in .Net.
 				</p>
 				  <p id="B3D1P4" class="BodyPara CP">
 				Fourth involves a trip down the rabbit hole and a number
-				of issues. 
-				To deeply explore the effects and costs of deferring the 
-				creation of clean classes to save time early in the project. 
+				of issues.
+				To deeply explore the effects and costs of deferring the
+				creation of clean classes to save time early in the project.
 				Transcription of classes and code from other environments.
 				The manual process of code conversion to C# with a view to
 				automated processes.
-				In general, an further evaluation of the requirements to 
+				In general, an further evaluation of the requirements to
 				create OO classes from platforms other than .Net.
 				</p>
 				  <p id="B3D1P5" class="BodyPara CP">
 				Six, a more pragmatic approach code conversion where
 				some determination would be made regarding implementing
-				the existing applicaitons under C#.  
-				This included the user interface, in particular maintenance 
+				the existing applicaitons under C#.
+				This included the user interface, in particular maintenance
 				and data entry forms as well as existing generated forms.
-				It also included file, database, transaction and distributed 
+				It also included file, database, transaction and distributed
 				processing issues.
-				Last was comparison of web enabling existing applications 
+				Last was comparison of web enabling existing applications
 				versus the use of Silverlight under C#.
 				</p>
 				  <p id="B3D1P6" class="BodyPara BodyParaLast CP">
@@ -318,8 +318,8 @@
 				I was not properly familiar with in a hands on fashion.
 				In particular this included weak object types and introspection
 				but also included features such as LINQ, generics, WPF /
-				Silverlight, etc. 
-				<br /><br />
+				Silverlight, etc.
+				<br><br>
 				</p>
 			   </div><!--** End of B3D1 *-->
 				<p class="FixClear"></p>
@@ -343,17 +343,17 @@
   <!--*-->
   	<!--[if IE 6]>
   	<style type="text/css">
-  	html { 
-  	overflow-y: hidden; 
+  	html {
+  	overflow-y: hidden;
   	}
-  	body { 
-  	overflow-y: auto; 
+  	body {
+  	overflow-y: auto;
   	}
-  	#bg { 
-  	position:absolute; z-index:-1; 
+  	#bg {
+  	position:absolute; z-index:-1;
   	}
-  	#BodyArea { 
-  	position:static; 
+  	#BodyArea {
+  	position:static;
   	}
   	</style>
   	<![endif]-->

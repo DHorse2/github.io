@@ -243,16 +243,16 @@
 <a href="#243" id="243">243</a>
 <a href="#244" id="244">244</a>
 </pre></div><pre class="rust"><code><span class="comment">// db_api.rs
-</span><span class="attr">#![allow(dead_code, unused_imports)] 
+</span><span class="attr">#![allow(dead_code, unused_imports)]
 </span><span class="doccomment">/// Db_api Types:
 /// DbType
 /// DbApi
 /// DbCrud
 /// type DbError = stdmd::db_api::DbError;
 /// type JsonError = serde_json::Error; // todo started api
-/// pub type DbClient = postgres::Client; // todo defaults 
+/// pub type DbClient = postgres::Client; // todo defaults
 /// pub type DbClientError = postgres::Error;
-/// 
+///
 
 </span><span class="comment">// use self::*;
 
@@ -269,7 +269,7 @@
 
 <span class="doccomment">/// ! DbType -------------------------------------------------
 /// DbType enumerates the chosen database to use
-</span><span class="comment">// #[derive(Clone, Debug, VariantName, serde::Deserialize, serde::Serialize,  /* */ )] // derive_more::From, 
+</span><span class="comment">// #[derive(Clone, Debug, VariantName, serde::Deserialize, serde::Serialize,  /* */ )] // derive_more::From,
 // #[serde(rename_all = &quot;snake_case&quot;)]
 // #[derive(Clone, derive_more::From, derive_name::VariantName, serde_enum::ToString, serde_enum::Deserialize_enum, serde_enum::Serialize_enum,  /* */ )]
 // , Serialize_enum_str, Deserialize_enum_str, )]
@@ -364,16 +364,16 @@
     </span><span class="kw">fn </span>to_json(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>::JsonResult;
     <span class="doccomment">/// Load self from Json formatted data.
     </span><span class="kw">fn </span>from_json(json: <span class="kw-2">&amp;</span>str) -&gt; <span class="self">Self</span>;
-    <span class="comment">// fn load_json(file_path: &amp;mut String) -&gt; Self 
-    // fn load_json(mut file_path: &amp;mut String) -&gt; Self 
+    <span class="comment">// fn load_json(file_path: &amp;mut String) -&gt; Self
+    // fn load_json(mut file_path: &amp;mut String) -&gt; Self
     </span><span class="doccomment">/// Get the Json data from disk and load Self.
-    </span><span class="kw">fn </span>load_json(<span class="kw-2">mut </span>file_path: String) -&gt; <span class="self">Self 
+    </span><span class="kw">fn </span>load_json(<span class="kw-2">mut </span>file_path: String) -&gt; <span class="self">Self
     </span><span class="kw">where
         </span><span class="self">Self</span>: Default,
     {
         <span class="kw">if </span>file_path.is_empty() {
-            <span class="comment">// file_path = &amp;mut String::from(&quot;ClipboardData.txt&quot;).clone(); // &amp;mut 
-            </span>file_path = String::from(<span class="string">&quot;ClipboardData.txt&quot;</span>).clone(); <span class="comment">// &amp;mut 
+            <span class="comment">// file_path = &amp;mut String::from(&quot;ClipboardData.txt&quot;).clone(); // &amp;mut
+            </span>file_path = String::from(<span class="string">&quot;ClipboardData.txt&quot;</span>).clone(); <span class="comment">// &amp;mut
         </span>}
         <span class="kw">let </span>clip_json = std::fs::read_to_string(file_path).unwrap();
         <span class="kw">if </span>clip_json.is_empty() {
@@ -432,11 +432,11 @@
 // use serde::de::Error;
 //
 // ! serialization notes of enums and complex types  --------------------------
-// Note: problem with serialization of enums. 
+// Note: problem with serialization of enums.
 // Specifically non-Unit variants 20230805
 // use serde_enum_str::{Deserialize_enum_str, Serialize_enum_str}; (errors)
 // use serde::{
-    // forward_to_deserialize_any, forward_to_deserialize_any_helper, 
+    // forward_to_deserialize_any, forward_to_deserialize_any_helper,
     // Deserialize, Serialize,
 // };
 // use serde::de::{MapAccess, SeqAccess};
@@ -456,10 +456,10 @@
 // - Persist std::io, serde, serde_json and custom errors.
 // - Check out serde(with) usage for this.
 // #[serde(rename = &quot;name&quot;)]
-// #[serde(skip)] 
+// #[serde(skip)]
 // #[serde(skip_serializing)]
 // #[serde(skip_deserializing)]
-// #[serde(serialize_with = &quot;path&quot;)] 
+// #[serde(serialize_with = &quot;path&quot;)]
 // #[serde(deserialize_with = &quot;path&quot;)]
 // #[serde(with = &quot;module&quot;)]
 // #[serde(default)]

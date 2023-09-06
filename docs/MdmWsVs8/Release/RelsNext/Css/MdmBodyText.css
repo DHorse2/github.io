@@ -15,20 +15,20 @@ width:48%;
 .ColumnType2 {
 /* Size */
 width:39%;
-min-width:25.0em; 
+min-width:25.0em;
 max-width:35.0em;
 }
 
 .ColumnType3 {
 /* Size */
 width:39%;
-min-width:25.0em; 
+min-width:25.0em;
 }
 
 .ColumnType4 {
 /* Size */
 /* width:39%; */
-min-width:25.0em; 
+min-width:25.0em;
 /* Alignment */
 text-align: center;
 }
@@ -130,7 +130,7 @@ margin: 0em;
 }
 /* padding: 0em 0.5em 0.25em 0.5em; */
 
-h1.BodyPara, h2.BodyPara, h3.BodyPara, h4.BodyPara, h5.BodyPara, h6.BodyPara 
+h1.BodyPara, h2.BodyPara, h3.BodyPara, h4.BodyPara, h5.BodyPara, h6.BodyPara
  .h1.BodyPara, .h2.BodyPara, .h3.BodyPara, .h4.BodyPara, .h5.BodyPara, .h6.BodyPara {
 /* Alignment */
 text-indent: 0em;
@@ -146,7 +146,7 @@ position: relative;
 padding: 0%;
 /* margin-left: 0.75em; */
 margin-left: 2%;
-float: left; 
+float: left;
 text-align: justify;
 }
 
@@ -158,7 +158,7 @@ position: relative;
 /* Alignment */
 padding: 0;
 margin-right: 2%;
-float:right; 
+float:right;
 text-align: left;
 }
 
@@ -171,14 +171,14 @@ background: url(../Images/TransparentWhiteBg75.png);
 /* -------------------------------------------- */
 /* -- Body Callouts Container -- */
 
-.BodyList { 
+.BodyList {
 text-align:left;
 /* margin:0.25em 0.25em 0em 0em; */
 padding:0.5em 0.25em 0em 0.25em;
 }
 
-.BodyListItem { 
-margin-top: 0em; 
+.BodyListItem {
+margin-top: 0em;
 margin-bottom: 0em;
 padding-top: 0em;
 padding-bottom:0.25em;
@@ -291,11 +291,11 @@ border-style:solid;
 /* border-style:groove; */
 border-width:0.5em;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Border */
 -moz-border-radius: 0.5em;
 -webkit-border-radius: 0.5em;
-} 
+}
 /* padding:0.5em 0.5em 0.5em 0.5em; */
 
 .CalloutBorderFull
@@ -305,19 +305,19 @@ border-style:solid;
 /* border-style:groove; */
 border-width: .4em;
 /* border:solid; */
-border-color:#999933; /* cPcd */ 
+border-color:#999933; /* cPcd */
 /* Border */
 -moz-border-radius: 0.5em;
 -webkit-border-radius: 0.5em;
 /* Alignment */
 margin: 0em 0em 0.5em 0em;
 padding: 0em 0em 0em 0em;
-} 
+}
 
-/* -- Callout Block -- */  
+/* -- Callout Block -- */
 .DivB{
 /* Position */
-position:absolute; 
+position:absolute;
 top:35em;
 left:1em;
 /* Size */
@@ -326,7 +326,7 @@ height:120.25em;
 
 /* -- end -- */
 
-/* ------ Callout Styling ----------- */  
+/* ------ Callout Styling ----------- */
 /* -- Callout Paragraph -- additional content (Paragraph 2,3,4,...) */
 .CP {
 /* Alignment */
@@ -335,14 +335,14 @@ height:120.25em;
 padding:0.5em 1.5em 0.75em 0.5em;
 /* Layering */
 z-index: 1004;
-}  
+}
 /* padding:0.25em 0.5em 0.5em 0.5em; */
 
 /* -- Callout Title -- Heading or Title for a group of paragraphs (CP's) */
 .CPT { }
 
-/* -- Callout Link -- */  
-.CPA { 
+/* -- Callout Link -- */
+.CPA {
 /* Alignment */
 display:block;
 padding: 0em;
@@ -364,7 +364,7 @@ z-index: 4;
 /* FIREFOX COMPATABLE - USE ID */
 #LinkId:hover .CPP{ display:block; }
 
-/* -- Callout Paragraph Popup -- */  
+/* -- Callout Paragraph Popup -- */
 .CPP {
 /* Alignment */
 padding:0.25em 0.25em 0.5em 0.5em;
@@ -372,7 +372,7 @@ padding:0.25em 0.25em 0.5em 0.5em;
 z-index: 1004;
 }
 
-/* -- Callout Image Popup -- */  
+/* -- Callout Image Popup -- */
 .CPPImageThumb{
 /* Size */
 width:10.0em;
@@ -433,21 +433,21 @@ float:left;
 z-index: 1004;
 }
 
-/* ------- Generic Box ---------- */  
+/* ------- Generic Box ---------- */
 .DivB98{
 /* Position */
-position:absolute; 
+position:absolute;
 top: 2.5em;
 left:10.0em;
 }
 
 .DivB99{
 /* Position */
-position:absolute; 
+position:absolute;
 top:20.0em;
 left:35.0em;
 }
 /* -- end -- */
 
-/* ----------------- */  
-     
+/* ----------------- */
+  

@@ -4,7 +4,7 @@
 
 .DivB1{
 /* Position */
-position:relative; 
+position:relative;
 top: 0em;
 left:px;
 /* Size */
@@ -34,11 +34,11 @@ display:none;
 /* Layering */
 display:block;
 }
-/* ----------------- */  
+/* ----------------- */
 #B1C2 {
 }
 
-#B1C2A { 
+#B1C2A {
 /* Layering */
 z-index:2;
 }
@@ -83,23 +83,23 @@ display:none;
 z-index:4;
 }
 
-/* ----------------- */  
-#B1D1 { 
+/* ----------------- */
+#B1D1 {
 /* Size */
 /* width:20.0em; */
 }
 
-/* ----------------- */  
-#B1D2 { 
+/* ----------------- */
+#B1D2 {
 /* Size */
 /* width:25.0em; */
-width:47%; 
+width:47%;
 }
 
 /* ----------------- */
 .DivB2Box {
 /* Position */
-position:relative; 
+position:relative;
 top:0%;
 /* Size */
 width:30%;
@@ -107,11 +107,11 @@ width:30%;
 float:right;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB2{
 /* Position */
-position:relative; 
+position:relative;
 top: 0em;
 left: 0em;
 /* Size */
@@ -120,7 +120,7 @@ margin: 2.5em;
 overflow: visible;
 }
 
-/* ----------------- */  
+/* ----------------- */
 /* Callout Para Poup */
 #B2C1A .CPP{
 /* Layering */
@@ -132,7 +132,7 @@ display:none;
 display:block;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 #B2C1Img1 {
 /* Position */
@@ -145,7 +145,7 @@ overflow:visible;
 z-index:4;
 }
 
-#B2C2A { 
+#B2C2A {
 /* Layering */
 z-index:2;
 }
@@ -160,7 +160,7 @@ display:none;
 display:block;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 #B2C2Img1 {
 /* Position */
@@ -184,12 +184,12 @@ min-height:50.0em;
 z-index:4;
 }
 
-/* ----------------- */  
-/* ----------------- */  
+/* ----------------- */
+/* ----------------- */
 
 .DivB3{
 /* Position */
-position:relative; 
+position:relative;
 /* Size */
 width:80%;
 /* Alignment */
@@ -197,9 +197,9 @@ float: left;
 margin: 2.5em;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
-#B3C1 { 
+#B3C1 {
 overflow-y:visible;
 }
 
@@ -235,7 +235,7 @@ display:none;
 z-index:4;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB4{
 /* Position */
@@ -251,12 +251,12 @@ left: 0em;
 z-index:3;
 }
 
-#B4D1P1{ 
+#B4D1P1{
 /* Border */
 border-bottom: .3em solid black;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 #B4C1 {
 max-width:50%;
@@ -281,11 +281,11 @@ display:none;
 display:block;
 }
 
-/* ----------------- */  
+/* ----------------- */
 
 .DivB6{
 /* Position */
-/* position:absolute; */ 
+/* position:absolute; */
 /* top:64.0em; */
 position:relative;
 top: 5em;
@@ -300,7 +300,7 @@ z-index:3;
 }
 
 /* Callout Para Poup */
-#B6C1A { 
+#B6C1A {
 /* Layering */
 z-index:2;
 }
@@ -316,5 +316,5 @@ display:block;
 }
 
 #B6C1Img1Thumb { }
-/* ----------------- */  
+/* ----------------- */
 

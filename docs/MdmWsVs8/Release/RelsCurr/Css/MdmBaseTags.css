@@ -28,10 +28,10 @@ a,
 .fStandard,
 .fText
 {
-font-family: 
- "Courier New", 
- "Courier", 
- "Times New Roman", 
+font-family:
+ "Courier New",
+ "Courier",
+ "Times New Roman",
  "serif",
  "Times New Roman",
  "Georgia",
@@ -39,7 +39,7 @@ font-family:
  "Sylfaen",
  "Garamond",
  "Book Antiqua",
- "Bookman Old Style"     
+ "Bookman Old Style"  
 ;
 }
 
@@ -60,7 +60,7 @@ margin-top: 3pt;
 
 /* -- Fonts Fancy -- */
 
-.fPromo, 
+.fPromo,
 .fBlurb,
 .fTiny
 {
@@ -71,7 +71,7 @@ font-family: cursive, Storybook, "MS Sans Serif", "Courier New";
 font-size: 12pt;
 }
 
-.fBlurb 
+.fBlurb
 {
 font-size: 12pt;
 }
@@ -85,7 +85,7 @@ font-size: 8pt;
 
 .fCode
 {
-font-family: "Courier, monospace", 
+font-family: "Courier, monospace",
 Monaco,
 "Lucida Console",
 Consolas,
@@ -102,10 +102,10 @@ list-style: lower-roman;
 
 .fDiploma
 {
-font-family: 
-Diploma, 
-Storybook, 
-OldCentury, 
+font-family:
+Diploma,
+Storybook,
+OldCentury,
 cursive
 ;
 font-size: 14pt;
@@ -121,16 +121,16 @@ list-style: lower-roman;
 
 /* -- Headings -- */
 
-H1, 
-H2, 
-H3, 
-H4, 
-H5, 
+H1,
+H2,
+H3,
+H4,
+H5,
 H6
 {
 font-family: Diploma, Storybook, cursive;
 text-align: center;
-color:#666699; /* cPd */ 
+color:#666699; /* cPd */
 }
 
 H1
@@ -354,7 +354,7 @@ border-style:outset;
 border-width:4px;
 /* border:solid; */
 border-color: #DADCE4;
-} 
+}
 
 .BorderThick{
 /* Border */
@@ -366,13 +366,13 @@ border-color: #3e3d66;
 /* -- */
 
 /* -- HACKS AND FIXES -- */
-.FixPara{ 
+.FixPara{
 /* Position */
 position:relative;
 height:10px;
 }
 
-.FixClear { 
+.FixClear {
 /* Position */
 position:relative;
 /* Size */
@@ -382,7 +382,7 @@ display:block;
 content: ".";
 }
 
-.FixClear2 { 
+.FixClear2 {
 /* Position */
 /* Size */
 height: 1px;
@@ -398,7 +398,7 @@ display:block;
 content: ".";
 }
 
-.FixClear1 { 
+.FixClear1 {
 /* Position */
 position:relative;
 /* Size */
@@ -417,7 +417,7 @@ content: ".";
 }
 
 .FixClear2{
-overflow: auto; 
+overflow: auto;
 height: 1%;
 }
 

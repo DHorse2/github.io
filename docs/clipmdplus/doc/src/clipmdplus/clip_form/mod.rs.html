@@ -200,7 +200,7 @@
 <a href="#200" id="200">200</a>
 <a href="#201" id="201">201</a>
 <a href="#202" id="202">202</a>
-</pre></div><pre class="rust"><code><span class="attr">#![allow(dead_code, unused_imports)] 
+</pre></div><pre class="rust"><code><span class="attr">#![allow(dead_code, unused_imports)]
 </span><span class="doccomment">/// ClipForm clip_form mod.rs
 /// This is the ClipForm main module.
 /// It displays the clipboard history data.
@@ -212,7 +212,7 @@
 //
 </span><span class="kw">extern crate </span>chrono;
 <span class="kw">extern crate </span>libc;
-<span class="kw">use </span>std::fmt; 
+<span class="kw">use </span>std::fmt;
 <span class="kw">use </span>std::str;
 <span class="comment">//
 </span><span class="kw">use </span><span class="kw">crate</span>::UiType;
@@ -256,7 +256,7 @@
     <span class="doccomment">/// Os clipboard chain pointer
     </span><span class="comment">// IntPtr _ClipboardViewerNext;
     // // IDataObject iData;
-    </span><span class="kw">pub </span>sequence: Sequence, 
+    </span><span class="kw">pub </span>sequence: Sequence,
     <span class="doccomment">/// This is the internal next unique clip id.
     </span><span class="kw">pub </span>sequence_number_current: i32,
     <span class="doccomment">/// This is a range of unique clip id&#39;s currently selected within the form window.
@@ -281,7 +281,7 @@
     <span class="comment">// File:
     // mFileSql ClipFile;
     </span><span class="doccomment">/// A vector containing the history of clips.
-    </span><span class="kw">pub </span>clip_hist: Vec&lt;ClipMeta&gt;, <span class="comment">// List&lt;ClipMeta&gt; 
+    </span><span class="kw">pub </span>clip_hist: Vec&lt;ClipMeta&gt;, <span class="comment">// List&lt;ClipMeta&gt;
 
     // #region HyperlinkList Fields
     </span><span class="doccomment">/// Hyperlinks extracted from the current clip.
@@ -303,7 +303,7 @@
             show_when_minimized: <span class="bool-val">true</span>,
             show_from_menu: <span class="bool-val">true</span>,
             has_file: <span class="bool-val">false</span>,
-            sequence: Sequence::default(), 
+            sequence: Sequence::default(),
             sequence_number_current: i32::default(),
             sequence_number_selected: Range::default(),
             clip_data_last: String::new(),
@@ -311,7 +311,7 @@
             ui_type: UiType::EguiNative,
             clip_meta: ClipMeta::default(),
             clip_meta_out: String::new(),
-            clip_hist: Vec::new(), <span class="comment">// List&lt;ClipMeta&gt; 
+            clip_hist: Vec::new(), <span class="comment">// List&lt;ClipMeta&gt;
             </span>hyperlink_list: HyperlinkList::default(),
         }
     }
@@ -385,7 +385,7 @@
 
     <span class="attr">#[allow(unused_mut, unused_variables)] </span><span class="comment">// temp
     </span><span class="kw">fn </span>file_open(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;bool, String&gt;
-    { 
+    {
         <span class="comment">// ClipFile = new mFileSql();
         </span><span class="prelude-val">Ok</span>(<span class="bool-val">true</span>)
     }

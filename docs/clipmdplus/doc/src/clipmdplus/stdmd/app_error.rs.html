@@ -326,7 +326,7 @@
 }
 <span class="comment">// !------------------------------------------------------------
 </span><span class="doccomment">/// Errors received from GUI components or upon validation.
-</span><span class="comment">// #[derive(Debug, Deserialize, Serialize)] // ErrorDerive, 
+</span><span class="comment">// #[derive(Debug, Deserialize, Serialize)] // ErrorDerive,
 </span><span class="attr">#[derive(Debug, derive_more::Display, thiserror::Error, VariantName, Deserialize_enum, Serialize_enum,  <span class="comment">/* */ </span>)]
 </span><span class="kw">pub enum </span>GuiError {
     <span class="doccomment">/// Entry format invalid (ie like dates).
@@ -341,11 +341,11 @@
 <span class="comment">// !------------------------------------------------------------
 // DATABASE
 // !------------------------------------------------------------
-// This was an attempt to 
+// This was an attempt to
 // #[derive(thiserror::Error, Deserialize, Serialize)]
 // #[derive(thiserror::Error, Deserialize_enum_str, Serialize_enum_str)]
-// todo #[derive(Debug, Deserialize, Serialize)] 
-// todo thiserror::Error, 
+// todo #[derive(Debug, Deserialize, Serialize)]
+// todo thiserror::Error,
 // #[derive(Deserialize_enum, Serialize_enum,  /* */ )]
 // #[derive(Debug, derive_more::Display, thiserror::Error, derive_name::VariantName, serde_enum::Deserialize_enum, serde_enum::Serialize_enum,  /* */ )]
 // #[derive(Clone, derive_more::Display, thiserror::Error, derive_more::From, VariantName, serde::Deserialize, serde::Serialize,  /* */ )]
@@ -357,12 +357,12 @@
     </span>Client(DbErrorDataClient),
 
     <span class="doccomment">/// #[error(&quot;deserialize error {DbErrorDataDe}&quot;)]
-    </span>Deserialize(DbErrorDataDe), 
-    <span class="comment">// Deserialize(#[from] DbErrorDataDe), 
-    // Deserialize(#[from] Box&lt;dyn SerdeDeError&gt;), (a Trait) 
-    // Deserialize(#[from] e&lt;SerdeDeError&gt;), 
+    </span>Deserialize(DbErrorDataDe),
+    <span class="comment">// Deserialize(#[from] DbErrorDataDe),
+    // Deserialize(#[from] Box&lt;dyn SerdeDeError&gt;), (a Trait)
+    // Deserialize(#[from] e&lt;SerdeDeError&gt;),
     // serde::de::Error
-    // Deserialize(#[from] String), 
+    // Deserialize(#[from] String),
 
     </span><span class="doccomment">/// #[error(transparent)]
     /// StdIoError(#[from] std::io::Error),
@@ -431,7 +431,7 @@
 // }
 // !------------------------------------------------------------
 // #[derive(thiserror::Error, serde_enum::Deserialize_enum, serde_enum::Serialize_enum,  /* */ )]
-// #[derive(thiserror::Error, Deserialize, Serialize)] 
+// #[derive(thiserror::Error, Deserialize, Serialize)]
 // #[derive(thiserror::Error, derive_name::VariantName, serde_enum::Deserialize_enum, serde_enum::Serialize_enum,  /* */ )]
 // #[derive(Clone, derive_more::Display, thiserror::Error, derive_more::From, VariantName, serde::Deserialize, serde::Serialize,  /* */ )]
 </span><span class="doccomment">/// A custom JsonError needed later.
@@ -476,12 +476,12 @@
 //     #[error(&quot;database client error {data}&quot;)]
 //     Client {#[from] data: DbErrorDataClient},
 //     #[error(&quot;deserialize error {data}&quot;)]
-//     Deserialize {#[from] data: DbErrorDataDe}, 
-//     // Deserialize(#[from] DbErrorDataDe), 
-//     // Deserialize(#[from] Box&lt;dyn SerdeDeError&gt;), (a Trait) 
-//     // Deserialize(#[from] e&lt;SerdeDeError&gt;), 
+//     Deserialize {#[from] data: DbErrorDataDe},
+//     // Deserialize(#[from] DbErrorDataDe),
+//     // Deserialize(#[from] Box&lt;dyn SerdeDeError&gt;), (a Trait)
+//     // Deserialize(#[from] e&lt;SerdeDeError&gt;),
 //     // serde::de::Error
-//     // Deserialize(#[from] String), 
+//     // Deserialize(#[from] String),
 //     #[error(transparent)]
 //     IoError (#[from] Box&lt;io::Error&gt;),
 //     #[error(&quot;json error {data}&quot;)]
@@ -507,12 +507,12 @@
 //     Client {#[from] data: DbErrorDataClient },
 
 //     #[error(&quot;deserialize error {data}&quot;)]
-//     Deserialize {#[from] data: DbErrorDataDe }, 
-//     // Deserialize(#[from] DbErrorDataDe), 
-//     // Deserialize(#[from] Box&lt;dyn SerdeDeError&gt;), (a Trait) 
-//     // Deserialize(#[from] e&lt;SerdeDeError&gt;), 
+//     Deserialize {#[from] data: DbErrorDataDe },
+//     // Deserialize(#[from] DbErrorDataDe),
+//     // Deserialize(#[from] Box&lt;dyn SerdeDeError&gt;), (a Trait)
+//     // Deserialize(#[from] e&lt;SerdeDeError&gt;),
 //     // serde::de::Error
-//     // Deserialize(#[from] String), 
+//     // Deserialize(#[from] String),
 
 //     #[error(transparent)]
 //     StdIoError {#[from] data: DbErrorDataIo },
@@ -528,7 +528,7 @@
 
 //     #[error(&quot;serialize error {data}&quot;)]
 //     Serialize {#[from] data: DbErrorDataSer },
-//     // I tried everything :( 
+//     // I tried everything :(
 //     // Serialize(#[from] DbErrorDataSer),
 //     // Serialize(#[from] Box&lt;dyn SerdeSerError&gt;), (a Trait)
 //     // serde::ser::Error
