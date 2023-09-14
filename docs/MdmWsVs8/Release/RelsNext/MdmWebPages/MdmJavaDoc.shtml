@@ -1,63 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<!-- ------------------------------------------------------------------------------------- -->
-<!-- Mdm Javascript Documentation Page - (c)2011 David Horsman & Macroscope Design Matrix -->
-<!-- ------------------------------------------------------------------------------------- -->
-<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
-<!-- * -->
-<!-- <link rel="stylesheet" type="text/css" href="../Css/MdmDebugTagHover.css" /> -->
-<!-- ------------------------------------------------------------------------------------- -->
-<!-- SCRIPT -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmPageJava.js" /> -->
-<!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmStandardFuntions.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElement.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmElementEvent.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmWindow.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmError.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmAnimation.js" /> -->
-<!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmBodyBox.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmLayout.js" /> -->
-<!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenu.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImage.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmMenuImageCollection.js" /> -->
-<!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmTimer.js" /> -->
-<!-- * -->
-<!-- <SCRIPT language="javascript" src="../TemplatePage/MdmDebugTagHover.js" /> -->
-<!-- * -->
-<!-- * -->
-<!-- SCRIPT -->
-<!--END OF SCRIPT -->
-<!-- * -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="Author" content="David G. Horsman" />
-    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
-    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmJavaDoc.css" />
     <title>Professional and Personal Site for Dave Horsman</title>
-    <link rel="shortcut icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.ico" type="image/x-icon" />
-	<link rel="apple-touch-icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.png" />
+    <meta name="Author" content="David G. Horsman">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../Css/MdmJavaDoc.css"> -->
+    <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon" >
+    <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png" >
 </head>
 <!--END OF HEAD -->
 <!-- * -->
-<body>
-<p style="text-align:left">
+<body class="BodyBox">
+    <div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
+        <!-- ..................................................................................... -->
+        <div id="BodyMainCenterCenter" class="BorderThin">
+            <!-- ..................................................................................... -->
+                    <div id="DivSection1" class="BodyParaBox">
+                            <!-- * -->
+                            <div id="DivBox11" class="BodyPara aLeft ColumnType1">
+                                <p class="BodyPara BodyParaLast">
 <br>
 <br>-------------------------------------------------------------------------------------
 <br>Section function documentation
@@ -242,14 +212,14 @@
 <br>BodyMainLeftOuter
 <br>BodyMainLeftInner
 <br>BodyMenuLayout1
-<br>MenuLeft1
-<br>MenuLeft1Save
+<br>MenuGroup1
+<br>MenuGroup1Save
 <br>MenuContainerLeft1 (Hide / Show, copy to TopLeft)
-<br>MenuLeft2
-<br>MenuLeft2Save
+<br>MenuGroup2
+<br>MenuGroup2Save
 <br>MenuContainerLeft2
-<br>MenuLeft3
-<br>MenuLeft3Save
+<br>MenuGroup3
+<br>MenuGroup3Save
 <br>MenuContainerLeft3
 <br>
 <br>BodyMainCenter
@@ -270,11 +240,11 @@
 <br>BodyMainRightOuter
 <br>BodyMainRightInner
 <br>BodyMenuLayout2
-<br>MenuRight1
+<br>MenuGroup4
 <br>MenuContainerRight1 (Hide / Show, copy to TopRight)
-<br>MenuRight2
+<br>MenuGroup5
 <br>MenuContainerRight2
-<br>MenuRight3
+<br>MenuGroup6
 <br>MenuContainerRight3
 <br>
 <br>BodyMainRightFar
@@ -345,7 +315,7 @@
 <br>Console Messages
 <br>
 <br>Instant Messaging Area
-<br>			
+<br>
 <br>------------------------------------------------
 <br>Optoin Toggles:
 <br>	 		 Hidden Banner
@@ -375,7 +345,7 @@
 <br>11 Checkerboard down.
 <br> 12 Random dissolve.
 <br> 13 Split vertical in.
-<br> 14 Split vertical out.
+<br>  Split vertical out.
 <br> 15 Split horizontal in.
 <br> 16 Split horizontal out.
 <br> 17 Strips left down.
@@ -419,11 +389,11 @@
 <br> BodyBanner  (Hide / Show, copy to Bottom)
 <br>
 <br> BodyMainLeft
-<br> MenuLeft1
+<br> MenuGroup1
 <br> MenuContainerLeft1 (Hide / Show, copy to TopLeft)
-<br> MenuLeft2
+<br> MenuGroup2
 <br> MenuContainerLeft2
-<br> MenuLeft3
+<br> MenuGroup3
 <br> MenuContainerLeft3
 <br>
 <br> BodyMainCenter
@@ -439,11 +409,11 @@
 <br> BodyMainCenterBottomBanner
 <br>
 <br> BodyMainRight
-<br> MenuRight1
+<br> MenuGroup4
 <br> MenuContainerRight1 (Hide / Show, copy to TopRight)
-<br> MenuRight2
+<br> MenuGroup5
 <br> MenuContainerRight2
-<br> MenuRight3
+<br> MenuGroup6
 <br> MenuContainerRight3
 <br>
 <br> BodyImageContainer
@@ -453,4 +423,9 @@
 <br> -------------------------------------------------------------------------------------
 <br> -------------------------------------------------------------------------------------
 </p>
+</div>
+</div>
+</div>
+</div>
 </body>
+</html>

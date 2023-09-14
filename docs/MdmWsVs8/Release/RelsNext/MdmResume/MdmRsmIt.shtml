@@ -15,14 +15,14 @@
     <title>Senior .Net Software Developer</title>
 </head>
 <body id="MdmPageDocTemplateInstance">
-    <div id="dgh_resume_2308" class="BodyMain BodyMainBorderBoxed BodyMainCenter">
-        <object class="BodyMainContainer" data="Resume_Dgh_StdCvVs31_Update2308.pdf" type="application/pdf">
+    <div id="dgh_resume_08" class="BodyMain BodyMainBorderBoxed BodyMainCenter">
+        <object class="BodyMainContainer" data="Resume_Dgh_StdCvVs_Update08.pdf" type="application/pdf">
             <!-- alt :  -->
-            <a class="" href="./Resume_Dgh_StdCvVs31_Update2308.pdf">Resume_Dgh_StdCvVs31_Update2308.pdf</a>
+            <a class="" href="./Resume_Dgh_StdCvVs_Update08.pdf">Resume_Dgh_StdCvVs_Update08.pdf</a>
         </object>
     </div>
     <!-- width="300" height="200" -->
-<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#include virtual="../../RelsBuildStage.js"-->
 <!--#if expr="${RelsBuild}=RelsNext" -->
                                 <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocTop.shtml"-->
                                 <!--* Next DOCUMENT GOES HERE *-->

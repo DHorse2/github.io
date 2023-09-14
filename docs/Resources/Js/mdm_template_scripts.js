@@ -1,4 +1,4 @@
-// <script type= "text/javascript">
+
 // ** Javascript Parameter Init Blocks **
 fnDebugParameterInit()
 {
@@ -1272,7 +1272,7 @@ function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot)
 	// Timer Type
 	var timerLevelKey = new String;
 	var LevelCnStart = 1;// Timer Element Item
-	if (UseRoot = DoUseRoot || UseRoot = DoUseBoth) {  LevelCnStart = 0; } // Timer Group Item
+	if (UseRoot = DoUseRoot || UseRoot == DoUseBoth) {  LevelCnStart = 0; } // Timer Group Item
 	//
 	for (var LevelCn = LevelCnStart;LevelCn < 2;LevelCn += 1) {
     	if (LevelCn = 0) {
@@ -1302,7 +1302,7 @@ function fnTimerItemAbort(timerType, timerGroup, timerId, UseRoot)
 	// Timer Type
 	var timerLevelKey = new String;
 	var LevelCnStart = 1;// Timer Element Item
-	if (UseRoot = DoUseRoot || UseRoot = DoUseBoth) {  LevelCnStart = 0; } // Timer Group Item
+	if (UseRoot = DoUseRoot || UseRoot == DoUseBoth) {  LevelCnStart = 0; } // Timer Group Item
 	//
 	for (var LevelCn = LevelCnStart;LevelCn < 2;LevelCn += 1) {
 			if (LevelCn = 0) {
@@ -1560,8 +1560,8 @@ function fnTimerStart(timerType, timerGroup, timerId,
 		(timerMethod = timerMethodItem && debugTimerDetail)
 		|| (timerMethod = timerMethodGroup)
 	) ) {
-		if ( (debugTimerTransition && timerType = timerTypeTransition)
-			|| (debugTimerMove && timerType = timerTypeMove) ) {
+		if ( (debugTimerTransition && timerType == timerTypeTransition)
+			|| (debugTimerMove && timerType == timerTypeMove) ) {
 			debugFunctionIsOn = true;
 		}
 	}
@@ -1664,8 +1664,8 @@ function fnTimerSet(timerType, timerGroup, timerId,
 		(timerMethod = timerMethodItem && debugTimerDetail)
 		|| (timerMethod = timerMethodGroup)
 	) ) {
-		if ( (debugTimerTransition && timerType = timerTypeTransition)
-			|| (debugTimerMove && timerType = timerTypeMove) ) {
+		if ( (debugTimerTransition && timerType == timerTypeTransition)
+			|| (debugTimerMove && timerType == timerTypeMove) ) {
 			debugFunctionIsOn = true;
 		}
 	}
@@ -2338,7 +2338,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId)
             + ', Time:' + Date()
 			+ ', Leaving process Group'
 			+ '.',
-            'fnTimerGroupDoStepMove', 5432, null, null,
+            'fnTimerGroupDoStepMove', 54, null, null,
             errorElementComment, true, false);
         //
 	    if (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) {
@@ -2564,7 +2564,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 					< timerObj[timerGroup] [timerItemKey].elementLeftDest) { isRightward = true;isRightwardFactor = 1; }
 			//
 			// Slide Down
-			if (!timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideDown
+			if (!timerObj[timerGroup] [timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
 				&& timerCompletionCurr < 0.5) {
 				// horizontal movement does not start until half way
 				// tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig;
@@ -2782,7 +2782,7 @@ function fnTimerMoveTest(timerType, timerGroup, timerId)
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     //
-    for(i= 0;i<10;i++)
+    for(i= 0; i < 10; i++)
     {
        iHorizontal+= 1;
        iVertical= iHorizontal;
@@ -2833,7 +2833,7 @@ function fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDi
 		if (timerObj[timerGroup] [timerRootKey]) {
 			LogText += 'Direction (' + ((timerObj[timerGroup] [timerRootKey].playDirection - playDirectionForward) ? 'Reverse' : 'Forward') + ')'
 		} else { LogText += 'Group Direction undefined'; }
-	} else if (UseRootKey = DoNotUseRoot || UseRootKey = DoUseBoth ) {
+	} else if (UseRootKey == DoNotUseRoot || UseRootKey == DoUseBoth ) {
 		if (timerObj[timerGroup] [timerItemKey]) {
             // LogText += (timerObj[timerGroup] [timerItemKey].playDirection - playDirectionForward);
             // LogText += ((timerObj[timerGroup] [timerItemKey].playDirection - playDirectionForward) ? 'Reverse' : 'Forward');
@@ -3051,8 +3051,8 @@ var DivLargeOnmousedownText = new String();
 var DivLargeOnmousedownFunction;
 var DivLargeOnmousedownFunctionName = new String();
 //
-// imgHtml += '<div id= 'BodyMenuImageContainer'>';
-    for (imgGroupCn = 1;imgGroupCn < 1+imgGroupMax;imgGroupCn++){
+// imgHtml += 'div id='BodyMenuImageContainer'>';
+    for (imgGroupCn = 1;imgGroupCn < 1+imgGroupMax; imgGroupCn++){
       for (imgCn = 1;imgCn < 1+imgMaxByGroup[imgGroupCn];imgCn++){
          oName = fnElementItemGetName(imgGroupCn, imgCn);
 // ..................................................................................... _//
@@ -5313,10 +5313,10 @@ function fnElementGetFromId(IdPassed) { return document.getElementById(IdPassed)
 // Element Get Pointer
 function fnElementGetRef(elementObject, elementObjectId, elementNamePassed)
 {
- 		if (false) {
+ 		if (browserIsTEST) {
             // browserIsTEST
             if (!elementNamePassed.length) { elementNamePassed = elementObjectId; }
-            elementObject = window.document.all[elementNamePassed];
+            elementObject = window.document.querySelector(elementNamePassed);
         } else if (browserIsIE || browserIsFF) {
           	// browserIE or browserIsFF
       	 	elementObject = document.getElementById(elementObjectId);
@@ -5334,13 +5334,13 @@ function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNameP
 // DOES THIS NEED TO BE COPIES.
 // As written it results in pointers into the Source Document
          // Dest = fnElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
- 		if (false) {
+ 		if (browserIsTEST) {
             // browserIsTEST
             if (!elementNamePassed.length) { elementNamePassed = elementIdPassed; }
-            elementPassed = window.document.all[elementNamePassed];
+            elementPassed = window.document.querySelector(elementNamePassed);
         } else if (browserIsIE && elementSourcePassed.all) {
           	// browserIE
-            elementPassed = elementSourcePassed.all[elementIdPassed];
+            elementPassed = elementSourcePassed.querySelector(elementIdPassed);
         } else if (browserIsFF) {
           	// browserIsFF
 		// fnElementGetFromElement(
@@ -5456,7 +5456,7 @@ function fnElementGetFromElement(
       if (elementChildObject) {
           if (elementChildObject.id) {
               if (elementChildObject.id != null) {
-			  if (elementChildObject.id != '' && elementChildObject.id = elementIdPassed) {
+			  if (elementChildObject.id != '' && elementChildObject.id == elementIdPassed) {
                   //
                   if (elementFindDoSetPassed = elementFindDoSet) {
     				  	if (elementFound) {
@@ -5471,22 +5471,22 @@ function fnElementGetFromElement(
                   		elementPassed = elementChildObject;
 				  		elementFound = true;
                   }
+                  //
+                //   if (browserIsTEST) {
+                //        // browserIsTEST
+                //        // elementObject = window.document.querySelector(elementNamePassed);
+                //   } else if (browserIsIE) {
+                //        // browserIE
+                //        // elementObject = elementSourcePassed.querySelector(elementObjectId);
+                //   } else if (browserIsFF) {
+                //       // browserIsFF
+                //       // elementObject = document.getElementById(elementObjectId);
+                //   } else if (true) {
+                //       // NOT browserIE or browserIsFF
+                //       // elementObject = document.getElementById(elementObjectId);
+                //   }
+                  //
                   return elementPassed;
-                  //
-                  if (false) {
-                       // browserIsTEST
-                       // elementObject = window.document.all[elementNamePassed];
-                  } else if (browserIsIE) {
-                       // browserIE
-                       // elementObject = elementSourcePassed.all[elementObjectId];
-                  } else if (browserIsFF) {
-                      // browserIsFF
-                      // elementObject = document.getElementById(elementObjectId);
-                  } else if (true) {
-                      // NOT browserIE or browserIsFF
-                      // elementObject = document.getElementById(elementObjectId);
-                  }
-                  //
               }
 			  } // end of length and id match
 			  //
@@ -5532,7 +5532,7 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
         //
         if (typeof(elementObject) != 'element') { return; }
         if (typeof(elementSourceObject) != 'element') {
-             elementObject = document.createElement();// X32
+             elementObject = document.createElement();// X
              // return;
         }
     }
@@ -7453,14 +7453,14 @@ function fnElementEventCheckDuplicate(UseLog)
             if (!browserIsFF) {
                if ((
                	eventCurrId = eventCurrRootObj.id
-              	&& eventLastRootId = eventCurrRootObj.id
+              	&& eventLastRootId == eventCurrRootObj.id
                	&& eventLastId != eventCurrId
               	)) { IsDuplicate = false; } else { IsDuplicate = true; }
-              	// && eventLast.type = eventType
+              	// && eventLast.type == eventType
             } else {
                 if ((
-                eventCurrId = eventCurrRootObj.id
-                && eventLastRootId = eventCurrRootObj.id
+                eventCurrId == eventCurrRootObj.id
+                && eventLastRootId == eventCurrRootObj.id
               	)) { IsDuplicate = false; } else { IsDuplicate = true; }
             }
 			break;
@@ -7687,7 +7687,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
 							+ ', Already running, performing a Move step instead'
 							+ '.',
-							'fnElementPlay', 3932, null, null,
+							'fnElementPlay', 39, null, null,
 							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				//
@@ -8090,9 +8090,9 @@ function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId
 {
 	// load and validate event and objects
 	fnElementEventFromHtmlCheck(null, debugLogEvents);
-	if (eventCurrId = oObjNextParentId
+	if (eventCurrId == oObjNextParentId
 		&& !eventMouseOverEnabled
-		&& eventType = 'mouseover'
+		&& eventType == 'mouseover'
 		)  {
 			return;
 		}
@@ -8441,15 +8441,14 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                           // ...................................... //
                           // Left Column (Left)
     					  // One First Column of Row
-                          if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) = 1) {
+                          if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
     					  // indicates both First and First of Next Row
                               if (layoutIndex = layoutWindowed) {
                                     oObjNextOffsetLeft = 0;
                                     oObjNextLeft = ( (oObjGroupIndex - 1) / 6 * layoutWidth)
                                         + menuImageOffsetFirst
                                         + oObjNextOffsetLeft;// (ie. Right Top)
-    // XXXXXXXX client width etc (refreshing?) 
-                              } else {
+    // XXXXXXXX client width etc (refreshing?)                              } else {
                                     // Use Parent Position plus offset
                                     oObjNextLeft = ( menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge]
                                         + menuImagePositionWidth[oObjGroupIndex] [oObjRootIndex] [IsImageLarge])
@@ -8467,7 +8466,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                     // ...................................... //
         			    // Right Column
                         // Cascade Maximum exceeded (Right)
-        				if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) = 1) {
+        				if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
                               if (layoutIndex = layoutWindowed) {
                                     oObjNextLeft = ( (oObjGroupIndex - 1) / 6 * layoutWidth);
                               } else {
@@ -8662,7 +8661,7 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 	var oObjNextIndex = oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
     // fnElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
-	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] [IsImageLarge] = true)  {
+	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] [IsImageLarge] == true)  {
 		if (debugTimer && debugTimerTransition) {
 			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
 				fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
@@ -8766,9 +8765,9 @@ switch(oObjGroupIndex) {
         case 3:
 			oObjId = 'MdmWebUi13';oObjParentId = 'MdmNetAppFrame12';break;
         case 4:
-			oObjId = 'MdmDbUtilClass14';oObjParentId = 'MdmWebUi13';break;
+			oObjId = 'MdmDbUtilClass';oObjParentId = 'MdmWebUi13';break;
         case 6:
-			oObjId = 'MdmOutlookSync15';oObjParentId = 'MdmDbUtilClass14';break;
+			oObjId = 'MdmOutlookSync15';oObjParentId = 'MdmDbUtilClass';break;
         case 5:
 			oObjId = 'MdmNetVirList16';oObjParentId = 'MdmOutlookSync15';break;
         case 7:
@@ -8790,9 +8789,9 @@ switch(oObjGroupIndex) {
         case 2:
 			oObjId = 'MdmRsmIt22';oObjParentId = 'MdmResume21';break;
         case 3:
-			oObjId = 'MdmDghCarBio23';oObjParentId = 'MdmRsmIt22';break;
+			oObjId = 'MdmDghCarBio';oObjParentId = 'MdmRsmIt22';break;
         case 4:
-			oObjId = 'MdmDghAccom24';oObjParentId = 'MdmDghCarBio23';break;
+			oObjId = 'MdmDghAccom24';oObjParentId = 'MdmDghCarBio';break;
         default:
 			oObjValid = false;
 			oObjId = 'MdmResume21';oObjParentId = 'MenuContainerLeft2';break;
@@ -8805,9 +8804,9 @@ switch(oObjGroupIndex) {
 		case 1:
 			oObjId = 'MdmTechRsrch31';oObjParentId = 'MenuContainerLeft3';break;
 		case 2:
-			oObjId = 'MdmCogSciProj32';oObjParentId = 'MdmTechRsrch31';break;
+			oObjId = 'MdmCogSciProj';oObjParentId = 'MdmTechRsrch31';break;
 		case 3:
-			oObjId = 'MdmMvvmProj33';oObjParentId = 'MdmCogSciProj32';break;
+			oObjId = 'MdmMvvmProj33';oObjParentId = 'MdmCogSciProj';break;
 		default:
 			oObjValid = false;
 			oObjId = 'MdmTechRsrch31';oObjParentId = 'MenuContainerLeft3';break;
@@ -9038,7 +9037,7 @@ oObjNotFound = false;
     case 'MdmImportTld11': 		oObjGroupIndex = 1;oObjIndex = 1;break;
     case 'MdmNetAppFrame12': 	oObjGroupIndex = 1;oObjIndex = 2;break;
     case 'MdmWebUi13': 	oObjGroupIndex = 1;oObjIndex = 3;break;
-    case 'MdmDbUtilClass14': 	oObjGroupIndex = 1;oObjIndex = 4;break;
+    case 'MdmDbUtilClass': 	oObjGroupIndex = 1;oObjIndex = 4;break;
     case 'MdmOutlookSync15': 	oObjGroupIndex = 1;oObjIndex = 5;break;
     case 'MdmNetVirList16': 	oObjGroupIndex = 1;oObjIndex = 6;break;
     case 'MdmSystemMgnt17': 	oObjGroupIndex = 1;oObjIndex = 7;break;
@@ -9047,7 +9046,7 @@ oObjNotFound = false;
     case 'MdmImportTld11L': 	oObjGroupIndex = 1;oObjIndex = 1;IsImageLarge = IsLarge;break;
     case 'MdmNetAppFrame12L': 	oObjGroupIndex = 1;oObjIndex = 2;IsImageLarge = IsLarge;break;
     case 'MdmWebUi13': 	oObjGroupIndex = 1;oObjIndex = 3;break;
-    case 'MdmDbUtilClass14L': 	oObjGroupIndex = 1;oObjIndex = 4;IsImageLarge = IsLarge;break;
+    case 'MdmDbUtilClassL': 	oObjGroupIndex = 1;oObjIndex = 4;IsImageLarge = IsLarge;break;
     case 'MdmOutlookSync15L': 	oObjGroupIndex = 1;oObjIndex = 5;IsImageLarge = IsLarge;break;
     case 'MdmNetVirList16L': 	oObjGroupIndex = 1;oObjIndex = 6;IsImageLarge = IsLarge;break;
     case 'MdmSystemMgnt17L': 	oObjGroupIndex = 1;oObjIndex = 7;IsImageLarge = IsLarge;break;
@@ -9061,12 +9060,12 @@ oObjNotFound = false;
     case 'MenuContainerLeft2': 	oObjGroupIndex = 2;oObjIndex = 0;elementIsRoot = true;break;
     case 'MdmResume21': 		oObjGroupIndex = 2;oObjIndex = 1;break;
     case 'MdmRsmIt22': 			oObjGroupIndex = 2;oObjIndex = 2;break;
-    case 'MdmDghCarBio23': 		oObjGroupIndex = 2;oObjIndex = 3;break;
+    case 'MdmDghCarBio': 		oObjGroupIndex = 2;oObjIndex = 3;break;
     case 'MdmDghAccom24': 		oObjGroupIndex = 2;oObjIndex = 4;break;
 	//
     case 'MdmResume21L': 		oObjGroupIndex = 2;oObjIndex = 1;IsImageLarge = IsLarge;break;
     case 'MdmRsmIt22L': 		oObjGroupIndex = 2;oObjIndex = 2;IsImageLarge = IsLarge;break;
-    case 'MdmDghCarBio23L': 	oObjGroupIndex = 2;oObjIndex = 3;IsImageLarge = IsLarge;break;
+    case 'MdmDghCarBioL': 	oObjGroupIndex = 2;oObjIndex = 3;IsImageLarge = IsLarge;break;
     case 'MdmDghAccom24L': 		oObjGroupIndex = 2;oObjIndex = 4;IsImageLarge = IsLarge;break;
     // default:oObjGroupIndex = 2;oObjIndex = 1;break;
   // }
@@ -9076,11 +9075,11 @@ oObjNotFound = false;
   // case 3: switch(oObjPassed.id){
     case 'MenuContainerLeft3': 	oObjGroupIndex = 3;oObjIndex = 0;elementIsRoot = true;break;
     case 'MdmTechRsrch31': 		oObjGroupIndex = 3;oObjIndex = 1;break;
-    case 'MdmCogSciProj32': 	oObjGroupIndex = 3;oObjIndex = 2;break;
+    case 'MdmCogSciProj': 	oObjGroupIndex = 3;oObjIndex = 2;break;
     case 'MdmMvvmProj33': 		oObjGroupIndex = 3;oObjIndex = 3;break;
 	// break;
     case 'MdmTechRsrch31L': 	oObjGroupIndex = 3;oObjIndex = 1;IsImageLarge = IsLarge;break;
-    case 'MdmCogSciProj32L': 	oObjGroupIndex = 3;oObjIndex = 2;IsImageLarge = IsLarge;break;
+    case 'MdmCogSciProjL': 	oObjGroupIndex = 3;oObjIndex = 2;IsImageLarge = IsLarge;break;
     case 'MdmMvvmProj33L': 		oObjGroupIndex = 3;oObjIndex = 3;IsImageLarge = IsLarge;break;
     // default:oObjGroupIndex = 3;oObjIndex = 1;break;
   // }
@@ -9133,7 +9132,4 @@ function fnElementItemIndexSetFromName(oObjPassed)
   return 0;
 }
 //
-// ..................................................................................... _//
-// ..................................................................................... _//
-//
-// </script>
+script_state = "MdmTemplateScripts loaded";

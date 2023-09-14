@@ -1,47 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- Mdm Available Services Page - (c)2011 David Horsman & Macroscope Design Matrix -->
-<html>
-	  <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-      	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
-        <meta name="Author" content="David G. Horsman" />
-        <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
-        <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
-        <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
-        <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
-        <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
-        <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
-        <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
-        <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
-        <link rel="stylesheet" type="text/css" href="../Css/MdmServ.css" />
-        <title>Mdm Available Services Page</title>
-	</head>
-<!--***************-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Mdm Available Services Page</title>
+    <meta name="Author" content="David G. Horsman">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+    <link rel="stylesheet" type="text/css" href="../Css/Page/MdmServ.css">
+    <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon" >
+    <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png" >
+</head>
 <body id="MdmServBody" class="BodyBox">
-<!--***************-->
-<img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg">
-    <!--*-->
     <!--** Body Area **-->
     <div id="BodyArea" class="BodyAreaClass">
         <!--*-->
         <div id="BodyMainContainer" class="BodyMainBorder">
             <!--** Center Main Column **-->
             <div id="BodyMainTop">
-                <!-- x -->
-<!-- x -->
+                <br>
 <!--** Menu Blocks **-->
-<!--#include virtual="../../RelsBuildStage.shtml"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
-    <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
-    <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
-<!--#else -->
-    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
-    <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
-<!--#endif -->
-<!--*-->
             </div>
-                <!--*-->
             <!--** Center Main Column **-->
             <div id="BodyMainCenter" class="BorderThin">
                 <!-- x -->
@@ -53,69 +37,65 @@
                 <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
                 	<div id="B1D1" class="BodyParaLeft">
 
-                    <h1 id="B3D1H1" class="BodyPara">
+                    <h2 id="B3D1H1" class="h2 BodyPara">
 						<span class="cSd f14">
 						MacroscopeDM Services
 						</span>
-					</h1>
+					</h2>
 
 <!--***************-->
-<H4>
+<h3 class="h3 BodyPara">
 Development
-</H4>
+</h3>
 <!--***************-->
-<div class="fPromo eBI">
-					<ul class="BodyPara lB1">
-<LI>Detailed design, development, and system testing
-<LI>Object oriented, script and procedural languages
-<LI>Specifications of ISO quality, UML diagrams
-<LI>Database design used with:
-					<ul class="BodyPara lB2">
-<LI>SQL
-<LI>Pick/MV Base/Revelation
-<LI>Ms Access
-<LI>Oracle
-<LI>Clarion</LI>
-					</ul>
-<LI>Product conversions to OO implementations
-<LI>Senior developer/team positions using:
-					<ul class="BodyPara lB2">
-<LI>Visual Basic
-<LI>Clarion
-<LI>Pick/MV Base/Revelation Open Insight
-<LI>Business Basic
-<LI>COBOL</LI>
-					</ul>
-</LI>
+<div class="BodyPara fPromo eBI">
+					<ul class="aLeft lB1">
+                        <li>Detailed design, development, and system testing</li>
+                        <li>Object oriented, script and procedural languages</li>
+                        <li>Specifications of ISO quality, UML diagrams</li>
+                        <li>Database design used with:</li>
+                            <li class="lB2">SQL</li>
+                            <li class="lB2">Pick/Revelation</li>
+                            <li class="lB2">Ms Access</li>
+                            <li class="lB2">Oracle</li>
+                            <li class="lB2">Clarion</li>
+                        <li>Product conversions to OO implementations</li>
+                        <li>Senior developer/team positions using:</li>
+                            <li class="lB2">Visual Basic</li>
+                            <li class="lB2">Clarion</li>
+                            <li class="lB2">Pick/Revelation</li>
+                            <li class="lB2">OpenInsight</li>
+                            <li class="lB2">Business Basic</li>
+                            <li class="lB2">COBOL</li>
 					</ul>
 </div>
 
 
 <!--***************-->
-<H4>
+<h3 class="h3 BodyPara">
 Consulting
-</H4>
+</h3>
 <!--***************-->
-<div class="fPromo eBI">
-<UL id="lb1">
-<LI>Applications Scope, Summary and Detailed Requirements
-<LI>Business Analysis and Consulting
-<LI>System Planning, Evaluation, Selection,
-        Upgrades</LI> 
-</UL>
+<div class="BodyPara fPromo eBI">
+<ul id="lb1">
+<li>Applications Scope, Summary and Detailed Requirements</li>
+<li>Business Analysis and Consulting</li>
+<li>System Planning, Evaluation, Selection,
+        Upgrades</li>
+</ul>
 </div>
 
 <!--***************-->
-<H4>
+<h3 class="h3 BodyPara">
 Support
-</H4>
+</h3>
 <!--***************-->
-<div class="fPromo"><span class="eBI">
-<UL id="lb1">
-<LI>Windows (98,NT,95,31), Dos, Pick, Revelation
-<LI>Technical Help Desk
-<LI>Troubleshooting and Debugging</LI>
-</UL>
+<div class="BodyPara fPromo eBI">
+<ul class="lb1">
+<li>Windows (98,NT,95,), Dos, Pick, Revelation</li>
+<li>Technical Help Desk</li>
+<li>Troubleshooting and Debugging</li>
+</ul>
 </div>
 
 
@@ -133,7 +113,7 @@ Support
 							</span>
                         </a>
                     </div>
-                    <h3 id="B3D1H1" class="BodyPara">
+                    <h3 id="B3D1H1" class="h3 BodyPara">
 						<span class="cSd f14">
 						Features Scope and Requirements
 						<br><br>
@@ -150,7 +130,7 @@ Support
 					<li>UI support for system, server, and security.</li>
 					<li>Robust defaults stategy</li>
 					<li>UI support for file group and owner.</li>
-                    <h3 id="B3D1H1" class="BodyPara">
+                    <h3 id="B3D1H1" class="h3 BodyPara">
 						<span class="cSd f14">
 						<br>Functionality
 						</span>
@@ -190,7 +170,6 @@ Support
         <!--** End of Main Page Body BodyMainContainer *-->
     </div>
     <!--** End of Content Container BodyArea *-->
-    </div>
     <!--*-->
 </body>
 </html>

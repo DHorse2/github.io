@@ -57,14 +57,14 @@ display:none;
 #DivCalloutB15C2:hover .CPP{
 /* Layering */
 display:block;
-width:40.0em;
+max-width:40.0em;
 z-index: 1004;
 }
 
 #DivCalloutB15C2:hover {
 /* Layering */
 display:block;
-width:40.0em;
+max-width:40.0em;
 z-index: 1004;
 }
 

@@ -1,0 +1,243 @@
+// ------------------------------------------------------------------------------------- _//
+////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- _//
+// GLOBAL / COMMON
+// ------------------------------------------------------------------------------------- _//
+// ------------------------------------------------------------------------------------- _//
+// Functions:
+// ------------------------------------------------------------------------------------- _//
+////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- _//
+// STANDARD FUNCTIONS
+// ------------------------------------------------------------------------------------- _//
+// GLOBAL / COMMON
+////////////////////////////////////////////////
+// Global
+// 		 fnDocumentLoadInit
+// Elements
+// 		fnElementPosGet
+// Layout
+//		fnLayoutSelectByIndex
+// Menu Images
+// 		fnMenuImagesHtmlBuild
+// Mouse
+// 		fnMouseOverImg
+//		fnMouseOutImg
+//		fnMouseClickImg
+// ------------------------------------------------------------------------------------- _//
+////////////////////////////////////////////////
+// MENUS
+// Menu Image Show / Hide
+// Menu Show
+// 		fnMenuImgShowRange
+//		fnMenuImgShowIndex
+//		fnMenuImgShowStack
+//		fnMenuImgToggle
+//		fnMenuImgShow
+// Menu Hide
+// 		fnMenuImgToggleRange
+//		fnMenuImgHide
+// Menu Object Selection
+// 		fnMenuObjectSetAll
+//		fnMenuObjectTextSet
+//		fnMenuObjectNameSet
+//		fnMenuIndexSet
+//		fnMenuIndexSetByName
+////////////////////////////////////////////////
+// LAYOUT MANAGEMENT
+// 		fnLayoutCheck
+//		fnLayoutRefresh
+//		fnLayoutNext
+////////////////////////////////////////////////
+// STANDARD FUNCTIONS
+// Math Functions
+// 		fnMathNumberRandomGetByRange
+// Font Size Control
+//		fnFontSizeIncrease
+//		fnFontSizeDecrease
+////////////////////////////////////////////////
+// OBJECT ANIMATION
+// Filter (Transition, Transform) Get by Index or Name
+// 		fnFilterGetByIndex
+////////////////////////////////////////////////
+// FILTER MANAGEMENT
+// General
+// 		fnFilterResetThenAnimate
+// Filter Store / Restore
+// 		fnFilterStore
+//		fnFilterRestore
+// Animate Object
+// 		fnFilterAnimate
+// Filter Specific Functions
+// 		StyleBackground
+//				fnStyleBackgroundToggle
+// 		Matrix
+//			  	fnFilterSpin
+//				fnFilterSetRotation
+//				fnFilterResize
+//		fnSlideStyleToggle
+//				fnSlideStyleToggle
+//		Other
+//			 	OtherFunction...
+// Filter Get / Set
+// 		fnFilterGetByIndex
+//		fnFilterGetRandom
+// Filter Timing Get By Index
+// 		fnFilterTimingGetByIndex
+//		fFilterTimingGetRandom
+////////////////////////////////////////////////
+// DOCUMENT EVENTS
+// 		window.onload
+//
+////////////////////////////////////////////////
+//
+// ------------------------------------------------------------------------------------- _//
+////////////////////////////////////////////////
+// Body Layout Objects:
+// GLOBAL LAYOUT
+////////////////////////////////////////////////
+//
+// BodyArea
+// BodyMainContainer
+//
+// BodyBanner  (Hide / Show, copy to Bottom)
+// BodyBannerBottom  (Hide / Show, copy to Bottom)
+//
+// BodyMainLeft
+// BodyMainLeftSave
+// BodyMainLeftOuter
+// BodyMainLeftInner
+// BodyMenuLayout1
+// MenuGroup1
+// MenuGroup1Save
+// MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+// MenuGroup2
+// MenuGroup2Save
+// MenuContainerLeft2
+// MenuGroup3
+// MenuGroup3Save
+// MenuContainerLeft3
+//
+// BodyMainCenter
+// BodyMainCenterColumns
+//
+// BodyMainCenterTop (Hide / Show)
+// BodyMainCenterTopLeft
+// BodyMainCenterTopRight
+// BodyBanner  (Hide / Show, copy to Bottom)
+//
+// BodyMainCenterCenter
+//
+// BodyMainCenterBottom  (Hide / Show)
+// BodyBannerBottom  (Hide / Show, copy to Bottom)
+//
+// BodyMainRight
+// BodyMainRightSave
+// BodyMainRightOuter
+// BodyMainRightInner
+// BodyMenuLayout2
+// MenuGroup4
+// MenuContainerRight1 (Hide / Show, copy to TopRight)
+// MenuGroup5
+// MenuContainerRight2
+// MenuGroup6
+// MenuContainerRight3
+//
+// BodyMainRightFar
+//
+// BodyImageContainer
+// BodyMenuImageContainer
+//
+// ColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
+// ------------------------------------------------------------------------------------- _//
+///////////////////////////////////////////////
+// Body Layout Management (Combinations)
+//
+// Optoin Toggles:
+// 	 		 Hidden Banner
+//			 Hidden Menu1
+//			 Hidden Menu2
+//			 Hidden Menu 1 & 2
+//			 Hidden All
+//
+// 1 Standard
+// 	 		 Banner at Top
+//			 Body Center
+//			 Menu1 at Left
+//			 Menu2 at Right
+// 2 Reading Mode Hide
+//			 Body Center
+//			 Hidden Menu1 at Left
+//			 Hidden Menu2 at Right
+// 	 		 Hidden Banner at Bottom
+// 3 Windowed
+//			 Body Center
+//			 Menu1 at Center Top Left
+//			 Menu2 at Center Top Right
+// 	 		 Banner at Center Bottom
+// 4 Reading Mode Show
+//			 Body Center (Top Left)
+//			 All Other at Right
+//			 	 Menu1 at Top Left
+//			 	 Menu2 at Top Right
+// 	 		 	 Banner at Bottom
+//
+// Named Switch Enumerations are used...
+var layoutStandard = 1;
+var layoutReadingMode = 2;
+var layoutWindowed = 3;
+var layoutReadingModeLeft = 4;
+//
+var layoutStandardFirst = true;
+var layoutReadingModeFirst = true;
+var layoutWindowedFirst = true;
+var layoutReadingModeLeftFirst = true;
+//
+var layoutIndex = layoutStandard;
+var layoutIndexMax = 4;
+var layoutRefreshCn = layoutStandard;
+var layoutRefreshCnLast = layoutStandard;
+//
+////////////////////////////////////////////////
+// Layout User Interface Toggles:
+// Animation Toggles:
+// 			  Toggle Step 1 of 2 Step Animations
+// 			  Toggle 2 Step Animations
+// 			  Toggle Random Animations
+// 			  Toggle All Animations
+// Layout Toggles:
+// 		  	  Full Screen
+// 		  	  Font Sizing Ui
+//			  Callout Display
+// Analyzed Layout Area Links:
+// 		  	  Blocks
+//			  		Paragraph
+//			  		Paragraph
+//					   ...
+// 		  	  Screen Area (Collapsable)
+//			  		 Body Area
+//			  		 Body Area
+//			  		    ...
+// Data Entry Field
+//
+// Console Messages
+//
+// Instant Messaging Area
+//
+//
+///////////////////////////////////////////////
+// Optoin Toggles:
+// 	 		 Hidden Banner
+//			 Hidden Menu1
+//			 Hidden Menu2
+//			 Hidden Menu 1 & 2
+//			 Hidden All
+//
+///////////////////////////////////////////////
+//
+///////////////////////////////////////////////
+// Body Layout Selection
+// STANDARD FUNCTIONS
+// GLOBAL / COMMON
+////////////////////////////////////////////////
+//

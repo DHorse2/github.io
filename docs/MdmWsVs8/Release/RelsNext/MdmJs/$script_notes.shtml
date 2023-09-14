@@ -1,0 +1,163 @@
+// SCRIPT TOP BODY
+	<!-- <script src="../MdmJs/mdm_template_scripts_inline.js"></script> -->
+	<!-- <script src="../MdmJs/MdmParamInit.js"></script> -->
+	<!-- <script src="../MdmJs/MdmPage.js"></script> -->
+	<!-- <object name="PageJava" data="../MdmJs/MdmPage.js" type="text/javascript"></object> -->
+	<!-- <script src="../MdmJs/MdmPage.js"></script> -->
+	<!-- <div w3-include-html="../MdmJs/MdmPage.js"></div> -->
+	<!-- * -->
+	<!-- ** Section Body Area ** -->
+	<!-- ** <div id="BodyArea" class="BodyAreaClass"> ** -->
+	<!-- <script src="../MdmJs/mdm_template_scripts.js"></script> -->
+	<!-- <script src="../MdmJs/inline.js"></script> -->
+	<!-- * -->
+// .....................................................................................
+// #include virtual="/release/RelsNext/TemplatePage/MdmPtDocHeader.shtml" >
+// <link rel="stylesheet" type="text/css" href="../Css/MdmDebugTagHover.css" >
+// .....................................................................................
+// SCRIPT
+// Script language="javascript" src="../TemplatePage/MdmDeclarations.js" >
+// Script language="javascript" src="../TemplatePage/MdmPage.js" >
+// *
+// Script language="javascript" src="../TemplatePage/MdmStandardFuntions.js" >
+// Script language="javascript" src="../TemplatePage/MdmElement.js" >
+// Script language="javascript" src="../TemplatePage/MdmTimer.js" >
+// Script language="javascript" src="../TemplatePage/MdmAnimation.js" >
+// *
+// Script language="javascript" src="../TemplatePage/MdmBodyBox.js" >
+// Script language="javascript" src="../TemplatePage/MdmLayout.js" >
+// *
+// Script language="javascript" src="../TemplatePage/MdmMenu.js" >
+// Script language="javascript" src="../TemplatePage/MdmMenuImage.js" >
+// Script language="javascript" src="../TemplatePage/MdmMenuImageCollection.js" >
+// *
+// Script language="javascript" src="../TemplatePage/MdmTimer.js" >
+// *
+// Script language="javascript" src="../TemplatePage/MdmDebugTagHover.js" >
+// *
+// *
+// END OF SCRIPT
+// ..................................................................................... _//
+// *
+// *
+// <link rel="shortcut icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.ico" type="image/x-icon" >
+// <link rel="apple-touch-icon" href="http://macrodm.atwebpages.com/release/RelsNext/Images/MdmControlLeft.png" >
+// *
+// *
+<!-- ..................................................................................... -->
+<!-- Section Document Initialization
+// ..................................................................................... _//
+// onlayoutcomplete="fnDocumentLoadInit();";
+fnDocumentLoadInit();
+//
+fnMenuImagesHtmlBuild();
+//
+// Choose Standard Layout
+fnLayoutSelectByIndex(layoutStandard);
+-->
+<!-- Section Post Document Load Script -->
+<!-- SCRIPT -->
+<!-- Script language="javascript" src="../TemplatePage/MdmPage.js" > -->
+<!-- <script type="text/javascript"> -->
+<!--
+//
+// ..................................................................................... _//
+// todo Body Structure
+// ..................................................................................... _//
+////////////////////////////////////////////////
+//
+// BodyArea
+// BodyMainContainer
+//
+// BodyBanner  (Hide / Show, copy to Bottom)
+//
+// BodyMainLeft
+// MenuGroup1
+// MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+// MenuGroup2
+// MenuContainerLeft2
+// MenuGroup3
+// MenuContainerLeft3
+//
+// BodyMainCenter
+// BodyMainCenterColumns
+//
+// BodyMainCenterTop (Hide / Show)
+// BodyMainCenterTopLeft
+// BodyMainCenterTopRight
+//
+// BodyMainCenterCenter
+//
+// BodyMainCenterBottom  (Hide / Show)
+// BodyBannerBottom
+//
+// BodyMainRight
+// MenuGroup4
+// MenuContainerRight1 (Hide / Show, copy to TopRight)
+// MenuGroup5
+// MenuContainerRight2
+// MenuGroup6
+// MenuContainerRight3
+//
+// BodyImageContainer
+// BodyMenuImageContainer
+//
+////////////////////////////////////////////////
+// ..................................................................................... _//
+// Major Section Post Document Load function (s):
+// ..................................................................................... _//
+// ...................................... //
+// Section Console / Debug / UI Form Parameters function (s)
+// ...................................... //
+// Shims:
+// ...................................... //
+<!-- ** Javascript Parameter Init Blocks ** -->
+// ...................................... //
+<!--#include virtual="../../RelsBuildStage.js"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/release/RelsNext/MdmJs/MdmParamInit.js"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/release/RelsCurr/MdmJs/MdmParamInit.js"-->
+<!--#else -->
+    <!--#include virtual="../../MdmJs/MdmParamInit.js"-->
+    <!--#include virtual="/release/RelsNotInitError.htm"-->
+<!--#endif -->
+// ...................................... //
+<!-- ** Javascript Parameter Set Blocks ** -->
+// ...................................... //
+<!--#include virtual="../../RelsBuildStage.js"-->
+<!--#if expr="${RelsBuild}=RelsNext" -->
+    <!--#include virtual="/release/RelsNext/MdmJs/MdmParamSet.js"-->
+<!--#elif expr="${RelsBuild}=RelsCurr" -->
+    <!--#include virtual="/release/RelsCurr/MdmJs/MdmParamSet.js"-->
+<!--#else -->
+    <!--#include virtual="../../MdmJs/MdmParamSet.js"-->
+    <!--#include virtual="/release/RelsNotSetError.htm"-->
+<!--#endif -->
+<!-- ..................................................................................... -->
+<!-- ..................................................................................... -->
+// ------------------------------------------------------------------------------------- _//
+// Functions:
+// ------------------------------------------------------------------------------------- _//
+////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------- _//
+// STANDARD FUNCTIONS
+// ------------------------------------------------------------------------------------- _//
+// GLOBAL / COMMON
+////////////////////////////////////////////////
+//
+////////////////////////////////////////////////
+// Elements
+// 		fnElementPosGet
+// Layout
+//		fnLayoutSelectByIndex
+//		fnMouseClickImg
+// Mouse
+// 		fnMouseOverImg
+//		fnMouseOutImg
+//		fnMouseClickImg
+//
+////////////////////////////////////////////////
+//
+//
+// ------------------------------------------------------------------------------------- _//

@@ -68,10 +68,10 @@ object.style.filter ="progid:DXImageTransform.Microsoft.Slide(sProperties)"
 */
 /* ------------------------------------------------ */
 /*
-	<div id="MdmImportTldl"
+	<div id="MdmImportTldLarge"
 		 class="imgThumbLarge MenuImageBorder MenuImageContainer"
-      	 onmouseout="fnMenuImgHide(MdmImportTldlImage, MdmImportTldl, 1, false)"
-    	 onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldlImage, MdmImportTldl, 600, 1, false); fnReset(this)"
+      	 onmouseout="fnMenuImgHide(MdmImportTldLargeImage, MdmImportTldLarge, 1, false)"
+    	 onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldLargeImage, MdmImportTldLarge, 600, 1, false); fnReset(this)"
     	 width=" 0em"
     	 height=" 0em"
   	STYLE="position:absolute;
@@ -80,7 +80,7 @@ filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', dura
   	onfilterchange="fnSpin(this)"
 		 >
 
-<!--     onmouseover="fnMenuImgShowStack(MdmSystemMgnt, MdmWebDevImage, MdmWebDev, 150, 1, true)" -->
+<!--     onmouseover="fnMenuImgShowStack(MdmSystemMgnt, MdmWebDevImage, MdmWebDev, 0, 1, true)" -->
 
 */
          	

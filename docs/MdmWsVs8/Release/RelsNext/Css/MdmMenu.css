@@ -182,7 +182,7 @@ background-image: url(../Images/MenuTile.jpg);
 /* -------------------------------------------- */
 .MenuContainer {
 /* Size */
-/* width:157px; */
+/* width:7px; */
 width:inherit;
 }
 
@@ -224,7 +224,7 @@ text-decoration: none;
 .MenuColumnClass {
 /* Size */
 width:inherit;
-/* width:15.0em; */
+/* width:.0em; */
 /* Alignment */
 margin: 0em 0em 0em 0em;
 padding: 0em 0em 0em 0em;

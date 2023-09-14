@@ -1,2 +1,0 @@
-<!--#set var="RelsBuild" value="RelsNext" -->
-var RelsBuild = "RelsNext";

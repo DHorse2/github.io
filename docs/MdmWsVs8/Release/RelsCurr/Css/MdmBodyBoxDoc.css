@@ -219,10 +219,11 @@ padding:0px 15px 5px 15px;
 float:left;
 /* Background */
 background:none;
+opacity: 1.0;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=100);
+/* [if !Gecko] filter:alpha(opacity=100); */
 /* CSS3 standard */
-[if !Gecko] opacity:1.0;
+/* [if !Gecko] opacity:1.0; */
 }
 
 .BodyParaRight{

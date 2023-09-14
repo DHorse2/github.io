@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+	<title>Professional and Personal Site for Dave Horsman</title>
+	<meta name="Author" content="David G. Horsman">
+	<meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+	<link rel="stylesheet" type="text/css" href="../Css/Page/MdmMain.css">
+	<link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
+	<script src="../MdmJs/MdmIncludeHtml.js"></script>
+	<script src="../../RelsBuildStage.js"></script>
+	<script src="../MdmJs/MdmDeclarations.js"></script>
+	<script src="../MdmJs/Page/Defaults.js"></script>
+	<script src="../MdmJs/Page/MdmMain.js"></script>
+	<script src="../MdmJs/Page/MdmMainMenuImage.js"></script>
+	<script src="../MdmJs/Page/MdmMainElementImage.js"></script>
+	<script src="../MdmJs/MdmError.js"></script>
+	<script src="../MdmJs/MdmDebugConsole.js"></script>
+	<script src="../MdmJs/MdmParamSet.js"></script>
+	<script src="../MdmJs/MdmPageElement.js"></script>
+	<script src="../MdmJs/MdmBrowser.js"></script>
+	<script src="../MdmJs/MdmStandardFuntions.js"></script>
+	<script src="../MdmJs/MdmAnimation.js"></script>
+	<script src="../MdmJs/MdmElement.js"></script>
+    <script src="../MdmJs/MdmTimer.js"></script>
+	<script src="../MdmJs/MdmDebugTagHover.js"></script>
+	<script src="../MdmJs/MdmLayout.js"></script>
+	<script src="../MdmJs/MdmMenu.js"></script>
+	<script src="../MdmJs/MdmMenuImage.js"></script>
+	<script src="../MdmJs/MdmMenuImageCollection.js"></script>
+	<script src="../MdmJs/MdmParamInit.js"></script>
+	<script src="../MdmJs/MdmPageInit.js"></script>
+</head>
+<!-- ..................................................................................... -->
+<!-- Section HTML Body Content -->
+<!-- ..................................................................................... -->
+<body></body>
+</html>

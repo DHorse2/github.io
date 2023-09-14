@@ -15,7 +15,7 @@
     <title>DocumentTemplate</title>
 </head>
 <body id="MdmPageDocTemplateInstance">
-<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#include virtual="../../RelsBuildStage.js"-->
 <!--#if expr="${RelsBuild}=RelsNext" -->
                                 <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocTop.shtml"-->
                                 <!--* Next DOCUMENT GOES HERE *-->

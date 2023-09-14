@@ -21,11 +21,11 @@ Right
 // BodyBanner  (Hide / Show, copy to Bottom)
 //
 // BodyMainLeft
-// MenuLeft1
+// MenuGroup1
 // MenuContainerLeft1 (Hide / Show, copy to TopLeft)
-// MenuLeft2
+// MenuGroup2
 // MenuContainerLeft2
-// MenuLeft3
+// MenuGroup3
 // MenuContainerLeft3
 //
 // BodyMainCenter
@@ -41,11 +41,11 @@ Right
 // BodyBannerBottom
 //
 // BodyMainRight
-// MenuRight1
+// MenuGroup4
 // MenuContainerRight1 (Hide / Show, copy to TopRight)
-// MenuRight2
+// MenuGroup5
 // MenuContainerRight2
-// MenuRight3
+// MenuGroup6
 // MenuContainerRight3
 //
 // BodyImageContainer
@@ -58,7 +58,7 @@ Right
 /* -------------------------------------------- */
 #BodyMainCenter, .BodyMainCenter {
 /* Position */
-position:relative;
+/* position:relative; */
 top:0%;
 /* Size */
 width:60%;
@@ -119,7 +119,8 @@ position:relative;
 left:1%;
 /* Size */
 width:48%;
-height:40.0em;
+height:100%;
+/* height:40.0em; */
 /* Alignment */
 overflow:hidden;
 /* Layout / Visibility */
@@ -135,7 +136,8 @@ position:relative;
 /* left:50%; */
 /* Size */
 width:48%;
-height:40.0em;
+height:100%;
+/* height:40.0em; */
 /* Alignment */
 overflow:hidden;
 /* Layout / Visibility */
@@ -207,9 +209,9 @@ height:auto;
 display:block;
 }
 
-#BodyMenuLayout1, .BodyMenuLayout1 { }
+/* #BodyMenuLayout1, .BodyMenuLayout1 { } */
 /* BodyLayout2 */
-#BodyMenuLayout2, .BodyMenuLayout2 { }
+/* #BodyMenuLayout2, .BodyMenuLayout2 { } */
 /* -------------------------------------------- */
 /* Menu Group Layout */
 /* Left Groups 1, 2, 3 */
@@ -278,7 +280,7 @@ left:0%;
 
 #BodyMainLeft, .BodyMainLeft {
 /* Position */
-position: relative;
+/* position: relative; */
 top: 0%;
 /* Size */
 width: 20%;
@@ -345,10 +347,10 @@ background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
 /* -- Styling -- */
 /* -- Column Styling -- */
 /* MenuContainerLeft1 (Hide / Show, copy to TopLeft) */
-/* MenuLeft1 */
-#MenuLeft1, .MenuLeft1 {
+/* MenuGroup1 */
+#MenuGroup1, .MenuGroup1 {
 /* Position */
-position:static;
+position:inherit;
 /* Layout / Visibility */
 display:block;
 }
@@ -358,8 +360,8 @@ position:static;
 /* Layout / Visibility */
 display:block;
 }
-/* MenuLeft2 */
-#MenuLeft2, .MenuLeft2 {
+/* MenuGroup2 */
+#MenuGroup2, .MenuGroup2 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -370,8 +372,8 @@ position:static;
 /* Layout / Visibility */
 display:block;
 }
-/* MenuLeft3 */
-#MenuLeft3, .MenuLeft3 {
+/* MenuGroup3 */
+#MenuGroup3, .MenuGroup3 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -391,7 +393,7 @@ display:block;
 /* -- Container -- */
 .BodyMainRight, #BodyMainRight {
 /* Position */
-position: relative;
+/* position: relative; */
 top: 0%;
 /* Size */
 width: 20%;
@@ -453,8 +455,8 @@ background:transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
 /* -------------------------------------------- */
 /* MenuContainerRight1 (Hide / Show, copy to TopLeft) */
 /* -------------------------------------------- */
-/* MenuRight1 */
-#MenuRight1, .MenuRight1 {
+/* MenuGroup4 */
+#MenuGroup4, .MenuGroup4 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -467,8 +469,8 @@ position:static;
 display:block;
 }
 
-/* MenuRight2 */
-#MenuRight2, .MenuRight2 {
+/* MenuGroup5 */
+#MenuGroup5, .MenuGroup5 {
 /* Position */
 position:static;
 /* Layout / Visibility */
@@ -482,8 +484,8 @@ position:relative;
 display:block;
 }
 
-/* MenuRight3 */
-#MenuRight3, .MenuRight3 {
+/* MenuGroup6 */
+#MenuGroup6, .MenuGroup6 {
 /* Position */
 position:static;
 /* Layout / Visibility */

@@ -10,7 +10,7 @@
                 <!--x -->
 <!--x -->
 <!--** Menu Blocks **-->
-<!--#include virtual="../../RelsBuildStage.shtml"-->
+<!--#include virtual="../../RelsBuildStage.js"-->
 <!--#if expr="${RelsBuild}=RelsNext" -->
     <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
 <!--#elif expr="${RelsBuild}=RelsCurr" -->

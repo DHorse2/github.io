@@ -1,0 +1,33 @@
+/* Default CSS */
+/* -- Centre Area-- */
+.DivB1{
+/* Position */
+position:relative;
+top: 3em;
+left: 3.5em;
+/* Size */
+min-width:40.0em;
+min-height:45.0em;
+/* Alignment */
+/* Layering */
+z-index:1;
+}
+
+#B1D1P4{
+/* Border */
+border-bottom:1px solid black;
+}
+
+#B1C1A .CPP{
+/* Alignment */
+display:none;
+}
+
+#B1C1A:hover .CPP{
+/* Alignment */
+display:block;
+z-index:1;
+}
+
+/* ----------------- */
+

@@ -1,10 +1,10 @@
-<!-- MenuRight2 - BodyViewToggle and BodyConsole -->
+<!-- MenuGroup5 - BodyViewToggle and BodyConsole -->
     <div id="MenuContainerRight2"
         class="MenuContainer MenuColumnClass fText f10 "
         >
         <p id="MenuGroup5Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss47', 'MdmBlank48Image', 'MdmBlank48', oObjImageSizeSmall, 5, 8, true, false)"
+           onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 5, 8, true, false)"
     	   >
     	    Flexibile User Interface Design<br >
     		(Toggle these settings)
@@ -147,4 +147,4 @@
         </ul>
 	</div> <!-- end of MenuContainerRight2 -->
 <!-- x ------------------------------------------------------------------------------------- -->
-    <br id="MenuRight2ColBreak" class="aClearBoth">
+    <br id="MenuGroup5ColBreak" class="aClearBoth">

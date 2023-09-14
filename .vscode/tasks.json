@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // Test echo
+        {
+            "detail": "Echos 'Hello' to the console",
+            "label": "echo",
+            "type": "shell",
+            "command": "echo Hello"
+        },
+        // Chrome
+        {
+            "detail": "Open file in Chrome",
+            "label": "Chrome",
+            "type": "process",
+            "command": "chrome.exe",
+            "windows": {
+                "command": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+            },
+            "args": [
+                "${file}"
+            ],
+            "problemMatcher": []
+        },
+        // Firefox c:\\Program Files\\Mozilla Firefox\\firefox.exe
+        {
+            "detail": "Open file in Firefox",
+            "label": "Firefox",
+            "type": "process",
+            "command": "firefox.exe",
+            "windows": {
+                "command": "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
+            },
+            "args": [
+                "${file}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "detail": "Open file externally using explorer.exe",
+            "label": "Command",
+            "command": "explorer",    
+            "windows": {
+                "command": "explorer.exe"
+            },
+            "args": ["${file}"]
+        }
+    ],
+}

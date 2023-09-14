@@ -1,26 +1,23 @@
-  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-  <!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
-  <!-- Mdm Web Development - (c)2011 David Horsman & Macroscope Design Matrix -->
-  <html>
+  <!DOCTYPE html>
+  <html lang="en">
   <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Web and Intranet Development</title>
+      <meta name="Author" content="David G. Horsman">
+      <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+      <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
   	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
-      <meta name="Author" content="David G. Horsman" />
-      <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
-      <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
-      <link rel="stylesheet" type="text/css" href="../Css/MdmWebDev.css" />
-      <title>Web and Intranet Development</title>
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+      <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+      <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css">
+      <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+      <link rel="stylesheet" type="text/css" href="../Css/Page/MdmWebDev.css">
+	  <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon" >
+	  <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png" >
   </head>
-  <body id="MdmImportTldBody" class="BodyBox">
-      <!--*-->
-  <!-- <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" /> -->
-      <!--*-->
+  <body id="MdmWebDev" class="BodyBox">
       <!--** Body Area **-->
       <div id="BodyArea" class="BodyAreaClass">
           <!--*-->
@@ -30,7 +27,7 @@
                   <!-- x -->
   <!-- x -->
   <!--** Menu Blocks **-->
-  <!--#include virtual="../../RelsBuildStage.shtml"-->
+  <!--#include virtual="../../RelsBuildStage.js"-->
   <!--#if expr="${RelsBuild}=RelsNext" -->
       <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
   <!--#elif expr="${RelsBuild}=RelsCurr" -->

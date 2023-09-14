@@ -139,7 +139,7 @@ filter:
 -ms-filter:"rotate(45deg) 3s ease-in-out";
 filter: rotate(45deg) 3s ease-in-out
 
-onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldlImage, MdmImportTldl, 600, 1, false); fnReset(this)"
+onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldLargeImage, MdmImportTldLarge, 600, 1, false); fnReset(this)"
 width=" 0em"
 height=" 0em"
 STYLE="position:absolute;
