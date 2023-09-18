@@ -102,6 +102,7 @@ var layoutDocumentWidthMin = 900;
 // Resize
 var layoutResizeCn = 0;
 var layoutResizeDelay = 0;
+var layoutParaWidthMax = 500; // todo Off currently
 // Page Loading Optimization
 ////////////////////////////////////////////////
 // Java Initilization Functions:

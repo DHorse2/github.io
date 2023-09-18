@@ -1262,6 +1262,7 @@ var columnType;
 var layoutEmRation = 1.0;
 //
 var layoutMenuDocWidthWide = 900;
+var layoutParaWidthMax = 500;
 //
 var layoutBlockCol3Min = 1000;
 var layoutBlockCol2Min = 500;

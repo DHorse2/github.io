@@ -62,6 +62,7 @@ function fnLayoutNext(layoutIndexPassed) {
     } else {
         layoutRefreshCn += 1;
     }
+	// todo maybe limit the number?
     if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
     fnLayoutRefresh(layoutRefreshCn);
 }
