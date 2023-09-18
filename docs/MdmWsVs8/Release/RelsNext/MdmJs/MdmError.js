@@ -189,6 +189,7 @@ function ErrorOccured2(eventCurr, errorElementPassed, errorElementSourcePassed, 
     }
 }
 // Window Error
+var e;
 function fnWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
     // this may set an event or message... dunno
     var errorCaller = fnWindowError.caller.name;
@@ -208,13 +209,12 @@ function fnWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPa
         localDoUseDebug = true;
     }
     //
-    if (Event) {
-        e = null;
-        eventEventCurr = e || Event;
-        //
+    eventEventCurr = Event;
+    e = Event;
+    //
         errorElement = eventEventCurr.target;
         errorElementSource = eventEventCurr.srcElement;
-        eventEventObject = (errorElementSource || errorElement);
+        eventEventObject = (errorElementSource || errorElement || Event);
         //
         eventEventType = eventEventCurr.type;
         if (eventEventObject.id) {
@@ -222,7 +222,6 @@ function fnWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPa
                 eventEventCurrId = eventEventObject.id;
             } else { eventEventCurrId = ''; }
         } else { eventEventCurrId = ''; }
-    }
     //
     // display error in log
     fnErrorOccured(eventCurr, DoUseDebug, DoUseSingeLine,

@@ -713,7 +713,6 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		cascadeColumn = (oObjIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
 		cascadeRow = Math.floor((oObjIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
 		// (oObjIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
-		//
 		// ...................................... //
 		// Cascase Direction (Down or Up)
 		var layoutCascadeDown = true;
@@ -721,14 +720,13 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		if (menuImageOffsetTopAll[oObjGroupIndex][indexGroup] > 0) {
 			layoutCascadeDown = true;
 		} else { layoutCascadeDown = false; }
-		// ...................................... //
 		// Animation
+		// ...................................... //
 		if (layoutIndex = layoutWindowed) {
 			layoutCascadeDown = true;
 			filterMotionDirectionSourceAngle = 292.5;
 			filterMotionDirection = 'rightdown';
 		}
-		// ...................................... //
 		// Top Position
 		// ...................................... //
 		// Offset
@@ -742,6 +740,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 			//
 			oObjNextTop += oObjNextOffsetTop;
 		} else {
+			// Small Image
 			oObjNextOffsetTop = menuImageOffsetTopAll[oObjGroupIndex][indexGroup];
 			oObjNextOffsetTop += menuImageOffsetTopAll[oObjGroupIndex][oObjIndex];
 			// ...................................... //
@@ -772,13 +771,11 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 				//
 			}
 		}
-		//
-		// ...................................... //
 		// Set Style Top for menu image box
-		oObjNext.style.top = oObjNextTop + 'px';
-		//
 		// ...................................... //
+		oObjNext.style.top = oObjNextTop + 'px';
 		// Menu Thumb Link Postioning (Top or Bottom)
+		// ...................................... //
 		// Large Image Handling
 		if (!IsImageLarge) {
 			// Small Image
@@ -806,8 +803,6 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 				oObjNext.childNodes[0].childNodes[2].style.display = 'block';
 			}
 		}
-		//
-		// ...................................... //
 		// Cascase Direction (Right or Left)
 		// ...................................... //
 		if (menuImageOffsetLeftAll[oObjGroupIndex][indexGroup] > 0) {
@@ -815,8 +810,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		} else { layoutCascadeRight = false; }
 		//
 		if (layoutCascadeRight) {
-			// ...................................... //
 			// Left Column (Left)
+			// ...................................... //
 			if (layoutCascadeDown) {
 				filterMotionDirectionSourceAngle = 315;
 				filterMotionDirectionSourceAngle = (oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 270;
@@ -827,8 +822,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 				filterMotionDirection = 'rightup';
 			}
 		} else {
-			// ...................................... //
 			// Right Column
+			// ...................................... //
 			if (layoutCascadeDown) {
 				filterMotionDirectionSourceAngle = 45;
 				filterMotionDirectionSourceAngle = (oObjNextOffsetTop / oObjNextOffsetLeft * 45);
@@ -839,10 +834,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 				filterMotionDirection = 'leftup';
 			}
 		}
-		// ...................................... //
 		// Left Position
 		// ...................................... //
-		//
 		// Offset
 		if (IsImageLarge) {
 			oObjNextOffsetLeft = menuImageOffsetLeftLarge[oObjGroupIndex];
@@ -928,15 +921,13 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 				}
 			} // end of Cascade Right or Left
 		} // end of Large or Small
-		//
-		// ...................................... //
 		// Set Left for menu image box
-		oObjNext.style.left = oObjNextLeft + 'px';
-		//
 		// ...................................... //
+		oObjNext.style.left = oObjNextLeft + 'px';
 		// Column Overflow
 		// ...................................... //
 		// Left Column (Left)
+			// ...................................... //
 		// Maximum Screen Width Exceeded (Left)
 		// note this should be an adjustable value
 		var oObjNextLeft; var imageLeftEdge; var imageRightEdge; var bodyLeftEdge; var bodyRightEdge;
@@ -967,11 +958,9 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		} while (imageLeftEdge - 10 < bodyLeftEdge);
 		//
 		if (oObjNextLeftChanged) { oObjNext.style.left = oObjNextLeft + 'px'; }
-		//
-		// ...................................... //
 		// Set Object Style Left
+		// ...................................... //
 		// oObjNext.style.left = oObjNext.style.posLeft;
-		//
 		// ...................................... //
 		// Store Postion
 		fnElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elementHeightDefault);
@@ -979,19 +968,15 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
 		menuImagePositionWidth[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
 		menuImagePositionHeight[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjHeight;// oObjNext.offsetHeight;
-		//
-		// ...................................... //
 		// Filters
 		// ...................................... //
-		//
-		// ...................................... //
 		// Z Index
+		// ...................................... //
 		imgZindex += 1;
 		oObjNext.style.zIndex = imgZindex + oObjIndex;
-		// ...................................... //
 		// Filter Apply Command
+		// ...................................... //
 		if (moveIsOn || filterIsOn) {
-			//
 			playDirection = playDirectionForward;
 			// playDirection = playDirectionReverse;
 			fnElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
@@ -1004,41 +989,36 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 			// Visibility
 			oObjNext.style.display = 'block';
 		} else {
-			// ...................................... //
 			// Visibility
+			// ...................................... //
 			oObjNext.style.display = 'block';
-			//
 		}
-		//
-		// ...................................... //
 		// Filter Item Creation
-		// oObjNext.filters.item = new Array(1);
-		//
-		// Filter Item Set
-		// oObjNext.filters.item(0) = '-ms-filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod= ' + quoteOpen + 'auto expand' + quoteClose + ', duration= ' + quoteOpen + '1.5' + quoteClose + ')';
-		//
 		// ...................................... //
+		// oObjNext.filters.item = new Array(1);
+		// Filter Item Set
+		// ...................................... //
+		// oObjNext.filters.item(0) = '-ms-filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod= ' + quoteOpen + 'auto expand' + quoteClose + ', duration= ' + quoteOpen + '1.5' + quoteClose + ')';
 		// Set Object Style Filter
+		// ...................................... //
 		// oObjNext.style.filter =
 		// 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod= ' + quoteOpen + 'auto expand' + quoteClose + ', duration= ' + quoteOpen + '1.5' + quoteClose + ')';
 		// 'progid:DXImageTransform.Microsoft.
-		//
-		// ...................................... //
 		// Sample / Test Filters
+		// ...................................... //
 		// Filter Test Microsoft
 		// oObjNextImage.style.filter = 'filter:progid:DXImageTransform.Microsoft.Wheel(duration= 3);filter:progid:DXImageTransform.Microsoft.Slide(slideStyle= ' + quoteOpen + 'HIDE' + quoteClose + ', duration= 3, bands= 1);';
 		// oObjNext.filters[0] = 'filter:progid:DXImageTransform.Microsoft.Wheel(duration= 3);';
 		// oObjNext.filters[1] = 'filter:progid:DXImageTransform.Microsoft.Slide(slideStyle= ' + quoteOpen + 'HIDE' + quoteClose + ', duration= 3, bands= 1);';
-		//
-		// ...................................... //
 		// Filter Play Command
+		// ...................................... //
 		// oObjNext.filters[0].play();
 		// oObjNext.filters.item(0).Play();
 		// oObjNext.filters[1].play();
 		// fnFilterResetThenAnimate(oObjNext);
 		// fnFilterSpin(oObjNext);
-		// ...................................... //
 		// Z Index
+		// ...................................... //
 		imgZindex += 1;
 		oObjNext.style.zIndex = imgZindex + oObjIndex;
 		//
@@ -1059,9 +1039,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 			if (oObjNextLarge.style.display = 'block') { oObjNextLarge.style.zIndex = imgZindex + oObjIndex; }
 		}
 	}
-	//
-	// ...................................... //
 	// Dispaly Lock vs MouseOut Disappear
+		// ...................................... //
 	// if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLocked; }
 	if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjLocked; }
 }

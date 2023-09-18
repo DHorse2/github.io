@@ -1,3 +1,4 @@
+var elementLayoutFirstDummy;
 // Menu and Image Missing Objects
 // var img1MenuLine;
 var img8MenuLine;
@@ -9,62 +10,7 @@ oObjGroupIndex = 1;
 // Current Image Position
 // var oObjNextTop;
 // var oObjNextLeft;
-function menuImageGroupInit(imgGroupCount, imgGroupBoxCount, menuImage) {
-    var imgGroupArraySize = imgGroupCount;
-    var imgGroupImageArraySize = imgGroupBoxCount + 1;
-    // Image Object Array
-    menuImage = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    // Current Image Position Offset
-    var oObjNextOffsetTop;
-    var oObjNextOffsetLeft;
-    // Current Image Index By Group
-    var imgCnByGroup = new Array(imgGroupArraySize);
-    // Maximum # of Images By Group
-    var imgMaxByGroup = new Array(imgGroupArraySize);
-    // Maximum # of Images Per Cascading Row By Group
-    var oObjectRowMax = new Array(imgGroupArraySize);
-    // Image Display (Visible) Locked Array
-    var menuImageLocked = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
-    var menuImageRootPosition = new Array(imgGroupArraySize);// By Top, Left, Right/Width, Bottom/Height
-    // Image Position
-    // Position of Parent Image (Parent of First only stored at this time)
-    var menuImagePositionLeft = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    var menuImagePositionTop = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    var menuImagePositionWidth = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    var menuImagePositionHeight = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    // Animation Timer by Group by Image
-    var menuImageTimerCn = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-    // Add Second Dimention (imgGroupImageArraySize)
-    for (oObjGroupIndex = 0; oObjGroupIndex < 1 + imgGroupArraySize; oObjGroupIndex++) {
-        //
-        ////////////////////////////////////////////////
-        // First Image Offset By Group, By Top, Left
-        menuImageOffsetFirstAll[oObjGroupIndex] = new Array(2);// By Top, Left (2)
-        // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
-        menuImageRootPosition[oObjGroupIndex] = new Array(4);// By Top, Left, Right/Width, Bottom/Height
-        //
-        ////////////////////////////////////////////////
-        // Image Object Array
-        menuImage[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        // Image Display (Visible) Locked Array
-        menuImageLocked[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        // Image Position
-        // Position of Parent Image (Parent of First only stored at this time)
-        menuImagePositionLeft[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        menuImagePositionTop[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        menuImagePositionWidth[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        menuImagePositionHeight[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        // Animation Timer by Group by Image
-        menuImageTimerCn[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        ////////////////////////////////////////////////
-        // Image Postioning Offsets
-        // These are layout postion patterns to be applied
-        menuImageOffsetLeftAll[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        menuImageOffsetTopAll[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-        //
-    }
-}
+
 // Menu Html Build
 ///////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
@@ -98,21 +44,16 @@ function fnMenuImagesHtmlBuild() {
     //
     imgHtml = "";
     // imgHtml += lt + 'div id="BodyMenuImageContainer"' + gt;
-    for (imgGroupCn = 1; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
-        for (imgCn = 1; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
+    for (imgGroupCn = 0; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
+        for (imgCn = 0; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
             oName = fnMenuObjectNameSet(imgGroupCn, imgCn);
             // imgHtml += '    // Image ' + imgCn +  _//';
-            //
-            // ------------------------------------------------------------------------------------- _//
             // Image Small
             // ------------------------------------------------------------------------------------- _//
-            //
-            // ------------------------------------------------------------------------------------- _//
             // Element Div
-            imgHtml += "	" + lt + "div id=&quot;" + oName + imgGroupCn + imgCn + "&quot;"; // Image Small Id
+            imgHtml += "	" + lt + "div id=&quot;" + oName + "&quot;"; // Image Small Id
+            // imgHtml += "	" + lt + "div id=&quot;" + oName + imgGroupCn + imgCn + "&quot;"; // Image Small Id
             imgHtml += '		 class= "imgThumbSmall MenuImageBox MenuImageBoxBorder"';// Class
-            //
-            // ------------------------------------------------------------------------------------- _//
             // Events:
             // ------------------------------------------------------------------------------------- _//
             // Mouse Over
@@ -126,8 +67,11 @@ function fnMenuImagesHtmlBuild() {
                 imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
             }
             imgHtml += ', ';
-            imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            imgHtml += oName+ ', ';// Small Image
+            // imgHtml += oName + 'Image' + ', ';// Small Image
+            imgHtml += oName + ', ';// Small Id
+            // imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image
+            // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
             imgHtml += oObjImageSizeSmall + ', ';// Small Image Size
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += imgCn + ', ';// Menu Group
@@ -136,7 +80,6 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += ');';
             imgHtml += '"';
             // end of mouseover
-            //
             // ------------------------------------------------------------------------------------- _//
             // Mouse Out
             imgHtml += '      	 onmouseout= "';
@@ -149,8 +92,10 @@ function fnMenuImagesHtmlBuild() {
                 imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
             }
             imgHtml += ', ';
-            imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            imgHtml += oName + 'Image' + ', ';// Small Image
+            imgHtml += oName + ', ';// Small Id
+            // imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image
+            // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += imgCn + ', ';// Menu Group
             imgHtml += 'false, ';// Current Show Lock
@@ -158,7 +103,6 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += ');';
             imgHtml += '"';
             // end of mouseout
-            //
             // ------------------------------------------------------------------------------------- _//
             // On Change
             /*--
@@ -171,8 +115,8 @@ function fnMenuImagesHtmlBuild() {
                        imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn-1));// Menu Container Id
                     }
             imgHtml += ', ';
-            imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            imgHtml += oName + 'Image' + ', ';// Small Image
+            imgHtml += oName + ', ';// Small Id
             imgHtml += oObjImageSizeSmall + ', ';// Small Image Size
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += 'false, ';// Current Show Lock
@@ -180,8 +124,7 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += ');';
             imgHtml += '"';
             --*/
-            //
-            // end of mouseover
+            // end of onfilterchange
             //
             // ------------------------------------------------------------------------------------- _//
             // Layout
@@ -198,14 +141,16 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Element: A
             // Text Link
-            imgHtml += lt + 'a id="' + oName + 'LinkUpper' + imgGroupCn + imgCn + '"';// Link Id
+            imgHtml += lt + 'a id="' + oName + 'LinkUpper' + '"';// Link Id
+            // imgHtml += lt + 'a id="' + oName + 'LinkUpper' + imgGroupCn + imgCn + '"';// Link Id
             imgHtml += '    		   class= "MenuImageBox MenuImageBoxLink"';// Class
             // Source
             imgHtml += '    		   href= "../MdmWebPages/' + oName + '.shtml"';// Link
             imgHtml += '    		   ' + gt;
             // ------------------------------------------------------------------------------------- _//
             // Element: P
-            imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + '"' + gt;// Link Text
+            // imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
             imgHtml += '         	   ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += '		' + lt + 'br clear= "all"' + gt;
             imgHtml += lt + '/span' + gt;
@@ -214,7 +159,8 @@ function fnMenuImagesHtmlBuild() {
             //
             // ------------------------------------------------------------------------------------- _//
             // Element: Img
-            imgHtml += lt + 'img id="' + oName + 'Image' + imgGroupCn + imgCn + '" ';// Image Id
+            imgHtml += lt + 'img id="' + oName + 'Image' + '" ';// Image Id
+            // imgHtml += lt + 'img id="' + oName + 'Image' + imgGroupCn + imgCn + '" ';// Image Id
             imgHtml += '        	 src= "../images/Thumbnails/' + oName + '.jpg" ';// Image Source src
             imgHtml += '        	 class= "MenuThumb" ';// Class
             // Events:
@@ -225,16 +171,19 @@ function fnMenuImagesHtmlBuild() {
             // Start Animation Filter
             // Filter Reset
             // imgHtml += ' fnFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
-            imgHtml += 'fnFilterResetThenAnimate(' + oName + 'l' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
-            // imgHtml += ' fnFilterSpin(' + oName + 'l' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            imgHtml += 'fnFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+            // imgHtml += ' fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
             --*/
             //
             // Image Show Toggle
             imgHtml += 'fnMenuImgToggle(';
             imgHtml += 'true, ';// Is Large Image
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
-            imgHtml += oName + 'lImage' + imgGroupCn + imgCn + ', ';// Large Image Object
-            imgHtml += oName + 'l' + imgGroupCn + imgCn + ', ';// Large Id
+            imgHtml += oName + ', ';// Small Id
+            imgHtml += oName + 'LargeImage' + ', ';// Large Image Object
+            imgHtml += oName + 'Large' + ', ';// Large Id
+            // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            // imgHtml += oName + 'LargeImage' + imgGroupCn + imgCn + ', ';// Large Image Object
+            // imgHtml += oName + 'Large' + imgGroupCn + imgCn + ', ';// Large Id
             imgHtml += oObjImageSizeLarge + ', ';// Image Large Size
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += imgCn + ', ';// Menu Group
@@ -246,7 +195,7 @@ function fnMenuImagesHtmlBuild() {
             //
             // Play Filter
             // imgHtml += ' onfilterchange= "fnFilterSpin(this + ', ' + filterIndexPassed + ');';// Spin this Image
-            // imgHtml += ' onfilterchange= "fnFilterSpin(' + oName + 'l' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
+            // imgHtml += ' onfilterchange= "fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
             // imgHtml += '" ';
             //
             // Size
@@ -282,7 +231,8 @@ function fnMenuImagesHtmlBuild() {
             //
             // ------------------------------------------------------------------------------------- _//
             // Element: Div
-            imgHtml += lt + 'div id="' + oName + 'l' + imgGroupCn + imgCn + '"';// Id
+            imgHtml += lt + 'div id="' + oName + 'Large' + '"';// Id
+            // imgHtml += lt + 'div id="' + oName + 'Large' + imgGroupCn + imgCn + '"';// Id
             imgHtml += '		 class= "imgThumbLarge MenuImageBoxBorder MenuImageBox"';// Class
             // MenuImageContainer
             // ------------------------------------------------------------------------------------- _//
@@ -292,9 +242,12 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += '      	 onmouseout= "';
             imgHtml += 'fnMenuImgHide(';
             imgHtml += 'true, ';// Is Large Image
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
-            imgHtml += oName + 'lImage' + imgGroupCn + imgCn + ', ';// Lare Image
-            imgHtml += oName + 'l' + imgGroupCn + imgCn + ', ';// Large Id
+            imgHtml += oName + ', ';// Small Id
+            imgHtml += oName + 'LargeImage' + ', ';// Lare Image
+            imgHtml += oName + 'Large' + ', ';// Large Id
+            // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            // imgHtml += oName + 'LargeImage' + imgGroupCn + imgCn + ', ';// Lare Image
+            // imgHtml += oName + 'Large' + imgGroupCn + imgCn + ', ';// Large Id
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += imgCn + ', ';// Menu Group Box
             imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
@@ -317,8 +270,10 @@ function fnMenuImagesHtmlBuild() {
                 imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
             }
             imgHtml += ', ';
-            imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image Object
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            imgHtml += oName + 'Image' + ', ';// Small Image Object
+            imgHtml += oName + ', ';// Small Id
+            // imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image Object
+            // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
             imgHtml += oObjImageSizeSmall + ', '; // Image Small Size
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += imgCn + ', ';// Menu Group Box
@@ -329,9 +284,12 @@ function fnMenuImagesHtmlBuild() {
             // Show Image Large
             imgHtml += 'fnMenuImgShow(';
             imgHtml += 'true, ';// Is Large Image
-            imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
-            imgHtml += oName + 'lImage' + imgGroupCn + imgCn + ', ';// Large Image
-            imgHtml += oName + 'l' + imgGroupCn + imgCn + ', ';// Large Id
+            imgHtml += oName + ', ';// Small Id
+            imgHtml += oName + 'LargeImage' + ', ';// Large Image
+            imgHtml += oName + 'Large' + ', ';// Large Id
+            // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            // imgHtml += oName + 'LargeImage' + imgGroupCn + imgCn + ', ';// Large Image
+            // imgHtml += oName + 'Large' + imgGroupCn + imgCn + ', ';// Large Id
             imgHtml += oObjImageSizeLarge + ', ';// Image Large Size
             imgHtml += imgGroupCn + ', ';// Menu Group
             imgHtml += imgCn + ', ';// Menu Group Box
@@ -342,15 +300,15 @@ function fnMenuImagesHtmlBuild() {
             // Start Animation Filter
             // Filter Reset
             // imgHtml += ' fnFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
-            // imgHtml += ' fnFilterResetThenAnimate(' + oName + 'l' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
-            // imgHtml += ' fnFilterSpin(' + oName + 'l' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            // imgHtml += ' fnFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+            // imgHtml += ' fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
             //
             imgHtml += '"';
             // end of mouseover
             //
             // Play Filter
             // imgHtml += '      	onfilterchange= "fnFilterSpin(this, filterIndexPassed);';// Spin this Image
-            // imgHtml += '      	onfilterchange= "fnFilterSpin(' + oName + 'l' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            // imgHtml += '      	onfilterchange= "fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
             // imgHtml += '" ';
             //
             // Div Size
@@ -393,14 +351,16 @@ function fnMenuImagesHtmlBuild() {
             // Image & Text Link
             // ------------------------------------------------------------------------------------- _//
             // Element: A
-            imgHtml += lt + 'a id= "' + oName + 'lLinkUpper' + imgGroupCn + imgCn + '"';
+            imgHtml += lt + 'a id= "' + oName + 'LargeLinkUpper' + '"';
+            // imgHtml += lt + 'a id= "' + oName + 'LargeLinkUpper' + imgGroupCn + imgCn + '"';
             imgHtml += '		   class= "MenuImageBox MenuImageBoxLink"';
             imgHtml += '		   href= "../MdmWebPages/' + oName + '.shtml"';
             imgHtml += '		   ' + gt;
             //
             // ------------------------------------------------------------------------------------- _//
             // Element: P
-            imgHtml += lt + 'span id= "' + oName + 'lLinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + '"' + gt;// Link Text
+            // imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
             imgHtml += '         ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += '		' + lt + 'br' + gt;
             // imgHtml += '		' + lt + 'br clear= "all"' + gt;
@@ -408,7 +368,8 @@ function fnMenuImagesHtmlBuild() {
             //
             // ------------------------------------------------------------------------------------- _//
             // Element: Img
-            imgHtml += lt + 'img id= "' + oName + 'lImage' + imgGroupCn + imgCn + '"';
+            imgHtml += lt + 'img id= "' + oName + 'LargeImage' + '"';
+            // imgHtml += lt + 'img id= "' + oName + 'LargeImage' + imgGroupCn + imgCn + '"';
             imgHtml += '    		 src= "../images/Thumbnails/' + oName + '.jpg"';// Image Source src
             imgHtml += '    		 class= "MenuThumbLarge"';
             // Alt
@@ -416,7 +377,8 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += '    		 ' + gt;
             // ------------------------------------------------------------------------------------- _//
             // Link Text
-            imgHtml += lt + 'span id= "' + oName + 'lLinkLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + '"' + gt;// Link Text
+            // imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
             // imgHtml += '		 ' + lt + 'br clear= "all"' + gt;
             imgHtml += '         ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += lt + '/span' + gt;
@@ -521,7 +483,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
             var boxHeight = 0;
             //---------------------------------------------------------------//
             // elBodyViewToggle View Toggle and Message Area
-            var elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
+            elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
             boxHeight += elBodyViewToggle.scrollHeight;
             // Banner Should be zero, don't use..,
             elBodyBannerTop.style.display = "block";
@@ -679,8 +641,8 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
             //			 Menu1 at Center Top Left
             if (layoutWindowedFirst) {
                 //
-                var TopLeftWidth = 0;
-                var TopLeftWidthInner = 0;
+                TopLeftWidth = 0;
+                TopLeftWidthInner = 0;
                 // BodyMenuLayout
                 //---------------------------------------------------------------//
                 // // elBodyMenuLayout1 BodyMenuLayout
@@ -851,7 +813,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
                 if (layoutMenuHeightMax < elMenuGroup6.style.height) { layoutMenuHeightMax = elMenuGroup6.style.height; }
                 //---------------------------------------------------------------//
                 // Column and Float Breaks and Clear
-                var elementLayoutFirstDummy;
+                // var elementLayoutFirstDummy;
                 elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
                 elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
                 elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
@@ -859,10 +821,10 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
             }
             //---------------------------------------------------------------//
             // Final adjustments to Center Top
-            var boxHeight = 0;
+            boxHeight = 0;
             //---------------------------------------------------------------//
             // elBodyViewToggle View Toggle and Message Area
-            var elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
+            elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
             boxHeight += elBodyViewToggle.scrollHeight;
             // Banner Should be zero, don't use..,
             boxHeight += elBodyBannerTop.scrollHeight;
@@ -1100,7 +1062,8 @@ function fnMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oO
     //	oObj.class= "MenuThumbHide";
     //
     if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-    var oObjNextIndex = oObjIndex = oObjGroupImageIndex;// fnMenuIndexSet(oObjNextGroupIndex, oObjNext);
+    var oObjNextIndex = oObjIndex = oObjGroupImageIndex;
+    // fnMenuIndexSet(oObjNextGroupIndex, oObjNext);
     // oObj = fnMenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
     //
     if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex] == true) { return; }

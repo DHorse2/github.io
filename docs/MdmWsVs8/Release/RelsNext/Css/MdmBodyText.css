@@ -1,17 +1,16 @@
 /* Body Paragraph Styling and Floating */
 
 /* -- Styling - Specific Instances -- */
-
 /* -------------------------------------------- */
-/* -- Body Column Content -- */
+/* -- Body COLUMN Content -- */
 .ColumnType1 {
 /* Size */
 width:48%;
 /* width:39%; */
 /* min-width:35.0em;  */
 /* max-width:35.0em; */
-margin: 0em;
-margin-top: 0.5em;
+margin: 0%;
+margin-top: 0.5%;
 }
 
 .ColumnType2 {
@@ -37,8 +36,8 @@ text-align: center;
 
 /* .ColumnTypeFixed {  } */
 
-/* -- Body Paragraph Content -- */
-
+/* -- Body Paragraph BOX Content -- */
+/* -------------------------------------------- */
 .DivBox {
 /* Position */
 position: relative;
@@ -50,12 +49,12 @@ height: 100%;
 position: relative;
 /* Size */
 /* Alignment */
-/* padding: 0.5em; */
+/* padding: 0.5%; */
 /* Border */
 border-color: Gray;
 margin: 1%;
 }
-/* padding:0.5em 0.5em 0.5em 0.5em; */
+/* padding:0.5% 0.5% 0.5% 0.5%; */
 /* Alignment */
 /* float:none; */
 
@@ -66,81 +65,49 @@ position: relative;
 min-width:25.0em;
 min-height:.0em;
 /* Alignment */
-/* padding:0.5em; */
+/* padding:0.5%; */
 /* Border */
 border-color: Gray;
 }
 
+/* -- Body Paragraph Content -- */
+/* -------------------------------------------- */
+// default
 .BodyPara {
 /* Size */
 max-width: 500px;
 /* Alignment */
-padding: 0.5em 0.5em 0.25em 0.5em ;
-/* padding:2em; */
-margin: 0em 0.5em 0em 0em;
+padding: 0.5% 0.5% 0.25% 0.5% ;
+/* padding:2%; */
+margin: 0% 0.5% 0% 0%;
 /* Background */
 background: #F5FEFF;
 /* Border */
 border-bottom: none;
-border-right: 0.1em solid black;
+border-right: 0.1% solid black;
 }
 
 .BodyParaIndent {
-/* padding:2em; */
-padding-left: 1em;
+/* padding:2%; */
+padding-left: 1%;
 }
 
 .BodyParaGround {
 /* Alignment */
-padding:0.5em 0.5em 0.25em 0.5em;
-margin: 0em 0.5em 0em 0em;
+padding:0.5% 0.5% 0.25% 0.5%;
+margin: 0% 0.5% 0% 0%;
 /* Background */
 background:#F5FEFF;
 }
 
 .BodyParaLast{
 /* Border */
-border-right:0.1em solid black;
-border-bottom: 0.1em solid black;
-}
-
-/* -------------------------------------------- */
-
-h.BodyPara  {
-/* Alignment */
-text-align:center;
-/* Decoration */
-font-weight: bold;
-}
-
-p.BodyPara  {
-/* Alignment */
-/* text-align:justify; */
-text-indent:1em;
-font-size:1em;
-}
-/* padding: 0em 0.5em 0.25em 0.5em; */
-
-span.BodyPara  {
-/* Alignment */
-text-indent: 0em;
-}
-
-/*
-a.BodyPara  {
-text-indent:1em;
-padding: 0em;
-margin: 0em;
-}
-/* padding: 0em 0.5em 0.25em 0.5em; */
-
-h1.BodyPara, h2.BodyPara, h3.BodyPara, h4.BodyPara, h5.BodyPara, h6.BodyPara
- .h1.BodyPara, .h2.BodyPara, .h3.BodyPara, .h4.BodyPara, .h5.BodyPara, .h6.BodyPara {
-/* Alignment */
-text-indent: 0em;
+border-right:0.1% solid black;
+border-bottom: 0.1% solid black;
 }
 
 /* -- Floats -- */
+/* -------------------------------------------- */
 .BodyParaLeft {
 /* Position */
 /* position: relative; */
@@ -149,7 +116,7 @@ max-width: 500px;
 /* width: 100%; */
 /* Alignment */
 padding: 0%;
-/* margin-left: 0.75em; */
+/* margin-left: 0.75%; */
 margin-left: 2%;
 float: left;
 text-align: justify;
@@ -173,30 +140,60 @@ text-align: left;
 background: url(../Images/TransparentWhiteBg75.png);
 }
 
-/* -------------------------------------------- */
 /* -- Body Callouts Container -- */
-
+/* -------------------------------------------- */
 .BodyList {
 text-align:left;
-/* margin:0.25em 0.25em 0em 0em; */
-padding:0.5em 0.25em 0em 0.25em;
+/* margin:0.25% 0.25% 0% 0%; */
+padding:0.5% 0.25% 0% 0.25%;
 }
 
 .BodyListItem {
-margin-top: 0em;
-margin-bottom: 0em;
-padding-top: 0em;
-padding-bottom:0.25em;
+margin-top: 0%;
+margin-bottom: 0%;
+padding-top: 0%;
+padding-bottom:0.25%;
 text-indent:-0em;
 text-align:left;
 }
-/* -- end -- */
 
-/* -- end -- */
-
+/* -- Tag Specific: h, a, p, span, ... */
 /* -------------------------------------------- */
+h.BodyPara  {
+    /* Alignment */
+    text-align:center;
+    /* Decoration */
+    font-weight: bold;
+    }
+    
+    p.BodyPara  {
+    /* Alignment */
+    /* text-align:justify; */
+    text-indent:1em;
+    font-size:1em;
+    }
+    /* padding: 0% 0.5% 0.25% 0.5%; */
+    
+    span.BodyPara  {
+    /* Alignment */
+    text-indent: 0em;
+    }
+    
+    /*
+    a.BodyPara  {
+    text-indent:1em;
+    padding: 0%;
+    margin: 0%;
+    }
+    /* padding: 0% 0.5% 0.25% 0.5%; */
+    
+    h1.BodyPara, h2.BodyPara, h3.BodyPara, h4.BodyPara, h5.BodyPara, h6.BodyPara
+     .h1.BodyPara, .h2.BodyPara, .h3.BodyPara, .h4.BodyPara, .h5.BodyPara, .h6.BodyPara {
+    /* Alignment */
+    text-indent: 0em;
+    }
 /* -- Body Callouts Container -- */
-
+/* -------------------------------------------- */
 /* CPA - Callout Link Anchor (shows) */
 /* CPP - Callout Popup (shows on hover) */
 /* CPT - Callout Paragraph Top (1) - Start of Callout Content (Body Paragraphs) */
@@ -237,9 +234,9 @@ z-index: 4;
 /* width: 50%; */
 /* max-width: 50%; */
 /* Alignment */
-/* margin:0.25em 0.25em 0em 0em; */
-/* padding: 0em 0.25em 0em 0.25em; */
-/* padding:1.5em */
+/* margin:0.25% 0.25% 0% 0%; */
+/* padding: 0% 0.25% 0% 0.25%; */
+/* padding:1.5% */
 text-align: left;
 display: block;
 /* Background */
@@ -263,9 +260,9 @@ background-color: #FFFFCC;
 /* Position */
 /* height:100%; */
 /* Alignment */
-margin: 0em;
-/* padding: 0em; */
-padding:0.25em;
+margin: 0%;
+/* padding: 0%; */
+padding:0.25%;
 float:none;
 text-align:left;
 /* display:block; */
@@ -288,13 +285,13 @@ background-color:#FFFFCC;
 }
 
 .CalloutBorder{
-/* Alignment 0.5em 1em 0.5em 0.5em; */
-padding:0.5em;
-margin:0.5em 1em 0.5em 0.5em;
+/* Alignment 0.5% 1% 0.5% 0.5%; */
+padding:0.5%;
+margin:0.5% 1% 0.5% 0.5%;
 /* Border */
 border-style:solid;
 /* border-style:groove; */
-border-width:0.5em;
+border-width:0.5%;
 /* border:solid; */
 border-color:#999933; /* cPcd */
 /* Border */
@@ -302,14 +299,14 @@ border-radius: 0.5em;
 -moz-border-radius: 0.5em;
 -webkit-border-radius: 0.5em;
 }
-/* padding:0.5em 0.5em 0.5em 0.5em; */
+/* padding:0.5% 0.5% 0.5% 0.5%; */
 
 .CalloutBorderFull
 {
 /* Border */
 border-style:solid;
 /* border-style:groove; */
-border-width: .4em;
+border-width: .4%;
 /* border:solid; */
 border-color:#999933; /* cPcd */
 /* Border */
@@ -317,8 +314,8 @@ border-radius: 0.5em;
 -moz-border-radius: 0.5em;
 -webkit-border-radius: 0.5em;
 /* Alignment */
-margin: 0em 0em 0.5em 0em;
-padding: 0em 0em 0em 0em;
+margin: 0% 0% 0.5% 0%;
+padding: 0% 0% 0% 0%;
 }
 
 /* -- Callout Block -- */
@@ -331,19 +328,17 @@ left:1em;
 height:120.25em;
 }
 
-/* -- end -- */
-
 /* ------ Callout Styling ----------- */
 /* -- Callout Paragraph -- additional content (Paragraph 2,3,4,...) */
 .CP {
 /* Alignment */
-/* padding:0.5em; */
-/* margin:0.25em 0.25em 0em 0em; */
-padding:0.5em 1.5em 0.75em 0.5em;
+/* padding:0.5%; */
+/* margin:0.25% 0.25% 0% 0%; */
+padding:0.5% 1.5% 0.75% 0.5%;
 /* Layering */
 z-index: 1004;
 }
-/* padding:0.25em 0.5em 0.5em 0.5em; */
+/* padding:0.25% 0.5% 0.5% 0.5%; */
 
 /* -- Callout Title -- Heading or Title for a group of paragraphs (CP's) */
 /* .CPT { } */
@@ -352,12 +347,12 @@ z-index: 1004;
 .CPA {
 /* Alignment */
 display:block;
-padding: 0em;
+padding: 0%;
 text-decoration:none;
 /* Layering */
 z-index: 4;
 }
-/* padding:0.25em 0.5em 0.5em 0.5em; */
+/* padding:0.25% 0.5% 0.5% 0.5%; */
 
 /* NOT FIREFOX COMPATABLE - USE ID */
 /* a .CPP{ display:none; }
@@ -374,7 +369,7 @@ z-index: 4;
 /* -- Callout Paragraph Popup -- */
 .CPP {
 /* Alignment */
-padding:0.25em 0.25em 0.5em 0.5em;
+padding:0.25% 0.25% 0.5% 0.5%;
 /* Layering */
 z-index: 1004;
 }
@@ -384,12 +379,12 @@ z-index: 1004;
 /* Size */
 width:10.0em;
 /* Alignment */
-padding:0.1em;
+padding:0.1%;
 margin:auto;
 /* Layering */
 z-index: 1004;
 /* Border */
-border: 0em;
+border: 0%;
 }
 
 /* .CPPImageThumbRight{ } */
@@ -398,19 +393,19 @@ border: 0em;
 
 .CPPImage2{
 /* Alignment */
-margin-top:-0.5em;
-margin-left:1em;
-margin-right:1em;
-padding: 0em 0em 0.25em 0em;
+margin-top:-0.5%;
+margin-left:1%;
+margin-right:1%;
+padding: 0% 0% 0.25% 0%;
 z-index: 1004;
 }
 
 .CPPImage{
 /* Alignment */
-margin-top:-0.5em;
-margin-left:-0.5em;
-margin-right:-0.5em;
-padding: 0em 0em 0.25em 0em;
+margin-top:-0.5%;
+margin-left:-0.5%;
+margin-right:-0.5%;
+padding: 0% 0% 0.25% 0%;
 z-index: 1004;
 }
 
@@ -437,7 +432,6 @@ float:left;
 /* Layering */
 z-index: 1004;
 }
-
 /* ------- Generic Box ---------- */
 .DivB98{
 /* Position */
@@ -452,7 +446,5 @@ position:absolute;
 top:20.0em;
 left:35.0em;
 }
-/* -- end -- */
-
+/* -- other -- */
 /* ----------------- */
-  

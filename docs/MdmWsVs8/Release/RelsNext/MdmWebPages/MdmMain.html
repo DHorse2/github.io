@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Mdm Home Page - (c)2011 David Horsman & Macroscope Design Matrix -->
+<!-- Mdm Home Page - (c)2011, 2023 David Horsman & Macroscope Design Matrix -->
 <html lang="en">
 <head>
 	<title>Professional and Personal Site for Dave Horsman</title>
@@ -22,31 +22,32 @@
 	<!-- //			Build Version -->
 	<script src="../../RelsBuildStage.js"></script>
 	<!-- // 	Core -->
+	<script src="../MdmJs/MdmIncludeHtml.js"></script>
+	<script src="../MdmJs/MdmDeclarations.js"></script>
+	<script src="../MdmJs/MdmBrowser.js"></script>
+	<script src="../MdmJs/MdmStandardFuntions.js"></script>
 	<script src="../MdmJs/MdmError.js"></script>
 	<script src="../MdmJs/MdmDebugConsole.js"></script>
-	<script src="../MdmJs/MdmIncludeHtml.js"></script>
 	<!-- // 		Initialization -->
-	<script src="../MdmJs/MdmDeclarations.js"></script>
 	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
 	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
 	<script src="../MdmJs/Page/MdmMain.js"></script>
-	<script src="../MdmJs/Page/MdmMainMenuImage.js"></script>
-	<script src="../MdmJs/Page/MdmMainElementImage.js"></script>
+	<script src="../MdmJs/MdmMenuInit.js"></script>
+	<script src="../MdmJs/Page/MdmMenuImageInit.js"></script>
+	<script src="../MdmJs/Page/MdmMenuImageElement.js"></script>
 	<!-- //		Std -->
-	<script src="../MdmJs/MdmStandardFuntions.js"></script>
 	<script src="../MdmJs/MdmTimer.js"></script>
+	<script src="../MdmJs/MdmImageZoom.js"></script>
 	<script src="../MdmJs/MdmParamSet.js"></script>
 	<script src="../MdmJs/MdmParamInit.js"></script>
 	<script src="../MdmJs/MdmDebugTagHover.js"></script>
 <!-- // 			Elements (dom) -->
 	<script src="../MdmJs/MdmElement.js"></script>
-	<script src="../MdmJs/MdmElementEvent.js"></script>	<!-- // 	Components -->
+	<!-- // 	Components -->
 	<!-- //			Window -->
-	<script src="../MdmJs/MdmBrowser.js"></script>
 	<script src="../MdmJs/MdmWindow.js"></script>
 	<!-- // 			Page -->
 	<script src="../MdmJs/MdmPage.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
 	<script src="../MdmJs/MdmLayout.js"></script>
 	<!-- // 			Menus -->
 	<script src="../MdmJs/MdmMenu.js"></script>
@@ -54,6 +55,8 @@
 	<script src="../MdmJs/Page/MdmMenuImageCollection.js"></script>
 	<!-- // 		Animation -->
 	<script src="../MdmJs/MdmAnimation.js"></script>
+	<script src="../MdmJs/MdmElementEvent.js"></script>
+	<script src="../MdmJs/MdmPageElement.js"></script>
 	<!-- // 	Initialization -->
 	<script src="../MdmJs/MdmPageInit.js"></script>
 </head>
@@ -225,11 +228,12 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<!-- 1 -->
 									<li class="MenuListItem">
 										<!-- x onmouseover="fnElementGroupShowStack(img1MenuLine, img1);"-->
+										<!-- todo onmouseover, href: generate these? -->
 										<a id="MdmImportTldMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmImportTld.shtml"
 											onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true);">
 											Database schema<br>
-											and data converter. C#
+											and data converter. (C#)
 										</a>
 									</li>
 									<!-- 2 -->
@@ -237,7 +241,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 										<a id="MdmNetAppFrameMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmNetAppFrame.shtml"
 											onmouseover="fnElementGroupShowStack(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true);">
-											Application framework. C#
+											Application framework. (C#)
 										</a>
 									</li>
 									<!-- 3 -->
@@ -253,7 +257,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 										<a id="MdmDbUtilClassMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmDbUtilClass.shtml"
 											onmouseover="fnElementGroupShowStack(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true);">
-											File System module. C#
+											File System module. (C#)
 										</a>
 									</li>
 									<!-- 5 -->
@@ -269,7 +273,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 										<a id="MdmNetVirListMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmNetVirList.shtml"
 											onmouseover="fnElementGroupShowStack(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true);">
-											Virtualized non-generic list. C++
+											Virtualized non-generic list. (C++)
 										</a>
 									</li>
 									<!-- 7 -->
@@ -277,7 +281,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 										<a id="MdmSystemMgntMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmSystemMgnt.shtml"
 											onmouseover="fnElementGroupShowStack(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true);">
-											Windows desktop best practices. Cross-cutting.
+											Windows desktop best practices. (Win Uix)
 										</a>
 									</li>
 									<!-- 8 -->
@@ -285,7 +289,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 										<a id="MdmWebDevMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmWebDev.shtml"
 											onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true);">
-											Web <br>Development.
+											Web<br>Development. (Html/POJ) (this)
 										</a>
 									</li>
 									<!-- -->

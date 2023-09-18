@@ -3,7 +3,6 @@
 <head>
     <title>Career Home Page for Dave Horsman</title>
     <meta name="Author" content="David G. Horsman" >
-    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" >
     <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" >
 	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" >
     <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" >
@@ -707,7 +706,7 @@ Test Data
               <a id="MdmImportTldMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmImportTld.shtml"
-                  onmouseover="fnElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTld41Image', 'MdmImportTld41', oObjImageSizeSmall, 4, 1, false, true)"
+                  onmouseover="fnElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 4, 1, false, true)"
                   >
               C# database schema<br>
               and data converter </a></li>
@@ -716,7 +715,7 @@ Test Data
               <a id="MdmKBilMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmKBil.shtml"
-                  onmouseover="fnElementGroupShowStack(0, 'MdmImportTld41', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
+                  onmouseover="fnElementGroupShowStack(0, 'MdmImportTld', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
                   >
               K-Bil<br>
               Subscriber Billing<br>

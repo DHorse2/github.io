@@ -32,6 +32,8 @@ var oObjNextLeft;
 // Current Image Position Offset
 var oObjNextOffsetTop;
 var oObjNextOffsetLeft;
+// Image Postioning Offsets
+// These are layout postion patterns to be applied
 // Menu Images (by Groups) - Image Object Array
 // Current Image Index By Group
 var imgCnByGroup = new Array(imgGroupArraySize);
@@ -43,88 +45,56 @@ var oObjectRowMax = new Array(imgGroupArraySize);
 var menuImageLocked = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
 // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
 var menuImageRootPosition = new Array(imgGroupArraySize);// By Top, Left, Right/Width, Bottom/Height
+// Position All
+ // By Top, Left (2)
+menuImageOffsetFirstAll = new Array(imgGroupImageArraySize);
+// These are layout postion patterns to be applied
+menuImageOffsetLeftAll = new Array(imgGroupImageArraySize);
+menuImageOffsetTopAll = new Array(imgGroupImageArraySize);
 // Images per Group
 ////////////////////////////////////////////////
 // Images per Group
+imgCnByGroup[0] = 0;
 imgCnByGroup[1] = 1;
 imgCnByGroup[2] = 1;
 imgCnByGroup[3] = 1;
 imgCnByGroup[4] = 1;
 // todo: clarify these two variables:
 // Menu Maximum Images per each Group
+imgMaxByGroup[0] = 0;
 imgMaxByGroup[1] = 7;
 imgMaxByGroup[2] = 4;
-imgMaxByGroup[3] = 3;
+imgMaxByGroup[3] = 5;
 imgMaxByGroup[4] = 8;
 // Menu Maximum Images per each Group
+oObjectRowMax[0] = 0;
 oObjectRowMax[1] = 4;
 oObjectRowMax[2] = 9;
 oObjectRowMax[3] = 9;
 oObjectRowMax[4] = 6;
 // First Image Offset By Group, Top, Left, Right, Bottom
+menuImageRootPosition[0] = 0;
 menuImageRootPosition[1] = 0;
 menuImageRootPosition[2] = 0;
 menuImageRootPosition[3] = 0;
 menuImageRootPosition[4] = 0;
+// Initialize menu structures
 ////////////////////////////////////////////////
+menuImageGroupInitAll(menuImage, imgGroupMax);
+
 // Heading Image Group
 ////////////////////////////////////////////////
 imgMaxByGroup[headingGroupCnCurr] = imgGroupBoxCount;
-// Image Position
-////////////////////////////////////////////////
-// Menu Images (by Groups) - Image Object Array
-var menuImage = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-// Position of Parent Image (Parent of First only stored at this time)
-var menuImagePositionLeft = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-var menuImagePositionTop = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-var menuImagePositionWidth = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-var menuImagePositionHeight = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-// Animation Timer by Group by Image
-var menuImageTimerCn = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-////////////////////////////////////////////////
-// First Image Offset By Group, By Top, Left
-// First Image
-var menuImageOffsetFirstAll = new Array(imgGroupArraySize);// By Top, Left (2)
-// These are layout postion patterns to be applied
-var menuImageOffsetLeftAll = new Array(imgGroupArraySize);// By, imgGroupImageArraySize);
-var menuImageOffsetTopAll = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-// Add Second Dimention (imgGroupImageArraySize)
-////////////////////////////////////////////////
-for (oObjGroupIndex = 0; oObjGroupIndex < 1 + imgGroupArraySize; oObjGroupIndex++) {
-    //
-    ////////////////////////////////////////////////
-    // First Image Offset By Group, By Top, Left
-    menuImageOffsetFirstAll[oObjGroupIndex] = new Array(2);// By Top, Left (2)
-    // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
-    menuImageRootPosition[oObjGroupIndex] = new Array(4);// By Top, Left, Right/Width, Bottom/Height
-    //
-    ////////////////////////////////////////////////
-    // Image Object Array
-    menuImage[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    // Image Display (Visible) Locked Array
-    menuImageLocked[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    // Image Position
-    // Position of Parent Image (Parent of First only stored at this time)
-    menuImagePositionLeft[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    menuImagePositionTop[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    menuImagePositionWidth[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    menuImagePositionHeight[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    // Animation Timer by Group by Image
-    menuImageTimerCn[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    ////////////////////////////////////////////////
-    // Image Postioning Offsets
-    // These are layout postion patterns to be applied
-    menuImageOffsetLeftAll[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    menuImageOffsetTopAll[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-    //
-}
-////////////////////////////////////////////////
 oObjGroupIndex = 1;
 // Image Postioning Offsets
 ////////////////////////////////////////////////
 // Default (All) Groups
 menuImageOffsetTopAll[indexGroup][indexGroup] = 25;
 menuImageOffsetLeftAll[indexGroup][indexGroup] = 25;
+// Menu Group 0
+// Default (All)
+menuImageOffsetTopAll[0][indexGroup] = 0;
+menuImageOffsetLeftAll[0][indexGroup] = 0;
 // Menu Group 1
 // Default (All)
 menuImageOffsetTopAll[1][indexGroup] = 25;

@@ -575,10 +575,21 @@ function fnBodyConsoleShow(DoHide, DoDebug) {
 // Debug
 ///////////////////////////////////////////////
 // Layout Next
+var debugStateMessage = "init";
+// todo add to severity module
+console.trace();
+console.warn();
+console.log();
+console.info();
+console.error();
+console.clear();
+// Start debugging
 function fnDebugStart(debugOptionPassed, debugMessagePassed) {
     if (!debugIsOn) { return; }
+	debugStateMessage = "Ready to debug: " + debugMessagePassed + "(" + debugOptionPassed + ")"
+	console.log(debugStateMessage);
     if (debugDoAlert) {
-        alert("Ready to debug: " + debugMessagePassed + "(" + debugOptionPassed + ")");
+        alert(debugStateMessage);
     } else {
         if (browserIsTEST) {
             debugger;

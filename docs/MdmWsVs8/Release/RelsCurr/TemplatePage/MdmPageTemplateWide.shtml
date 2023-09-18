@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../Css/MdmImportTld.css" />
     <title>Import Database Transformation Utility</title>
 </head>
-<body id="MdmXXXBody">
+<body id="BodyBox">
     <!--*-->
     <img src="../Images/BackgroundBlueSpiral.jpg" alt="blue grey background image" id="BodyBg" />
     <!--*-->

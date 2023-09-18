@@ -50,27 +50,22 @@ var moveOffsetTop = 0;
 //
 var moveOffsetMin = 1;
 var moveOffsetMax = 25;
-//
-// ...................................... //
-// SectionBlock Animation Control
+// SectionBlock Animation Control - See Default or page settings
 // ...................................... //
 // Basic Options:
-var moveIsOn = true; // Objectt Move From Origin to Destination
-//
-var filterIsOn = true; // Transition
-var filterResizeIsOn = true; // Growing image
-var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
-//
-// ...................................... //
-////////////////////////////////////////////////
+// var moveIsOn = true; // Object Move From Origin to Destination
+// //
+// var filterIsOn = true; // Transition
+// var filterResizeIsOn = true; // Growing image
+// var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 // Animated Images
 ////////////////////////////////////////////////
 // Image State
 // set the following to the number of images
 // then add the correct number of img objects
-var imgUsedCn = 5;
+// var imgUsedCn = 5;
 var imgCn = 0;
-var imgMax = 10;
+// var imgMax = 10;
 var menuImageCn = 0;
 // Name
 var imageNameNew = "";
@@ -81,13 +76,13 @@ var imgFocusOld = 0;
 var imgSelect = "img1";
 // document.parentWindow.imgSelect= "img1";
 // Image Layout Adjustables
-var frmWidth = 75;
-var txtLineHeight = 30;
-var imgHeight = 90;
+// var frmWidth = 75;
+// var txtLineHeight = 30;
+// var imgHeight = 90;
 // Animation Timing
-var intervalBase = 900;
-var intervalSet = 0;
-var intervalName = "";
+// var intervalBase = 900;
+// var intervalSet = 0;
+// var intervalName = "";
 // Animation and Mouse
 var imgAniToggle = new Array;
 var imgMouseHover = new Array;
@@ -99,35 +94,29 @@ var imgMouseHover = new Array;
 // var oObjImageSize = 0;
 // Animation Management
 ////////////////////////////////////////////////
-//
-////////////////////////////////////////////////
 // Menu Images
 ////////////////////////////////////////////////
-var elementLeftOrig = 0;
-var elementTopOrig = 0;
-var elementLeftDest = 0;
-var elementTopDest = 0;
-//
-var elementMoveDuration = 3;
-var elementMoveStepMax = 50;
-var elementMoveInterval = 10;
-var elementMoveDelay = 0;
-//
+// Movement Control:
+////////////////////////////////////////////////
+// var elementLeftOrig = 0;
+// var elementTopOrig = 0;
+// var elementLeftDest = 0;
+// var elementTopDest = 0;
+// Timer Control (Move)
+////////////////////////////////////////////////
+// (See function fnTimerDurationSet for default elementMove values)
+// Transition stepping
+// var elementMoveDuration = 3;
+// var elementMoveStepMax = 50;
+// var elementMoveInterval = 10;
+// var elementMoveDelay = 0;
+// Control overloading javascript
+////////////////////////////////////////////////
 var filterBusy = false;
 var timerBusy = false;
-
-////////////////////////////////////////////////
-// Movement Control:
-//
-// Timer Control (Move)
-// (See function fnTimerDurationSet for default elementMove values)
-var elementMoveDuration = 0;
-var elementMoveStepMin = 0;
-var elementMoveStepMax = 0;
-var elementMoveInterval = 0;
-var elementMoveDelay = 0;
-//
+var resizeBusy = false;
 // Movement Patterns:
+////////////////////////////////////////////////
 // Methodology used to move animated objects
 // from origin to destination
 var elementMoveMethodDirect = 1; // Slide diagonally to destination
@@ -137,27 +126,26 @@ var elementMoveMethodRandom = 0; // Use random choice on each Group move
 // Master Movement Setting:
 // Setting it to '0' causes a random setting on each display
 var elementMoveMethod = elementMoveMethodRandom; // Use random
-//
 // Animation Transition Control:
+////////////////////////////////////////////////
 // (See function fnTimerDurationSet for default filter values)
 // var filterDurationOverride = false;
-var filterDuration = 0;
-var filterStepMin = 0;
-var filterStepMax = 0;
-var filterInterval = 0;
-var filterDelay = 0;
+// var filterDuration = 0;
+// var filterStepMin = 0;
+// var filterStepMax = 0;
+// var filterInterval = 0;
+// var filterDelay = 0;
 // Usually filterDuration is the same as
 // elementDuration plus an adjustment.
 // a non-zero value indicates this
 // feature is on. Usually this adjustment
 // is one additional second.
-var filterDurationAdjustment = -0.001; // indicates use default
+// var filterDurationAdjustment = -0.001; // indicates use default
 //
 // Methodology to Invoke Animation:
-var filterMethodPlay = 1; // execute the play method
-var filterMethodVisible = 2; // change style visibility (onchange)
-var filterMethod = filterMethodPlay;
-//
+// var filterMethodPlay = 1; // execute the play method
+// var filterMethodVisible = 2; // change style visibility (onchange)
+// var filterMethod = filterMethodPlay;
 // ...................................... //
 // Run animation and movement forwards or backwards
 var playDirectionForward = 1;
@@ -285,7 +273,7 @@ var filterIndexImgShowHigh = 29;
 var filterIndexImgShowMax = 39;
 // Third Set - Stationary Object Effects
 var filterIndexEffectLow = 40;
-var filterIndexEffectHigh = 41;
+var filterIndexEffectHigh = 49;
 var filterIndexEffectMax = 59;
 // Filter Enumeration (Type Name to Index)
 ////////////////////////////////////////////////

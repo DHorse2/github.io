@@ -1,20 +1,23 @@
+        ////////////////////////////////////////////////
+        // Position Control
+
+
+var boxHeight = 0;
+var TopLeftWidth = 0;
+var TopLeftWidthInner = 0;
 // Section Pre Document Load Script
 // ...................................... //
 // Move these:
 // (none)
 // ...................................... //
 // Do Not Move these:
-// ..................................................................................... _//
 // Section Framework Parameters
-// ..................................................................................... _//
-// ...................................... //
 // SectionBlock Columns
 // ...................................... //
 var columnMax; // = 3;
 var elBodyMainLeftVisible; // = true;
 var elBodyMainRightVisible; // = true;
 var layoutUseAbsolute; // = false;
-// ...................................... //
 // SectionBlock Object Postion
 // ...................................... //
 // The following are here in the event some browsers
@@ -30,10 +33,8 @@ var DoUseOffset; // = true;
 var DoNotUseScroll; // = false;
 var DoNotUseBase; // = false;
 var DoNotUseOffset; // = false;
-// ...................................... //
 // SectionBlock Image Handling
 // ...................................... //
-//
 // fnBrowserGetVs();
 // ...................................... //
 // Type of Image Group Page Generation
@@ -41,14 +42,11 @@ var imgLoadEventTest; // = false; // controls clearing of elBodyMenuImageContain
 var imgLoadUseDOM; // = true; // Add Elements to DOM
 var imgLoadUseInner; // = false; // Use innerHTML for content
 var imgLoadUseEventHandler; // = true; // Single Event Listener (dispatcher)
-//
-// ...................................... //
 // Mouse Hover activation of image display
-var eventMouseOverEnabled; // = false;
-//
-// ..................................................................................... _//
 // ...................................... //
+var eventMouseOverEnabled; // = false;
 // Page Loading Optimization
+// ...................................... //
 // Java Initilization Functions:
 var javaLoadDelay; // = true;
 var javaLoadFirst; // = true;
@@ -61,16 +59,15 @@ var menuImageLoadFirst; // = true;
 // Testing / Debug State Window
 var debugStateLoadDelay; // = false;
 var debugStateLoadFirst; // = true;
-// ..................................................................................... _//
 // Section GLOBAL / COMMON Variables
-// ..................................................................................... _//
+// ...................................... //
+// ...................................... //
 // SectionBlock STANDARD Variables
-// ..................................................................................... _//
+// ...................................... //
 // Temporary
 var bTemp = false;
 var iTemp = 0;
 var sTemp = '';
-//
 // Box Size or Box Rectangle Pointers for arrays
 var indexTop = 0;
 var indexLeft = 1;
@@ -78,7 +75,6 @@ var indexRight = 2;
 var indexWidth = 2;
 var indexBottom = 3;
 var indexHeight = 3;
-//
 // Standard functions and characters
 var charFSlash = '/';
 var charBSlash = '\\';
@@ -89,10 +85,7 @@ var charNewLineCrLf = String.fromCharCode(11, 13);
 var charTextIndent = '........';
 var charLt = String.fromCharCode(60);
 var charGt = String.fromCharCode(62);
-// todo
-//
-// ...................................... //
-// SectionBlock Human readable arguments and comparisons
+// SectionBlock Human readable arguments and comparisons todo
 // ...................................... //
 // State Friendly Names
 var IsAtEnd = 1;
@@ -125,11 +118,8 @@ var DoNotUseLog = false;
 // Find Iteration Options
 var elementFindDoSet = 1
 var elementFindDoReturn = 2;
-//
-// ...................................... //
 // SectionBlock HTML write variables
 // ...................................... //
-//
 var lt = String.fromCharCode(60)
 var gt = String.fromCharCode(62)
 
@@ -185,15 +175,10 @@ var attributeAlt = ' al' + 't=';
 var attributeEventMouseOut = ' onmou' + 'seout';
 var attributeEventMouseOver = ' onmou' + 'seover';
 var attributeEventMouseDown = ' onmou' + 'sedown';
-//
-// ..................................................................................... _//
 // Section Console for Error, Event and State
-// ..................................................................................... _//
-//
 // ...................................... //
 // SectionBlock Console
 // ...................................... //
-//
 var consoleErrorLogCn = 0;
 var consoleErrorLogScrollCn = 0;
 var consoleEventLogCn = 0;
@@ -211,25 +196,21 @@ var DoNotUseSingeLine = false;
 //
 // var ButtonIsOnColor = 'Lime';
 // var ButtonIsOffColor = 'Red';
-//
-// ...................................... //
 // SectionBlock Error Message Display
 // ...................................... //
-//
 // var errorUseDebugOnError = true;
-//
 var errorLogFatal = new String;
 var errorMessageSevere = new String;
 var errorMessageWarn = new String;
 var errorMessageComment = new String;
 var errorMessageAllLog = new String;
 //
-// var errorDidNotOccur = 0;
-// var errorComment = 5;
-// var errorWarn = 10;
-// var errorSevere = 20;
-// var errorFatal = 30;
-// var errorSeverity = errorDidNotOccur;
+var errorDidNotOccur = 0;
+var errorComment = 5;
+var errorWarn = 10;
+var errorSevere = 20;
+var errorFatal = 30;
+var errorSeverity = errorDidNotOccur;
 //
 var errorElementDidNotOccur = 0;
 var errorElementComment = 5;
@@ -252,10 +233,8 @@ var errorDoDisplayTag; // = true;
 var errorDoNotDisplayTag; // = false;
 var errorDoAlert; // = true;
 var errorDoNotAlert; // = false;
-//
-// ..................................................................................... _//
 // SectionBlock Events (Mouse, load, error)
-// ..................................................................................... _//
+// ...................................... //
 var LastId = new String();
 var LastTochedId = new String();
 //
@@ -266,8 +245,6 @@ var eventEventObject;
 //
 var errorElement;
 var errorElementSource;
-//
-// ...................................... //
 // SectionBlock Menu Mouse Events
 // ...................................... //
 var eventCurr;
@@ -281,15 +258,13 @@ var eventLastId = '';
 var eventLastRootId = '';
 //
 var eventCurrRootObj;
-// ..................................................................................... _//
 // Section Menu Image (Standard) Objects
-// ..................................................................................... _//
+// ...................................... //
 // Storage Location for Group and Menu Item / Image
+// These can be overriden locally (might be)
 var oObjGroupIndex = 1;
 var oObjRootIndex = 0;
-//
 var indexGroup = 0; // location of Group / Roots in arrays
-//
 // Menu Image Objects
 var oObj = document.createElement('div');
 var oObjIndex = 1;
@@ -335,11 +310,8 @@ var oObjNotFound = false;
 //
 var elementWidthDefault = 0; // = iImageSize + (menuImageBorderWidth * 2);
 var elementHeightDefault = 0; // = (iImageSize * oObjImageSizeRatio) + (menuImageBorderWidth * 2);
-//
-///////////////////////////////////////////////
 // SectionBlock Layout Management Variables
 ///////////////////////////////////////////////
-//
 // Display Layouts:
 // (Named Switch Enumerations are used...)
 var layoutStandard = 1;
@@ -457,30 +429,23 @@ var elBodyMainRightCopyFirst = true;
 var elBodyMainRightFarFirst = true;
 //
 var elColumnType1First = true;
-//
-// ...................................... //
 // SectionBlock Body Layout Element Objects:
 // ...................................... //
-//
 // Body Container
 var elBody;
 // Body Container
 var elBodyMainContainer;
-//
-// ...................................... //
 // Banner (Top Menu, Logo and Graphics
+// ...................................... //
 var elBodyBanner;
 var elBodyBannerTop;
 var elBodyBannerBottom;
-//
-// ...................................... //
 // Body View Toggle, Console and Debug Message Areas
-//
+// ...................................... //
 // Body Console and Message Area
 var elBodyConsoleContainer;
 var elBodyConsoleContainerLeft;
 var elBodyConsoleContainerCenter;
-//
 // Page Content Boxes
 var elBodyConsoleBox;
 var elBodyConsoleErrorBox;
@@ -494,9 +459,8 @@ var elBodyConsoleTestTextBox;
 //
 var fnBodyConsoleBoxButtons = false;
 var fnBodyConsoleDebugButtons = false;
-//
-// ...................................... //
 // View, Console and Debug Toggle Buttons
+// ...................................... //
 var elBodyViewToggleContainer;
 var elBodyViewToggleContainerCenter;
 var elBodyViewToggleContainerLeft;
@@ -533,9 +497,8 @@ var elBodyConsoleDebugDetailToggle;
 var elBodyConsoleDebugAllToggle;
 var elBodyConsoleDebugOnErrorToggle;
 var elBodyConsoleDebugEventsToggle;
-//
-// ...................................... //
 // Body Center Area
+// ...................................... //
 var elBodyMainCenter;
 //
 var elBodyMainCenterTop;
@@ -551,9 +514,8 @@ var elBodyMainCenterTopColBreak;
 var elBodyMainCenterCenter;
 //
 var elBodyMainCenterBottom;
-//
-// ...................................... //
 // Body Left Area
+// ...................................... //
 // var elBodyMainLeftVisible = true;
 var elBodyMainLeft;
 var elBodyMainLeftCopy;
@@ -574,9 +536,9 @@ var elMenuContainerLeft3;
 var elMenuGroup3;
 var elMenuGroupTop3;
 // var elMenuGroup3Save;
+// Body Right Area
 //
 // ...................................... //
-// Body Right Area
 // var elBodyMainRightVisible = true;
 var elBodyMainRight;
 var elBodyMainRightCopy;
@@ -594,14 +556,11 @@ var elMenuGroup5;
 var elMenuContainerRight3;
 var elMenuGroup6;
 // var elMenuGroup6Save;
-//
-// ...................................... //
 // Body Far Right Area
-var elBodyMainRightFar;
-//
 // ...................................... //
+var elBodyMainRightFar;
 // Other...
-//
+// ...................................... //
 var elMenuGroup1ColBreak;
 var elMenuGroup2ColBreak;
 var elMenuGroup3ColBreak;
@@ -612,15 +571,12 @@ var elMenuGroup6ColBreak;
 var elBodyImageContainer;
 //
 var elBodyMenuImageContainer;
-//
-// ..................................................................................... _//
 // SectionBlock Column
+// ...................................... //
 var elColumnType1; // = true;
 var columnMax; // = 1;
-//
-// ..................................................................................... _//
 // Section Menu Image Group and Item Variables
-// ..................................................................................... _//
+// ...................................... //
 // SectionBlock Group
 //
 var imgGroupCount; // = 5;
@@ -637,16 +593,15 @@ var oObjNextLeft;
 // Current Image Position Offset
 var oObjNextOffsetTop;
 var oObjNextOffsetLeft;
-//
-// ...................................... //
 // SectionBlock Appearance
+// ...................................... //
 // var menuImageBorderWidth; // = 6;
 //
-// ...................................... //
 // SectionBlock Group and Item Image Array Initialization
 // ...................................... //
 //
 // Current Image and Position
+// ...................................... //
 // Current Image Index By Group
 var imgCnByGroup; // = new Array(imgGroupArraySize);
 // Maximum # of Images By Group
@@ -670,19 +625,17 @@ var menuImagePositionHeight; // = new Array(imgGroupArraySize); // By, imgGroupI
 // Animation Timer by Group by Image
 // Not currently in use
 var menuImageTimerCn; // = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-// ...................................... //
 // Image Postioning Offsets - Large
+// ...................................... //
 var menuImageOffsetLeftLarge; // = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 var menuImageOffsetTopLarge; // = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-//
-// ...................................... //
 // Image Postioning Offsets - Small
+// ...................................... //
 // These are layout postion patterns to be applied
 var menuImageOffsetLeftAll; // = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 var menuImageOffsetTopAll; // = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-//
-// ...................................... //
 // Add Second Dimention (imgGroupImageArraySize)
+// ...................................... //
 // for (oObjGroupIndex = 0; oObjGroupIndex < imgGroupArraySize + 1; oObjGroupIndex++) {
     //
     // ...................................... //
@@ -733,12 +686,9 @@ var headingGroupCnStart; // = 6;
 var headingGroupCnEnd; // = 6;
 var headingGroupCnCurr; // = 6;
 var imgMaxByGroup;[headingGroupCnCurr]; // = imgGroupBoxCount;
-//
-// ..................................................................................... _//
-// ...................................... //
 // SectionBlock Menu Groups and Items - Variables - Values
 // ...................................... //
-//
+// ...................................... //
 // set the number of groups and the images per group
 // Menu Current Image Object By Group
 var imgGroupMax; // = 4;
@@ -759,8 +709,8 @@ script_state = "MdmMain Custom Default settings used";
 // oObjectRowMax[3]; // = 4;
 // oObjectRowMax[4]; // = 6;
 //
-// ...................................... //
 // Offsets to adjust Large Image Top Left
+// ...................................... //
 // menuImageOffsetLeftLarge[indexGroup]; // = 75;
 // menuImageOffsetTopLarge[indexGroup]; // = 75;
 // menuImageOffsetLeftLarge[1]; // = 0;
@@ -844,19 +794,11 @@ var img8MenuLine;
 var img12MenuLine;
 var MdmNetAppFrame0MenuLine;
 var img8;
-//
-// ..................................................................................... _//
-// ..................................................................................... _//
-//
-// ..................................................................................... _//
 // Section Animation Management
-// ..................................................................................... _//
-//
-// ..................................................................................... _//
+// ...................................... //
 // ...................................... //
 // SectionBlock Animated Independent (content) Images
 // ...................................... //
-//
 // Image Test - Stock Images and Scrollable
 // set the following to the number of images
 // then add the correct number of img objects
@@ -881,14 +823,11 @@ var intervalBase; // = 900;
 var intervalSet; // = 0;
 var intervalName; // = new String;
 // Animation and Mouse
-var imgAniToggle; // = new Array;
-var imgMouseHover; // = new Array;
-//
-// ..................................................................................... _//
-// ...................................... //
+var imgAniToggle = new Array;
+var imgMouseHover = new Array;
 // SectionBlock Element Movement
 // ...................................... //
-//
+// ...................................... //
 // Timing
 // var elementMoveDuration;
 // var elementMoveStepMin;
@@ -937,12 +876,9 @@ var moveOffsetTop; // = 0;
 //
 var moveOffsetMin; // = 1;
 var moveOffsetMax; // = 25;
-//
-// ..................................................................................... _//
-// ...................................... //
 // SectionBlock Timers
 // ...................................... //
-//
+// ...................................... //
 // Timers by Group or Item
 // var timerMethodItem; // = 1;// one timer per Menu Group Image
 // var timerMethodGroup; // = 2; // one timer per Menu Group
@@ -1031,14 +967,8 @@ var timerStarted; // = 0;
 var vTimerID;
 var vTimerStart;
 var vTimerStop;
-//
-// ..................................................................................... _//
-// ...................................... //
 // SectionBlock Filter Management
 // ...................................... //
-//
-// ...................................... //
-//
 // Animation Transition Control:
 // var filterDuration;
 // var filterStepMin;
@@ -1072,9 +1002,8 @@ var filterIndexPassed = 1;
 // DoPlay
 // DoEnable
 //
-// ..................................................................................... _//
-// ...................................... //
 // Play Animation method for image
+// ...................................... //
 //
 // var filterMethodPlay = 1;
 // var filterMethodVisible = 2;
@@ -1086,34 +1015,27 @@ var filterIndexPassed = 1;
 // to apply browser solutions.
 // This in turn could be structured
 // to implement specific players+versions.
-// ..................................................................................... _//
+// ...................................... //
 // filter Slide Style Toggle
 // ...................................... //
 // Declare an array and index counter to access  slideStyles.
 var arrSlideStyles = new Array(3);
 arrSlideStyles = ['HIDE', 'PUSH', 'SWAP'];
 var filterSlideStyleIndexCount = 0;
-// ..................................................................................... _//
+// ...................................... //
 // filter fnSetRotation function
 // ...................................... //
 //oObj input requires that a matrix filter be applied.
 //deg input defines the requested angle of rotation.
 var deg2radians = Math.PI * 2 / 360;
-// ..................................................................................... _//
 // fnFilterSpin
-// ...................................... //
 var filterMatrixCounterDegreeCurrent = 40;
-// ..................................................................................... _//
 // fnFilterCompletion
-// ...................................... //
 filterCompletionIsZero = 0;
-// ..................................................................................... _//
 // StyleBackground
-// ...................................... //
 var filterStyleBackgroundToggle = 0;
-//
-// ...................................... //
 // Animation Instance Variables
+// ...................................... //
 var filterBands = 10;
 //
 var filterDirectionDown = new String('down');
@@ -1217,10 +1139,8 @@ var filterPixelRadius = 3;
 var filterSizingMethod = 'auto expand';
 var filterStrength = 25;
 var filterTransition = 6;
-//
-//
-// ...................................... //
 // Filter Selection Management
+// ...................................... //
 // ...................................... //
 // Filter Category Ranges
 // First Set - Movement Effects
@@ -1235,8 +1155,6 @@ var filterIndexMatrixMax = 4;
 var filterIndexStaticLow = 1;
 var filterIndexStaticHigh = 1;
 var filterIndexStaticMax = 1;
-//
-// ...................................... //
 // Filter Enumeration (Type Name to Index)
 // ...................................... //
 // Filter Types
@@ -1295,34 +1213,21 @@ var filterTypeFade = 1;
 var filterClassPairedStaticMax = 1;
 // 		filterClassDynamic
 var filterClassPairedDynamicMax = 0;
-//
-// ..................................................................................... _//
 // Section GLOBAL / COMMON
-// ..................................................................................... _//
-//
-
-//
 // ...................................... //
-// ..................................................................................... _//
+// ...................................... //
 // SectionBlock Filter Primary Command  function (s)
-// ..................................................................................... _//
 filterMatrixCounterDegreeCurrent = 0;
 // ...................................... //
 // SectionBlock Filter Primary Command  function (s)
 // ...................................... //
-//
-// ..................................................................................... _//
 // Filter Enable
-// ...................................... //
 // Enable Filter prior to Play
-//
 var filterValid = false;
 var filterIndexCn = 0;
 var filterSelected = new Array(5);
-//
-// // ..................................................................................... _//
 // // Sub-Section Timer Management function (s)
-// // ..................................................................................... _//
+// ...................................... //
 // // SectionBlock Timers Primary Commands function (s)
 // // ...................................... //
 // // Initialize Variables
@@ -1331,27 +1236,21 @@ var filterSelected = new Array(5);
 // // Intervals and Duration
 // fnTimerDurationSet();
 //
-// ..................................................................................... _//
 // Section Body Content Images Html Build function (s)
-// ..................................................................................... _//
+// ...................................... //
 // Html Variables
 var imgHtml = new String();
-// var BodyMenuImageContainer = document.documentElement['BodyMenuImageContainer'];
+// var BodyMenuImageContainer; // = document.documentElement['BodyMenuImageContainer'];
 // .getElementById('BodyMenuImageContainer');
 //
 // Build (inner) HTML for Menu Images
 // fnMenuImagesHtmlBuild();
-//
-// ..................................................................................... _//
-//
-// ..................................................................................... _//
 // ...................................... //
 // Recalculate Screen Display
 var boxClass;
 var columnType;
-// ...................................... //
 // Layout Block, Callout and Document (BodyMainCenter) Width
-//
+// ...................................... //
 // This variable is the multiplier that will reflect font-size;
 // Using a 1em font is the default (1em = 1.0 EmRation)
 // refered to as medium size on most browsers.
@@ -1387,8 +1286,6 @@ var elementBlockCn;
 //
 var elementWidthDefault = 250;
 var elBodyBlockWidth;
-//
-// ..................................................................................... _//
 // Document Window
 // ..................................................................................... _//
 // window.onresize = function() { fnWindowResize(); }

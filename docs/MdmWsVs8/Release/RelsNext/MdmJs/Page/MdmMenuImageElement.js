@@ -109,15 +109,14 @@ function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	}
 	if (oObjValid) {
 		oObj = fnElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-		//
-		oObjParent = fnElementGetRef(oObjParent, oObjParentId, oObjParentId);
-		//
+		oObjParent = fnElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
+		if (!oObjParent) {
+	        oObjParent = fnElementGetRef(oObjParent, oObjParentId, oObjParentId);
+		}
+		// oObjImage = fnElementGetRef(oObjImage, oObjId, oObjId);
 		oObjImage = fnElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
-		//
-		oObjLarge = fnElementGetRef(oObjLarge, oObjId + 'L', oObjId + 'L');
-		//
-		oObjImageLarge = fnElementGetRef(oObjImageLarge, oObjId + 'L' + 'Image', oObjId + 'L' + 'Image');
-		//
+		oObjLarge = fnElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
+		oObjImageLarge = fnElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
 		oObjText = fnElementItemGetDescription(oObjGroupCn, oObjCn);
 	} else {
 		// oObj = null;

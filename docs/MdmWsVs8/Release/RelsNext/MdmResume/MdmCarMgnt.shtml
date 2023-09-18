@@ -1,20 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="Author" content="David G. Horsman" />
-    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)" />
-    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmCarMgnt.css" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="Author" content="David G. Horsman">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmCarMgnt.css">
     <title>Career History Section for Dave Horsman</title>
-	
 </head>
 <body class="BodyBox">
     <!--*-->
@@ -33,7 +29,7 @@
                             Career Topics
                         </h4>
                         <!--* Left Column Sub-menu 2 Content **-->
-                        <div id="LeftMenuContainer2" class="LeftMenuContainer fText MenuColumnClass fText eI f10 ">
+                        <div id="LeftMenuContainer2" class="LeftMenuContainer MenuColumnClass fText eI f10 ">
                             <p id="LeftHeader1" class="MenuColumnHeading fText eB eI f12 cBlack">
                                 View sample resumes...
                             </p>
@@ -49,7 +45,7 @@
                             </ul>
                         </div>
                         <!--* Left Column Sub-menu 3 Content **-->
-                        <div id="LeftMenuContainer3" class="LeftMenuContainer fText MenuColumnClass fText eI f10 ">
+                        <div id="LeftMenuContainer3" class="LeftMenuContainer MenuColumnClass fText eI f10 ">
                             <p id="LeftHeader3" class="MenuColumnHeading fText eB eI f12 cBlack">
                                 Desktop Management...<br>
                             </p>
@@ -65,8 +61,8 @@
                             </ul>
                         </div>
                         <!--* Left Column Sub-menu 1 Content **-->
-                        <div id="LeftMenuContainer1" class="LeftMenuContainer fText MenuColumnClass fText eI f10 ">
-                            <p id="LeftHeader1" class="MenuColumnHeading fText eB eI f12 cBlack">
+                        <div id="LeftMenuContainer1" class="LeftMenuContainer MenuColumnClass fText eI f10 ">
+                            <p id="LeftHeader12" class="MenuColumnHeading fText eB eI f12 cBlack">
                                 Dave's Stuff...
                             </p>
                             <ul class="LeftMenuList">
@@ -192,21 +188,4 @@
     <!--** End of Content Container *-->
     <!--*-->
 </body>
-<!--*-->
-	<!--[if IE 6]>
-	<style type="text/css">
-	html {
-	overflow-y: hidden;
-	}
-	body {
-	overflow-y: auto;
-	}
-	#bg {
-	position:absolute; z-index:-1;
-	}
-	#BodyArea {
-	position:static;
-	}
-	</style>
-	<![endif]-->
 </html>

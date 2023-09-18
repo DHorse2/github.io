@@ -43,7 +43,7 @@ function fnlayoutWindowOnload() {
 }
 // Document Window Resize
 // Adjustments:
-var layoutWidthMargin = 60;
+var layoutWidthMargin = 60; // ??? really?
 var layoutHeightMargin = 50;
 var layoutMenuHeightMax = 0;
 // Client Window Size
@@ -63,13 +63,12 @@ function fnlayoutWindowResize() {
     fnWindowClientWidth();
     ////////////////////////////////////////////////
     // Load Containers if missing
-    //
     if (!elBodyMainLeft) { fnElementObjectContainerCreate(); }
     ////////////////////////////////////////////////
     // Recalculate Positions for Menu Images
-    //
     // if (BodyMainCenterCenter.offsetWidth > 900) {
     if (layoutDocumentWidth > layoutDocumentWidthMin) {
+        // Are menus visible? todo
         if (layoutIndex = layoutStandard) {
             // Left
             // elBodyMainLeft.style.top = 0%
@@ -104,23 +103,52 @@ function fnlayoutWindowResize() {
         }
         var Cn = 0;
         var tmp;
+        var tmpAdjust;
+        // Document content (generally) is placed in BodyMainCenterCenter
+        // This in term has a column abstraction (for large screens)
+        // IE wide columns do not allow good reading mechanics or styling.
+        // This is structured as:
+        // Section, or maybe:
+        // Grouping
+        // (1 here),
+        //   DivP(aragraphBoxes),
+        //     DivC(alloutBoxes)
+        // todo what about "Sections?", should "DivBoxX" be uses?
         while (BodyMainCenterCenter.childNodes[1].childNodes[Cn]) {
+            // Blocks of content
             tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
             if (tmp && tmp.id) {
-                if (tmp.id.substr(0, 4) == "DivP") {
+                if (tmp.id.substr(0, 4) == "DivP" || tmp.id.substr(0, 4) == "DivB" || tmp.id.substr(0, 6) == "DivBox") {
+                    // a Content Box
+                    tmpAdjust = 0;
+                    if (tmp.style) {
+                        if (tmp.style.marginLeft) { tmpAdjust += parseInt(tmp.style.marginLeft); }
+                        if (tmp.style.marginRight) { tmpAdjust += parseInt(tmp.style.marginRight); }
+                        if (tmp.style.paddingLeft) { tmpAdjust += parseInt(tmp.style.paddingLeft); }
+                        if (tmp.style.paddingRight) { tmpAdjust += parseInt(tmp.style.paddingRight); }
+                    }
+                    if (tmpAdjust == 0) { tmpAdjust = 2; }
                     if (BodyMainCenterCenter.offsetWidth > 1000) {
+                        // 3 columns
                         // tmp.style.maxWidth = "33%";
                         // tmp.style.posWidth = "33%";
-                        tmp.style.width = "33%";
+                        // tmp.style.width = "33%";
+                        BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (33 - tmpAdjust) + "%";
                         // tmp.style.maxWidth = 350;
                     } else {
-                        tmp.style.width = "50%";
+                        // 2 columns
+                        BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (50 - tmpAdjust) + "%";
+                        // tmp.style.width = (50 - tmpAdjust) + "%";
+                        // tmp.style.width = "50%";
                         // tmp.style.maxWidth = "50%";
                         // tmp.style.width = "50%";
                     }
-                    if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
-                        tmp.childNodes[0].style.posWidth = "";
-                        tmp.childNodes[0].style.width = "82%";
+                    // Callout Boxes
+                    if (tmp.childNodes && tmp.childNodes[0] && tmp.childNodes[0].id) {
+                        if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
+                            tmp.childNodes[0].style.posWidth = "";
+                            tmp.childNodes[0].style.width = "82%";
+                        }
                     }
                 }
             }
@@ -140,6 +168,7 @@ function fnlayoutWindowResize() {
             elBodyMainCenter.style.left = "20%";
             elBodyMainCenter.style.width = "60%";
             // Right
+            // ? or maybe 80 - 2?
             // elBodyMainRight.style.top = 0%
             elBodyMainRight.style.left = "80%";
             elBodyMainRight.style.width = "20%";
@@ -154,13 +183,20 @@ function fnlayoutWindowResize() {
         var tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
         while (BodyMainCenterCenter.childNodes[1].childNodes[Cn]) {
             tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
-            if (tmp.id.substr(0, 4) = "DivP") {
-                // tmp.style.maxWidth = "";
-                tmp.style.width = "";
-                // tmp.style.posWidth = "";
-                if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
-                    tmp.childNodes[0].style.posWidth = "";
-                    tmp.childNodes[0].style.width = "45%";
+            if (tmp.id) {
+                if (tmp.id.substr(0, 4) == "DivP" || tmp.id.substr(0, 4) == "DivB" || tmp.id.substr(0, 6) == "DivBox") {
+                    BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = "98%";
+                    // if (tmp.id.substr(0, 4) = "DivP") {
+                    // tmp.style.maxWidth = "";
+                    // tmp.style.width = "";
+                    // tmp.style.posWidth = "";
+                    // Callout Boxes
+                    if (tmp.childNodes && tmp.childNodes[0] && tmp.childNodes[0].id) {
+                        if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
+                            tmp.childNodes[0].style.posWidth = "";
+                            tmp.childNodes[0].style.width = "45%";
+                        }
+                    }
                 }
             }
             Cn++;
@@ -270,15 +306,15 @@ function fnDocumentLoadInit() {
     // imgGroupMax
     // imgMax
     //
-    for (imgGroupCn = 0; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
-        imgMax = imgMaxByGroup[imgGroupCn];
-        for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
-            // imgCnByGroup[imgGroupCn];
-            // imgMaxByGroup[imgGroupCn];
-            menuImage[imgGroupCn][imgCn] = null;
-            menuImageLocked[imgGroupCn][imgCn] = false;
-        }
-    }
+    // for (imgGroupCn = 0; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
+    //     imgMax = imgMaxByGroup[imgGroupCn];
+    //     for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
+    //         // imgCnByGroup[imgGroupCn];
+    //         // imgMaxByGroup[imgGroupCn];
+    //         menuImage[imgGroupCn][imgCn] = null;
+    //         menuImageLocked[imgGroupCn][imgCn] = false;
+    //     }
+    // }
     // Resize Window
     fnlayoutWindowResize();
     //

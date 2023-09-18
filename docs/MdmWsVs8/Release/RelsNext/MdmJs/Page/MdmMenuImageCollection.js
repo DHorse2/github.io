@@ -174,10 +174,10 @@ function fnMenuObjectSetAll(oObjGroupCn, oObjCn) {
                 case 0: return MenuContainerRight1;
                 case 1:
                     oObj = MdmImportTldRIght;
-                    oObjImage = MdmImportTldImage41;
+                    oObjImage = MdmImportTldImage;
                     oObjParent = MenuContainerRight1;
-                    oObjLarge = MdmImportTldLarge41;
-                    oObjImageLarge = MdmImportTldLargeImage41;
+                    oObjLarge = MdmImportTldLarge;
+                    oObjImageLarge = MdmImportTldLargeImage;
                     oObjText = "C# Schema Converter";
                     return MdmImportTldRIght;
                 case 2:
@@ -238,10 +238,10 @@ function fnMenuObjectSetAll(oObjGroupCn, oObjCn) {
                     return MdmBlank;
                 default:
                     oObj = MdmImportTldRIght;
-                    oObjImage = MdmImportTldImage41;
+                    oObjImage = MdmImportTldImage;
                     oObjParent = MenuContainerRight1;
-                    oObjLarge = MdmImportTldLarge41;
-                    oObjImageLarge = MdmImportTldLargeImage41;
+                    oObjLarge = MdmImportTldLarge;
+                    oObjImageLarge = MdmImportTldLargeImage;
                     oObjText = "C# Schema Converter";
                     return MdmImportTldRIght;
             }
@@ -468,7 +468,7 @@ function fnMenuIndexSet(oObjGroupIndex, oObjPassed) {
                 case MdmPickOss: return 7;
                 case MdmBlank: return 8;
                 //
-                case MdmImportTldLarge41: return 1;
+                case MdmImportTldLarge: return 1;
                 case MdmKBill: return 2;
                 case MdmNetAppFramel: return 3;
                 case MdmSrtl: return 4;

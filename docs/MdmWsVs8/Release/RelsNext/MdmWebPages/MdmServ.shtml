@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <title>Mdm Available Services Page</title>
     <meta name="Author" content="David G. Horsman">
     <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxWide.css">
     <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
     <link rel="stylesheet" type="text/css" href="../Css/Page/MdmServ.css">
-    <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon" >
-    <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png" >
+    <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
 </head>
 <body id="MdmServBody" class="BodyBox">
     <!--** Body Area **-->
@@ -24,147 +24,130 @@
             <!--** Center Main Column **-->
             <div id="BodyMainTop">
                 <br>
-<!--** Menu Blocks **-->
+                <!--** Menu Blocks **-->
             </div>
             <!--** Center Main Column **-->
             <div id="BodyMainCenter" class="BorderThin">
                 <!-- x -->
                 <!--** Content Blocks **-->
-
-
-               <!--*-->
+                <!--*-->
                 <!--** Block 1 **-->
                 <div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
-                	<div id="B1D1" class="BodyParaLeft">
+                    <div id="B1D1" class="BodyParaLeft">
 
-                    <h2 id="B3D1H1" class="h2 BodyPara">
-						<span class="cSd f14">
-						MacroscopeDM Services
-						</span>
-					</h2>
+                        <h2 id="B3D1H1" class="h2 BodyPara">
+                            <span class="cSd f14">
+                                MacroscopeDM Services
+                            </span>
+                        </h2>
 
-<!--***************-->
-<h3 class="h3 BodyPara">
-Development
-</h3>
-<!--***************-->
-<div class="BodyPara fPromo eBI">
-					<ul class="aLeft lB1">
-                        <li>Detailed design, development, and system testing</li>
-                        <li>Object oriented, script and procedural languages</li>
-                        <li>Specifications of ISO quality, UML diagrams</li>
-                        <li>Database design used with:</li>
-                            <li class="lB2">SQL</li>
-                            <li class="lB2">Pick/Revelation</li>
-                            <li class="lB2">Ms Access</li>
-                            <li class="lB2">Oracle</li>
-                            <li class="lB2">Clarion</li>
-                        <li>Product conversions to OO implementations</li>
-                        <li>Senior developer/team positions using:</li>
-                            <li class="lB2">Visual Basic</li>
-                            <li class="lB2">Clarion</li>
-                            <li class="lB2">Pick/Revelation</li>
-                            <li class="lB2">OpenInsight</li>
-                            <li class="lB2">Business Basic</li>
-                            <li class="lB2">COBOL</li>
-					</ul>
-</div>
-
-
-<!--***************-->
-<h3 class="h3 BodyPara">
-Consulting
-</h3>
-<!--***************-->
-<div class="BodyPara fPromo eBI">
-<ul id="lb1">
-<li>Applications Scope, Summary and Detailed Requirements</li>
-<li>Business Analysis and Consulting</li>
-<li>System Planning, Evaluation, Selection,
-        Upgrades</li>
-</ul>
-</div>
-
-<!--***************-->
-<h3 class="h3 BodyPara">
-Support
-</h3>
-<!--***************-->
-<div class="BodyPara fPromo eBI">
-<ul class="lb1">
-<li>Windows (98,NT,95,), Dos, Pick, Revelation</li>
-<li>Technical Help Desk</li>
-<li>Troubleshooting and Debugging</li>
-</ul>
-</div>
-
-
-
-
-
-                    <div id="B3C1" class="BodyParaRight CalloutBorder">
-                        <a id="B3C1A" href="#" class="CalloutContent CP">
-                            <span id="B3C1A1" class="CPA aCenter">
-							Completion<br>
-							Status<br>
-							Report</span>
-							<span id="B3C1CPP1" class="CalloutContent CPP">
-								  Under Construction...
-							</span>
-                        </a>
+                        <!--***************-->
+                        <h3 class="h3 BodyPara">
+                            Development
+                        </h3>
+                        <!--***************-->
+                        <div class="BodyPara fPromo eBI">
+                            <ul class="aLeft lB1">
+                                <li>Detailed design, development, and system testing</li>
+                                <li>Object oriented, script and procedural languages</li>
+                                <li>Specifications of ISO quality, UML diagrams</li>
+                                <li>Database design used with:</li>
+                                <li class="lB2">SQL</li>
+                                <li class="lB2">Pick/Revelation</li>
+                                <li class="lB2">Ms Access</li>
+                                <li class="lB2">Oracle</li>
+                                <li class="lB2">Clarion</li>
+                                <li>Product conversions to OO implementations</li>
+                                <li>Senior developer/team positions using:</li>
+                                <li class="lB2">Visual Basic</li>
+                                <li class="lB2">Clarion</li>
+                                <li class="lB2">Pick/Revelation</li>
+                                <li class="lB2">OpenInsight</li>
+                                <li class="lB2">Business Basic</li>
+                                <li class="lB2">COBOL</li>
+                            </ul>
+                        </div>
+                        <!--***************-->
+                        <h3 class="h3 BodyPara">
+                            Consulting
+                        </h3>
+                        <!--***************-->
+                        <div class="BodyPara fPromo eBI">
+                            <ul id="lb1">
+                                <li>Applications Scope, Summary and Detailed Requirements</li>
+                                <li>Business Analysis and Consulting</li>
+                                <li>System Planning, Evaluation, Selection,
+                                    Upgrades</li>
+                            </ul>
+                        </div>
+                        <!--***************-->
+                        <h3 class="h3 BodyPara">
+                            Support
+                        </h3>
+                        <!--***************-->
+                        <div class="BodyPara fPromo eBI">
+                            <ul class="lb1">
+                                <li>Windows (98,NT,95,), Dos, Pick, Revelation</li>
+                                <li>Technical Help Desk</li>
+                                <li>Troubleshooting and Debugging</li>
+                            </ul>
+                        </div>
+                        <div id="B3C1" class="BodyParaRight CalloutBorder">
+                            <a id="B3C1A" href="#" class="CalloutContent CP">
+                                <span id="B3C1A1" class="CPA aCenter">
+                                    Completion<br>
+                                    Status<br>
+                                    Report</span>
+                                <span id="B3C1CPP1" class="CalloutContent CPP">
+                                    Under Construction...
+                                </span>
+                            </a>
+                        </div>
+                        <h3 id="B3D1H2" class="h3 BodyPara">
+                            <span class="cSd f14">
+                                Features Scope and Requirements
+                                <br><br>
+                                File Formats
+                            </span>
+                        </h3>
+                        <ul class="BodyPara lB0">
+                            <li>Basic database connectivity.</li>
+                            <li>Schema conversion and creation</li>
+                            <li>MS SQL and MY SQL</li>
+                            <li>Native and ADO access</li>
+                            <li>Several ascii formats and binary file access.</li>
+                            <li>Support for post-relational database formats.</li>
+                            <li>UI support for system, server, and security.</li>
+                            <li>Robust defaults stategy</li>
+                            <li>UI support for file group and owner.</li>
+                        </ul>
+                        <h3 id="B3D1H2" class="h3 BodyPara">
+                            <span class="cSd f14">
+                                <br>Functionality
+                            </span>
+                        </h3>
+                        <ul class="BodyPara lB0">
+                            <li>Integration with MVC infrastructure.</li>
+                            <li>Preprocessing file creation, deletion, clearing.</li>
+                            <li>Row key validation for existance and absence.</li>
+                            <li>Independant auxilary connection to database.</li>
+                            <li>Creation of tables, views and aliases.</li>
+                            <li>Buffer, row/line or item processing modes.</li>
+                            <li>Inclusion of language virtualization extensions.</li>
+                            <li>Integration with OSS infrastructure.</li>
+                            <li>Robust exceptions handling.</li>
+                        </ul>
+                        <!--** End of B1D1 *-->
+                        <p class="FixClear"></p>
                     </div>
-                    <h3 id="B3D1H1" class="h3 BodyPara">
-						<span class="cSd f14">
-						Features Scope and Requirements
-						<br><br>
-						File Formats
-						</span>
-					</h3>
-					<ul class="BodyPara lB0">
-					<li>Basic database connectivity.</li>
-                    <li>Schema conversion and creation</li>
-                    <li>MS SQL and MY SQL</li>
-                    <li>Native and ADO access</li>
-                    <li>Several ascii formats and binary file access.</li>
-					<li>Support for post-relational database formats.</li>
-					<li>UI support for system, server, and security.</li>
-					<li>Robust defaults stategy</li>
-					<li>UI support for file group and owner.</li>
-                    <h3 id="B3D1H1" class="h3 BodyPara">
-						<span class="cSd f14">
-						<br>Functionality
-						</span>
-					</h3>
- 					</ul>
-					<ul class="BodyPara lB0">
-					<li>Integration with MVC infrastructure.</li>
-					<li>Preprocessing file creation, deletion, clearing.</li>
-					<li>Row key validation for existance and absence.</li>
-					<li>Independant auxilary connection to database.</li>
-					<li>Creation of tables, views and aliases.</li>
-					<li>Buffer, row/line or item processing modes.</li>
-					<li>Inclusion of language virtualization extensions.</li>
-					<li>Integration with OSS infrastructure.</li>
-					<li>Robust exceptions handling.</li>
- 					</ul>
-
-
-
-
-					<!--** End of B1D1 *-->
-   						<p class="FixClear"></p>
-                	</div>
-        		<!--** End of DivB1 *-->
-   						<p class="FixClear"></p>
+                    <!--** End of DivB1 *-->
+                    <p class="FixClear"></p>
                 </div>
-
-
-
-<!--***************-->
+                <!--***************-->
                 <!--*-->
                 <!--*-->
             </div>
-        <!--** End of Body Main Center *-->
+            <!--** End of Body Main Center *-->
         </div>
         <!--*-->
         <!--** End of Main Page Body BodyMainContainer *-->
@@ -172,4 +155,5 @@ Support
     <!--** End of Content Container BodyArea *-->
     <!--*-->
 </body>
+
 </html>

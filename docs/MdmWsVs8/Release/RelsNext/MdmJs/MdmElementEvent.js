@@ -76,7 +76,7 @@ function fnElementEventClick(menuImage)
 // load new page into frame
 //  imgframe.src = menuImage.name + '/' + menuImage.name + '.htm';
 //  document.frames.item.
-//  img0.src = menuImage.name + 'lr.gif';
+//  img0.src = menuImage.name + 'Larger.gif';
 //  img0text.src = menuImage.name + 'text.txt';
     imgSelect = menuImageCn;
     if (debugLogEvents)  {
@@ -274,17 +274,22 @@ function fnElementEventMouse(e)
 // ...................................... //
 function fnElementEventCurrRootObjSet()
 {
+
 	eventCurrRootObj = eventObject;
 	// currently the parent is limited to navigate upward three nodes.
 	// and must be below the Body container level
+	// todo you should be able to specify the tag or id to stop at (ie Div vs Div29)
 	tmpMax = 3;loopContinue = true;
 	while (loopContinue) {
 		if (eventCurrRootObj) {
 		if (eventCurrRootObj.parentNode) {
 		if (eventCurrRootObj.parentNode.id) {
 			// i.e. 'BodyMenuImageContainer'
+			// 'Body*' images behave differently
 			//  or  'BodyImageContainer'
-			if ((eventCurrRootObj.parentNode.id).substr(0,4) = 'Body') { loopContinue = false; } else {
+			if ((eventCurrRootObj.parentNode.id).substr(0,4) = 'Body') {
+				loopContinue = false;
+			} else {
 				eventCurrRootObj = eventCurrRootObj.parentNode;
 				tmpMax--;
 				if (!tmpMax) { loopContinue = false; }

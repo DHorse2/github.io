@@ -66,6 +66,13 @@ var DoUseOffset = true;
 var DoNotUseScroll = false;
 var DoNotUseBase = false;
 var DoNotUseOffset = false;
+// Section Menu Image (Standard) Objects
+////////////////////////////////////////////////
+// Storage Location for Group and Menu Item / Image
+var oObjGroupIndex = 1;
+var oObjRootIndex = 0;
+// location of Group / Roots in arrays
+var indexGroup = 0;
 // SectionBlock Image Handling
 ////////////////////////////////////////////////
 // fnBrowserGetVs();
@@ -111,5 +118,64 @@ var debugStateLoadDelay = false;
 var debugStateLoadFirst = true;
 // Local Parameter Initialization specified here.
 function fnDebugParameterInitLocal() { fnDebugParameterInit(); }
+// SectionBlock Animation Control
+////////////////////////////////////////////////
+// Basic Options:
+var moveIsOn = true; // Objectt Move From Origin to Destination
+// Animations and transitions
+var filterIsOn = true; // Transition
+var filterResizeIsOn = true; // Growing image
+var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
+////////////////////////////////////////////////
+// Animated Images
+////////////////////////////////////////////////
+// Image State
+// set the following to the number of images
+// then add the correct number of img objects
+var imgUsedCn = 5;
+var imgMax = 10;
+// Image Layout Adjustables
+var frmWidth = 75;
+var txtLineHeight = 30;
+var imgHeight = 90;
+// Animation Timing
+var intervalBase = 900;
+var intervalSet = 0;
+var intervalName = "";
+// Menu Images
+////////////////////////////////////////////////
+var elementLeftOrig = 0;
+var elementTopOrig = 0;
+var elementLeftDest = 0;
+var elementTopDest = 0;
+// Transition stepping
+var elementMoveDuration = 3;
+var elementMoveStepMax = 50;
+var elementMoveInterval = 10;
+var elementMoveDelay = 0;
+// Control overloading javascript
+// var filterBusy = false;
+// var timerBusy = false;
+// var resizeBusy = false;
+
+// Animation Transition Control:
+////////////////////////////////////////////////
+// (See function fnTimerDurationSet for default filter values)
+// var filterDurationOverride = false;
+var filterDuration = 0;
+var filterStepMin = 0;
+var filterStepMax = 0;
+var filterInterval = 0;
+var filterDelay = 0;
+// Usually filterDuration is the same as
+// elementDuration plus an adjustment.
+// a non-zero value indicates this
+// feature is on. Usually this adjustment
+// is one additional second.
+var filterDurationAdjustment = -0.001; // indicates use default
+// Methodology to Invoke Animation:
+var filterMethodPlay = 1; // execute the play method
+var filterMethodVisible = 2; // change style visibility (onchange)
+var filterMethod = filterMethodPlay;
 
 script_state = "MdmMain Custom Default settings used";

@@ -3,7 +3,6 @@
 <head>
     <title>Professional and Personal Site for Dave Horsman</title>
     <meta name="Author" content="David G. Horsman">
-    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
     <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
@@ -59,7 +58,7 @@
 <br>         SectionBlock Filter Get / Set function (s)
 <br>         Sub-Section Timer Management function (s)
 <br>         SectionBlock Timers Primary Commands function (s)
-<br>         Set Filter & Move function (s) for Timers
+<br>         Set Filter &amp; Move function (s) for Timers
 <br>         SectionBlock Timer Task Related (Filter / Move) Commands function (s)
 <br>         SectionBlock Timer Control function (s)
 <br>         SectionBlock Timer User Interface function (s)
@@ -77,13 +76,13 @@
 <br>         Standard function (s) - Math
 <br>         Standard function (s) - Font Size
 <br>         Section Debug and Error Management function (s)
-<br>         SectionBlock Application Debug & Error function (s)
-<br>         SectionBlock Window & Script Exceptions & Error function (s)
+<br>         SectionBlock Application Debug &amp; Error function (s)
+<br>         SectionBlock Window &amp; Script Exceptions &amp; Error function (s)
 <br>         Section Body Content Mouse Events function (s)
 <br>         Section Element function (s)
 <br>         SectionBlock Element support function (s)
 <br>         SectionBlock Element Get function (s)
-<br>         SectionBlock Element Position & Dimension function (s)
+<br>         SectionBlock Element Position &amp; Dimension function (s)
 <br>         Section Console function (s)
 <br>         Section Layout Management function (s)
 <br>         Section Mouse Events function (s)
@@ -94,7 +93,7 @@
 <br>         SectionBlock (Menu) Groups and Ranges Show / Hide function (s)
 <br>         SectionBlock (Menu) Show function (s)
 <br>         SectionBlock (Menu) Hide function (s)
-<br>         SectionBlock Element Item Objects (Menu Images) Get & Index function (s)
+<br>         SectionBlock Element Item Objects (Menu Images) Get &amp; Index function (s)
 <br>
 <br>------------------------------------------------
 <br>SectionBlock GLOBAL / COMMON function
@@ -321,7 +320,7 @@
 <br>	 		 Hidden Banner
 <br>			 Hidden Menu1
 <br>			 Hidden Menu2
-<br>			 Hidden Menu 1 & 2
+<br>			 Hidden Menu 1 &amp; 2
 <br>			 Hidden All
 <br>
 <br>
