@@ -10,26 +10,26 @@ var heightNode = 0;
 var heightRects = 0;
 var clientRectsIndex = 0;
 // Element Get Pointer
-function fnElementGetRef(elementObject, elementObjectId, elementObjectName) {
-    elementObject = fnElementGetFromId(elementObjectId);
+function StdElementGetRef(elementObject, elementObjectId, elementObjectName) {
+    elementObject = StdElementGetFromId(elementObjectId);
     if (!elementObject) {
         if (!elementObjectName.length) { elementObjectName = elementObjectId; }
-        elementObject = fnElementGetFromId(elementObjectName);
+        elementObject = StdElementGetFromId(elementObjectName);
     }
     return elementObject;
 }
-function fnElementGetFromElement(
+function StdElementGetFromElement(
     elementPassed, elementIdPassed, elementNamePassed,
     elementSourcePassed,
     elementFindDoSetPassed, elementValuePassed
 ) {
-    // Dest = fnElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
+    // Dest = StdElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
     //
     var elementChildObject;
     var elementTempFirst = true;
     elementFound = false;
     //
-    elementPassed = fnElementCreate(elementPassed, elementTempFirst);
+    elementPassed = StdElementCreate(elementPassed, elementTempFirst);
     //
     // Loop through each child node of elementObject
     // and retrieve the original element from the document.
@@ -55,14 +55,14 @@ function fnElementGetFromElement(
                             elementFound = true;
                         }
                         //
-                        // elementObject = fnElementGetFromId(elementObjectId);
+                        // elementObject = StdElementGetFromId(elementObjectId);
                         return elementPassed;
                     }
                 } // end of length and id match
                 //
                 if (elementChildObject.childNodes) {
                     if (elementChildObject.childNodes.length) {
-                        elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elementFindDoSetPassed, elementValuePassed);
+                        elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elementFindDoSetPassed, elementValuePassed);
                         if (elementFound) { return elementPassed; }
                     }
                 }
@@ -74,13 +74,13 @@ function fnElementGetFromElement(
     return;
 }
 // Layout Menu Area Element Common Fields Set
-function fnElementGetRefFromElement(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
+function StdElementGetRefFromElement(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
     // DOES THIS NEED TO BE COPIES.
     // As written it results in pointers into the Source Document
-    // Dest = fnElementGetRefFromElement(Dest, "DestId", "DestName", Source);
+    // Dest = StdElementGetRefFromElement(Dest, "DestId", "DestName", Source);
     var elementObjectResult;
     if (!elementObjectName.length && elementObjectId.length) { elementObjectName = elementObjectId; }
-    elementObjectResult = fnElementGetFromId(elementObjectName)
+    elementObjectResult = StdElementGetFromId(elementObjectName)
     if (elementObjectResult) {
         return elementObjectResult;
     } else {
@@ -88,7 +88,7 @@ function fnElementGetRefFromElement(elementObject, elementObjectId, elementObjec
     }
 } // ------------------------------------------------------------------------------------- _//
 // Layout Menu Area Element Common Fields Set
-function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
+function StdElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
     var elementIdCurr;
     var elementSourceIdCurr;
     if ("id" in elementSourcePassed) {
@@ -122,7 +122,7 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
                 //
                 elementLayoutFirstPassed = false;
                 // Element Events
-                fnElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
+                StdElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
             }
         }
         // if (elementPassed.innerHTML = null || elementPassed.innerHTML.length = 0) {
@@ -134,8 +134,8 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
 } // ------------------------------------------------------------------------------------- _//
 // Layout Menu Area Element Common Fields Set
 ////////////////////////////////////////////////
-function fnElementFindInElement(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
-    // Dest = fnElementGetRefFromElement(Dest, "DestId", "DestName", Source);
+function StdElementFindInElement(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
+    // Dest = StdElementGetRefFromElement(Dest, "DestId", "DestName", Source);
     //
     var elementChildObject;
     //
@@ -148,7 +148,7 @@ function fnElementFindInElement(elementObject, elementObjectId, elementObjectNam
             if ("id" in elementChildObject) {
                 if (elementChildObject.id.length && elementChildObject.id == elementObjectId.id) {
                     elementObject = elementChildObject;
-                    // elementObject = fnElementGetFromId(elementObjectId);
+                    // elementObject = StdElementGetFromId(elementObjectId);
                     return elementObject;
                     //
                 }
@@ -160,7 +160,7 @@ function fnElementFindInElement(elementObject, elementObjectId, elementObjectNam
 }
 // Layout Menu Area Element Common Fields Set
 ////////////////////////////////////////////////
-function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
+function StdElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
     var elementChildObject;
     var elementSourceChildObject;
     //
@@ -170,15 +170,15 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
         //
         if (!elementObject) { return; }
         // if (!elementObject)  {
-        // elementObject = fnElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
+        // elementObject = StdElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
         // if (elementObject.id != elementObjectId) {
-        // elementObject = fnElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
+        // elementObject = StdElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
         //
         if (!elementSourceObject) {
-            elementSourceObject = fnElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
+            elementSourceObject = StdElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
         }
         if (elementSourceObject.id != elementSourceObjectId) {
-            elementSourceObject = fnElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
+            elementSourceObject = StdElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
         }
     } else {
         if (!elementObject) { return; }
@@ -202,7 +202,7 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
         if (elementChildObject) {
             if ("id" in elementChildObject) {
                 if (elementChildObject.id.length) {
-                    elementSourceChildObject = fnElementGetFromId(elementChildObject.id);
+                    elementSourceChildObject = StdElementGetFromId(elementChildObject.id);
                     if (elementSourceChildObject) {
                         if (elementSourceChildObject.onmousedown) {
                             // elementChildObject.setAttribute("onmousedown", elementSourceChildObject.onmousedown , 0)
@@ -235,18 +235,18 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
 }
 // Layout Menu Area Element Common Fields Set
 ////////////////////////////////////////////////
-function fntElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
+function StdtElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
     if (!elementPassed) {
-        elementPassed = fnElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
+        elementPassed = StdElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
         // var elementPassed = elementPassed.childNodes[elementIdPassed];
-        // var elementPassed = fnElementGetFromId(elementIdPassed);
+        // var elementPassed = StdElementGetFromId(elementIdPassed);
     }
     // Get Break Element from Parent
     var elementTarget;
     if (elementPassed && elementIdPassed.tagName) {
         elementTarget = document.createElement(elementPassed.tagName);
     } else { elementTarget = document.createElement("div"); }
-    elementTarget = fnElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
+    elementTarget = StdElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
     //
     // if (elementPassed.childNodes.length) {
     if (elementTarget) {
@@ -270,7 +270,7 @@ function fntElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPa
 }
 // Element Position Get
 ////////////////////////////////////////////////
-function fnElementPosGet(oObjPassed) {
+function StdElementPosGet(oObjPassed) {
     oObjTop = 0;
     oObjLeft = 0;
     oObjWidth = 0;
@@ -295,7 +295,7 @@ function fnElementPosGet(oObjPassed) {
 // SectionBlock Element Get function (s)
 // ...................................... //
 // ..................................................................................... _//
-function fnElementGetFromId(IdPassed) {
+function StdElementGetFromId(IdPassed) {
     if (browserIsTEST) {
         // browserIsTEST
         if (!elementNamePassed.length) { elementNamePassed = IdPassed; }
@@ -312,33 +312,33 @@ function fnElementGetFromId(IdPassed) {
     return elementObject;
 }
 // Element Get Pointer
-function fnElementGetRef(elementObject, elementObjectId, elementNamePassed) {
-    elementObject = fnElementGetFromId(elementObjectId);
+function StdElementGetRef(elementObject, elementObjectId, elementNamePassed) {
+    elementObject = StdElementGetFromId(elementObjectId);
     if (!elementObject) {
         if (!elementNamePassed.length) {
             elementObjectId = elementNamePassed;
         }
-        elementObject = fnElementGetFromId(elementObjectId);
+        elementObject = StdElementGetFromId(elementObjectId);
     }
     return elementObject;
 }
 // Layout Menu Area Element Common Fields Set
-function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed) {
+function StdElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed) {
     // DOES THIS NEED TO BE COPIES.
     // As written it results in pointers into the Source Document
     if (!elementNamePassed.length) { elementNamePassed = elementIdPassed; }
-    // elementPassed = fnElementGetFromId(elementNamePassed);
+    // elementPassed = StdElementGetFromId(elementNamePassed);
     // if (!elementPassed) {
-    elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
+    elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
     // }
-    // Dest = fnElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
+    // Dest = StdElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
     // NOT browserIE or browserIsFF
     // var DoSet = false;
-    // elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, DoSet, null);
+    // elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, DoSet, null);
     return elementPassed;
 }
 // Layout Menu Area Element Common Fields Set
-function fnElementCreate(elementPassed, elementLayoutFirstPassed) {
+function StdElementCreate(elementPassed, elementLayoutFirstPassed) {
     var elementCreate = false;
     if (!elementPassed) {
         elementCreate = true;
@@ -358,14 +358,14 @@ function fnElementCreate(elementPassed, elementLayoutFirstPassed) {
     return elementPassed;
 }
 // Layout Menu Area Element Common Fields Set
-function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
+function StdElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
     var elementIdCurr;
     var elementSourceIdCurr;
     if (elementSourcePassed.id) {
         elementSourceIdCurr = elementSourcePassed.id;
     } else { elementSourceIdCurr = ''; }
     //
-    elementPassed = fnElementCreate(elementPassed, elementLayoutFirstPassed);
+    elementPassed = StdElementCreate(elementPassed, elementLayoutFirstPassed);
     //
     //............................................................---//
     if (elementPassed.id) { elementIdCurr = elementSourcePassed.id; } else { elementIdCurr = ''; }
@@ -386,7 +386,7 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
                 //
                 //............................................................---//
                 // Element Events
-                // fnElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
+                // StdElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
             }
         }
         // if (elementPassed.innerHTML = null || elementPassed.innerHTML.length = 0) {
@@ -401,7 +401,7 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
 }
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
+function StdElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
     var elementChildObject;
     var elementSourceChildObject;
     //
@@ -411,15 +411,15 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
         //
         if (!elementObject) { return; }
         // if (!elementObject)  {
-        // elementObject = fnElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
+        // elementObject = StdElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
         // if (elementObject.id != elementObjectId) {
-        // elementObject = fnElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
+        // elementObject = StdElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
         //
         if (!elementSourceObject) {
-            elementSourceObject = fnElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
+            elementSourceObject = StdElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
         }
         if (elementSourceObject.id != elementSourceObjectId) {
-            elementSourceObject = fnElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
+            elementSourceObject = StdElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
         }
     } else {
         if (!elementObject) { return; }
@@ -476,9 +476,9 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
 }
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
+function StdElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
     if (!elementPassed) {
-        elementPassed = fnElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
+        elementPassed = StdElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
         // var elementPassed = elementPassed.childNodes[elementIdPassed];
         // var elementPassed = document.getElementById(elementIdPassed);
     }
@@ -490,8 +490,8 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
     } else {
         elementTarget = document.createElement('br');
     }
-    elementTarget = fnElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elementFindDoReturn, null);
-    // elementTarget = fnElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
+    elementTarget = StdElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elementFindDoReturn, null);
+    // elementTarget = StdElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
     //
     // note: Switched from 'in' element operator to If(element.property)
     // It is more standard and less error prone.
@@ -504,9 +504,9 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
             if ('display' in elementTarget.style) {
                 if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
             } else if (debugTimerDetail) {
-                fnErrorOccured(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+                ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
                     'Element Break Set, Style missing',
-                    'fnElementBreakSet', 7742, elementTarget, elementPassed,
+                    'StdElementBreakSet', 7742, elementTarget, elementPassed,
                     errorElementWarn, errorDoDisplayTag, errorDoNotAlert);
             }
             // set Visibilty.
@@ -514,9 +514,9 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
                 if (elementTarget.style.visibility) {
                     elementTarget.style.visibility = elementStyleVisibilityPassed;
                 } else if (debugTimerDetail) {
-                    fnErrorOccured(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+                    ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
                         'Element Break Set, Visibility missing',
-                        'fnElementBreakSet', 7751, elementTarget, elementPassed,
+                        'StdElementBreakSet', 7751, elementTarget, elementPassed,
                         errorElementWarn, errorDoDisplayTag, errorDoNotAlert);
                     elementTarget.style.visibility = elementStyleVisibilityPassed;
                 }
@@ -527,9 +527,9 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
                 if (elementTarget.style.clear) {
                     if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
                 } else if (debugTimerDetail) {
-                    fnErrorOccured(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+                    ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
                         'Element Break Set, Clear missing',
-                        'fnElementBreakSet', 7760, elementTarget, elementPassed,
+                        'StdElementBreakSet', 7760, elementTarget, elementPassed,
                         errorElementWarn, errorDoDisplayTag, errorDoNotAlert);
                     elementTarget.style.clear = elsementStyleClearPassed;
                 }
@@ -544,19 +544,19 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 // ..................................................................................... _//
 // Element Position Get
 // ...................................... //
-function fnElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, elementHeightDefault) {
-    oObjTop = fnElementTopMaxGet(DoScroll, DoBase, elementPassed);
-    oObjLeft = fnElementLeftMaxGet(DoScroll, DoBase, elementPassed);
-    if (!oObjTop || !oObjLeft) { fnElementPosCalculate(elementPassed) } else {
-        oObjWidth = fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault);
-        oObjHeight = fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault);
+function StdElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, elementHeightDefault) {
+    oObjTop = StdElementTopMaxGet(DoScroll, DoBase, elementPassed);
+    oObjLeft = StdElementLeftMaxGet(DoScroll, DoBase, elementPassed);
+    if (!oObjTop || !oObjLeft) { StdElementPosCalculate(elementPassed) } else {
+        oObjWidth = StdElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault);
+        oObjHeight = StdElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault);
     }
     //
     return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
 }
 // Element Position Calculate
 // ...................................... //
-function fnElementPosCalculate(elementPassed) {
+function StdElementPosCalculate(elementPassed) {
     oObjTop = 0;
     oObjLeft = 0;
     oObjWidth = 0;
@@ -579,7 +579,7 @@ function fnElementPosCalculate(elementPassed) {
     return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
 }
 // Layout Top Get
-function fnElementTopMaxGet(DoScroll, DoBase, elementPassed) {
+function StdElementTopMaxGet(DoScroll, DoBase, elementPassed) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
@@ -604,7 +604,7 @@ function fnElementTopMaxGet(DoScroll, DoBase, elementPassed) {
     return thisTop;
 }
 // Layout Left Get
-function fnElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
+function StdElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
@@ -629,7 +629,7 @@ function fnElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
     return thisLeft;
 }
 // Layout Width Get
-function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault) {
+function StdElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
@@ -655,7 +655,7 @@ function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefau
     return thisWidth;
 }
 // Layout Height Get
-function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault) {
+function StdElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
@@ -716,11 +716,12 @@ function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDef
     return thisHeight;
 }
 // Layout Height Note
-function fnElementLayoutHeightNote(DoScroll, DoBase, elementPassed, elementWidthDefault) {
+function StdElementLayoutHeightNote(DoScroll, DoBase, elementPassed, elementWidthDefault) {
     // From: http://stackoverflow.com/questions/526347/css-javascript-how-do-you-get-the-rendered-height-of-an-element
     //
     // If you need to calculate something but not show it, set the element to visibility:hidden and position:absolute,
     // 		add it to the DOM tree, get the offsetHeight, and remove it.
     // 		(That's what the prototype library does behind the lines last time I checked).
 }
-script_state = "MdmElement loaded";
+script_state = "Mdm Standard Element functions loaded.";
+if (debugLoadIsOn) { debugger; }

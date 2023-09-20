@@ -51,7 +51,7 @@
 									<div id="BodyConsoleViewButton"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyLayoutToggle" class="BodyLayoutToggle ViewToggleButton
-					 MenuListItem  BorderThin " onmousedown="fnLayoutNext(0)">
+					 MenuListItem  BorderThin " onmousedown="StdLayoutNext(0)">
 											View
 										</div>
 									</div>
@@ -59,7 +59,7 @@
 									<div id="BodyConsoleMouseOverButton"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyConsoleMouseOverToggle" class="BodyConsoleToggle ViewToggleButton
-						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleMouseOver')">
+						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleMouseOver')">
 											MoOv
 										</div>
 									</div> <!-- end of BodyConsoleMouseOverButton -->
@@ -70,18 +70,18 @@
 											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleDebugButton" class="ViewToggleBlockContainer">
 												<div id="BodyConsoleDebugToggle" class="BodyConsoleToggle ViewToggleButton
-							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebug')">
+							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebug')">
 													D
 												</div>
 											</div> <!-- end of BodyConsoleDebugButton -->
 											<!--*-->
 											<div id="BodyConsoleDebugMainToggles" class="ViewToggleBlockContainer">
 												<div id="BodyConsoleDebugOnErrorToggle" class="BodyConsoleLog ViewToggleButton
-							 ViewToggleBlock MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugOnError')">
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugOnError')">
 													o
 												</div>
 												<div id="BodyConsoleDebugAllToggle" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugAll')">
+							 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugAll')">
 													a
 												</div>
 											</div> <!-- end of BodyConsoleDebugMainToggles -->
@@ -90,19 +90,19 @@
 										<div id="BodyConsoleDebugTypesToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleDebugMoveToggle" class="BodyConsoleLog ViewToggleButton
-						 ViewToggleBlock MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugMove')">
+						 ViewToggleBlock MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugMove')">
 												m
 											</div>
 											<div id="BodyConsoleDebugTransitionToggle" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugTransition')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugTransition')">
 												t
 											</div>
 											<div id="BodyConsoleDebugDetailToggle" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugDetail')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugDetail')">
 												d
 											</div>
 											<div id="BodyConsoleDebugEventsToggle" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugEvents')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugEvents')">
 												v
 											</div>
 										</div> <!-- end of BodyConsoleDebugTypesToggles -->
@@ -113,22 +113,22 @@
 											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleBoxButton" class="ViewToggleBlockContainer">
 												<div id="BodyConsoleToggle" class="BodyConsoleToggle ViewToggleButton
-							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="fnBodyConsoleToggle('ConsoleAll')">
+							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="StdBodyConsoleToggle('ConsoleAll')">
 													C
 												</div>
 											</div> <!-- end of BodyConsoleBoxButton -->
 											<!--*-->
 											<div id="BodyConsoleLogToggles" class="ViewToggleBlockContainer">
 												<div id="BodyConsoleErrorToggle" class="BodyConsoleLog ViewToggleButton
-							 ViewToggleBlock MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleError')">
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleError')">
 													e
 												</div>
 												<div id="BodyConsoleEventToggle" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleEvent')">
+							 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleEvent')">
 													v
 												</div>
 												<div id="BodyConsoleStateToggle" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleState')">
+							 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleState')">
 													s
 												</div>
 											</div> <!-- end of BodyConsoleLogToggles -->
@@ -137,11 +137,11 @@
 										<div id="BodyConsoleAuxillaryToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleTestToggle" class="BodyConsoleLog ViewToggleButton
-						 ViewToggleBlock MenuListItem BorderThin" onmousedown="fnBodyConsoleToggle('ConsoleTest')">
+						 ViewToggleBlock MenuListItem BorderThin" onmousedown="StdBodyConsoleToggle('ConsoleTest')">
 												T
 											</div>
 											<div id="BodyConsoleClearToggle" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleClear')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleClear')">
 												c
 											</div>
 										</div> <!-- end of BodyConsoleAuxillaryToggles -->
@@ -162,20 +162,20 @@
 							<div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText f10 ">
 								<!--*-->
 								<p id="MenuGroup1Header" class="MenuColumnHeading eB f12 cBlack"
-									onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false)">
+									onmousedown="StdElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false)">
 									<span class="fMicro">Click menu headings to see thumbnail menus<br></span>
 									Development Projects
 								</p>
 								<!-- IN PROGRESS NOTE lnumbered altering list presentation...
-onmouseover=fnElementGroupShowStack(LeftHeader1)
+onmouseover=StdElementGroupShowStack(LeftHeader1)
 -->
 								<ul id="MenuGroup1" class="MenuList lNumbered MenuColumnClass">
 									<!-- 1 -->
 									<li class="MenuListItem">
-										<!-- x onmouseover="fnElementGroupShowStack(img1MenuLine, img1)"-->
+										<!-- x onmouseover="StdElementGroupShowStack(img1MenuLine, img1)"-->
 										<a id="MdmImportTldMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmImportTld.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true)">
 											Database schema<br>
 											and data converter. C#
 										</a>
@@ -184,7 +184,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmNetAppFrameMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmNetAppFrame.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true)">
 											Application framework. C#
 										</a>
 									</li>
@@ -192,7 +192,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmWebUiMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmWebUi.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, false, true)">
 											Web Page Templates. JavaScript
 										</a>
 									</li>
@@ -200,7 +200,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmDbUtilClassMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmDbUtilClass.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true)">
 											File System module. C#
 										</a>
 									</li>
@@ -208,7 +208,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmOutlookSyncMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmOutlookSync.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, false, true)">
 											Outlook folder integration. VBA
 										</a>
 									</li>
@@ -216,7 +216,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmNetVirListMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmNetVirList.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true)">
 											Virtualized non-generic list. C++
 										</a>
 									</li>
@@ -224,7 +224,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmSystemMgntMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmSystemMgnt.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true)">
 											Windows desktop best practices. Cross-cutting.
 										</a>
 									</li>
@@ -232,7 +232,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem MenuListItemLast">
 										<a id="MdmWebDevMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmWebDev.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true)">
 											Web <br>Development.
 										</a>
 									</li>
@@ -260,7 +260,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<!-- Menu Group 2 ------------------------------------------------------------------------------------- -->
 							<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText f10 ">
 								<p id="MenuGroup2Header" class="MenuColumnHeading eB f12 cBlack"
-									onmousedown="fnElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false)">
+									onmousedown="StdElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false)">
 									Career
 								</p>
 								<ul id="MenuGroup2" class="MenuList">
@@ -268,14 +268,14 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmResumeMenuLine" class="MenuListItem"
 											href="../MdmResume/MdmResume.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, false, true)">
 											Career Home
 										</a>
 									</li>
 									<!-- 2 -->
 									<li class="MenuListItem">
 										<a id="MdmRsmItMenuLine" class="MenuListItem" href="../MdmResume/MdmRsmIt.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, false, true)">
 											Resume
 										</a>
 									</li>
@@ -283,7 +283,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmDghCarBioMenuLine" class="MenuListItem"
 											href="../MdmResume/MdmDghCarBio.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, false, true)">
 											Personal Bio
 										</a>
 									</li>
@@ -291,7 +291,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem MenuListItemLast">
 										<a id="MdmDghAccomMenuLine" class="MenuListItem"
 											href="../MdmResume/MdmDghAccom.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true)">
 											Major Accomplishments
 										</a>
 									</li>
@@ -320,28 +320,28 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<!-- Menu Group 3 ------------------------------------------------------------------------------------- -->
 							<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText f10 ">
 								<p id="MenuGroup3Header" class="MenuColumnHeading eB f12 cBlack"
-									onmousedown="fnElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false)">
+									onmousedown="StdElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false)">
 									Applied Research
 								</p>
 								<ul id="MenuGroup3" class="MenuList">
 									<!-- 1 -->
 									<li class="MenuListItem">
 										<a id="MdmTechRsrchMenuLine" href=""
-											onmouseover="fnElementGroupShowStack(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, false, true)">
 											Applied Technology Research
 										</a>
 									</li>
 									<!-- 2 -->
 									<li class="MenuListItem">
 										<a id="MdmCogSciProjMenuLine" href=""
-											onmouseover="fnElementGroupShowStack(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, false, true)">
 											Cognitive Science Project
 										</a>
 									</li>
 									<!-- 3 -->
 									<li class="MenuListItem MenuListItemLast">
 										<a id="MdmMvvmProjMenuLine" href=""
-											onmouseover="fnElementGroupShowStack(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true)">
 											C# MVVM / OSS Project
 										</a>
 									</li>
@@ -379,14 +379,14 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 						<!-- * -->
 						<div id="BodyConsoleViewButtonCopy" class="ViewToggleBlockContainer">
 							<div id="BodyLayoutToggleCopy" class="BodyLayoutToggle ViewToggleButton
-					 MenuListItem  BorderThin " onmousedown="fnLayoutNext(0)">
+					 MenuListItem  BorderThin " onmousedown="StdLayoutNext(0)">
 								View
 							</div>
 						</div>
 						<!-- x ------------------------------------------------------------------------------------- -->
 						<div id="BodyConsoleMouseOverButtonCopy" class="ViewToggleBlockContainer">
 							<div id="BodyConsoleMouseOverToggleCopy" class="BodyConsoleToggle ViewToggleButton
-						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleMouseOver')">
+						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleMouseOver')">
 								MoOv
 							</div>
 						</div> <!-- end of BodyConsoleMouseOverButton -->
@@ -396,18 +396,18 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<div id="BodyConsoleDebugTogglesCopy" class="ViewToggleBlockContainerOuter">
 								<div id="BodyConsoleDebugButtonCopy" class="ViewToggleBlockContainer">
 									<div id="BodyConsoleDebugToggleCopy" class="BodyConsoleToggle ViewToggleButton
-							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebug')">
+							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebug')">
 										D
 									</div>
 								</div> <!-- end of BodyConsoleDebugButton -->
 								<!--*-->
 								<div id="BodyConsoleDebugMainTogglesCopy" class="ViewToggleBlockContainer">
 									<div id="BodyConsoleDebugOnErrorToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 ViewToggleBlock MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugOnError')">
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugOnError')">
 										o
 									</div>
 									<div id="BodyConsoleDebugAllToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugAll')">
+							 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugAll')">
 										a
 									</div>
 								</div> <!-- end of BodyConsoleDebugMainToggles -->
@@ -415,19 +415,19 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<!--*-->
 							<div id="BodyConsoleDebugTypesTogglesCopy" class="ViewToggleBlockContainer">
 								<div id="BodyConsoleDebugMoveToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 ViewToggleBlock MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugMove')">
+						 ViewToggleBlock MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugMove')">
 									m
 								</div>
 								<div id="BodyConsoleDebugTransitionToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugTransition')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugTransition')">
 									t
 								</div>
 								<div id="BodyConsoleDebugDetailToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugDetail')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugDetail')">
 									d
 								</div>
 								<div id="BodyConsoleDebugEventsToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleDebugEvents')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleDebugEvents')">
 									v
 								</div>
 							</div> <!-- end of BodyConsoleDebugTypesToggles -->
@@ -437,22 +437,22 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<div id="BodyConsoleBoxTogglesCopy" class="ViewToggleBlockContainerOuter">
 								<div id="BodyConsoleBoxButtonCopy" class="ViewToggleBlockContainer">
 									<div id="BodyConsoleToggleCopy" class="BodyConsoleToggle ViewToggleButton
-							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="fnBodyConsoleToggle('ConsoleAll')">
+							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="StdBodyConsoleToggle('ConsoleAll')">
 										C
 									</div>
 								</div> <!-- end of BodyConsoleBoxButton -->
 								<!--*-->
 								<div id="BodyConsoleLogTogglesCopy" class="ViewToggleBlockContainer">
 									<div id="BodyConsoleErrorToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 ViewToggleBlock MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleError')">
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleError')">
 										e
 									</div>
 									<div id="BodyConsoleEventToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleEvent')">
+							 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleEvent')">
 										v
 									</div>
 									<div id="BodyConsoleStateToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleState')">
+							 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleState')">
 										s
 									</div>
 								</div> <!-- end of BodyConsoleLogToggles -->
@@ -460,11 +460,11 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<!--*-->
 							<div id="BodyConsoleAuxillaryTogglesCopy" class="ViewToggleBlockContainer">
 								<div id="BodyConsoleTestToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 ViewToggleBlock MenuListItem BorderThin" onmousedown="fnBodyConsoleToggle('ConsoleTest')">
+						 ViewToggleBlock MenuListItem BorderThin" onmousedown="StdBodyConsoleToggle('ConsoleTest')">
 									T
 								</div>
 								<div id="BodyConsoleClearToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="fnBodyConsoleToggle('ConsoleClear')">
+						 MenuListItem BorderThin " onmousedown="StdBodyConsoleToggle('ConsoleClear')">
 									c
 								</div>
 							</div> <!-- end of BodyConsoleAuxillaryToggles -->
@@ -995,7 +995,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 							<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
 							<div id="MenuContainerRight1" class="MenuContainer MenuColumnClass fText f10 ">
 								<p id="MenuGroup4Header" class="MenuColumnHeading eB f10 cBlack"
-									onmousedown="fnElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)">
+									onmousedown="StdElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)">
 									Software
 									Products
 									Available
@@ -1006,7 +1006,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmImportTldMenuLineRight" class="MenuListItem "
 											href="../MdmWebPages/MdmImportTld.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldRIghtImage', 'MdmImportTldRIght', oObjImageSizeSmall, 4, 1, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldRIghtImage', 'MdmImportTldRIght', oObjImageSizeSmall, 4, 1, false, true)">
 											C# database schema<br>
 											and data converter </a>
 									</li>
@@ -1014,7 +1014,7 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmKBilMenuLine" class="MenuListItem "
 											href="../AxionWebPages/macdefau.htm"
-											onmouseover="fnElementGroupShowStack(0, 'MdmImportTldRIght', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmImportTldRIght', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, false, true)">
 											K-Bil<br>
 											Subscriber Billing<br>
 											System</a>
@@ -1023,40 +1023,40 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmNetAppFrame4MenuLine" class="MenuListItem "
 											href="../MdmWebPages/MdmNetAppFrame.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)">
 											C# Application Framework</a>
 									</li>
 									<!-- 4 -->
 									<li class="MenuListItem">
 										<a id="MdmSrtMenuLine" class="MenuListItem " href="../MdmWebPages/MdmSrt.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)">
 											SRT Code Conversion Tool</a>
 									</li>
 									<!-- 5 -->
 									<li class="MenuListItem">
 										<a id="MdmPickTrMenuLine" class="MenuListItem "
 											href="../MdmWebPages/MdmPickTr.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)">
 											PickTR Adaptive Communications Protocol</a>
 									</li>
 									<!-- 6 -->
 									<li class="MenuListItem">
 										<a id="MdmOutlookSyncMenuLineRight" class="MenuListItem "
 											href="../MdmWebPages/MdmOutlookSync.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)">
 											Outlook folder to disk sync add-on</a>
 									</li>
 									<!-- 7 -->
 									<li class="MenuListItem">
 										<a id="MdmPickOssMenuLine" class="MenuListItem "
 											href="../MdmWebPages/MdmPickOss.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)">
 											Pick Application Framework</a>
 									</li>
 									<!-- 8 -->
 									<li class="MenuListItem MenuListItemLast">
 										<a id="MdmOtherApps" class="MenuListItem " href="../MdmWebPages/MdmBlank.shtml"
-											onmouseover="fnElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)">
+											onmouseover="StdElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)">
 											Release Management, Accounting,<br>
 											and duh not currently available.</a>
 									</li>
@@ -1113,9 +1113,9 @@ onmouseover=fnElementGroupShowStack(LeftHeader1)
 	<!-- x ------------------------------------------------------------------------------------- -->
 	<!-- x Section BodyMenuImageContainer -->
 	<div id="BodyMenuImageContainer">
-		<!-- onmousedown="fnElementEventMouse(event);"  -->
-		<!-- onmouseover="fnElementEventMouse(event);"  -->
-		<!-- onmouseout="fnElementEventMouse(event);" -->
+		<!-- onmousedown="StdElementEventMouse(event);"  -->
+		<!-- onmouseover="StdElementEventMouse(event);"  -->
+		<!-- onmouseout="StdElementEventMouse(event);" -->
 	</div> <!-- end of BodyMenuImageContainer -->
 	<!-- x ------------------------------------------------------------------------------------- -->
 	<!-- x ------------------------------------------------------------------------------------- -->

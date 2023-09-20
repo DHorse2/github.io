@@ -2,7 +2,7 @@
 
 // Body ViewToggle - Console
 // ..................................................................................... _//
-function fnBodyConsoleToggle(ConsoleBlockPassed) {
+function StdBodyConsoleToggle(ConsoleBlockPassed) {
 	var checkBoxSize = false;
 	var checkNoVisibleDebug = false;
 	var checkNoVisibleConsole = false;
@@ -11,23 +11,23 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 	var checkLogModeSeeErrors = false;
 	var boxStyleSaved = '';
 	// Body Element Creation
-	if (javaLoadFirst) { fnElementObjectCreate(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
 	//
 	switch (ConsoleBlockPassed) {
 		//
 		case 'ConsoleMouseOver':
 			if (eventMouseOverEnabled) {
 				eventMouseOverEnabled = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Mouse Over Menus is OFF',
-					'fnBodyConsoleToggle', 8307, null, null,
+					'StdBodyConsoleToggle', 8307, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				eventMouseOverEnabled = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Mouse Over Menus is ON',
-					'fnBodyConsoleToggle', 8314, null, null,
+					'StdBodyConsoleToggle', 8314, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 					elBodyConsoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 			}
@@ -37,7 +37,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleError':
 			if (elBodyConsoleBox.style.display != 'block') {
 				boxStyleSaved = elBodyConsoleErrorBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleErrorBox.style.display = boxStyleSaved;
 			} else {
 				if (elBodyConsoleErrorBox.style.display != 'block') {
@@ -56,7 +56,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleEvent':
 			if (elBodyConsoleBox.style.display != 'block') {
 				boxStyleSaved = elBodyConsoleEventBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleEventBox.style.display = boxStyleSaved;
 			} else {
 				if (elBodyConsoleEventBox.style.display != 'block') {
@@ -76,9 +76,9 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		//
 		case 'ConsoleState':
 			if (elBodyConsoleBox.style.display != 'block') {
-				if (debugStateLoadFirst) { fnDebugParameterInit(); }
+				if (loadFirstDebugState) { DebugParameterInit(); }
 				boxStyleSaved = elBodyConsoleStateBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleStateBox.style.display = boxStyleSaved;
 			} else {
 				if (elBodyConsoleStateBox.style.display != 'block') {
@@ -99,7 +99,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleTest':
 			if (elBodyConsoleBox.style.display != 'block') {
 				boxStyleSaved = elBodyConsoleTestBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleTestBox.style.display = boxStyleSaved;
 			}
 			//
@@ -109,9 +109,9 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				elBodyConsoleTestToggle.style.borderColor = ButtonIsOnColor;
 			}
 			// execute test
-			fnErrorOccured(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+			ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
 				'This is a test message for checking the console display...',
-				'fnBodyConsoleToggle', 8225, elBodyConsoleTestBox, elBodyConsoleTestBox,
+				'StdBodyConsoleToggle', 8225, elBodyConsoleTestBox, elBodyConsoleTestBox,
 				errorSevere, errorDoDisplayTag, errorDoAlert);
 			//
 			checkNoVisibleConsole = true;
@@ -120,9 +120,9 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		//
 		case 'ConsoleClear':
 			elBodyConsoleErrorTextBox.innerHTML = '';
-			fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+			ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 				'Error and Log Console has been cleared...',
-				'fnBodyConsoleToggle', 8235, null, null,
+				'StdBodyConsoleToggle', 8235, null, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 			elBodyConsoleClearToggle.style.backgroundColor = '';
@@ -151,10 +151,10 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				debugLogEvents = true;
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				//
-				fnBodyConsoleShow(DoNotUseHide, DoUseDebug);
+				StdBodyConsoleShow(DoNotUseHide, DoUseDebug);
 				//
 				if (elBodyConsoleBox.style.display != 'block') {
-					fnBodyConsoleToggle('ConsoleAll');
+					StdBodyConsoleToggle('ConsoleAll');
 				}
 				//
 				if (errorUseDebugOnAll || errorUseDebugOnError) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
@@ -184,26 +184,26 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				debugLogEvents = false;
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 				//
-				fnBodyConsoleShow(DoUseHide, DoUseDebug);
+				StdBodyConsoleShow(DoUseHide, DoUseDebug);
 				// elBodyConsoleDebugToggles.style.display = 'none';
 				elBodyConsoleDebugToggle.style.borderColor = ButtonIsOffColor;
-				fnBodyConsoleDebugButtons = false;
+				StdBodyConsoleDebugButtons = false;
 			}
 			break;
 		//
 		case 'ConsoleDebugMove':
 			if (debugTimerMove) {
 				debugTimerMove = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug Move is OFF',
-					'fnBodyConsoleToggle', 8307, null, null,
+					'StdBodyConsoleToggle', 8307, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerMove = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug Move is ON',
-					'fnBodyConsoleToggle', 8314, null, null,
+					'StdBodyConsoleToggle', 8314, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -218,16 +218,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugTransition':
 			if (debugTimerTransition) {
 				debugTimerTransition = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug Transition is OFF',
-					'fnBodyConsoleToggle', 8331, null, null,
+					'StdBodyConsoleToggle', 8331, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerTransition = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug Transition is ON',
-					'fnBodyConsoleToggle', 8338, null, null,
+					'StdBodyConsoleToggle', 8338, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -242,16 +242,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugDetail':
 			if (debugTimerDetail) {
 				debugTimerDetail = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug Detail is OFF',
-					'fnBodyConsoleToggle', 8355, null, null,
+					'StdBodyConsoleToggle', 8355, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerDetail = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug Detail is ON',
-					'fnBodyConsoleToggle', 8362, null, null,
+					'StdBodyConsoleToggle', 8362, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -264,16 +264,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugOnError':
 			if (errorUseDebugOnError) {
 				errorUseDebugOnError = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug On Error in debugger is OFF',
-					'fnBodyConsoleToggle', 8377, null, null,
+					'StdBodyConsoleToggle', 8377, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnError = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug On Error in debugger is ON',
-					'fnBodyConsoleToggle', 8384, null, null,
+					'StdBodyConsoleToggle', 8384, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -286,18 +286,18 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugAll':
 			if (errorUseDebugOnAll) {
 				errorUseDebugOnAll = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug All messages in debugger is OFF',
-					'fnBodyConsoleToggle', 8399, null, null,
+					'StdBodyConsoleToggle', 8399, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnAll = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug All messages in debugger is ON',
-					'fnBodyConsoleToggle', 8406, null, null,
+					'StdBodyConsoleToggle', 8406, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-				if (!errorUseDebugOnError) { fnBodyConsoleToggle('ConsoleDebugOnError'); }
+				if (!errorUseDebugOnError) { StdBodyConsoleToggle('ConsoleDebugOnError'); }
 				elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -310,16 +310,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugEvents':
 			if (debugLogEvents) {
 				debugLogEvents = false;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug (Mouse) Events is OFF',
-					'fnBodyConsoleToggle', 8423, null, null,
+					'StdBodyConsoleToggle', 8423, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugLogEvents = true;
-				fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 					'Debug (Mouse) Events is ON',
-					'fnBodyConsoleToggle', 8430, null, null,
+					'StdBodyConsoleToggle', 8430, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -340,16 +340,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 	//
 	if (checkLogMode) {
 		if (checkLogModeSeeErrors) {
-			if (elBodyConsoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			if (elBodyConsoleErrorBox.style.display != 'block') { StdBodyConsoleToggle('ConsoleError'); }
 		} else {
-			// if (elBodyConsoleErrorBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			// if (elBodyConsoleErrorBox.style.display = 'block') { StdBodyConsoleToggle('ConsoleError'); }
 		}
 		if (checkLogModeSeeEvents) {
-			if (elBodyConsoleEventBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
+			if (elBodyConsoleEventBox.style.display != 'block') { StdBodyConsoleToggle('ConsoleEvent'); }
 		} else {
-			// if (elBodyConsoleEventBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
+			// if (elBodyConsoleEventBox.style.display = 'block') { StdBodyConsoleToggle('ConsoleEvent'); }
 		}
-		if (elBodyConsoleStateBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleState'); }
+		if (elBodyConsoleStateBox.style.display = 'block') { StdBodyConsoleToggle('ConsoleState'); }
 	}
 	//
 	// Check if any Console Box settings are on or content is visible
@@ -359,10 +359,10 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 			&& elBodyConsoleStateBox.style.display != 'block'
 		) {
 			elBodyConsoleBox.style.display = 'none';
-			fnBodyConsoleShow(DoHide = true, DoDebug = false);
+			StdBodyConsoleShow(DoHide = true, DoDebug = false);
 			checkBoxSize = false;
 		} else {
-			fnBodyConsoleShow(DoHide = false, DoDebug = false);
+			StdBodyConsoleShow(DoHide = false, DoDebug = false);
 		}
 		//
 	}
@@ -377,10 +377,10 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 			&& !debugLogEvents
 		) {
 			// 			&& !errorUseDebugOnError
-			fnBodyConsoleShow(DoHide = true, DoDebug = true);
+			StdBodyConsoleShow(DoHide = true, DoDebug = true);
 			checkBoxSize = false;
 		} else {
-			fnBodyConsoleShow(DoHide = false, DoDebug = true);
+			StdBodyConsoleShow(DoHide = false, DoDebug = true);
 		}
 	}
 	//
@@ -388,16 +388,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleAll':
 			checkBoxSize = true;
 			// Toggle Test 1 - Buttons Visible
-			if (fnBodyConsoleBoxButtons) {
+			if (StdBodyConsoleBoxButtons) {
 				if (elBodyConsoleBox.style.display != 'block') {
 					//
-					if (debugStateLoadFirst) { fnDebugParameterInit(); }
+					if (loadFirstDebugState) { DebugParameterInit(); }
 					//
 					// elBodyConsoleTop.style.display = 'block';
 					//
 					elBodyConsoleBox.style.display = 'block';
 					//
-					fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+					StdBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 					//
 					if (elBodyConsoleErrorBox.style.display != 'block'
 						&& elBodyConsoleEventBox.style.display != 'block'
@@ -431,7 +431,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 					//
 					elBodyConsoleBox.style.display = 'none';
 					//
-					fnBodyConsoleShow(DoUseHide, DoNotUseDebug);
+					StdBodyConsoleShow(DoUseHide, DoNotUseDebug);
 					//
 				}
 				//
@@ -440,7 +440,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				//
 				elBodyConsoleBox.style.display = 'block';
 				//
-				fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+				StdBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 			}
 		default:
 			break;
@@ -514,21 +514,21 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 	}
 }
 // Body ViewToggle - Console
-function fnBodyConsoleShow(DoHide, DoDebug) {
+function StdBodyConsoleShow(DoHide, DoDebug) {
 	//............................................................---//
 	// Body Element Creation
-	if (javaLoadFirst) { fnElementObjectCreate(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
 	//............................................................---//
 	//
 	if (DoDebug) {
 		// Process Console Box Action
 		if (DoHide) {
-			fnBodyConsoleDebugButtons = false;
+			StdBodyConsoleDebugButtons = false;
 			// BodyConsoleDebugToggles.style.display = 'none';
 			elBodyConsoleDebugMainToggles.style.display = 'none';
 			elBodyConsoleDebugTypesToggles.style.display = 'none';
 		} else {
-			fnBodyConsoleDebugButtons = true;
+			StdBodyConsoleDebugButtons = true;
 			// BodyConsoleDebugToggles.style.display = 'block';
 			elBodyConsoleDebugMainToggles.style.display = 'block';
 			elBodyConsoleDebugTypesToggles.style.display = 'block';
@@ -550,11 +550,11 @@ function fnBodyConsoleShow(DoHide, DoDebug) {
 		//
 		// Process Console Box Action
 		if (DoHide) {
-			fnBodyConsoleBoxButtons = false;
+			StdBodyConsoleBoxButtons = false;
 			elBodyConsoleLogToggles.style.display = 'none';
 			elBodyConsoleAuxillaryToggles.style.display = 'none';
 		} else {
-			fnBodyConsoleBoxButtons = true;
+			StdBodyConsoleBoxButtons = true;
 			elBodyConsoleLogToggles.style.display = 'block';
 			elBodyConsoleAuxillaryToggles.style.display = 'block';
 		}
@@ -584,7 +584,7 @@ console.info();
 console.error();
 console.clear();
 // Start debugging
-function fnDebugStart(debugOptionPassed, debugMessagePassed) {
+function DebugStart(debugOptionPassed, debugMessagePassed) {
     if (!debugIsOn) { return; }
 	debugStateMessage = "Ready to debug: " + debugMessagePassed + "(" + debugOptionPassed + ")"
 	console.log(debugStateMessage);
@@ -601,10 +601,11 @@ function fnDebugStart(debugOptionPassed, debugMessagePassed) {
             // Throw something
             // throw "Ready to debug: " + debugMessagePassed + "(" + debugOptionPassed + ")";
             // Use degug instance (from VK)
-            // debug-instance-off fnMenuImgShow;
+            // debug-instance-off StdMenuImgShow;
 			debugger; // 20230912 try it. todo
         }
     }
 }
 //
 script_state = "MdmDebugConsole loaded";
+if (debugLoadIsOn) { debugger; }

@@ -30,7 +30,7 @@ var browserIsNE;
 // SectionBlock Window Browser
 // ...................................... //
 // Browser Type Get
-function fnBrowserGetVs() {
+function StdBrowserGetVs() {
     // Browser Type
     browserType = '';
     browserVs = 0;
@@ -94,7 +94,7 @@ function fnBrowserGetVs() {
     }
 }
 // Browser Type Get2
-function fnBrowserGetFromWindow() {
+function StdBrowserGetFromWindow() {
     // IE
     browserType = window.appName;
     browserVs = window.appVersion;
@@ -103,3 +103,4 @@ function fnBrowserGetFromWindow() {
 }
 
 script_state = "MdmBrowser loaded";
+if (debugLoadIsOn) { debugger; }

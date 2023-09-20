@@ -101,87 +101,87 @@
 <br>SectionBlock STANDARD function
 <br>------------------------------------------------
 <br>Global
-<br>		 fnDocumentLoadInit
+<br>		 StdDocumentLoadInit
 <br>Elements
-<br>		fnElementPosGet
+<br>		StdElementPosGet
 <br>Layout
-<br>		fnLayoutSelectByIndex
+<br>		StdLayoutSelectByIndex
 <br>Menu Images
-<br>		fnMenuImagesHtmlBuild
+<br>		StdMenuImagesHtmlBuild
 <br>Mouse
-<br>		fnElementEventMouseOver
-<br>		fnElementEventMouseOut
-<br>		fnElementEventClick
+<br>		StdElementEventMouseOver
+<br>		StdElementEventMouseOut
+<br>		StdElementEventClick
 <br>
 <br>------------------------------------------------
 <br>SectionBlock Menu function
 <br>------------------------------------------------
 <br>Menu Image Show / Hide
 <br>Menu Show
-<br>		fnElementGroupShowRange
-<br>		fnElementItemShowIndex
-<br>		fnElementGroupShowStack
-<br>		fnElementItemToggle
-<br>		fnElementItemShow
+<br>		StdElementGroupShowRange
+<br>		StdElementItemShowIndex
+<br>		StdElementGroupShowStack
+<br>		StdElementItemToggle
+<br>		StdElementItemShow
 <br>Menu Hide
-<br>		fnElementGroupToggleRange
-<br>		fnElementItemHide
+<br>		StdElementGroupToggleRange
+<br>		StdElementItemHide
 <br>Menu Object Selection
-<br>		fnElementItemGetAllFromIndex
-<br>		fnElementItemGetDescription
-<br>		fnElementItemGetName
-<br>		fnElementItemIndexSetFromObj
-<br>		fnElementItemIndexSetFromName
+<br>		StdElementItemGetAllFromIndex
+<br>		StdElementItemGetDescription
+<br>		StdElementItemGetName
+<br>		StdElementItemIndexSetFromObj
+<br>		StdElementItemIndexSetFromName
 <br>
 <br>------------------------------------------------
 <br>SectionBlock LAYOUT MANAGEMENT function
 <br>------------------------------------------------
-<br>		fnLayoutCheck
-<br>		fnLayoutRefresh
-<br>		fnLayoutNext
+<br>		StdLayoutCheck
+<br>		StdLayoutRefresh
+<br>		StdLayoutNext
 <br>
 <br>------------------------------------------------
 <br>SectionBlock STANDARD function
 <br>------------------------------------------------
 <br>Math Functions
-<br>		fnMathNumberRandomGetByRange
+<br>		StdMathNumberRandomGetByRange
 <br>Font Size Control
-<br>		fnFontSizeIncrease
-<br>		fnFontSizeDecrease
+<br>		StdFontSizeIncrease
+<br>		StdFontSizeDecrease
 <br>
 <br>------------------------------------------------
 <br>SectionBlock OBJECT ANIMATION function
 <br>------------------------------------------------
 <br>Filter (Transition, Transform) Get by Index or Name
-<br>		fnFilterGetByIndex
+<br>		StdFilterGetByIndex
 <br>
 <br>------------------------------------------------
 <br>SectionBlock FILTER MANAGEMENT function
 <br>------------------------------------------------
 <br>General
-<br>		fnFilterResetThenAnimate
+<br>		StdFilterResetThenAnimate
 <br>Filter Store / Restore
-<br>		fnFilterStore
-<br>		fnFilterRestore
+<br>		StdFilterStore
+<br>		StdFilterRestore
 <br>Animate Object
-<br>		fnFilterAnimate
+<br>		StdFilterAnimate
 <br>Filter Specific Functions
 <br>		StyleBackground
-<br>				fnFilterBackgroundToggle
+<br>				StdFilterBackgroundToggle
 <br>		Matrix
-<br>			  	fnFilterSpin
-<br>				fnFilterSetRotation
-<br>				fnFilterResize
-<br>		fnSlideStyleToggle
-<br>				fnSlideStyleToggle
+<br>			  	StdFilterSpin
+<br>				StdFilterSetRotation
+<br>				StdFilterResize
+<br>		StdSlideStyleToggle
+<br>				StdSlideStyleToggle
 <br>		Other
 <br>			 	OtherFunction...
 <br>Filter Get / Set
-<br>		fnFilterGetByIndex
-<br>		fnFilterGetRandom
+<br>		StdFilterGetByIndex
+<br>		StdFilterGetRandom
 <br>Filter Timing Get By Index
-<br>		fnFilterTimingGetByIndex
-<br>		fnFilterTimingGetRandom
+<br>		StdFilterTimingGetByIndex
+<br>		StdFilterTimingGetRandom
 <br>
 <br>------------------------------------------------
 <br>SectionBlock DOCUMENT EVENTS function

@@ -2,7 +2,7 @@
 // SectionBlock Page Initialization
 // ...................................... //
 // Get browser type
-fnBrowserGetVs();
+StdBrowserGetVs();
 // ...................................... //
 var LastId = "";
 var LastTochedId = "";
@@ -11,16 +11,17 @@ var LastTochedId = "";
 // ...................................... //
 // Functions
 // SectionBlock Window & Script Exceptions & Error function (s)
-window.onerror = function() { fnWindowError(); };
+window.onerror = function() { StdWindowError(); };
 // Document Window OnLoad:
 // addEventListener("load", (event) => {});
 // onload = (event) => {};
-window.onload = function () { fnlayoutWindowOnload(); }
+window.onload = function () { StdlayoutWindowOnload(); }
 // Timers
-fnTimerFunctionSet();
+StdTimerFunctionSet();
 // Intervals and Duration
-fnTimerDurationSet();
+StdTimerDurationSet();
 // WindowResize();
-window.onresize = function () { fnlayoutWindowResize(); }
+window.onresize = function () { StdlayoutWindowResize(); }
 //
-script_state = "Webpage javascript load completed";
+script_state = "Mdm Standard Website Initized. (and displayed?)";
+if (debugLoadIsOn) { debugger; }

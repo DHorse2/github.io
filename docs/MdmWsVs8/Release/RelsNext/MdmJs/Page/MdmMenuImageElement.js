@@ -1,15 +1,15 @@
 // SectionBlock Element Item Objects (Menu Images) Get & Index function (s)
 // Object Set: Object, Image, Parent, Index (Image Large & Small)
-// fnElementItemGetAllFromIndex
+// StdElementItemGetAllFromIndex
 // ...................................... //
-function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
+function StdElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
-	var oObjValid = true;
-	var oObjId = new String();
-	var oObjParentId = new String();
+	oObjValid = true;
+	oObjId = new String();
+	oObjParentId = new String();
 	//
-	if (javaLoadFirst) { fnElementObjectCreate(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
 	// ...................................... //
 	switch (oObjGroupIndex) {
 		// Non Groups
@@ -108,16 +108,16 @@ function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 			oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
 	}
 	if (oObjValid) {
-		oObj = fnElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-		oObjParent = fnElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
+		oObj = StdElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
+		oObjParent = StdElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
 		if (!oObjParent) {
-	        oObjParent = fnElementGetRef(oObjParent, oObjParentId, oObjParentId);
+	        oObjParent = StdElementGetRef(oObjParent, oObjParentId, oObjParentId);
 		}
-		// oObjImage = fnElementGetRef(oObjImage, oObjId, oObjId);
-		oObjImage = fnElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
-		oObjLarge = fnElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
-		oObjImageLarge = fnElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
-		oObjText = fnElementItemGetDescription(oObjGroupCn, oObjCn);
+		// oObjImage = StdElementGetRef(oObjImage, oObjId, oObjId);
+		oObjImage = StdElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
+		oObjLarge = StdElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
+		oObjImageLarge = StdElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
+		oObjText = StdElementItemGetDescription(oObjGroupCn, oObjCn);
 	} else {
 		// oObj = null;
 		// oObjImage = null;
@@ -128,9 +128,9 @@ function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	}
 	//
 }
-// fnElementItemGetDescription
+// StdElementItemGetDescription
 // ...................................... //
-function fnElementItemGetDescription(oObjGroupCn, oObjCn) {
+function StdElementItemGetDescription(oObjGroupCn, oObjCn) {
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	switch (oObjGroupIndex) {
@@ -200,9 +200,9 @@ function fnElementItemGetDescription(oObjGroupCn, oObjCn) {
 	}
 	//
 }
-// fnElementItemGetName
+// StdElementItemGetName
 // ...................................... //
-function fnElementItemGetName(oObjGroupCn, oObjCn) {
+function StdElementItemGetName(oObjGroupCn, oObjCn) {
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	// ...................................... //
@@ -273,9 +273,9 @@ function fnElementItemGetName(oObjGroupCn, oObjCn) {
 	}
 	//
 }
-// fnElementItemIndexSetFromObj
+// StdElementItemIndexSetFromObj
 // ...................................... //
-function fnElementItemIndexSetFromObj(oObjPassed) {
+function StdElementItemIndexSetFromObj(oObjPassed) {
 	IsImageLarge = IsSmall;
 	oObjNotFound = false;
 	// switch(oObjGroupIndex) {
@@ -377,3 +377,5 @@ function fnElementItemIndexSetFromObj(oObjPassed) {
 	// }
 	//
 }
+script_state = "Mdm Website Main Custom Getters for the Images used";
+if (debugLoadIsOn) { debugger; }

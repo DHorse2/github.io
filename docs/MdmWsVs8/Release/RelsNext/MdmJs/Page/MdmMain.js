@@ -7,41 +7,23 @@ var errorDoDisplayTag = true;
 var errorDoNotDisplayTag = false;
 var errorDoAlert = true;
 var errorDoNotAlert = false;
-// Console
 // ...................................... //
-// Size at which logs are trimmed
-var consoleLogLengthMax = 40000;
-var consoleLogLengthTrim = 35000;
-//
-var UseSingleLine = DoNotUseSingeLine;
-//
-var ButtonIsOnColor = 'Lime';
-var ButtonIsOffColor = 'Red';
-// Debugger
-// ...................................... //
-// var debugIsOn = true;
-// var debugDoAlert = true;
-var debugIsOn = false;
+var debugIsOn = true; // FLAG ON!!! todo
 var debugDoAlert = false;
 // This flag not implemented in forms or buttons
 var debugAlert = true;
-//
-var debugTimer = false;
-var debugTimerMove = false;
-var debugTimerTransition = false;
-var debugTimerDetail = false;
 // Log events to console
-// ...................................... //
 var debugLogEvents = false;
 var debugLogEventDuplicates = false;
 // Error Handling
-// ...................................... //
 // Use debugger on error:
-// this (debug on error) is the only toggle on by default
-var errorUseDebugOnError = false; // enter debugger on errors
-//
-var errorUseDebugOnAll = false; // enter debugger after any message
-//
+// this (debug on error) is the only toggle possibly on by default
+var errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
+var errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
+// Steps through loading script files
+ debugLoadIsOn = false;
+
+// Error Severity
 var errorDidNotOccur = 0;
 var errorComment = 5;
 var errorWarn = 10;
@@ -50,6 +32,11 @@ var errorFatal = 30;
 //
 var errorSeverity = errorDidNotOccur;
 var errorDebugLevel = errorSevere;
+// Debug Timers
+var debugTimer = false;
+var debugTimerMove = false;
+var debugTimerTransition = false;
+var debugTimerDetail = false;
 // SectionBlock Object Postion
 // ...................................... //
 // The following are here in the event some browsers
@@ -66,6 +53,17 @@ var DoUseOffset = true;
 var DoNotUseScroll = false;
 var DoNotUseBase = false;
 var DoNotUseOffset = false;
+// Console
+// ...................................... //
+// Size at which logs are trimmed
+var consoleLogLengthMax = 40000;
+var consoleLogLengthTrim = 35000;
+// compact format
+var UseSingleLine = DoNotUseSingeLine;
+// colour
+var ButtonIsOnColor = 'Lime';
+var ButtonIsOffColor = 'Red';
+// Debugger
 // Section Menu Image (Standard) Objects
 ////////////////////////////////////////////////
 // Storage Location for Group and Menu Item / Image
@@ -75,7 +73,7 @@ var oObjRootIndex = 0;
 var indexGroup = 0;
 // SectionBlock Image Handling
 ////////////////////////////////////////////////
-// fnBrowserGetVs();
+// StdBrowserGetVs();
 // Type of Image Group Page Generation
 var imgLoadEventTest = false; // controls clearing of elBodyMenuImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
@@ -106,19 +104,19 @@ var layoutParaWidthMax = 500; // todo Off currently
 // Page Loading Optimization
 ////////////////////////////////////////////////
 // Java Initilization Functions:
-var javaLoadDelay = true;
-var javaLoadFirst = true;
+var loadDelayJava = true;
+var loadFirstJava = true;
 // Body (Content) Images:
-var bodyImageLoadDelay = false;
-var bodyImageLoadFirst = true;
+var loadDelayBodyImage = false;
+var loadFirstBodyImage = true;
 // Menu Thumbnail Images:
-var menuImageLoadDelay = false;
-var menuImageLoadFirst = true;
+var loadDelayMenuImage = false;
+var loadFirstMenuImage = true;
 // Testing / Debug State Window
-var debugStateLoadDelay = false;
-var debugStateLoadFirst = true;
+var loadDelayDebugState = false;
+var loadFirstDebugState = true;
 // Local Parameter Initialization specified here.
-function fnDebugParameterInitLocal() { fnDebugParameterInit(); }
+function DebugParameterInitLocal() { DebugParameterInit(); } // uses defaults.
 // SectionBlock Animation Control
 ////////////////////////////////////////////////
 // Basic Options:
@@ -161,7 +159,7 @@ var elementMoveDelay = 0;
 
 // Animation Transition Control:
 ////////////////////////////////////////////////
-// (See function fnTimerDurationSet for default filter values)
+// (See function StdTimerDurationSet for default filter values)
 // var filterDurationOverride = false;
 var filterDuration = 0;
 var filterStepMin = 0;
@@ -179,4 +177,43 @@ var filterMethodPlay = 1; // execute the play method
 var filterMethodVisible = 2; // change style visibility (onchange)
 var filterMethod = filterMethodPlay;
 
-script_state = "MdmMain Custom Default settings used";
+script_state = "MdmMain Custom settings used";
+if (debugLoadIsOn) { debugger; }
+// SectionBlock Human readable arguments and comparisons todo
+// ...................................... //
+// State Friendly Names
+var AtEnd = IsAtEnd;
+var UseRoot = DoUseRoot;
+
+// Layout Font, Blocks, Columns and Callouts
+// ...................................... //
+// This variable is the multiplier that will reflect font-size;
+// Using a 1em font is the default (1em = 1.0 EmRation)
+// refered to as medium size on most browsers.
+// The layoutWidth(s) have to scale up proportionally
+// with text size when adjusting the callouts.
+// A larger font size will disturb the floating by
+// pushing down the content that wont fit beside the
+// callout.
+var layoutEmRation = 1.0;
+//
+var layoutMenuDocWidthWide = 900;
+var layoutParaWidthMax = 500;
+//
+var layoutBlockCol3Min = 1000;
+var layoutBlockCol2Min = 500;
+var layoutBlockCol1Min = 'float';
+//
+var layoutBlockWidthWide = '31%';
+var layoutBlockWidthStandard = '47%';
+var layoutBlockWidthNarrow = '98%';
+//
+var calloutBlockLayoutWidthWide = 600;
+var calloutBlockLayoutWidthStandard = 350;
+var calloutBlockLayoutWidthNarrow = 150;
+//
+var calloutBlockWidthWide = '33%';
+var calloutBlockWidthStandard = '45%';
+var calloutBlockWidthNarrow = '82%';
+//
+var elementWidthDefault = 250;

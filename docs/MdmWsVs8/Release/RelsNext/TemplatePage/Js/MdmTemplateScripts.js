@@ -1,10 +1,10 @@
 
 // ** Javascript Parameter Init Blocks **
-fnDebugParameterInit()
+DebugParameterInit()
 {
-	fnDebugParameterInitLocal();
+	DebugParameterInitLocal();
 }
-function fnDebugParameterInitLocal() {
+function DebugParameterInitLocal() {
 	var tempSelected = false;
 	var elementObject = document.createElement('input');
 	//
@@ -79,13 +79,13 @@ function fnDebugParameterInitLocal() {
 	// ...................................... //
 	// Page Load Optimaization
 	elementObject = document.getElementById('formJavaLoadDelay');
-	if (javaLoadDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (loadDelayJava) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formBodyImageLoadDelay');
-	if (bodyImageLoadDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (loadDelayBodyImage) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formMenuImageLoadDelay');
-	if (menuImageLoadDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (loadDelayMenuImage) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	// ...................................... //
 	// Fields with values
@@ -219,7 +219,7 @@ function fnDebugParameterInitLocal() {
 	// default
 	if (!tempSelected) { document.getElementById('formElementMoveMethod_elementMoveMethodRandom').selected = true; }
 	//
-	debugStateLoadFirst = false;
+	loadFirstDebugState = false;
 	//
 }
 //
@@ -233,7 +233,7 @@ function fnDebugParameterInitLocal() {
 // ...................................... //
 //
 //
-function fnFilterControlCreate(filterPlayAll, startIndex, endIndex,
+function StdFilterControlCreate(filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupImageIndex, filterObjIdPassed, filterIdPassed) {
 	// filterId is this program's index number
 	//
@@ -265,9 +265,9 @@ function fnFilterControlCreate(filterPlayAll, startIndex, endIndex,
 	}
 }
 // ..................................................................................... _//
-// fnFilterStore Filter Store / Restore
+// StdFilterStore Filter Store / Restore
 // ...................................... //
-function fnFilterStore(oObjPassed, filterIndexPassed) {
+function StdFilterStore(oObjPassed, filterIndexPassed) {
 	// this can't be right
 	// oldFilter = oObjPassed.onfilterchange;
 	// oObjPassed.onfilterchange = null;
@@ -275,9 +275,9 @@ function fnFilterStore(oObjPassed, filterIndexPassed) {
 }
 //
 // ..................................................................................... _//
-// fnFilterRestore
+// StdFilterRestore
 // ...................................... //
-function fnFilterRestore(oObjPassed, filterIndexPassed) {
+function StdFilterRestore(oObjPassed, filterIndexPassed) {
 	if (oldFilter != null) {
 		// ???? oObjPassed.onfilterchange = oldFilter;
 		oObjPassed.filters[0].item = oldFilter;
@@ -289,40 +289,40 @@ function fnFilterRestore(oObjPassed, filterIndexPassed) {
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnFilterResetThenAnimate
-function fnFilterResetThenAnimate(oObjPassed, filterIndexPassed) {
+// StdFilterResetThenAnimate
+function StdFilterResetThenAnimate(oObjPassed, filterIndexPassed) {
 	switch (filterIndexPassed) {
 		// Non Groups
 		case filterClassMatrix:
 			filterMatrixCounterDegreeCurrent = 40;
-			fnFilterRestore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
+			StdFilterRestore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
 			break;
 		default:
 			oObjPassed.filters[0].enabled = true;
-			// if (!filterFirst)  { fnFilterRestore(oObjPassed, filterIndexPassed); }
+			// if (!filterFirst)  { StdFilterRestore(oObjPassed, filterIndexPassed); }
 			break;
 	}
 	// filterObjectMovement Effect
-	// fnFilterGetRandom(filterIndexDynamicLow, filterIndexDynamicHigh);
+	// StdFilterGetRandom(filterIndexDynamicLow, filterIndexDynamicHigh);
 	filterIndexPassed = filterTypeFlip;
-	fnFilterAnimate(oObjPassed, filterIndexPassed);
+	StdFilterAnimate(oObjPassed, filterIndexPassed);
 	//
 	// filterObjectFinal Effect
-	// fnFilterGetRandom(filterIndexMatrixLow, filterIndexMatrixHigh);
+	// StdFilterGetRandom(filterIndexMatrixLow, filterIndexMatrixHigh);
 	filterIndexPassed = filterTypeCheckerBoard;
-	fnFilterAnimate(oObjPassed, filterIndexPassed);
+	StdFilterAnimate(oObjPassed, filterIndexPassed);
 	filterFirst = false;
 }
 //
 // ..................................................................................... _//
 // Animate Object
 // ...................................... //
-function fnFilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
+function StdFilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
 	switch (filterIndexPassed) {
 		// Matrix
 		case filterClassMatrix:
 			// Matrix
-			fnFilterSpin(oObjPassed, filterIndexPassed);
+			StdFilterSpin(oObjPassed, filterIndexPassed);
 			break;
 		// Default
 		default:
@@ -334,7 +334,7 @@ function fnFilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
 // ..................................................................................... _//
 // StyleBackground
 // ...................................... //
-function fnFilterBackgroundToggle(oObjPassed, filterIndexPassed) {
+function StdFilterBackgroundToggle(oObjPassed, filterIndexPassed) {
 	if (filterStyleBackgroundToggle) {
 		filterStyleBackgroundToggle = 0;
 		oObjPassed.style.backgroundColor = 'gold';
@@ -351,9 +351,9 @@ function fnFilterBackgroundToggle(oObjPassed, filterIndexPassed) {
 // ...................................... //
 //
 // ..................................................................................... _//
-// fn Slide Style Toggle
+// Std Slide Style Toggle
 // ...................................... //
-function fnSlideStyleToggle(oObjPassed, filterIndexPassed) {
+function StdSlideStyleToggle(oObjPassed, filterIndexPassed) {
 	// Use the array index to update and display  the slideStyle used.
 	var iStyleIndex = filterSlideStyleIndexCount % 3; // MOD function avoids resetting the counter.
 	oObjPassed.filters[0].slideStyle = arrSlideStyles[filterSlideStyleIndexCount];
@@ -371,30 +371,30 @@ function fnSlideStyleToggle(oObjPassed, filterIndexPassed) {
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnFilterSpin
+// StdFilterSpin
 // ...................................... //
-function fnFilterSpin(oObjPassed, filterIndexPassed) {
+function StdFilterSpin(oObjPassed, filterIndexPassed) {
 	switch (filterIndexPassed) {
 		// Non Groups
 		case filterClassMatrix:
 			// The function chosen for flMultiple defines size changes in the animation.
 			filterMatrixCounterDegreeCurrent += 16;
 			// The number of 360-degree rotations is three.
-			fnFilterStore(oObjPassed, filterIndexPassed);
+			StdFilterStore(oObjPassed, filterIndexPassed);
 			if (filterMatrixCounterDegreeCurrent >= 360 * 1) { oObjPassed.onfilterchange = null; }
 			//
-			fnFilterSetRotation(oObjPassed, filterIndexPassed, filterMatrixCounterDegreeCurrent);
+			StdFilterSetRotation(oObjPassed, filterIndexPassed, filterMatrixCounterDegreeCurrent);
 			//
 			if (filterMatrixCounterDegreeCurrent < 1 + 360) {
 				var flMultiple = filterMatrixCounterDegreeCurrent / 360;//* 720;*/
-				fnFilterResize(oObjPassed, flMultiple);
+				StdFilterResize(oObjPassed, flMultiple);
 			}
 			break;
 		//
 		default:
 			// Type of animation triggered by filter change.
 			// The number of 360-degree rotations is three.
-			fnFilterStore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
+			StdFilterStore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
 			// oObjPassed.onfilterchange = null;
 			// Type of animation triggered by Play command.
 			// Play the animation **
@@ -411,10 +411,10 @@ function fnFilterSpin(oObjPassed, filterIndexPassed) {
 }
 //
 // ..................................................................................... _//
-// fnSetRotation function
+// StdSetRotation function
 // ...................................... //
 //oObj input requires that a matrix filter be applied.
-function fnFilterSetRotation(oObjPassed, filterIndexPassed, deg) {
+function StdFilterSetRotation(oObjPassed, filterIndexPassed, deg) {
 	rad = deg * deg2radians;
 	costheta = Math.cos(rad);
 	sintheta = Math.sin(rad);
@@ -431,7 +431,7 @@ function fnFilterSetRotation(oObjPassed, filterIndexPassed, deg) {
 //
 // oObj input requires that a matrix filter be applied.
 // flMultiplier input defines the amount by which the oObj is resized.
-function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
+function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
 	if (!browserAnimationIsIe) { return; }
 	// oObj.filters['DXImageTransform.Microsoft.Matrix']
 	switch (filterIndexPassed) {
@@ -475,7 +475,7 @@ var filterValid = false;
 var filterIndexCn = 0;
 var filterSelected = new Array(5);
 //
-function fnFilterGet(filterPlayAll, startIndex, endIndex,
+function StdFilterGet(filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
 	oObjGroupIndex, oObjGroupImageIndex,
 	filterObjIdPassed, filterIdPassed) {
@@ -494,10 +494,10 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 		// FileterPlayRandom
 		//  or
 		// Select Random Animation
-		filterIndex = fnMathNumberRandomGetByRange(filterIndexDynamicLow, filterIndexDynamicHigh, filterRealFlag);
-		// filterIndex = fnMathNumberRandomGetByRange(filterRangeLow, filterRangeHigh, filterRealFlag);
-		// fnMathNumberRandomGetByRange(rangeLow, rangeHigh, realFlag)
-		//  (filterIndexPassed = fnMathRandom())
+		filterIndex = StdMathNumberRandomGetByRange(filterIndexDynamicLow, filterIndexDynamicHigh, filterRealFlag);
+		// filterIndex = StdMathNumberRandomGetByRange(filterRangeLow, filterRangeHigh, filterRealFlag);
+		// StdMathNumberRandomGetByRange(rangeLow, rangeHigh, realFlag)
+		//  (filterIndexPassed = StdMathRandom())
 		//
 		if (browserAnimationIsIe) {
 			// filterCommandEval = 'oObjNextImage.style.filter= ' + quoteOpen;
@@ -508,7 +508,7 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 		if (filterResizeIsOn) {
 			// Matrix always takes first spot (0)
 			var filterClassMatrix = 3;
-			filterMatrix = fnFilterGetByIndex(filterClassMatrix, filterClassStatic,
+			filterMatrix = StdFilterGetByIndex(filterClassMatrix, filterClassStatic,
 				filterTypeMatrix, filterDataCommand, filterCompletionIsZero,
 				oObjNext, oObjNextImage,
 				oObjGroupIndex, oObjGroupImageIndex,
@@ -520,7 +520,7 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 			filterIdIndex += 1; filterIdPassed = filterIdIndex;
 		}
 		// Randomly chosen filter
-		newFilter = fnFilterGetByIndex(filterClassSingle, filterClassStatic,
+		newFilter = StdFilterGetByIndex(filterClassSingle, filterClassStatic,
 			filterIndex, filterDataCommand, filterCompletionIsZero,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
@@ -534,16 +534,16 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 		// oObjNextImage.style.filter = newFilter;
 		//
 		// Set & Verify Filter Count
-		filterIndexCn = fnFilterSet(filterPlayAll, startIndex, endIndex,
+		filterIndexCn = StdFilterSet(filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
 			filterCommandEval);
 		//
 		if (filterIndexCn < 1) {
 			// Error - Set failed
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 				'Invalid filter(' + filterIdPassed + ') error! On filter # ' + filterIndex + ' '
 				+ charNewLineTag + filterCommandEval,
-				'fnFilterGet', 3128, null, null,
+				'StdFilterGet', 3128, null, null,
 				errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
 			var bob = 'ted';
 			filterIndexCn = 0;
@@ -551,11 +551,11 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 		} else {
 			// Set succeeded
 			if (debugTimer && debugTimerDetail && debugTimerTransition) {
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Filter(' + filterIdPassed + ') of ' + filterIndexCn
 					+ ' set successfully! Random filter # ' + filterIndex + ' '
 					+ charNewLineTag + filterCommandEval,
-					'fnFilterGet', 3139, null, null,
+					'StdFilterGet', 3139, null, null,
 					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 				//
 			}
@@ -569,7 +569,7 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 // ...................................... //
 // Enable Filter prior to Play
 //
-function fnFilterSet(filterPlayAll, startIndex, endIndex,
+function StdFilterSet(filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
 	filterCommand) {
 	// Evaluate the filter commands and apply elements.
@@ -587,7 +587,7 @@ function fnFilterSet(filterPlayAll, startIndex, endIndex,
 // ...................................... //
 // Enable Filter prior to Play
 //
-function fnFilterEnable(filterPlayAll, startIndex, endIndex,
+function StdFilterEnable(filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
 	oObjGroupIndex, oObjGroupImageIndex,
 	filterObjIdPassed, filterIdPassed) {
@@ -618,7 +618,7 @@ function fnFilterEnable(filterPlayAll, startIndex, endIndex,
 // ...................................... //
 // Capture Rendered Content prior to Play
 //
-function fnFilterApply(filterPlayAll, startIndex, endIndex,
+function StdFilterApply(filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
 	oObjGroupIndex, oObjGroupImageIndex,
 	filterObjIdPassed, filterIdPassed) {
@@ -652,7 +652,7 @@ function fnFilterApply(filterPlayAll, startIndex, endIndex,
 // This in turn could be structured
 // to implement specific players+versions.
 // ...................................... //
-function fnFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
+function StdFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
 	oObjGroupIndex, oObjGroupImageIndex,
 	filterObjIdPassed, filterIdPassed) {
@@ -704,7 +704,7 @@ function fnFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
 // Filter Stop
 // ...................................... //
 //
-function fnFilterStop(filterPlayAll, startIndex, endIndex,
+function StdFilterStop(filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
 	oObjGroupIndex, oObjGroupImageIndex,
 	filterObjIdPassed, filterIdPassed) {
@@ -752,14 +752,14 @@ function fnFilterStop(filterPlayAll, startIndex, endIndex,
 // ..................................................................................... _//
 // Filter Timing Get By Index
 // ...................................... //
-function fnFilterTimingGetByIndex() {
+function StdFilterTimingGetByIndex() {
 	return;
 }
 //
 // ..................................................................................... _//
 // Filter Timing Get Random
 // ...................................... //
-function fnFilterTimingGetRandom() {
+function StdFilterTimingGetRandom() {
 	return;
 }
 //
@@ -774,7 +774,7 @@ function fnFilterTimingGetRandom() {
 // ..................................................................................... _//
 // Filter (Transition, Transform) Get by Index or Name
 // Filter Get By Index
-function fnFilterGetByIndex(
+function StdFilterGetByIndex(
 	filterClassCardinalityPassed, filterClassFixityPassed,
 	filterIndexPassed, filterDataRequested, filterCompletionPassed,
 	oObjNext, oObjNextImage,
@@ -789,7 +789,7 @@ function fnFilterGetByIndex(
 	var UsePlay = false;
 	var UseEnabled = false;
 	if (!filterObj[filterIdPassed]) {
-		fnFilterControlCreate(
+		StdFilterControlCreate(
 			true, 0, 30,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
@@ -1137,7 +1137,7 @@ function fnFilterGetByIndex(
 // ..................................................................................... _//
 // Filter Get By Tag
 // ...................................... //
-function fnFilterGetByTagName(filterTagNamePassed) {
+function StdFilterGetByTagName(filterTagNamePassed) {
 	//
 	filterTagName = 'div';
 	return null;
@@ -1148,7 +1148,7 @@ function fnFilterGetByTagName(filterTagNamePassed) {
 // ..................................................................................... _//
 // Filter Get Random
 // ...................................... //
-function fnFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
+function StdFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
 	filterDataCommand, filterCompletion,
 	filterObjIdPassed, filterIdPassed) {
 	filterRandom = '';
@@ -1158,9 +1158,9 @@ function fnFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
 	if (filterRangeHighPassed > filterRangeHigh) { filterRangeHighPassed = filterRangeLow; }
 	if (filterRangeLowPassed > filterRangeHighPassed) { filterRangeLowPassed = filterRangeHighPassed; }
 	//
-	filterIndex = fnMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, realFlagOff);
+	filterIndex = StdMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, realFlagOff);
 	//
-	filterRandom = fnFilterGetByIndex(filterClassSingle, filterClassDynamic, filterIndex,
+	filterRandom = StdFilterGetByIndex(filterClassSingle, filterClassDynamic, filterIndex,
 		filterDataCommand, 0,
 		filterObjIdPassed, filterIdPassed);
 	return filterRandom;
@@ -1180,23 +1180,23 @@ function fnFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
 //
 // Initialize Variables
 // Functions
-fnTimerFunctionSet();
+StdTimerFunctionSet();
 // Intervals and Duration
-fnTimerDurationSet();
+StdTimerDurationSet();
 //
 // ..................................................................................... _//
 // ...................................... //
 // Set Filter & Move function (s) for Timers
-function fnTimerFunctionSet() {
-	timerFunctionFilterItem = fnTimerItemDoStepFilter;
-	timerFunctionFilterGroup = fnTimerGroupDoStepFilter;
-	timerFunctionMoveItem = fnTimerItemDoStepMove;
-	timerFunctionMoveGroup = fnTimerGroupDoStepMove;
+function StdTimerFunctionSet() {
+	timerFunctionFilterItem = StdTimerItemDoStepFilter;
+	timerFunctionFilterGroup = StdTimerGroupDoStepFilter;
+	timerFunctionMoveItem = StdTimerItemDoStepMove;
+	timerFunctionMoveGroup = StdTimerGroupDoStepMove;
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerDurationSet() {
+function StdTimerDurationSet() {
 	// timerUseTime = true;
 	// Timer Control (Move)
 	if (timerUseTime) {
@@ -1258,7 +1258,7 @@ function fnTimerDurationSet() {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
+function StdTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	// Timer Type
@@ -1287,7 +1287,7 @@ function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
+function StdTimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	// Timer Type
@@ -1312,9 +1312,9 @@ function fnTimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
 //
 // ..................................................................................... _//
 // Menu Images Move Action
-// fnTimerStartMove();
+// StdTimerStartMove();
 // ...................................... //
-function fnTimerInitialize(timerType, timerGroup, timerId,
+function StdTimerInitialize(timerType, timerGroup, timerId,
 	playDirection,
 	timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 	filterPlayAll, startIndex, endIndex,
@@ -1334,14 +1334,14 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
 	if (!timerObj[timerGroup][timerRootKey]) {
 		timerGroupNew = true;
 		timerObj[timerGroup][timerRootKey] = new Object;
-		fnTimerItemDeactivate(timerType, timerGroup, timerId, true);
+		StdTimerItemDeactivate(timerType, timerGroup, timerId, true);
 	}
 	//
 	// Timer Item Creation
 	if (!timerObj[timerGroup][timerItemKey]) {
 		timerItemNew = true;
 		timerObj[timerGroup][timerItemKey] = new Object;
-		fnTimerItemDeactivate(timerType, timerGroup, timerId, false);
+		StdTimerItemDeactivate(timerType, timerGroup, timerId, false);
 		//
 		timerObj[timerGroup][timerItemKey].elementMoveMethod =
 			timerObj[timerGroup][timerRootKey].elementMoveMethod;
@@ -1355,7 +1355,7 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
 				timerObj[timerGroup][timerRootKey].elementMoveMethod = elementMoveMethod;
 			} else {
 				if (playDirection = playDirectionForward) {
-					var elementMoveMethodTemp = fnMathNumberRandomGetByRange(1, 3, filterRealFlag);
+					var elementMoveMethodTemp = StdMathNumberRandomGetByRange(1, 3, filterRealFlag);
 					if (elementMoveMethodTemp = elementMoveMethodPrev) {
 						elementMoveMethodTemp += 1 - ((elementMoveMethodTemp > 2) * 3);
 					}
@@ -1540,7 +1540,7 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
 // Timer Pause then Start
 // ...................................... //
 // Included a setTimeout in BODY onload to delay start of text movement.
-function fnTimerStart(timerType, timerGroup, timerId,
+function StdTimerStart(timerType, timerGroup, timerId,
 	timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 	timerDelayPassed) {
 	var timerItemKey = timerId + timerType;
@@ -1583,7 +1583,7 @@ function fnTimerStart(timerType, timerGroup, timerId,
 			) {
 				if (!timerObj[timerGroup][timerRootKey].timerIntervalId) {
 					var tempFunc = function () {
-						fnTimerSet(
+						StdTimerSet(
 							timerType, timerGroup, timerId,
 							tempMethodFunc, timerDelayPassed,
 							timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
@@ -1599,14 +1599,14 @@ function fnTimerStart(timerType, timerGroup, timerId,
 					}
 					//
 					if (debugFunctionIsOn) {
-						fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-							fnTimerLogText(timerType, timerGroup, timerId,
+						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+							StdTimerLogText(timerType, timerGroup, timerId,
 								(timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
 								timerObj[timerGroup][timerItemKey].playDirection, 'Timer Pending')
 							+ ', Timer Delayed Start '
 							+ (vTimerStart ? 'Ok' : 'Failed')
 							+ (vTimerStart ? '.' : '!!!'),
-							'fnTimerStart', 4557, null, null,
+							'StdTimerStart', 4557, null, null,
 							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 						//
 					}
@@ -1632,12 +1632,12 @@ function fnTimerStart(timerType, timerGroup, timerId,
 		}
 		//
 		if (debugFunctionIsOn) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Timer Running')
 				+ ', Already running'
 				+ '.',
-				'fnTimerStart', 4587, null, null,
+				'StdTimerStart', 4587, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 		}
@@ -1648,14 +1648,14 @@ function fnTimerStart(timerType, timerGroup, timerId,
 // Timer Set
 // ...................................... //
 // Set up interval at which the timer will fire.
-function fnTimerSet(timerType, timerGroup, timerId,
+function StdTimerSet(timerType, timerGroup, timerId,
 	timerFunctionPassed, timerDelayPassed,
 	timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed
 ) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	var tempFunc = new String();
-	tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerId); };// fnTimerMoveStepDo
+	tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerId); };// StdTimerMoveStepDo
 	//
 	var debugFunctionIsOn = false;
 	if (debugTimer && (
@@ -1680,10 +1680,10 @@ function fnTimerSet(timerType, timerGroup, timerId,
 		if (timerMethod = timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = vTimerID; }
 		//
 		if (debugFunctionIsOn) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
 				+ '.',
-				'fnTimerSet', 4633, null, null,
+				'StdTimerSet', 4633, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 		}
@@ -1694,13 +1694,13 @@ function fnTimerSet(timerType, timerGroup, timerId,
 		}
 		//
 		if (debugFunctionIsOn) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Interval Running')
 				+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 				+ ', Already running, delayed start not done'
 				+ '.',
-				'fnTimerSet', 4649, null, null,
+				'StdTimerSet', 4649, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 		}
@@ -1714,9 +1714,9 @@ function fnTimerSet(timerType, timerGroup, timerId,
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnTimerStartFilter
+// StdTimerStartFilter
 // ...................................... //
-function fnTimerStartFilter(playDirection,
+function StdTimerStartFilter(playDirection,
 	timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 	filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
@@ -1745,7 +1745,7 @@ function fnTimerStartFilter(playDirection,
 	}
 	// Constructor
 	if (timerReset) {
-		fnTimerInitialize(timerType, timerGroup, timerId,
+		StdTimerInitialize(timerType, timerGroup, timerId,
 			playDirection,
 			timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 			filterPlayAll, startIndex, endIndex,
@@ -1754,14 +1754,14 @@ function fnTimerStartFilter(playDirection,
 			filterObjIdPassed, filterIdPassed)
 		if (debugTimer && debugTimerTransition) {
 			// && debugTimerDetail
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Item Add')
 				+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 				+ ', Item added to group'
 				+ ' at ' + Date()
 				+ '.',
-				'fnTimerStartFilter', 4708, null, null,
+				'StdTimerStartFilter', 4708, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -1771,13 +1771,13 @@ function fnTimerStartFilter(playDirection,
 		// Timer exists and is currently busy.
 		if (debugTimer && debugTimerTransition) {
 			// && debugTimerDetail
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerRootKey].playDirection, 'Timing DoStep')
 				+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 				+ ', Already running, perform single step'
 				+ '.',
-				'fnTimerStartFilter', 4723, null, null,
+				'StdTimerStartFilter', 4723, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -1785,7 +1785,7 @@ function fnTimerStartFilter(playDirection,
 			timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
 		}
 		//
-		fnTimerItemDoStepFilter(timerType, timerGroup, timerId);
+		StdTimerItemDoStepFilter(timerType, timerGroup, timerId);
 		return;
 	}
 	// Create new timers
@@ -1794,16 +1794,16 @@ function fnTimerStartFilter(playDirection,
 	//
 	// ...................................... //
 	if (debugTimer && debugTimerTransition) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup][timerItemKey].playDirection, 'Timer Start')
 			+ ', Timer Start command being issued now'
 			+ '.',
-			'fnTimerStartFilter', 4744, null, null,
+			'StdTimerStartFilter', 4744, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
-	fnTimerStart(timerType, timerGroup, timerId,
+	StdTimerStart(timerType, timerGroup, timerId,
 		timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 		timerDelay);
 	//
@@ -1813,7 +1813,7 @@ function fnTimerStartFilter(playDirection,
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerStartMove(playDirection,
+function StdTimerStartMove(playDirection,
 	timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 	filterPlayAll, startIndex, endIndex,
 	oObjNext, oObjNextImage,
@@ -1843,7 +1843,7 @@ function fnTimerStartMove(playDirection,
 	//
 	if (timerReset) {
 		//
-		fnTimerInitialize(timerType, timerGroup, timerId,
+		StdTimerInitialize(timerType, timerGroup, timerId,
 			playDirection,
 			timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 			filterPlayAll, startIndex, endIndex,
@@ -1853,14 +1853,14 @@ function fnTimerStartMove(playDirection,
 		//
 		if (debugTimer && debugTimerMove) {
 			// && debugTimerDetail
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Item Add')
 				+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 				+ ', Item added to group'
 				+ ' at ' + Date()
 				+ '.',
-				'fnTimerStartMove', 4807, null, null,
+				'StdTimerStartMove', 4807, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -1870,16 +1870,16 @@ function fnTimerStartMove(playDirection,
 		// Timer Already Exists...
 		if (debugTimer && debugTimerMove) {
 			// && debugTimerDetail
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Timing DoStep')
 				+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 				+ ', Already running, perform single step'
 				+ '.',
-				'fnTimerStartMove', 4822, null, null,
+				'StdTimerStartMove', 4822, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
-		fnTimerItemDoStepMove(timerType, timerGroup, timerId);
+		StdTimerItemDoStepMove(timerType, timerGroup, timerId);
 		return;
 	}
 	//
@@ -1891,7 +1891,7 @@ function fnTimerStartMove(playDirection,
 	// oObj.style.top = elementTopOrig;
 	//
 	// ...................................... //
-	// fnElementMove
+	// StdElementMove
 	//
 	// Distance
 	moveDistanceLeft = Math.abs(elementLeftDest - elementLeftOrig);
@@ -1942,8 +1942,8 @@ function fnTimerStartMove(playDirection,
 	//
 	// ...................................... //
 	if (debugTimer && debugTimerMove) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
 			+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 			+ ', Orig: ( ' + elementTopOrig + ', ' + elementLeftOrig + ' )'
 			+ ', Dest: ( ' + elementTopDest + ', ' + elementLeftDest + ' )'
@@ -1951,11 +1951,11 @@ function fnTimerStartMove(playDirection,
 			+ ', Move Top:' + moveDistanceTop
 			+ ', Move Left:' + moveDistanceLeft
 			+ '.',
-			'fnTimerStartMove', 4873, null, null,
+			'StdTimerStartMove', 4873, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
-	fnTimerStart(timerType, timerGroup, timerId,
+	StdTimerStart(timerType, timerGroup, timerId,
 		timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
 		timerDelay);
 	//
@@ -1965,7 +1965,7 @@ function fnTimerStartMove(playDirection,
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId) {
+function StdTimerGroupDoStepFilter(timerType, timerGroup, timerId) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	var timerIdCurr;
@@ -1977,14 +1977,14 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId) {
 	timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
 	//
 	if (debugTimer && debugTimerTransition) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
 			+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 			+ ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
 			+ ', Time:' + Date()
 			+ ', Starting Group'
 			+ '.',
-			'fnTimerGroupDoStepMove', 5111, null, null,
+			'StdTimerGroupDoStepMove', 5111, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -1994,20 +1994,20 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId) {
 		timerItemKey = timerIdCurr + timerType;
 		if (timerObj[timerGroup][timerItemKey]) {
 			if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
-				timerInstanceIsDone = fnTimerItemDoStepFilter(timerType, timerGroup, timerIdCurr);
+				timerInstanceIsDone = StdTimerItemDoStepFilter(timerType, timerGroup, timerIdCurr);
 				if (!timerInstanceIsDone) { timerIsActive = true; }
 			}
 		}
 	}
 	//
 	if (timerObj[timerGroup][timerRootKey].timerStepCurr > timerObj[timerGroup][timerRootKey].timerStepMax) {
-		fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group Step Max')
+		ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group Step Max')
 			+ ', Transition Group Timer Maximum (' + timerObj[timerGroup][timerRootKey].timerStepMax
 			+ ') number of interval steps (' + timerObj[timerGroup][timerRootKey].timerStepCurr
 			+ ') exceeded'
 			+ '!!!',
-			'fnTimerGroupDoStepFilter', 5134, null, null,
+			'StdTimerGroupDoStepFilter', 5134, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
 		timerDoAbort = true;
 	}
@@ -2032,36 +2032,36 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId) {
 		//
 		//
 		if (debugTimer && debugTimerTransition) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 					timerObj[timerGroup][timerRootKey].playDirection, 'Group Stop Timer')
 				+ ', Interval Stopped'
 				+ ', Stopping Group Timer'
 				+ '.',
-				'fnTimerGroupDoStepFilter', 5164, null, null,
+				'StdTimerGroupDoStepFilter', 5164, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	}
 	//
 	if (debugTimer && debugTimerTransition) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 				timerObj[timerGroup][timerRootKey].playDirection, 'Group Out')
 			+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 			+ ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
 			+ ', Time:' + Date()
 			+ ', Leaving process Group'
 			+ '.',
-			'fnTimerGroupDoStepFilter', 5177, null, null,
+			'StdTimerGroupDoStepFilter', 5177, null, null,
 			errorElementComment, true, false);
 		//
 		if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 					timerObj[timerGroup][timerRootKey].playDirection, 'Group End')
 				+ ', Finished Group'
 				+ '.',
-				'fnTimerGroupDoStepFilter', 5185, null, null,
+				'StdTimerGroupDoStepFilter', 5185, null, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	}
@@ -2069,7 +2069,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
+function StdTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 	var timerItemKey = timerId + timerType
 	var timerRootKey = timerRootId + timerType;
 	//
@@ -2086,10 +2086,10 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 	if (!timerObj[timerGroup][timerItemKey]) {
 		errorLogLine = 'Invalid Timer Object Error!';
 		errorLogLine += charNewLineTag + charTextIndex;
-		errorLogLine += fnTimerKeyText(timerType, timerGroup, timerId);
+		errorLogLine += StdTimerKeyText(timerType, timerGroup, timerId);
 		errorLogLine += charNewLineTag + charTextIndex;
-		errorLogLine += fnTimerRootKeyText(timerType, timerGroup, timerId);
-		fnWindowError(errorLogLine, 'fnTimerItemDoStepFilter', 4257);
+		errorLogLine += StdTimerRootKeyText(timerType, timerGroup, timerId);
+		StdWindowError(errorLogLine, 'StdTimerItemDoStepFilter', 4257);
 	}
 	//
 	timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
@@ -2107,7 +2107,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 	// Set Completion for Step Based or Time Based execution
 	if (timerUseTime) {
 		//
-		timerDateElps = fnTimerGetElapsed(timerType, timerGroup, timerId);
+		timerDateElps = StdTimerGetElapsed(timerType, timerGroup, timerId);
 		timerCompletion = timerTimeCompletion = timerDateElps / (timerObj[timerGroup][timerItemKey].timerDuration * 1000);
 		if (timerCompletion > 1) { tempTimeOrStepsCompleted = true; }
 		//
@@ -2125,8 +2125,8 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 	//
 	// Stop if maximum # of steps exceeded
 	if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMax) {
-		fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup][timerItemKey].playDirection, 'StepStopItem')
 			+ ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
 			+ ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
@@ -2134,7 +2134,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 			+ ', Transition Maximum (' + timerObj[timerGroup][timerItemKey].timerStepMax
 			+ ') number of interval steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
 			+ ') exceeded' + '!!!',
-			'fnTimerItemDoStepFilter', 5251, null, null,
+			'StdTimerItemDoStepFilter', 5251, null, null,
 			errorElementWarn, errorDoNotDisplayTag, errorDoNotAlert);
 		tempTimeOrStepsCompleted = true;
 	}
@@ -2163,15 +2163,15 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 			window.clearInterval(timerIntervalId);
 			//
 			if (debugTimer && debugTimerDetail && debugTimerTransition) {
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+					StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 						timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
 					+ ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
 					+ ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
 					+ ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
 					+ ', Interval Stopped'
 					+ '.',
-					'fnTimerItemDoStepFilter', 5284, null, null,
+					'StdTimerItemDoStepFilter', 5284, null, null,
 					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 			}
 			//
@@ -2183,12 +2183,12 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 		if (filterResizeIsOn && !timerObj[timerGroup][timerItemKey].elementIsDisplayed) {
 			var temp;
 			if (playDirection = playDirectionForward) { temp = 1; } else { temp = 0.05; }
-			fnFilterResize(timerObj[timerGroup][timerItemKey].oObj, filterClassMatrix, temp);
+			StdFilterResize(timerObj[timerGroup][timerItemKey].oObj, filterClassMatrix, temp);
 		}
 		// if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop) {
 		// (filterPlayAll, startIndex, endIndex,
 		// oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed);
-		fnFilterStop(
+		StdFilterStop(
 			timerObj[timerGroup][timerItemKey].filterPlayAll,
 			timerObj[timerGroup][timerItemKey].startIndex,
 			timerObj[timerGroup][timerItemKey].endIndex,
@@ -2215,21 +2215,21 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 		tempFilterInProgress || tempTimeOrStepsCompleted
 		//
 		if (debugTimer && debugTimerDetail && debugTimerTransition) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
 				+ ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
 				+ ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
 				+ ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5331 ' + ').',
 				+ ', Stopping Item Timer'
 				+ '.',
-				'fnTimerItemDoStepFilter', 5331, null, null,
+				'StdTimerItemDoStepFilter', 5331, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	} else {
 		if (debugTimer && debugTimerDetail && debugTimerTransition) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'SkipItem')
 				+ ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
 				+ ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
@@ -2239,7 +2239,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 				+ ', Time:' + Date()
 				+ ', Exiting Item but no action'
 				+ '.',
-				'fnTimerItemDoStepFilter', 5343, null, null,
+				'StdTimerItemDoStepFilter', 5343, null, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	}
@@ -2248,7 +2248,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerGroupDoStepMove(timerType, timerGroup, timerId) {
+function StdTimerGroupDoStepMove(timerType, timerGroup, timerId) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	var timerIdCurr;
@@ -2259,15 +2259,15 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId) {
 	timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
 	//
 	if (debugTimer && debugTimerMove) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 				timerObj[timerGroup][timerItemKey].playDirection, 'Group In')
 			+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 			+ ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
 			+ ', Time:' + Date()
 			+ ', Starting Group'
 			+ '.',
-			'fnTimerGroupDoStepMove', 5371, null, null,
+			'StdTimerGroupDoStepMove', 5371, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	// Process elements
@@ -2277,21 +2277,21 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId) {
 		timerItemKey = timerIdCurr + timerType;
 		if (timerObj[timerGroup][timerItemKey]) {
 			if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
-				timerInstanceIsDone = fnTimerItemDoStepMove(timerType, timerGroup, timerIdCurr);
+				timerInstanceIsDone = StdTimerItemDoStepMove(timerType, timerGroup, timerIdCurr);
 				if (!timerInstanceIsDone) { timerIsActive = true; }
 			}
 		}
 	}
 	//
 	if (timerObj[timerGroup][timerRootKey].timerStepCurr > timerObj[timerGroup][timerRootKey].timerStepMax) {
-		fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 				timerObj[timerGroup][timerRootKey].playDirection, 'Group Step Max')
 			+ 'Move.. Group Timer Maximum (' + timerObj[timerGroup][timerRootKey].timerStepMax
 			+ ') number of interval steps (' + timerObj[timerGroup][timerRootKey].timerStepCurr
 			+ ') exceeded'
 			+ '!!!',
-			'fnTimerGroupDoStepMove', 5393, null, null,
+			'StdTimerGroupDoStepMove', 5393, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
 		timerDoAbort = true;
 	}
@@ -2313,35 +2313,35 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId) {
 		} else { timerObj[timerGroup][timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
 		//
 		if (debugTimer && debugTimerMove) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 					timerObj[timerGroup][timerRootKey].playDirection, 'Group Stop Timer')
 				+ ', Stopping Group Timer'
 				+ '.',
-				'fnTimerGroupDoStepMove', 5419, null, null,
+				'StdTimerGroupDoStepMove', 5419, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	}
 	//
 	if (debugTimer && debugTimerMove) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 				timerObj[timerGroup][timerRootKey].playDirection, 'Group Out')
 			+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 			+ ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
 			+ ', Time:' + Date()
 			+ ', Leaving process Group'
 			+ '.',
-			'fnTimerGroupDoStepMove', 54, null, null,
+			'StdTimerGroupDoStepMove', 54, null, null,
 			errorElementComment, true, false);
 		//
 		if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 					timerObj[timerGroup][timerRootKey].playDirection, 'End')
 				+ ', Finished Group'
 				+ '.',
-				'fnTimerGroupDoStepMove', 5440, null, null,
+				'StdTimerGroupDoStepMove', 5440, null, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 		}
@@ -2350,7 +2350,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
+function StdTimerItemDoStepMove(timerType, timerGroup, timerId) {
 	// ...................................... //
 	// Set Id's
 	var timerItemKey = timerId + timerType;
@@ -2379,10 +2379,10 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 	if (!timerObj[timerGroup][timerItemKey]) {
 		var errorLogLine = 'Invalid Timer Object Error!';
 		errorLogLine += charNewLineTag + charTextIndex;
-		errorLogLine += fnTimerKeyText(timerType, timerGroup, timerId);
+		errorLogLine += StdTimerKeyText(timerType, timerGroup, timerId);
 		errorLogLine += charNewLineTag + charTextIndex;
-		errorLogLine += fnTimerRootKeyText(timerType, timerGroup, timerId);
-		fnWindowError(errorLogLine, 'fnTimerItemDoStepFilter', 4258);
+		errorLogLine += StdTimerRootKeyText(timerType, timerGroup, timerId);
+		StdWindowError(errorLogLine, 'StdTimerItemDoStepFilter', 4258);
 	}
 	// ...................................... //
 	// Increment Current Step
@@ -2408,7 +2408,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 		}
 		// Resize new object
 		if (filterResizeIsOn && !timerObj[timerGroup][timerItemKey].elementIsDisplayed) {
-			fnFilterResize(
+			StdFilterResize(
 				timerObj[timerGroup][timerItemKey].oObj,
 				filterClassMatrix,
 				timerCompletionTemp);
@@ -2419,7 +2419,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 	// Set Completion based on methodology (Step based or Time Duration based execution)
 	if (timerUseTime) {
 		// (Elapsed) Time based
-		timerObj[timerGroup][timerItemKey].timerDateElps = fnTimerGetElapsed(timerType, timerGroup, timerId);
+		timerObj[timerGroup][timerItemKey].timerDateElps = StdTimerGetElapsed(timerType, timerGroup, timerId);
 		timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerDateElps / (timerObj[timerGroup][timerItemKey].timerDuration * 1000);
 	} else {
 		// Step based
@@ -2444,15 +2444,15 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 	// Stop if maximum # of steps exceeded
 	// increment vertical step
 	if (timerObj[timerGroup][timerItemKey].elementMoveStepTop > timerObj[timerGroup][timerItemKey].timerStepMax) {
-		fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup][timerItemKey].playDirection, 'StepStopItem')
 			+ ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
 			+ '.  Move.. Maximum (' + timerObj[timerGroup][timerItemKey].timerStepMax
 			+ ') number of interval vertical steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
 			+ ') exceeded'
 			+ '!!!',
-			'fnTimerItemDoStepMove', 5515, null, null,
+			'StdTimerItemDoStepMove', 5515, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
 		tempTimeOrStepsCompleted = 5515;
 	}
@@ -2462,15 +2462,15 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 	//
 	/*
 	if ( timerObj[timerGroup] [timerItemKey].elementMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
-		fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+		ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
 				+ ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
 				+ '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
 				+ ') number of interval horizontal steps (' + timerObj[timerGroup] [timerItemKey].timerStepCurr
 				+ ') exceeded'
 				+ '!!!',
-				'fnTimerItemDoStepMove', 5525, null, null,
+				'StdTimerItemDoStepMove', 5525, null, null,
 				errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
 		tempTimeOrStepsCompleted = 5525;
 	}
@@ -2606,7 +2606,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 				timerCompletionTemp = 1 - timerCompletionTemp;
 			}
 			//
-			fnFilterResize(
+			StdFilterResize(
 				timerObj[timerGroup][timerItemKey].oObj,
 				filterClassMatrix,
 				timerCompletionTemp);
@@ -2641,13 +2641,13 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 			window.clearInterval(timerIntervalId);
 			//
 			if (debugTimer && debugTimerDetail && debugTimerMove) {
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+					StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 						timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
 					+ tempDetails
 					+ ', Stopping Item Timer'
 					+ '.',
-					'fnTimerItemDoStepMove', 5711, null, null,
+					'StdTimerItemDoStepMove', 5711, null, null,
 					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 			}
 			//
@@ -2678,19 +2678,19 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 		}
 		//
 		if (debugTimer && debugTimerDetail && debugTimerMove) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
 				+ tempDetails
 				+ ', Item Interval Timer Stopped'
 				+ '.',
-				'fnTimerItemDoStepMove', 5747, null, null,
+				'StdTimerItemDoStepMove', 5747, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	} else {
 		if (debugTimer && debugTimerDetail && debugTimerMove) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup][timerItemKey].playDirection, 'Item')
 				+ tempDetails
 				+ ', Elapsed:' + timerObj[timerGroup][timerItemKey].timerElapsed / 1000
@@ -2703,7 +2703,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 				+ ', Move Left:' + timerObj[timerGroup][timerItemKey].moveDistanceLeft
 				+ ', Exiting Item'
 				+ '.',
-				'fnTimerItemDoStepMove', 5754, null, null,
+				'StdTimerItemDoStepMove', 5754, null, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	}
@@ -2720,7 +2720,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId) {
 // ...................................... //
 // Included a setTimeout in BODY onload to delay start of text movement.
 // oObjPassed, elementLeftOrig, elementTopOrig, elementLeftDest, elementTopDest)
-function fnTimerGetElapsed(timerType, timerGroup, timerId) {
+function StdTimerGetElapsed(timerType, timerGroup, timerId) {
 	var timerItemKey = timerId + timerType;
 	timerDateCurr = new Date();
 	// timerDateElps  = timerDateStart - timerDateCurr;
@@ -2753,7 +2753,7 @@ function fnTimerGetElapsed(timerType, timerGroup, timerId) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
+function StdTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
 	var timerItemKey = timerId + timerType;
 	var timerMoveBusy = false;
 	if (timerObj[timerGroup]) {
@@ -2763,8 +2763,8 @@ function fnTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
 	}
 	//
 	if (UseLog && timerMoveBusy) {
-		fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Busy Timer', 'fnElementEventCheckDuplicate', 0);
+		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+			'Busy Timer', 'StdElementEventCheckDuplicate', 0);
 	}
 	//
 }
@@ -2774,7 +2774,7 @@ function fnTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
 // ...................................... //
 // This test incrementally repositions an element.
 // It loops through a set number of times.
-function fnTimerMoveTest(timerType, timerGroup, timerId) {
+function StdTimerMoveTest(timerType, timerGroup, timerId) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	//
@@ -2800,22 +2800,22 @@ function fnTimerMoveTest(timerType, timerGroup, timerId) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerLogText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
+function StdTimerLogText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	var DoUseWord = true;
 	var LogText = '';
-	LogText += fnTimerTypeText(timerType, DoUseWord);
-	LogText += ', ' + fnTimerIntervalText(timerType, timerGroup, timerId, UseRootKey);
-	LogText += ', ' + fnTimerActionText(timerAction);
-	LogText += ', ' + fnTimerKeyText(timerType, timerGroup, timerId);
-	LogText += ', ' + fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction);
+	LogText += StdTimerTypeText(timerType, DoUseWord);
+	LogText += ', ' + StdTimerIntervalText(timerType, timerGroup, timerId, UseRootKey);
+	LogText += ', ' + StdTimerActionText(timerAction);
+	LogText += ', ' + StdTimerKeyText(timerType, timerGroup, timerId);
+	LogText += ', ' + StdTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction);
 	return LogText;
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
+function StdTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	var LogText = '';
@@ -2838,19 +2838,19 @@ function fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDi
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerActionText(timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substr(0, 25); }
+function StdTimerActionText(timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substr(0, 25); }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerTypeText(timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substr(0, 10)); }
+function StdTimerTypeText(timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substr(0, 10)); }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerKeyText(timerType, timerGroup, timerId) { return 'Object: (' + (fnTimerTypeText(timerType, false)) + ', ' + timerGroup + ', ' + timerId + ')'; }
+function StdTimerKeyText(timerType, timerGroup, timerId) { return 'Object: (' + (StdTimerTypeText(timerType, false)) + ', ' + timerGroup + ', ' + timerId + ')'; }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerIntervalText(timerType, timerGroup, timerId, UseRootKey) {
+function StdTimerIntervalText(timerType, timerGroup, timerId, UseRootKey) {
 	var timerItemKey = timerId + timerType;
 	var timerRootKey = timerRootId + timerType;
 	// var tempString = new String();
@@ -2875,7 +2875,7 @@ function fnTimerIntervalText(timerType, timerGroup, timerId, UseRootKey) {
 	tempString = 'Timer (' + tempString + ')';
 	return 'Timer (' + ((tempInterval).toString()).substr(1, 5) + ')';
 }
-function fnTimerIntervalTextOld(timerType, timerGroup, timerId, UseRootKey) {
+function StdTimerIntervalTextOld(timerType, timerGroup, timerId, UseRootKey) {
 	if (UseRootKey) {
 		if (timerObj[timerGroup][timerRootKey]) {
 			// Note: Syntax difference between native string "(target).substr(1, 5);"
@@ -2901,7 +2901,7 @@ function fnTimerIntervalTextOld(timerType, timerGroup, timerId, UseRootKey) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerRootKeyText(timerType, timerGroup, timerId) {
+function StdTimerRootKeyText(timerType, timerGroup, timerId) {
 	var timerRootKey = timerRootId + timerType;
 	var timerIdCurr;
 	var timerIdCnMax = timerObj[timerGroup].length;
@@ -2954,20 +2954,20 @@ var imgHtml = new String();
 // .getElementById('BodyMenuImageContainer');
 //
 // Build (inner) HTML for Menu Images
-// fnMenuImagesHtmlBuild();
+// StdMenuImagesHtmlBuild();
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnBodyImagesHtmlBuild() {
+function StdBodyImagesHtmlBuild() {
 	//
 	// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx TO DO xxxxxxxxxxxxxxx
 	// document.write(imgHtml);
-	elBodyImageContainer = fnElementGetRef(elBodyImageContainer, 'BodyImageContainer', 'BodyImageContainer');
+	elBodyImageContainer = StdElementGetRef(elBodyImageContainer, 'BodyImageContainer', 'BodyImageContainer');
 	elBodyImageContainer.innerHTML = imgHtml;
 	//
 	// This page has no stock of body images
 	// just text captions.
-	bodyImageLoadFirst = false;
+	loadFirstBodyImage = false;
 	//
 	return elBodyImageContainer;
 }
@@ -2979,10 +2979,10 @@ function fnBodyImagesHtmlBuild() {
 //
 // ...................................... //
 //
-// fnMenuImagesHtmlBuild();
+// StdMenuImagesHtmlBuild();
 //
 // ...................................... //
-function fnMenuImagesHtmlBuild() {
+function StdMenuImagesHtmlBuild() {
 	//
 	// There are three allowed strategies for event handling:
 	// the following two options are mutally exclusive:
@@ -2995,7 +2995,7 @@ function fnMenuImagesHtmlBuild() {
 	filterIndexPassed = filterTypeCheckerBoard;
 	// + ', ' + filterTypeCheckerBoard + ')
 	//
-	elBodyMenuImageContainer = fnElementGetRef(elBodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
+	elBodyMenuImageContainer = StdElementGetRef(elBodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
 	//
 	tempFirst = true;
 	var imgHtmlDivBoth = document.createElement('div');
@@ -3039,7 +3039,7 @@ function fnMenuImagesHtmlBuild() {
 	// imgHtml += 'div id='BodyMenuImageContainer'>';
 	for (imgGroupCn = 1; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
 		for (imgCn = 1; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
-			oName = fnElementItemGetName(imgGroupCn, imgCn);
+			oName = StdElementItemGetName(imgGroupCn, imgCn);
 			// ..................................................................................... _//
 			// Image Small
 			// ..................................................................................... _//
@@ -3061,15 +3061,15 @@ function fnMenuImagesHtmlBuild() {
 			// Mouse Over
 			// DivSmallOnmouseover
 			DivSmallOnmouseoverText = '';
-			DivSmallOnmouseoverFunction = fnElementGroupShowStack;
-			DivSmallOnmouseoverFunctionName = 'fnElementGroupShowStack';
+			DivSmallOnmouseoverFunction = StdElementGroupShowStack;
+			DivSmallOnmouseoverFunctionName = 'StdElementGroupShowStack';
 			DivSmallOnmouseoverText += '(';
 			DivSmallOnmouseoverText += IsSmall + ', ';// Is Small Image
 			// Parent Object
 			if (imgCn > 1) {
-				eventParentName = (fnElementItemGetName(imgGroupCn, imgCn - 1) + imgGroupCn + (imgCn - 1));// Previous (Small) Image Id
+				eventParentName = (StdElementItemGetName(imgGroupCn, imgCn - 1) + imgGroupCn + (imgCn - 1));// Previous (Small) Image Id
 			} else {
-				eventParentName = (fnElementItemGetName(imgGroupCn, imgCn - 1));// Menu Container Id
+				eventParentName = (StdElementItemGetName(imgGroupCn, imgCn - 1));// Menu Container Id
 			}
 			DivSmallOnmouseoverText += quoteInnerOpen + eventParentName + quoteInnerClose + ', ';// Parent Id
 			DivSmallOnmouseoverText += quoteInnerOpen + oName + imgGroupCn + imgCn + 'Image' + quoteInnerClose + ', ';// Small Image Id
@@ -3083,7 +3083,7 @@ function fnMenuImagesHtmlBuild() {
 			//
 			if (!imgLoadUseEventHandler) {
 				if (imgLoadUseDOM) {
-					imgHtmlDivSmall = fnElementEventAdd('onmouseover',
+					imgHtmlDivSmall = StdElementEventAdd('onmouseover',
 						DivSmallOnmouseoverFunction, DivSmallOnmouseoverFunctionName,
 						DivSmallOnmouseoverText, imgHtmlDivSmall);
 				} else if (imgLoadUseInner) {
@@ -3099,8 +3099,8 @@ function fnMenuImagesHtmlBuild() {
 			// Mouse Out
 			// DivSmallOnmouseout
 			DivSmallOnmouseoutText = '';
-			DivSmallOnmouseoutFunction = fnElementItemHideId;
-			DivSmallOnmouseoutFunctionName = 'fnElementItemHideId';
+			DivSmallOnmouseoutFunction = StdElementItemHideId;
+			DivSmallOnmouseoutFunctionName = 'StdElementItemHideId';
 			DivSmallOnmouseoutText += '(';
 			DivSmallOnmouseoutText += 'event' + ', ';// Event Object
 			DivSmallOnmouseoutText += IsSmall + ', ';// Is Small Image
@@ -3116,7 +3116,7 @@ function fnMenuImagesHtmlBuild() {
 			//
 			if (!imgLoadUseEventHandler) {
 				if (imgLoadUseDOM) {
-					imgHtmlDivSmall = fnElementEventAdd('onmouseout',
+					imgHtmlDivSmall = StdElementEventAdd('onmouseout',
 						DivSmallOnmouseoutFunction, DivSmallOnmouseoutFunctionName,
 						DivSmallOnmouseoutText, imgHtmlDivSmall);
 				} else if (imgLoadUseInner) {
@@ -3196,8 +3196,8 @@ function fnMenuImagesHtmlBuild() {
 			imgHtmlSpan.name = oName + imgGroupCn + imgCn + 'LinkTextUpper';// Link Text
 			imgHtmlSpanInner += attributeId + quoteOpen + oName + imgGroupCn + imgCn + 'LinkTextUpper' + quoteClose + tagEndContentStart;// Link Text
 			//
-			imgHtmlSpan.innerHTML = fnElementItemGetDescription(imgGroupCn, imgCn);
-			imgHtmlSpanInner += fnElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpan.innerHTML = StdElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpanInner += StdElementItemGetDescription(imgGroupCn, imgCn);
 			//
 			// Element: Br
 			// imgHtmlBr = document.createElement('br');
@@ -3240,8 +3240,8 @@ function fnMenuImagesHtmlBuild() {
 			imgHtmlImgInner += attributeClass + quoteOpen + 'MenuThumb"';// Class
 			//
 			// Alt
-			imgHtmlImg.alt = fnTextReplace(fnElementItemGetDescription(imgGroupCn, imgCn), charNewLineTag, ' ');// Alt (Link) Text;
-			imgHtmlImgInner += attributeAlt + quoteOpen + fnElementItemGetDescription(imgGroupCn, imgCn) + quoteClose;// Alt (Link) Text;
+			imgHtmlImg.alt = StdTextReplace(StdElementItemGetDescription(imgGroupCn, imgCn), charNewLineTag, ' ');// Alt (Link) Text;
+			imgHtmlImgInner += attributeAlt + quoteOpen + StdElementItemGetDescription(imgGroupCn, imgCn) + quoteClose;// Alt (Link) Text;
 			//
 			// Events:
 			// Mouse Down
@@ -3249,17 +3249,17 @@ function fnMenuImagesHtmlBuild() {
 			// Filter
 			// Start Animation Filter
 			// Filter Reset
-			// imgHtml += ' fnFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
-			imgHtml += 'fnFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
-			// imgHtml += ' fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+			// imgHtml += ' StdFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
+			imgHtml += 'StdFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+			// imgHtml += ' StdFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
 			-- */
 			//
 			// ..................................................................................... _//
 			// Image Show Toggle
 			// Mouse Down
 			DivSmallOnmousedownText = '';
-			DivSmallOnmousedownFunction = fnElementItemToggle;
-			DivSmallOnmousedownFunctionName = 'fnElementItemToggle';
+			DivSmallOnmousedownFunction = StdElementItemToggle;
+			DivSmallOnmousedownFunctionName = 'StdElementItemToggle';
 			DivSmallOnmousedownText += '(';
 			DivSmallOnmousedownText += IsLarge + ', ';// Is Large Image
 			DivSmallOnmousedownText += quoteInnerOpen + oName + imgGroupCn + imgCn + quoteInnerClose + ', ';// Small Id
@@ -3274,7 +3274,7 @@ function fnMenuImagesHtmlBuild() {
 			//
 			if (!imgLoadUseEventHandler) {
 				if (imgLoadUseDOM) {
-					imgHtmlDivSmall = fnElementEventAdd('onmousedown',
+					imgHtmlDivSmall = StdElementEventAdd('onmousedown',
 						DivSmallOnmousedownFunction, DivSmallOnmousedownFunctionName,
 						DivSmallOnmousedownText, imgHtmlDivSmall);
 				} else if (imgLoadUseInner) {
@@ -3291,8 +3291,8 @@ function fnMenuImagesHtmlBuild() {
 			//
 			// ..................................................................................... _//
 			// Play Filter
-			// imgHtml += ' onfilterchange= ' + quoteOpen + 'fnFilterSpin(this + ', ' + filterIndexPassed + ');';// Spin this Image
-			// imgHtml += ' onfilterchange= ' + quoteOpen + 'fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
+			// imgHtml += ' onfilterchange= ' + quoteOpen + 'StdFilterSpin(this + ', ' + filterIndexPassed + ');';// Spin this Image
+			// imgHtml += ' onfilterchange= ' + quoteOpen + 'StdFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
 			// imgHtml += quoteClose ' ';
 			//
 			// ..................................................................................... _//
@@ -3347,8 +3347,8 @@ function fnMenuImagesHtmlBuild() {
 			imgHtmlSpan.name = oName + imgGroupCn + imgCn + 'LinkTextLower';// Link Text
 			imgHtmlSpanInner += attributeId + quoteOpen + oName + imgGroupCn + imgCn + 'LinkTextLower' + quoteClose + tagEndContentNone;// Link Text
 			//
-			imgHtmlSpan.innerHTML = fnElementItemGetDescription(imgGroupCn, imgCn);
-			imgHtmlSpanInner += fnElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpan.innerHTML = StdElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpanInner += StdElementItemGetDescription(imgGroupCn, imgCn);
 			//
 			// ..................................................................................... _//
 			imgHtmlSpanInner += tagSpanEnd;
@@ -3387,8 +3387,8 @@ function fnMenuImagesHtmlBuild() {
 			// ..................................................................................... _//
 			// Mouse Out //
 			DivLargeOnmouseoutText = '';
-			DivLargeOnmouseoutFunction = fnElementItemHideId;
-			DivLargeOnmouseoutFunctionName = 'fnElementItemHideId';
+			DivLargeOnmouseoutFunction = StdElementItemHideId;
+			DivLargeOnmouseoutFunctionName = 'StdElementItemHideId';
 			DivLargeOnmouseoutText += '(';
 			DivLargeOnmouseoutText += 'event' + ', ';// Event Object
 			DivLargeOnmouseoutText += IsLarge + ', ';// Is Large Image
@@ -3404,7 +3404,7 @@ function fnMenuImagesHtmlBuild() {
 			//
 			if (!imgLoadUseEventHandler) {
 				if (imgLoadUseDOM) {
-					imgHtmlDivLarge = fnElementEventAdd('onmouseout',
+					imgHtmlDivLarge = StdElementEventAdd('onmouseout',
 						DivLargeOnmouseoutFunction, DivLargeOnmouseoutFunctionName,
 						DivLargeOnmouseoutText, imgHtmlDivLarge);
 				} else if (imgLoadUseInner) {
@@ -3422,8 +3422,8 @@ function fnMenuImagesHtmlBuild() {
 			// Show Image Large
 			// DivLargeOnmouseover
 			DivLargeOnmouseoverText = '';
-			DivLargeOnmouseoverFunction = fnElementItemShowId;
-			DivLargeOnmouseoverFunctionName = 'fnElementItemShowId';
+			DivLargeOnmouseoverFunction = StdElementItemShowId;
+			DivLargeOnmouseoverFunctionName = 'StdElementItemShowId';
 			DivLargeOnmouseoverText += '(';
 			DivLargeOnmouseoverText += 'event' + ', ';// Event Object
 			DivLargeOnmouseoverText += IsLarge + ', ';// Is Large Image
@@ -3440,7 +3440,7 @@ function fnMenuImagesHtmlBuild() {
 			//
 			if (!imgLoadUseEventHandler) {
 				if (imgLoadUseDOM) {
-					imgHtmlDivLarge = fnElementEventAdd('onmouseover',
+					imgHtmlDivLarge = StdElementEventAdd('onmouseover',
 						DivLargeOnmouseoverFunction, DivLargeOnmouseoverFunctionName,
 						DivLargeOnmouseoverText, imgHtmlDivLarge);
 				} else if (imgLoadUseInner) {
@@ -3454,17 +3454,17 @@ function fnMenuImagesHtmlBuild() {
 			// ..................................................................................... _//
 			// Start Animation Filter
 			// Filter Reset
-			// imgHtml += ' fnFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
-			// imgHtml += ' fnFilterResetThenAnimate(' + oName + imgGroupCn + imgCn + 'Large' + ', ' + filterIndexPassed + ');';// Reset Large Image
-			// imgHtml += ' fnFilterSpin(' + oName + imgGroupCn + imgCn + 'Large' + ', ' + filterIndexPassed + ');';// Spin Large Image
+			// imgHtml += ' StdFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
+			// imgHtml += ' StdFilterResetThenAnimate(' + oName + imgGroupCn + imgCn + 'Large' + ', ' + filterIndexPassed + ');';// Reset Large Image
+			// imgHtml += ' StdFilterSpin(' + oName + imgGroupCn + imgCn + 'Large' + ', ' + filterIndexPassed + ');';// Spin Large Image
 			//
 			// imgHtml += quoteClose;
 			// end of mouseover
 			//
 			// ..................................................................................... _//
 			// Play Filter
-			// imgHtml += '      	onfilterchange= ' + quoteOpen + 'fnFilterSpin(this, filterIndexPassed);';// Spin this Image
-			// imgHtml += '      	onfilterchange= ' + quoteOpen + 'fnFilterSpin(' + oName + imgGroupCn + imgCn + 'Large' + ', ' + filterIndexPassed + ');';// Spin Large Image
+			// imgHtml += '      	onfilterchange= ' + quoteOpen + 'StdFilterSpin(this, filterIndexPassed);';// Spin this Image
+			// imgHtml += '      	onfilterchange= ' + quoteOpen + 'StdFilterSpin(' + oName + imgGroupCn + imgCn + 'Large' + ', ' + filterIndexPassed + ');';// Spin Large Image
 			// imgHtml += quoteClose + ' ';
 			// imgHtmlDivLarge.onfilterchange = imgHtml;
 			//
@@ -3544,8 +3544,8 @@ function fnMenuImagesHtmlBuild() {
 			imgHtmlSpan.name = oName + imgGroupCn + imgCn + 'Large' + 'LinkTextUpper';// Link Text
 			imgHtmlSpanInner += attributeId + quoteOpen + oName + imgGroupCn + imgCn + 'Large' + 'LinkTextUpper' + quoteClose + tagEndContentStart;// Link Text
 			//
-			imgHtmlSpan.innerHTML = fnElementItemGetDescription(imgGroupCn, imgCn);
-			imgHtmlSpanInner += fnElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpan.innerHTML = StdElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpanInner += StdElementItemGetDescription(imgGroupCn, imgCn);
 			//
 			// ..................................................................................... _//
 			// Element: Br
@@ -3580,8 +3580,8 @@ function fnMenuImagesHtmlBuild() {
 			imgHtmlImgInner += attributeClass + quoteOpen + 'MenuThumbLarge' + quoteClose;
 			//
 			// Alt
-			imgHtmlImg.alt = fnTextReplace(fnElementItemGetDescription(imgGroupCn, imgCn), charNewLineTag, ' ');// Alt (Link) Text;
-			imgHtmlImgInner += attributeAlt + quoteOpen + fnElementItemGetDescription(imgGroupCn, imgCn) + quoteClose;// Alt (Link) Text;
+			imgHtmlImg.alt = StdTextReplace(StdElementItemGetDescription(imgGroupCn, imgCn), charNewLineTag, ' ');// Alt (Link) Text;
+			imgHtmlImgInner += attributeAlt + quoteOpen + StdElementItemGetDescription(imgGroupCn, imgCn) + quoteClose;// Alt (Link) Text;
 			//
 			// ..................................................................................... _//
 			// Div Style
@@ -3614,8 +3614,8 @@ function fnMenuImagesHtmlBuild() {
 			// if (imgLoadUseDOM) { imgHtmlSpan.appendChild(imgHtmlBr); }
 			// imgHtmlSpanInner += charNewLineTagOpen + 'class= ' + quoteOpen + 'aClearBoth' + quoteClose + tagEndContentNone;
 			//
-			imgHtmlSpan.innerHTML = fnElementItemGetDescription(imgGroupCn, imgCn);
-			imgHtmlSpanInner += fnElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpan.innerHTML = StdElementItemGetDescription(imgGroupCn, imgCn);
+			imgHtmlSpanInner += StdElementItemGetDescription(imgGroupCn, imgCn);
 			//
 			// ..................................................................................... _//
 			imgHtmlSpanInner += tagSpanEnd;
@@ -3647,9 +3647,9 @@ function fnMenuImagesHtmlBuild() {
 		elBodyMenuImageContainer.onmouseout = null;
 		elBodyMenuImageContainer.onmousedown = null;
 	} else {
-		elBodyMenuImageContainer.onmousedown = fnElementEventMouse;
-		elBodyMenuImageContainer.onmouseover = fnElementEventMouse;
-		elBodyMenuImageContainer.onmouseout = fnElementEventMouse;
+		elBodyMenuImageContainer.onmousedown = StdElementEventMouse;
+		elBodyMenuImageContainer.onmouseover = StdElementEventMouse;
+		elBodyMenuImageContainer.onmouseout = StdElementEventMouse;
 	}
 	//
 	// elBodyMenuImageContainer.style.display = 'none';
@@ -3659,13 +3659,13 @@ function fnMenuImagesHtmlBuild() {
 	// imgHtml += tagDivEnd;
 	// imgHtmlDiv.innerHTML = imgHtml;
 	// document.write(imgHtml);
-	// elBodyMenuImageContainer = fnElementGetRef(elBodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
+	// elBodyMenuImageContainer = StdElementGetRef(elBodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
 	//
 	// elBodyMenuImageContainer.innerHTML = imgHtml;
 	// elBodyMenuImageContainer.appendChild(imgHtmlDivSmall);
 	// elBodyMenuImageContainer.appendChild(imgHtmlDivLarge);
 	//
-	menuImageLoadFirst = false;
+	loadFirstMenuImage = false;
 	//
 }
 //
@@ -3691,7 +3691,7 @@ function fnMenuImagesHtmlBuild() {
 // ..................................................................................... _//
 // Event Add
 // ...................................... //
-function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed) {
+function StdElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed) {
 	var eventAddSuccess;
 	var eventArgumentsArr = new Array();
 	var tempfunc;
@@ -3738,10 +3738,10 @@ function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNa
 // http://stackoverflow.com/questions/359788/javascript-function-name-as-a-string
 // (c) 2011 stack exchange inc;user contributions licensed under cc-wiki with attribution required
 //
-function fnFunctionDoExecuteByName(functionName, context /*, args */) {
+function StdFunctionDoExecuteByName(functionName, context /*, args */) {
 	// ['My']['Namespace']['functionName'](arguments);// succeeds
-	// fnFunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
-	// fnFunctionDoExecuteByName('Namespace.functionName', My, arguments);
+	// StdFunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
+	// StdFunctionDoExecuteByName('Namespace.functionName', My, arguments);
 	//
 	var args = Array.prototype.slice.call(arguments).splice(2);
 	var namespaces = functionName.split('.');
@@ -3755,7 +3755,7 @@ function fnFunctionDoExecuteByName(functionName, context /*, args */) {
 }
 //
 // ..................................................................................... _//
-function fnFunctionDoExecuteJsNode(node) {
+function StdFunctionDoExecuteJsNode(node) {
 	if (!node) return;
 	/* IE Upper Case */
 	var elementScriptSourceInNode = node.getElementByTagName('SCRIPT');
@@ -3796,45 +3796,45 @@ function fnFunctionDoExecuteJsNode(node) {
 // ..................................................................................... _//
 // Window Load
 // ...................................... //
-// onlayoutcomplete= 'fnDocumentLoadInit();';
+// onlayoutcomplete= 'StdDocumentLoadInit();';
 //
 window.onload = function () { // function Document Window OnLoad
 	// ...................................... //
 	// Initialize and Set Global Variables
-	fnDocumentLoadInit();
+	StdDocumentLoadInit();
 	//
 	// ...................................... //
 	// Build Body Images Div
-	if (!bodyImageLoadDelay) { fnBodyImagesHtmlBuild(); }
+	if (!loadDelayBodyImage) { StdBodyImagesHtmlBuild(); }
 	//
 	// ...................................... //
 	// Build Menu Images Div
-	if (!menuImageLoadDelay) { fnMenuImagesHtmlBuild(); }
+	if (!loadDelayMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
 	// ...................................... //
 	// Docuement Element Initialize & Store Original Menu Columns.
-	if (!javaLoadDelay) {
+	if (!loadDelayJava) {
 		// ...................................... //
 		// Body Element Creation
-		if (javaLoadFirst) { fnElementObjectCreate(); }
+		if (loadFirstJava) { StdElementObjectCreate(); }
 		//
 		// ...................................... //
 		// Choose Standard Layout
-		fnLayoutNext(layoutStandard)
-		// fnLayoutSelectByIndex(layoutStandard);
+		StdLayoutNext(layoutStandard)
+		// StdLayoutSelectByIndex(layoutStandard);
 	}
 	//
-	if (!debugStateLoadDelay) {
+	if (!loadDelayDebugState) {
 		if (serverIsOn) {
-			fnDebugParameterInit();
+			DebugParameterInit();
 		} else {
-			fnDebugParameterInitLocal();
+			DebugParameterInitLocal();
 		}
 	}
 	//
 	// Inactive code:
-	// window.onload= 'fnDocumentLoadInit();';
-	// onlayoutcomplete= 'fnDocumentLoadInit();';
+	// window.onload= 'StdDocumentLoadInit();';
+	// onlayoutcomplete= 'StdDocumentLoadInit();';
 }
 //
 // ..................................................................................... _//
@@ -3844,13 +3844,13 @@ window.onload = function () { // function Document Window OnLoad
 // ..................................................................................... _//
 // ...................................... //
 // Document Layout Size of Core Layout Boxes
-function fnWindowContainerHeightGetAll() {
+function StdWindowContainerHeightGetAll() {
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Height of left and right menu containers vs the center menu container'
 			+ ': ',
-			'fnWindowContainerHeightGetAll', 6769, null, null,
+			'StdWindowContainerHeightGetAll', 6769, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3861,13 +3861,13 @@ function fnWindowContainerHeightGetAll() {
 	layoutBodyHeightVertMax = 0;
 	layoutMenuWidthMax = 0;
 	//
-	elBodyMainCenterHeight = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainCenter);
+	elBodyMainCenterHeight = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainCenter);
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Height of BodyMainCenterHeight: ' + elBodyMainCenterHeight
 			+ '.',
-			'fnWindowContainerHeightGetAll', 6769, null, null,
+			'StdWindowContainerHeightGetAll', 6769, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3875,27 +3875,27 @@ function fnWindowContainerHeightGetAll() {
 	if (tempLayoutBodyHeightHorzMax < elBodyMainCenterHeight) { tempLayoutBodyHeightHorzMax = elBodyMainCenterHeight; }
 	//
 	// Left
-	elBodyMenuLayout1Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft);
-	// if (layoutResizeCn = 0) { elBodyMenuLayout1Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft); }
+	elBodyMenuLayout1Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft);
+	// if (layoutResizeCn = 0) { elBodyMenuLayout1Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft); }
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
 			+ '.',
-			'fnWindowContainerHeightGetAll', 6769, null, null,
+			'StdWindowContainerHeightGetAll', 6769, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	// Check the accumaltion of Left1, Left2, Left3
 	if (layoutIndex = layoutStandard) {
-		fnWindowContainerHeightGetMenu(elBodyMainLeft);
-	} else { fnWindowContainerHeightGetMenu(elBodyMainCenterTopLeft); }
+		StdWindowContainerHeightGetMenu(elBodyMainLeft);
+	} else { StdWindowContainerHeightGetMenu(elBodyMainCenterTopLeft); }
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
 			+ '.',
-			'fnWindowContainerHeightGetAll', 6769, null, null,
+			'StdWindowContainerHeightGetAll', 6769, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3904,27 +3904,27 @@ function fnWindowContainerHeightGetAll() {
 		if (tempLayoutBodyHeightHorzMax < elBodyMenuLayout1Height) { tempLayoutBodyHeightHorzMax = elBodyMenuLayout1Height; }
 	}
 	// Right
-	elBodyMenuLayout2Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight);
-	// if (layoutResizeCn = 0) { elBodyMenuLayout2Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight); }
+	elBodyMenuLayout2Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight);
+	// if (layoutResizeCn = 0) { elBodyMenuLayout2Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight); }
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
 			+ '.',
-			'fnWindowContainerHeightGetAll', 6769, null, null,
+			'StdWindowContainerHeightGetAll', 6769, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	// Check the accumaltion of Right1, Right2, Right3
 	if (layoutIndex = layoutStandard) {
-		fnWindowContainerHeightGetMenu(elBodyMainRight);
-	} else { fnWindowContainerHeightGetMenu(elBodyMainCenterTopRight); }
+		StdWindowContainerHeightGetMenu(elBodyMainRight);
+	} else { StdWindowContainerHeightGetMenu(elBodyMainCenterTopRight); }
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
 			+ '.',
-			'fnWindowContainerHeightGetAll', 6769, null, null,
+			'StdWindowContainerHeightGetAll', 6769, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3961,7 +3961,7 @@ function fnWindowContainerHeightGetAll() {
 // ..................................................................................... _//
 // ...................................... //
 // Document Layout Size of Core Layout Boxes
-function fnWindowContainerHeightGetMenu(elementPassed) {
+function StdWindowContainerHeightGetMenu(elementPassed) {
 	// Height of left and right menu containers:
 	// Greatest height when layed out side by side
 	layoutBodyHeightHorzMax = 0;
@@ -3985,15 +3985,15 @@ function fnWindowContainerHeightGetMenu(elementPassed) {
 	// Left menuGroup1, 2, 3
 	if (!menuGroup1) {
 		if (elementPassed) {
-			menuGroup1 = fnElementGetRefFromElement(menuGroup1, 'MenuLeft1', 'MenuLeft1', elementPassed);
-			menuGroup2 = fnElementGetRefFromElement(menuGroup2, 'MenuLeft2', 'MenuLeft2', elementPassed);
-			menuGroup3 = fnElementGetRefFromElement(menuGroup3, 'MenuLeft3', 'MenuLeft3', elementPassed);
+			menuGroup1 = StdElementGetRefFromElement(menuGroup1, 'MenuLeft1', 'MenuLeft1', elementPassed);
+			menuGroup2 = StdElementGetRefFromElement(menuGroup2, 'MenuLeft2', 'MenuLeft2', elementPassed);
+			menuGroup3 = StdElementGetRefFromElement(menuGroup3, 'MenuLeft3', 'MenuLeft3', elementPassed);
 		}
 	}
 	//
-	elMenuLeft1Height = fnElementHeightMaxGet(true, true, menuGroup1);
-	elMenuLeft2Height = fnElementHeightMaxGet(true, true, menuGroup2);
-	elMenuLeft3Height = fnElementHeightMaxGet(true, true, menuGroup3);
+	elMenuLeft1Height = StdElementHeightMaxGet(true, true, menuGroup1);
+	elMenuLeft2Height = StdElementHeightMaxGet(true, true, menuGroup2);
+	elMenuLeft3Height = StdElementHeightMaxGet(true, true, menuGroup3);
 	//
 	layoutMenuHeightVertMax = elMenuLeft1Height + elMenuLeft2Height + elMenuLeft3Height;
 	//
@@ -4048,22 +4048,22 @@ var elementBlockCn;
 var elementWidthDefault = 250;
 var elBodyBlockWidth;
 //
-function fnWindowResize() {
+function StdWindowResize() {
 	// Recalculate Screen Display
 	//
-	if (javaLoadFirst) { fnElementObjectCreate(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
 	//
 	// ...................................... //
 	// Recalculate Globals for Screen
 	//
-	fnWindowClientWidth();
+	StdWindowClientWidth();
 	// ...................................... //
 	// Load Containers if missing
 	//
-	if (!elBodyMainLeft) { fnElementObjectContainerCreate(); }
+	if (!elBodyMainLeft) { StdElementObjectContainerCreate(); }
 	// ...................................... //
 	// Recalculate Positions for Menu Images
-	if (layoutResizeCn = 0) { fnWindowContainerHeightGetAll(); }
+	if (layoutResizeCn = 0) { StdWindowContainerHeightGetAll(); }
 	//
 	var elBodyMainCenterLeftAdj = 0;
 	var elBodyMainCenterWidthAdj = 0;
@@ -4072,7 +4072,7 @@ function fnWindowResize() {
 	// Process DivBox and Callout layout
 	//
 	// Count Display Blocks (s/b DivBox containers)
-	elementBlockCn = fnElementObjectBlockCount();
+	elementBlockCn = StdElementObjectBlockCount();
 	//
 	// Determine DivBox (Body Content) column and callout sizes
 	if (elBodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && elementBlockCn > 4 && columnMax > 2) {
@@ -4189,10 +4189,10 @@ function fnWindowResize() {
 					if (layoutBlock.id) {
 						if ((layoutBlock.id).substr(0, 4) = 'DivB') {
 							boxClass = layoutBlock.className;
-							columnType = fnStringGetTokenByPrefix(boxClass, 'ColumnType');
+							columnType = StdStringGetTokenByPrefix(boxClass, 'ColumnType');
 							if (columnType != 'ColumnTypeFixed') { layoutBlock.style.width = layoutBlockWidth; }
 							// elBodyBlockWidth = parseInt(layoutBlock.style.width);
-							elBodyBlockWidth = fnElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, elementWidthDefault);
+							elBodyBlockWidth = StdElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, elementWidthDefault);
 							//
 							// ...................................... //
 							// Callout
@@ -4204,7 +4204,7 @@ function fnWindowResize() {
 										if ((calloutBlock.id).substr(0, 4) = 'DivC') {
 											// Get Column Type from Box class
 											boxClass = calloutBlock.className;
-											columnType = fnStringGetTokenByPrefix(boxClass, 'ColumnType');
+											columnType = StdStringGetTokenByPrefix(boxClass, 'ColumnType');
 											// Set Callout Width and Layout
 											if (columnType != 'ColumnTypeFixed') {
 												if (elBodyBlockWidth > calloutBlockLayoutWidthWide) {
@@ -4232,9 +4232,9 @@ function fnWindowResize() {
 	//
 	layoutResizeCn += 1;
 	if (layoutResizeCn > 500) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			'Window Resize Excessive Usage (Possible Error)',
-			'fnWindowResize', 0, null, null,
+			'StdWindowResize', 0, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoAlert);
 		layoutResizeCn = 0;
 		// layoutMenuHeightHorzMax = 2000;
@@ -4246,15 +4246,15 @@ function fnWindowResize() {
 	// Height of left and right menu containers
 	/* -- */
 	//
-	fnWindowContainerHeightGetAll();
+	StdWindowContainerHeightGetAll();
 	/* -- */
 	//
 	//
 	if (debugAlert) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			' Main Container layoutHeight (body +5em): ' + layoutHeight
 			+ '.',
-			'fnWindowResize', 7189, null, null,
+			'StdWindowResize', 7189, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -4287,7 +4287,7 @@ function fnWindowResize() {
 }
 //
 // ..................................................................................... _//
-window.onresize = function () { fnWindowResize(); }
+window.onresize = function () { StdWindowResize(); }
 // ..................................................................................... _//
 //
 // ..................................................................................... _//
@@ -4302,7 +4302,7 @@ window.onresize = function () { fnWindowResize(); }
 // ..................................................................................... _//
 // ...................................... //
 // Create all Elements used in Layout
-function fnWindowPopupOpen() {
+function StdWindowPopupOpen() {
 	// Popup Window
 	var sConfig = 'left= 100, top= 0, height= 500, width= 400, menubar= 0, scrollbars= 0, status= 0, toolbar= 0, location= 0';
 	var myWindow = window.open('http://myPopupWindow.html', 'MyWindowName', sConfig);
@@ -4315,7 +4315,7 @@ function fnWindowPopupOpen() {
 // ..................................................................................... _//
 // ...................................... //
 // Document Window Client Width
-function fnWindowClientWidth() {
+function StdWindowClientWidth() {
 	// Window Width
 	layoutDocumentWidth = window.document.documentElement.offsetWidth;
 	layoutAvailWidth = window.screen.availWidth;
@@ -4352,7 +4352,7 @@ function fnWindowClientWidth() {
 // ..................................................................................... _//
 // ...................................... //
 // Window Session Load
-function fnWindowSessionLoad() {
+function StdWindowSessionLoad() {
 	// Load Layout and Images Displayed
 	// Get Cookie
 	// Apply Cookie to Window
@@ -4362,7 +4362,7 @@ function fnWindowSessionLoad() {
 // ..................................................................................... _//
 // ...................................... //
 // Window Session Save
-function fnWindowSessionSave() {
+function StdWindowSessionSave() {
 	// Load Layout and Images Displayed
 	// Build Oookie
 	// Save Cookie
@@ -4377,7 +4377,7 @@ function fnWindowSessionSave() {
 // ..................................................................................... _//
 // ...................................... //
 // Window Cookie Save
-function fnWindowCookieLoad() {
+function StdWindowCookieLoad() {
 	// Load Layout and Images Displayed
 	//
 }
@@ -4385,7 +4385,7 @@ function fnWindowCookieLoad() {
 // ..................................................................................... _//
 // ...................................... //
 // Window Cookie Save
-function fnWindowCookieSave() {
+function StdWindowCookieSave() {
 	// Load Layout and Images Displayed
 	//
 }
@@ -4393,7 +4393,7 @@ function fnWindowCookieSave() {
 // ..................................................................................... _//
 // ...................................... //
 // Window Cookie Build
-function fnWindowCookieBuild() {
+function StdWindowCookieBuild() {
 	// Build the Cookie
 	//
 }
@@ -4406,8 +4406,8 @@ function fnWindowCookieBuild() {
 //
 // ..................................................................................... _//
 // ...................................... //
-// fn Document Load Initinitialize Variablesm, Arrays and Default Data
-function fnDocumentLoadInit() {
+// Std Document Load Initinitialize Variablesm, Arrays and Default Data
+function StdDocumentLoadInit() {
 	//
 	//  for (imgCn = 1;imgCn < 1+imgUsedCn;imgCn++){
 	//    menuImage = oObjIndexSetmenuImage(imgCn);
@@ -4442,7 +4442,7 @@ function fnDocumentLoadInit() {
 	if (!elBodyMainRightVisible) { elBodyMainRight.style.display = 'none'; }
 	//
 	// Resize Window
-	fnWindowResize();
+	StdWindowResize();
 	//
 }
 // ..................................................................................... _//
@@ -4456,7 +4456,7 @@ function fnDocumentLoadInit() {
 // Standard function (s) - String
 // ..................................................................................... _//
 // Get Token By Prefix
-function fnStringGetTokenByPrefix(stringPassed, stringPrefix) {
+function StdStringGetTokenByPrefix(stringPassed, stringPrefix) {
 	var itemCn = 0
 	var item = stringPassed.split(' ');
 	while (itemCn + 1 < 1 + item.length) {
@@ -4471,7 +4471,7 @@ function fnStringGetTokenByPrefix(stringPassed, stringPrefix) {
 // Standard function (s) - Math
 // ..................................................................................... _//
 // Random Number Get By Range
-function fnMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed) {
+function StdMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed) {
 	var temp = ((Math.random()
 		* (filterRangeHighPassed - filterRangeLowPassed + 1))
 		+ filterRangeLowPassed
@@ -4482,18 +4482,18 @@ function fnMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPasse
 // ..................................................................................... _//
 // Standard function (s) - Font Size
 // Base Font Size Increase
-function fnFontSizeIncrease() {
+function StdFontSizeIncrease() {
 	return;
 }
 //
 // ..................................................................................... _//
 // Base Font Size Decrease
-function fnFontSizeDecrease() {
+function StdFontSizeDecrease() {
 	return;
 }
 //
 // ..................................................................................... _//
-function fnTextReplace(textPassed, stringFind, stringReplace) {
+function StdTextReplace(textPassed, stringFind, stringReplace) {
 	// return textPassed.replace(stringFind, stringReplace);
 	var TextNew = '';
 	var TextPos = 0;
@@ -4522,7 +4522,7 @@ function fnTextReplace(textPassed, stringFind, stringReplace) {
 //
 // ..................................................................................... _//
 // Layout Next
-function fnDebugStart(debugOptionPassed, debugMessagePassed) {
+function DebugStart(debugOptionPassed, debugMessagePassed) {
 	if (!debugIsOn) { return; }
 	if (debugDoAlert) {
 		alert('Ready to debug: ' + debugMessagePassed + '(' + debugOptionPassed + ')');
@@ -4533,7 +4533,7 @@ function fnDebugStart(debugOptionPassed, debugMessagePassed) {
 			// Throw something
 			// throw 'Ready to debug: ' + debugMessagePassed + '(' + debugOptionPassed + ')';
 			// Use degug instance (from VK)
-			// debug-instance-off fnElementItemShow;
+			// debug-instance-off StdElementItemShow;
 		} else {
 			debugger;
 		}
@@ -4558,7 +4558,7 @@ var errorInnerHTMLLog = new String();
 var errorSourceInnerHTMLLog = new String();
 //
 // ..................................................................................... _//
-function fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+function ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 	eventText, eventUrl, eventLine) {
 	consoleEventLogCn += 1;
 	var eventMessage =
@@ -4578,13 +4578,13 @@ function fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 	}
 	//
 	if (errorUseDebugOnAll) {
-		fnWindowErrorDebug(eventMessage, eventUrl, eventLine);
+		StdWindowErrorDebug(eventMessage, eventUrl, eventLine);
 	}
 	//
 }
 //
 // ..................................................................................... _//
-function fnErrorOccured(UseDebug, UseSingeLinePassed, errorMsgPassed,
+function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
 	errorUrlPassed, errorLineNumPassed, elementPassed, elementSourcePassed,
 	errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
 	if (!elementPassed) { elementPassed = null; }
@@ -4761,7 +4761,7 @@ function fnErrorOccured(UseDebug, UseSingeLinePassed, errorMsgPassed,
 	//
 	// errorMessageAllLog += errorMessageFinal;
 	//
-	fnErrorOccuredAction(errorMsgPassed,
+	ConsoleMessageLogAction(errorMsgPassed,
 		errorUrlPassed, errorLineNumPassed, elementPassed, elementSourcePassed,
 		errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
 	//
@@ -4801,12 +4801,12 @@ function fnErrorOccured(UseDebug, UseSingeLinePassed, errorMsgPassed,
 	//
 	// Alert
 	if (errorDoAlertPassed) {
-		alert('(' + tempCount + ')' + ' ' + fnTextReplace(errorMessageFinal, charNewLineTag, charNewLine));
+		alert('(' + tempCount + ')' + ' ' + StdTextReplace(errorMessageFinal, charNewLineTag, charNewLine));
 	}
 	//
 	// Abort & Debug
 	if (DoDebug) {
-		var DoDebugAbort = fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed);
+		var DoDebugAbort = StdWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed);
 		if (DoDebugAbort) {
 			// ABORT
 		}
@@ -4817,7 +4817,7 @@ function fnErrorOccured(UseDebug, UseSingeLinePassed, errorMsgPassed,
 // ..................................................................................... _//
 // Error Message Display
 // ...................................... //
-function fnErrorOccuredAction(errorMsgPassed,
+function ConsoleMessageLogAction(errorMsgPassed,
 	errorUrlPassed, errorLineNumPassed, errorElementPassed, errorElementSourcePassed,
 	errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
 	if (errorSeverityPassed = errorFatal) {
@@ -4844,12 +4844,12 @@ function fnErrorOccuredAction(errorMsgPassed,
 // Window Error
 // ...................................... //
 //
-window.onerror = fnWindowError;
-// function() { fnWindowError(); }
+window.onerror = StdWindowError;
+// function() { StdWindowError(); }
 //
-function fnWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
+function StdWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
 	// this may set an event or message... dunno
-	var errorCaller = fnWindowError.caller;
+	var errorCaller = StdWindowError.caller;
 	if (errorCaller = null) { errorCaller = 'Unknown'; }
 	//
 	// error Object: description Property | message Property | name Property | number Property
@@ -4871,17 +4871,17 @@ function fnWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
 	//
 	errorElement = eventEventCurr.target;
 	errorElementSource = eventEventCurr.srcElement;
-	eventEventObject = (errorElementSource || errorElement || Event);
+	eventObject = (errorElementSource || errorElement || Event);
 	//
-	eventEventType = eventEventCurr.type;
-	if (eventEventObject.id) {
-		if (eventEventObject.id != null) {
-			eventEventCurrId = eventEventObject.id;
+	EventType = eventEventCurr.type;
+	if (eventObject.id) {
+		if (eventObject.id != null) {
+			eventEventCurrId = eventObject.id;
 		} else { eventEventCurrId = ''; }
 	} else { eventEventCurrId = ''; }
 	//
 	// display error in log
-	fnErrorOccured(DoUseDebug, DoUseSingeLine,
+	ConsoleMessageLog(DoUseDebug, DoUseSingeLine,
 		'(' + errorLineNumPassed + ') ' + errorMsgPassed,
 		errorUrlPassed, errorLineNumPassed, errorElement, errorElementSource,
 		errorSevere, errorDoDisplayTag, errorDoAlert);
@@ -4897,16 +4897,16 @@ function fnWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
 // ..................................................................................... _//
 // Window Error
 // ...................................... //
-function fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
+function StdWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
 	//
 	// if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
 	//
 	if (errorUseDebugOnError || errorUseDebugOnAll) {
 		if (elBodyConsoleBox.style.display != 'block') {
-			fnBodyConsoleToggle('ConsoleAll');
-			fnBodyConsoleToggle('ConsoleEvent');
-			fnBodyConsoleToggle('ConsoleState');
-		} else if (elBodyConsoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			StdBodyConsoleToggle('ConsoleAll');
+			StdBodyConsoleToggle('ConsoleEvent');
+			StdBodyConsoleToggle('ConsoleState');
+		} else if (elBodyConsoleErrorBox.style.display != 'block') { StdBodyConsoleToggle('ConsoleError'); }
 		//
 		if (browserIsIE) {
 			debugger;
@@ -4929,15 +4929,15 @@ function fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed) 
 // ...................................... //
 // Image Standard Mouse Events
 // Mouse
-// 		fnElementEventMouseOver
-//		    fnElementEventMouseOut
-//		    fnElementEventClick
+// 		StdElementEventMouseOver
+//		    StdElementEventMouseOut
+//		    StdElementEventClick
 // ...................................... //
 //
 // ..................................................................................... _//
 // Mouse Over
 // ...................................... //
-function fnElementEventMouseOver(menuImage) {
+function StdElementEventMouseOver(menuImage) {
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
 	if (menuImageCn > imgUsedCn) {
 		return;
@@ -4952,12 +4952,12 @@ function fnElementEventMouseOver(menuImage) {
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
 	if (debugLogEvents) {
-		fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 			'Move.. Over occured on content image'
 			+ ' set successfully! Random filter # ' + filterIndex + ' '
 			+ charNewLineTag + 'top: ' + tempTop
 			+ charNewLineTag + 'Left: ' + tempLeft,
-			'fnElementEventMouseOver', 7140, null, null,
+			'StdElementEventMouseOver', 7140, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
@@ -4966,7 +4966,7 @@ function fnElementEventMouseOver(menuImage) {
 // ..................................................................................... _//
 // Mouse Out
 // ...................................... //
-function fnElementEventMouseOut(menuImage) {
+function StdElementEventMouseOut(menuImage) {
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
 	if (menuImageCn > imgUsedCn) {
 		return;
@@ -4982,7 +4982,7 @@ function fnElementEventMouseOut(menuImage) {
 // ..................................................................................... _//
 // Mouse Click
 // ...................................... //
-function fnElementEventClick(menuImage) {
+function StdElementEventClick(menuImage) {
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
 	if (menuImageCn > imgUsedCn) {
 		return;
@@ -5005,11 +5005,11 @@ function fnElementEventClick(menuImage) {
 	//  img0text.src = menuImage.name + 'text.txt';
 	imgSelect = menuImageCn;
 	if (debugLogEvents) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			'Move.. Over occured on content image'
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
 			+ charNewLineTag + 'Image number selected: ' + menuImageCn,
-			'fnElementEventClick', 7196, null, null,
+			'StdElementEventClick', 7196, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
@@ -5032,7 +5032,7 @@ function fnElementEventClick(menuImage) {
 //............................................................---//
 // ...................................... //
 // Count all Blocks in the Center Center Area
-function fnElementObjectBlockCount() {
+function StdElementObjectBlockCount() {
 	var elementBlockCn = 0;
 	// Search Sections for Callouts
 	layoutSectionCn = 0;
@@ -5062,95 +5062,95 @@ function fnElementObjectBlockCount() {
 //............................................................---//
 // ...................................... //
 // Create all Elements used in Layout
-function fnElementObjectContainerCreate() {
+function StdElementObjectContainerCreate() {
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
-	elBody = fnElementGetRef(elBody, 'BodyBox', 'BodyBox');
-	elBodyMainContainer = fnElementGetRef(elBodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
+	elBody = StdElementGetRef(elBody, 'BodyBox', 'BodyBox');
+	elBodyMainContainer = StdElementGetRef(elBodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
 	// Body Center Area References
-	elBodyMainCenter = fnElementGetRef(elBodyMainCenter, 'BodyMainCenter', 'BodyMainCenter');
+	elBodyMainCenter = StdElementGetRef(elBodyMainCenter, 'BodyMainCenter', 'BodyMainCenter');
 	// Body Left Area Copy
-	elBodyMainLeft = fnElementGetRef(elBodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
+	elBodyMainLeft = StdElementGetRef(elBodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
 	// Body Right Area Copy
-	elBodyMainRight = fnElementGetRef(elBodyMainRight, 'BodyMainRight', 'BodyMainRight');
+	elBodyMainRight = StdElementGetRef(elBodyMainRight, 'BodyMainRight', 'BodyMainRight');
 	//
-	elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
+	elBodyMainCenterCenter = StdElementGetRef(elBodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
 	//
-	// elColumnType1 = fnElementGetRef(elColumnType1,'ColumnType1','ColumnType1');
+	// elColumnType1 = StdElementGetRef(elColumnType1,'ColumnType1','ColumnType1');
 }
 //
 // ..................................................................................... _//
 // ...................................... //
 // Create all Elements used in Layout
-function fnElementObjectCreate() {
+function StdElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
-	javaLoadFirst = false;
+	loadFirstJava = false;
 	// elBodyFirst = false;
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
-	fnElementObjectContainerCreate();
+	StdElementObjectContainerCreate();
 	//
 	//............................................................---//
 	// Banner References (Top Menu, Logo and Graphics)
 	//............................................................---//
-	elBodyBanner = fnElementGetRef(elBodyBanner, 'BodyBanner', 'BodyBanner');
-	elBodyBannerTop = fnElementGetRef(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
-	elBodyBannerBottom = fnElementGetRef(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
+	elBodyBanner = StdElementGetRef(elBodyBanner, 'BodyBanner', 'BodyBanner');
+	elBodyBannerTop = StdElementGetRef(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
+	elBodyBannerBottom = StdElementGetRef(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
 	//
 	//............................................................---//
 	// Body View Toggle and Message Area Containers
 	//............................................................---//
 	// elBodyViewToggle View Toggle and Message Area
-	elBodyViewToggleContainer = fnElementGetRef(elBodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
-	elBodyViewToggleContainerCenter = fnElementGetRef(elBodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
-	elBodyViewToggleContainerLeft = fnElementGetRef(elBodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+	elBodyViewToggleContainer = StdElementGetRef(elBodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+	elBodyViewToggleContainerCenter = StdElementGetRef(elBodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
+	elBodyViewToggleContainerLeft = StdElementGetRef(elBodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
 	//
-	elBodyConsoleMouseOverToggle = fnElementGetRef(elBodyConsoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
+	elBodyConsoleMouseOverToggle = StdElementGetRef(elBodyConsoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
 	//
 	//............................................................---//
 	// Body Console Toggle and Message Area
 	//............................................................---//
 	// Toggle Buttons
-	elBodyConsoleBoxButtons = fnElementGetRef(elBodyConsoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
-	elBodyConsoleBoxToggles = fnElementGetRef(elBodyConsoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
-	elBodyConsoleLogToggles = fnElementGetRef(elBodyConsoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
-	elBodyConsoleAuxillaryToggles = fnElementGetRef(elBodyConsoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
+	elBodyConsoleBoxButtons = StdElementGetRef(elBodyConsoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
+	elBodyConsoleBoxToggles = StdElementGetRef(elBodyConsoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
+	elBodyConsoleLogToggles = StdElementGetRef(elBodyConsoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
+	elBodyConsoleAuxillaryToggles = StdElementGetRef(elBodyConsoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
 	//
-	elBodyConsoleToggle = fnElementGetRef(elBodyConsoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
+	elBodyConsoleToggle = StdElementGetRef(elBodyConsoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
 	//
-	elBodyConsoleErrorToggle = fnElementGetRef(elBodyConsoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
-	elBodyConsoleEventToggle = fnElementGetRef(elBodyConsoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
-	elBodyConsoleStateToggle = fnElementGetRef(elBodyConsoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
-	elBodyConsoleTestToggle = fnElementGetRef(elBodyConsoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
-	elBodyConsoleClearToggle = fnElementGetRef(elBodyConsoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
+	elBodyConsoleErrorToggle = StdElementGetRef(elBodyConsoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
+	elBodyConsoleEventToggle = StdElementGetRef(elBodyConsoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
+	elBodyConsoleStateToggle = StdElementGetRef(elBodyConsoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
+	elBodyConsoleTestToggle = StdElementGetRef(elBodyConsoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
+	elBodyConsoleClearToggle = StdElementGetRef(elBodyConsoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
 	//
-	elBodyConsoleDebugButtons = fnElementGetRef(elBodyConsoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
-	elBodyConsoleDebugToggles = fnElementGetRef(elBodyConsoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
-	elBodyConsoleDebugMainToggles = fnElementGetRef(elBodyConsoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
-	elBodyConsoleDebugTypesToggles = fnElementGetRef(elBodyConsoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
+	elBodyConsoleDebugButtons = StdElementGetRef(elBodyConsoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
+	elBodyConsoleDebugToggles = StdElementGetRef(elBodyConsoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
+	elBodyConsoleDebugMainToggles = StdElementGetRef(elBodyConsoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
+	elBodyConsoleDebugTypesToggles = StdElementGetRef(elBodyConsoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
 	//
-	elBodyConsoleDebugToggle = fnElementGetRef(elBodyConsoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
+	elBodyConsoleDebugToggle = StdElementGetRef(elBodyConsoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
 	//
-	elBodyConsoleDebugMoveToggle = fnElementGetRef(elBodyConsoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
-	elBodyConsoleDebugTransitionToggle = fnElementGetRef(elBodyConsoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
-	elBodyConsoleDebugDetailToggle = fnElementGetRef(elBodyConsoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
-	elBodyConsoleDebugAllToggle = fnElementGetRef(elBodyConsoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
-	elBodyConsoleDebugOnErrorToggle = fnElementGetRef(elBodyConsoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
-	elBodyConsoleDebugEventsToggle = fnElementGetRef(elBodyConsoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
+	elBodyConsoleDebugMoveToggle = StdElementGetRef(elBodyConsoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
+	elBodyConsoleDebugTransitionToggle = StdElementGetRef(elBodyConsoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
+	elBodyConsoleDebugDetailToggle = StdElementGetRef(elBodyConsoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
+	elBodyConsoleDebugAllToggle = StdElementGetRef(elBodyConsoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
+	elBodyConsoleDebugOnErrorToggle = StdElementGetRef(elBodyConsoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
+	elBodyConsoleDebugEventsToggle = StdElementGetRef(elBodyConsoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
 	//
 	// Body Console Toggle and Message Area
-	elBodyConsoleContainer = fnElementGetRef(elBodyConsoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
-	elBodyConsoleBox = fnElementGetRef(elBodyConsoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
-	elBodyConsoleErrorBox = fnElementGetRef(elBodyConsoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
-	elBodyConsoleErrorTextBox = fnElementGetRef(elBodyConsoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
-	elBodyConsoleEventBox = fnElementGetRef(elBodyConsoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
-	elBodyConsoleEventTextBox = fnElementGetRef(elBodyConsoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
-	elBodyConsoleStateBox = fnElementGetRef(elBodyConsoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
-	elBodyConsoleStateTextBox = fnElementGetRef(elBodyConsoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
-	elBodyConsoleTestBox = fnElementGetRef(elBodyConsoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
-	elBodyConsoleTestTextBox = fnElementGetRef(elBodyConsoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
+	elBodyConsoleContainer = StdElementGetRef(elBodyConsoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
+	elBodyConsoleBox = StdElementGetRef(elBodyConsoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
+	elBodyConsoleErrorBox = StdElementGetRef(elBodyConsoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
+	elBodyConsoleErrorTextBox = StdElementGetRef(elBodyConsoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
+	elBodyConsoleEventBox = StdElementGetRef(elBodyConsoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
+	elBodyConsoleEventTextBox = StdElementGetRef(elBodyConsoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
+	elBodyConsoleStateBox = StdElementGetRef(elBodyConsoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
+	elBodyConsoleStateTextBox = StdElementGetRef(elBodyConsoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
+	elBodyConsoleTestBox = StdElementGetRef(elBodyConsoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
+	elBodyConsoleTestTextBox = StdElementGetRef(elBodyConsoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
 	//
 	if (elBodyConsoleBox.style.display = '') { elBodyConsoleBox.style.display = 'none' }
 	if (elBodyConsoleErrorBox.style.display = '') { elBodyConsoleErrorBox.style.display = 'block'; }
@@ -5158,114 +5158,114 @@ function fnElementObjectCreate() {
 	if (elBodyConsoleStateBox.style.display = '') { elBodyConsoleStateBox.style.display = 'block'; }
 	if (elBodyConsoleTestBox.style.display = '') { elBodyConsoleTestBox.style.display = 'block'; }
 	//
-	fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+	StdBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 	// if (elBodyConsoleBoxToggles.style.display = '') { elBodyConsoleBoxToggles.style.display = 'block'; }
-	fnBodyConsoleShow(DoNotUseHide, DoUseDebug);
+	StdBodyConsoleShow(DoNotUseHide, DoUseDebug);
 	// if (elBodyConsoleDebugToggles.style.display = '') { elBodyConsoleDebugToggles.style.display = 'block'; }
 	//
 	//............................................................---//
 	// Body Center Area References
 	//............................................................---//
-	// elBodyMainCenter = fnElementGetRef(elBodyMainCenter,'BodyMainCenter','BodyMainCenter');
+	// elBodyMainCenter = StdElementGetRef(elBodyMainCenter,'BodyMainCenter','BodyMainCenter');
 	//
-	elBodyMainCenterTop = fnElementGetRef(elBodyMainCenterTop, 'BodyMainCenterTop', 'BodyMainCenterTop');
-	elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
-	elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
+	elBodyMainCenterTop = StdElementGetRef(elBodyMainCenterTop, 'BodyMainCenterTop', 'BodyMainCenterTop');
+	elBodyMainCenterTopLeft = StdElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
+	elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
 	//
-	elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
+	elBodyMainCenterTopColBreak = StdElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
 	//
-	// elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
+	// elBodyMainCenterCenter = StdElementGetRef(elBodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
 	//
-	elBodyMainCenterBottom = fnElementGetRef(elBodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
+	elBodyMainCenterBottom = StdElementGetRef(elBodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
 	//
 	//............................................................---//
 	// Body Left Area Copy
 	//............................................................---//
-	// elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
-	// elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');
-	elBodyMainLeftCopy = fnElementCopy(elBodyMainLeftCopy, elBodyMainLeftCopyFirst, elBodyMainLeft, 'block');
-	elBodyMainLeftCurr = fnElementCopy(elBodyMainLeftCurr, elBodyMainLeftCurrFirst, elBodyMainLeft, 'block');
-	elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'block');
+	// elBodyMainLeft = StdElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
+	// elBodyMainLeft = StdElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');
+	elBodyMainLeftCopy = StdElementCopy(elBodyMainLeftCopy, elBodyMainLeftCopyFirst, elBodyMainLeft, 'block');
+	elBodyMainLeftCurr = StdElementCopy(elBodyMainLeftCurr, elBodyMainLeftCurrFirst, elBodyMainLeft, 'block');
+	elBodyMainLeftOrig = StdElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'block');
 	//
 	// if (false = true) {
-	elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainLeftCopy)
-	// elBodyMainLeftOuter = fnElementGetRef(elBodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
-	elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainLeftCopy)
-	// elBodyMainLeftInner = fnElementGetRef(elBodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
+	elBodyMainLeftOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainLeftCopy)
+	// elBodyMainLeftOuter = StdElementGetRef(elBodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
+	elBodyMainLeftInner = StdElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainLeftCopy)
+	// elBodyMainLeftInner = StdElementGetRef(elBodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
 	//
-	elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainLeftCopy)
-	// elBodyMenuLayout1 = fnElementGetRef(elBodyMenuLayout1,'BodyMenuLayout1','BodyMenuLayout1');
-	elMenuContainerLeft1 = fnElementGetRefFromElement(elMenuContainerLeft1, 'MenuContainerLeft1', 'MenuContainerLeft1', elBodyMainLeftCopy)
-	// elMenuContainerLeft1 = fnElementGetRef(elMenuContainerLeft1,'MenuContainerLeft1','MenuContainerLeft1');
+	elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainLeftCopy)
+	// elBodyMenuLayout1 = StdElementGetRef(elBodyMenuLayout1,'BodyMenuLayout1','BodyMenuLayout1');
+	elMenuContainerLeft1 = StdElementGetRefFromElement(elMenuContainerLeft1, 'MenuContainerLeft1', 'MenuContainerLeft1', elBodyMainLeftCopy)
+	// elMenuContainerLeft1 = StdElementGetRef(elMenuContainerLeft1,'MenuContainerLeft1','MenuContainerLeft1');
 	// Left 1
-	elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', elBodyMainLeftCopy)
-	// elMenuLeft1 = fnElementGetRef(elMenuLeft1,'MenuLeft1','MenuLeft1');
-	// elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, elMenuLeft1.id, elMenuLeft1.name, elBodyMainLeft)
-	// var elMenuLeft1Save = fnElementGetRef(elMenuLeft1Save,'MenuLeft1Save','MenuLeft1Save');
+	elMenuLeft1 = StdElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', elBodyMainLeftCopy)
+	// elMenuLeft1 = StdElementGetRef(elMenuLeft1,'MenuLeft1','MenuLeft1');
+	// elMenuLeft1 = StdElementGetRefFromElement(elMenuLeft1, elMenuLeft1.id, elMenuLeft1.name, elBodyMainLeft)
+	// var elMenuLeft1Save = StdElementGetRef(elMenuLeft1Save,'MenuLeft1Save','MenuLeft1Save');
 	// Left 2
-	elMenuContainerLeft2 = fnElementGetRefFromElement(elMenuContainerLeft2, 'MenuContainerLeft2', 'MenuContainerLeft2', elBodyMainLeftCopy)
-	// elMenuContainerLeft2 = fnElementGetRef(elMenuContainerLeft2,'MenuContainerLeft2','MenuContainerLeft2');
-	elMenuLeft2 = fnElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', elBodyMainLeftCopy)
-	// elMenuLeft2 = fnElementGetRef(elMenuLeft2,'MenuLeft2','MenuLeft2');
-	// var elMenuLeft2Save = fnElementGetRef(elMenuLeft2Save,'MenuLeft2Save','MenuLeft2Save');
+	elMenuContainerLeft2 = StdElementGetRefFromElement(elMenuContainerLeft2, 'MenuContainerLeft2', 'MenuContainerLeft2', elBodyMainLeftCopy)
+	// elMenuContainerLeft2 = StdElementGetRef(elMenuContainerLeft2,'MenuContainerLeft2','MenuContainerLeft2');
+	elMenuLeft2 = StdElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', elBodyMainLeftCopy)
+	// elMenuLeft2 = StdElementGetRef(elMenuLeft2,'MenuLeft2','MenuLeft2');
+	// var elMenuLeft2Save = StdElementGetRef(elMenuLeft2Save,'MenuLeft2Save','MenuLeft2Save');
 	// Left 3
-	elMenuContainerLeft3 = fnElementGetRefFromElement(elMenuContainerLeft3, 'MenuContainerLeft3', 'MenuContainerLeft3', elBodyMainLeftCopy)
-	// elMenuContainerLeft3 = fnElementGetRef(elMenuContainerLeft3,'MenuContainerLeft3','MenuContainerLeft3');
-	elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', elBodyMainLeftCopy)
-	// elMenuLeft3 = fnElementGetRef(elMenuLeft3,'MenuLeft3','MenuLeft3');
-	// var elMenuLeft3Save = fnElementGetRef(elMenuLeft3Save,'MenuLeft3Save','MenuLeft3Save');
+	elMenuContainerLeft3 = StdElementGetRefFromElement(elMenuContainerLeft3, 'MenuContainerLeft3', 'MenuContainerLeft3', elBodyMainLeftCopy)
+	// elMenuContainerLeft3 = StdElementGetRef(elMenuContainerLeft3,'MenuContainerLeft3','MenuContainerLeft3');
+	elMenuLeft3 = StdElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', elBodyMainLeftCopy)
+	// elMenuLeft3 = StdElementGetRef(elMenuLeft3,'MenuLeft3','MenuLeft3');
+	// var elMenuLeft3Save = StdElementGetRef(elMenuLeft3Save,'MenuLeft3Save','MenuLeft3Save');
 	// }
 	//
 	//............................................................---//
 	// Body Right Area Copy
 	//............................................................---//
-	// elBodyMainRight = fnElementGetRef(elBodyMainRight,'BodyMainRight','BodyMainRight');
-	elBodyMainRightCopy = fnElementCopy(elBodyMainRightCopy, elBodyMainRightCopyFirst, elBody, 'block');
-	elBodyMainRightCurr = fnElementCopy(elBodyMainRightCurr, elBodyMainRightCurrFirst, elBodyMainRight, 'block');
-	elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'block');
+	// elBodyMainRight = StdElementGetRef(elBodyMainRight,'BodyMainRight','BodyMainRight');
+	elBodyMainRightCopy = StdElementCopy(elBodyMainRightCopy, elBodyMainRightCopyFirst, elBody, 'block');
+	elBodyMainRightCurr = StdElementCopy(elBodyMainRightCurr, elBodyMainRightCurrFirst, elBodyMainRight, 'block');
+	elBodyMainRightOrig = StdElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'block');
 	//
-	elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainRightCopy)
-	// elBodyMainRightOuter = fnElementGetRef(elBodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
-	elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainRightCopy)
-	// elBodyMainRightInner = fnElementGetRef(elBodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
+	elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainRightCopy)
+	// elBodyMainRightOuter = StdElementGetRef(elBodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
+	elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainRightCopy)
+	// elBodyMainRightInner = StdElementGetRef(elBodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
 	//
-	elBodyMenuLayout2 = fnElementGetRef(elBodyMenuLayout2, 'BodyMenuLayout2', 'BodyMenuLayout2');
+	elBodyMenuLayout2 = StdElementGetRef(elBodyMenuLayout2, 'BodyMenuLayout2', 'BodyMenuLayout2');
 	//
-	elMenuContainerRight1 = fnElementGetRefFromElement(elMenuContainerRight1, 'MenuContainerRight1', 'MenuContainerRight1', elBodyMainRightCopy);
-	// elMenuContainerRight1 = fnElementGetRef(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1');
-	elMenuRight1 = fnElementGetRefFromElement(elMenuRight1, 'elMenuRight1', 'elMenuRight1', elBodyMainRightCopy);
-	// var elMenuRight1Save = fnElementGetRef(elMenuRight1Save,'MenuRight1Save','MenuRight1Save');
-	elMenuContainerRight2 = fnElementGetRefFromElement(elMenuContainerRight2, 'MenuContainerRight2', 'MenuContainerRight2', elBodyMainRightCopy);
-	elMenuRight2 = fnElementGetRefFromElement(elMenuRight2, 'MenuRight2', 'MenuRight2', elBodyMainRightCopy);
-	// var elMenuRight2Save = fnElementGetRef(elMenuRight2Save,'MenuRight2Save','MenuRight2Save');
-	elMenuContainerRight3 = fnElementGetRefFromElement(elMenuContainerRight3, 'MenuContainerRight3', 'MenuContainerRight3', elBodyMainRightCopy);
-	elMenuRight3 = fnElementGetRefFromElement(elMenuRight3, 'MenuRight3', 'MenuRight3', elBodyMainRightCopy);
-	// var elMenuRight3Save = fnElementGetRef(elMenuRight3Save,'MenuRight3Save','MenuRight3Save');
+	elMenuContainerRight1 = StdElementGetRefFromElement(elMenuContainerRight1, 'MenuContainerRight1', 'MenuContainerRight1', elBodyMainRightCopy);
+	// elMenuContainerRight1 = StdElementGetRef(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1');
+	elMenuRight1 = StdElementGetRefFromElement(elMenuRight1, 'elMenuRight1', 'elMenuRight1', elBodyMainRightCopy);
+	// var elMenuRight1Save = StdElementGetRef(elMenuRight1Save,'MenuRight1Save','MenuRight1Save');
+	elMenuContainerRight2 = StdElementGetRefFromElement(elMenuContainerRight2, 'MenuContainerRight2', 'MenuContainerRight2', elBodyMainRightCopy);
+	elMenuRight2 = StdElementGetRefFromElement(elMenuRight2, 'MenuRight2', 'MenuRight2', elBodyMainRightCopy);
+	// var elMenuRight2Save = StdElementGetRef(elMenuRight2Save,'MenuRight2Save','MenuRight2Save');
+	elMenuContainerRight3 = StdElementGetRefFromElement(elMenuContainerRight3, 'MenuContainerRight3', 'MenuContainerRight3', elBodyMainRightCopy);
+	elMenuRight3 = StdElementGetRefFromElement(elMenuRight3, 'MenuRight3', 'MenuRight3', elBodyMainRightCopy);
+	// var elMenuRight3Save = StdElementGetRef(elMenuRight3Save,'MenuRight3Save','MenuRight3Save');
 	//
 	//............................................................---//
 	// Body Far Right Area
 	//............................................................---//
-	elBodyMainRightFar = fnElementGetRef(elBodyMainRightFar, 'BodyMainRightFar', 'BodyMainRightFar');
+	elBodyMainRightFar = StdElementGetRef(elBodyMainRightFar, 'BodyMainRightFar', 'BodyMainRightFar');
 	//
 	//............................................................---//
 	// Other...
 	//............................................................---//
 	// elBodyMainCenterTopColBreak
-	elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
+	elBodyMainCenterTopColBreak = StdElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
 	//
-	elMenuLeft1ColBreak = fnElementGetRef(elMenuLeft1ColBreak, 'MenuLeft1ColBreak', 'MenuLeft1ColBreak');
-	elMenuLeft2ColBreak = fnElementGetRef(elMenuLeft2ColBreak, 'MenuLeft2ColBreak', 'MenuLeft2ColBreak');
-	elMenuLeft3ColBreak = fnElementGetRef(elMenuLeft3ColBreak, 'MenuLeft3ColBreak', 'MenuLeft3ColBreak');
-	elMenuRight1ColBreak = fnElementGetRef(elMenuRight1ColBreak, 'MenuRight1ColBreak', 'MenuRight1ColBreak');
-	elMenuRight2ColBreak = fnElementGetRef(elMenuRight2ColBreak, 'MenuRight2ColBreak', 'MenuRight2ColBreak');
-	elMenuRight3ColBreak = fnElementGetRef(elMenuRight3ColBreak, 'MenuRight3ColBreak', 'MenuRight3ColBreak');
+	elMenuLeft1ColBreak = StdElementGetRef(elMenuLeft1ColBreak, 'MenuLeft1ColBreak', 'MenuLeft1ColBreak');
+	elMenuLeft2ColBreak = StdElementGetRef(elMenuLeft2ColBreak, 'MenuLeft2ColBreak', 'MenuLeft2ColBreak');
+	elMenuLeft3ColBreak = StdElementGetRef(elMenuLeft3ColBreak, 'MenuLeft3ColBreak', 'MenuLeft3ColBreak');
+	elMenuRight1ColBreak = StdElementGetRef(elMenuRight1ColBreak, 'MenuRight1ColBreak', 'MenuRight1ColBreak');
+	elMenuRight2ColBreak = StdElementGetRef(elMenuRight2ColBreak, 'MenuRight2ColBreak', 'MenuRight2ColBreak');
+	elMenuRight3ColBreak = StdElementGetRef(elMenuRight3ColBreak, 'MenuRight3ColBreak', 'MenuRight3ColBreak');
 	//
 	//............................................................---//
 	//............................................................---//
 	//
 	// document.recalc();
 	//
-	javaLoadFirst = false;
+	loadFirstJava = false;
 	// elBodyFirst = false;
 }
 //
@@ -5276,12 +5276,12 @@ function fnElementObjectCreate() {
 //
 // ..................................................................................... _//
 //
-function fnElementGetFromId(IdPassed) { return document.getElementById(IdPassed); }
+function StdElementGetFromId(IdPassed) { return document.getElementById(IdPassed); }
 //
 // ..................................................................................... _//
 // ...................................... //
 // Element Get Pointer
-function fnElementGetRef(elementObject, elementObjectId, elementNamePassed) {
+function StdElementGetRef(elementObject, elementObjectId, elementNamePassed) {
 	if (browserIsTEST) {
 		// browserIsTEST
 		if (!elementNamePassed.length) { elementNamePassed = elementObjectId; }
@@ -5298,10 +5298,10 @@ function fnElementGetRef(elementObject, elementObjectId, elementNamePassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Layout Menu Area Element Common Fields Set
-function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed) {
+function StdElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed) {
 	// DOES THIS NEED TO BE COPIES.
 	// As written it results in pointers into the Source Document
-	// Dest = fnElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
+	// Dest = StdElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
 	if (browserIsTEST) {
 		// browserIsTEST
 		if (!elementNamePassed.length) { elementNamePassed = elementIdPassed; }
@@ -5311,11 +5311,11 @@ function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNameP
 		elementPassed = elementSourcePassed.querySelector(elementIdPassed);
 	} else if (browserIsFF) {
 		// browserIsFF
-		// fnElementGetFromElement(
+		// StdElementGetFromElement(
 		//		elementPassed, elementIdPassed, elementNamePassed,
 		//		elementSourcePassed,
 		//		elementFindDoSetPassed, elementValuePassed
-		elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
+		elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
 		// elementPassed = elementSourcePassed.getElementsByName(elementIdPassed);
 		// elementPassed = elementSourcePassed.childNodes.item(elementIdPassed);
 		// elementPassed = elementSourcePassed.childNodes[elementIdPassed];
@@ -5323,12 +5323,12 @@ function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNameP
 	} else if (true) {
 		// NOT browserIE or browserIsFF
 		var DoSet = false;
-		elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed,
+		elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed,
 			elementSourcePassed,
 			DoSet, null);
 		//
 		// elementPassed = elementSourcePassed.getElementById(elementIdPassed);
-		// elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
+		// elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
 		// elementPassed = document.getElementById(elementIdPassed);
 	}
 	return elementPassed;
@@ -5337,7 +5337,7 @@ function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNameP
 // ..................................................................................... _//
 // ...................................... //
 // Layout Menu Area Element Common Fields Set
-function fnElementCreate(elementPassed, elementLayoutFirstPassed) {
+function StdElementCreate(elementPassed, elementLayoutFirstPassed) {
 	var elementCreate = false;
 	if (!elementPassed) {
 		elementCreate = true;
@@ -5358,14 +5358,14 @@ function fnElementCreate(elementPassed, elementLayoutFirstPassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Layout Menu Area Element Common Fields Set
-function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
+function StdElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
 	var elementIdCurr;
 	var elementSourceIdCurr;
 	if (elementSourcePassed.id) {
 		elementSourceIdCurr = elementSourcePassed.id;
 	} else { elementSourceIdCurr = ''; }
 	//
-	elementPassed = fnElementCreate(elementPassed, elementLayoutFirstPassed);
+	elementPassed = StdElementCreate(elementPassed, elementLayoutFirstPassed);
 	//
 	//............................................................---//
 	if (elementPassed.id) { elementIdCurr = elementSourcePassed.id; } else { elementIdCurr = ''; }
@@ -5386,7 +5386,7 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
 				//
 				//............................................................---//
 				// Element Events
-				// fnElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
+				// StdElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
 			}
 		}
 		// if (elementPassed.innerHTML = null || elementPassed.innerHTML.length = 0) {
@@ -5403,18 +5403,18 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
 // ..................................................................................... _//
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function fnElementGetFromElement(
+function StdElementGetFromElement(
 	elementPassed, elementIdPassed, elementNamePassed,
 	elementSourcePassed,
 	elementFindDoSetPassed, elementValuePassed
 ) {
-	// Dest = fnElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
+	// Dest = StdElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
 	//
 	var elementChildObject;
 	var elementTempFirst = true;
 	elementFound = false;
 	//
-	elementPassed = fnElementCreate(elementPassed, elementTempFirst);
+	elementPassed = StdElementCreate(elementPassed, elementTempFirst);
 	//
 	// Loop through each child node of elementObject
 	// and retrieve the original element from the document.
@@ -5460,7 +5460,7 @@ function fnElementGetFromElement(
 				//
 				if (elementChildObject.childNodes) {
 					if (elementChildObject.childNodes.length) {
-						elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elementFindDoSetPassed, elementValuePassed);
+						elementPassed = StdElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elementFindDoSetPassed, elementValuePassed);
 						if (elementFound) { return elementPassed; }
 					}
 				}
@@ -5475,7 +5475,7 @@ function fnElementGetFromElement(
 // ..................................................................................... _//
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
+function StdElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
 	var elementChildObject;
 	var elementSourceChildObject;
 	//
@@ -5485,15 +5485,15 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
 		//
 		if (!elementObject) { return; }
 		// if (!elementObject)  {
-		// elementObject = fnElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
+		// elementObject = StdElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
 		// if (elementObject.id != elementObjectId) {
-		// elementObject = fnElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
+		// elementObject = StdElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
 		//
 		if (!elementSourceObject) {
-			elementSourceObject = fnElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
+			elementSourceObject = StdElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
 		}
 		if (elementSourceObject.id != elementSourceObjectId) {
-			elementSourceObject = fnElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
+			elementSourceObject = StdElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
 		}
 	} else {
 		if (!elementObject) { return; }
@@ -5552,9 +5552,9 @@ function fnElementEventsCopy(elementObject, elementSourceObject, elementObjectId
 // ..................................................................................... _//
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
+function StdElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
 	if (!elementPassed) {
-		elementPassed = fnElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
+		elementPassed = StdElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
 		// var elementPassed = elementPassed.childNodes[elementIdPassed];
 		// var elementPassed = document.getElementById(elementIdPassed);
 	}
@@ -5566,8 +5566,8 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 	} else {
 		elementTarget = document.createElement('br');
 	}
-	elementTarget = fnElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elementFindDoReturn, null);
-	// elementTarget = fnElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
+	elementTarget = StdElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elementFindDoReturn, null);
+	// elementTarget = StdElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
 	//
 	// note: Switched from 'in' element operator to If(element.property)
 	// It is more standard and less error prone.
@@ -5580,9 +5580,9 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 			if ('display' in elementTarget.style) {
 				if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
 			} else if (debugTimerDetail) {
-				fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 					'Element Break Set, Style missing',
-					'fnElementBreakSet', 7742, elementTarget, elementPassed,
+					'StdElementBreakSet', 7742, elementTarget, elementPassed,
 					errorElementWarn, errorDoDisplayTag, errorDoNotAlert);
 			}
 			// set Visibilty.
@@ -5590,9 +5590,9 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 				if (elementTarget.style.visibility) {
 					elementTarget.style.visibility = elementStyleVisibilityPassed;
 				} else if (debugTimerDetail) {
-					fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
+					ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 						'Element Break Set, Visibility missing',
-						'fnElementBreakSet', 7751, elementTarget, elementPassed,
+						'StdElementBreakSet', 7751, elementTarget, elementPassed,
 						errorElementWarn, errorDoDisplayTag, errorDoNotAlert);
 					elementTarget.style.visibility = elementStyleVisibilityPassed;
 				}
@@ -5603,9 +5603,9 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 				if (elementTarget.style.clear) {
 					if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
 				} else if (debugTimerDetail) {
-					fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
+					ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 						'Element Break Set, Clear missing',
-						'fnElementBreakSet', 7760, elementTarget, elementPassed,
+						'StdElementBreakSet', 7760, elementTarget, elementPassed,
 						errorElementWarn, errorDoDisplayTag, errorDoNotAlert);
 					elementTarget.style.clear = elsementStyleClearPassed;
 				}
@@ -5628,12 +5628,12 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 // ..................................................................................... _//
 // Element Position Get
 // ...................................... //
-function fnElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, elementHeightDefault) {
-	oObjTop = fnElementTopMaxGet(DoScroll, DoBase, elementPassed);
-	oObjLeft = fnElementLeftMaxGet(DoScroll, DoBase, elementPassed);
-	if (!oObjTop || !oObjLeft) { fnElementPosCalculate(elementPassed) } else {
-		oObjWidth = fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault);
-		oObjHeight = fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault);
+function StdElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, elementHeightDefault) {
+	oObjTop = StdElementTopMaxGet(DoScroll, DoBase, elementPassed);
+	oObjLeft = StdElementLeftMaxGet(DoScroll, DoBase, elementPassed);
+	if (!oObjTop || !oObjLeft) { StdElementPosCalculate(elementPassed) } else {
+		oObjWidth = StdElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault);
+		oObjHeight = StdElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault);
 	}
 	//
 	return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
@@ -5642,7 +5642,7 @@ function fnElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, e
 // ..................................................................................... _//
 // Element Position Calculate
 // ...................................... //
-function fnElementPosCalculate(elementPassed) {
+function StdElementPosCalculate(elementPassed) {
 	oObjTop = 0;
 	oObjLeft = 0;
 	oObjWidth = 0;
@@ -5668,7 +5668,7 @@ function fnElementPosCalculate(elementPassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Layout Top Get
-function fnElementTopMaxGet(DoScroll, DoBase, elementPassed) {
+function StdElementTopMaxGet(DoScroll, DoBase, elementPassed) {
 	var DoOffset = true;
 	if (!elementPassed) { return 0; }
 	if (!elementPassed.style) { return 0; }
@@ -5696,7 +5696,7 @@ function fnElementTopMaxGet(DoScroll, DoBase, elementPassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Layout Left Get
-function fnElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
+function StdElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
 	var DoOffset = true;
 	if (!elementPassed) { return 0; }
 	if (!elementPassed.style) { return 0; }
@@ -5724,7 +5724,7 @@ function fnElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Layout Width Get
-function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault) {
+function StdElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault) {
 	var DoOffset = true;
 	if (!elementPassed) { return 0; }
 	if (!elementPassed.style) { return 0; }
@@ -5760,7 +5760,7 @@ var heightClient = 0;
 var heightNode = 0;
 var heightRects = 0;
 var clientRectsIndex = 0;
-function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault) {
+function StdElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault) {
 	var DoOffset = true;
 	if (!elementPassed) { return 0; }
 	if (!elementPassed.style) { return 0; }
@@ -5824,7 +5824,7 @@ function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDef
 // ..................................................................................... _//
 // ...................................... //
 // Layout Height Note
-function fnElementLayoutHeightNote(DoScroll, DoBase, elementPassed, elementWidthDefault) {
+function StdElementLayoutHeightNote(DoScroll, DoBase, elementPassed, elementWidthDefault) {
 	// From: http://stackoverflow.com/questions/526347/css-javascript-how-do-you-get-the-rendered-height-of-an-element
 	//
 	// If you need to calculate something but not show it, set the element to visibility:hidden and position:absolute,
@@ -5840,7 +5840,7 @@ function fnElementLayoutHeightNote(DoScroll, DoBase, elementPassed, elementWidth
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Console
-function fnBodyConsoleToggle(ConsoleBlockPassed) {
+function StdBodyConsoleToggle(ConsoleBlockPassed) {
 	var checkBoxSize = false;
 	var checkNoVisibleDebug = false;
 	var checkNoVisibleConsole = false;
@@ -5854,16 +5854,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleMouseOver':
 			if (eventMouseOverEnabled) {
 				eventMouseOverEnabled = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Mouse Over Menus is OFF',
-					'fnBodyConsoleToggle', 8307, null, null,
+					'StdBodyConsoleToggle', 8307, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				eventMouseOverEnabled = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Mouse Over Menus is ON',
-					'fnBodyConsoleToggle', 8314, null, null,
+					'StdBodyConsoleToggle', 8314, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 			}
@@ -5873,7 +5873,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleError':
 			if (elBodyConsoleBox.style.display != 'block') {
 				boxStyleSaved = elBodyConsoleErrorBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleErrorBox.style.display = boxStyleSaved;
 			} else {
 				if (elBodyConsoleErrorBox.style.display != 'block') {
@@ -5892,7 +5892,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleEvent':
 			if (elBodyConsoleBox.style.display != 'block') {
 				boxStyleSaved = elBodyConsoleEventBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleEventBox.style.display = boxStyleSaved;
 			} else {
 				if (elBodyConsoleEventBox.style.display != 'block') {
@@ -5912,9 +5912,9 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		//
 		case 'ConsoleState':
 			if (elBodyConsoleBox.style.display != 'block') {
-				if (debugStateLoadFirst) { fnDebugParameterInit(); }
+				if (loadFirstDebugState) { DebugParameterInit(); }
 				boxStyleSaved = elBodyConsoleStateBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleStateBox.style.display = boxStyleSaved;
 			} else {
 				if (elBodyConsoleStateBox.style.display != 'block') {
@@ -5935,7 +5935,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleTest':
 			if (elBodyConsoleBox.style.display != 'block') {
 				boxStyleSaved = elBodyConsoleTestBox.style.display;
-				fnBodyConsoleToggle('ConsoleAll');
+				StdBodyConsoleToggle('ConsoleAll');
 				elBodyConsoleTestBox.style.display = boxStyleSaved;
 			}
 			//
@@ -5945,9 +5945,9 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				elBodyConsoleTestToggle.style.borderColor = ButtonIsOnColor;
 			}
 			// execute test
-			fnErrorOccured(DoNotUseDebug, DoNotUseSingeLine,
+			ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 				'This is a test message for checking the console display...',
-				'fnBodyConsoleToggle', 8225, elBodyConsoleTestBox, elBodyConsoleTestBox,
+				'StdBodyConsoleToggle', 8225, elBodyConsoleTestBox, elBodyConsoleTestBox,
 				errorSevere, errorDoDisplayTag, errorDoAlert);
 			//
 			checkNoVisibleConsole = true;
@@ -5956,9 +5956,9 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		//
 		case 'ConsoleClear':
 			elBodyConsoleErrorTextBox.innerHTML = '';
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 				'Error and Log Console has been cleared...',
-				'fnBodyConsoleToggle', 8235, null, null,
+				'StdBodyConsoleToggle', 8235, null, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 			elBodyConsoleClearToggle.style.backgroundColor = '';
@@ -5987,10 +5987,10 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				debugLogEvents = true;
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				//
-				fnBodyConsoleShow(DoNotUseHide, DoUseDebug);
+				StdBodyConsoleShow(DoNotUseHide, DoUseDebug);
 				//
 				if (elBodyConsoleBox.style.display != 'block') {
-					fnBodyConsoleToggle('ConsoleAll');
+					StdBodyConsoleToggle('ConsoleAll');
 				}
 				//
 				if (errorUseDebugOnAll || errorUseDebugOnError) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
@@ -6020,26 +6020,26 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				debugLogEvents = false;
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 				//
-				fnBodyConsoleShow(DoUseHide, DoUseDebug);
+				StdBodyConsoleShow(DoUseHide, DoUseDebug);
 				// elBodyConsoleDebugToggles.style.display = 'none';
 				elBodyConsoleDebugToggle.style.borderColor = ButtonIsOffColor;
-				fnBodyConsoleDebugButtons = false;
+				StdBodyConsoleDebugButtons = false;
 			}
 			break;
 		//
 		case 'ConsoleDebugMove':
 			if (debugTimerMove) {
 				debugTimerMove = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Move is OFF',
-					'fnBodyConsoleToggle', 8307, null, null,
+					'StdBodyConsoleToggle', 8307, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerMove = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Move is ON',
-					'fnBodyConsoleToggle', 8314, null, null,
+					'StdBodyConsoleToggle', 8314, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6054,16 +6054,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugTransition':
 			if (debugTimerTransition) {
 				debugTimerTransition = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Transition is OFF',
-					'fnBodyConsoleToggle', 8331, null, null,
+					'StdBodyConsoleToggle', 8331, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerTransition = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Transition is ON',
-					'fnBodyConsoleToggle', 8338, null, null,
+					'StdBodyConsoleToggle', 8338, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6078,16 +6078,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugDetail':
 			if (debugTimerDetail) {
 				debugTimerDetail = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Detail is OFF',
-					'fnBodyConsoleToggle', 8355, null, null,
+					'StdBodyConsoleToggle', 8355, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerDetail = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Detail is ON',
-					'fnBodyConsoleToggle', 8362, null, null,
+					'StdBodyConsoleToggle', 8362, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6100,16 +6100,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugOnError':
 			if (errorUseDebugOnError) {
 				errorUseDebugOnError = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug On Error in debugger is OFF',
-					'fnBodyConsoleToggle', 8377, null, null,
+					'StdBodyConsoleToggle', 8377, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnError = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug On Error in debugger is ON',
-					'fnBodyConsoleToggle', 8384, null, null,
+					'StdBodyConsoleToggle', 8384, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6122,18 +6122,18 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugAll':
 			if (errorUseDebugOnAll) {
 				errorUseDebugOnAll = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug All messages in debugger is OFF',
-					'fnBodyConsoleToggle', 8399, null, null,
+					'StdBodyConsoleToggle', 8399, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnAll = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug All messages in debugger is ON',
-					'fnBodyConsoleToggle', 8406, null, null,
+					'StdBodyConsoleToggle', 8406, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-				if (!errorUseDebugOnError) { fnBodyConsoleToggle('ConsoleDebugOnError'); }
+				if (!errorUseDebugOnError) { StdBodyConsoleToggle('ConsoleDebugOnError'); }
 				elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -6146,16 +6146,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleDebugEvents':
 			if (debugLogEvents) {
 				debugLogEvents = false;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug (Mouse) Events is OFF',
-					'fnBodyConsoleToggle', 8423, null, null,
+					'StdBodyConsoleToggle', 8423, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugLogEvents = true;
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug (Mouse) Events is ON',
-					'fnBodyConsoleToggle', 8430, null, null,
+					'StdBodyConsoleToggle', 8430, null, null,
 					errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6176,16 +6176,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 	//
 	if (checkLogMode) {
 		if (checkLogModeSeeErrors) {
-			if (elBodyConsoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			if (elBodyConsoleErrorBox.style.display != 'block') { StdBodyConsoleToggle('ConsoleError'); }
 		} else {
-			// if (elBodyConsoleErrorBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			// if (elBodyConsoleErrorBox.style.display = 'block') { StdBodyConsoleToggle('ConsoleError'); }
 		}
 		if (checkLogModeSeeEvents) {
-			if (elBodyConsoleEventBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
+			if (elBodyConsoleEventBox.style.display != 'block') { StdBodyConsoleToggle('ConsoleEvent'); }
 		} else {
-			// if (elBodyConsoleEventBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
+			// if (elBodyConsoleEventBox.style.display = 'block') { StdBodyConsoleToggle('ConsoleEvent'); }
 		}
-		if (elBodyConsoleStateBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleState'); }
+		if (elBodyConsoleStateBox.style.display = 'block') { StdBodyConsoleToggle('ConsoleState'); }
 	}
 	//
 	// Check if any Console Box settings are on or content is visible
@@ -6195,10 +6195,10 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 			&& elBodyConsoleStateBox.style.display != 'block'
 		) {
 			elBodyConsoleBox.style.display = 'none';
-			fnBodyConsoleShow(DoHide = true, DoDebug = false);
+			StdBodyConsoleShow(DoHide = true, DoDebug = false);
 			checkBoxSize = false;
 		} else {
-			fnBodyConsoleShow(DoHide = false, DoDebug = false);
+			StdBodyConsoleShow(DoHide = false, DoDebug = false);
 		}
 		//
 	}
@@ -6213,10 +6213,10 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 			&& !debugLogEvents
 		) {
 			// 			&& !errorUseDebugOnError
-			fnBodyConsoleShow(DoHide = true, DoDebug = true);
+			StdBodyConsoleShow(DoHide = true, DoDebug = true);
 			checkBoxSize = false;
 		} else {
-			fnBodyConsoleShow(DoHide = false, DoDebug = true);
+			StdBodyConsoleShow(DoHide = false, DoDebug = true);
 		}
 	}
 	//
@@ -6224,16 +6224,16 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 		case 'ConsoleAll':
 			checkBoxSize = true;
 			// Toggle Test 1 - Buttons Visible
-			if (fnBodyConsoleBoxButtons) {
+			if (StdBodyConsoleBoxButtons) {
 				if (elBodyConsoleBox.style.display != 'block') {
 					//
-					if (debugStateLoadFirst) { fnDebugParameterInit(); }
+					if (loadFirstDebugState) { DebugParameterInit(); }
 					//
 					// elBodyConsoleTop.style.display = 'block';
 					//
 					elBodyConsoleBox.style.display = 'block';
 					//
-					fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+					StdBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 					//
 					if (elBodyConsoleErrorBox.style.display != 'block'
 						&& elBodyConsoleEventBox.style.display != 'block'
@@ -6267,7 +6267,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 					//
 					elBodyConsoleBox.style.display = 'none';
 					//
-					fnBodyConsoleShow(DoUseHide, DoNotUseDebug);
+					StdBodyConsoleShow(DoUseHide, DoNotUseDebug);
 					//
 				}
 				//
@@ -6276,7 +6276,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 				//
 				elBodyConsoleBox.style.display = 'block';
 				//
-				fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+				StdBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 			}
 		default:
 			break;
@@ -6353,21 +6353,21 @@ function fnBodyConsoleToggle(ConsoleBlockPassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Console
-function fnBodyConsoleShow(DoHide, DoDebug) {
+function StdBodyConsoleShow(DoHide, DoDebug) {
 	//............................................................---//
 	// Body Element Creation
-	if (javaLoadFirst) { fnElementObjectCreate(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
 	//............................................................---//
 	//
 	if (DoDebug) {
 		// Process Console Box Action
 		if (DoHide) {
-			fnBodyConsoleDebugButtons = false;
+			StdBodyConsoleDebugButtons = false;
 			// BodyConsoleDebugToggles.style.display = 'none';
 			elBodyConsoleDebugMainToggles.style.display = 'none';
 			elBodyConsoleDebugTypesToggles.style.display = 'none';
 		} else {
-			fnBodyConsoleDebugButtons = true;
+			StdBodyConsoleDebugButtons = true;
 			// BodyConsoleDebugToggles.style.display = 'block';
 			elBodyConsoleDebugMainToggles.style.display = 'block';
 			elBodyConsoleDebugTypesToggles.style.display = 'block';
@@ -6389,11 +6389,11 @@ function fnBodyConsoleShow(DoHide, DoDebug) {
 		//
 		// Process Console Box Action
 		if (DoHide) {
-			fnBodyConsoleBoxButtons = false;
+			StdBodyConsoleBoxButtons = false;
 			elBodyConsoleLogToggles.style.display = 'none';
 			elBodyConsoleAuxillaryToggles.style.display = 'none';
 		} else {
-			fnBodyConsoleBoxButtons = true;
+			StdBodyConsoleBoxButtons = true;
 			elBodyConsoleLogToggles.style.display = 'block';
 			elBodyConsoleAuxillaryToggles.style.display = 'block';
 		}
@@ -6422,7 +6422,7 @@ function fnBodyConsoleShow(DoHide, DoDebug) {
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Layout Next
-function fnLayoutFontSize(zoomCommandPassed) {
+function StdLayoutFontSize(zoomCommandPassed) {
 	switch (zoomCommandPassed) {
 		case 'BodyFontZoomIn':
 			break;
@@ -6437,31 +6437,31 @@ function fnLayoutFontSize(zoomCommandPassed) {
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Layout Next
-function fnLayoutNext(layoutIndexPassed) {
+function StdLayoutNext(layoutIndexPassed) {
 	if (layoutIndexPassed > 0) {
 		layoutRefreshCn = layoutIndexPassed;
 	} else {
 		layoutRefreshCn += 1;
 	}
 	if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
-	fnLayoutRefresh(layoutRefreshCn);
+	StdLayoutRefresh(layoutRefreshCn);
 }
 //
 // ..................................................................................... _//
 // ...................................... //
 // Check Layout
-function fnLayoutCheck(layoutPrefered) {
+function StdLayoutCheck(layoutPrefered) {
 	return;
 }
 //
 // ..................................................................................... _//
 // ...................................... //
 // Layout Refresh
-function fnLayoutRefresh(layoutIndexPassed) {
+function StdLayoutRefresh(layoutIndexPassed) {
 	if (layoutIndexPassed != layoutRefreshCnLast) {
 		// Choose Standard Layout
 		layoutIndex = layoutIndexPassed;
-		fnLayoutSelectByIndex(layoutIndex);
+		StdLayoutSelectByIndex(layoutIndex);
 		layoutRefreshCnLast = layoutRefreshCn;
 	}
 }
@@ -6469,7 +6469,7 @@ function fnLayoutRefresh(layoutIndexPassed) {
 // ..................................................................................... _//
 // Body Layout Selection
 // ...................................... //
-function fnLayoutSelectByIndex(layoutIndexPassed) {
+function StdLayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// Layouts:
 	// var layoutStandard = 1;
@@ -6482,13 +6482,13 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	layoutZindex = 20;
 	//
 	// Window Width
-	fnWindowClientWidth();
+	StdWindowClientWidth();
 	// layoutMenuHeightHorzMax = 0;
 	if (browserIsFF) {
-		// debug-instance-off fnLayoutSelectByIndex;
+		// debug-instance-off StdLayoutSelectByIndex;
 	}
 	//
-	var elementLayoutFirstDummy;
+	var elementLayoutFirstPhatomData;
 	var boxHeight;
 	//
 	// layoutWidth -= 20;
@@ -6500,7 +6500,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	if (elBodyFirst) {
 		//............................................................---//
 		//      Body Element Creation
-		if (javaLoadFirst) { fnElementObjectCreate(); }
+		if (loadFirstJava) { StdElementObjectCreate(); }
 		//............................................................---//
 		//      Body Main Container (contains Left Center and Right
 		if (!elBodyMainContainer) { elBodyMainContainer = document.getElementById('BodyMainContainer'); }
@@ -6508,24 +6508,24 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 		//............................................................---//
 		//			    Menu at Left
 		// elBodyMainLeftOrig.innerHTML = elBodyMainLeft.innerHTML;
-		elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'none');
+		elBodyMainLeftOrig = StdElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'none');
 		elBodyMainLeftOrigFirst = false;
 		//............................................................---//
 		//			    Menu at Right
 		// elBodyMainLeftOrig.innerHTML = elBodyMainRight.innerHTML;
-		elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'none');
+		elBodyMainRightOrig = StdElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'none');
 		elBodyMainRightOrigFirst = false;
 		//............................................................---//
 		// 	 		 Banner at Center Bottom
-		elBodyBanner = fnElementGetRefFromElement(elBodyBanner, 'BodyBanner', 'BodyBanner', elBodyMainCenterTop);
-		elBodyBannerTop = fnElementGetRefFromElement(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', elBodyMainCenterTop);
-		elBodyBannerBottom = fnElementGetRefFromElement(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', elBodyMainCenterBottom);
-		elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
+		elBodyBanner = StdElementGetRefFromElement(elBodyBanner, 'BodyBanner', 'BodyBanner', elBodyMainCenterTop);
+		elBodyBannerTop = StdElementGetRefFromElement(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', elBodyMainCenterTop);
+		elBodyBannerBottom = StdElementGetRefFromElement(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', elBodyMainCenterBottom);
+		elBodyBannerBottom = StdElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
 		elBodyBannerBottomFirst = false;
 		//
 		//............................................................---//
 		//  BodyMain Center Center ColBreak
-		elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstDummy = true, 'block', 'visible', 'both')
+		elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstPhatomData = true, 'block', 'visible', 'both')
 		//
 	}
 	//
@@ -6558,10 +6558,10 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			elBodyBannerTop.style.display = 'block';
 			boxHeight += elBodyBannerTop.scrollHeight;
 			//
-			elTitleTopLeft = fnElementGetRefFromElement(elTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', elBodyMainCenterTop);
+			elTitleTopLeft = StdElementGetRefFromElement(elTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', elBodyMainCenterTop);
 			boxHeight += elTitleTopLeft.scrollHeight;
 			//
-			elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
+			elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
 			boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
 			//
 			// BodyViewToggle + Banner + Left/Right
@@ -6594,14 +6594,14 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// this code should also adjust oversided views
 			/* --
 			elBodyMainContainer.style.height = layoutHeight;
-			if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainLeft)) {
-				 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainLeft);
+			if (elBodyMainContainer.style.height < StdElementHeightMaxGet(true, true, elBodyMainLeft)) {
+				 elBodyMainContainer.style.height = StdElementHeightMaxGet(true, true, elBodyMainLeft);
 		  }
-		  if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainCenter)) {
-				 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainCenter);
+		  if (elBodyMainContainer.style.height < StdElementHeightMaxGet(true, true, elBodyMainCenter)) {
+				 elBodyMainContainer.style.height = StdElementHeightMaxGet(true, true, elBodyMainCenter);
 		  }
-		  if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainRight)) {
-				 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainRight);
+		  if (elBodyMainContainer.style.height < StdElementHeightMaxGet(true, true, elBodyMainRight)) {
+				 elBodyMainContainer.style.height = StdElementHeightMaxGet(true, true, elBodyMainRight);
 		  }
 		  -- */
 			// elBodyMainContainer.style.height = 'auto';
@@ -6657,7 +6657,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			//............................................................---//
 			// Hidden Banner at Bottom
 			if (!layoutReadingModeFirst) {
-				elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
+				elBodyBannerBottom = StdElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
 				elBodyBannerBottomFirst = false;
 			}
 			//
@@ -6712,7 +6712,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// elBodyMenuLayout1 BodyMenuLayout
 				if (false = true) {
 					if (!elelBodyMenuLayout1 && elBodyMainCenterTopLeft) {
-						elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
+						elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
 					}
 					//
 					TopLeftWidth = elBodyMenuLayout1.style.posWidth;
@@ -6723,11 +6723,11 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// Process Left Column
 				//
 				// elBodyMainLeft.innerHTML = elBodyMainLeftOrig.innerHTML
-				elBodyMainLeftCopy = fnElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, 'block');
+				elBodyMainLeftCopy = StdElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, 'block');
 				elBodyMainLeftFirst = false;
 				//
 				// elBodyMainRight.innerHTML = elBodyMainLeftOrig.innerHTML
-				elBodyMainRightCopy = fnElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, 'block');
+				elBodyMainRightCopy = StdElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, 'block');
 				elBodyMainRightFirst = false;
 				// end of layoutWindowFirst
 			}
@@ -6748,8 +6748,8 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// Set Center Top Left Element
 				// MainCenterTopLeft is a Reference pointer into the page
 				// that has MainLeft HTML copied into it.
-				elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
-				elBodyMainCenterTopLeft = fnElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, 'block');
+				elBodyMainCenterTopLeft = StdElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
+				elBodyMainCenterTopLeft = StdElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, 'block');
 				elBodyMainCenterTopLeftFirst = false;
 				//............................................................---//
 				// Enclose Box
@@ -6760,35 +6760,35 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// Left Body Column (BodyMainLeft)
 				//............................................................---//
 				// elBodyMenuLayout1 BodyMenuLayout
-				elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
+				elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
 				//............................................................---//
 				// Width of Layout area (previous?)
 				//............................................................---//
 				// Left Outer and Inner Decorative Divs
-				elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainCenterTopLeft);
+				elBodyMainLeftOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainCenterTopLeft);
 				elBodyMainLeftOuter.style.paddingLeft = '3%';
 				elBodyMainLeftOuter.style.width = '97%';
 				//
-				elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainCenterTopLeft);
+				elBodyMainLeftInner = StdElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainCenterTopLeft);
 				elBodyMainLeftInner.style.paddingRight = '3%';
 				elBodyMainLeftInner.style.width = '97%';
 				elBodyMainLeftInner.style.paddingTop = '1.0em';
 				//............................................................---//
 				//
-				// fnElementGetFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1',
+				// StdElementGetFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft1)
-				// fnElementGetFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2',
+				// StdElementGetFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft2)
-				// fnElementGetFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3',
+				// StdElementGetFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft3)
 				//
 				//............................................................---//
 				// Left elMenuLeft1, 2, 3
-				elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', elBodyMainCenterTopLeft);
-				elMenuLeft2 = fnElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', elBodyMainCenterTopLeft);
-				elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', elBodyMainCenterTopLeft);
+				elMenuLeft1 = StdElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', elBodyMainCenterTopLeft);
+				elMenuLeft2 = StdElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', elBodyMainCenterTopLeft);
+				elMenuLeft3 = StdElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', elBodyMainCenterTopLeft);
 				//
-				fnWindowContainerHeightGetMenu(elBodyMainCenterTopLeft);
+				StdWindowContainerHeightGetMenu(elBodyMainCenterTopLeft);
 				//
 				//............................................................---//
 				// elMenuLeft1
@@ -6816,28 +6816,28 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// elMenuLeft3.style.styleFloat = 'left';
 				//............................................................---//
 				//
-				// fnElementGetFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1',
+				// StdElementGetFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft1)
-				// fnElementGetFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2',
+				// StdElementGetFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft2)
-				// fnElementGetFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3',
+				// StdElementGetFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft3)
 				//
 				//............................................................---//
 				// elDivC21 Callout Paragraph Contents
 				if (true = false) {
-					var elDivC21 = fnElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', elBodyMainCenterTopLeft);
+					var elDivC21 = StdElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', elBodyMainCenterTopLeft);
 					if (elDivC21) { elDivC21.style.display = 'none'; }
 				}
 				//............................................................---//
 				// elDivC22 Callout Paragraph Contents
-				var elDivC22 = fnElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', elBodyMainCenterTopLeft);
+				var elDivC22 = StdElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', elBodyMainCenterTopLeft);
 				if (elDivC22) { elDivC22.style.display = 'none'; }
 				//............................................................---//
 				// Left Body Text Alignment Breaks
-				elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft1ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft2ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft3ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
 				// end of layoutWindowFirst
 			}
 			//
@@ -6849,21 +6849,21 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			if (layoutWindowedFirst) {
 				// Right Body Text Alignment Breaks
 				// Set (Copy To) Top Left Element
-				elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
-				elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, 'block');
+				elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
+				elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, 'block');
 				//............................................................---//
 				// Enclose Box
 				elBodyMainCenterTopRight.className = elBodyMainCenterTopRight.className + ' CalloutBorderFull';
 				//............................................................---//
 				// elBodyMenuLayout2 BodyMenuLayout
-				elBodyMenuLayout2 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout2', 'BodyMenuLayout2', elBodyMainCenterTopRight);
+				elBodyMenuLayout2 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout2', 'BodyMenuLayout2', elBodyMainCenterTopRight);
 				//............................................................---//
 				// Right Outer and Inner Decorative Divs
-				elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainCenterTopRight);
+				elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainCenterTopRight);
 				elBodyMainLeftOuter.style.paddingLeft = '3%';
 				elBodyMainLeftOuter.style.width = '97%';
 				//
-				elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainCenterTopRight);
+				elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainCenterTopRight);
 				elBodyMainRightInner.style.paddingRight = '3%';
 				elBodyMainRightInner.style.width = '97%';
 				elBodyMainRightInner.style.paddingTop = '1.0em';
@@ -6871,9 +6871,9 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				var elementHeight = 0;
 				layoutMenuHeightHorzMax = 0;
 				// Right elMenuRight1, 2, 3
-				elMenuRight1 = fnElementGetRefFromElement(elMenuRight1, 'MenuRight1', 'MenuRight1', elBodyMainCenterTopRight);
-				elMenuRight2 = fnElementGetRefFromElement(elMenuRight2, 'MenuRight2', 'MenuRight2', elBodyMainCenterTopRight);
-				elMenuRight3 = fnElementGetRefFromElement(elMenuRight3, 'MenuRight3', 'MenuRight3', elBodyMainCenterTopRight);
+				elMenuRight1 = StdElementGetRefFromElement(elMenuRight1, 'MenuRight1', 'MenuRight1', elBodyMainCenterTopRight);
+				elMenuRight2 = StdElementGetRefFromElement(elMenuRight2, 'MenuRight2', 'MenuRight2', elBodyMainCenterTopRight);
+				elMenuRight3 = StdElementGetRefFromElement(elMenuRight3, 'MenuRight3', 'MenuRight3', elBodyMainCenterTopRight);
 				//............................................................---//
 				// elMenuRight1
 				elMenuRight1.style.position = 'absolute';
@@ -6881,7 +6881,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				elMenuRight1.style.left = '3%';
 				elMenuRight1.style.maxWidth = '30%';
 				// elMenuRight1.style.styleFloat = 'left';
-				elementHeight = fnElementHeightMaxGet(true, true, elMenuRight1);
+				elementHeight = StdElementHeightMaxGet(true, true, elMenuRight1);
 				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
 				//............................................................---//
 				// elMenuRight2
@@ -6891,7 +6891,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				elMenuRight2.style.maxWidth = '30%';
 				// elMenuRight2.style.marginLeft = '3%';
 				// elMenuRight2.style.styleFloat = 'left';
-				elementHeight = fnElementHeightMaxGet(true, true, elMenuRight2);
+				elementHeight = StdElementHeightMaxGet(true, true, elMenuRight2);
 				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
 				//............................................................---//
 				// elMenuLeft3
@@ -6901,13 +6901,13 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				elMenuRight3.style.maxWidth = '30%';
 				// elMenuRight3.style.marginLeft = '3%';
 				// elMenuRight3.style.styleFloat = 'left';
-				elementHeight = fnElementHeightMaxGet(true, true, elMenuRight3);
+				elementHeight = StdElementHeightMaxGet(true, true, elMenuRight3);
 				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
 				//............................................................---//
 				// Column and Float Breaks and Clear
-				elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuRight1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuRight2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuRight3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopRight = StdElementBreakSet(elBodyMainCenterTopRight, 'MenuRight1ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopRight = StdElementBreakSet(elBodyMainCenterTopRight, 'MenuRight2ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopRight = StdElementBreakSet(elBodyMainCenterTopRight, 'MenuRight3ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
 				// end of layoutWindowFirst
 			}
 			//............................................................---//
@@ -6918,12 +6918,12 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// elBodyViewToggle View Toggle and Message Area
 			elBodyViewToggleContainerCenter.style.display = 'none';
 			//
-			boxHeight += fnElementHeightMaxGet(true, true, elBodyViewToggleContainer);
+			boxHeight += StdElementHeightMaxGet(true, true, elBodyViewToggleContainer);
 			// Banner Should be zero, don't use..,
-			boxHeight += fnElementHeightMaxGet(true, true, elBodyBannerTop);
+			boxHeight += StdElementHeightMaxGet(true, true, elBodyBannerTop);
 			//
 			// Height of left and right menu containers
-			// fnWindowContainerHeightGetAll();
+			// StdWindowContainerHeightGetAll();
 			//
 			// if (elBodyMenuLayout2Height > elBodyMenuLayout1Height)  {
 			// elBodyMenuLayout1.style.height = elBodyMenuLayout2Height + 'px';
@@ -6931,23 +6931,23 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// elBodyMenuLayout2.style.height = elBodyMenuLayout1Height + 'px';
 			// }
 			// Set Left and Right Container Heights
-			// elBodyMainCenterTopLeft.style.height = (fnElementHeightMaxGet(true, true, elBodyMenuLayout1) + 20) + 'px';
-			// elBodyMainCenterTopRight.style.height = (fnElementHeightMaxGet(true, true, elBodyMenuLayout2) + 20) + 'px';
+			// elBodyMainCenterTopLeft.style.height = (StdElementHeightMaxGet(true, true, elBodyMenuLayout1) + 20) + 'px';
+			// elBodyMainCenterTopRight.style.height = (StdElementHeightMaxGet(true, true, elBodyMenuLayout2) + 20) + 'px';
 			//
 			if (layoutMenuHeightHorzMax < 50) {
 				// ERROR HERE //
 				//
 				var X; var Y;
-				X = fnElementHeightMaxGet(true, true, elMenuLeft1);
+				X = StdElementHeightMaxGet(true, true, elMenuLeft1);
 				X += boxHeight;
-				Y = fnElementHeightMaxGet(true, true, elMenuRight1);
+				Y = StdElementHeightMaxGet(true, true, elMenuRight1);
 				if (X > Y) { layoutMenuHeightHorzMax = X; } else { layoutMenuHeightHorzMax = Y; }
 				//
-				X = fnElementHeightMaxGet(true, true, elBodyMainCenterTopLeft);
-				Y = fnElementHeightMaxGet(true, true, elBodyMainCenterTopRight);
+				X = StdElementHeightMaxGet(true, true, elBodyMainCenterTopLeft);
+				Y = StdElementHeightMaxGet(true, true, elBodyMainCenterTopRight);
 				if (X > Y) { boxHeight = X; } else { boxHeight = Y; }
-				// boxHeight += fnElementHeightMaxGet(true, true, BodyViewToggleContainerCenter);
-				// boxHeight += fnElementHeightMaxGet(true, true, elBodyMainCenterTopColBreak);
+				// boxHeight += StdElementHeightMaxGet(true, true, BodyViewToggleContainerCenter);
+				// boxHeight += StdElementHeightMaxGet(true, true, elBodyMainCenterTopColBreak);
 			}
 			// Set Left and Right Container Heights
 			elBodyMainCenterTopLeft.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
@@ -6956,7 +6956,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			elBodyMainCenterTopRight.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
 			// elBodyMainCenterTopRight.style.height = '100%';
 			//
-			elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
+			elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
 			//
 			elBodyMainCenterTop.style.height = (layoutMenuHeightHorzMax + 75) + 'px';// boxHeight
 			// elBodyMainCenterTop.style.height = '100%';
@@ -7067,11 +7067,11 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// xx
 			//............................................................---//
 			// Left Body Text Alignment Breaks
-			elMenuLeft1ColBreak = fnElementGetRef(elMenuLeft1ColBreak, 'MenuLeft1ColBreak', 'MenuLeft1ColBreak');
+			elMenuLeft1ColBreak = StdElementGetRef(elMenuLeft1ColBreak, 'MenuLeft1ColBreak', 'MenuLeft1ColBreak');
 			elMenuLeft1ColBreak.style.display = 'none';
-			elMenuLeft2ColBreak = fnElementGetRef(elMenuLeft2ColBreak, 'MenuLeft2ColBreak', 'MenuLeft2ColBreak');
+			elMenuLeft2ColBreak = StdElementGetRef(elMenuLeft2ColBreak, 'MenuLeft2ColBreak', 'MenuLeft2ColBreak');
 			elMenuLeft2ColBreak.style.display = 'none';
-			elMenuLeft3ColBreak = fnElementGetRef(elMenuLeft3ColBreak, 'MenuLeft3ColBreak', 'MenuLeft3ColBreak');
+			elMenuLeft3ColBreak = StdElementGetRef(elMenuLeft3ColBreak, 'MenuLeft3ColBreak', 'MenuLeft3ColBreak');
 			elMenuLeft3ColBreak.style.display = 'none';
 			//
 			//............................................................---//
@@ -7079,14 +7079,14 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// xx
 			//............................................................---//
 			// Right Body Text Alignment Breaks
-			elMenuRight1ColBreak = fnElementGetRef(elMenuRight1ColBreak, 'MenuRight1ColBreak', 'MenuRight1ColBreak');
+			elMenuRight1ColBreak = StdElementGetRef(elMenuRight1ColBreak, 'MenuRight1ColBreak', 'MenuRight1ColBreak');
 			elMenuRight1ColBreak.style.display = 'none';
-			elMenuRight2ColBreak = fnElementGetRef(elMenuRight2ColBreak, 'MenuRight2ColBreak', 'MenuRight2ColBreak');
+			elMenuRight2ColBreak = StdElementGetRef(elMenuRight2ColBreak, 'MenuRight2ColBreak', 'MenuRight2ColBreak');
 			elMenuRight2ColBreak.style.display = 'none';
-			elMenuRight3ColBreak = fnElementGetRef(elMenuRight3ColBreak, 'MenuRight3ColBreak', 'MenuRight3ColBreak');
+			elMenuRight3ColBreak = StdElementGetRef(elMenuRight3ColBreak, 'MenuRight3ColBreak', 'MenuRight3ColBreak');
 			elMenuRight3ColBreak.style.display = 'none';
 			//
-			elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, 'none');
+			elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, 'none');
 			elBodyMainCenterTopRightFirst = false;
 			//
 			//............................................................---//
@@ -7124,7 +7124,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// document.recalc();
 	//
-	fnWindowResize();
+	StdWindowResize();
 	//
 	elBodyFirst = false;
 	// return;
@@ -7141,27 +7141,27 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 // ..................................................................................... _//
 // Mouse Element Event Mouse
 // ...................................... //
-function fnElementEventMouse(e) {
+function StdElementEventMouse(e) {
 	if (!imgLoadUseEventHandler && !imgLoadEventTest) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			'You have conflicting event handling options...',
-			'fnElementEventMouse', 9555, null, null,
+			'StdElementEventMouse', 9555, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoAlert);
 	}
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
-	fnElementEventCurrSet(e);
+	StdElementEventCurrSet(e);
 	//
-	fnElementEventCurrRootObjSet();
+	StdElementEventCurrRootObjSet();
 	//
-	oObjIndex = fnElementItemIndexSetFromObj(eventCurrRootObj);
+	oObjIndex = StdElementItemIndexSetFromObj(eventCurrRootObj);
 	// Objects
-	fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
 	if (debugLogEvents) {
-		fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Mouse Event', 'fnElementEventMouse', 7993);
+		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+			'Mouse Event', 'StdElementEventMouse', 7993);
 	}
 	//
 	// ...................................... //
@@ -7201,10 +7201,10 @@ function fnElementEventMouse(e) {
 						startIndex = oObjIndex;
 						endIndex = oObjIndex;
 						//
-						// fnElementItemToggle(  true true true (IsImagelarge LockValue IgnoreLock)
+						// StdElementItemToggle(  true true true (IsImagelarge LockValue IgnoreLock)
 						NextIsImageLarge = IsLarge; oObjLocked = true; IgnoreLock = true;
 						//
-						fnElementItemToggle(
+						StdElementItemToggle(
 							NextIsImageLarge,
 							oObj.id, oObjImageLarge.id, oObjLarge.id,
 							oObjImageSizeLarge,
@@ -7222,16 +7222,16 @@ function fnElementEventMouse(e) {
 			//
 			case 'mouseout':
 				//
-				if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-				if (fnElementEventCheckDuplicate(debugLogEvents)) { return; }
+				if (StdTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+				if (StdElementEventCheckDuplicate(debugLogEvents)) { return; }
 				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
 						// Small
-						// fnElementItemHide
+						// StdElementItemHide
 						NextIsImageLarge = IsSmall; oObjLocked = false; IgnoreLock = false;
-						fnElementItemHide(
+						StdElementItemHide(
 							NextIsImageLarge,
 							oObjParent, oObjImage, oObj, oObjLarge,
 							oObjGroupIndex, oObjIndex,
@@ -7242,9 +7242,9 @@ function fnElementEventMouse(e) {
 					case IsLarge:
 					default:
 						// Large
-						// fnElementItemHide
+						// StdElementItemHide
 						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = false;
-						fnElementItemHide(
+						StdElementItemHide(
 							NextIsImageLarge,
 							oObj, oObjImageLarge, oObjLarge, oObjLarge,
 							oObjGroupIndex, oObjIndex,
@@ -7258,8 +7258,8 @@ function fnElementEventMouse(e) {
 			// ...................................... //
 			case 'mouseover':
 				//
-				if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-				if (fnElementEventCheckDuplicate(debugLogEvents)) { return; }
+				if (StdTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+				if (StdElementEventCheckDuplicate(debugLogEvents)) { return; }
 				// ...................................... //
 				if (eventMouseOverEnabled) { return; }
 				switch (IsImageLarge) {
@@ -7269,10 +7269,10 @@ function fnElementEventMouse(e) {
 						startIndex = 1;
 						endIndex = oObjIndex;
 						//
-						// fnElementGroupShowStack(';false false true
+						// StdElementGroupShowStack(';false false true
 						NextIsImageLarge = IsSmall; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = true;
 						//
-						fnElementGroupShowStack(
+						StdElementGroupShowStack(
 							NextIsImageLarge,
 							oObjParent.id, oObjImage.id, oObj.id,
 							oObjImageSizeLarge,
@@ -7285,10 +7285,10 @@ function fnElementEventMouse(e) {
 					default:
 						// Large
 						/*
-						// fnElementItemShow(';Small false Curr false
+						// StdElementItemShow(';Small false Curr false
 						NextIsImageLarge = IsSmall;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
 						//
-						fnElementItemShow(
+						StdElementItemShow(
 								NextIsImageLarge,
 								oObjParent, oObjImage, oObj, oObjLarge,
 								oObjImageSizeSmall,
@@ -7297,10 +7297,10 @@ function fnElementEventMouse(e) {
 								//
 						*/
 						// if the small is locked then the large is locked...
-						// fnElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
+						// StdElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
 						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall]; IgnoreLock = false;
 						//
-						fnElementItemShow(
+						StdElementItemShow(
 							NextIsImageLarge,
 							oObj, oObjImageLarge, oObjLarge, oObjLarge,
 							oObjImageSizeLarge,
@@ -7321,9 +7321,9 @@ function fnElementEventMouse(e) {
 }
 //
 // ..................................................................................... _//
-// fnElementEventCurrRootObjSet
+// StdElementEventCurrRootObjSet
 // ...................................... //
-function fnElementEventCurrRootObjSet() {
+function StdElementEventCurrRootObjSet() {
 	eventCurrRootObj = eventObject;
 	// currently the parent is limited to navigate upward three nodes.
 	// and must be below the Body container level
@@ -7348,9 +7348,9 @@ function fnElementEventCurrRootObjSet() {
 //
 //
 // ..................................................................................... _//
-// fnElementEventLastSet
+// StdElementEventLastSet
 // ...................................... //
-function fnElementEventLastSet(e) {
+function StdElementEventLastSet(e) {
 	eventLast = eventCurr;
 	eventLastObject = (eventCurr.srcElement || eventCurr.target);
 	eventLastId = eventLastObject.id;
@@ -7359,9 +7359,9 @@ function fnElementEventLastSet(e) {
 }
 //
 // ..................................................................................... _//
-// fnElementEventCurrSet
+// StdElementEventCurrSet
 // ...................................... //
-function fnElementEventCurrSet(e) {
+function StdElementEventCurrSet(e) {
 	// if (browserIsFF) {
 	// eventCurr = document.event;
 	// } else { eventCurr = e || window.event; }
@@ -7380,9 +7380,9 @@ function fnElementEventCurrSet(e) {
 }
 //
 // ..................................................................................... _//
-// fnElementEventCheckDuplicate
+// StdElementEventCheckDuplicate
 // ...................................... //
-function fnElementEventCheckDuplicate(UseLog) {
+function StdElementEventCheckDuplicate(UseLog) {
 	if (!eventCurrRootObj) { return false; }
 	if (!eventCurrRootObj.id) { return false; }
 	var IsDuplicate = false;
@@ -7419,32 +7419,32 @@ function fnElementEventCheckDuplicate(UseLog) {
 	}
 	//
 	if (UseLog && IsDuplicate && debugLogEventDuplicates) {
-		fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Duplicate Event', 'fnElementEventCheckDuplicate', 0);
+		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+			'Duplicate Event', 'StdElementEventCheckDuplicate', 0);
 	}
 	//
-	if (DoStoreLast) { fnElementEventLastSet(eventCurr); }
+	if (DoStoreLast) { StdElementEventLastSet(eventCurr); }
 	return IsDuplicate;
 }
 //
 // ..................................................................................... _//
-// fnElementItemHideId
+// StdElementItemHideId
 // ...................................... //
-function fnElementEventFromHtmlCheck(e, UseLog) {
+function StdElementEventFromHtmlCheck(e, UseLog) {
 	// load and validate event and objects
 	// if (!imgLoadUseEventHandler) {
 	eventCurr = e || window.event;
-	fnElementEventCurrSet(eventCurr);
-	fnElementEventCurrRootObjSet();
+	StdElementEventCurrSet(eventCurr);
+	StdElementEventCurrRootObjSet();
 	// look for duplicate mouse over events (bubbling)
-	if (fnElementEventCheckDuplicate(UseLog)) { return false; } else { return true; }
+	if (StdElementEventCheckDuplicate(UseLog)) { return false; } else { return true; }
 	// } else { return true; }
 }
 //
 // ..................................................................................... _//
-// fnElementItemHideId
+// StdElementItemHideId
 // ...................................... //
-function fnElementEventGet(e) {
+function StdElementEventGet(e) {
 	// load and validate event and objects
 	eventCurr = e || window.event;
 }
@@ -7464,43 +7464,43 @@ function fnElementEventGet(e) {
 // Menu Image Play First
 // ...................................... //
 //
-function fnElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+function StdElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	fnElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+	StdElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 		oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 }
 //
 // ..................................................................................... _//
-// fnElementPlayNext
+// StdElementPlayNext
 // ...................................... //
-function fnElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+function StdElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	fnElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+	StdElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 		oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 }
 //
 // ..................................................................................... _//
-// fnElementPlayAgain
+// StdElementPlayAgain
 // ...................................... //
-function fnElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+function StdElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	fnElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+	StdElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 		oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-// fnElementPlay
-function fnElementPlay(playDirection, IsImageLarge,
+// StdElementPlay
+function StdElementPlay(playDirection, IsImageLarge,
 	oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	//
@@ -7516,11 +7516,11 @@ function fnElementPlay(playDirection, IsImageLarge,
 	HideImage = false; HideImageLarge = false;
 	//
 	if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseEither, playDirection, 'Request')
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
 			+ '.',
-			'fnElementPlay', 3819, null, null,
+			'StdElementPlay', 3819, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	var PlayAbort = false;
@@ -7533,32 +7533,32 @@ function fnElementPlay(playDirection, IsImageLarge,
 			if (playDirection != timerObj[timerGroup][timerItemTransitionKey].playDirection) {
 				// playDirection is different (while running)
 				if (debugTimer && debugTimerDetail && debugTimerTransition) {
-					fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+					ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+						StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
-						'fnElementPlay', 3837, null, null,
+						'StdElementPlay', 3837, null, null,
 						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
-				fnTimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
+				StdTimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
 				if (debugTimer && debugTimerDetail && debugTimerTransition) {
-					fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+					ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+						StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Transition step instead'
 						+ '.',
-						'fnElementPlay', 3850, null, null,
+						'StdElementPlay', 3850, null, null,
 						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// the next step will be performed and the new play command skipped
 				if (timerMethod = timerMethodGroup) {
-					fnTimerGroupDoStepFilter(timerTypeTransition, timerGroup, timerId);
+					StdTimerGroupDoStepFilter(timerTypeTransition, timerGroup, timerId);
 				} else {
-					fnTimerItemDoStepFilter(timerTypeTransition, timerGroup, timerId);
+					StdTimerItemDoStepFilter(timerTypeTransition, timerGroup, timerId);
 				}
 				//
 				PlayAbort = true;// skip issuing play command
@@ -7571,12 +7571,12 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// Forward
 				if (timerObj[timerGroup][timerItemTransitionKey].elementIsDisplayed = elementIsDisplayed) {
 					if (debugTimer && debugTimerDetail && debugTimerTransition) {
-						fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+							StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed'
 							+ '.',
-							'fnElementPlay', 3875, null, null,
+							'StdElementPlay', 3875, null, null,
 							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -7587,12 +7587,12 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// Reverse
 				if (timerObj[timerGroup][timerItemTransitionKey].elementIsDisplayed = elementIsNotDisplayed) {
 					if (debugTimer && debugTimerDetail && debugTimerTransition) {
-						fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+							StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden'
 							+ '.',
-							'fnElementPlay', 3891, null, null,
+							'StdElementPlay', 3891, null, null,
 							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -7615,32 +7615,32 @@ function fnElementPlay(playDirection, IsImageLarge,
 			if (playDirection != timerObj[timerGroup][timerItemMoveKey].playDirection) {
 				// playDirection is different (while running)
 				if (debugTimer && debugTimerDetail && debugTimerMove) {
-					fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+					ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+						StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
-						'fnElementPlay', 3919, null, null,
+						'StdElementPlay', 3919, null, null,
 						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
-				fnTimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
+				StdTimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
 				if (debugTimer && debugTimerDetail && debugTimerMove) {
-					fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+					ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+						StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Move step instead'
 						+ '.',
-						'fnElementPlay', 39, null, null,
+						'StdElementPlay', 39, null, null,
 						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				//
 				if (timerMethod = timerMethodGroup) {
-					fnTimerGroupDoStepMove(timerTypeMove, timerGroup, timerId);
+					StdTimerGroupDoStepMove(timerTypeMove, timerGroup, timerId);
 				} else {
-					fnTimerItemDoStepMove(timerTypeMove, timerGroup, timerId);
+					StdTimerItemDoStepMove(timerTypeMove, timerGroup, timerId);
 				}
 				//
 				PlayAbort = true;// skip issuing play command
@@ -7653,11 +7653,11 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// Forward
 				if (timerObj[timerGroup][timerItemMoveKey].elementIsDisplayed = elementIsDisplayed) {
 					if (debugTimer && debugTimerDetail && debugTimerMove) {
-						fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+							StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed...',
-							'fnElementPlay', 3956, null, null,
+							'StdElementPlay', 3956, null, null,
 							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -7668,11 +7668,11 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// Reverse
 				if (timerObj[timerGroup][timerItemMoveKey].elementIsDisplayed = elementIsNotDisplayed) {
 					if (debugTimer && debugTimerDetail && debugTimerMove) {
-						fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+							StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden...',
-							'fnElementPlay', 3971, null, null,
+							'StdElementPlay', 3971, null, null,
 							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -7701,7 +7701,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 		layoutCascadeDown = true;
 	} else { layoutCascadeDown = false; }
 	//
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
 	//
 	// POSITION
 	// elementLeftOrig, elementTopOrig, elementLeftDest, elementTopDest,
@@ -7731,12 +7731,12 @@ function fnElementPlay(playDirection, IsImageLarge,
 	//
 	//
 	if (debugTimer && debugTimerMove) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 			+ ', Item orgin and destination set'
 			+ ', Orig: ( ' + elementTopOrig + ', ' + elementLeftOrig + ' )'
 			+ ', Dest: ( ' + elementTopDest + ', ' + elementLeftDest + ' )',
-			'fnElementPlay', 10341, null, null,
+			'StdElementPlay', 10341, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -7757,15 +7757,15 @@ function fnElementPlay(playDirection, IsImageLarge,
 	if (filterIsOn || filterResizeIsOn) {
 		//
 		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Get')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
 				+ '.',
-				'fnElementPlay', 4055, null, null,
+				'StdElementPlay', 4055, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		fnFilterGet(filterPlayAll, startIndex, endIndex,
+		StdFilterGet(filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjIndex,
 			filterObjId, filterId);
@@ -7787,15 +7787,15 @@ function fnElementPlay(playDirection, IsImageLarge,
 		//
 		// if (filterObj[filterIdPassed].filterDoEnable) {
 		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Enable')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
 				+ '.',
-				'fnElementPlay', 4085, null, null,
+				'StdElementPlay', 4085, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		fnFilterEnable(filterPlayAll, startIndex, endIndex,
+		StdFilterEnable(filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
 			filterObjId, filterId);
@@ -7806,30 +7806,30 @@ function fnElementPlay(playDirection, IsImageLarge,
 		//
 		// if (filterObj[filterIdPassed].filterDoApply) {
 		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Apply')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
 				+ '.',
-				'fnElementPlay', 4104, null, null,
+				'StdElementPlay', 4104, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		fnFilterApply(filterPlayAll, startIndex, endIndex,
+		StdFilterApply(filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
 			filterObjId, filterId);
 		// }
 		//
 		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
 				+ '.',
-				'fnElementPlay', 4119, null, null,
+				'StdElementPlay', 4119, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		fnTimerStartFilter(playDirection, timerMethod, fnTimerGroupDoStepFilter, fnTimerItemDoStepFilter,
+		StdTimerStartFilter(playDirection, timerMethod, StdTimerGroupDoStepFilter, StdTimerItemDoStepFilter,
 			filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
@@ -7837,15 +7837,15 @@ function fnElementPlay(playDirection, IsImageLarge,
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
 		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Play')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
 				+ '.',
-				'fnElementPlay', 4135, null, null,
+				'StdElementPlay', 4135, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		fnFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
+		StdFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
 			filterObjId, filterId);
@@ -7869,22 +7869,22 @@ function fnElementPlay(playDirection, IsImageLarge,
 		}
 		//
 		if (filterIsOn || filterResizeIsOn) {
-			if (filterResizeIsOn) { fnFilterResize(oObjNext, filterClassMatrix, tempSize); }
+			if (filterResizeIsOn) { StdFilterResize(oObjNext, filterClassMatrix, tempSize); }
 		}
 		// ...................................... //
 		// Visibility
 		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
 		//
 		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
 				+ '.',
-				'fnElementPlay', 4174, null, null,
+				'StdElementPlay', 4174, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		fnTimerStartMove(playDirection, timerMethod, fnTimerGroupDoStepMove, fnTimerItemDoStepMove,
+		StdTimerStartMove(playDirection, timerMethod, StdTimerGroupDoStepMove, StdTimerItemDoStepMove,
 			filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
@@ -7896,15 +7896,15 @@ function fnElementPlay(playDirection, IsImageLarge,
 		if (filterResizeIsOn && !elementIsDisplayed) {
 			//
 			if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-				fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Resize')
+				ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+					StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
 					+ '.',
-					'fnElementPlay', 4194, null, null,
+					'StdElementPlay', 4194, null, null,
 					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 			}
 			//
-			fnFilterResize(oObjNext, filterClassMatrix, 0.05);
+			StdFilterResize(oObjNext, filterClassMatrix, 0.05);
 		}
 		// ...................................... //
 		// Visibility
@@ -7921,14 +7921,14 @@ function fnElementPlay(playDirection, IsImageLarge,
 //
 // ..................................................................................... _//
 // Menu Show
-// 		fnElementGroupShowRange
-//		fnElementItemShowIndex
-//		fnElementGroupShowStack
-//		fnElementItemToggle
-//		fnElementItemShow
+// 		StdElementGroupShowRange
+//		StdElementItemShowIndex
+//		StdElementGroupShowStack
+//		StdElementItemToggle
+//		StdElementItemShow
 // Menu Hide
-// 		fnElementGroupToggleRange
-//		fnElementItemHide
+// 		StdElementGroupToggleRange
+//		StdElementItemHide
 //
 // ..................................................................................... _//
 // ...................................... //
@@ -7936,15 +7936,15 @@ function fnElementPlay(playDirection, IsImageLarge,
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnElementGroupToggleRange
+// StdElementGroupToggleRange
 // ...................................... //
-function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+function StdElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
-	fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
+	StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
 	} else {
@@ -7958,7 +7958,7 @@ function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endInd
 	if (oObjNext.style.display = 'none') {
 		oObjLocked = true;
 		IgnoreLock = false;
-		fnElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, endIndex, oObjLocked, IgnoreLock);
+		StdElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, endIndex, oObjLocked, IgnoreLock);
 		//
 	} else {
 		oObjLocked = false;
@@ -7967,17 +7967,17 @@ function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endInd
 			//
 			menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = false;
 			// Objects
-			fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
+			StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
 			//
 			if (HideImage) {
-				fnElementItemHide(IsImageLarge,
+				StdElementItemHide(IsImageLarge,
 					oObjParent, oObjImage, oObj, oObjLarge,
 					oObjGroupIndex, oObjIndexCurr,
 					oObjLocked, IgnoreLock);
 			}
 			if (HideImageLarge) {
 				if (oObjLarge.style.display = 'block') {
-					fnElementItemHide(true,
+					StdElementItemHide(true,
 						oObj, oObjImageLarge, oObjLarge, oObjLarge,
 						oObjGroupIndex, oObjIndexCurr,
 						oObjLocked, IgnoreLock);
@@ -7990,15 +7990,15 @@ function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endInd
 }
 //
 // ..................................................................................... _//
-// fnMenu Toggle Menu Show Item (Mouse Down function)
+// StdMenu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
-function fnElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+function StdElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
-	fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
+	StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
 		oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
@@ -8008,15 +8008,15 @@ function fnElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oO
 	}
 	//
 	if (oObjNext.style.display = 'none') {
-		fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], IgnoreLock);
+		StdElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], IgnoreLock);
 		oObjNext.style.display = 'block';
 	} else {
 		if (IsImageLarge) {
 			// Is this wrong?
-			fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], true);
+			StdElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], true);
 		} else {
-			fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, true, IgnoreLock);
-			// fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], IgnoreLock);
+			StdElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, true, IgnoreLock);
+			// StdElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], IgnoreLock);
 			oObjNext.style.display = 'none';
 		}
 	}
@@ -8029,11 +8029,11 @@ function fnElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oO
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnMenu Menu Show Item and all Previous (Mouse Over function)
+// StdMenu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
-function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function StdElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
-	fnElementEventFromHtmlCheck(null, debugLogEvents);
+	StdElementEventFromHtmlCheck(null, debugLogEvents);
 	if (eventCurrId == oObjNextParentId
 		&& !eventMouseOverEnabled
 		&& eventType == 'mouseover'
@@ -8041,12 +8041,12 @@ function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId
 		return;
 	}
 	//
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
-	fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
+	StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
@@ -8062,16 +8062,16 @@ function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId
 		oObjNext.style.zIndex = imgZindex;
 		// process images in group above and including this location
 		var startoObjIndex = 1;
-		var endoObjIndex = fnElementItemIndexSetFromObj(oObjNext);
+		var endoObjIndex = StdElementItemIndexSetFromObj(oObjNext);
 		var oObjIndexCurr = startoObjIndex;
 		while (oObjIndexCurr < 1 + endoObjIndex) {
 			// Objects
-			fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
+			StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
 			// Set Lock Test
 			// if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLocked; }
 			if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = oObjLocked; }
 			// Reveal Hidden Images
-			fnElementItemShow(IsImageLarge, oObjParent, oObjImage, oObj, oObjLarge, iImageSize, oObjGroupIndex, oObjIndexCurr, menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge], true);
+			StdElementItemShow(IsImageLarge, oObjParent, oObjImage, oObj, oObjLarge, iImageSize, oObjGroupIndex, oObjIndexCurr, menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge], true);
 			oObjIndexCurr++;
 		}
 		// done
@@ -8082,16 +8082,16 @@ function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId
 }
 //
 // ..................................................................................... _//
-// fnElementGroupShowRange
+// StdElementGroupShowRange
 // ...................................... //
-function fnElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function StdElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// ...................................... //
 	// Build Menu Images Div
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
 	var startObjoObjIndex = startIndex;
-	var endObjoObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
+	var endObjoObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
 	var oObjIndexCurr = startObjoObjIndex;
 	while (oObjIndexCurr < 1 + endObjoObjIndex) {
 		//
@@ -8107,22 +8107,22 @@ function fnElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextPar
 // ..................................................................................... _//
 // Show using index #
 // ...................................... //
-function fnElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-	fnElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+function StdElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
+	StdElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 }
 //
 // ..................................................................................... _//
-// fnMenu Menu Show Item (Mouse Over function)
+// StdMenu Menu Show Item (Mouse Over function)
 // ...................................... //
-function fnElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function StdElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// look for duplicate mouse over events (bubbling)
-	if (!fnElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
+	if (!StdElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
-	fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
+	StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
 		oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
@@ -8130,38 +8130,38 @@ function fnElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId,
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+	StdElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 	//
 }
 //
 // ..................................................................................... _//
-// fnMenu Menu Show Item (Mouse Over function)
+// StdMenu Menu Show Item (Mouse Over function)
 // ...................................... //
-function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (fnTimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, debugLogEvents)) { return; }
+function StdElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	if (StdTimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, debugLogEvents)) { return; }
 	//
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
 	LastTochedId = oObjNext.id;
 	//
 	if (debugTimer && debugTimerTransition) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerKeyText('Show', oObjGroupIndex, oObjIndex)
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerKeyText('Show', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 			+ ', Time:' + Date()
 			+ '.',
-			'fnElementItemShow', 10141, oObjNext, null,
+			'StdElementItemShow', 10141, oObjNext, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
-	fnWindowClientWidth();
+	StdWindowClientWidth();
 	//
 	// if (IsImageLarge) {
 	// Objects
-	// fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	// StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	// Style Visibility
 	// oObjLarge.style.display= 'block';
 	// oObjImageLarge.style.display= 'block';
@@ -8184,7 +8184,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		// Parent Postion
 		// ...................................... //
 		// Get the offset width of that parent element
-		fnElementPosCalculate(oObjNextParent);
+		StdElementPosCalculate(oObjNextParent);
 		//
 		// ...................................... //
 		// Position Control
@@ -8439,12 +8439,12 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		// note this should be an adjustable value
 		var oObjNextLeft; var imageLeftEdge; var imageRightEdge; var bodyLeftEdge; var bodyRightEdge;
 		//
-		fnElementPosGet(UseScroll, UseBase, elBodyMainCenterCenter, 0, 0);
+		StdElementPosGet(UseScroll, UseBase, elBodyMainCenterCenter, 0, 0);
 		bodyLeftEdge = oObjLeft;
 		bodyRightEdge = oObjLeft + oObjWidth;
-		// bodyLeftEdge = fnElementLeftMaxGet(DoNotUseScroll, UseBase, elBodyMainCenterCenter);
-		// bodyRightEdge = bodyLeftEdge + fnElementWidthMaxGet(DoNotUseScroll, UseBase, elBodyMainCenterCenter);
-		oObjNextLeft = fnElementLeftMaxGet(UseScroll, UseBase, oObjNext);
+		// bodyLeftEdge = StdElementLeftMaxGet(DoNotUseScroll, UseBase, elBodyMainCenterCenter);
+		// bodyRightEdge = bodyLeftEdge + StdElementWidthMaxGet(DoNotUseScroll, UseBase, elBodyMainCenterCenter);
+		oObjNextLeft = StdElementLeftMaxGet(UseScroll, UseBase, oObjNext);
 		//
 		var oObjNextLeftChanged = false;
 		do {
@@ -8472,7 +8472,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		//
 		// ...................................... //
 		// Store Postion
-		fnElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elementHeightDefault);
+		StdElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elementHeightDefault);
 		menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjLeft;// parseInt(oObjNext.style.left);
 		menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
 		menuImagePositionWidth[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
@@ -8492,7 +8492,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 			//
 			playDirection = playDirectionForward;
 			// playDirection = playDirectionReverse;
-			fnElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
+			StdElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
 			// oObjNext.filters[0].apply();
 			// oObjNext.filters[1].apply();
 			// oObjNext.filters.item('DXImageTransform.Microsoft.Wheel').apply();
@@ -8533,8 +8533,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		// oObjNext.filters[0].play();
 		// oObjNext.filters.item(0).Play();
 		// oObjNext.filters[1].play();
-		// fnFilterResetThenAnimate(oObjNext);
-		// fnFilterSpin(oObjNext);
+		// StdFilterResetThenAnimate(oObjNext);
+		// StdFilterSpin(oObjNext);
 		// ...................................... //
 		// Z Index
 		imgZindex += 1;
@@ -8570,15 +8570,15 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnElementItemHideId
+// StdElementItemHideId
 // ...................................... //
-function fnElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function StdElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
-	if (!fnElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
+	if (!StdElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
-	fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNext);
+	StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
 		oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
@@ -8586,43 +8586,43 @@ function fnElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId,
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+	StdElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 	//
 }
 //
 // ..................................................................................... _//
-// fnMenu fnElementItemHide
+// StdMenu StdElementItemHide
 // ...................................... //
-function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (fnTimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+function StdElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	if (StdTimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
 	//
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-	var oObjNextIndex = oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
-	// fnElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
+	var oObjNextIndex = oObjIndex = oObjGroupImageIndex;// StdElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
+	// StdElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
 		if (debugTimer && debugTimerTransition) {
-			fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-				fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
+			ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+				StdTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
 				+ ', Do not hide locked item'
 				+ ', Time:' + Date()
 				+ '.',
-				'fnElementItemHide', 9876, oObjNext, null,
+				'StdElementItemHide', 9876, oObjNext, null,
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		return;
 	}
 	//
 	if (debugTimer && debugTimerTransition) {
-		fnErrorOccured(DoNotUseDebug, DoUseSingeLine,
-			fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
+		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
+			StdTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 			+ ', Time:' + Date()
 			+ '.',
-			'fnElementItemHide', 9889, oObjNext, null,
+			'StdElementItemHide', 9889, oObjNext, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -8632,7 +8632,7 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		var playDirection = playDirectionReverse;
 		var iImageSize;
 		if (IsImageLarge) { iImageSize = oObjImageSizeLarge; } else { iImageSize = oObjImageSizeSmall; }
-		fnElementPlayAgain(playDirection, IsImageLarge,
+		StdElementPlayAgain(playDirection, IsImageLarge,
 			oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 			iImageSize, oObjNextGroupIndex, oObjNextIndex, false, true);
 		// oObjNext.filters[0].apply();
@@ -8649,8 +8649,8 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		// Visibility
 		oObjNext.style.display = 'none';
 		// will become a filter play...
-		fnTimerItemDeactivate(timerTypeMove, oObjNextGroupIndex, oObjNextIndex);
-		fnTimerItemDeactivate(timerTypeTransition, oObjNextGroupIndex, oObjNextIndex);
+		StdTimerItemDeactivate(timerTypeMove, oObjNextGroupIndex, oObjNextIndex);
+		StdTimerItemDeactivate(timerTypeTransition, oObjNextGroupIndex, oObjNextIndex);
 	}
 	//
 	//
@@ -8674,16 +8674,16 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 // Object Set: Object, Image, Parent, Index (Image Large & Small)
 //
 // ..................................................................................... _//
-// fnElementItemGetAllFromIndex
+// StdElementItemGetAllFromIndex
 // ...................................... //
-function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
+function StdElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	var oObjValid = true;
 	var oObjId = new String();
 	var oObjParentId = new String();
 	//
-	if (javaLoadFirst) { fnElementObjectCreate(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
 	// ...................................... //
 	switch (oObjGroupIndex) {
 		// Non Groups
@@ -8782,17 +8782,17 @@ function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 			oObjId = 'Image11'; oObjParentId = 'MenuContainerLeft1'; break;
 	}
 	if (oObjValid) {
-		oObj = fnElementGetRef(oObj, oObjId, oObjId);
+		oObj = StdElementGetRef(oObj, oObjId, oObjId);
 		//
-		oObjImage = fnElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
+		oObjImage = StdElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
 		//
-		oObjParent = fnElementGetRef(oObjParent, oObjParentId, oObjParentId);
+		oObjParent = StdElementGetRef(oObjParent, oObjParentId, oObjParentId);
 		//
-		oObjLarge = fnElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
+		oObjLarge = StdElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
 		//
-		oObjImageLarge = fnElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
+		oObjImageLarge = StdElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
 		//
-		oObjText = fnElementItemGetDescription(oObjGroupCn, oObjCn);
+		oObjText = StdElementItemGetDescription(oObjGroupCn, oObjCn);
 	} else {
 		// oObj = null;
 		// oObjImage = null;
@@ -8805,9 +8805,9 @@ function fnElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 }
 //
 // ..................................................................................... _//
-// fnElementItemGetDescription
+// StdElementItemGetDescription
 // ...................................... //
-function fnElementItemGetDescription(oObjGroupCn, oObjCn) {
+function StdElementItemGetDescription(oObjGroupCn, oObjCn) {
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	switch (oObjGroupIndex) {
@@ -8875,9 +8875,9 @@ function fnElementItemGetDescription(oObjGroupCn, oObjCn) {
 }
 //
 // ..................................................................................... _//
-// fnElementItemGetName
+// StdElementItemGetName
 // ...................................... //
-function fnElementItemGetName(oObjGroupCn, oObjCn) {
+function StdElementItemGetName(oObjGroupCn, oObjCn) {
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	// ...................................... //
@@ -8946,9 +8946,9 @@ function fnElementItemGetName(oObjGroupCn, oObjCn) {
 }
 //
 // ..................................................................................... _//
-// fnElementItemIndexSetFromObj
+// StdElementItemIndexSetFromObj
 // ...................................... //
-function fnElementItemIndexSetFromObj(oObjPassed) {
+function StdElementItemIndexSetFromObj(oObjPassed) {
 	IsImageLarge = IsSmall;
 	oObjNotFound = false;
 	// switch(oObjGroupIndex) {
@@ -9052,9 +9052,9 @@ function fnElementItemIndexSetFromObj(oObjPassed) {
 }
 //
 // ..................................................................................... _//
-// fnElementItemIndexSetFromName
+// StdElementItemIndexSetFromName
 // ...................................... //
-function fnElementItemIndexSetFromName(oObjPassed) {
+function StdElementItemIndexSetFromName(oObjPassed) {
 	if (!oObjPassed) {
 		oObjNotFound = false;
 		oObjGroupIndex = 4; oObjIndex = 1;

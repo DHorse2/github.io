@@ -11,8 +11,8 @@ var oObjIndexEnd = 0;
 ////////////////////////////////////////////////
 // ./css/Page/{ThisPageCustom || Defauts}.js
 //
-var menuImageLoadDelay = false;
-var menuImageLoadFirst = true;
+var loadDelayMenuImage = false;
+var loadFirstMenuImage = true;
 // Image Group
 ////////////////////////////////////////////////
 var imgGroupCount = 5;
@@ -121,3 +121,6 @@ menuImageOffsetTopAll[4][5] = 0; menuImageOffsetLeftAll[4][5] = 0;
 menuImageOffsetTopAll[4][6] = 0; menuImageOffsetLeftAll[4][6] = 0;
 menuImageOffsetTopAll[4][7] = -250; menuImageOffsetLeftAll[4][7] = 0;
 menuImageOffsetTopAll[4][8] = 0; menuImageOffsetLeftAll[4][8] = 0;
+
+script_state = "MdmStandard Default Menu Image definitions";
+if (debugLoadIsOn) { debugger; }

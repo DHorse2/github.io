@@ -1,52 +1,45 @@
-var elementLayoutFirstDummy;
+
 // Menu and Image Missing Objects
-// var img1MenuLine;
-var img8MenuLine;
-var img12MenuLine;
-var MdmNetAppFrame0MenuLine;
-var img8;
-oObjGroupIndex = 1;
 ////////////////////////////////////////////////
-// Current Image Position
-// var oObjNextTop;
-// var oObjNextLeft;
+var elementLayoutFirstPhatomData;
 
 // Menu Html Build
 ///////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
 // Html Variables
 ////////////////////////////////////////////////
+oObjGroupIndex = 1;
 var imgHtml = "";
 // var BodyMenuImageContainer = document.documentElement["BodyMenuImageContainer"];
 // .getElementById("BodyMenuImageContainer");
 // Build (inner) HTML for Menu Images
-// fnMenuImagesHtmlBuild();
+// StdMenuImagesHtmlBuild();
 ////////////////////////////////////////////////
-function fnBodyImagesHtmlBuild() {
+function StdBodyImagesHtmlBuild() {
     //
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx TO DO xxxxxxxxxxxxxxx
     // document.write(imgHtml);
-    elBodyImageContainer = fnElementGetRef(elBodyImageContainer, "BodyImageContainer", "BodyImageContainer");
+    elBodyImageContainer = StdElementGetRef(elBodyImageContainer, "BodyImageContainer", "BodyImageContainer");
     elBodyImageContainer.innerHTML = imgHtml;
     //
-    bodyImageLoadFirst = false;
+    loadFirstBodyImage = false;
     //
     return elBodyImageContainer;
 }
-// fnMenuImagesHtmlBuild();
+// StdMenuImagesHtmlBuild();
 ////////////////////////////////////////////////
-function fnMenuImagesHtmlBuild() {
+function StdMenuImagesHtmlBuild() {
     // Filter in use is Type Checkerboard;
     filterIndexPassed = filterTypeCheckerBoard;
     // + ', ' + filterTypeCheckerBoard + ')
     //
-    elBodyMenuImageContainer = fnElementGetRef(elBodyMenuImageContainer, "BodyMenuImageContainer", "BodyMenuImageContainer");
+    elBodyMenuImageContainer = StdElementGetRef(elBodyMenuImageContainer, "BodyMenuImageContainer", "BodyMenuImageContainer");
     //
     imgHtml = "";
     // imgHtml += lt + 'div id="BodyMenuImageContainer"' + gt;
     for (imgGroupCn = 0; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
         for (imgCn = 0; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
-            oName = fnMenuObjectNameSet(imgGroupCn, imgCn);
+            oName = StdMenuObjectNameSet(imgGroupCn, imgCn);
             // imgHtml += '    // Image ' + imgCn +  _//';
             // Image Small
             // ------------------------------------------------------------------------------------- _//
@@ -58,13 +51,13 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Mouse Over
             imgHtml += '   		 onmouseover= "';
-            imgHtml += 'fnMenuImgShowStack(';
+            imgHtml += 'StdMenuImgShowStack(';
             imgHtml += 'false, ';// Is Large Image
             // Parent Object
             if (imgCn > 1) {
-                imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
+                imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
             } else {
-                imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
+                imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
             }
             imgHtml += ', ';
             imgHtml += oName+ ', ';// Small Image
@@ -83,13 +76,13 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Mouse Out
             imgHtml += '      	 onmouseout= "';
-            imgHtml += 'fnMenuImgHide(';
+            imgHtml += 'StdMenuImgHide(';
             imgHtml += 'false, ';// Is Large Image
             // Parent Object
             if (imgCn > 1) {
-                imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
+                imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
             } else {
-                imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
+                imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
             }
             imgHtml += ', ';
             imgHtml += oName + 'Image' + ', ';// Small Image
@@ -107,12 +100,12 @@ function fnMenuImagesHtmlBuild() {
             // On Change
             /*--
             imgHtml += '      	 onfilterchange= "';
-            imgHtml += 			 'fnMenuImageFilterPlayFirst(';
+            imgHtml += 			 'StdMenuImageFilterPlayFirst(';
                     // Parent Object
                     if (imgCn > 1) {
-                       imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn-1) + imgGroupCn + imgCn-1);// Previous (Small) Image Id
+                       imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn-1) + imgGroupCn + imgCn-1);// Previous (Small) Image Id
                     } else {
-                       imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn-1));// Menu Container Id
+                       imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn-1));// Menu Container Id
                     }
             imgHtml += ', ';
             imgHtml += oName + 'Image' + ', ';// Small Image
@@ -151,7 +144,7 @@ function fnMenuImagesHtmlBuild() {
             // Element: P
             imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + '"' + gt;// Link Text
             // imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
-            imgHtml += '         	   ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '         	   ' + StdMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += '		' + lt + 'br clear= "all"' + gt;
             imgHtml += lt + '/span' + gt;
             // imgHtml += lt + 'br' + gt;
@@ -170,13 +163,13 @@ function fnMenuImagesHtmlBuild() {
             // Filter
             // Start Animation Filter
             // Filter Reset
-            // imgHtml += ' fnFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
-            imgHtml += 'fnFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
-            // imgHtml += ' fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            // imgHtml += ' StdFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
+            imgHtml += 'StdFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+            // imgHtml += ' StdFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
             --*/
             //
             // Image Show Toggle
-            imgHtml += 'fnMenuImgToggle(';
+            imgHtml += 'StdMenuImgToggle(';
             imgHtml += 'true, ';// Is Large Image
             imgHtml += oName + ', ';// Small Id
             imgHtml += oName + 'LargeImage' + ', ';// Large Image Object
@@ -194,8 +187,8 @@ function fnMenuImagesHtmlBuild() {
             // end of mousedown
             //
             // Play Filter
-            // imgHtml += ' onfilterchange= "fnFilterSpin(this + ', ' + filterIndexPassed + ');';// Spin this Image
-            // imgHtml += ' onfilterchange= "fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
+            // imgHtml += ' onfilterchange= "StdFilterSpin(this + ', ' + filterIndexPassed + ');';// Spin this Image
+            // imgHtml += ' onfilterchange= "StdFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
             // imgHtml += '" ';
             //
             // Size
@@ -203,7 +196,7 @@ function fnMenuImagesHtmlBuild() {
             // Set Height using Global height and ratio
             imgHtml += '        	 height= "' + (oObjImageSizeSmall * oObjImageSizeRatio) + 'px"';// Height
             // Alt
-            imgHtml += '			 alt= "' + fnMenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
+            imgHtml += '			 alt= "' + StdMenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
             imgHtml += '        	 ' + gt;
             //
             // ------------------------------------------------------------------------------------- _//
@@ -217,7 +210,7 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Element: P
             imgHtml += lt + 'span id= "' + oName + 'LinkTextLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
-            imgHtml += '        	  ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '        	  ' + StdMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += lt + '/span' + gt;
             imgHtml += lt + '/a' + gt;
             //
@@ -240,7 +233,7 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Mouse Out //
             imgHtml += '      	 onmouseout= "';
-            imgHtml += 'fnMenuImgHide(';
+            imgHtml += 'StdMenuImgHide(';
             imgHtml += 'true, ';// Is Large Image
             imgHtml += oName + ', ';// Small Id
             imgHtml += oName + 'LargeImage' + ', ';// Lare Image
@@ -261,13 +254,13 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Show Image Small
             imgHtml += '      	 onmouseover= "';
-            imgHtml += 'fnMenuImgShow(';
+            imgHtml += 'StdMenuImgShow(';
             imgHtml += 'false, ';// Is Large Image
             // Parent Object Name
             if (imgCn > 1) {
-                imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
+                imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
             } else {
-                imgHtml += (fnMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
+                imgHtml += (StdMenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
             }
             imgHtml += ', ';
             imgHtml += oName + 'Image' + ', ';// Small Image Object
@@ -282,7 +275,7 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += ');';
             // ------------------------------------------------------------------------------------- _//
             // Show Image Large
-            imgHtml += 'fnMenuImgShow(';
+            imgHtml += 'StdMenuImgShow(';
             imgHtml += 'true, ';// Is Large Image
             imgHtml += oName + ', ';// Small Id
             imgHtml += oName + 'LargeImage' + ', ';// Large Image
@@ -299,16 +292,16 @@ function fnMenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Start Animation Filter
             // Filter Reset
-            // imgHtml += ' fnFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
-            // imgHtml += ' fnFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
-            // imgHtml += ' fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            // imgHtml += ' StdFilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
+            // imgHtml += ' StdFilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+            // imgHtml += ' StdFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
             //
             imgHtml += '"';
             // end of mouseover
             //
             // Play Filter
-            // imgHtml += '      	onfilterchange= "fnFilterSpin(this, filterIndexPassed);';// Spin this Image
-            // imgHtml += '      	onfilterchange= "fnFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            // imgHtml += '      	onfilterchange= "StdFilterSpin(this, filterIndexPassed);';// Spin this Image
+            // imgHtml += '      	onfilterchange= "StdFilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
             // imgHtml += '" ';
             //
             // Div Size
@@ -361,7 +354,7 @@ function fnMenuImagesHtmlBuild() {
             // Element: P
             imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + '"' + gt;// Link Text
             // imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
-            imgHtml += '         ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '         ' + StdMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += '		' + lt + 'br' + gt;
             // imgHtml += '		' + lt + 'br clear= "all"' + gt;
             imgHtml += lt + '/span' + gt;
@@ -373,14 +366,14 @@ function fnMenuImagesHtmlBuild() {
             imgHtml += '    		 src= "../images/Thumbnails/' + oName + '.jpg"';// Image Source src
             imgHtml += '    		 class= "MenuThumbLarge"';
             // Alt
-            imgHtml += '			 alt= "' + fnMenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
+            imgHtml += '			 alt= "' + StdMenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
             imgHtml += '    		 ' + gt;
             // ------------------------------------------------------------------------------------- _//
             // Link Text
             imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + '"' + gt;// Link Text
             // imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
             // imgHtml += '		 ' + lt + 'br clear= "all"' + gt;
-            imgHtml += '         ' + fnMenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '         ' + StdMenuObjectTextSet(imgGroupCn, imgCn);
             imgHtml += lt + '/span' + gt;
             //
             imgHtml += lt + '/a' + gt;
@@ -393,18 +386,18 @@ function fnMenuImagesHtmlBuild() {
     // ------------------------------------------------------------------------------------- _//
     imgHtml += '	' + lt + '/div> ';
     // document.write(imgHtml);
-    // elBodyMenuImageContainer = fnElementGetRef(elBodyMenuImageContainer, "BodyMenuImageContainer", "BodyMenuImageContainer");
+    // elBodyMenuImageContainer = StdElementGetRef(elBodyMenuImageContainer, "BodyMenuImageContainer", "BodyMenuImageContainer");
     //
     elBodyMenuImageContainer.innerHTML = imgHtml;
     //
-    menuImageLoadFirst = false;
+    loadFirstMenuImage = false;
     //
     return elBodyMenuImageContainer;
 }
 // Layout Select By Index
 // ------------------------------------------------------------------------------------- _//
 // ------------------------------------------------------------------------------------- _//
-// function fnLayoutSelectByIndex2(layoutIndexPassed) {
+// function StdLayoutSelectByIndexDepreciated(layoutIndexPassed) {
 //     //
 //     // Layouts:
 //     // var layoutStandard = 1;
@@ -419,7 +412,7 @@ function fnMenuImagesHtmlBuild() {
 //     layoutZindex = 20;
 //     //
 //     // Window Width
-//     fnWindowClientWidth();
+//     StdWindowClientWidth();
 //     // layoutWidth -= 20;
 //     // layoutHeight -= 20;
 //     //---------------------------------------------------------------//
@@ -428,14 +421,14 @@ function fnMenuImagesHtmlBuild() {
 //     if (elBodyFirst) {
 //         //---------------------------------------------------------------//
 //         //      Body Element Creation
-//         if (javaLoadFirst) {
+//         if (loadFirstJava) {
 //             // Initialize and save
-//             fnElementObjectCreate();
+//             StdElementObjectCreate();
 //             //
 //         }
 //         //---------------------------------------------------------------//
 //         //      Body Main Container (contains Left Center and Right
-//         if (!elBodyMainContainer) { elBodyMainContainer = fnElementGetFromId("BodyMainContainer"); }
+//         if (!elBodyMainContainer) { elBodyMainContainer = StdElementGetFromId("BodyMainContainer"); }
 //         // Body Container
 //         // elBodyMainContainer.style.posWidth = layoutWidth;
 //         // elBodyMainContainer.style.width = elBodyMainContainer.style.posWidth;
@@ -443,24 +436,24 @@ function fnMenuImagesHtmlBuild() {
 //         //---------------------------------------------------------------//
 //         //			    Menu at Left
 //         // elBodyMainLeftOrig.innerHTML = elBodyMainLeft.innerHTML;
-//         elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, "none");
+//         elBodyMainLeftOrig = StdElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, "none");
 //         elBodyMainLeftOrigFirst = false;
 //         //---------------------------------------------------------------//
 //         //			    Menu at Right
 //         // elBodyMainLeftOrig.innerHTML = elBodyMainRight.innerHTML;
-//         elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, "none");
+//         elBodyMainRightOrig = StdElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, "none");
 //         elBodyMainRightOrigFirst = false;
 //         //---------------------------------------------------------------//
 //         // 	 		 Banner at Center Bottom
-//         elBodyBanner = fnElementGetRefFromElement(elBodyBanner, "BodyBanner", "BodyBanner", elBodyMainCenterTop);
-//         elBodyBannerTop = fnElementGetRefFromElement(elBodyBannerTop, "BodyBannerTop", "BodyBannerTop", elBodyMainCenterTop);
-//         elBodyBannerBottom = fnElementGetRefFromElement(elBodyBannerBottom, "BodyBannerBottom", "BodyBannerBottom", elBodyMainCenterBottom);
-//         elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, "block");
+//         elBodyBanner = StdElementGetRefFromElement(elBodyBanner, "BodyBanner", "BodyBanner", elBodyMainCenterTop);
+//         elBodyBannerTop = StdElementGetRefFromElement(elBodyBannerTop, "BodyBannerTop", "BodyBannerTop", elBodyMainCenterTop);
+//         elBodyBannerBottom = StdElementGetRefFromElement(elBodyBannerBottom, "BodyBannerBottom", "BodyBannerBottom", elBodyMainCenterBottom);
+//         elBodyBannerBottom = StdElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, "block");
 //         elBodyBannerBottomFirst = false;
 //         //
 //         //---------------------------------------------------------------//
 //         //  BodyMain Center Center ColBreak
-//         elBodyMainCenterTopLeft = fntElementBreakSet(elBodyMainCenterCenter, "BodyMainCenterCenterColBreak", elementLayoutFirstDummy = true, "block", "visible", "both")
+//         elBodyMainCenterTopLeft = StdtElementBreakSet(elBodyMainCenterCenter, "BodyMainCenterCenterColBreak", elementLayoutFirstPhatomData = true, "block", "visible", "both")
 //         //
 //     }
 //     //---------------------------------------------------------------//
@@ -483,13 +476,13 @@ function fnMenuImagesHtmlBuild() {
 //             var boxHeight = 0;
 //             //---------------------------------------------------------------//
 //             // elBodyViewToggle View Toggle and Message Area
-//             elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
+//             elBodyViewToggle = StdElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
 //             boxHeight += elBodyViewToggle.scrollHeight;
 //             // Banner Should be zero, don't use..,
 //             elBodyBannerTop.style.display = "block";
 //             boxHeight += elBodyBannerTop.scrollHeight;
 //             //
-//             elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
+//             elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
 //             boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
 //             //
 //             // BodyViewToggle + Banner + Left/Right
@@ -604,7 +597,7 @@ function fnMenuImagesHtmlBuild() {
 //             // 	 		 Hidden Banner at Bottom
 //             if (!layoutReadingModeFirst) {
 //                 // elBodyBannerBottom.innerHTML = elBodyBanner.innerHTML;
-//                 elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, "block");
+//                 elBodyBannerBottom = StdElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, "block");
 //                 elBodyBannerBottomFirst = false;
 //             }
 //             //
@@ -648,7 +641,7 @@ function fnMenuImagesHtmlBuild() {
 //                 // // elBodyMenuLayout1 BodyMenuLayout
 //                 // if (false = true) {
 //                 //     if (!elelBodyMenuLayout1 && elBodyMainCenterTopLeft) {
-//                 //         elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout1", "BodyMenuLayout1", elBodyMainCenterTopLeft);
+//                 //         elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout1", "BodyMenuLayout1", elBodyMainCenterTopLeft);
 //                 //     }
 //                 //     //
 //                 //     TopLeftWidth = elBodyMenuLayout1.style.posWidth;
@@ -659,11 +652,11 @@ function fnMenuImagesHtmlBuild() {
 //                 // Process Left Column
 //                 //
 //                 // elBodyMainLeft.innerHTML = elBodyMainLeftOrig.innerHTML
-//                 elBodyMainLeftCopy = fnElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, "block");
+//                 elBodyMainLeftCopy = StdElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, "block");
 //                 elBodyMainLeftFirst = false;
 //                 //
 //                 // elBodyMainRight.innerHTML = elBodyMainLeftOrig.innerHTML
-//                 elBodyMainRightCopy = fnElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, "block");
+//                 elBodyMainRightCopy = StdElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, "block");
 //                 elBodyMainRightFirst = false;
 //                 //
 //             }
@@ -682,8 +675,8 @@ function fnMenuImagesHtmlBuild() {
 //                 // Set Center Top Left Element
 //                 // MainCenterTopLeft is a Reference pointer into the page
 //                 // that has MainLeft HTML copied into it.
-//                 elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft, "BodyMainCenterTopLeft", "BodyMainCenterTopLeft");
-//                 elBodyMainCenterTopLeft = fnElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, "block");
+//                 elBodyMainCenterTopLeft = StdElementGetRef(elBodyMainCenterTopLeft, "BodyMainCenterTopLeft", "BodyMainCenterTopLeft");
+//                 elBodyMainCenterTopLeft = StdElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, "block");
 //                 elBodyMainCenterTopLeftFirst = false;
 //                 //---------------------------------------------------------------//
 //                 // Enclose Box
@@ -697,11 +690,11 @@ function fnMenuImagesHtmlBuild() {
 //                 // elBodyMainCenterTopLeft.style.maxHeight = 450;
 //                 //---------------------------------------------------------------//
 //                 // Left Body Column (BodyMainLeft)
-//                 // elMenuMainLeft = fnElementGetRef(elMenuMainLeft,"MenuMainLeft","MenuMainLeft");
+//                 // elMenuMainLeft = StdElementGetRef(elMenuMainLeft,"MenuMainLeft","MenuMainLeft");
 //                 // Do Not Alter... elMenuMainLeft.style.width = "97%";
 //                 //---------------------------------------------------------------//
 //                 // elBodyMenuLayout1 BodyMenuLayout
-//                 elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout1", "BodyMenuLayout1", elBodyMainCenterTopLeft);
+//                 elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout1", "BodyMenuLayout1", elBodyMainCenterTopLeft);
 //                 // elBodyMenuLayout1.style.width = "100%";
 //                 //---------------------------------------------------------------//
 //                 // Width of Layout area (previous?)
@@ -710,19 +703,19 @@ function fnMenuImagesHtmlBuild() {
 //                 // TopLeftWidthInner = TopLeftWidth;
 //                 //---------------------------------------------------------------//
 //                 // Left Outer and Inner Decorative Divs
-//                 elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainLeftOuter", "BodyMainLeftOuter", elBodyMainCenterTopLeft);
+//                 elBodyMainLeftOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainLeftOuter", "BodyMainLeftOuter", elBodyMainCenterTopLeft);
 //                 elBodyMainLeftOuter.style.paddingLeft = "3%";
 //                 elBodyMainLeftOuter.style.width = "97%";
 //                 //
-//                 elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, "BodyMainLeftInner", "BodyMainLeftInner", elBodyMainCenterTopLeft);
+//                 elBodyMainLeftInner = StdElementGetRefFromElement(elBodyMainLeftInner, "BodyMainLeftInner", "BodyMainLeftInner", elBodyMainCenterTopLeft);
 //                 elBodyMainLeftInner.style.paddingRight = "3%";
 //                 elBodyMainLeftInner.style.width = "97%";
 //                 elBodyMainLeftInner.style.paddingTop = 10;
 //                 //---------------------------------------------------------------//
 //                 // Left elMenuGroup1, 2, 3
-//                 elMenuGroup1 = fnElementGetRefFromElement(elMenuGroup1, "MenuGroup1", "MenuGroup1", elBodyMainCenterTopLeft);
-//                 elMenuGroup2 = fnElementGetRefFromElement(elMenuGroup2, "MenuGroup2", "MenuGroup2", elBodyMainCenterTopLeft);
-//                 elMenuGroup3 = fnElementGetRefFromElement(elMenuGroup3, "MenuGroup3", "MenuGroup3", elBodyMainCenterTopLeft);
+//                 elMenuGroup1 = StdElementGetRefFromElement(elMenuGroup1, "MenuGroup1", "MenuGroup1", elBodyMainCenterTopLeft);
+//                 elMenuGroup2 = StdElementGetRefFromElement(elMenuGroup2, "MenuGroup2", "MenuGroup2", elBodyMainCenterTopLeft);
+//                 elMenuGroup3 = StdElementGetRefFromElement(elMenuGroup3, "MenuGroup3", "MenuGroup3", elBodyMainCenterTopLeft);
 //                 //---------------------------------------------------------------//
 //                 // elMenuGroup1
 //                 elMenuGroup1.style.posLeft = "-7%";
@@ -744,19 +737,19 @@ function fnMenuImagesHtmlBuild() {
 //                 //---------------------------------------------------------------//
 //                 // elDivC21 Callout Paragraph Contents
 //                 // if (true = false) {
-//                 //     var elDivC21 = fnElementGetRefFromElement(elDivC21, "DivC21", "DivC21", elBodyMainCenterTopLeft);
+//                 //     var elDivC21 = StdElementGetRefFromElement(elDivC21, "DivC21", "DivC21", elBodyMainCenterTopLeft);
 //                 //     elDivC21.style.display = "none";
 //                 // }
 //                 //---------------------------------------------------------------//
 //                 // elDivC22 Callout Paragraph Contents
-//                 var elDivC22 = fnElementGetRefFromElement(elDivC22, "DivC22", "DivC22", elBodyMainCenterTopLeft);
+//                 var elDivC22 = StdElementGetRefFromElement(elDivC22, "DivC22", "DivC22", elBodyMainCenterTopLeft);
 //                 elDivC22.style.display = "none";
 //                 //---------------------------------------------------------------//
 //                 // Left Body Text Alignment Breaks
-//                 var elementLayoutFirstDummy;
-//                 elBodyMainCenterTopLeft = fntElementBreakSet(elBodyMainCenterTopLeft, "MenuGroup1ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
-//                 elBodyMainCenterTopLeft = fntElementBreakSet(elBodyMainCenterTopLeft, "MenuGroup2ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
-//                 elBodyMainCenterTopLeft = fntElementBreakSet(elBodyMainCenterTopLeft, "MenuGroup3ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
+//                 var elementLayoutFirstPhatomData;
+//                 elBodyMainCenterTopLeft = StdtElementBreakSet(elBodyMainCenterTopLeft, "MenuGroup1ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+//                 elBodyMainCenterTopLeft = StdtElementBreakSet(elBodyMainCenterTopLeft, "MenuGroup2ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+//                 elBodyMainCenterTopLeft = StdtElementBreakSet(elBodyMainCenterTopLeft, "MenuGroup3ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
 //                 //
 //             }
 //             //
@@ -768,8 +761,8 @@ function fnMenuImagesHtmlBuild() {
 //             if (layoutWindowedFirst) {
 //                 // Right Body Text Alignment Breaks
 //                 // Set (Copy To) Top Left Element
-//                 elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight, "BodyMainCenterTopRight", "BodyMainCenterTopRight");
-//                 elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, "block");
+//                 elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight, "BodyMainCenterTopRight", "BodyMainCenterTopRight");
+//                 elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, "block");
 //                 // elBodyMainCenterTopRightFirst = false;
 //                 //
 //                 //---------------------------------------------------------------//
@@ -777,22 +770,22 @@ function fnMenuImagesHtmlBuild() {
 //                 elBodyMainCenterTopRight.className = elBodyMainCenterTopRight.className + " CalloutBorderFull";
 //                 //---------------------------------------------------------------//
 //                 // elBodyMenuLayout2 BodyMenuLayout
-//                 elBodyMenuLayout2 = fnElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout2", "BodyMenuLayout2", elBodyMainCenterTopRight);
+//                 elBodyMenuLayout2 = StdElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout2", "BodyMenuLayout2", elBodyMainCenterTopRight);
 //                 //---------------------------------------------------------------//
 //                 // Right Outer and Inner Decorative Divs
-//                 elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", elBodyMainCenterTopRight);
+//                 elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", elBodyMainCenterTopRight);
 //                 elBodyMainLeftOuter.style.paddingLeft = "3%";
 //                 elBodyMainLeftOuter.style.width = "97%";
 //                 //
-//                 elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", elBodyMainCenterTopRight);
+//                 elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", elBodyMainCenterTopRight);
 //                 elBodyMainRightInner.style.paddingRight = "3%";
 //                 elBodyMainRightInner.style.width = "97%";
 //                 elBodyMainRightInner.style.paddingTop = 10;
 //                 //---------------------------------------------------------------//
 //                 // Right elMenuGroup4, 2, 3
-//                 elMenuGroup4 = fnElementGetRefFromElement(elMenuGroup4, "MenuGroup4", "MenuGroup4", elBodyMainCenterTopRight);
-//                 elMenuGroup5 = fnElementGetRefFromElement(elMenuGroup5, "MenuGroup5", "MenuGroup5", elBodyMainCenterTopRight);
-//                 elMenuGroup6 = fnElementGetRefFromElement(elMenuGroup6, "MenuGroup6", "MenuGroup6", elBodyMainCenterTopRight);
+//                 elMenuGroup4 = StdElementGetRefFromElement(elMenuGroup4, "MenuGroup4", "MenuGroup4", elBodyMainCenterTopRight);
+//                 elMenuGroup5 = StdElementGetRefFromElement(elMenuGroup5, "MenuGroup5", "MenuGroup5", elBodyMainCenterTopRight);
+//                 elMenuGroup6 = StdElementGetRefFromElement(elMenuGroup6, "MenuGroup6", "MenuGroup6", elBodyMainCenterTopRight);
 //                 //---------------------------------------------------------------//
 //                 // elMenuGroup4
 //                 elMenuGroup4.style.posLeft = "-7%";
@@ -813,10 +806,10 @@ function fnMenuImagesHtmlBuild() {
 //                 if (layoutMenuHeightMax < elMenuGroup6.style.height) { layoutMenuHeightMax = elMenuGroup6.style.height; }
 //                 //---------------------------------------------------------------//
 //                 // Column and Float Breaks and Clear
-//                 // var elementLayoutFirstDummy;
-//                 elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
-//                 elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
-//                 elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
+//                 // var elementLayoutFirstPhatomData;
+//                 elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+//                 elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+//                 elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
 //                 //
 //             }
 //             //---------------------------------------------------------------//
@@ -824,7 +817,7 @@ function fnMenuImagesHtmlBuild() {
 //             boxHeight = 0;
 //             //---------------------------------------------------------------//
 //             // elBodyViewToggle View Toggle and Message Area
-//             elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
+//             elBodyViewToggle = StdElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
 //             boxHeight += elBodyViewToggle.scrollHeight;
 //             // Banner Should be zero, don't use..,
 //             boxHeight += elBodyBannerTop.scrollHeight;
@@ -836,7 +829,7 @@ function fnMenuImagesHtmlBuild() {
 //             }
 //             boxHeight += elBodyMenuLayout1.style.posHeight;
 //             //
-//             elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
+//             elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
 //             boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
 //             //
 //             // BodyViewToggle + Banner + Left/Right
@@ -971,11 +964,11 @@ function fnMenuImagesHtmlBuild() {
 //             // xx
 //             //---------------------------------------------------------------//
 //             // Left Body Text Alignment Breaks
-//             elMenuGroup1ColBreak = fnElementGetRef(elMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
+//             elMenuGroup1ColBreak = StdElementGetRef(elMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
 //             elMenuGroup1ColBreak.style.display = "none";
-//             elMenuGroup2ColBreak = fnElementGetRef(elMenuGroup2ColBreak, "MenuGroup2ColBreak", "MenuGroup2ColBreak");
+//             elMenuGroup2ColBreak = StdElementGetRef(elMenuGroup2ColBreak, "MenuGroup2ColBreak", "MenuGroup2ColBreak");
 //             elMenuGroup2ColBreak.style.display = "none";
-//             elMenuGroup3ColBreak = fnElementGetRef(elMenuGroup3ColBreak, "MenuGroup3ColBreak", "MenuGroup3ColBreak");
+//             elMenuGroup3ColBreak = StdElementGetRef(elMenuGroup3ColBreak, "MenuGroup3ColBreak", "MenuGroup3ColBreak");
 //             elMenuGroup3ColBreak.style.display = "none";
 //             //
 //             //---------------------------------------------------------------//
@@ -983,19 +976,19 @@ function fnMenuImagesHtmlBuild() {
 //             // xx
 //             //---------------------------------------------------------------//
 //             // Right Body Text Alignment Breaks
-//             elMenuGroup4ColBreak = fnElementGetRef(elMenuGroup4ColBreak, "MenuGroup4ColBreak", "MenuGroup4ColBreak");
+//             elMenuGroup4ColBreak = StdElementGetRef(elMenuGroup4ColBreak, "MenuGroup4ColBreak", "MenuGroup4ColBreak");
 //             elMenuGroup4ColBreak.style.display = "none";
-//             elMenuGroup5ColBreak = fnElementGetRef(elMenuGroup5ColBreak, "MenuGroup5ColBreak", "MenuGroup5ColBreak");
+//             elMenuGroup5ColBreak = StdElementGetRef(elMenuGroup5ColBreak, "MenuGroup5ColBreak", "MenuGroup5ColBreak");
 //             elMenuGroup5ColBreak.style.display = "none";
-//             elMenuGroup6ColBreak = fnElementGetRef(elMenuGroup6ColBreak, "MenuGroup6ColBreak", "MenuGroup6ColBreak");
+//             elMenuGroup6ColBreak = StdElementGetRef(elMenuGroup6ColBreak, "MenuGroup6ColBreak", "MenuGroup6ColBreak");
 //             elMenuGroup6ColBreak.style.display = "none";
 //             //
-//             elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, "none");
+//             elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, "none");
 //             elBodyMainCenterTopRightFirst = false;
 //             //
 //             //---------------------------------------------------------------//
 //             // 	 		 	 Banner at Bottom
-//             elBodyBanner = fnElementGetFromId("BodyBanner");
+//             elBodyBanner = StdElementGetFromId("BodyBanner");
 //             //---------------------------------------------------------------//
 //             // Area Displays
 //             elBodyBanner.style.display = "block";
@@ -1028,7 +1021,7 @@ function fnMenuImagesHtmlBuild() {
 //     //
 //     // document.recalc();
 //     //
-//     fnlayoutWindowResize();
+//     StdlayoutWindowResize();
 //     //
 //     elBodyFirst = false;
 //     // return;
@@ -1042,29 +1035,29 @@ function fnMenuImagesHtmlBuild() {
 // Menu Image Show / Hide
 ////////////////////////////////////////////////
 // Menu Show
-// 		fnMenuImgShowRange
-//		fnMenuImgShowIndex
-//		fnMenuImgShowStack
-//		fnMenuImgToggle
-//		fnMenuImgShow
+// 		StdMenuImgShowRange
+//		StdMenuImgShowIndex
+//		StdMenuImgShowStack
+//		StdMenuImgToggle
+//		StdMenuImgShow
 // Menu Hide
-// 		fnMenuImgToggleRange
-//		fnMenuImgHide
+// 		StdMenuImgToggleRange
+//		StdMenuImgHide
 //
 ////////////////////////////////////////////////
 // Menu Hide
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
-// fnMenu Mouse Out function
+// StdMenu Mouse Out function
 ////////////////////////////////////////////////
-function fnMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function StdMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
     //  alert(oObj.name);
     //	oObj.class= "MenuThumbHide";
     //
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
     var oObjNextIndex = oObjIndex = oObjGroupImageIndex;
-    // fnMenuIndexSet(oObjNextGroupIndex, oObjNext);
-    // oObj = fnMenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
+    // StdMenuIndexSet(oObjNextGroupIndex, oObjNext);
+    // oObj = StdMenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
     //
     if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex] == true) { return; }
     //
@@ -1081,17 +1074,17 @@ function fnMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oO
 }
 // Menu Toggle Show
 ////////////////////////////////////////////////
-// fnMenu Mouse Out function
+// StdMenu Mouse Out function
 ////////////////////////////////////////////////
-function fnMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+function StdMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
     startObjoObjIndex = startIndex;
     endObjoObjIndex = endIndex;
     oObjIndex = startObjoObjIndex;
     if (oObjNext.style.display = "none") {
         oObjLocked = true;
         IgnoreLock = false;
-        fnMenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+        StdMenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
     } else {
         oObjLocked = false;
         IgnoreLock = true;
@@ -1099,15 +1092,15 @@ function fnMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, I
             //
             menuImageLocked[oObjGroupIndex][oObjIndex] = false;
             // Objects
-            oObj = fnMenuObjectSetAll(oObjGroupIndex, oObjIndex);
+            oObj = StdMenuObjectSetAll(oObjGroupIndex, oObjIndex);
             if (HideImage) {
                 if (oObj.style.display = "block") {
-                    fnMenuImgHide(IsImageLarge, oObjParent, oObjImage, oObj, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+                    StdMenuImgHide(IsImageLarge, oObjParent, oObjImage, oObj, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
                 }
             }
             if (HideImageLarge) {
                 if (oObjImageLarge.style.display = "block") {
-                    fnMenuImgHide(IsImageLarge, oObj, oObjImageLarge, oObjLarge, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+                    StdMenuImgHide(IsImageLarge, oObj, oObjImageLarge, oObjLarge, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
                 }
             }
             //
@@ -1115,84 +1108,84 @@ function fnMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, I
         }
     }
 }
-// fnMenu Toggle Menu Show Item (Mouse Down function)
+// StdMenu Toggle Menu Show Item (Mouse Down function)
 ////////////////////////////////////////////////
-function fnMenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-    oObjIndex = oObjGroupImageIndex;// fnMenuIndexSet(oObjGroupIndex, oObjNext);
+function StdMenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
+    oObjIndex = oObjGroupImageIndex;// StdMenuIndexSet(oObjGroupIndex, oObjNext);
     if (oObjNext.style.display = "none") {
-        fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
+        StdMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
     } else {
         if (IsImageLarge) {
             // Is this wrong?
-            fnMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
+            StdMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
         } else {
-            fnMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
+            StdMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
         }
     }
 }
 // Menu Show
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
-// fnMenu Mouse Over function
+// StdMenu Mouse Over function
 ////////////////////////////////////////////////
-function fnMenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function StdMenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
     ////////////////////////////////////////////////
     // Build Menu Images Div
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
     //
     startObjoObjIndex = startIndex;
-    endObjoObjIndex = oObjGroupImageIndex;// fnMenuIndexSet(oObjGroupIndex, oObjNext);
+    endObjoObjIndex = oObjGroupImageIndex;// StdMenuIndexSet(oObjGroupIndex, oObjNext);
     var oObjIndex = startObjoObjIndex;
     while (oObjIndex < 1 + endObjoObjIndex) {
         //
         oObjIndex++;
     }
 }
-// fnMenu Mouse Over function
+// StdMenu Mouse Over function
 ////////////////////////////////////////////////
-function fnMenuImgShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-    fnMenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+function StdMenuImgShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
+    StdMenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
 }
-// fnMenu Menu Show Item and all Previous (Mouse Over function)
+// StdMenu Menu Show Item and all Previous (Mouse Over function)
 ////////////////////////////////////////////////
-function fnMenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+function StdMenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
     imgZindex += 1;
     oObjNext.style.zIndex = imgZindex;
     //
     startoObjIndex = 1;
-    endoObjIndex = fnMenuIndexSet(oObjGroupIndex, oObjNext);
+    endoObjIndex = StdMenuIndexSet(oObjGroupIndex, oObjNext);
     oObjIndex = startoObjIndex;
     while (oObjIndex < 1 + endoObjIndex) {
         // Objects
-        oObj = fnMenuObjectSetAll(oObjGroupIndex, oObjIndex);
+        oObj = StdMenuObjectSetAll(oObjGroupIndex, oObjIndex);
         // Set Lock State
         // if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
         if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex] = oObjLocked; }
         // Reveal Hidden Images
-        fnMenuImgShow(IsImageLarge, oObjParent, oObjImage, oObj, iImageSize, oObjGroupIndex, oObjIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
+        StdMenuImgShow(IsImageLarge, oObjParent, oObjImage, oObj, iImageSize, oObjGroupIndex, oObjIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
         oObjIndex++;
     }
 }
-// fnMenu Menu Show Item (Mouse Over function)
+// StdMenu Menu Show Item (Mouse Over function)
 // var LastId = "";
 // var LastTochedId = "";
 //
 ////////////////////////////////////////////////
-function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-    if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-    oObjIndex = oObjGroupImageIndex;// fnMenuIndexSet(oObjGroupIndex, oObjNext);
+function StdMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+    if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
+    oObjIndex = oObjGroupImageIndex;// StdMenuIndexSet(oObjGroupIndex, oObjNext);
     LastTochedId = oObjNext.id;
     //
-    fnDebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
+    DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
     //
-    fnWindowClientWidth();
+    StdWindowClientWidth();
     //
     // if (IsImageLarge) {
     // Objects
-    // oObj = fnMenuObjectSetAll(oObjGroupIndex, oObjIndex);
+    // oObj = StdMenuObjectSetAll(oObjGroupIndex, oObjIndex);
     // Style Visibility
     // oObjLarge.style.display= "block";
     // oObjImageLarge.style.display= "block";
@@ -1230,12 +1223,12 @@ function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
         ////////////////////////////////////////////////
         // Mouse Events
         // if(true = false) {
-        // oObjNext.onfilterchange= "fnFilterSpin(" + oObjNext.id + ", filterIndexPassed)";
+        // oObjNext.onfilterchange= "StdFilterSpin(" + oObjNext.id + ", filterIndexPassed)";
         // oObjNext.onmouseover   = "";
         // if (IsImageLarge) {
-        // oObjNext.onmouseover += "fnMenuImgShow(true, ";
+        // oObjNext.onmouseover += "StdMenuImgShow(true, ";
         // } else {
-        // oObjNext.onmouseover += "fnMenuImgShowStack(";
+        // oObjNext.onmouseover += "StdMenuImgShowStack(";
         // }        // oObjNext.onmouseover 	+= oObjNextParent.id
         // + ", "
         // + oObjNextImage.id
@@ -1248,8 +1241,8 @@ function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
         // oObjNext.onmouseover += oObjImageSizeSmall;
         // }        // oObjNext.onmouseover 	+= ", 4, false, false)"
         // + ";"
-        // + "fnFilterResetThenAnimate(" + oObjNext.id + ");";
-        // onmouseover= "fnMenuImgShowStack(MenuContainerRight1, MdmImportTld4Image, MdmImportTld4, oObjImageSizeSmall, 4, false, false)"
+        // + "StdFilterResetThenAnimate(" + oObjNext.id + ");";
+        // onmouseover= "StdMenuImgShowStack(MenuContainerRight1, MdmImportTld4Image, MdmImportTld4, oObjImageSizeSmall, 4, false, false)"
         ////////////////////////////////////////////////
         // }
         //
@@ -1261,7 +1254,7 @@ function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
         // Parent Postion
         ////////////////////////////////////////////////
         // Get the offset width of that parent element
-        fnElementPosGet(oObjNextParent);
+        StdElementPosGet(oObjNextParent);
         //
         ////////////////////////////////////////////////
         // Position Control
@@ -1532,7 +1525,7 @@ function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
         ////////////////////////////////////////////////
         // Filter Apply Command
         if (filterCheck && (moveIsOn || filterIsOn)) {
-            fnMenuImageFilterPlayAgain(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjIndex, false, true);
+            StdMenuImageFilterPlayAgain(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjIndex, false, true);
             // oObjNextImage.filters[0].apply();
             // oObjNextImage.filters[1].apply();
             // oObjNextImage.filters.item("DXImageTransform.Microsoft.Wheel").apply();
@@ -1576,8 +1569,8 @@ function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
             // oObjNextImage.filters[0].play();
             // oObjNextImage.filters.item(0).Play();
             // oObjNextImage.filters[1].play();
-            // fnFilterResetThenAnimate(oObjNext);
-            // fnFilterSpin(oObjNext);
+            // StdFilterResetThenAnimate(oObjNext);
+            // StdFilterSpin(oObjNext);
         }
         //
         ////////////////////////////////////////////////
@@ -1594,4 +1587,6 @@ function fnMenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
     // if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
     if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex] = oObjLocked; }
 }
-script_state = "MdmMenuImage loaded";
+
+script_state = "Mdm Standard Image functions loaded. (Build, Hide/Show, Toggle)";
+if (debugLoadIsOn) { debugger; }

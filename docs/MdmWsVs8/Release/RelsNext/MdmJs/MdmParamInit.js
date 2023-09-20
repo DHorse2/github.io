@@ -2,7 +2,7 @@
 // ServerIsOn (Page came from server not local)
 serverIsOn = true;
 //
-function fnDebugParameterInit()
+function DebugParameterInit()
 {
 	var tempSelected = false;
 	var elementObject = document.createElement('input');
@@ -10,81 +10,81 @@ function fnDebugParameterInit()
 	////////////////////////////////////////////////
 	// Toggled Variables
 	////////////////////////////////////////////////
-	elementObject = fnElementGetFromId('formImgLoadUseEventHandler');
+	elementObject = StdElementGetFromId('formImgLoadUseEventHandler');
 	if (!elementObject) { return; }
 	// ** Javascript Parameter Init Blocks **
 	if (imgLoadUseEventHandler) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formImgLoadUseInner');
+	elementObject = StdElementGetFromId('formImgLoadUseInner');
 	if (imgLoadUseInner) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formImgLoadEventTest');
+	elementObject = StdElementGetFromId('formImgLoadEventTest');
 	if (imgLoadEventTest) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formImgLoadUseDOM');
+	elementObject = StdElementGetFromId('formImgLoadUseDOM');
 	if (imgLoadUseDOM) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// User Interface Features
 	// Control image display using mouse hover
-	elementObject = fnElementGetFromId('formEventMouseOverEnabled');
+	elementObject = StdElementGetFromId('formEventMouseOverEnabled');
 	if (eventMouseOverEnabled) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Animation Control
-	elementObject = fnElementGetFromId('formMoveIsOn');
+	elementObject = StdElementGetFromId('formMoveIsOn');
 	if (moveIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formFilterIsOn');
+	elementObject = StdElementGetFromId('formFilterIsOn');
 	if (filterIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formFilterResizeIsOn');
+	elementObject = StdElementGetFromId('formFilterResizeIsOn');
 	if (filterResizeIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formTimerUseTime');
+	elementObject = StdElementGetFromId('formTimerUseTime');
 	if (timerUseTime) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Timer and Event Logging
-	elementObject = fnElementGetFromId('formDebugTimer');
+	elementObject = StdElementGetFromId('formDebugTimer');
 	if (debugTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formDebugTimerMove');
+	elementObject = StdElementGetFromId('formDebugTimerMove');
 	if (debugTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formDebugTimerTransition');
+	elementObject = StdElementGetFromId('formDebugTimerTransition');
 	if (debugTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formDebugTimerDetail');
+	elementObject = StdElementGetFromId('formDebugTimerDetail');
 	if (debugTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formDebugLogEvents');
+	elementObject = StdElementGetFromId('formDebugLogEvents');
 	if (debugLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Debugger Control
-	elementObject = fnElementGetFromId('formErrorUseDebugOnError');// enter debugger on errors
+	elementObject = StdElementGetFromId('formErrorUseDebugOnError');// enter debugger on errors
 	if (errorUseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formErrorUseDebugOnAll');// enter debugger after any message
+	elementObject = StdElementGetFromId('formErrorUseDebugOnAll');// enter debugger after any message
 	if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formDebugIsOn');
+	elementObject = StdElementGetFromId('formDebugIsOn');
 	if (debugIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formDebugDoAlert');
+	elementObject = StdElementGetFromId('formDebugDoAlert');
 	if (debugDoAlert) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Page Load Optimaization
-	elementObject = fnElementGetFromId('formJavaLoadDelay');
-	if (javaLoadDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
+	elementObject = StdElementGetFromId('formJavaLoadDelay');
+	if (loadDelayJava) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formBodyImageLoadDelay');
-	if (bodyImageLoadDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
+	elementObject = StdElementGetFromId('formBodyImageLoadDelay');
+	if (loadDelayBodyImage) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
-	elementObject = fnElementGetFromId('formMenuImageLoadDelay');
-	if (menuImageLoadDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
+	elementObject = StdElementGetFromId('formMenuImageLoadDelay');
+	if (loadDelayMenuImage) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Fields with values
@@ -93,136 +93,137 @@ function fnDebugParameterInit()
 	elementObject = document.createElement('option');
 	////////////////////////////////////////////////
 	// Browser
-	elementObject = fnElementGetFromId('formBrowser_TEST');
+	elementObject = StdElementGetFromId('formBrowser_TEST');
 	if (browserIsTEST) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formBrowser_MSIE');
+	elementObject = StdElementGetFromId('formBrowser_MSIE');
 	if (browserIsIE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formBrowser_Chrome');
+	elementObject = StdElementGetFromId('formBrowser_Chrome');
 	if (browserIsCH) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formBrowser_FireFox');
+	elementObject = StdElementGetFromId('formBrowser_FireFox');
 	if (browserIsFF) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formBrowser_Safari');
+	elementObject = StdElementGetFromId('formBrowser_Safari');
 	if (browserIsSA) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formBrowser_Opera');
+	elementObject = StdElementGetFromId('formBrowser_Opera');
 	if (browserIsOP) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formBrowser_Netscape');
+	elementObject = StdElementGetFromId('formBrowser_Netscape');
 	if (browserIsNE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { fnElementGetFromId('formBrowser_FireFox').selected = true; }
+	if (!tempSelected) { StdElementGetFromId('formBrowser_FireFox').selected = true; }
 	//
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Debug Control
-	elementObject = fnElementGetFromId('formErrorDebugLevel_errorDidNotOccur');
+	elementObject = StdElementGetFromId('formErrorDebugLevel_errorDidNotOccur');
 	if (errorDebugLevel == errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formErrorDebugLevel_errorComment');
+	elementObject = StdElementGetFromId('formErrorDebugLevel_errorComment');
 	if (errorDebugLevel == errorComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formErrorDebugLevel_errorWarn');
+	elementObject = StdElementGetFromId('formErrorDebugLevel_errorWarn');
 	if (errorDebugLevel == errorWarn) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formErrorDebugLevel_errorSevere');
+	elementObject = StdElementGetFromId('formErrorDebugLevel_errorSevere');
 	if (errorDebugLevel == errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formErrorDebugLevel_errorFatal');
+	elementObject = StdElementGetFromId('formErrorDebugLevel_errorFatal');
 	if (errorDebugLevel == errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { fnElementGetFromId('formErrorDebugLevel_errorSevere').selected = true; }
+	if (!tempSelected) { StdElementGetFromId('formErrorDebugLevel_errorSevere').selected = true; }
 	//
 	elementObject = document.createElement('input');
 	////////////////////////////////////////////////
 	// Menu Image Size
-	elementObject = fnElementGetFromId('formOObjImageSizeSmall');
+	elementObject = StdElementGetFromId('formOObjImageSizeSmall');
 	elementObject.value = oObjImageSizeSmall;
 	//
-	ementObject = fnElementGetFromId('formOObjImageSizeLarge');
+	ementObject = StdElementGetFromId('formOObjImageSizeLarge');
 	elementObject.value = oObjImageSizeLarge;
 	//
-	elementObject = fnElementGetFromId('formOObjImageSizeRatio');
+	elementObject = StdElementGetFromId('formOObjImageSizeRatio');
 	elementObject.value = oObjImageSizeRatio;
 	//
 	////////////////////////////////////////////////
 	// Animation Control
 	////////////////////////////////////////////////
 	// Movement Duration
-	elementObject = fnElementGetFromId('formElementMoveDuration');
+	elementObject = StdElementGetFromId('formElementMoveDuration');
 	elementObject.value = elementMoveDuration;
 	//
-	elementObject = fnElementGetFromId('formElementMoveStepMax');
+	elementObject = StdElementGetFromId('formElementMoveStepMax');
 	elementObject.value = elementMoveStepMax;
 	//
-	elementObject = fnElementGetFromId('formElementMoveInterval');
+	elementObject = StdElementGetFromId('formElementMoveInterval');
 	elementObject.value = elementMoveInterval;
 	//
-	elementObject = fnElementGetFromId('formElementMoveDelay');
+	elementObject = StdElementGetFromId('formElementMoveDelay');
 	elementObject.value = elementMoveDelay;
 	//
 	////////////////////////////////////////////////
 	// Filter / Transition Duration
-	elementObject = fnElementGetFromId('formFilterDuration');
+	elementObject = StdElementGetFromId('formFilterDuration');
 	elementObject.value = filterDuration;
 	//
-	elementObject = fnElementGetFromId('formFilterStepMax');
+	elementObject = StdElementGetFromId('formFilterStepMax');
 	elementObject.value = filterStepMax;
 	//
-	elementObject = fnElementGetFromId('formFilterInterval');
+	elementObject = StdElementGetFromId('formFilterInterval');
 	elementObject.value = filterInterval;
 	//
-	elementObject = fnElementGetFromId('formFilterDelay');
+	elementObject = StdElementGetFromId('formFilterDelay');
 	elementObject.value = filterDelay;
 	//
-	elementObject = fnElementGetFromId('formFilterDurationAdjustment');
+	elementObject = StdElementGetFromId('formFilterDurationAdjustment');
 	elementObject.value = filterDurationAdjustment;
 	//
 	elementObject = document.createElement('option');
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Timer control by Item or Menu Group
-	elementObject = fnElementGetFromId('formTimerMethod_timerMethodGroup');
+	elementObject = StdElementGetFromId('formTimerMethod_timerMethodGroup');
 	if (timerMethod == timerMethodGroup) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formTimerMethod_timerMethodItem');
+	elementObject = StdElementGetFromId('formTimerMethod_timerMethodItem');
 	if (timerMethod == timerMethodItem) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { fnElementGetFromId('formTimerMethod_timerMethodGroup').selected = true; }
+	if (!tempSelected) { StdElementGetFromId('formTimerMethod_timerMethodGroup').selected = true; }
 	//
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Transitions started by Method call or by altering filter value or visibility
-	elementObject = fnElementGetFromId('formFilterMethod_filterMethodPlay');
+	elementObject = StdElementGetFromId('formFilterMethod_filterMethodPlay');
 	if (timerMethod == timerMethodGroup) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formFilterMethod_filterMethodVisible');
+	elementObject = StdElementGetFromId('formFilterMethod_filterMethodVisible');
 	if (timerMethod == timerMethodItem) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { fnElementGetFromId('formFilterMethod_filterMethodPlay').selected = true; }
+	if (!tempSelected) { StdElementGetFromId('formFilterMethod_filterMethodPlay').selected = true; }
 	//
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Manner by which images move across the screen
-	elementObject = fnElementGetFromId('formElementMoveMethod_elementMoveMethodDirect');
+	elementObject = StdElementGetFromId('formElementMoveMethod_elementMoveMethodDirect');
 	if (elementMoveMethod == elementMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formElementMoveMethod_elementMoveMethodSlideDown');
+	elementObject = StdElementGetFromId('formElementMoveMethod_elementMoveMethodSlideDown');
 	if (elementMoveMethod == elementMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formElementMoveMethod_elementMoveMethodSlideSide');
+	elementObject = StdElementGetFromId('formElementMoveMethod_elementMoveMethodSlideSide');
 	if (elementMoveMethod == elementMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = fnElementGetFromId('formElementMoveMethod_elementMoveMethodRandom');
+	elementObject = StdElementGetFromId('formElementMoveMethod_elementMoveMethodRandom');
 	if (elementMoveMethod == elementMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { fnElementGetFromId('formElementMoveMethod_elementMoveMethodRandom').selected = true; }
+	if (!tempSelected) { StdElementGetFromId('formElementMoveMethod_elementMoveMethodRandom').selected = true; }
     //
-    debugStateLoadFirst = false;
+    loadFirstDebugState = false;
 	//
 }
 // ..................................................................................... _//
-var script_state = "MdmParamInit loaded";
+script_state = "Mdm Standard Parameter Initialization function loaded.";
+if (debugLoadIsOn) { debugger; }

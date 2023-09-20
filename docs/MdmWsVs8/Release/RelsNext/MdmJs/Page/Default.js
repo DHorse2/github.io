@@ -6,18 +6,19 @@ var oObjImageSizeLarge = 500;
 var oObjImageSizeRatio = 0.7;
 var oObjImageSize = 0;
 ////////////////////////////////////////////////
-var javaLoadDelay = true;
-var javaLoadFirst = true;
+var loadDelayJava = true;
+var loadFirstJava = true;
 //
-var bodyImageLoadDelay = false;
-var bodyImageLoadFirst = true;
+var loadDelayBodyImage = false;
+var loadFirstBodyImage = true;
 //
-var menuImageLoadDelay = false;
-var menuImageLoadFirst = true;
+var loadDelayMenuImage = false;
+var loadFirstMenuImage = true;
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 // note: currently you must search and decomment code:
 // debug-instance-off
 // debug-instance-off
-// fnMenuImgShow;
-script_state = "MdmStandard Default settings used";
+// StdMenuImgShow;
+script_state = "MdmStandard Default settings";
+if (debugLoadIsOn) { debugger; }

@@ -1,5 +1,5 @@
 // Timer Control:
-// (See function fnTimerDurationSet for default timer values)
+// (See function StdTimerDurationSet for default timer values)
 // var timerItemKey;
 // var timerRootKey;
 // var timerLevelKey;

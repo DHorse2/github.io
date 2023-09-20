@@ -31,78 +31,78 @@
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Global
-// 		 fnDocumentLoadInit
+// 		 StdDocumentLoadInit
 // Elements
-// 		fnElementPosGet
+// 		StdElementPosGet
 // Layout
-//		fnLayoutSelectByIndex
+//		StdLayoutSelectByIndex
 // Menu Images
-// 		fnMenuImagesHtmlBuild
+// 		StdMenuImagesHtmlBuild
 // Mouse
-// 		fnMouseOverImg
-//		fnMouseOutImg
-//		fnMouseClickImg
+// 		StdMouseOverImg
+//		StdMouseOutImg
+//		StdMouseClickImg
 //
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // MENUS
 // Menu Image Show / Hide
 // Menu Show
-// 		fnMenuImgShowRange
-//		fnMenuImgShowIndex
-//		fnMenuImgShowStack
-//		fnMenuImgToggle
-//		fnMenuImgShow
+// 		StdMenuImgShowRange
+//		StdMenuImgShowIndex
+//		StdMenuImgShowStack
+//		StdMenuImgToggle
+//		StdMenuImgShow
 // Menu Hide
-// 		fnMenuImgToggleRange
-//		fnMenuImgHide
+// 		StdMenuImgToggleRange
+//		StdMenuImgHide
 // Menu Object Selection
-// 		fnMenuObjectSetAll
-//		fnMenuObjectTextSet
-//		fnMenuObjectNameSet
-//		fnMenuIndexSet
-//		fnMenuIndexSetByName
+// 		StdMenuObjectSetAll
+//		StdMenuObjectTextSet
+//		StdMenuObjectNameSet
+//		StdMenuIndexSet
+//		StdMenuIndexSetByName
 ////////////////////////////////////////////////
 // LAYOUT MANAGEMENT
-// 		fnLayoutCheck
-//		fnLayoutRefresh
-//		fnLayoutNext
+// 		StdLayoutCheck
+//		StdLayoutRefresh
+//		StdLayoutNext
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Math Functions
-// 		fnMathNumberRandomGetByRange
+// 		StdMathNumberRandomGetByRange
 // Font Size Control
-//		fnFontSizeIncrease
-//		fnFontSizeDecrease
+//		StdFontSizeIncrease
+//		StdFontSizeDecrease
 ////////////////////////////////////////////////
 // OBJECT ANIMATION
 // Filter (Transition, Transform) Get by Index or Name
-// 		fnFilterGetByIndex
+// 		StdFilterGetByIndex
 ////////////////////////////////////////////////
 // FILTER MANAGEMENT
 // General
-// 		fnFilterResetThenAnimate
+// 		StdFilterResetThenAnimate
 // Filter Store / Restore
-// 		fnFilterStore
-//		fnFilterRestore
+// 		StdFilterStore
+//		StdFilterRestore
 // Animate Object
-// 		fnFilterAnimate
+// 		StdFilterAnimate
 // Filter Specific Functions
 // 		StyleBackground
-//				fnStyleBackgroundToggle
+//				StdStyleBackgroundToggle
 // 		Matrix
-//			  	fnFilterSpin
-//				fnFilterSetRotation
-//				fnFilterResize
-//		fnSlideStyleToggle
-//				fnSlideStyleToggle
+//			  	StdFilterSpin
+//				StdFilterSetRotation
+//				StdFilterResize
+//		StdSlideStyleToggle
+//				StdSlideStyleToggle
 //		Other
 //			 	OtherFunction...
 // Filter Get / Set
-// 		fnFilterGetByIndex
-//		fnFilterGetRandom
+// 		StdFilterGetByIndex
+//		StdFilterGetRandom
 // Filter Timing Get By Index
-// 		fnFilterTimingGetByIndex
+// 		StdFilterTimingGetByIndex
 //		fFilterTimingGetRandom
 ////////////////////////////////////////////////
 // DOCUMENT EVENTS
@@ -146,6 +146,7 @@
     	// BodyBanner  (Hide / Show, copy to Bottom)
     //
     // BodyMainCenterCenter
+    // YOUR CONTENT HERE!!!
     //
     // BodyMainCenterBottom  (Hide / Show)
         // BodyBannerBottom  (Hide / Show, copy to Bottom)
@@ -426,26 +427,26 @@
 // GLOBAL / COMMON
 ////////////////////////////////////////////////
 // Elements
-// 		fnElementPosGet
+// 		StdElementPosGet
 // Layout
-//		fnLayoutSelectByIndex
-//		fnMouseClickImg
+//		StdLayoutSelectByIndex
+//		StdMouseClickImg
 // Mouse
-// 		fnMouseOverImg
-//		fnMouseOutImg
-//		fnMouseClickImg
+// 		StdMouseOverImg
+//		StdMouseOutImg
+//		StdMouseClickImg
 ////////////////////////////////////////////////
 // Object Animation
 ////////////////////////////////////////////////
-// fnFilterStore function
-// fnFilterRestore
+// StdFilterStore function
+// StdFilterRestore
 // filterSupportFunctions:
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // General (Common) functions & properties:
-// fnFilter Management
+// StdFilter Management
 ////////////////////////////////////////////////
-// fnFilterResetThenAnimate function
+// StdFilterResetThenAnimate function
 // ------------------------------------------------------------------------------------- _//
 // Animate Object
 // ------------------------------------------------------------------------------------- _//
@@ -455,19 +456,19 @@
 // Matrix Control Functions
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
-// fnFilterSpin
-// fnSetRotation function
-function fnFilterSetRotation(oObjPassed, filterIndexPassed, deg)
+// StdFilterSpin
+// StdSetRotation function
+function StdFilterSetRotation(oObjPassed, filterIndexPassed, deg)
 // ------------------------------------------------------------------------------------- _//
-// fnResize function
-function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
+// StdResize function
+function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // SlideStyle:
 ////////////////////////////////////////////////
 //
 // ------------------------------------------------------------------------------------- _//
-// fn Slide Style Toggle
+// Std Slide Style Toggle
 // Declare an array and index counter to access  slideStyles.
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
@@ -548,12 +549,12 @@ function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Menu Image Filter Play First
 // ------------------------------------------------------------------------------------- _//
-// fnMenuImageFilterPlayFirst
-// fnMenuImageFilterPlayNext
-// fnMenuImageFilterPlayAgain
+// StdMenuImageFilterPlayFirst
+// StdMenuImageFilterPlayNext
+// StdMenuImageFilterPlayAgain
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
-// fnMenuImageFilterPlay
+// StdMenuImageFilterPlay
     // Play Animation for this image
           // FileterPlayRandom
           //  or
@@ -582,7 +583,7 @@ function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Menu Images Move Action
     // Speed
-    // fnElementMove
+    // StdElementMove
     //
     // Q: Is iterStep Total Steps or Total Steps Per Second?
     // A: Steps per second is a better measure probably
@@ -631,7 +632,7 @@ function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 ///////////////////////////////////////////////
 // Html Variables
 // Build (inner) HTML for Menu Images
-// fnMenuImagesHtmlBuild();
+// StdMenuImagesHtmlBuild();
 ////////////////////////////////////////////////
 // Filter in use is Type Checkerboard;
 // ------------------------------------------------------------------------------------- _//
@@ -696,7 +697,7 @@ function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
     // Element: Img
     // Link Text
 // ------------------------------------------------------------------------------------- _//
-// fnResize function
+// StdResize function
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // Other
@@ -708,7 +709,7 @@ function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Window Events (Load, Resize)
 // Window Load
-// onlayoutcomplete= "fnDocumentLoadInit();";
+// onlayoutcomplete= "StdDocumentLoadInit();";
 // Document Window OnLoad:
 	  ////////////////////////////////////////////////
 	  // Initialize and Set Global Variables
@@ -717,17 +718,17 @@ function fnFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 	  // Docuement Element Initialize & Store Original Menu Columns.
     	  // Initialize and save
           // Choose Standard Layout
-          // fnLayoutSelectByIndex(layoutStandard);
+          // StdLayoutSelectByIndex(layoutStandard);
 // Inactive code:
-// window.onload= "fnDocumentLoadInit();";
-// onlayoutcomplete= "fnDocumentLoadInit();";
+// window.onload= "StdDocumentLoadInit();";
+// onlayoutcomplete= "StdDocumentLoadInit();";
 // ------------------------------------------------------------------------------------- _//
 // Document Window Resize
 // Adjustments:
 // Client Window Size
 // Current Layout Strategy
 //
-window.onresize = function() { fnlayoutWindowResize(); }
+window.onresize = function() { StdlayoutWindowResize(); }
       // Recalculate Screen Display
       // Recalculate Globals for Screen
       // Load Containers if missing
@@ -761,7 +762,7 @@ window.onresize = function() { fnlayoutWindowResize(); }
 ///////////////////////////////////////////////
 // Window Document Functions
 ///////////////////////////////////////////////
-// fn Document Load Initinitialize Variablesm, Arrays and Default Data
+// Std Document Load Initinitialize Variablesm, Arrays and Default Data
     // imgGroupMax
     // imgMax
     // Resize Window
@@ -785,9 +786,9 @@ window.onresize = function() { fnlayoutWindowResize(); }
 ////////////////////////////////////////////////
 // Image Standard Mouse Events
 // Mouse
-// 		fnMouseOverImg
-//		    fnMouseOutImg
-//		    fnMouseClickImg
+// 		StdMouseOverImg
+//		    StdMouseOutImg
+//		    StdMouseClickImg
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
 // Mouse Over
@@ -1002,8 +1003,8 @@ window.onresize = function() { fnlayoutWindowResize(); }
 	  if (layoutWindowedFirst) {
           // Right Body Text Alignment Breaks
           // Set (Copy To) Top Left Element
-          elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight,"BodyMainCenterTopRight","BodyMainCenterTopRight");
-          elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, "block");
+          elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight,"BodyMainCenterTopRight","BodyMainCenterTopRight");
+          elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, "block");
 		      // elBodyMainCenterTopRightFirst = false;
 		      //
           //---------------------------------------------------------------//
@@ -1011,22 +1012,22 @@ window.onresize = function() { fnlayoutWindowResize(); }
           elBodyMainCenterTopRight.className = elBodyMainCenterTopRight.className + " CalloutBorderFull";
           //---------------------------------------------------------------//
           // elBodyMenuLayout2 BodyMenuLayout
-          elBodyMenuLayout2 = fnElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout2", "BodyMenuLayout2", elBodyMainCenterTopRight);
+          elBodyMenuLayout2 = StdElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout2", "BodyMenuLayout2", elBodyMainCenterTopRight);
           //---------------------------------------------------------------//
 		      // Right Outer and Inner Decorative Divs
-          elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", elBodyMainCenterTopRight);
+          elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", elBodyMainCenterTopRight);
           elBodyMainLeftOuter.style.paddingLeft = "3%";
           elBodyMainLeftOuter.style.width = "97%";
           //
-          elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", elBodyMainCenterTopRight);
+          elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", elBodyMainCenterTopRight);
           elBodyMainRightInner.style.paddingRight = "3%";
           elBodyMainRightInner.style.width = "97%";
           elBodyMainRightInner.style.paddingTop = 10;
           //---------------------------------------------------------------//
           // Right elMenuGroup4, 2, 3
-          elMenuGroup4 = fnElementGetRefFromElement(elMenuGroup4, "MenuGroup4", "MenuGroup4", elBodyMainCenterTopRight);
-          elMenuGroup5 = fnElementGetRefFromElement(elMenuGroup5, "MenuGroup5", "MenuGroup5", elBodyMainCenterTopRight);
-          elMenuGroup6 = fnElementGetRefFromElement(elMenuGroup6, "MenuGroup6", "MenuGroup6", elBodyMainCenterTopRight);
+          elMenuGroup4 = StdElementGetRefFromElement(elMenuGroup4, "MenuGroup4", "MenuGroup4", elBodyMainCenterTopRight);
+          elMenuGroup5 = StdElementGetRefFromElement(elMenuGroup5, "MenuGroup5", "MenuGroup5", elBodyMainCenterTopRight);
+          elMenuGroup6 = StdElementGetRefFromElement(elMenuGroup6, "MenuGroup6", "MenuGroup6", elBodyMainCenterTopRight);
           //---------------------------------------------------------------//
 		      // elMenuGroup4
           elMenuGroup4.style.posLeft = "-7%";
@@ -1047,10 +1048,10 @@ window.onresize = function() { fnlayoutWindowResize(); }
           if (layoutMenuHeightMax < elMenuGroup6.style.height) { layoutMenuHeightMax = elMenuGroup6.style.height; }
           //---------------------------------------------------------------//
           // Column and Float Breaks and Clear
-          var elementLayoutFirstDummy;
-          elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
-          elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
-          elBodyMainCenterTopRight = fntElementBreakSet(elBodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstDummy = true, "none", "hidden", "none")
+          var elementLayoutFirstPhatomData;
+          elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
           //
 	  }
     //---------------------------------------------------------------//
@@ -1058,7 +1059,7 @@ window.onresize = function() { fnlayoutWindowResize(); }
     var boxHeight = 0;
     //---------------------------------------------------------------//
     // elBodyViewToggle View Toggle and Message Area
-    var elBodyViewToggle = fnElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
+    var elBodyViewToggle = StdElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
     boxHeight += elBodyViewToggle.scrollHeight;
     // Banner Should be zero, don't use..,
     boxHeight += elBodyBannerTop.scrollHeight;
@@ -1070,7 +1071,7 @@ window.onresize = function() { fnlayoutWindowResize(); }
     }
     boxHeight += elBodyMenuLayout1.style.posHeight;
     //
-    elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
+    elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
     boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
     //
     // BodyViewToggle + Banner + Left/Right
@@ -1205,11 +1206,11 @@ window.onresize = function() { fnlayoutWindowResize(); }
 // xx
       //---------------------------------------------------------------//
       // Left Body Text Alignment Breaks
-	  elMenuGroup1ColBreak = fnElementGetRef(elMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
+	  elMenuGroup1ColBreak = StdElementGetRef(elMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
       elMenuGroup1ColBreak.style.display = "none";
-	  elMenuGroup2ColBreak = fnElementGetRef(elMenuGroup2ColBreak, "MenuGroup2ColBreak", "MenuGroup2ColBreak");
+	  elMenuGroup2ColBreak = StdElementGetRef(elMenuGroup2ColBreak, "MenuGroup2ColBreak", "MenuGroup2ColBreak");
       elMenuGroup2ColBreak.style.display = "none";
-	  elMenuGroup3ColBreak = fnElementGetRef(elMenuGroup3ColBreak, "MenuGroup3ColBreak", "MenuGroup3ColBreak");
+	  elMenuGroup3ColBreak = StdElementGetRef(elMenuGroup3ColBreak, "MenuGroup3ColBreak", "MenuGroup3ColBreak");
       elMenuGroup3ColBreak.style.display = "none";
 //
 //---------------------------------------------------------------//
@@ -1217,19 +1218,19 @@ window.onresize = function() { fnlayoutWindowResize(); }
 // xx
       //---------------------------------------------------------------//
       // Right Body Text Alignment Breaks
-	  elMenuGroup4ColBreak = fnElementGetRef(elMenuGroup4ColBreak, "MenuGroup4ColBreak", "MenuGroup4ColBreak");
+	  elMenuGroup4ColBreak = StdElementGetRef(elMenuGroup4ColBreak, "MenuGroup4ColBreak", "MenuGroup4ColBreak");
       elMenuGroup4ColBreak.style.display = "none";
-	  elMenuGroup5ColBreak = fnElementGetRef(elMenuGroup5ColBreak, "MenuGroup5ColBreak", "MenuGroup5ColBreak");
+	  elMenuGroup5ColBreak = StdElementGetRef(elMenuGroup5ColBreak, "MenuGroup5ColBreak", "MenuGroup5ColBreak");
       elMenuGroup5ColBreak.style.display = "none";
-	  elMenuGroup6ColBreak = fnElementGetRef(elMenuGroup6ColBreak, "MenuGroup6ColBreak", "MenuGroup6ColBreak");
+	  elMenuGroup6ColBreak = StdElementGetRef(elMenuGroup6ColBreak, "MenuGroup6ColBreak", "MenuGroup6ColBreak");
       elMenuGroup6ColBreak.style.display = "none";
       //
-      elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, "none");
+      elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, "none");
 	  elBodyMainCenterTopRightFirst = false;
 //
 //---------------------------------------------------------------//
 // 	 		 	 Banner at Bottom
-	   elBodyBanner = fnElementGetFromId("BodyBanner");
+	   elBodyBanner = StdElementGetFromId("BodyBanner");
       //---------------------------------------------------------------//
       // Area Displays
       elBodyBanner.style.display = "block";
@@ -1262,7 +1263,7 @@ window.onresize = function() { fnlayoutWindowResize(); }
 //
 // document.recalc();
 //
-fnlayoutWindowResize();
+StdlayoutWindowResize();
 //
 elBodyFirst = false;
 // return;
@@ -1292,43 +1293,43 @@ elBodyFirst = false;
 // Menu Image Show / Hide
 ////////////////////////////////////////////////
 // Menu Show
-// 		fnMenuImgShowRange
-//		fnMenuImgShowIndex
-//		fnMenuImgShowStack
-//		fnMenuImgToggle
-//		fnMenuImgShow
+// 		StdMenuImgShowRange
+//		StdMenuImgShowIndex
+//		StdMenuImgShowStack
+//		StdMenuImgToggle
+//		StdMenuImgShow
 // Menu Hide
-// 		fnMenuImgToggleRange
-//		fnMenuImgHide
+// 		StdMenuImgToggleRange
+//		StdMenuImgHide
 //
 ////////////////////////////////////////////////
 // Menu Hide
 ////////////////////////////////////////////////
-// fnMenu Mouse Out function
+// StdMenu Mouse Out function
 ////////////////////////////////////////////////
-function fnMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function StdMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 ////////////////////////////////////////////////
 // Menu Toggle Show
 ////////////////////////////////////////////////
-// fnMenu Mouse Out function
+// StdMenu Mouse Out function
 ////////////////////////////////////////////////
-function fnMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
-// fnMenu Toggle Menu Show Item (Mouse Down function)
+function StdMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+// StdMenu Toggle Menu Show Item (Mouse Down function)
 ////////////////////////////////////////////////
-function fnMenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function StdMenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 ////////////////////////////////////////////////
 // Menu Show
 ////////////////////////////////////////////////
-// fnMenu Mouse Over function
-function fnMenuImgShowRange
-// fnMenu Mouse Over function
-function fnMenuImgShowIndex
-// fnMenu Menu Show Item and all Previous (Mouse Over function)
-// function fnMenuImgShowStack
-// fnMenu Menu Show Item (Mouse Over function)
-// fnMenuImgShow
-// fnMenuObjectSetAll
-// function fnMenuObjectTextSet(oObjGroupCn, oObjCn)
-// function fnMenuObjectNameSet(oObjGroupCn, oObjCn)
-// fnMenuIndexSet
-// fnMenuIndexSetByName
+// StdMenu Mouse Over function
+function StdMenuImgShowRange
+// StdMenu Mouse Over function
+function StdMenuImgShowIndex
+// StdMenu Menu Show Item and all Previous (Mouse Over function)
+// function StdMenuImgShowStack
+// StdMenu Menu Show Item (Mouse Over function)
+// StdMenuImgShow
+// StdMenuObjectSetAll
+// function StdMenuObjectTextSet(oObjGroupCn, oObjCn)
+// function StdMenuObjectNameSet(oObjGroupCn, oObjCn)
+// StdMenuIndexSet
+// StdMenuIndexSetByName

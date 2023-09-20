@@ -155,4 +155,5 @@ menuImageOffsetFirstAll[3][indexLeft] = 15;
 menuImageOffsetFirstAll[4][indexTop] = 0;
 menuImageOffsetFirstAll[4][indexLeft] = -15;
 
-var script_state = "Mdm Menu Image settings completed";
+var script_state = "Mdm Website Menu (custom) Image settings initialized";
+if (debugLoadIsOn) { debugger; }

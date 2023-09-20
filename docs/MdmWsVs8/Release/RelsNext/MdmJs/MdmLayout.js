@@ -56,7 +56,7 @@ var elBodyMainCenterTopClass = "";
 // Layout
 // ------------------------------------------------------------------------------------- _//
 // Layout Next
-function fnLayoutNext(layoutIndexPassed) {
+function StdLayoutNext(layoutIndexPassed) {
     if (layoutIndexPassed > 0) {
         layoutRefreshCn = layoutIndexPassed;
     } else {
@@ -64,24 +64,24 @@ function fnLayoutNext(layoutIndexPassed) {
     }
 	// todo maybe limit the number?
     if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
-    fnLayoutRefresh(layoutRefreshCn);
+    StdLayoutRefresh(layoutRefreshCn);
 }
 // Check Layout
-function fnLayoutCheck(layoutPrefered) {
+function StdLayoutCheck(layoutPrefered) {
     return;
 }
 // Layout Refresh
-function fnLayoutRefresh(layoutIndexPassed) {
+function StdLayoutRefresh(layoutIndexPassed) {
     if (layoutIndexPassed != layoutRefreshCnLast) {
         // Choose Standard Layout
         layoutIndex = layoutIndexPassed;
-        fnLayoutSelectByIndex(layoutIndex);
+        StdLayoutSelectByIndex(layoutIndex);
         layoutRefreshCnLast = layoutRefreshCn;
     }
 }
 // Section Layout Management function (s)
 // Body ViewToggle - Layout Next
-function fnLayoutFontSize(zoomCommandPassed) {
+function StdLayoutFontSize(zoomCommandPassed) {
 	switch (zoomCommandPassed) {
 		case 'BodyFontZoomIn':
 			break;
@@ -93,7 +93,7 @@ function fnLayoutFontSize(zoomCommandPassed) {
 	}
 }
 // Body Layout Selection
-function fnLayoutSelectByIndex(layoutIndexPassed) {
+function StdLayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// Layouts:
 	// var layoutStandard = 1;
@@ -106,13 +106,13 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	layoutZindex = 20;
 	//
 	// Window Width
-	fnWindowClientWidth();
+	StdWindowClientWidth();
 	// layoutMenuHeightHorzMax = 0;
 	if (browserIsFF) {
-		// debug-instance-off fnLayoutSelectByIndex;
+		// debug-instance-off StdLayoutSelectByIndex;
 	}
 	//
-	var elementLayoutFirstDummy;
+	var elementLayoutFirstPhatomData;
 	var boxHeight;
 	//
 	// layoutWidth -= 20;
@@ -124,32 +124,32 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	if (elBodyFirst) {
 		//............................................................---//
 		//      Body Element Creation
-		if (javaLoadFirst) { fnElementObjectCreate(); }
+		if (loadFirstJava) { StdElementObjectCreate(); }
 		//............................................................---//
 		//      Body Main Container (contains Left Center and Right
-		if (!elBodyMainContainer) { elBodyMainContainer = fnElementGetFromId('BodyMainContainer'); }
+		if (!elBodyMainContainer) { elBodyMainContainer = StdElementGetFromId('BodyMainContainer'); }
 		// Body Container
 		//............................................................---//
 		//			    Menu at Left
 		// elBodyMainLeftOrig.innerHTML = elBodyMainLeft.innerHTML;
-		elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'none');
+		elBodyMainLeftOrig = StdElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'none');
 		elBodyMainLeftOrigFirst = false;
 		//............................................................---//
 		//			    Menu at Right
 		// elBodyMainLeftOrig.innerHTML = elBodyMainRight.innerHTML;
-		elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'none');
+		elBodyMainRightOrig = StdElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'none');
 		elBodyMainRightOrigFirst = false;
 		//............................................................---//
 		// 	 		 Banner at Center Bottom
-		elBodyBanner = fnElementGetRefFromElement(elBodyBanner, 'BodyBanner', 'BodyBanner', elBodyMainCenterTop);
-		elBodyBannerTop = fnElementGetRefFromElement(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', elBodyMainCenterTop);
-		elBodyBannerBottom = fnElementGetRefFromElement(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', elBodyMainCenterBottom);
-		elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
+		elBodyBanner = StdElementGetRefFromElement(elBodyBanner, 'BodyBanner', 'BodyBanner', elBodyMainCenterTop);
+		elBodyBannerTop = StdElementGetRefFromElement(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', elBodyMainCenterTop);
+		elBodyBannerBottom = StdElementGetRefFromElement(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', elBodyMainCenterBottom);
+		elBodyBannerBottom = StdElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
 		elBodyBannerBottomFirst = false;
 		//
 		//............................................................---//
 		//  BodyMain Center Center ColBreak
-		elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstDummy = true, 'block', 'visible', 'both')
+		elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstPhatomData = true, 'block', 'visible', 'both')
 		//
 	}
 	//
@@ -182,10 +182,10 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			elBodyBannerTop.style.display = 'block';
 			boxHeight += elBodyBannerTop.scrollHeight;
 			//
-			elTitleTopLeft = fnElementGetRefFromElement(elTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', elBodyMainCenterTop);
+			elTitleTopLeft = StdElementGetRefFromElement(elTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', elBodyMainCenterTop);
 			boxHeight += elTitleTopLeft.scrollHeight;
 			//
-			elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
+			elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
 			boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
 			//
 			// BodyViewToggle + Banner + Left/Right
@@ -218,14 +218,14 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// this code should also adjust oversized views
 			/* --
 			elBodyMainContainer.style.height = layoutHeight;
-			if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainLeft)) {
-				 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainLeft);
+			if (elBodyMainContainer.style.height < StdElementHeightMaxGet(true, true, elBodyMainLeft)) {
+				 elBodyMainContainer.style.height = StdElementHeightMaxGet(true, true, elBodyMainLeft);
 		  }
-		  if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainCenter)) {
-				 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainCenter);
+		  if (elBodyMainContainer.style.height < StdElementHeightMaxGet(true, true, elBodyMainCenter)) {
+				 elBodyMainContainer.style.height = StdElementHeightMaxGet(true, true, elBodyMainCenter);
 		  }
-		  if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainRight)) {
-				 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainRight);
+		  if (elBodyMainContainer.style.height < StdElementHeightMaxGet(true, true, elBodyMainRight)) {
+				 elBodyMainContainer.style.height = StdElementHeightMaxGet(true, true, elBodyMainRight);
 		  }
 		  -- */
 			// elBodyMainContainer.style.height = 'auto';
@@ -281,7 +281,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			//............................................................---//
 			// Hidden Banner at Bottom
 			if (!layoutReadingModeFirst) {
-				elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
+				elBodyBannerBottom = StdElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
 				elBodyBannerBottomFirst = false;
 			}
 			//
@@ -336,7 +336,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// elBodyMenuLayout1 BodyMenuLayout
 				if (false == true) {
 					if (!elelBodyMenuLayout1 && elBodyMainCenterTopLeft) {
-						elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
+						elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
 					}
 					//
 					TopLeftWidth = elBodyMenuLayout1.style.posWidth;
@@ -347,11 +347,11 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// Process Left Column
 				//
 				// elBodyMainLeft.innerHTML = elBodyMainLeftOrig.innerHTML
-				elBodyMainLeftCopy = fnElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, 'block');
+				elBodyMainLeftCopy = StdElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, 'block');
 				elBodyMainLeftFirst = false;
 				//
 				// elBodyMainRight.innerHTML = elBodyMainLeftOrig.innerHTML
-				elBodyMainRightCopy = fnElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, 'block');
+				elBodyMainRightCopy = StdElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, 'block');
 				elBodyMainRightFirst = false;
 				// end of layoutWindowFirst
 			}
@@ -372,8 +372,8 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// Set Center Top Left Element
 				// MainCenterTopLeft is a Reference pointer into the page
 				// that has MainLeft HTML copied into it.
-				elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
-				elBodyMainCenterTopLeft = fnElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, 'block');
+				elBodyMainCenterTopLeft = StdElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
+				elBodyMainCenterTopLeft = StdElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, 'block');
 				elBodyMainCenterTopLeftFirst = false;
 				//............................................................---//
 				// Enclose Box
@@ -384,35 +384,35 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// Left Body Column (BodyMainLeft)
 				//............................................................---//
 				// elBodyMenuLayout1 BodyMenuLayout
-				elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
+				elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
 				//............................................................---//
 				// Width of Layout area (previous?)
 				//............................................................---//
 				// Left Outer and Inner Decorative Divs
-				elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainCenterTopLeft);
+				elBodyMainLeftOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainCenterTopLeft);
 				elBodyMainLeftOuter.style.paddingLeft = '3%';
 				elBodyMainLeftOuter.style.width = '97%';
 				//
-				elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainCenterTopLeft);
+				elBodyMainLeftInner = StdElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainCenterTopLeft);
 				elBodyMainLeftInner.style.paddingRight = '3%';
 				elBodyMainLeftInner.style.width = '97%';
 				elBodyMainLeftInner.style.paddingTop = '1.0em';
 				//............................................................---//
 				//
-				// fnElementGetFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1',
+				// StdElementGetFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuGroup1)
-				// fnElementGetFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2',
+				// StdElementGetFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuGroup2)
-				// fnElementGetFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3',
+				// StdElementGetFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuGroup3)
 				//
 				//............................................................---//
 				// Left elMenuGroup1, 2, 3
-				elMenuGroup1 = fnElementGetRefFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1', elBodyMainCenterTopLeft);
-				elMenuGroup2 = fnElementGetRefFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2', elBodyMainCenterTopLeft);
-				elMenuGroup3 = fnElementGetRefFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3', elBodyMainCenterTopLeft);
+				elMenuGroup1 = StdElementGetRefFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1', elBodyMainCenterTopLeft);
+				elMenuGroup2 = StdElementGetRefFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2', elBodyMainCenterTopLeft);
+				elMenuGroup3 = StdElementGetRefFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3', elBodyMainCenterTopLeft);
 				//
-				fnWindowContainerHeightGetMenu(elBodyMainCenterTopLeft);
+				StdWindowContainerHeightGetMenu(elBodyMainCenterTopLeft);
 				//
 				//............................................................---//
 				// elMenuGroup1
@@ -440,28 +440,28 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				// elMenuGroup3.style.styleFloat = 'left';
 				//............................................................---//
 				//
-				// fnElementGetFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1',
+				// StdElementGetFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuGroup1)
-				// fnElementGetFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2',
+				// StdElementGetFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuGroup2)
-				// fnElementGetFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3',
+				// StdElementGetFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3',
 				// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuGroup3)
 				//
 				//............................................................---//
 				// elDivC21 Callout Paragraph Contents
 				// if (true == false) {
-				// 	var elDivC21 = fnElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', elBodyMainCenterTopLeft);
+				// 	var elDivC21 = StdElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', elBodyMainCenterTopLeft);
 				// 	if (elDivC21) { elDivC21.style.display = 'none'; }
 				// }
 				//............................................................---//
 				// elDivC22 Callout Paragraph Contents
-				var elDivC22 = fnElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', elBodyMainCenterTopLeft);
+				var elDivC22 = StdElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', elBodyMainCenterTopLeft);
 				if (elDivC22) { elDivC22.style.display = 'none'; }
 				//............................................................---//
 				// Left Body Text Alignment Breaks
-				elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuGroup1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuGroup2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuGroup3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterTopLeft, 'MenuGroup1ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterTopLeft, 'MenuGroup2ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopLeft = StdElementBreakSet(elBodyMainCenterTopLeft, 'MenuGroup3ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
 				// end of layoutWindowFirst
 			}
 			//
@@ -473,21 +473,21 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			if (layoutWindowedFirst) {
 				// Right Body Text Alignment Breaks
 				// Set (Copy To) Top Left Element
-				elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
-				elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, 'block');
+				elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
+				elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, 'block');
 				//............................................................---//
 				// Enclose Box
 				elBodyMainCenterTopRight.className = elBodyMainCenterTopRight.className + ' CalloutBorderFull';
 				//............................................................---//
 				// elBodyMenuLayout2 BodyMenuLayout
-				elBodyMenuLayout2 = fnElementGetRefFromElement(elBodyMenuLayout2, 'BodyMenuLayout2', 'BodyMenuLayout2', elBodyMainCenterTopRight);
+				elBodyMenuLayout2 = StdElementGetRefFromElement(elBodyMenuLayout2, 'BodyMenuLayout2', 'BodyMenuLayout2', elBodyMainCenterTopRight);
 				//............................................................---//
 				// Right Outer and Inner Decorative Divs
-				elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainCenterTopRight);
+				elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainCenterTopRight);
 				elBodyMainLeftOuter.style.paddingLeft = '3%';
 				elBodyMainLeftOuter.style.width = '97%';
 				//
-				elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainCenterTopRight);
+				elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainCenterTopRight);
 				elBodyMainRightInner.style.paddingRight = '3%';
 				elBodyMainRightInner.style.width = '97%';
 				elBodyMainRightInner.style.paddingTop = '1.0em';
@@ -495,9 +495,9 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				var elementHeight = 0;
 				layoutMenuHeightHorzMax = 0;
 				// Right elMenuGroup 4(1), 5(2), 6(3)
-				elMenuGroup4 = fnElementGetRefFromElement(elMenuGroup4, 'MenuGroup4', 'MenuGroup4', elBodyMainCenterTopRight);
-				elMenuGroup5 = fnElementGetRefFromElement(elMenuGroup5, 'MenuGroup5', 'MenuGroup5', elBodyMainCenterTopRight);
-				elMenuGroup6 = fnElementGetRefFromElement(elMenuGroup6, 'MenuGroup6', 'MenuGroup6', elBodyMainCenterTopRight);
+				elMenuGroup4 = StdElementGetRefFromElement(elMenuGroup4, 'MenuGroup4', 'MenuGroup4', elBodyMainCenterTopRight);
+				elMenuGroup5 = StdElementGetRefFromElement(elMenuGroup5, 'MenuGroup5', 'MenuGroup5', elBodyMainCenterTopRight);
+				elMenuGroup6 = StdElementGetRefFromElement(elMenuGroup6, 'MenuGroup6', 'MenuGroup6', elBodyMainCenterTopRight);
 				//............................................................---//
 				// elMenuGroup4
 				elMenuGroup4.style.position = 'absolute';
@@ -505,7 +505,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				elMenuGroup4.style.left = '3%';
 				elMenuGroup4.style.maxWidth = '30%';
 				// elMenuGroup4.style.styleFloat = 'left';
-				elementHeight = fnElementHeightMaxGet(true, true, elMenuGroup4);
+				elementHeight = StdElementHeightMaxGet(true, true, elMenuGroup4);
 				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
 				//............................................................---//
 				// elMenuGroup5
@@ -515,7 +515,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				elMenuGroup5.style.maxWidth = '30%';
 				// elMenuGroup5.style.marginLeft = '3%';
 				// elMenuGroup5.style.styleFloat = 'left';
-				elementHeight = fnElementHeightMaxGet(true, true, elMenuGroup5);
+				elementHeight = StdElementHeightMaxGet(true, true, elMenuGroup5);
 				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
 				//............................................................---//
 				// elMenuGroup3
@@ -525,13 +525,13 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 				elMenuGroup6.style.maxWidth = '30%';
 				// elMenuGroup6.style.marginLeft = '3%';
 				// elMenuGroup6.style.styleFloat = 'left';
-				elementHeight = fnElementHeightMaxGet(true, true, elMenuGroup6);
+				elementHeight = StdElementHeightMaxGet(true, true, elMenuGroup6);
 				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
 				//............................................................---//
 				// Column and Float Breaks and Clear
-				elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuGroup4ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuGroup5ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-				elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuGroup6ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopRight = StdElementBreakSet(elBodyMainCenterTopRight, 'MenuGroup4ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopRight = StdElementBreakSet(elBodyMainCenterTopRight, 'MenuGroup5ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
+				elBodyMainCenterTopRight = StdElementBreakSet(elBodyMainCenterTopRight, 'MenuGroup6ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
 				// end of layoutWindowFirst
 			}
 			//............................................................---//
@@ -542,12 +542,12 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// elBodyViewToggle View Toggle and Message Area
 			elBodyViewToggleContainerCenter.style.display = 'none';
 			//
-			boxHeight += fnElementHeightMaxGet(true, true, elBodyViewToggleContainer);
+			boxHeight += StdElementHeightMaxGet(true, true, elBodyViewToggleContainer);
 			// Banner Should be zero, don't use..,
-			boxHeight += fnElementHeightMaxGet(true, true, elBodyBannerTop);
+			boxHeight += StdElementHeightMaxGet(true, true, elBodyBannerTop);
 			//
 			// Height of left and right menu containers
-			// fnWindowContainerHeightGetAll();
+			// StdWindowContainerHeightGetAll();
 			//
 			// if (elBodyMenuLayout2Height > elBodyMenuLayout1Height)  {
 			// elBodyMenuLayout1.style.height = elBodyMenuLayout2Height + 'px';
@@ -555,23 +555,23 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// elBodyMenuLayout2.style.height = elBodyMenuLayout1Height + 'px';
 			// }
 			// Set Left and Right Container Heights
-			// elBodyMainCenterTopLeft.style.height = (fnElementHeightMaxGet(true, true, elBodyMenuLayout1) + 20) + 'px';
-			// elBodyMainCenterTopRight.style.height = (fnElementHeightMaxGet(true, true, elBodyMenuLayout2) + 20) + 'px';
+			// elBodyMainCenterTopLeft.style.height = (StdElementHeightMaxGet(true, true, elBodyMenuLayout1) + 20) + 'px';
+			// elBodyMainCenterTopRight.style.height = (StdElementHeightMaxGet(true, true, elBodyMenuLayout2) + 20) + 'px';
 			//
 			if (layoutMenuHeightHorzMax < 50) {
 				// ERROR HERE //
 				//
 				var X; var Y;
-				X = fnElementHeightMaxGet(true, true, elMenuGroup1);
+				X = StdElementHeightMaxGet(true, true, elMenuGroup1);
 				X += boxHeight;
-				Y = fnElementHeightMaxGet(true, true, elMenuGroup4);
+				Y = StdElementHeightMaxGet(true, true, elMenuGroup4);
 				if (X > Y) { layoutMenuHeightHorzMax = X; } else { layoutMenuHeightHorzMax = Y; }
 				//
-				X = fnElementHeightMaxGet(true, true, elBodyMainCenterTopLeft);
-				Y = fnElementHeightMaxGet(true, true, elBodyMainCenterTopRight);
+				X = StdElementHeightMaxGet(true, true, elBodyMainCenterTopLeft);
+				Y = StdElementHeightMaxGet(true, true, elBodyMainCenterTopRight);
 				if (X > Y) { boxHeight = X; } else { boxHeight = Y; }
-				// boxHeight += fnElementHeightMaxGet(true, true, BodyViewToggleContainerCenter);
-				// boxHeight += fnElementHeightMaxGet(true, true, elBodyMainCenterTopColBreak);
+				// boxHeight += StdElementHeightMaxGet(true, true, BodyViewToggleContainerCenter);
+				// boxHeight += StdElementHeightMaxGet(true, true, elBodyMainCenterTopColBreak);
 			}
 			// Set Left and Right Container Heights
 			elBodyMainCenterTopLeft.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
@@ -580,7 +580,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			elBodyMainCenterTopRight.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
 			// elBodyMainCenterTopRight.style.height = '100%';
 			//
-			elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
+			elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
 			//
 			elBodyMainCenterTop.style.height = (layoutMenuHeightHorzMax + 75) + 'px';// boxHeight
 			// elBodyMainCenterTop.style.height = '100%';
@@ -691,11 +691,11 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// xx
 			//............................................................---//
 			// Left Body Text Alignment Breaks
-			elMenuGroup1ColBreak = fnElementGetRef(elMenuGroup1ColBreak, 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
+			elMenuGroup1ColBreak = StdElementGetRef(elMenuGroup1ColBreak, 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
 			elMenuGroup1ColBreak.style.display = 'none';
-			elMenuGroup2ColBreak = fnElementGetRef(elMenuGroup2ColBreak, 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
+			elMenuGroup2ColBreak = StdElementGetRef(elMenuGroup2ColBreak, 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
 			elMenuGroup2ColBreak.style.display = 'none';
-			elMenuGroup3ColBreak = fnElementGetRef(elMenuGroup3ColBreak, 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
+			elMenuGroup3ColBreak = StdElementGetRef(elMenuGroup3ColBreak, 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
 			elMenuGroup3ColBreak.style.display = 'none';
 			//
 			//............................................................---//
@@ -703,19 +703,19 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			// xx
 			//............................................................---//
 			// Right Body Text Alignment Breaks
-			elMenuGroup4ColBreak = fnElementGetRef(elMenuGroup4ColBreak, 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
+			elMenuGroup4ColBreak = StdElementGetRef(elMenuGroup4ColBreak, 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
 			elMenuGroup4ColBreak.style.display = 'none';
-			elMenuGroup5ColBreak = fnElementGetRef(elMenuGroup5ColBreak, 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
+			elMenuGroup5ColBreak = StdElementGetRef(elMenuGroup5ColBreak, 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
 			elMenuGroup5ColBreak.style.display = 'none';
-			elMenuGroup6ColBreak = fnElementGetRef(elMenuGroup6ColBreak, 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
+			elMenuGroup6ColBreak = StdElementGetRef(elMenuGroup6ColBreak, 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
 			elMenuGroup6ColBreak.style.display = 'none';
 			//
-			elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, 'none');
+			elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, 'none');
 			elBodyMainCenterTopRightFirst = false;
 			//
 			//............................................................---//
 			// 	 		 	 Banner at Bottom
-			elBodyBanner = fnElementGetFromId('BodyBanner');
+			elBodyBanner = StdElementGetFromId('BodyBanner');
 			//............................................................---//
 			// Area Displays
 			elBodyBanner.style.display = 'block';
@@ -748,10 +748,11 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// document.recalc();
 	//
-	fnWindowResize();
+	StdWindowResize();
 	//
 	elBodyFirst = false;
 	// return;
 	//
 }
-script_state = "MdmLayout loaded";
+script_state = "Mdm Standard Layout functions loaded.";
+if (debugLoadIsOn) { debugger; }

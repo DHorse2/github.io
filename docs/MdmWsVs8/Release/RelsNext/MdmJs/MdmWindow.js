@@ -7,39 +7,39 @@ var columnType;
 // Window Load
 ////////////////////////////////////////////////
 // // Document Window OnLoad:
-// window.onload = function () { fnlayoutWindowOnload(); }
-function fnlayoutWindowOnload() {
+// window.onload = function () { StdlayoutWindowOnload(); }
+function StdlayoutWindowOnload() {
     // Error handling
-    // window.onerror = function() { fnWindowError(); };
+    // window.onerror = function() { StdWindowError(); };
     // Initialize and Set Global Variables
-    fnDocumentLoadInit();
+    StdDocumentLoadInit();
     // Build Body Images Div
-    if (!bodyImageLoadDelay) {
-        elBodyImageContainer = fnBodyImagesHtmlBuild();
+    if (!loadDelayBodyImage) {
+        elBodyImageContainer = StdBodyImagesHtmlBuild();
     }
     // Build Menu Images Div
-    if (!menuImageLoadDelay) {
-        elBodyMenuImageContainer = fnMenuImagesHtmlBuild();
+    if (!loadDelayMenuImage) {
+        elBodyMenuImageContainer = StdMenuImagesHtmlBuild();
     }
     // Docuement Element Initialize & Store Original Menu Columns.
-    if (!javaLoadDelay) {
+    if (!loadDelayJava) {
         // Initialize and save
-        fnElementObjectCreate();
+        StdElementObjectCreate();
         // Choose Standard Layout
-        fnLayoutNext(layoutStandard)
-        // fnLayoutSelectByIndex(layoutStandard);
+        StdLayoutNext(layoutStandard)
+        // StdLayoutSelectByIndex(layoutStandard);
     }
     //
-    if (!debugStateLoadDelay) {
+    if (!loadDelayDebugState) {
         if (serverIsOn) {
-            fnDebugParameterInit();
+            DebugParameterInit();
         } else {
-            fnDebugParameterInitLocal();
+            DebugParameterInitLocal();
         }
     }
     //
     // Inactive code:
-    // window.onload= "fnDocumentLoadInit();";
+    // window.onload= "StdDocumentLoadInit();";
 }
 // Document Window Resize
 // Adjustments:
@@ -53,17 +53,17 @@ var layoutHeightPrev = 0;
 var layoutIsWide = false;
 var layoutIsStandard = true;
 // //
-// window.onresize = function () { fnlayoutWindowResize(); }
-function fnlayoutWindowResize() {
+// window.onresize = function () { StdlayoutWindowResize(); }
+function StdlayoutWindowResize() {
     // Recalculate Screen Display
     //
     ////////////////////////////////////////////////
     // Recalculate Globals for Screen
     //
-    fnWindowClientWidth();
+    StdWindowClientWidth();
     ////////////////////////////////////////////////
     // Load Containers if missing
-    if (!elBodyMainLeft) { fnElementObjectContainerCreate(); }
+    if (!elBodyMainLeft) { StdElementObjectContainerCreate(); }
     ////////////////////////////////////////////////
     // Recalculate Positions for Menu Images
     // if (BodyMainCenterCenter.offsetWidth > 900) {
@@ -223,7 +223,7 @@ var layoutAvailHeight = 0;
 var layoutDocumentWidth = 0;
 var layoutDocumentHeight = 0;
 //
-function fnWindowClientWidth() {
+function StdWindowClientWidth() {
     // Window Width
     layoutDocumentWidth = window.document.documentElement.offsetWidth;
     layoutAvailWidth = window.screen.availWidth;
@@ -256,14 +256,14 @@ function fnWindowClientWidth() {
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // Window Session Load
-function fnWindowSessionLoad() {
+function StdWindowSessionLoad() {
     // Load Layout and Images Displayed
     // Get Cookie
     // Apply Cookie to Window
     // Apply Default to Window
 }
 // Window Session Save
-function fnWindowSessionSave() {
+function StdWindowSessionSave() {
     // Load Layout and Images Displayed
     // Build Oookie
     // Save Cookie
@@ -271,24 +271,24 @@ function fnWindowSessionSave() {
 // Window Cookies Functions
 ///////////////////////////////////////////////
 // Window Cookie Save
-function fnWindowCookieSave() {
+function StdWindowCookieSave() {
     // Load Layout and Images Displayed
     //
 }
 // Window Cookie Save
-function fnWindowCookieSave() {
+function StdWindowCookieSave() {
     // Load Layout and Images Displayed
     //
 }
 // Window Cookie Build
-function fnWindowCookieBuild() {
+function StdWindowCookieBuild() {
     // Build the Cookie
     //
 }
 // Window Document Functions
 ///////////////////////////////////////////////
-// fn Document Load Initinitialize Variablesm, Arrays and Default Data
-function fnDocumentLoadInit() {
+// Std Document Load Initinitialize Variablesm, Arrays and Default Data
+function StdDocumentLoadInit() {
     //  for (imgCn = 1;imgCn < 1+imgUsedCn;imgCn++){
     //    menuImage = oObjIndexSetmenuImage(imgCn);
     //    intervalSet = imgCn * 100;
@@ -316,13 +316,13 @@ function fnDocumentLoadInit() {
     //     }
     // }
     // Resize Window
-    fnlayoutWindowResize();
+    StdlayoutWindowResize();
     //
 }
 // SectionBlock Window Document function (s)
 ///////////////////////////////////////////////
-// fn Document Load Initinitialize Variablesm, Arrays and Default Data
-function fnDocumentLoadInit2() {
+// Std Document Load Initinitialize Variablesm, Arrays and Default Data
+function StdDocumentLoadInitDepreciated() {
     //
     //  for (imgCn = 1;imgCn < imgUsedCn;imgCn++){
     //    menuImage = oObjIndexSetmenuImage(imgCn);
@@ -357,25 +357,25 @@ function fnDocumentLoadInit2() {
     if (!elBodyMainRightVisible) { elBodyMainRight.style.display = 'none'; }
     //
     // Resize Window
-    fnWindowResize();
+    StdWindowResize();
     //
 }
 // Diaglogs and Pop-ups
 ////////////////////////////////////////////////
 // Create all Elements used in Layout
-function fnWindowPopupOpen() {
+function StdWindowPopupOpen() {
     // Popup Window
     var sConfig = 'left= 100, top= 0, height= 500, width= 400, menubar= 0, scrollbars= 0, status= 0, toolbar= 0, location= 0';
     var myWindow = window.open("http://myPopupWindow.html", "MyWindowName", sConfig);
 }
 // Document Layout Size of Core Layout Boxes
-function fnWindowContainerHeightGetAll() {
+function StdWindowContainerHeightGetAll() {
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of left and right menu containers vs the center menu container'
             + ': ',
-            'fnWindowContainerHeightGetAll', 6769, null, null,
+            'StdWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -386,13 +386,13 @@ function fnWindowContainerHeightGetAll() {
     layoutBodyHeightVertMax = 0;
     layoutMenuWidthMax = 0;
     //
-    elBodyMainCenterHeight = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainCenter);
+    elBodyMainCenterHeight = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainCenter);
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of BodyMainCenterHeight: ' + elBodyMainCenterHeight
             + '.',
-            'fnWindowContainerHeightGetAll', 6769, null, null,
+            'StdWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -400,27 +400,27 @@ function fnWindowContainerHeightGetAll() {
     if (tempLayoutBodyHeightHorzMax < elBodyMainCenterHeight) { tempLayoutBodyHeightHorzMax = elBodyMainCenterHeight; }
     //
     // Left
-    elBodyMenuLayout1Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft);
-    // if (layoutResizeCn == 0) { elBodyMenuLayout1Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft); }
+    elBodyMenuLayout1Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft);
+    // if (layoutResizeCn == 0) { elBodyMenuLayout1Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft); }
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
             + '.',
-            'fnWindowContainerHeightGetAll', 6769, null, null,
+            'StdWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check the accumaltion of Left1, Left2, Left3
     if (layoutIndex == layoutStandard) {
-        fnWindowContainerHeightGetMenu(elBodyMainLeft);
-    } else { fnWindowContainerHeightGetMenu(elBodyMainCenterTopLeft); }
+        StdWindowContainerHeightGetMenu(elBodyMainLeft);
+    } else { StdWindowContainerHeightGetMenu(elBodyMainCenterTopLeft); }
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
             + '.',
-            'fnWindowContainerHeightGetAll', 6769, null, null,
+            'StdWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -429,27 +429,27 @@ function fnWindowContainerHeightGetAll() {
         if (tempLayoutBodyHeightHorzMax < elBodyMenuLayout1Height) { tempLayoutBodyHeightHorzMax = elBodyMenuLayout1Height; }
     }
     // Right
-    elBodyMenuLayout2Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight);
-    // if (layoutResizeCn == 0) { elBodyMenuLayout2Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight); }
+    elBodyMenuLayout2Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight);
+    // if (layoutResizeCn == 0) { elBodyMenuLayout2Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight); }
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
             + '.',
-            'fnWindowContainerHeightGetAll', 6769, null, null,
+            'StdWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check the accumaltion of Right1, Right2, Right3
     if (layoutIndex == layoutStandard) {
-        fnWindowContainerHeightGetMenu(elBodyMainRight);
-    } else { fnWindowContainerHeightGetMenu(elBodyMainCenterTopRight); }
+        StdWindowContainerHeightGetMenu(elBodyMainRight);
+    } else { StdWindowContainerHeightGetMenu(elBodyMainCenterTopRight); }
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
             + '.',
-            'fnWindowContainerHeightGetAll', 6769, null, null,
+            'StdWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -483,7 +483,7 @@ function fnWindowContainerHeightGetAll() {
     layoutHeight = layoutBodyHeightHorzMax;
 }
 // Document Layout Size of Core Layout Boxes
-function fnWindowContainerHeightGetMenu(elementPassed) {
+function StdWindowContainerHeightGetMenu(elementPassed) {
     // Height of left and right menu containers:
     // Greatest height when layed out side by side
     layoutBodyHeightHorzMax = 0;
@@ -507,15 +507,15 @@ function fnWindowContainerHeightGetMenu(elementPassed) {
     // Left menuGroup1, 2, 3
     if (!menuGroup1) {
         if (elementPassed) {
-            menuGroup1 = fnElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
-            menuGroup2 = fnElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
-            menuGroup3 = fnElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
+            menuGroup1 = StdElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
+            menuGroup2 = StdElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
+            menuGroup3 = StdElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
         }
     }
     //
-    elMenuGroup1Height = fnElementHeightMaxGet(true, true, menuGroup1);
-    elMenuGroup2Height = fnElementHeightMaxGet(true, true, menuGroup2);
-    elMenuGroup3Height = fnElementHeightMaxGet(true, true, menuGroup3);
+    elMenuGroup1Height = StdElementHeightMaxGet(true, true, menuGroup1);
+    elMenuGroup2Height = StdElementHeightMaxGet(true, true, menuGroup2);
+    elMenuGroup3Height = StdElementHeightMaxGet(true, true, menuGroup3);
     //
     layoutMenuHeightVertMax = elMenuGroup1Height + elMenuGroup2Height + elMenuGroup3Height;
     //
@@ -526,22 +526,22 @@ function fnWindowContainerHeightGetMenu(elementPassed) {
     //
 }
 // Recalculate Screen Display
-function fnWindowResize() {
+function StdWindowResize() {
     // Recalculate Screen Display
     //
-    if (javaLoadFirst) { fnElementObjectCreate(); }
+    if (loadFirstJava) { StdElementObjectCreate(); }
     //
     // ...................................... //
     // Recalculate Globals for Screen
     //
-    fnWindowClientWidth();
+    StdWindowClientWidth();
     // ...................................... //
     // Load Containers if missing
     //
-    if (!elBodyMainLeft) { fnElementObjectContainerCreate(); }
+    if (!elBodyMainLeft) { StdElementObjectContainerCreate(); }
     // ...................................... //
     // Recalculate Positions for Menu Images
-    if (layoutResizeCn == 0) { fnWindowContainerHeightGetAll(); }
+    if (layoutResizeCn == 0) { StdWindowContainerHeightGetAll(); }
     //
     var elBodyMainCenterLeftAdj = 0;
     var elBodyMainCenterWidthAdj = 0;
@@ -550,7 +550,7 @@ function fnWindowResize() {
     // Process DivBox and Callout layout
     //
     // Count Display Blocks (s/b DivBox containers)
-    elementBlockCn = fnElementObjectBlockCount();
+    elementBlockCn = StdElementObjectBlockCount();
     //
     // Determine DivBox (Body Content) column and callout sizes
     if (elBodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && elementBlockCn > 4 && columnMax > 2) {
@@ -667,10 +667,10 @@ function fnWindowResize() {
                     if (layoutBlock.id) {
                         if ((layoutBlock.id).substr(0, 4) == 'DivB') {
                             boxClass = layoutBlock.className;
-                            columnType = fnStringGetTokenByPrefix(boxClass, 'ColumnType');
+                            columnType = StdStringGetTokenByPrefix(boxClass, 'ColumnType');
                             if (columnType != 'ColumnTypeFixed') { layoutBlock.style.width = layoutBlockWidth; }
                             // elBodyBlockWidth = parseInt(layoutBlock.style.width);
-                            elBodyBlockWidth = fnElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, elementWidthDefault);
+                            elBodyBlockWidth = StdElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, elementWidthDefault);
                             //
                             // ...................................... //
                             // Callout
@@ -682,7 +682,7 @@ function fnWindowResize() {
                                         if ((calloutBlock.id).substr(0, 4) == 'DivC') {
                                             // Get Column Type from Box class
                                             boxClass = calloutBlock.className;
-                                            columnType = fnStringGetTokenByPrefix(boxClass, 'ColumnType');
+                                            columnType = StdStringGetTokenByPrefix(boxClass, 'ColumnType');
                                             // Set Callout Width and Layout
                                             if (columnType != 'ColumnTypeFixed') {
                                                 if (elBodyBlockWidth > calloutBlockLayoutWidthWide) {
@@ -710,9 +710,9 @@ function fnWindowResize() {
     //
     layoutResizeCn += 1;
     if (layoutResizeCn > 500) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             'Window Resize Excessive Usage (Possible Error)',
-            'fnWindowResize', 0, null, null,
+            'StdWindowResize', 0, null, null,
             errorSevere, errorDoNotDisplayTag, errorDoAlert);
         layoutResizeCn = 0;
         // layoutMenuHeightHorzMax = 2000;
@@ -724,15 +724,15 @@ function fnWindowResize() {
     // Height of left and right menu containers
     /* -- */
     //
-    fnWindowContainerHeightGetAll();
+    StdWindowContainerHeightGetAll();
     /* -- */
     //
     //
     if (debugAlert) {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Main Container layoutHeight (body +5em): ' + layoutHeight
             + '.',
-            'fnWindowResize', 7189, null, null,
+            'StdWindowResize', 7189, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -764,7 +764,7 @@ function fnWindowResize() {
     //
 }
 // Document Window Client Width
-function fnWindowClientWidth() {
+function StdWindowClientWidth() {
     // Window Width
     layoutDocumentWidth = window.document.documentElement.offsetWidth;
     layoutAvailWidth = window.screen.availWidth;
@@ -792,4 +792,5 @@ function fnWindowClientWidth() {
     //
 }
 // ..................................................................................... _//
-script_state = "MdmWindow loaded";
+script_state = "Mdm Standard Window functions loaded. (Window, Client, Resize, Cookie, Session, Popup)";
+if (debugLoadIsOn) { debugger; }

@@ -1,23 +1,23 @@
 // Error Message Display
 // Global Error Variables
 // ...................................... //
-var errorFatal = 3;
-var errorSevere = 2;
-var errorWarn = 1;
-var errorDidNotOccur = 0;
+// var errorFatal = 3;
+// var errorSevere = 2;
+// var errorWarn = 1;
+// var errorDidNotOccur = 0;
 //
-var errorResultOnFail = errorDidNotOccur;
-var errorMessage = "initializing";
+errorResultOnFail = errorDidNotOccur;
+errorMessage = "initializing";
 //
-var errorElementFatal;
-var errorElementSevere;
-var errorElementWarn;
-var errorElementComment;
+// var errorElementFatal;
+// var errorElementSevere;
+// var errorElementWarn;
+// var errorElementComment;
 //
-var errorLogFatal = "";
-var errorLogSevere = "";
-var errorLogWarn = "";
-var errorLogComment = "";
+// errorLogFatal = "";
+// errorLogSevere = "";
+// errorLogWarn = "";
+// errorLogComment = "";
 // SectionBlock Debug Utilities
 // ...................................... //
 // var debugIsOn = true;
@@ -55,42 +55,37 @@ var errorLogComment = "";
 // ..................................................................................... _//
 // Error message build
 // ...................................... //
-var errorMessageFinal = new String();
-var errorInnerHTML = new String();
-var errorSourceInnerHTML = new String();
+errorUrl = "";
+errorMessageFinal = new String();
+errorInnerHTML = new String();
+errorSourceInnerHTML = new String();
 //
-var errorMessageAllLog = new String();
-//
-var errorMessageFinalLog = new String();
-var errorInnerHTMLLog = new String();
-var errorSourceInnerHTMLLog = new String();
-// Error message build
-// ...................................... //
-var errorMessageFinal = new String();
-var errorInnerHTML = new String();
-var errorSourceInnerHTML = new String();
-//
-var errorMessageAllLog = new String();
-//
-var errorMessageFinalLog = new String();
-var errorInnerHTMLLog = new String();
-var errorSourceInnerHTMLLog = new String();
+errorMessageAllLog = new String();
+errorMessageFinalLog = new String();
+errorInnerHTMLLog = new String();
+errorSourceInnerHTMLLog = new String();
 // SectionBlock Window & Script Exceptions & Error function (s)
-window.onerror = function() { fnWindowError(); }; // Window Error from start;
+errorFirst = true; // FLAG ON!!! todo
+window.onerror = function () { StdWindowError(); }; // Window Error from start;
 
 // Error
 // ...................................... //
 // Error message build
 // ...................................... //
 function ErrorOccured(eventCurr, errorElementPassed, errorElementSourcePassed, errorMsgPassed, errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
-    var errorMessageFinal = "";
-    var errorInnerHTML = "";
-    var errorSourceInnerHTML = "";
+    if (errorFirst) { errorFirst = false; return; }
+    // this may set an event or message... dunno
+    errorMessageFinal = "";
+    errorInnerHTML = "";
+    errorSourceInnerHTML = "";
+    EventSet();
+    ErrorSet();
+    errorMessageFinal = ErrorMessageGet();
     //
     if (errorDoAlert = null) { errorDoAlert = false; }
     localDoUseDebug = false;
     //
-    // Error Type
+    // Error Severity
     switch (errorSeverityPassed) {
         case errorElementFatal:
             errorMessageFinal += "Fatal";
@@ -107,7 +102,7 @@ function ErrorOccured(eventCurr, errorElementPassed, errorElementSourcePassed, e
             break;
     }
     //
-    errorMessageFinal += " Error"
+    errorMessageFinal = ErrorMessageGet();
     //
     if (!errorDisplayTagPassed) {
         // don't know what to do here...
@@ -173,7 +168,7 @@ function ErrorOccured(eventCurr, errorElementPassed, errorElementSourcePassed, e
 }
 // Error Message Display
 ////////////////////////////////////////////////
-function ErrorOccured2(eventCurr, errorElementPassed, errorElementSourcePassed, errorMsgPassed, errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
+function ErrorOccuredDepreciated(eventCurr, errorElementPassed, errorElementSourcePassed, errorMsgPassed, errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
     if (errorSeverityPassed = errorFatal) {
         // display alert
         // dipslay in HTML Critial Message Area
@@ -190,11 +185,12 @@ function ErrorOccured2(eventCurr, errorElementPassed, errorElementSourcePassed, 
 }
 // Window Error
 var e;
-function fnWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
+function StdWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
+    if (errorFirst) { errorFirst = false; return; }
     // this may set an event or message... dunno
-    var errorCaller = fnWindowError.caller.name;
-    if (errorCaller == null) { errorCaller = 'Unknown'; }
-    //
+    errorUrl = errorUrlPassed;
+    ErrorSet();
+
     // error Object: description Property | message Property | name Property | number Property
     // event Object: returnValue srcElement type
     //
@@ -212,19 +208,19 @@ function fnWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPa
     eventEventCurr = Event;
     e = Event;
     //
-        errorElement = eventEventCurr.target;
-        errorElementSource = eventEventCurr.srcElement;
-        eventEventObject = (errorElementSource || errorElement || Event);
-        //
-        eventEventType = eventEventCurr.type;
-        if (eventEventObject.id) {
-            if (eventEventObject.id != null) {
-                eventEventCurrId = eventEventObject.id;
-            } else { eventEventCurrId = ''; }
+    errorElement = eventEventCurr.target;
+    errorElementSource = eventEventCurr.srcElement;
+    eventObject = (errorElementSource || errorElement || Event);
+    //
+    EventType = eventEventCurr.type;
+    if (eventObject.id) {
+        if (eventObject.id != null) {
+            eventEventCurrId = eventObject.id;
         } else { eventEventCurrId = ''; }
+    } else { eventEventCurrId = ''; }
     //
     // display error in log
-    fnErrorOccured(eventCurr, DoUseDebug, DoUseSingeLine,
+    ConsoleMessageLog(eventCurr, DoUseDebug, DoUseSingeLine,
         '(' + errorCaller + ':' + errorLineNumPassed + ') ' + errorMsgPassed,
         errorUrlPassed, errorLineNumPassed, errorElement, errorElementSource,
         errorSevere, errorDoDisplayTag, errorDoAlert);
@@ -238,16 +234,18 @@ function fnWindowError(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPa
 }
 // Window Error Debug
 // ...................................... //
-function fnWindowErrorDebug(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
+function StdWindowErrorDebug(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed) {
+    errorUrl = errorUrlPassed;
+    // ErrorSet(); // todo ???
     //
     // if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
     //
     if (errorUseDebugOnError || errorUseDebugOnAll) {
         if (elBodyConsoleBox.style.display != 'block') {
-            fnBodyConsoleToggle('ConsoleAll');
-            fnBodyConsoleToggle('ConsoleEvent');
-            fnBodyConsoleToggle('ConsoleState');
-        } else if (elBodyConsoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
+            StdBodyConsoleToggle('ConsoleAll');
+            StdBodyConsoleToggle('ConsoleEvent');
+            StdBodyConsoleToggle('ConsoleState');
+        } else if (elBodyConsoleErrorBox.style.display != 'block') { StdBodyConsoleToggle('ConsoleError'); }
         //
         if (browserIsIE) {
             debugger;
@@ -265,9 +263,10 @@ function fnWindowErrorDebug(eventCurr, errorMsgPassed, errorUrlPassed, errorLine
 // SectionBlock Application Debug & Error function (s)
 // ...................................... //
 // Layout Next
-function fnDebugStart(debugOptionPassed, debugMessagePassed) {
+function DebugStart(debugOptionPassed, debugMessagePassed) {
     if (!debugIsOn) { return; }
-    if (debugDoAlert) { alert('Ready to debug: ' + debugMessagePassed + '(' + debugOptionPassed + ')');
+    if (debugDoAlert) {
+        alert('Ready to debug: ' + debugMessagePassed + '(' + debugOptionPassed + ')');
     } else {
         if (browserIsTEST) {
             debugger;
@@ -277,16 +276,17 @@ function fnDebugStart(debugOptionPassed, debugMessagePassed) {
             // Throw something
             // throw 'Ready to debug: ' + debugMessagePassed + '(' + debugOptionPassed + ')';
             // Use degug instance (from VK)
-            // debug-instance-off fnElementItemShow;
+            // debug-instance-off StdElementItemShow;
         } else {
             debugger;
         }
     }
 }
 // Error Message Log
-function fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+function ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
     eventText, eventUrl, eventLine) {
     consoleEventLogCn += 1;
+    // errorUrl = eventUrl;
     var eventMessage =
         charNoWrapTagStart
         + '(' + (consoleEventLogCn).toString() + ')'
@@ -304,12 +304,12 @@ function fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
     }
     //
     if (errorUseDebugOnAll) {
-        fnWindowErrorDebug(eventCurr, eventMessage, eventUrl, eventLine);
+        StdWindowErrorDebug(eventCurr, eventMessage, eventUrl, eventLine);
     }
     //
 }
 // Error Message Display
-function fnErrorOccured(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
+function ConsoleMessageLog(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
     errorUrlPassed, errorLineNumPassed, elementPassed, elementSourcePassed,
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     if (!elementPassed) { elementPassed = null; }
@@ -329,13 +329,13 @@ function fnErrorOccured(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
             break;
         case errorElementComment:
         default:
-            errorMessageFinal += '(Comment) No';
+            errorMessageFinal += 'No';
             break;
     }
     //
-    errorMessageFinal += ' Error: ' + errorMsgPassed;
+    errorMessageFinal += ' Error: ';
     if ((errorUrlPassed).length) {
-        errorMessageFinal += ' in ' + errorUrlPassed;
+        errorMessageFinal += errorUrlPassed;
         if (!UseSingeLinePassed
             && (errorMessageFinal.length > 30
                 && errorUrlPassed.length > 30)
@@ -343,6 +343,8 @@ function fnErrorOccured(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
             errorMessageFinal += charNewLineTag + charTextIndent;
         }
     }
+    //
+    errorMessageFinal += ' ' + errorMsgPassed;
     //
     // note: the use of " PropertyX in elementPasssed" did not work for validating properties of elementPasssed.
     //
@@ -488,7 +490,7 @@ function fnErrorOccured(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
     //
     // errorMessageAllLog += errorMessageFinal;
     //
-    fnErrorOccuredAction(errorMsgPassed,
+    ConsoleMessageLogAction(errorMsgPassed,
         errorUrlPassed, errorLineNumPassed, elementPassed, elementSourcePassed,
         errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
     //
@@ -530,12 +532,12 @@ function fnErrorOccured(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
     //
     // Alert
     if (errorDoAlertPassed || !elBodyConsoleErrorTextBox) {
-        alert('(' + tempCount + ')' + ' ' + fnTextReplace(errorMessageFinal, charNewLineTag, charNewLine));
+        alert('(' + tempCount + ')' + ' ' + StdTextReplace(errorMessageFinal, charNewLineTag, charNewLine));
     }
     //
     // Abort & Debug
     if (DoDebug) {
-        var DoDebugAbort = fnWindowErrorDebug(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed);
+        var DoDebugAbort = StdWindowErrorDebug(eventCurr, errorMsgPassed, errorUrlPassed, errorLineNumPassed);
         if (DoDebugAbort) {
             // ABORT
         }
@@ -543,7 +545,7 @@ function fnErrorOccured(eventCurr, UseDebug, UseSingeLinePassed, errorMsgPassed,
     //
 }
 // Error Message Action
-function fnErrorOccuredAction(eventCurr, errorMsgPassed,
+function ConsoleMessageLogAction(eventCurr, errorMsgPassed,
     errorUrlPassed, errorLineNumPassed, errorElementPassed, errorElementSourcePassed,
     errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
     if (errorSeverityPassed == errorFatal) {
@@ -562,3 +564,4 @@ function fnErrorOccuredAction(eventCurr, errorMsgPassed,
 }
 // ..................................................................................... _//
 script_state = "MdmError functions loaded and started";
+if (debugLoadIsOn) { debugger; }

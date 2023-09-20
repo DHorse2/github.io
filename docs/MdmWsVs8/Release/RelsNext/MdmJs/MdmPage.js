@@ -142,11 +142,11 @@ var imgZindex = 120;
 // Standard Functions
 // ------------------------------------------------------------------------------------- _//
 // // Base Font Size Increase
-// function fnFontSizeIncrease() {
+// function StdFontSizeIncrease() {
 //     return;
 // }
 // // Base Font Size Decrease
-// function fnFontSizeDecrease() {
+// function StdFontSizeDecrease() {
 //     return;
 // }
 // MOUSE
@@ -155,14 +155,14 @@ var imgZindex = 120;
 ////////////////////////////////////////////////
 // Image Standard Mouse Events
 // Mouse
-// 		fnMouseOverImg
-//		    fnMouseOutImg
-//		    fnMouseClickImg
+// 		StdMouseOverImg
+//		    StdMouseOutImg
+//		    StdMouseClickImg
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
 // Mouse Over
 ////////////////////////////////////////////////
-function fnMouseOverImg(menuImage) {
+function StdMouseOverImg(menuImage) {
     menuImageCn = oObjIndexSetmenuImageCn(menuImage);
     if (menuImageCn > imgUsedCn) {
         return;
@@ -180,7 +180,7 @@ function fnMouseOverImg(menuImage) {
 }
 // Mouse Out
 ////////////////////////////////////////////////
-function fnMouseOutImg(menuImage) {
+function StdMouseOutImg(menuImage) {
     menuImageCn = oObjIndexSetmenuImageCn(menuImage);
     if (menuImageCn > imgUsedCn) {
         return;
@@ -194,7 +194,7 @@ function fnMouseOutImg(menuImage) {
 }
 // Mouse Click
 ////////////////////////////////////////////////
-function fnMouseClickImg(menuImage) {
+function StdMouseClickImg(menuImage) {
     menuImageCn = oObjIndexSetmenuImageCn(menuImage);
     if (menuImageCn > imgUsedCn) {
         return;
@@ -229,135 +229,10 @@ function fnMouseClickImg(menuImage) {
 }
 // ..................................................................................... _//
 // Create all Elements used in Layout
-function fnElementObjectContainerCreate() {
-    //---------------------------------------------------------------//
-    // Body Container References
-    //---------------------------------------------------------------//
-    elBody = fnElementGetRef(elBody, "BodyBox", "BodyBox");
-    elBodyMainContainer = fnElementGetRef(elBodyMainContainer, "BodyMainContainer", "BodyMainContainer");
-    // Body Center Area References
-    elBodyMainCenter = fnElementGetRef(elBodyMainCenter, "BodyMainCenter", "BodyMainCenter");
-    // Body Left Area Copy
-    elBodyMainLeft = fnElementGetRef(elBodyMainLeft, "BodyMainLeft", "BodyMainLeft");
-    // Body Right Area Copy
-    elBodyMainRight = fnElementGetRef(elBodyMainRight, "BodyMainRight", "BodyMainRight");
-    //
-    elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter, "BodyMainCenterCenter", "BodyMainCenterCenter");
-    //
-    // elColumnType1 = fnElementGetRef(elColumnType1,"ColumnType1","ColumnType1");
-}
-// Create all Elements used in Layout
-function fnElementObjectCreateDepreciated() {
-    // Body Container References
-    //---------------------------------------------------------------//
-    fnElementObjectContainerCreate();
-    // Banner References (Top Menu, Logo and Graphics)
-    //---------------------------------------------------------------//
-    elBodyBanner = fnElementGetRef(elBodyBanner, "BodyBanner", "BodyBanner");
-    elBodyBannerTop = fnElementGetRef(elBodyBannerTop, "BodyBannerTop", "BodyBannerTop");
-    elBodyBannerBottom = fnElementGetRef(elBodyBannerBottom, "BodyBannerBottom", "BodyBannerBottom");
-    // Body Center Area References
-    //---------------------------------------------------------------//
-    // elBodyMainCenter = fnElementGetRef(elBodyMainCenter,"BodyMainCenter","BodyMainCenter");
-    //
-    elBodyMainCenterTop = fnElementGetRef(elBodyMainCenterTop, "BodyMainCenterTop", "BodyMainCenterTop");
-    elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft, "BodyMainCenterTopLeft", "BodyMainCenterTopLeft");
-    elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight, "BodyMainCenterTopRight", "BodyMainCenterTopRight");
-    //
-    elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak");
-    //
-    // elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter,"BodyMainCenterCenter","BodyMainCenterCenter");
-    //
-    elBodyMainCenterBottom = fnElementGetRef(elBodyMainCenterBottom, "BodyMainCenterBottom", "BodyMainCenterBottom");
-    // Body Left Area Copy
-    //---------------------------------------------------------------//
-    // elBodyMainLeft = fnElementGetRef(elBodyMainLeft,"BodyMainLeft","BodyMainLeft");// createElement
-    // elBodyMainLeft = fnElementGetRef(elBodyMainLeft,"BodyMainLeft","BodyMainLeft");
-    elBodyMainLeftCopy = fnElementCopy(elBodyMainLeftCopy, elBodyMainLeftCopyFirst, elBody, "block");
-    elBodyMainLeftCurr = fnElementCopy(elBodyMainLeftCurr, elBodyMainLeftCurrFirst, elBodyMainLeft, "block");
-    elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, "block");
-    //
-    // if (false = true) {
-    //     elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainLeftOuter", "BodyMainLeftOuter", elBodyMainLeftCopy)
-    //     // elBodyMainLeftOuter = fnElementGetRef(elBodyMainLeftOuter,"BodyMainLeftOuter","BodyMainLeftOuter");
-    //     elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, "BodyMainLeftInner", "BodyMainLeftInner", elBodyMainLeftCopy)
-    //     // elBodyMainLeftInner = fnElementGetRef(elBodyMainLeftInner,"BodyMainLeftInner","BodyMainLeftInner");
-    //     //
-    //     elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout1", "BodyMenuLayout1", elBodyMainLeftCopy)
-    //    // elBodyMenuLayout1 = fnElementGetRef(elBodyMenuLayout1,"BodyMenuLayout1","BodyMenuLayout1");
-    //     elMenuContainerLeft1 = fnElementGetRefFromElement(elMenuContainerLeft1, "MenuContainerLeft1", "MenuContainerLeft1", elBodyMainLeftCopy)
-    //     // elMenuContainerLeft1 = fnElementGetRef(elMenuContainerLeft1,"MenuContainerLeft1","MenuContainerLeft1");
-    //     // Left 1
-    //     elMenuGroup1 = fnElementGetRefFromElement(elMenuGroup1, "MenuGroup1", "MenuGroup1", elBodyMainLeftCopy)
-    //     // elMenuGroup1 = fnElementGetRef(elMenuGroup1,"MenuGroup1","MenuGroup1");
-    //     // elMenuGroup1 = fnElementGetRefFromElement(elMenuGroup1, elMenuGroup1.id, elMenuGroup1.name, elBodyMainLeft)
-    //     // var elMenuGroup1Save = fnElementGetRef(elMenuGroup1Save,"MenuGroup1Save","MenuGroup1Save");
-    //     // Left 2
-    //     elMenuContainerLeft2 = fnElementGetRefFromElement(elMenuContainerLeft2, "MenuContainerLeft2", "MenuContainerLeft2", elBodyMainLeftCopy)
-    //     // elMenuContainerLeft2 = fnElementGetRef(elMenuContainerLeft2,"MenuContainerLeft2","MenuContainerLeft2");
-    //     elMenuGroup2 = fnElementGetRefFromElement(elMenuGroup2, "MenuGroup2", "MenuGroup2", elBodyMainLeftCopy)
-    //     // elMenuGroup2 = fnElementGetRef(elMenuGroup2,"MenuGroup2","MenuGroup2");
-    //     // var elMenuGroup2Save = fnElementGetRef(elMenuGroup2Save,"MenuGroup2Save","MenuGroup2Save");
-    //     // Left 3
-    //     elMenuContainerLeft3 = fnElementGetRefFromElement(elMenuContainerLeft3, "MenuContainerLeft3", "MenuContainerLeft3", elBodyMainLeftCopy)
-    //     // elMenuContainerLeft3 = fnElementGetRef(elMenuContainerLeft3,"MenuContainerLeft3","MenuContainerLeft3");
-    //     elMenuGroup3 = fnElementGetRefFromElement(elMenuGroup3, "MenuGroup3", "MenuGroup3", elBodyMainLeftCopy)
-    //     // elMenuGroup3 = fnElementGetRef(elMenuGroup3,"MenuGroup3","MenuGroup3");
-    //     // var elMenuGroup3Save = fnElementGetRef(elMenuGroup3Save,"MenuGroup3Save","MenuGroup3Save");
-    // }
-    // Body Right Area Copy
-    //---------------------------------------------------------------//
-    // elBodyMainRight = fnElementGetRef(elBodyMainRight,"BodyMainRight","BodyMainRight");
-    elBodyMainRightCopy = fnElementCopy(elBodyMainRightCopy, elBodyMainRightCopyFirst, elBody, "block");
-    elBodyMainRightCurr = fnElementCopy(elBodyMainRightCurr, elBodyMainRightCurrFirst, elBodyMainRight, "block");
-    elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, "block");
-    //
-    // if (false = true) {
-    //     elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainRightOuter, "BodyMainRightOuter", "BodyMainRightOuter", elBodyMainRightCopy)
-    //     // elBodyMainRightOuter = fnElementGetRef(elBodyMainRightOuter,"BodyMainRightOuter","BodyMainRightOuter");
-    //     elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", elBodyMainRightCopy)
-    //     // elBodyMainRightInner = fnElementGetRef(elBodyMainRightInner,"BodyMainRightInner","BodyMainRightInner");
-    //     //
-    //     elBodyMenuLayout2 = fnElementGetRef(elBodyMenuLayout2, "BodyMenuLayout2", "BodyMenuLayout2");
-    //     //
-    //     elMenuContainerRight1 = fnElementGetRefFromElement(elMenuContainerRight1, "MenuContainerRight1", "MenuContainerRight1", elBodyMainRightCopy);
-    //     // elMenuContainerRight1 = fnElementGetRef(elMenuContainerRight1,"MenuContainerRight1","MenuContainerRight1");
-    //     elMenuGroup4 = fnElementGetRefFromElement(elMenuGroup4, "elMenuGroup4", "elMenuGroup4", elBodyMainRightCopy);
-    //     // var elMenuGroup4Save = fnElementGetRef(elMenuGroup4Save,"MenuGroup4Save","MenuGroup4Save");
-    //     elMenuContainerRight2 = fnElementGetRefFromElement(elMenuContainerRight2, "MenuContainerRight2", "MenuContainerRight2", elBodyMainRightCopy);
-    //     elMenuGroup5 = fnElementGetRefFromElement(elMenuGroup5, "MenuGroup5", "MenuGroup5", elBodyMainRightCopy);
-    //     // var elMenuGroup5Save = fnElementGetRef(elMenuGroup5Save,"MenuGroup5Save","MenuGroup5Save");
-    //     elMenuContainerRight3 = fnElementGetRefFromElement(elMenuContainerRight3, "MenuContainerRight3", "MenuContainerRight3", elBodyMainRightCopy);
-    //     elMenuGroup6 = fnElementGetRefFromElement(elMenuGroup6, "MenuGroup6", "MenuGroup6", elBodyMainRightCopy);
-    //     // var elMenuGroup6Save = fnElementGetRef(elMenuGroup6Save,"MenuGroup6Save","MenuGroup6Save");
-    // }//
-    // Body Far Right Area
-    //---------------------------------------------------------------//
-    elBodyMainRightFar = fnElementGetRef(elBodyMainRightFar, "BodyMainRightFar", "BodyMainRightFar");
-    // Other...
-    //---------------------------------------------------------------//
-    // if (false = true) {
-    //     // elBodyMainCenterTopColBreak
-    //     elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak");
-    //     //
-    //     elMenuGroup1ColBreak = fnElementGetRef(elMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
-    //     elMenuGroup2ColBreak = fnElementGetRef(elMenuGroup2ColBreak, "MenuGroup2ColBreak", "MenuGroup2ColBreak");
-    //     elMenuGroup3ColBreak = fnElementGetRef(elMenuGroup3ColBreak, "MenuGroup3ColBreak", "MenuGroup3ColBreak");
-    //     elMenuGroup4ColBreak = fnElementGetRef(elMenuGroup4ColBreak, "MenuGroup4ColBreak", "MenuGroup4ColBreak");
-    //     elMenuGroup5ColBreak = fnElementGetRef(elMenuGroup5ColBreak, "MenuGroup5ColBreak", "MenuGroup5ColBreak");
-    //     elMenuGroup6ColBreak = fnElementGetRef(elMenuGroup6ColBreak, "MenuGroup6ColBreak", "MenuGroup6ColBreak");
-    // }
-    //
-    //---------------------------------------------------------------//
-    //---------------------------------------------------------------//
-    //
-    javaLoadDelay = false;
-    // elBodyFirst = false;
-}
 // Section Element function (s)
 // SectionBlock Element support function (s)
 // Count all Blocks in the Center Center Area
-function fnElementObjectBlockCount() {
+function StdElementObjectBlockCount() {
 	var elementBlockCn = 0;
 	// Search Sections for Callouts
 	layoutSectionCn = 0;
@@ -384,92 +259,92 @@ function fnElementObjectBlockCount() {
 	return elementBlockCn;
 }
 // Create all Elements used in Layout
-function fnElementObjectContainerCreate() {
+function StdElementObjectContainerCreate() {
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
-	elBody = fnElementGetRef(elBody, 'BodyBox', 'BodyBox');
-	elBodyMainContainer = fnElementGetRef(elBodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
+	elBody = StdElementGetRef(elBody, 'BodyBox', 'BodyBox');
+	elBodyMainContainer = StdElementGetRef(elBodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
 	// Body Center Area References
-	elBodyMainCenter = fnElementGetRef(elBodyMainCenter, 'BodyMainCenter', 'BodyMainCenter');
+	elBodyMainCenter = StdElementGetRef(elBodyMainCenter, 'BodyMainCenter', 'BodyMainCenter');
 	// Body Left Area Copy
-	elBodyMainLeft = fnElementGetRef(elBodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
+	elBodyMainLeft = StdElementGetRef(elBodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
 	// Body Right Area Copy
-	elBodyMainRight = fnElementGetRef(elBodyMainRight, 'BodyMainRight', 'BodyMainRight');
+	elBodyMainRight = StdElementGetRef(elBodyMainRight, 'BodyMainRight', 'BodyMainRight');
 	//
-	elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
+	elBodyMainCenterCenter = StdElementGetRef(elBodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
 	//
-	// elColumnType1 = fnElementGetRef(elColumnType1,'ColumnType1','ColumnType1');
+	// elColumnType1 = StdElementGetRef(elColumnType1,'ColumnType1','ColumnType1');
 }
 // Create all Elements used in Layout
-function fnElementObjectCreate() {
+function StdElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
-	javaLoadFirst = false;
+	loadFirstJava = false;
 	// elBodyFirst = false;
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
-	fnElementObjectContainerCreate();
+	StdElementObjectContainerCreate();
 	//
 	//............................................................---//
 	// Banner References (Top Menu, Logo and Graphics)
 	//............................................................---//
-	elBodyBanner = fnElementGetRef(elBodyBanner, 'BodyBanner', 'BodyBanner');
-	elBodyBannerTop = fnElementGetRef(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
-	elBodyBannerBottom = fnElementGetRef(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
+	elBodyBanner = StdElementGetRef(elBodyBanner, 'BodyBanner', 'BodyBanner');
+	elBodyBannerTop = StdElementGetRef(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
+	elBodyBannerBottom = StdElementGetRef(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
 	//
 	//............................................................---//
 	// Body View Toggle and Message Area Containers
 	//............................................................---//
 	// elBodyViewToggle View Toggle and Message Area
-	elBodyViewToggleContainer = fnElementGetRef(elBodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
-	elBodyViewToggleContainerCenter = fnElementGetRef(elBodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
-	elBodyViewToggleContainerLeft = fnElementGetRef(elBodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+	elBodyViewToggleContainer = StdElementGetRef(elBodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+	elBodyViewToggleContainerCenter = StdElementGetRef(elBodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
+	elBodyViewToggleContainerLeft = StdElementGetRef(elBodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
 	//
-	elBodyConsoleMouseOverToggle = fnElementGetRef(elBodyConsoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
+	elBodyConsoleMouseOverToggle = StdElementGetRef(elBodyConsoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
 	//
 	//............................................................---//
 	// Body Console Toggle and Message Area
 	//............................................................---//
 	// Toggle Buttons
-	elBodyConsoleBoxButtons = fnElementGetRef(elBodyConsoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
-	elBodyConsoleBoxToggles = fnElementGetRef(elBodyConsoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
-	elBodyConsoleLogToggles = fnElementGetRef(elBodyConsoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
-	elBodyConsoleAuxillaryToggles = fnElementGetRef(elBodyConsoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
+	elBodyConsoleBoxButtons = StdElementGetRef(elBodyConsoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
+	elBodyConsoleBoxToggles = StdElementGetRef(elBodyConsoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
+	elBodyConsoleLogToggles = StdElementGetRef(elBodyConsoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
+	elBodyConsoleAuxillaryToggles = StdElementGetRef(elBodyConsoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
 	//
-	elBodyConsoleToggle = fnElementGetRef(elBodyConsoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
+	elBodyConsoleToggle = StdElementGetRef(elBodyConsoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
 	//
-	elBodyConsoleErrorToggle = fnElementGetRef(elBodyConsoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
-	elBodyConsoleEventToggle = fnElementGetRef(elBodyConsoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
-	elBodyConsoleStateToggle = fnElementGetRef(elBodyConsoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
-	elBodyConsoleTestToggle = fnElementGetRef(elBodyConsoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
-	elBodyConsoleClearToggle = fnElementGetRef(elBodyConsoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
+	elBodyConsoleErrorToggle = StdElementGetRef(elBodyConsoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
+	elBodyConsoleEventToggle = StdElementGetRef(elBodyConsoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
+	elBodyConsoleStateToggle = StdElementGetRef(elBodyConsoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
+	elBodyConsoleTestToggle = StdElementGetRef(elBodyConsoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
+	elBodyConsoleClearToggle = StdElementGetRef(elBodyConsoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
 	//
-	elBodyConsoleDebugButtons = fnElementGetRef(elBodyConsoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
-	elBodyConsoleDebugToggles = fnElementGetRef(elBodyConsoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
-	elBodyConsoleDebugMainToggles = fnElementGetRef(elBodyConsoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
-	elBodyConsoleDebugTypesToggles = fnElementGetRef(elBodyConsoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
+	elBodyConsoleDebugButtons = StdElementGetRef(elBodyConsoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
+	elBodyConsoleDebugToggles = StdElementGetRef(elBodyConsoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
+	elBodyConsoleDebugMainToggles = StdElementGetRef(elBodyConsoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
+	elBodyConsoleDebugTypesToggles = StdElementGetRef(elBodyConsoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
 	//
-	elBodyConsoleDebugToggle = fnElementGetRef(elBodyConsoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
+	elBodyConsoleDebugToggle = StdElementGetRef(elBodyConsoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
 	//
-	elBodyConsoleDebugMoveToggle = fnElementGetRef(elBodyConsoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
-	elBodyConsoleDebugTransitionToggle = fnElementGetRef(elBodyConsoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
-	elBodyConsoleDebugDetailToggle = fnElementGetRef(elBodyConsoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
-	elBodyConsoleDebugAllToggle = fnElementGetRef(elBodyConsoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
-	elBodyConsoleDebugOnErrorToggle = fnElementGetRef(elBodyConsoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
-	elBodyConsoleDebugEventsToggle = fnElementGetRef(elBodyConsoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
+	elBodyConsoleDebugMoveToggle = StdElementGetRef(elBodyConsoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
+	elBodyConsoleDebugTransitionToggle = StdElementGetRef(elBodyConsoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
+	elBodyConsoleDebugDetailToggle = StdElementGetRef(elBodyConsoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
+	elBodyConsoleDebugAllToggle = StdElementGetRef(elBodyConsoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
+	elBodyConsoleDebugOnErrorToggle = StdElementGetRef(elBodyConsoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
+	elBodyConsoleDebugEventsToggle = StdElementGetRef(elBodyConsoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
 	//
 	// Body Console Toggle and Message Area
-	elBodyConsoleContainer = fnElementGetRef(elBodyConsoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
-	elBodyConsoleBox = fnElementGetRef(elBodyConsoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
-	elBodyConsoleErrorBox = fnElementGetRef(elBodyConsoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
-	elBodyConsoleErrorTextBox = fnElementGetRef(elBodyConsoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
-	elBodyConsoleEventBox = fnElementGetRef(elBodyConsoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
-	elBodyConsoleEventTextBox = fnElementGetRef(elBodyConsoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
-	elBodyConsoleStateBox = fnElementGetRef(elBodyConsoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
-	elBodyConsoleStateTextBox = fnElementGetRef(elBodyConsoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
-	elBodyConsoleTestBox = fnElementGetRef(elBodyConsoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
-	elBodyConsoleTestTextBox = fnElementGetRef(elBodyConsoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
+	elBodyConsoleContainer = StdElementGetRef(elBodyConsoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
+	elBodyConsoleBox = StdElementGetRef(elBodyConsoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
+	elBodyConsoleErrorBox = StdElementGetRef(elBodyConsoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
+	elBodyConsoleErrorTextBox = StdElementGetRef(elBodyConsoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
+	elBodyConsoleEventBox = StdElementGetRef(elBodyConsoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
+	elBodyConsoleEventTextBox = StdElementGetRef(elBodyConsoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
+	elBodyConsoleStateBox = StdElementGetRef(elBodyConsoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
+	elBodyConsoleStateTextBox = StdElementGetRef(elBodyConsoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
+	elBodyConsoleTestBox = StdElementGetRef(elBodyConsoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
+	elBodyConsoleTestTextBox = StdElementGetRef(elBodyConsoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
 	//
 	if (elBodyConsoleBox.style.display = '') { elBodyConsoleBox.style.display = 'none' }
 	if (elBodyConsoleErrorBox.style.display = '') { elBodyConsoleErrorBox.style.display = 'block'; }
@@ -477,115 +352,116 @@ function fnElementObjectCreate() {
 	if (elBodyConsoleStateBox.style.display = '') { elBodyConsoleStateBox.style.display = 'block'; }
 	if (elBodyConsoleTestBox.style.display = '') { elBodyConsoleTestBox.style.display = 'block'; }
 	//
-	fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+	StdBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 	// if (elBodyConsoleBoxToggles.style.display = '') { elBodyConsoleBoxToggles.style.display = 'block'; }
-	fnBodyConsoleShow(DoNotUseHide, DoUseDebug);
+	StdBodyConsoleShow(DoNotUseHide, DoUseDebug);
 	// if (elBodyConsoleDebugToggles.style.display = '') { elBodyConsoleDebugToggles.style.display = 'block'; }
 	//
 	//............................................................---//
 	// Body Center Area References
 	//............................................................---//
-	// elBodyMainCenter = fnElementGetRef(elBodyMainCenter,'BodyMainCenter','BodyMainCenter');
+	// elBodyMainCenter = StdElementGetRef(elBodyMainCenter,'BodyMainCenter','BodyMainCenter');
 	//
-	elBodyMainCenterTop = fnElementGetRef(elBodyMainCenterTop, 'BodyMainCenterTop', 'BodyMainCenterTop');
-	elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
-	elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
+	elBodyMainCenterTop = StdElementGetRef(elBodyMainCenterTop, 'BodyMainCenterTop', 'BodyMainCenterTop');
+	elBodyMainCenterTopLeft = StdElementGetRef(elBodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
+	elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
 	//
-	elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
+	elBodyMainCenterTopColBreak = StdElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
 	//
-	// elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
+	// elBodyMainCenterCenter = StdElementGetRef(elBodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
 	//
-	elBodyMainCenterBottom = fnElementGetRef(elBodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
+	elBodyMainCenterBottom = StdElementGetRef(elBodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
 	//
 	//............................................................---//
 	// Body Left Area Copy
 	//............................................................---//
-	// elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
-	// elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');
-	elBodyMainLeftCopy = fnElementCopy(elBodyMainLeftCopy, elBodyMainLeftCopyFirst, elBodyMainLeft, 'block');
-	elBodyMainLeftCurr = fnElementCopy(elBodyMainLeftCurr, elBodyMainLeftCurrFirst, elBodyMainLeft, 'block');
-	elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'block');
+	// elBodyMainLeft = StdElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
+	// elBodyMainLeft = StdElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');
+	elBodyMainLeftCopy = StdElementCopy(elBodyMainLeftCopy, elBodyMainLeftCopyFirst, elBodyMainLeft, 'block');
+	elBodyMainLeftCurr = StdElementCopy(elBodyMainLeftCurr, elBodyMainLeftCurrFirst, elBodyMainLeft, 'block');
+	elBodyMainLeftOrig = StdElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'block');
 	//
 	// if (false == true) {
-	elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainLeftCopy)
-	// elBodyMainLeftOuter = fnElementGetRef(elBodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
-	elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainLeftCopy)
-	// elBodyMainLeftInner = fnElementGetRef(elBodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
+	elBodyMainLeftOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainLeftCopy)
+	// elBodyMainLeftOuter = StdElementGetRef(elBodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
+	elBodyMainLeftInner = StdElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainLeftCopy)
+	// elBodyMainLeftInner = StdElementGetRef(elBodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
 	//
-	elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainLeftCopy)
-	// elBodyMenuLayout1 = fnElementGetRef(elBodyMenuLayout1,'BodyMenuLayout1','BodyMenuLayout1');
-	elMenuContainerLeft1 = fnElementGetRefFromElement(elMenuContainerLeft1, 'MenuContainerLeft1', 'MenuContainerLeft1', elBodyMainLeftCopy)
-	// elMenuContainerLeft1 = fnElementGetRef(elMenuContainerLeft1,'MenuContainerLeft1','MenuContainerLeft1');
+	elBodyMenuLayout1 = StdElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainLeftCopy)
+	// elBodyMenuLayout1 = StdElementGetRef(elBodyMenuLayout1,'BodyMenuLayout1','BodyMenuLayout1');
+	elMenuContainerLeft1 = StdElementGetRefFromElement(elMenuContainerLeft1, 'MenuContainerLeft1', 'MenuContainerLeft1', elBodyMainLeftCopy)
+	// elMenuContainerLeft1 = StdElementGetRef(elMenuContainerLeft1,'MenuContainerLeft1','MenuContainerLeft1');
 	// Left 1
-	elMenuGroup1 = fnElementGetRefFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1', elBodyMainLeftCopy)
-	// elMenuGroup1 = fnElementGetRef(elMenuGroup1,'MenuGroup1','MenuGroup1');
-	// elMenuGroup1 = fnElementGetRefFromElement(elMenuGroup1, elMenuGroup1.id, elMenuGroup1.name, elBodyMainLeft)
-	// var elMenuGroup1Save = fnElementGetRef(elMenuGroup1Save,'MenuGroup1Save','MenuGroup1Save');
+	elMenuGroup1 = StdElementGetRefFromElement(elMenuGroup1, 'MenuGroup1', 'MenuGroup1', elBodyMainLeftCopy)
+	// elMenuGroup1 = StdElementGetRef(elMenuGroup1,'MenuGroup1','MenuGroup1');
+	// elMenuGroup1 = StdElementGetRefFromElement(elMenuGroup1, elMenuGroup1.id, elMenuGroup1.name, elBodyMainLeft)
+	// var elMenuGroup1Save = StdElementGetRef(elMenuGroup1Save,'MenuGroup1Save','MenuGroup1Save');
 	// Left 2
-	elMenuContainerLeft2 = fnElementGetRefFromElement(elMenuContainerLeft2, 'MenuContainerLeft2', 'MenuContainerLeft2', elBodyMainLeftCopy)
-	// elMenuContainerLeft2 = fnElementGetRef(elMenuContainerLeft2,'MenuContainerLeft2','MenuContainerLeft2');
-	elMenuGroup2 = fnElementGetRefFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2', elBodyMainLeftCopy)
-	// elMenuGroup2 = fnElementGetRef(elMenuGroup2,'MenuGroup2','MenuGroup2');
-	// var elMenuGroup2Save = fnElementGetRef(elMenuGroup2Save,'MenuGroup2Save','MenuGroup2Save');
+	elMenuContainerLeft2 = StdElementGetRefFromElement(elMenuContainerLeft2, 'MenuContainerLeft2', 'MenuContainerLeft2', elBodyMainLeftCopy)
+	// elMenuContainerLeft2 = StdElementGetRef(elMenuContainerLeft2,'MenuContainerLeft2','MenuContainerLeft2');
+	elMenuGroup2 = StdElementGetRefFromElement(elMenuGroup2, 'MenuGroup2', 'MenuGroup2', elBodyMainLeftCopy)
+	// elMenuGroup2 = StdElementGetRef(elMenuGroup2,'MenuGroup2','MenuGroup2');
+	// var elMenuGroup2Save = StdElementGetRef(elMenuGroup2Save,'MenuGroup2Save','MenuGroup2Save');
 	// Left 3
-	elMenuContainerLeft3 = fnElementGetRefFromElement(elMenuContainerLeft3, 'MenuContainerLeft3', 'MenuContainerLeft3', elBodyMainLeftCopy)
-	// elMenuContainerLeft3 = fnElementGetRef(elMenuContainerLeft3,'MenuContainerLeft3','MenuContainerLeft3');
-	elMenuGroup3 = fnElementGetRefFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3', elBodyMainLeftCopy)
-	// elMenuGroup3 = fnElementGetRef(elMenuGroup3,'MenuGroup3','MenuGroup3');
-	// var elMenuGroup3Save = fnElementGetRef(elMenuGroup3Save,'MenuGroup3Save','MenuGroup3Save');
+	elMenuContainerLeft3 = StdElementGetRefFromElement(elMenuContainerLeft3, 'MenuContainerLeft3', 'MenuContainerLeft3', elBodyMainLeftCopy)
+	// elMenuContainerLeft3 = StdElementGetRef(elMenuContainerLeft3,'MenuContainerLeft3','MenuContainerLeft3');
+	elMenuGroup3 = StdElementGetRefFromElement(elMenuGroup3, 'MenuGroup3', 'MenuGroup3', elBodyMainLeftCopy)
+	// elMenuGroup3 = StdElementGetRef(elMenuGroup3,'MenuGroup3','MenuGroup3');
+	// var elMenuGroup3Save = StdElementGetRef(elMenuGroup3Save,'MenuGroup3Save','MenuGroup3Save');
 	// }
 	//
 	//............................................................---//
 	// Body Right Area Copy
 	//............................................................---//
-	// elBodyMainRight = fnElementGetRef(elBodyMainRight,'BodyMainRight','BodyMainRight');
-	elBodyMainRightCopy = fnElementCopy(elBodyMainRightCopy, elBodyMainRightCopyFirst, elBody, 'block');
-	elBodyMainRightCurr = fnElementCopy(elBodyMainRightCurr, elBodyMainRightCurrFirst, elBodyMainRight, 'block');
-	elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'block');
+	// elBodyMainRight = StdElementGetRef(elBodyMainRight,'BodyMainRight','BodyMainRight');
+	elBodyMainRightCopy = StdElementCopy(elBodyMainRightCopy, elBodyMainRightCopyFirst, elBody, 'block');
+	elBodyMainRightCurr = StdElementCopy(elBodyMainRightCurr, elBodyMainRightCurrFirst, elBodyMainRight, 'block');
+	elBodyMainRightOrig = StdElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'block');
 	//
-	elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainRightCopy)
-	// elBodyMainRightOuter = fnElementGetRef(elBodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
-	elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainRightCopy)
-	// elBodyMainRightInner = fnElementGetRef(elBodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
+	elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainRightCopy)
+	// elBodyMainRightOuter = StdElementGetRef(elBodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
+	elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainRightCopy)
+	// elBodyMainRightInner = StdElementGetRef(elBodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
 	//
-	elBodyMenuLayout2 = fnElementGetRef(elBodyMenuLayout2, 'BodyMenuLayout2', 'BodyMenuLayout2');
+	elBodyMenuLayout2 = StdElementGetRef(elBodyMenuLayout2, 'BodyMenuLayout2', 'BodyMenuLayout2');
 	//
-	elMenuContainerRight1 = fnElementGetRefFromElement(elMenuContainerRight1, 'MenuContainerRight1', 'MenuContainerRight1', elBodyMainRightCopy);
-	// elMenuContainerRight1 = fnElementGetRef(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1');
-	elMenuGroup4 = fnElementGetRefFromElement(elMenuGroup4, 'elMenuGroup4', 'elMenuGroup4', elBodyMainRightCopy);
-	// var elMenuGroup4Save = fnElementGetRef(elMenuGroup4Save,'MenuGroup4Save','MenuGroup4Save');
-	elMenuContainerRight2 = fnElementGetRefFromElement(elMenuContainerRight2, 'MenuContainerRight2', 'MenuContainerRight2', elBodyMainRightCopy);
-	elMenuGroup5 = fnElementGetRefFromElement(elMenuGroup5, 'MenuGroup5', 'MenuGroup5', elBodyMainRightCopy);
-	// var elMenuGroup5Save = fnElementGetRef(elMenuGroup5Save,'MenuGroup5Save','MenuGroup5Save');
-	elMenuContainerRight3 = fnElementGetRefFromElement(elMenuContainerRight3, 'MenuContainerRight3', 'MenuContainerRight3', elBodyMainRightCopy);
-	elMenuGroup6 = fnElementGetRefFromElement(elMenuGroup6, 'MenuGroup6', 'MenuGroup6', elBodyMainRightCopy);
-	// var elMenuGroup6Save = fnElementGetRef(elMenuGroup6Save,'MenuGroup6Save','MenuGroup6Save');
+	elMenuContainerRight1 = StdElementGetRefFromElement(elMenuContainerRight1, 'MenuContainerRight1', 'MenuContainerRight1', elBodyMainRightCopy);
+	// elMenuContainerRight1 = StdElementGetRef(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1');
+	elMenuGroup4 = StdElementGetRefFromElement(elMenuGroup4, 'elMenuGroup4', 'elMenuGroup4', elBodyMainRightCopy);
+	// var elMenuGroup4Save = StdElementGetRef(elMenuGroup4Save,'MenuGroup4Save','MenuGroup4Save');
+	elMenuContainerRight2 = StdElementGetRefFromElement(elMenuContainerRight2, 'MenuContainerRight2', 'MenuContainerRight2', elBodyMainRightCopy);
+	elMenuGroup5 = StdElementGetRefFromElement(elMenuGroup5, 'MenuGroup5', 'MenuGroup5', elBodyMainRightCopy);
+	// var elMenuGroup5Save = StdElementGetRef(elMenuGroup5Save,'MenuGroup5Save','MenuGroup5Save');
+	elMenuContainerRight3 = StdElementGetRefFromElement(elMenuContainerRight3, 'MenuContainerRight3', 'MenuContainerRight3', elBodyMainRightCopy);
+	elMenuGroup6 = StdElementGetRefFromElement(elMenuGroup6, 'MenuGroup6', 'MenuGroup6', elBodyMainRightCopy);
+	// var elMenuGroup6Save = StdElementGetRef(elMenuGroup6Save,'MenuGroup6Save','MenuGroup6Save');
 	//
 	//............................................................---//
 	// Body Far Right Area
 	//............................................................---//
-	elBodyMainRightFar = fnElementGetRef(elBodyMainRightFar, 'BodyMainRightFar', 'BodyMainRightFar');
+	elBodyMainRightFar = StdElementGetRef(elBodyMainRightFar, 'BodyMainRightFar', 'BodyMainRightFar');
 	//
 	//............................................................---//
 	// Other...
 	//............................................................---//
 	// elBodyMainCenterTopColBreak
-	elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
+	elBodyMainCenterTopColBreak = StdElementGetRef(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
 	//
-	elMenuGroup1ColBreak = fnElementGetRef(elMenuGroup1ColBreak, 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
-	elMenuGroup2ColBreak = fnElementGetRef(elMenuGroup2ColBreak, 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
-	elMenuGroup3ColBreak = fnElementGetRef(elMenuGroup3ColBreak, 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
-	elMenuGroup4ColBreak = fnElementGetRef(elMenuGroup4ColBreak, 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
-	elMenuGroup5ColBreak = fnElementGetRef(elMenuGroup5ColBreak, 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
-	elMenuGroup6ColBreak = fnElementGetRef(elMenuGroup6ColBreak, 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
+	elMenuGroup1ColBreak = StdElementGetRef(elMenuGroup1ColBreak, 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
+	elMenuGroup2ColBreak = StdElementGetRef(elMenuGroup2ColBreak, 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
+	elMenuGroup3ColBreak = StdElementGetRef(elMenuGroup3ColBreak, 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
+	elMenuGroup4ColBreak = StdElementGetRef(elMenuGroup4ColBreak, 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
+	elMenuGroup5ColBreak = StdElementGetRef(elMenuGroup5ColBreak, 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
+	elMenuGroup6ColBreak = StdElementGetRef(elMenuGroup6ColBreak, 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
 	//
 	//............................................................---//
 	//............................................................---//
 	//
 	// document.recalc();
 	//
-	javaLoadFirst = false;
+	loadFirstJava = false;
 	// elBodyFirst = false;
 }
 
-var script_state = "MdmPage loaded";
+script_state = "Mdm Standard Page functions loaded. (Body Elements, Element Object, MouseEvent)";
+if (debugLoadIsOn) { debugger; }

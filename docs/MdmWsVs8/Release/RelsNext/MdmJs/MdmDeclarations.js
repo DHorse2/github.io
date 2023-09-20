@@ -1,7 +1,7 @@
-        ////////////////////////////////////////////////
-        // Position Control
-
-
+var script_state = "Mdm Web Site";
+var debugLoadIsOn = false;
+////////////////////////////////////////////////
+// Position Control
 var boxHeight = 0;
 var TopLeftWidth = 0;
 var TopLeftWidthInner = 0;
@@ -35,7 +35,7 @@ var DoNotUseBase; // = false;
 var DoNotUseOffset; // = false;
 // SectionBlock Image Handling
 // ...................................... //
-// fnBrowserGetVs();
+// StdBrowserGetVs();
 // ...................................... //
 // Type of Image Group Page Generation
 var imgLoadEventTest; // = false; // controls clearing of elBodyMenuImageContainer for testing
@@ -48,17 +48,17 @@ var eventMouseOverEnabled; // = false;
 // Page Loading Optimization
 // ...................................... //
 // Java Initilization Functions:
-var javaLoadDelay; // = true;
-var javaLoadFirst; // = true;
+var loadDelayJava; // = true;
+var loadFirstJava; // = true;
 // Body (Content) Images:
-var bodyImageLoadDelay; // = false;
-var bodyImageLoadFirst; // = true;
+var loadDelayBodyImage; // = false;
+var loadFirstBodyImage; // = true;
 // Menu Thumbnail Images:
-var menuImageLoadDelay; // = false;
-var menuImageLoadFirst; // = true;
+var loadDelayMenuImage; // = false;
+var loadFirstMenuImage; // = true;
 // Testing / Debug State Window
-var debugStateLoadDelay; // = false;
-var debugStateLoadFirst; // = true;
+var loadDelayDebugState; // = false;
+var loadFirstDebugState; // = true;
 // Section GLOBAL / COMMON Variables
 // ...................................... //
 // ...................................... //
@@ -233,32 +233,53 @@ var errorDoDisplayTag; // = true;
 var errorDoNotDisplayTag; // = false;
 var errorDoAlert; // = true;
 var errorDoNotAlert; // = false;
+
+var errorCaller;
+var errorCallerName;
+var errorUrl;
+var errorMessageFinal;
+var errorInnerHTML;
+var errorSourceInnerHTML;
+
+//
+var errorElement;
+var errorElementSource;
+
+// Events
+// ...................................... //
+var eventCurr;
+var eventCurrId = 0;
+var eventObject;
+var eventId;
+var eventType;
+var eventFileName;
+var eventFileFunction;
+var eventFileLine;
+var eventFileColumn;
+var eventTarget;
+var eventCurrentTarget; // not used
+var eventError;
+var eventTimeStamp;
+var eventIsBrowser;
+var eventIsOld;
+//
+var callerFunc;
+var callerFuncName;
+//
+var eventLast;
+var eventLastObject;
+var eventLastId;
+var eventLastRootId;
+//
+var eventCurrRootObj;
+var eventParentName;
+
 // SectionBlock Events (Mouse, load, error)
 // ...................................... //
 var LastId = new String();
 var LastTochedId = new String();
-//
-var eventParentName = new String();
-//
-var eventEventType;
-var eventEventObject;
-//
-var errorElement;
-var errorElementSource;
-// SectionBlock Menu Mouse Events
-// ...................................... //
-var eventCurr;
-var eventObject;
-var eventCurrId = '';
-var eventType = '';
-//
-var eventLast;
-var eventLastObject;
-var eventLastId = '';
-var eventLastRootId = '';
-//
-var eventCurrRootObj;
-// Section Menu Image (Standard) Objects
+
+// Section Menu Image (Standard) Ojects
 // ...................................... //
 // Storage Location for Group and Menu Item / Image
 // These can be overriden locally (might be)
@@ -269,6 +290,12 @@ var indexGroup = 0; // location of Group / Roots in arrays
 var oObj = document.createElement('div');
 var oObjIndex = 1;
 var oObjImage = document.createElement('img');
+var oObjIndex = 0;
+var oObjGroupIndex = 0;
+var oObjValid = false;
+var oObjId = new String();
+var oObjParentId = new String();
+
 //
 var oObjParent = document.createElement('div');
 var oObjParentIndex = 1;
@@ -342,10 +369,10 @@ var layoutHeight;
 var layoutZindex = 20;
 // SectionBlock Document Layout (Window) Resize
 // ...................................... //
-// window.onerror = function() { fnWindowError() };
+// window.onerror = function() { StdWindowError() };
 var layoutResizeCn = 0;
 var layoutResizeDelay = 0;
-// window.onresize = function() { fnWindowResize(); }
+// window.onresize = function() { StdWindowResize(); }
 
 layoutWidth = 0;
 layoutHeight = 0;
@@ -457,8 +484,8 @@ var elBodyConsoleStateTextBox;
 var elBodyConsoleTestBox;
 var elBodyConsoleTestTextBox;
 //
-var fnBodyConsoleBoxButtons = false;
-var fnBodyConsoleDebugButtons = false;
+var StdBodyConsoleBoxButtons = false;
+var StdBodyConsoleDebugButtons = false;
 // View, Console and Debug Toggle Buttons
 // ...................................... //
 var elBodyViewToggleContainer;
@@ -787,16 +814,7 @@ script_state = "MdmMain Custom Default settings used";
 // menuImageOffsetTopAll[4][6]; // = 0; menuImageOffsetLeftAll[4][6]; // = 0;
 // menuImageOffsetTopAll[4][7]; // = -250; menuImageOffsetLeftAll[4][7]; // = 0;
 // menuImageOffsetTopAll[4][8]; // = 0; menuImageOffsetLeftAll[4][8]; // = 0;
-// ...................................... //
-// Menu and Image Missing Objects
-// var img1MenuLine;
-var img8MenuLine;
-var img12MenuLine;
-var MdmNetAppFrame0MenuLine;
-var img8;
-// Section Animation Management
-// ...................................... //
-// ...................................... //
+
 // SectionBlock Animated Independent (content) Images
 // ...................................... //
 // Image Test - Stock Images and Scrollable
@@ -912,17 +930,17 @@ var timerFunctionFilterGroup;
 var timerFunctionMoveItem;
 var timerFunctionMoveGroup;
 //
-var fnTimerStepDoItem;
-var fnTimerItemDoStepFilter;
-var fnTimerGroupDoStepFilter;
-var fnTimerItemDoStepMove;
-var fnTimerGroupDoStepMove;
+var StdTimerStepDoItem;
+var StdTimerItemDoStepFilter;
+var StdTimerGroupDoStepFilter;
+var StdTimerItemDoStepMove;
+var StdTimerGroupDoStepMove;
 //
-// var timerFunction; // = fnTimerStepDoItem;
-// var timerFunctionFilterItem; // = fnTimerItemDoStepFilter;
-// var timerFunctionFilterGroup; // = fnTimerGroupDoStepFilter;
-// var timerFunctionMoveItem; // = fnTimerItemDoStepMove;
-// var timerFunctionMoveGroup; // = fnTimerGroupDoStepMove;
+// var timerFunction; // = StdTimerStepDoItem;
+// var timerFunctionFilterItem; // = StdTimerItemDoStepFilter;
+// var timerFunctionFilterGroup; // = StdTimerGroupDoStepFilter;
+// var timerFunctionMoveItem; // = StdTimerItemDoStepMove;
+// var timerFunctionMoveGroup; // = StdTimerGroupDoStepMove;
 //
 // Duration / Temporal
 // var timerDuration; // = elementMoveDuration;
@@ -1023,14 +1041,14 @@ var arrSlideStyles = new Array(3);
 arrSlideStyles = ['HIDE', 'PUSH', 'SWAP'];
 var filterSlideStyleIndexCount = 0;
 // ...................................... //
-// filter fnSetRotation function
+// filter StdSetRotation function
 // ...................................... //
 //oObj input requires that a matrix filter be applied.
 //deg input defines the requested angle of rotation.
 var deg2radians = Math.PI * 2 / 360;
-// fnFilterSpin
+// StdFilterSpin
 var filterMatrixCounterDegreeCurrent = 40;
-// fnFilterCompletion
+// StdFilterCompletion
 filterCompletionIsZero = 0;
 // StyleBackground
 var filterStyleBackgroundToggle = 0;
@@ -1232,9 +1250,9 @@ var filterSelected = new Array(5);
 // // ...................................... //
 // // Initialize Variables
 // // Functions
-// fnTimerFunctionSet();
+// StdTimerFunctionSet();
 // // Intervals and Duration
-// fnTimerDurationSet();
+// StdTimerDurationSet();
 //
 // Section Body Content Images Html Build function (s)
 // ...................................... //
@@ -1244,7 +1262,7 @@ var imgHtml = new String();
 // .getElementById('BodyMenuImageContainer');
 //
 // Build (inner) HTML for Menu Images
-// fnMenuImagesHtmlBuild();
+// StdMenuImagesHtmlBuild();
 // ...................................... //
 // Recalculate Screen Display
 var boxClass;
@@ -1289,7 +1307,7 @@ var elementWidthDefault = 250;
 var elBodyBlockWidth;
 // Document Window
 // ..................................................................................... _//
-// window.onresize = function() { fnWindowResize(); }
+// window.onresize = function() { StdWindowResize(); }
 // ..................................................................................... _//
 // Layout Height Get
 var heightBase = 0;
@@ -1300,4 +1318,8 @@ var heightNode = 0;
 var heightRects = 0;
 var clientRectsIndex = 0;
 // ..................................................................................... _//
-var script_state = "MdmDeclarations completed";
+script_state = "MdmDeclarations completed.";
+if (debugLoadIsOn) {
+    script_state = "MdmDeclarations completed. debugLoadIsOn is " + debugLoadIsOn + ", see top of script.";
+    debugger;
+}

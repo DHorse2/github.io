@@ -35,17 +35,17 @@ var timerFunctionFilterGroup;
 var timerFunctionMoveItem;
 var timerFunctionMoveGroup;
 //
-var fnTimerStepDoItem;
-var fnTimerItemDoStepFilter;
-var fnTimerGroupDoStepFilter;
-var fnTimerItemDoStepMove;
-var fnTimerGroupDoStepMove;
+var StdTimerStepDoItem;
+var StdTimerItemDoStepFilter;
+var StdTimerGroupDoStepFilter;
+var StdTimerItemDoStepMove;
+var StdTimerGroupDoStepMove;
 //
-// var timerFunction = fnTimerStepDoItem;
-// var timerFunctionFilterItem = fnTimerItemDoStepFilter;
-// var timerFunctionFilterGroup = fnTimerGroupDoStepFilter;
-// var timerFunctionMoveItem = fnTimerItemDoStepMove;
-// var timerFunctionMoveGroup = fnTimerGroupDoStepMove;
+// var timerFunction = StdTimerStepDoItem;
+// var timerFunctionFilterItem = StdTimerItemDoStepFilter;
+// var timerFunctionFilterGroup = StdTimerGroupDoStepFilter;
+// var timerFunctionMoveItem = StdTimerItemDoStepMove;
+// var timerFunctionMoveGroup = StdTimerGroupDoStepMove;
 //
 // Duration / Temporal
 // var timerDuration = elementMoveDuration;
@@ -97,7 +97,7 @@ var vTimerStop;
 // ------------------------------------------------------------------------------------- _//
 // ..................................................................................... _//
 // Timer Control:
-// (See function fnTimerDurationSet for default timer values)
+// (See function StdTimerDurationSet for default timer values)
 // Initialize Variables
 // var timerItemKey;
 // var timerRootKey;
@@ -130,12 +130,12 @@ var timerDurationOverride = false; // Indicates User has set durations and defau
 // // SectionBlock Timers Primary Commands function (s)
 // // ...................................... //
 // // Functions
-// fnTimerFunctionSet();
+// StdTimerFunctionSet();
 // // Intervals and Duration
-// fnTimerDurationSet();
+// StdTimerDurationSet();
 // ..................................................................................... _//
 //
-function fnTimerMoveStepDo(timerIdPassed) {
+function StdTimerMoveStepDo(timerIdPassed) {
     // elementMoveStepLeft = elementMoveStep;
     // elementMoveStepTop = elementMoveStep
     var tempMoveInProgress = false;
@@ -270,7 +270,7 @@ function fnTimerMoveStepDo(timerIdPassed) {
         // Resize
         // oObj.filters["DXImageTransform.Microsoft.Matrix"]
         if (filterResizeIsOn && tempMoveInProgress) {
-            fnFilterResize(timerObj[timerIdPassed].oObj, filterTypeMatrix, timerCompletion);
+            StdFilterResize(timerObj[timerIdPassed].oObj, filterTypeMatrix, timerCompletion);
         }
         // timerStepCompletion
         //
@@ -287,8 +287,8 @@ function fnTimerMoveStepDo(timerIdPassed) {
         window.clearInterval(timerObj[timerIdPassed].timerInstId);
         timerObj[timerIdPassed].oObj.style.posTop = timerObj[timerIdPassed].elementTopDest;
         timerObj[timerIdPassed].oObj.style.posLeft = timerObj[timerIdPassed].elementLeftDest;
-        if (filterResizeIsOn) { fnFilterResize(timerObj[timerIdPassed].oObj, filterTypeMatrix, 1); }
-        fnFilterStop(filterPlayAll,
+        if (filterResizeIsOn) { StdFilterResize(timerObj[timerIdPassed].oObj, filterTypeMatrix, 1); }
+        StdFilterStop(filterPlayAll,
             timerObj[timerIdPassed].oObj,
             timerIdPassed);
         timerStarted = false;
@@ -300,7 +300,7 @@ function fnTimerMoveStepDo(timerIdPassed) {
 // Timer Pause then Start
 ////////////////////////////////////////////////
 // Included a setTimeout in BODY onload to delay start of text movement.
-function fnTimerStart(timerIdPassed, timerFunctionPassed, timerDelayPassed) {
+function StdTimerStart(timerIdPassed, timerFunctionPassed, timerDelayPassed) {
     timerTen = 0;
     timerStarted = true;
     timerObj[timerIdPassed].timerBusy = true;
@@ -308,27 +308,27 @@ function fnTimerStart(timerIdPassed, timerFunctionPassed, timerDelayPassed) {
     timerIdCurr = timerIdPassed;
     //
     var tempFunc = "";
-    tempFunc = function () { fnTimerSet(timerIdPassed); };
+    tempFunc = function () { StdTimerSet(timerIdPassed); };
     //
     vTimerStart = window.setTimeout(
         tempFunc,
         timerDelayPassed);
     /*--
-    tempFunc = function() { fnTimerSet( '"' + timerIdPassed + '"' ); };
-    tempFunc = 'function() { fnTimerSet("' + timerIdPassed + '"); }';
+    tempFunc = function() { StdTimerSet( '"' + timerIdPassed + '"' ); };
+    tempFunc = 'function() { StdTimerSet("' + timerIdPassed + '"); }';
     vTimerStart= window.setTimeout(
-            function() { fnTimerSet(timerIdCurr); },
+            function() { StdTimerSet(timerIdCurr); },
             timerDelayPassed);
-    vTimerStart= window.setTimeout( 'function() { fnTimerSet("' + timerIdCurr + '"); }', timerDelayPassed);
-    vTimerStart= window.setTimeout("fnTimerSet('"+timerIdCurr+"')", timerDelayPassed);
+    vTimerStart= window.setTimeout( 'function() { StdTimerSet("' + timerIdCurr + '"); }', timerDelayPassed);
+    vTimerStart= window.setTimeout("StdTimerSet('"+timerIdCurr+"')", timerDelayPassed);
     vTimerStart= window.setTimeout(
-          fnTimerSet( timerFunctionPassed, timerInterval, timerIdPassed ),
+          StdTimerSet( timerFunctionPassed, timerInterval, timerIdPassed ),
           timerDelayPassed);
     //
-    fnTimerSet( timerFunctionPassed, timerInterval, timerIdPassed ),
-    'fnTimerSet(timerFunctionPassed, timerInterval, "' + timerIdPassed + '")',
+    StdTimerSet( timerFunctionPassed, timerInterval, timerIdPassed ),
+    'StdTimerSet(timerFunctionPassed, timerInterval, "' + timerIdPassed + '")',
     //
-   vTimerStart= window.setTimeout("fnTimerSet"
+   vTimerStart= window.setTimeout("StdTimerSet"
           + "("  + timerFunctionPassed
           + ", " + timerInterval
           + ", " + timerIdPassed
@@ -340,38 +340,38 @@ function fnTimerStart(timerIdPassed, timerFunctionPassed, timerDelayPassed) {
 // Timer Set
 ////////////////////////////////////////////////
 // Set up interval at which the moveDiv function will be called.
-function fnTimerSet(timerIdPassed) {
+function StdTimerSet(timerIdPassed) {
     var tempFunc = "";
-    tempFunc = function () { fnTimerMoveStepDo(timerIdPassed); };
+    tempFunc = function () { StdTimerMoveStepDo(timerIdPassed); };
     //
     vTimerID = window.setInterval(
         tempFunc,
         timerInterval
     );
     /*--
-    tempFunc = 'function() { fnTimerMoveStepDo("' + timerIdPassed + '"); }';
-    function() { fnTimerMoveStepDo(timerIdPassed); },
+    tempFunc = 'function() { StdTimerMoveStepDo("' + timerIdPassed + '"); }';
+    function() { StdTimerMoveStepDo(timerIdPassed); },
     vTimerID= window.setInterval(
         'function() { '
-        + 'fnTimerMoveStepDo'
+        + 'StdTimerMoveStepDo'
         + "("  + timerIdPassed
         + ')'
         + '; }',
         timerIntervalPassed
         );
     vTimerID= window.setInterval(
-        fnTimerMoveStepDo(timerIdPassed),
+        StdTimerMoveStepDo(timerIdPassed),
         timerIntervalPassed
         );
-    'fnTimerMoveStepDo(' + timerIdPassed+ ')',
-    fnTimerMoveStepDo( + timerIdPassed ),
-    fnTimerMoveStepDo(timerIdPassed),
+    'StdTimerMoveStepDo(' + timerIdPassed+ ')',
+    StdTimerMoveStepDo( + timerIdPassed ),
+    StdTimerMoveStepDo(timerIdPassed),
     timerFunctionPassed + "(" + timerIdPassed + ")",
-    'fnTimerMoveStepDo(timerIdPassed)',
-    fnTimerMoveStepDo(timerIdPassed),
+    'StdTimerMoveStepDo(timerIdPassed)',
+    StdTimerMoveStepDo(timerIdPassed),
         //
     vTimerID= window.setInterval(
-        'fnTimerMoveStepDo'
+        'StdTimerMoveStepDo'
         + "("  + timerIdPassed
         + ')',
         timerIntervalPassed
@@ -389,7 +389,7 @@ function fnTimerSet(timerIdPassed) {
 // This function incrementally repositions divMove.
 // It loops through a set number of times.
 //      Was function moveDiv()
-function fnTimerMoveTest() {
+function StdTimerMoveTest() {
     for (i = 0; i < 10; i++) {
         iHorizontal += 1;
         iVertical = iHorizontal;
@@ -410,18 +410,18 @@ function fnTimerMoveTest() {
 // ...................................... //
 // Initialize Variables
 // Functions
-// fnTimerFunctionSet();
+// StdTimerFunctionSet();
 // Intervals and Duration
-// fnTimerDurationSet();
+// StdTimerDurationSet();
 // ..................................................................................... _//
 // Set Filter & Move function (s) for Timers
-function fnTimerFunctionSet() {
-    timerFunctionFilterItem = fnTimerItemDoStepFilter;
-    timerFunctionFilterGroup = fnTimerGroupDoStepFilter;
-    timerFunctionMoveItem = fnTimerItemDoStepMove;
-    timerFunctionMoveGroup = fnTimerGroupDoStepMove;
+function StdTimerFunctionSet() {
+    timerFunctionFilterItem = StdTimerItemDoStepFilter;
+    timerFunctionFilterGroup = StdTimerGroupDoStepFilter;
+    timerFunctionMoveItem = StdTimerItemDoStepMove;
+    timerFunctionMoveGroup = StdTimerGroupDoStepMove;
 }
-function fnTimerDurationSet() {
+function StdTimerDurationSet() {
     // timerUseTime = true;
     // Timer Control (Move)
     if (timerUseTime) {
@@ -480,7 +480,7 @@ function fnTimerDurationSet() {
     filterStepsPerSecond = filterStepMax / filterDuration;
     //
 }
-function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
+function StdTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     // Timer Type
@@ -506,7 +506,7 @@ function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
         // delete timerObj[timerGroup] [timerLevelKey];
     }
 }
-function fnTimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
+function StdTimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     // Timer Type
@@ -529,9 +529,9 @@ function fnTimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
     // delete timerObj[timerGroup] [timerLevelKey];
 }
 // Menu Images Move Action
-// fnTimerStartMove();
+// StdTimerStartMove();
 // ...................................... //
-function fnTimerInitialize(timerType, timerGroup, timerId,
+function StdTimerInitialize(timerType, timerGroup, timerId,
     playDirection,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     filterPlayAll, startIndex, endIndex,
@@ -551,14 +551,14 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
     if (!timerObj[timerGroup][timerRootKey]) {
         timerGroupNew = true;
         timerObj[timerGroup][timerRootKey] = new Object;
-        fnTimerItemDeactivate(timerType, timerGroup, timerId, true);
+        StdTimerItemDeactivate(timerType, timerGroup, timerId, true);
     }
     //
     // Timer Item Creation
     if (!timerObj[timerGroup][timerItemKey]) {
         timerItemNew = true;
         timerObj[timerGroup][timerItemKey] = new Object;
-        fnTimerItemDeactivate(timerType, timerGroup, timerId, false);
+        StdTimerItemDeactivate(timerType, timerGroup, timerId, false);
         //
         timerObj[timerGroup][timerItemKey].elementMoveMethod =
             timerObj[timerGroup][timerRootKey].elementMoveMethod;
@@ -572,7 +572,7 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
                 timerObj[timerGroup][timerRootKey].elementMoveMethod = elementMoveMethod;
             } else {
                 if (playDirection == playDirectionForward) {
-                    var elementMoveMethodTemp = fnMathNumberRandomGetByRange(1, 3, filterRealFlag);
+                    var elementMoveMethodTemp = StdMathNumberRandomGetByRange(1, 3, filterRealFlag);
                     if (elementMoveMethodTemp == elementMoveMethodPrev) {
                         elementMoveMethodTemp += 1 - ((elementMoveMethodTemp > 2) * 3);
                     }
@@ -745,7 +745,7 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
 }
 // Timer Pause then Start
 // Included a setTimeout in BODY onload to delay start of text movement.
-function fnTimerStart(timerType, timerGroup, timerId,
+function StdTimerStart(timerType, timerGroup, timerId,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     timerDelayPassed) {
     var timerItemKey = timerId + timerType;
@@ -788,7 +788,7 @@ function fnTimerStart(timerType, timerGroup, timerId,
             ) {
                 if (!timerObj[timerGroup][timerRootKey].timerIntervalId) {
                     var tempFunc = function () {
-                        fnTimerSet(
+                        StdTimerSet(
                             timerType, timerGroup, timerId,
                             tempMethodFunc, timerDelayPassed,
                             timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
@@ -802,14 +802,14 @@ function fnTimerStart(timerType, timerGroup, timerId,
                         if (timerMethod == timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = -1; }
                     }
                     if (debugFunctionIsOn) {
-                        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
-                            fnTimerLogText(timerType, timerGroup, timerId,
+                        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                            StdTimerLogText(timerType, timerGroup, timerId,
                                 (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
                                 timerObj[timerGroup][timerItemKey].playDirection, 'Timer Pending')
                             + ', Timer Delayed Start '
                             + (vTimerStart ? 'Ok' : 'Failed')
                             + (vTimerStart ? '.' : '!!!'),
-                            'fnTimerStart', 4557, null, null,
+                            'StdTimerStart', 4557, null, null,
                             errorComment, errorDoNotDisplayTag, errorDoNotAlert);
                     }
                 }
@@ -833,12 +833,12 @@ function fnTimerStart(timerType, timerGroup, timerId,
         }
         //
         if (debugFunctionIsOn) {
-            fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
-                fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+            ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Timer Running')
                 + ', Already running'
                 + '.',
-                'fnTimerStart', 4587, null, null,
+                'StdTimerStart', 4587, null, null,
                 errorComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
@@ -846,14 +846,14 @@ function fnTimerStart(timerType, timerGroup, timerId,
 }
 // Timer Set
 // Set up interval at which the timer will fire.
-function fnTimerSet(timerType, timerGroup, timerId,
+function StdTimerSet(timerType, timerGroup, timerId,
     timerFunctionPassed, timerDelayPassed,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed
 ) {
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     var tempFunc = new String();
-    tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerId); };// fnTimerMoveStepDo
+    tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerId); };// StdTimerMoveStepDo
     var debugFunctionIsOn = false;
     if (debugTimer && (
         (timerMethod = timerMethodItem && debugTimerDetail)
@@ -877,10 +877,10 @@ function fnTimerSet(timerType, timerGroup, timerId,
         if (timerMethod == timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = vTimerID; }
         //
         if (debugFunctionIsOn) {
-            fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
-                fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
+            ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
                 + '.',
-                'fnTimerSet', 4633, null, null,
+                'StdTimerSet', 4633, null, null,
                 errorComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
@@ -891,13 +891,13 @@ function fnTimerSet(timerType, timerGroup, timerId,
         }
         //
         if (debugFunctionIsOn) {
-            fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
-                fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+            ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Interval Running')
                 + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
                 + ', Already running, delayed start not done'
                 + '.',
-                'fnTimerSet', 4649, null, null,
+                'StdTimerSet', 4649, null, null,
                 errorComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
@@ -909,19 +909,19 @@ function fnTimerSet(timerType, timerGroup, timerId,
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerLogText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
+function StdTimerLogText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     var DoUseWord = true;
     var LogText = '';
-    LogText += fnTimerTypeText(timerType, DoUseWord);
-    LogText += ', ' + fnTimerIntervalText(timerType, timerGroup, timerId, UseRootKey);
-    LogText += ', ' + fnTimerActionText(timerAction);
-    LogText += ', ' + fnTimerKeyText(timerType, timerGroup, timerId);
-    LogText += ', ' + fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction);
+    LogText += StdTimerTypeText(timerType, DoUseWord);
+    LogText += ', ' + StdTimerIntervalText(timerType, timerGroup, timerId, UseRootKey);
+    LogText += ', ' + StdTimerActionText(timerAction);
+    LogText += ', ' + StdTimerKeyText(timerType, timerGroup, timerId);
+    LogText += ', ' + StdTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction);
     return LogText;
 }
-function fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
+function StdTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDirection, timerAction) {
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     var LogText = '';
@@ -941,10 +941,10 @@ function fnTimerDirectionText(timerType, timerGroup, timerId, UseRootKey, playDi
     } else { LogText += 'Item Direction undefined'; }
     return LogText;
 }
-function fnTimerActionText(timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substr(0, 25); }
-function fnTimerTypeText(timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substr(0, 10)); }
-function fnTimerKeyText(timerType, timerGroup, timerId) { return 'Object: (' + (fnTimerTypeText(timerType, false)) + ', ' + timerGroup + ', ' + timerId + ')'; }
-function fnTimerIntervalText(timerType, timerGroup, timerId, UseRootKey) {
+function StdTimerActionText(timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substr(0, 25); }
+function StdTimerTypeText(timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substr(0, 10)); }
+function StdTimerKeyText(timerType, timerGroup, timerId) { return 'Object: (' + (StdTimerTypeText(timerType, false)) + ', ' + timerGroup + ', ' + timerId + ')'; }
+function StdTimerIntervalText(timerType, timerGroup, timerId, UseRootKey) {
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     // var tempString = new String();
@@ -969,7 +969,7 @@ function fnTimerIntervalText(timerType, timerGroup, timerId, UseRootKey) {
     tempString = 'Timer (' + tempString + ')';
     return 'Timer (' + ((tempInterval).toString()).substr(1, 5) + ')';
 }
-function fnTimerIntervalTextOld(timerType, timerGroup, timerId, UseRootKey) {
+function StdTimerIntervalTextOld(timerType, timerGroup, timerId, UseRootKey) {
     if (UseRootKey) {
         if (timerObj[timerGroup][timerRootKey]) {
             // Note: Syntax difference between native string "(target).substr(1, 5);"
@@ -992,7 +992,7 @@ function fnTimerIntervalTextOld(timerType, timerGroup, timerId, UseRootKey) {
         } else { return 'Timer (None.)'; }
     }
 }
-function fnTimerRootKeyText(timerType, timerGroup, timerId) {
+function StdTimerRootKeyText(timerType, timerGroup, timerId) {
     var timerRootKey = timerRootId + timerType;
     var timerIdCurr;
     var timerIdCnMax = timerObj[timerGroup].length;
@@ -1031,4 +1031,5 @@ function fnTimerRootKeyText(timerType, timerGroup, timerId) {
     return timerRootText;
 }
 //
-script_state = "MdmTimer loaded";
+script_state = "Mdm Standard Timers loaded. (Action, Interval, Move, Set, Start, ?Stop todo?)";
+if (debugLoadIsOn) { debugger; }

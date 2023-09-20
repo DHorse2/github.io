@@ -1,4 +1,4 @@
-function fnMenuObjectSetAll(oObjGroupCn, oObjCn) {
+function StdMenuObjectSetAll(oObjGroupCn, oObjCn) {
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     ////////////////////////////////////////////////
@@ -251,9 +251,9 @@ function fnMenuObjectSetAll(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// function fnMenuObjectTextSet(oObjGroupCn, oObjCn)
+// function StdMenuObjectTextSet(oObjGroupCn, oObjCn)
 ////////////////////////////////////////////////
-function fnMenuObjectTextSet(oObjGroupCn, oObjCn) {
+function StdMenuObjectTextSet(oObjGroupCn, oObjCn) {
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     switch (oObjGroupIndex) {
@@ -321,9 +321,9 @@ function fnMenuObjectTextSet(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// function fnMenuObjectNameSet(oObjGroupCn, oObjCn)
+// function StdMenuObjectNameSet(oObjGroupCn, oObjCn)
 ////////////////////////////////////////////////
-function fnMenuObjectNameSet(oObjGroupCn, oObjCn) {
+function StdMenuObjectNameSet(oObjGroupCn, oObjCn) {
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     ////////////////////////////////////////////////
@@ -391,9 +391,9 @@ function fnMenuObjectNameSet(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// fnMenuIndexSet
+// StdMenuIndexSet
 ////////////////////////////////////////////////
-function fnMenuIndexSet(oObjGroupIndex, oObjPassed) {
+function StdMenuIndexSet(oObjGroupIndex, oObjPassed) {
     switch (oObjGroupIndex) {
         ////////////////////////////////////////////////
         // Non Groups
@@ -484,9 +484,9 @@ function fnMenuIndexSet(oObjGroupIndex, oObjPassed) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// fnMenuIndexSetByName
+// StdMenuIndexSetByName
 ////////////////////////////////////////////////
-function fnMenuIndexSetByName(oObjPassed) {
+function StdMenuIndexSetByName(oObjPassed) {
     for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
         //    alert(imgCn + "--" + imgUsedCn + "--" + imgMax);
         //    alert(oObjPassed.name);
@@ -498,3 +498,5 @@ function fnMenuIndexSetByName(oObjPassed) {
     //alert("Object No: " + 0);
     return 0;
 }
+script_state = "MdmMain Custom settings for Images, functions loaded.";
+if (debugLoadIsOn) { debugger; }

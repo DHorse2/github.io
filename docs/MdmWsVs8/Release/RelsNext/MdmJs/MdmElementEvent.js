@@ -6,14 +6,14 @@
 // ...................................... //
 // Image Standard Mouse Events
 // Mouse
-// 		fnElementEventMouseOver
-//		    fnElementEventMouseOut
-//		    fnElementEventClick
+// 		StdElementEventMouseOver
+//		    StdElementEventMouseOut
+//		    StdElementEventClick
 // ...................................... //
 
 // Mouse Over
 // ...................................... //
-function fnElementEventMouseOver(menuImage)
+function StdElementEventMouseOver(menuImage)
 {
   menuImageCn = oObjIndexSetmenuImageCn(menuImage);
   if (menuImageCn > imgUsedCn){
@@ -29,19 +29,19 @@ function fnElementEventMouseOver(menuImage)
 var tempTop = menuImage.parentNode.top;
 var tempLeft = menuImage.parentNode.left;
     if (debugLogEvents)  {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
 		    'Move.. Over occured on content image'
 		    + ' set successfully! Random filter # ' + filterIndex + ' '
 		    + charNewLineTag + 'top: ' + tempTop
 		    + charNewLineTag + 'Left: ' + tempLeft,
-            'fnElementEventMouseOver', 7140, null, null,
+            'StdElementEventMouseOver', 7140, null, null,
             errorComment, errorDoNotDisplayTag, errorDoNotAlert);
         //
     }
 }
 // Mouse Out
 // ...................................... //
-function fnElementEventMouseOut(menuImage)
+function StdElementEventMouseOut(menuImage)
 {
   menuImageCn = oObjIndexSetmenuImageCn(menuImage);
   if (menuImageCn > imgUsedCn){
@@ -56,7 +56,7 @@ function fnElementEventMouseOut(menuImage)
 }
 // Mouse Click
 // ...................................... //
-function fnElementEventClick(menuImage)
+function StdElementEventClick(menuImage)
 {
   menuImageCn = oObjIndexSetmenuImageCn(menuImage);
   if (menuImageCn > imgUsedCn){
@@ -80,11 +80,11 @@ function fnElementEventClick(menuImage)
 //  img0text.src = menuImage.name + 'text.txt';
     imgSelect = menuImageCn;
     if (debugLogEvents)  {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
 			'Move.. Over occured on content image'
 		    + charNewLineTag + 'Menu Image Name: ' + menuImage.name
 		    + charNewLineTag + 'Image number selected: ' + menuImageCn,
-            'fnElementEventClick', 7196, null, null,
+            'StdElementEventClick', 7196, null, null,
             errorComment, errorDoNotDisplayTag, errorDoNotAlert);
         //
     }
@@ -93,27 +93,27 @@ function fnElementEventClick(menuImage)
 }
 // Mouse Element Event Mouse
 // ...................................... //
-function fnElementEventMouse(e)
+function StdElementEventMouse(e)
 {
 	if (!imgLoadUseEventHandler && !imgLoadEventTest)  {
-        fnErrorOccured(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             'You have conflicting event handling options...',
-            'fnElementEventMouse', 9555, null, null,
+            'StdElementEventMouse', 9555, null, null,
             errorSevere, errorDoNotDisplayTag, errorDoAlert);
 	}
-	if (javaLoadFirst) { fnElementObjectCreate(); }
-	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
+	if (loadFirstJava) { StdElementObjectCreate(); }
+	if (loadFirstMenuImage) { StdMenuImagesHtmlBuild(); }
 	//
-	fnElementEventCurrSet(e);
-	fnElementEventCurrRootObjSet();
+	StdElementEventCurrSet(e);
+	StdElementEventCurrRootObjSet();
 	//
-	oObjIndex = fnElementItemIndexSetFromObj(eventCurrRootObj);
+	oObjIndex = StdElementItemIndexSetFromObj(eventCurrRootObj);
     // Objects
-    fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+    StdElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
 	if (debugLogEvents) {
-		fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Mouse Event', 'fnElementEventMouse', 7993); }
+		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+			'Mouse Event', 'StdElementEventMouse', 7993); }
 	//
 	// ...................................... //
 	if (!oObjNotFound) {
@@ -152,10 +152,10 @@ function fnElementEventMouse(e)
         	   	startIndex = oObjIndex;
             	endIndex = oObjIndex;
             	//
-    			// fnElementItemToggle(  true true true (IsImagelarge LockValue IgnoreLock)
+    			// StdElementItemToggle(  true true true (IsImagelarge LockValue IgnoreLock)
     			NextIsImageLarge = IsLarge;oObjLocked = true;IgnoreLock = true;
             	//
-        		fnElementItemToggle(
+        		StdElementItemToggle(
         				NextIsImageLarge,
         				oObj.id, oObjImageLarge.id, oObjLarge.id,
         				oObjImageSizeLarge,
@@ -173,16 +173,16 @@ function fnElementEventMouse(e)
 			//
     	case 'mouseout':
 			//
-			if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-    		if (fnElementEventCheckDuplicate(debugLogEvents)) { return; }
+			if (StdTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+    		if (StdElementEventCheckDuplicate(debugLogEvents)) { return; }
 			// ...................................... //
     		switch(IsImageLarge) {
 			// ...................................... //
             case IsSmall:
     			// Small
-    			// fnElementItemHide
+    			// StdElementItemHide
     			NextIsImageLarge = IsSmall;oObjLocked = false;IgnoreLock  = false;
-    			fnElementItemHide(
+    			StdElementItemHide(
         				NextIsImageLarge,
         				oObjParent, oObjImage, oObj, oObjLarge,
         				oObjGroupIndex, oObjIndex,
@@ -193,9 +193,9 @@ function fnElementEventMouse(e)
 			case IsLarge:
 			default:
     			// Large
-    			// fnElementItemHide
+    			// StdElementItemHide
     			NextIsImageLarge = IsLarge;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge];IgnoreLock  = false;
-    			fnElementItemHide(
+    			StdElementItemHide(
         				NextIsImageLarge,
         				oObj, oObjImageLarge, oObjLarge, oObjLarge,
         				oObjGroupIndex, oObjIndex,
@@ -209,8 +209,8 @@ function fnElementEventMouse(e)
 		// ...................................... //
     	case 'mouseover':
 			//
-			if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-    		if (fnElementEventCheckDuplicate(debugLogEvents)) { return; }
+			if (StdTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+    		if (StdElementEventCheckDuplicate(debugLogEvents)) { return; }
 			// ...................................... //
 			if (eventMouseOverEnabled) { return; }
     		switch(IsImageLarge) {
@@ -220,10 +220,10 @@ function fnElementEventMouse(e)
         	   	startIndex = 1;
             	endIndex = oObjIndex;
             	//
-    			// fnElementGroupShowStack(';false false true
+    			// StdElementGroupShowStack(';false false true
     			NextIsImageLarge = IsSmall;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge];IgnoreLock = true;
             	//
-				fnElementGroupShowStack(
+				StdElementGroupShowStack(
         				NextIsImageLarge,
         				oObjParent.id, oObjImage.id, oObj.id,
         				oObjImageSizeLarge,
@@ -236,10 +236,10 @@ function fnElementEventMouse(e)
 			default:
     			// Large
 				/*
-    			// fnElementItemShow(';Small false Curr false
+    			// StdElementItemShow(';Small false Curr false
     			NextIsImageLarge = IsSmall;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
             	//
-				fnElementItemShow(
+				StdElementItemShow(
         				NextIsImageLarge,
         				oObjParent, oObjImage, oObj, oObjLarge,
         				oObjImageSizeSmall,
@@ -248,10 +248,10 @@ function fnElementEventMouse(e)
 						//
     			*/
 				// if the small is locked then the large is locked...
-				// fnElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
+				// StdElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
     			NextIsImageLarge = IsLarge;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
             	//
-				fnElementItemShow(
+				StdElementItemShow(
         				NextIsImageLarge,
         				oObj, oObjImageLarge, oObjLarge, oObjLarge,
         				oObjImageSizeLarge,
@@ -270,9 +270,9 @@ function fnElementEventMouse(e)
 	}
 	//
 }
-// fnElementEventCurrRootObjSet
+// StdElementEventCurrRootObjSet
 // ...................................... //
-function fnElementEventCurrRootObjSet()
+function StdElementEventCurrRootObjSet()
 {
 
 	eventCurrRootObj = eventObject;
@@ -300,9 +300,9 @@ function fnElementEventCurrRootObjSet()
 	}
 	//
 }
-// fnElementEventLastSet
+// StdElementEventLastSet
 // ...................................... //
-function fnElementEventLastSet(e)
+function StdElementEventLastSet(e)
 {
 	eventLast 			= eventCurr;
 	eventLastObject 	= (eventCurr.srcElement || eventCurr.target);
@@ -310,9 +310,9 @@ function fnElementEventLastSet(e)
 	eventLastRootId 	= eventCurrRootObj.id;
 	//
 }
-// fnElementEventCurrSet
+// StdElementEventCurrSet
 // ...................................... //
-function fnElementEventCurrSet(e)
+function StdElementEventCurrSet(e)
 {
     // if (browserIsFF) {
         // eventCurr = document.event;
@@ -330,9 +330,9 @@ function fnElementEventCurrSet(e)
     }
 	//
 }
-// fnElementEventCheckDuplicate
+// StdElementEventCheckDuplicate
 // ...................................... //
-function fnElementEventCheckDuplicate(UseLog)
+function StdElementEventCheckDuplicate(UseLog)
 {
   	if (!eventCurrRootObj) { return false; }
   	if (!eventCurrRootObj.id) { return false; }
@@ -371,28 +371,28 @@ function fnElementEventCheckDuplicate(UseLog)
 	}
 	//
 	if (UseLog && IsDuplicate && debugLogEventDuplicates) {
-		fnConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Duplicate Event', 'fnElementEventCheckDuplicate', 0); }
+		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+			'Duplicate Event', 'StdElementEventCheckDuplicate', 0); }
 	//
-	if (DoStoreLast) { fnElementEventLastSet(eventCurr); }
+	if (DoStoreLast) { StdElementEventLastSet(eventCurr); }
 	return IsDuplicate;
 }
-// fnElementItemHideId
+// StdElementItemHideId
 // ...................................... //
-function fnElementEventFromHtmlCheck(e, UseLog)
+function StdElementEventFromHtmlCheck(e, UseLog)
 {
 	// load and validate event and objects
 	// if (!imgLoadUseEventHandler) {
 		eventCurr = e || window.event;
-		fnElementEventCurrSet(eventCurr);
-		fnElementEventCurrRootObjSet();
+		StdElementEventCurrSet(eventCurr);
+		StdElementEventCurrRootObjSet();
 		// look for duplicate mouse over events (bubbling)
-		if (fnElementEventCheckDuplicate(UseLog)) { return false; } else { return true; }
+		if (StdElementEventCheckDuplicate(UseLog)) { return false; } else { return true; }
 	// } else { return true; }
 }
-// fnElementItemHideId
+// StdElementItemHideId
 // ...................................... //
-function fnElementEventGet(e)
+function StdElementEventGet(e)
 {
 	// load and validate event and objects
 		eventCurr = e || window.event;
@@ -401,7 +401,7 @@ function fnElementEventGet(e)
 // Section Window function (s)
 // SectionBlock Window Events and Methods function (s)
 // Event Add
-function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed)
+function StdElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed)
 {
 	var eventAddSuccess;
 	var eventArgumentsArr = new Array();
@@ -442,4 +442,5 @@ function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNa
     //
     return oObjPassed;
 }
-script_state = "MdmElementEvent loaded";
+script_state = "Mdm Standard Element Event functions loaded.";
+if (debugLoadIsOn) { debugger; }

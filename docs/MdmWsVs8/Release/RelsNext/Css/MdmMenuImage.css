@@ -112,8 +112,8 @@ margin:auto;
 
 /*
 filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5');
-onfilterchange:"fnSpin(this)";
-onmouseover:"fnReset(this)";
+onfilterchange:"StdSpin(this)";
+onmouseover:"StdReset(this)";
 
 -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')";
 
@@ -139,13 +139,13 @@ filter:
 -ms-filter:"rotate(45deg) 3s ease-in-out";
 filter: rotate(45deg) 3s ease-in-out
 
-onmouseover="fnMenuImgShow(true, MdmImportTld, MdmImportTldLargeImage, MdmImportTldLarge, 600, 1, false); fnReset(this)"
+onmouseover="StdMenuImgShow(true, MdmImportTld, MdmImportTldLargeImage, MdmImportTldLarge, 600, 1, false); StdReset(this)"
 width=" 0em"
 height=" 0em"
 STYLE="position:absolute;
 display:none;
 filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
-onfilterchange="fnSpin(this)"
+onfilterchange="StdSpin(this)"
 */
 
 .MenuThumb1{

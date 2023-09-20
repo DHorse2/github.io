@@ -101,3 +101,6 @@ function menuImageGroupInit(imgGroupIndex, imgGroupBoxMax, menuImage) {
         //
     }
 }
+
+script_state = "MdmStandard Menu Image definition (array) construstion. (Group Init)";
+if (debugLoadIsOn) { debugger; }

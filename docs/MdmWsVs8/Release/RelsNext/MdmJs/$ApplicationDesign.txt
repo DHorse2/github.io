@@ -13,77 +13,79 @@
 // GLOBAL / COMMON
 ////////////////////////////////////////////////
 // Global
-// 		 fnDocumentLoadInit
+// 		 StdDocumentLoadInit
 // Elements
-// 		fnElementPosGet
+// 		StdElementPosGet
 // Layout
-//		fnLayoutSelectByIndex
+//		StdLayoutSelectByIndex
 // Menu Images
-// 		fnMenuImagesHtmlBuild
+// 		StdMenuImagesHtmlBuild
 // Mouse
-// 		fnMouseOverImg
-//		fnMouseOutImg
-//		fnMouseClickImg
+// 		StdMouseOverImg
+//		StdMouseOutImg
+//		StdMouseClickImg
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // MENUS
 // Menu Image Show / Hide
 // Menu Show
-// 		fnMenuImgShowRange
-//		fnMenuImgShowIndex
-//		fnMenuImgShowStack
-//		fnMenuImgToggle
-//		fnMenuImgShow
+// 		StdMenuImgShowRange
+//		StdMenuImgShowIndex
+//		StdMenuImgShowStack
+//		StdMenuImgToggle
+//		StdMenuImgShow
 // Menu Hide
-// 		fnMenuImgToggleRange
-//		fnMenuImgHide
+// 		StdMenuImgToggleRange
+//		StdMenuImgHide
 // Menu Object Selection
-// 		fnMenuObjectSetAll
-//		fnMenuObjectTextSet
-//		fnMenuObjectNameSet
-//		fnMenuIndexSet
-//		fnMenuIndexSetByName
+// 		StdMenuObjectSetAll
+//		StdMenuObjectTextSet
+//		StdMenuObjectNameSet
+//		StdMenuIndexSet
+//		StdMenuIndexSetByName
 ////////////////////////////////////////////////
 // LAYOUT MANAGEMENT
-// 		fnLayoutCheck
-//		fnLayoutRefresh
-//		fnLayoutNext
+// 		StdLayoutCheck
+//		StdLayoutRefresh
+//		StdLayoutNext
+//		StdLayoutSelectByIndex
+//      StdLayoutFontSize
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Math Functions
-// 		fnMathNumberRandomGetByRange
+// 		StdMathNumberRandomGetByRange
 // Font Size Control
-//		fnFontSizeIncrease
-//		fnFontSizeDecrease
+//		StdFontSizeIncrease
+//		StdFontSizeDecrease
 ////////////////////////////////////////////////
 // OBJECT ANIMATION
 // Filter (Transition, Transform) Get by Index or Name
-// 		fnFilterGetByIndex
+// 		StdFilterGetByIndex
 ////////////////////////////////////////////////
 // FILTER MANAGEMENT
 // General
-// 		fnFilterResetThenAnimate
+// 		StdFilterResetThenAnimate
 // Filter Store / Restore
-// 		fnFilterStore
-//		fnFilterRestore
+// 		StdFilterStore
+//		StdFilterRestore
 // Animate Object
-// 		fnFilterAnimate
+// 		StdFilterAnimate
 // Filter Specific Functions
 // 		StyleBackground
-//				fnStyleBackgroundToggle
+//				StdStyleBackgroundToggle
 // 		Matrix
-//			  	fnFilterSpin
-//				fnFilterSetRotation
-//				fnFilterResize
-//		fnSlideStyleToggle
-//				fnSlideStyleToggle
+//			  	StdFilterSpin
+//				StdFilterSetRotation
+//				StdFilterResize
+//		StdSlideStyleToggle
+//				StdSlideStyleToggle
 //		Other
 //			 	OtherFunction...
 // Filter Get / Set
-// 		fnFilterGetByIndex
-//		fnFilterGetRandom
+// 		StdFilterGetByIndex
+//		StdFilterGetRandom
 // Filter Timing Get By Index
-// 		fnFilterTimingGetByIndex
+// 		StdFilterTimingGetByIndex
 //		fFilterTimingGetRandom
 ////////////////////////////////////////////////
 // DOCUMENT EVENTS

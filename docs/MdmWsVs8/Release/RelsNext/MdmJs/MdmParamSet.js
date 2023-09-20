@@ -1,6 +1,6 @@
 // type= "text/javascript">
 
-function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
+function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 	// ** Javascript Parameter Set Blocks **
 	if (varValuePassed == 'Toggle') {
 		//
@@ -68,14 +68,14 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { debugDoAlert = false; } else { debugDoAlert = true; }
 				break;
 			// Page Load Optimaization
-			case 'javaLoadDelay':
-				if (elementPassed.checked) { javaLoadDelay = false; } else { javaLoadDelay = true; }
+			case 'loadDelayJava':
+				if (elementPassed.checked) { loadDelayJava = false; } else { loadDelayJava = true; }
 				break;
-			case 'bodyImageLoadDelay':
-				if (elementPassed.checked) { bodyImageLoadDelay = false; } else { bodyImageLoadDelay = true; }
+			case 'loadDelayBodyImage':
+				if (elementPassed.checked) { loadDelayBodyImage = false; } else { loadDelayBodyImage = true; }
 				break;
-			case 'menuImageLoadDelay':
-				if (elementPassed.checked) { menuImageLoadDelay = false; } else { menuImageLoadDelay = true; }
+			case 'loadDelayMenuImage':
+				if (elementPassed.checked) { loadDelayMenuImage = false; } else { loadDelayMenuImage = true; }
 				break;
 			//
 			default:
@@ -85,8 +85,8 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 	} else {
 		// Fields with values
 		switch (varNamePassed) {
-			////////////////////////////////////////////////
 			// Browser
+			////////////////////////////////////////////////
 			case 'Browser':
 				// Browser Type
 				browserType = '';
@@ -133,10 +133,10 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 						break;
 				}
 				break;
-			//
-			////////////////////////////////////////////////
+
 			// Debug Control
-			case 'errorDebugLevel':
+			////////////////////////////////////////////////
+				case 'errorDebugLevel':
 				switch (varValuePassed) {
 					case 'errorDidNotOccur': errorDebugLevel = errorDidNotOccur;
 						break;
@@ -153,9 +153,9 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 						break;
 				}
 				break;
-			//
-			////////////////////////////////////////////////
+
 			// Menu Image Size
+			////////////////////////////////////////////////
 			case 'oObjImageSizeSmall':
 				var temp = parseInt(varValuePassed);
 				if (temp && temp > 5) {
@@ -176,8 +176,7 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 					oObjImageSizeRatio = varValuePassed;
 				}
 				break;
-			//
-			////////////////////////////////////////////////
+
 			// Animation Control
 			////////////////////////////////////////////////
 			// Movement Duration
@@ -210,9 +209,9 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 					elementMoveDelay = varValuePassed;
 				}
 				break;
-			//
-			////////////////////////////////////////////////
+
 			// Filter / Transition Duration
+			////////////////////////////////////////////////
 			case 'filterMoveDuration':
 				var temp = parseInt(varValuePassed);
 				if (temp && temp >= 0) {
@@ -261,9 +260,14 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 					filterDurationOverride = true;
 				}
 				break;
-			//
+
+			// Function todo
 			////////////////////////////////////////////////
+			// case 'function'
+			//   case 'name', line, col, stuff...
+
 			// Timer control by Item or Menu Group
+			////////////////////////////////////////////////
 			case 'timerMethod':
 				switch (varValuePassed) {
 					case 'timerMethodGroup':
@@ -277,9 +281,9 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 						break;
 				}
 				break;
-			//
-			////////////////////////////////////////////////
+
 			// Transitions started by Method call
+			////////////////////////////////////////////////
 			// or by altering filter value or visibility
 			case 'filterMethod':
 				switch (varValuePassed) {
@@ -294,9 +298,9 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 						break;
 				}
 				break;
-			//
-			////////////////////////////////////////////////
+
 			// Manner by which images move across the screen
+			////////////////////////////////////////////////
 			case 'elementMoveMethod':
 				switch (varValuePassed) {
 					case 'elementMoveMethodDirect':
@@ -322,5 +326,6 @@ function fnDebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 	}
 	//
 }
-// ..................................................................................... _//
-var script_state = "MdmParamSet function loaded";
+
+var script_state = "Mdm Standard Paramater Set function loaded";
+if (debugLoadIsOn) { debugger; }

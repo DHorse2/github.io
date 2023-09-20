@@ -88,3 +88,6 @@ function imageZoom(imgId, resultId, resultIdBox, zoomRatio, passedClass) {
         return {x : x, y : y};
     }
 }
+
+script_state = "Mdm Standard Image Zoom loaded.";
+if (debugLoadIsOn) { debugger; }

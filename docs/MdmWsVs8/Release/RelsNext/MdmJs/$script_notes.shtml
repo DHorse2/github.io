@@ -47,13 +47,13 @@
 <!-- ..................................................................................... -->
 <!-- Section Document Initialization
 // ..................................................................................... _//
-// onlayoutcomplete="fnDocumentLoadInit();";
-fnDocumentLoadInit();
+// onlayoutcomplete="StdDocumentLoadInit();";
+StdDocumentLoadInit();
 //
-fnMenuImagesHtmlBuild();
+StdMenuImagesHtmlBuild();
 //
 // Choose Standard Layout
-fnLayoutSelectByIndex(layoutStandard);
+StdLayoutSelectByIndex(layoutStandard);
 -->
 <!-- Section Post Document Load Script -->
 <!-- SCRIPT -->
@@ -135,7 +135,7 @@ fnLayoutSelectByIndex(layoutStandard);
     <!--#include virtual="/release/RelsNotSetError.htm"-->
 <!--#endif -->
 <!-- ..................................................................................... -->
-<!-- ..................................................................................... -->
+// ------------------------------------------------------------------------------------- _//
 // ------------------------------------------------------------------------------------- _//
 // Functions:
 // ------------------------------------------------------------------------------------- _//
@@ -148,14 +148,14 @@ fnLayoutSelectByIndex(layoutStandard);
 //
 ////////////////////////////////////////////////
 // Elements
-// 		fnElementPosGet
+// 		StdElementPosGet
 // Layout
-//		fnLayoutSelectByIndex
-//		fnMouseClickImg
+//		StdLayoutSelectByIndex
+//		StdMouseClickImg
 // Mouse
-// 		fnMouseOverImg
-//		fnMouseOutImg
-//		fnMouseClickImg
+// 		StdMouseOverImg
+//		StdMouseOutImg
+//		StdMouseClickImg
 //
 ////////////////////////////////////////////////
 //
