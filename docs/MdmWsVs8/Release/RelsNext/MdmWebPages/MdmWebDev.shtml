@@ -28,10 +28,10 @@
 				<!-- x -->
 				<!-- x -->
 				<!--** Menu Blocks **-->
-				<!--#include virtual="../../RelsBuildStage.js"-->
-				<!--#if expr="${RelsBuild}=RelsNext" -->
+				<!--#include virtual="../../PageBuildStage.js"-->
+				<!--#if expr="${PageBuild}=RelsNext" -->
 				<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
-				<!--#elif expr="${RelsBuild}=RelsCurr" -->
+				<!--#elif expr="${PageBuild}=RelsCurr" -->
 				<!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
 				<!--#else -->
 				<!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->

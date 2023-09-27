@@ -1,30 +1,30 @@
-	<!--[if IE 6]>
+<!--if IE 6]>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-	<![endif]-->
+<!endif]-->
 <!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
 <!-- Mdm Document Template - (c)2011 David Horsman & Macroscope Design Matrix -->
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
-    <meta name="Author" content="David G. Horsman" />
-    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxDoc.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmPageTemplateDoc.css" />
+    <meta name="Author" content="David G. Horsman">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBoxDoc.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmPageTemplateDoc.css">
     <title>DocumentTemplate</title>
 </head>
 <body id="MdmPageDocTemplateInstance">
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
                                 <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocTop.shtml"-->
                                 <!--* Next DOCUMENT GOES HERE *-->
                                 <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocGoesHere.shtml"-->
                                 <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocBottom.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
                                 <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtDocTop.shtml"-->
                                 <!--* Curr DOCUMENT GOES HERE *-->
                                 <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtDocGoesHere.shtml"-->
@@ -37,7 +37,7 @@
                                 <!--#include virtual="/mdmsite/RelsNotSetError.htm"-->
 <!--#endif -->
 </body>
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#if expr="${PageBuild}=RelsNext" -->
                                 <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocIE6Cond.shtml"-->
 <!--#else -->
                                 <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtDocIE6Cond.shtml"-->

@@ -3,195 +3,172 @@
 /* -- Styling - Specific Instances -- */
 /* -------------------------------------------- */
 /* -- Body COLUMN Content -- */
-.ColumnType1 {
-/* Size */
-width:48%;
-/* width:39%; */
-/* min-width:35.0em;  */
-/* max-width:35.0em; */
-margin: 0%;
-margin-top: 0.5%;
+.layoutBodyColumnType1 {
+    /* Size */
+    /* width: 48%; */
+    /* width:39%; */
+    /* min-width:35.0em;  */
+    /* max-width:35.0em; */
+    margin: 0em;
+    margin-top: 0.5em;
 }
 
-.ColumnType2 {
-/* Size */
-width:39%;
-min-width:25.0em;
-max-width:35.0em;
+.layoutBodyColumnType2 {
+    /* Size */
+    width: 48%;
+    min-width: 25.0em;
+    max-width: 35.0em;
 }
 
-.ColumnType3 {
-/* Size */
-width:39%;
-/* min-width:25.0em; */
+.layoutBodyColumnType3 {
+    /* Size */
+    width: 39%;
+    /* min-width:25.0em; */
 }
 
-.ColumnType4 {
-/* Size */
-/* width:39%; */
-min-width:25.0em;
-/* Alignment */
-text-align: center;
+.layoutBodyColumnType4 {
+    /* Size */
+    /* width:39%; */
+    min-width: 25.0em;
+    /* Alignment */
+    text-align: center;
 }
 
-/* .ColumnTypeFixed {  } */
+/* .layoutBodyColumnTypeFixed {  } */
 
 /* -- Body Paragraph BOX Content -- */
 /* -------------------------------------------- */
 .DivBox {
-/* Position */
-position: relative;
-height: 100%;
+    /* Position */
+    position: relative;
+    height: 100%;
 }
 
-.BodyParaBox{
-/* Position */
-position: relative;
-/* Size */
-/* Alignment */
-/* padding: 0.5%; */
-/* Border */
-border-color: Gray;
-margin: 1%;
+.BodyParaBox {
+    /* Position */
+    position: relative;
+    /* Size */
+    /* Alignment */
+    /* padding: 0.5em; */
+    /* Border */
+    border-color: Gray;
+    margin: 1em;
 }
-/* padding:0.5% 0.5% 0.5% 0.5%; */
+
+/* padding:0.5em 0.5em 0.5em 0.5em; */
 /* Alignment */
 /* float:none; */
 
-.BodyParaBox1{
-/* Position */
-position: relative;
-/* Size */
-min-width:25.0em;
-min-height:.0em;
-/* Alignment */
-/* padding:0.5%; */
-/* Border */
-border-color: Gray;
+.BodyParaBox1 {
+    /* Position */
+    position: relative;
+    /* Size */
+    min-width: 25.0em;
+    min-height: .0em;
+    /* Alignment */
+    /* padding:0.5em; */
+    /* Border */
+    border-color: Gray;
 }
 
 /* -- Body Paragraph Content -- */
 /* -------------------------------------------- */
 // default
 .BodyPara {
-/* Size */
-max-width: 500px;
-/* Alignment */
-padding: 0.5% 0.5% 0.25% 0.5% ;
-/* padding:2%; */
-margin: 0% 0.5% 0% 0%;
-/* Background */
-background: #F5FEFF;
-/* Border */
-border-bottom: none;
-border-right: 0.1% solid black;
+    /* Size */
+    /* max-width: 500px; */
+    /* Alignment */
+    padding: 0.5em 0.5em 0.25em 0.5em;
+    /* padding:2em; */
+    margin: 0em 0.5em 0em 0em;
+    /* margin-left: 2em; */
+    /* Background */
+    background: #F5FEFF;
+    /* Border */
+    border-bottom: none;
+    border-right: 0.1em solid black;
 }
 
 .BodyParaIndent {
-/* padding:2%; */
-padding-left: 1%;
+    /* padding:2em; */
+    padding-left: 1em;
 }
 
 .BodyParaGround {
-/* Alignment */
-padding:0.5% 0.5% 0.25% 0.5%;
-margin: 0% 0.5% 0% 0%;
-/* Background */
-background:#F5FEFF;
+    /* Alignment */
+    padding: 0.5em 0.5em 0.25em 0.5em;
+    margin: 0em 0.5em 0em 0em;
+    /* Background */
+    background: #F5FEFF;
 }
 
-.BodyParaLast{
-/* Border */
-border-right:0.1% solid black;
-border-bottom: 0.1% solid black;
+.BodyParaLast {
+    /* Border */
+    border-right: 0.1em solid black;
+    border-bottom: 0.1em solid black;
 }
 
 /* -- Floats -- */
 /* -------------------------------------------- */
 .BodyParaLeft {
-/* Position */
-/* position: relative; */
-/* Size */
-/* max-width: 500px; */
-/* width: 100%; */
-/* Alignment */
-padding: 0%;
-/* margin-left: 0.75%; */
-margin-left: 2%;
-float: left;
-text-align: justify;
+    /* Position */
+    /* position: relative; */
+    float: left;
+    text-align: left;
+    /* Size */
+    /* max-width: 500px; */
+    /* width: 100em; */
+    /* Alignment */
+    padding: 0.5em 0.5em 0.25em 0.5em;
+    /* padding: 0em; */
+    /* padding: 2em; */
+    margin-bottom: 2em;
+    margin: 0em;
+    /* margin-left: 2em; */
+    /* margin-left: 0.75em; */
+    /* margin: 0em 0.5em 0em 0em; */
+    /* Background */
+    background: #F5FEFF;
+    /* Border */
+    /* border-bottom: none; */
+    border: 1em groove black;
 }
 
 .BodyParaRight {
-/* Position */
-position: relative;
-/* Size */
-/* width: 100%; */
-/* Alignment */
-padding: 0;
-margin-right: 2%;
-float:right;
-text-align: left;
+    /* Position */
+    position: relative;
+    /* Size */
+    /* width: 100em; */
+    /* Alignment */
+    padding: 0;
+    margin-right: 2em;
+    float: right;
+    text-align: left;
 }
 
 /* -- Background -- */
 .BodyParaBoxBg {
-/* Background */
-background: url(../Images/TransparentWhiteBg75.png);
+    /* Background */
+    background: url(../Images/TransparentWhiteBg75.png);
 }
 
 /* -- Body Callouts Container -- */
 /* -------------------------------------------- */
 .BodyList {
-text-align:left;
-/* margin:0.25% 0.25% 0% 0%; */
-padding:0.5% 0.25% 0% 0.25%;
+    text-align: left;
+    /* margin:0.25em 0.25em 0em 0em; */
+    padding: 0.5em 0.25em 0em 0.25em;
 }
 
 .BodyListItem {
-margin-top: 0%;
-margin-bottom: 0%;
-padding-top: 0%;
-padding-bottom:0.25%;
-text-indent:-0em;
-text-align:left;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding-top: 0em;
+    padding-bottom: 0.25em;
+    text-indent: -0em;
+    text-align: left;
 }
 
-/* -- Tag Specific: h, a, p, span, ... */
-/* -------------------------------------------- */
-h.BodyPara  {
-    /* Alignment */
-    text-align:center;
-    /* Decoration */
-    font-weight: bold;
-    }
-    
-    p.BodyPara  {
-    /* Alignment */
-    /* text-align:justify; */
-    text-indent:1em;
-    font-size:1em;
-    }
-    /* padding: 0% 0.5% 0.25% 0.5%; */
-    
-    span.BodyPara  {
-    /* Alignment */
-    text-indent: 0em;
-    }
-    
-    /*
-    a.BodyPara  {
-    text-indent:1em;
-    padding: 0%;
-    margin: 0%;
-    }
-    /* padding: 0% 0.5% 0.25% 0.5%; */
-    
-    h1.BodyPara, h2.BodyPara, h3.BodyPara, h4.BodyPara, h5.BodyPara, h6.BodyPara
-     .h1.BodyPara, .h2.BodyPara, .h3.BodyPara, .h4.BodyPara, .h5.BodyPara, .h6.BodyPara {
-    /* Alignment */
-    text-indent: 0em;
-    }
 /* -- Body Callouts Container -- */
 /* -------------------------------------------- */
 /* CPA - Callout Link Anchor (shows) */
@@ -201,158 +178,162 @@ h.BodyPara  {
 
 /* -- Body Callouts -- */
 .CalloutBox {
-/* Position */
-/* Size */
-width: 50%;
-max-width: 40.0em;
-/* Alignment */
-text-align: left;
-display: block;
-/* Background */
-background-color: #FFFFCC;
-/* Layering */
-z-index: 4;
+    /* Position */
+    /* Size */
+    width: 50%;
+    max-width: 40.0em;
+    /* Alignment */
+    text-align: left;
+    display: block;
+    /* Background */
+    background-color: #FFFFCC;
+    /* Layering */
+    z-index: 4;
 }
 
 .CalloutBox2 {
-/* Position */
-/* Size */
-/* width: 50%; */
-max-width: 50%;
-/* Alignment */
-text-align: left;
-display: block;
-/* Background */
-background-color: #FFFFCC;
-/* Layering */
-z-index: 4;
+    /* Position */
+    /* Size */
+    /* width: 50%; */
+    max-width: 50%;
+    /* Alignment */
+    text-align: left;
+    display: block;
+    /* Background */
+    background-color: #FFFFCC;
+    /* Layering */
+    z-index: 4;
 }
 
 .CalloutBox3 {
-/* Position */
-/* Size */
-/* width: 50%; */
-/* max-width: 50%; */
-/* Alignment */
-/* margin:0.25% 0.25% 0% 0%; */
-/* padding: 0% 0.25% 0% 0.25%; */
-/* padding:1.5% */
-text-align: left;
-display: block;
-/* Background */
-background-color: #FFFFCC;
-/* Layering */
-z-index: 4;
+    /* Position */
+    /* Size */
+    /* width: 50%; */
+    /* max-width: 50%; */
+    /* Alignment */
+    /* margin:0.25em 0.25em 0em 0em; */
+    /* padding: 0em 0.25em 0em 0.25em; */
+    /* padding:1.5em */
+    text-align: left;
+    display: block;
+    /* Background */
+    background-color: #FFFFCC;
+    /* Layering */
+    z-index: 4;
 }
 
 .CalloutBoxSmall {
-/* Position */
-/* Size */
-width:25%;
+    /* Position */
+    /* Size */
+    width: 25%;
 }
 
 .CalloutBoxBg {
-/* Background */
-background-color: #FFFFCC;
+    /* Background */
+    background-color: #FFFFCC;
 }
 
-.CalloutContent{
-/* Position */
-/* height:100%; */
-/* Alignment */
-margin: 0%;
-/* padding: 0%; */
-padding:0.25%;
-float:none;
-text-align:left;
-/* display:block; */
-/* Font Size */
-font-size:1em;
-/* Font Color */
-color:#000;
+.CalloutContent {
+    /* Position */
+    /* height:100%; */
+    /* Alignment */
+    margin: 0em;
+    /* padding: 0em; */
+    padding: 0.25em;
+    float: none;
+    text-align: left;
+    /* display:block; */
+    /* Font Size */
+    font-size: 1em;
+    /* Font Color */
+    color: #000;
 }
 
-.CalloutContentBgLight{
-/* Color */
-color:#000;
+.CalloutContentBgLight {
+    /* Color */
+    color: #000;
 }
 
-.CalloutContentBgDark{
-/* Color */
-color:#000;
-/* Background */
-background-color:#FFFFCC;
+.CalloutContentBgDark {
+    /* Color */
+    color: #000;
+    /* Background */
+    background-color: #FFFFCC;
 }
 
-.CalloutBorder{
-/* Alignment 0.5% 1% 0.5% 0.5%; */
-padding:0.5%;
-margin:0.5% 1% 0.5% 0.5%;
-/* Border */
-border-style:solid;
-/* border-style:groove; */
-border-width:0.5%;
-/* border:solid; */
-border-color:#999933; /* cPcd */
-/* Border */
-border-radius: 0.5em;
--moz-border-radius: 0.5em;
--webkit-border-radius: 0.5em;
+.CalloutBorder {
+    /* Alignment 0.5em 1em 0.5em 0.5em; */
+    padding: 0.5em;
+    margin: 0.5em 1em 0.5em 0.5em;
+    /* Border */
+    border-style: solid;
+    /* border-style:groove; */
+    border-width: 0.5em;
+    /* border:solid; */
+    border-color: #999933;
+    /* cPcd */
+    /* Border */
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
 }
-/* padding:0.5% 0.5% 0.5% 0.5%; */
 
-.CalloutBorderFull
-{
-/* Border */
-border-style:solid;
-/* border-style:groove; */
-border-width: .4%;
-/* border:solid; */
-border-color:#999933; /* cPcd */
-/* Border */
-border-radius: 0.5em;
--moz-border-radius: 0.5em;
--webkit-border-radius: 0.5em;
-/* Alignment */
-margin: 0% 0% 0.5% 0%;
-padding: 0% 0% 0% 0%;
+/* padding:0.5em 0.5em 0.5em 0.5em; */
+
+.CalloutBorderFull {
+    /* Border */
+    border-style: solid;
+    /* border-style:groove; */
+    border-width: .4em;
+    /* border:solid; */
+    border-color: #999933;
+    /* cPcd */
+    /* Border */
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    /* Alignment */
+    margin: 0em 0em 0.5em 0em;
+    padding: 0em 0em 0em 0em;
 }
 
 /* -- Callout Block -- */
-.DivB{
-/* Position */
-position:absolute;
-top:35em;
-left:1em;
-/* Size */
-height:120.25em;
+.DivB {
+    /* Position */
+    position: absolute;
+    top: 35em;
+    left: 1em;
+    /* Size */
+    height: 120.25em;
 }
 
 /* ------ Callout Styling ----------- */
 /* -- Callout Paragraph -- additional content (Paragraph 2,3,4,...) */
 .CP {
-/* Alignment */
-/* padding:0.5%; */
-/* margin:0.25% 0.25% 0% 0%; */
-padding:0.5% 1.5% 0.75% 0.5%;
-/* Layering */
-z-index: 1004;
+    /* Alignment */
+    /* padding:0.5em; */
+    /* margin:0.25em 0.25em 0em 0em; */
+    padding: 0.5em 1.5em 0.75em 0.5em;
+    /* Layering */
+    z-index: 1004;
 }
-/* padding:0.25% 0.5% 0.5% 0.5%; */
+
+/* padding:0.25em 0.5em 0.5em 0.5em; */
 
 /* -- Callout Title -- Heading or Title for a group of paragraphs (CP's) */
 /* .CPT { } */
 
 /* -- Callout Link -- */
 .CPA {
-/* Alignment */
-display:block;
-padding: 0%;
-text-decoration:none;
-/* Layering */
-z-index: 4;
+    /* Alignment */
+    display: block;
+    padding: 0em;
+    text-decoration: none;
+    /* Layering */
+    z-index: 4;
 }
-/* padding:0.25% 0.5% 0.5% 0.5%; */
+
+/* padding:0.25em 0.5em 0.5em 0.5em; */
 
 /* NOT FIREFOX COMPATABLE - USE ID */
 /* a .CPP{ display:none; }
@@ -361,90 +342,96 @@ z-index: 4;
 /* a:hover .CPP{ display:block; }
 
 /* FIREFOX COMPATABLE - USE ID */
-#LinkId .CPP{ display:none; }
+#LinkId .CPP {
+    display: none;
+}
 
 /* FIREFOX COMPATABLE - USE ID */
-#LinkId:hover .CPP{ display:block; }
+#LinkId:hover .CPP {
+    display: block;
+}
 
 /* -- Callout Paragraph Popup -- */
 .CPP {
-/* Alignment */
-padding:0.25% 0.25% 0.5% 0.5%;
-/* Layering */
-z-index: 1004;
+    /* Alignment */
+    padding: 0.25em 0.25em 0.5em 0.5em;
+    /* Layering */
+    z-index: 1004;
 }
 
 /* -- Callout Image Popup -- */
-.CPPImageThumb{
-/* Size */
-width:10.0em;
-/* Alignment */
-padding:0.1%;
-margin:auto;
-/* Layering */
-z-index: 1004;
-/* Border */
-border: 0%;
+.CPPImageThumb {
+    /* Size */
+    width: 10.0em;
+    /* Alignment */
+    padding: 0.1em;
+    margin: auto;
+    /* Layering */
+    z-index: 1004;
+    /* Border */
+    border: 0em;
 }
 
 /* .CPPImageThumbRight{ } */
 
 /* .CPPImageThumbLeft{ } */
 
-.CPPImage2{
-/* Alignment */
-margin-top:-0.5%;
-margin-left:1%;
-margin-right:1%;
-padding: 0% 0% 0.25% 0%;
-z-index: 1004;
+.CPPImage2 {
+    /* Alignment */
+    margin-top: -0.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0em 0em 0.25em 0em;
+    z-index: 1004;
 }
 
-.CPPImage{
-/* Alignment */
-margin-top:-0.5%;
-margin-left:-0.5%;
-margin-right:-0.5%;
-padding: 0% 0% 0.25% 0%;
-z-index: 1004;
+.CPPImage {
+    /* Alignment */
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding: 0em 0em 0.25em 0em;
+    z-index: 1004;
 }
 
-.CPPImageRight{
-/* Position */
-position:absolute;
-top:0%;
-left:0%;
-/* Size */
-/* Alignment */
-float:right;
-/* Layering */
-z-index: 1004;
+.CPPImageRight {
+    /* Position */
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* Size */
+    /* Alignment */
+    float: right;
+    /* Layering */
+    z-index: 1004;
 }
 
-.CPPImageLeft{
-/* Position */
-position:absolute;
-top:0%;
-right:0%;
-/* Size */
-/* Alignment */
-float:left;
-/* Layering */
-z-index: 1004;
+.CPPImageLeft {
+    /* Position */
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    /* Size */
+    /* Alignment */
+    float: left;
+    /* Layering */
+    z-index: 1004;
 }
+
 /* ------- Generic Box ---------- */
-.DivB98{
-/* Position */
-position:absolute;
-top: 2.5em;
-left:10.0em;
+.DivB98 {
+    /* Position */
+    position: absolute;
+    top: 2.5em;
+    left: 10.0em;
 }
 
-.DivB99{
-/* Position */
-position:absolute;
-top:20.0em;
-left:35.0em;
+.DivB99 {
+    /* Position */
+    position: absolute;
+    top: 20.0em;
+    left: 35.0em;
 }
+
 /* -- other -- */
 /* ----------------- */

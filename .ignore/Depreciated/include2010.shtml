@@ -1,0 +1,34 @@
+							<!-- * -->
+							<div id="BodyConsoleTestBox"
+								class="BodyConsoleTestBox BodyConsoleTextBox CalloutBorderFull">
+								Test Console
+								<!-- * -->
+								<!-- w3-include-html-file="../TemplatePage/MdmPtConsoleForm.shtml" -->
+								<div id="BodyConsoleTestBoxInput"
+									class="BodyConsoleTestBoxInput BodyConsoleTestTextBox CalloutBorderFull">
+									<div class="w3-include"
+									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
+									w3-include-mode="Dev"
+									w3-include-release="Any"
+									w3-include-attributes=""
+									></div>
+									<!-- ** Console Blocks ** -->
+									<!-- different UI for Current and Next Releases Console -->
+									<!--#include virtual="../../PageBuildStage.js"-->
+									<!--#if expr="${PageBuild}=RelsNext" -->
+									<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"-->
+									<!--#elif expr="${PageBuild}=RelsCurr" -->
+									<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtConsoleForm.shtml"-->
+									<!--#else -->
+									<!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
+									<!--#include virtual="/release/RelsNotSetError.htm"-->
+									<!--#endif -->
+								</div> <!-- end of Test Box Input -->
+								<!-- * -->
+								<br id="BrBodyConsoleTest1" class="aClearBoth">
+								<div id="BodyConsoleTestBoxDisplay"
+									class="BodyConsoleTestBoxDisplay BodyConsoleTestTextBox CalloutBorderFull">
+									Test Data
+								</div> <!-- end of Test Data Display -->
+							</div> <!-- end of Test Box - Inner Console -->
+							<!-- * -->

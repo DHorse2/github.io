@@ -1,3 +1,9 @@
+	if (debugImages) {
+		errorComment = "Getting " + menuImageCn + ": " +  menuImage.Name;
+		if (debugDoAlert) { alert(errorComment); }
+		MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+	}
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
@@ -13,79 +19,79 @@
 // GLOBAL / COMMON
 ////////////////////////////////////////////////
 // Global
-// 		 StdDocumentLoadInit
+// 		 DocumentLoadInit
 // Elements
-// 		StdElementPosGet
+// 		ElementPosGet
 // Layout
-//		StdLayoutSelectByIndex
+//		LayoutSelectByIndex
 // Menu Images
-// 		StdMenuImagesHtmlBuild
+// 		MenuImagesHtmlBuild
 // Mouse
-// 		StdMouseOverImg
-//		StdMouseOutImg
-//		StdMouseClickImg
+// 		MouseOverImg
+//		MouseOutImg
+//		MouseClickImg
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // MENUS
 // Menu Image Show / Hide
 // Menu Show
-// 		StdMenuImgShowRange
-//		StdMenuImgShowIndex
-//		StdMenuImgShowStack
-//		StdMenuImgToggle
-//		StdMenuImgShow
+// 		MenuImgShowRange
+//		MenuImgShowIndex
+//		MenuImgShowStack
+//		MenuImgToggle
+//		MenuImgShow
 // Menu Hide
-// 		StdMenuImgToggleRange
-//		StdMenuImgHide
+// 		MenuImgToggleRange
+//		MenuImgHide
 // Menu Object Selection
-// 		StdMenuObjectSetAll
-//		StdMenuObjectTextSet
-//		StdMenuObjectNameSet
-//		StdMenuIndexSet
-//		StdMenuIndexSetByName
+// 		MenuObjectSetAll
+//		MenuObjectTextSet
+//		MenuObjectNameSet
+//		MenuIndexSet
+//		MenuIndexSetByName
 ////////////////////////////////////////////////
 // LAYOUT MANAGEMENT
-// 		StdLayoutCheck
-//		StdLayoutRefresh
-//		StdLayoutNext
-//		StdLayoutSelectByIndex
-//      StdLayoutFontSize
+// 		LayoutCheck
+//		LayoutRefresh
+//		LayoutNext
+//		LayoutSelectByIndex
+//      LayoutFontSize
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Math Functions
-// 		StdMathNumberRandomGetByRange
+// 		MathNumberRandomGetByRange
 // Font Size Control
-//		StdFontSizeIncrease
-//		StdFontSizeDecrease
+//		FontSizeIncrease
+//		FontSizeDecrease
 ////////////////////////////////////////////////
 // OBJECT ANIMATION
 // Filter (Transition, Transform) Get by Index or Name
-// 		StdFilterGetByIndex
+// 		FilterGetByIndex
 ////////////////////////////////////////////////
 // FILTER MANAGEMENT
 // General
-// 		StdFilterResetThenAnimate
+// 		FilterResetThenAnimate
 // Filter Store / Restore
-// 		StdFilterStore
-//		StdFilterRestore
+// 		FilterStore
+//		FilterRestore
 // Animate Object
-// 		StdFilterAnimate
+// 		FilterAnimate
 // Filter Specific Functions
 // 		StyleBackground
-//				StdStyleBackgroundToggle
+//				StyleBackgroundToggle
 // 		Matrix
-//			  	StdFilterSpin
-//				StdFilterSetRotation
-//				StdFilterResize
-//		StdSlideStyleToggle
-//				StdSlideStyleToggle
+//			  	FilterSpin
+//				FilterSetRotation
+//				FilterResize
+//		SlideStyleToggle
+//				SlideStyleToggle
 //		Other
 //			 	OtherFunction...
 // Filter Get / Set
-// 		StdFilterGetByIndex
-//		StdFilterGetRandom
+// 		FilterGetByIndex
+//		FilterGetRandom
 // Filter Timing Get By Index
-// 		StdFilterTimingGetByIndex
+// 		FilterTimingGetByIndex
 //		fFilterTimingGetRandom
 ////////////////////////////////////////////////
 // DOCUMENT EVENTS
@@ -150,7 +156,7 @@
 // BodyImageContainer
 // BodyMenuImageContainer
 //
-// ColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
+// layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
 // ------------------------------------------------------------------------------------- _//
 ///////////////////////////////////////////////
 // Body Layout Management (Combinations)

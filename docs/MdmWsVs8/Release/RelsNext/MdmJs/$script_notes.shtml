@@ -25,7 +25,7 @@
 // Script language="javascript" src="../TemplatePage/MdmAnimation.js" >
 // *
 // Script language="javascript" src="../TemplatePage/MdmBodyBox.js" >
-// Script language="javascript" src="../TemplatePage/MdmLayout.js" >
+// Script language="javascript" src="../TemplatePage/MdmWindowLayout.js" >
 // *
 // Script language="javascript" src="../TemplatePage/MdmMenu.js" >
 // Script language="javascript" src="../TemplatePage/MdmMenuImage.js" >
@@ -47,13 +47,13 @@
 <!-- ..................................................................................... -->
 <!-- Section Document Initialization
 // ..................................................................................... _//
-// onlayoutcomplete="StdDocumentLoadInit();";
-StdDocumentLoadInit();
+// onlayoutcomplete="DocumentLoadInit();";
+DocumentLoadInit();
 //
-StdMenuImagesHtmlBuild();
+MenuImagesHtmlBuild();
 //
 // Choose Standard Layout
-StdLayoutSelectByIndex(layoutStandard);
+LayoutSelectByIndex(layoutStandard);
 -->
 <!-- Section Post Document Load Script -->
 <!-- SCRIPT -->
@@ -113,10 +113,10 @@ StdLayoutSelectByIndex(layoutStandard);
 // ...................................... //
 <!-- ** Javascript Parameter Init Blocks ** -->
 // ...................................... //
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/release/RelsNext/MdmJs/MdmParamInit.js"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/release/RelsCurr/MdmJs/MdmParamInit.js"-->
 <!--#else -->
     <!--#include virtual="../../MdmJs/MdmParamInit.js"-->
@@ -125,10 +125,10 @@ StdLayoutSelectByIndex(layoutStandard);
 // ...................................... //
 <!-- ** Javascript Parameter Set Blocks ** -->
 // ...................................... //
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/release/RelsNext/MdmJs/MdmParamSet.js"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/release/RelsCurr/MdmJs/MdmParamSet.js"-->
 <!--#else -->
     <!--#include virtual="../../MdmJs/MdmParamSet.js"-->
@@ -148,14 +148,14 @@ StdLayoutSelectByIndex(layoutStandard);
 //
 ////////////////////////////////////////////////
 // Elements
-// 		StdElementPosGet
+// 		ElementPosGet
 // Layout
-//		StdLayoutSelectByIndex
-//		StdMouseClickImg
+//		LayoutSelectByIndex
+//		MouseClickImg
 // Mouse
-// 		StdMouseOverImg
-//		StdMouseOutImg
-//		StdMouseClickImg
+// 		MouseOverImg
+//		MouseOutImg
+//		MouseClickImg
 //
 ////////////////////////////////////////////////
 //

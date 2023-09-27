@@ -19,6 +19,6 @@ var loadFirstMenuImage = true;
 // note: currently you must search and decomment code:
 // debug-instance-off
 // debug-instance-off
-// StdMenuImgShow;
+// MenuImgShow;
 script_state = "MdmStandard Default settings";
 if (debugLoadIsOn) { debugger; }

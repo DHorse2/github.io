@@ -4,32 +4,32 @@
 //
 // Timing
 // var elementMoveDuration;
-// var elementMoveStepMin;
-// var elementMoveStepMax;
+// var elMoveStepMin;
+// var elMoveStepMax;
 // var elementMoveInterval;
 // var elementMoveDelay;
 //
 // Movement Patterns:
 // Method used to move animated objects
 // from origin to destination
-// var elementMoveMethodDirect = 1;
-// var elementMoveMethodSlideDown = 2;
-// var elementMoveMethodSlideSide = 3;
-// var elementMoveMethod = 0;
-var elementMoveMethodPrev = 0;
+// var elMoveMethodDirect = 1;
+// var elMoveMethodSlideDown = 2;
+// var elMoveMethodSlideSide = 3;
+// var elMoveMethod = 0;
+var elMoveMethodPrev = 0;
 //
 // Steps / Iterations
-var elementMoveStep = 0;
-var elementMoveStepsPerSecond = 0;
-var elementMoveBusy = false;
+var elMoveStep = 0;
+var elMoveStepsPerSecond = 0;
+var elMoveBusy = false;
 //
 // Origin and Destination
-var elementLeftOrig = 0;
-var elementTopOrig = 0;
-var elementLeftDest = 0;
-var elementTopDest = 0;
+var elLeftOrig = 0;
+var elTopOrig = 0;
+var elLeftDest = 0;
+var elTopDest = 0;
 //
-var elementIsRoot = false;
+var elIsRoot = false;
 //
 // Movement Tracking
 var moveDistance = 0;
@@ -76,8 +76,8 @@ var imgFocusOld = 0;
 var imgSelect = "img1";
 // document.parentWindow.imgSelect= "img1";
 // Image Layout Adjustables
-// var frmWidth = 75;
-// var txtLineHeight = 30;
+// var boxFormWidth = 75;
+// var boxTextLineHeight = 30;
 // var imgHeight = 90;
 // Animation Timing
 // var intervalBase = 900;
@@ -98,16 +98,16 @@ var imgMouseHover = new Array;
 ////////////////////////////////////////////////
 // Movement Control:
 ////////////////////////////////////////////////
-// var elementLeftOrig = 0;
-// var elementTopOrig = 0;
-// var elementLeftDest = 0;
-// var elementTopDest = 0;
+// var elLeftOrig = 0;
+// var elTopOrig = 0;
+// var elLeftDest = 0;
+// var elTopDest = 0;
 // Timer Control (Move)
 ////////////////////////////////////////////////
-// (See function StdTimerDurationSet for default elementMove values)
+// (See function TimerDurationSet for default elementMove values)
 // Transition stepping
 // var elementMoveDuration = 3;
-// var elementMoveStepMax = 50;
+// var elMoveStepMax = 50;
 // var elementMoveInterval = 10;
 // var elementMoveDelay = 0;
 // Control overloading javascript
@@ -115,20 +115,20 @@ var imgMouseHover = new Array;
 var filterBusy = false;
 var timerBusy = false;
 var resizeBusy = false;
-// Movement Patterns:
-////////////////////////////////////////////////
-// Methodology used to move animated objects
-// from origin to destination
-var elementMoveMethodDirect = 1; // Slide diagonally to destination
-var elementMoveMethodSlideDown = 2; // Slide down, then sideways
-var elementMoveMethodSlideSide = 3; // Slide sideways, then down
-var elementMoveMethodRandom = 0; // Use random choice on each Group move
+// // Movement Patterns:
+// ////////////////////////////////////////////////
+// // Methodology used to move animated objects
+// // from origin to destination
+// var elMoveMethodDirect = 1; // Slide diagonally to destination
+// var elMoveMethodSlideDown = 2; // Slide down, then sideways
+// var elMoveMethodSlideSide = 3; // Slide sideways, then down
+// var elMoveMethodRandom = 0; // Use random choice on each Group move
 // Master Movement Setting:
 // Setting it to '0' causes a random setting on each display
-var elementMoveMethod = elementMoveMethodRandom; // Use random
+// var elMoveMethod = elMoveMethodRandom; // Use random
 // Animation Transition Control:
 ////////////////////////////////////////////////
-// (See function StdTimerDurationSet for default filter values)
+// (See function TimerDurationSet for default filter values)
 // var filterDurationOverride = false;
 // var filterDuration = 0;
 // var filterStepMin = 0;
@@ -177,7 +177,7 @@ var filterKeyPrefix = 'progid:';
 var filterKeyPrefix2 = 'filter:progid:';
 //
 var filterDelay = elementMoveDelay;
-var filterStepMax = elementMoveStepMax;
+var filterStepMax = elMoveStepMax;
 var filterDuration = elementMoveDuration;
 var filterInterval = elementMoveInterval;
 //
@@ -306,33 +306,32 @@ var filterTypeMotionBlur = 41;
 ////////////////////////////////////////////////
 // Timers
 ////////////////////////////////////////////////
-var timerId = "";
-var timerIdCurr = "";
-var timerIdPrev = "";
-//
-var timerObj = new Array();
-//
-///////////////////////////////////////////////
-var timerFunction = "StdTimerMoveStepDo";
-//
-var vTimerID;
-var vTimerStart;
-var vTimerStop;
+// var timerId = "";
+// var timerIdCurr = "";
+// var timerIdPrev = "";
+// //
+// var timerObj = new Array(timerGroupIndexMax);
 //
 ///////////////////////////////////////////////
-var timerStarted = false;
+// var timerFunction = "TimerMoveStepDo";
 //
-var timerDuration = elementMoveDuration;
-var timerInterval = elementMoveInterval;
-var timerStepMax = elementMoveStepMax;
-var timerDelay = elementMoveDelay;
-//
-var timerStep = 0;
-var timerStepMin = 10;
-var timerStepMax = elementMoveStepMax;
+// var vTimerID;
+// var vTimerStart;
+// var vTimerStop;
 //
 ///////////////////////////////////////////////
-var timerStepsPerSecond = 10;
+// var timerStarted = false;
+// //
+// var timerDuration = elementMoveDuration;
+// var timerInterval = elementMoveInterval;
+// var timerStepMax = elMoveStepMax;
+// var timerDelay = elementMoveDelay;
+// //
+// var timerStep = 0;
+// var timerStepMin = 10;
+// var timerStepMax = elMoveStepMax;
+//
+// var timerStepsPerSecond = 10;
 //
 ////////////////////////////////////////////////
 // Movement Tracking
@@ -359,215 +358,209 @@ var moveOffsetMax = 25;
 // ...................................... //
 // General (Common) functions & properties:
 // ...................................... //
-function StdFilterControlCreate(filterPlayAll, startIndex, endIndex,
-    oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupImageIndex, filterObjIdPassed, filterIdPassed)
-{
-// filterId is this program's index number
-//
-if (!filterObj) { filterObj = new Array(30); }
-//
-if (!filterObj[filterObjIdPassed]){
-filterObj[filterObjIdPassed] = new Object();
-filterObj[filterObjIdPassed].oObj = oObjNext;
-filterObj[filterObjIdPassed].oObjGroupIndex = oObjGroupIndex;
-filterObj[filterObjIdPassed].oObjIndex = oObjGroupImageIndex;
+function FilterControlCreate(filterPlayAll, startIndex, endIndex,
+    oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupImageIndex, filterObjIdPassed, filterIdPassed) {
+    // filterId is this program's index number
+    //
+    if (!filterObj) { filterObj = new Array(30); }
+    //
+    if (!filterObj[filterObjIdPassed]) {
+        filterObj[filterObjIdPassed] = new Object();
+        filterObj[filterObjIdPassed].oObj = oObjNext;
+        filterObj[filterObjIdPassed].oObjGroupIndex = oObjGroupIndex;
+        filterObj[filterObjIdPassed].oObjIndex = oObjGroupImageIndex;
+    }
+    //
+    if (!filterObj[filterObjIdPassed].filterSet) {
+        filterObj[filterObjIdPassed].filterSet = new Array(5);
+    }
+    //
+    if (!filterObj[filterObjIdPassed].filterSet[filterIdPassed]) {
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed] = new Object();
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterVendor = '';
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterName = '';// Id - short name... i.e. Blinds
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterKey = filterKey;// Key
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterCommand = filterCommand;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterArguments = '';
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterMSIndex = -1;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoApply = false;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoStop = false;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoPlay = false;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoEnable = false;
+    }
 }
-//
-if (!filterObj[filterObjIdPassed].filterSet){
-filterObj[filterObjIdPassed].filterSet = new Array(5); }
-//
-if (!filterObj[filterObjIdPassed].filterSet[filterIdPassed]){
-filterObj[filterObjIdPassed].filterSet[filterIdPassed] = new Object();
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterVendor = '';
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterName = '';// Id - short name... i.e. Blinds
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterKey = filterKey;// Key
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterCommand = filterCommand;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterArguments = '';
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterMSIndex = -1;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoApply = false;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoStop = false;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoPlay = false;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoEnable = false;
-}
-}
-// StdFilterStore Filter Store / Restore
+// FilterStore Filter Store / Restore
 // ...................................... //
-function StdFilterStore(oObjPassed, filterIndexPassed)
-{
-// this can't be right
-// oldFilter = oObjPassed.onfilterchange;
-// oObjPassed.onfilterchange = null;
-oldFilter = oObjPassed.filters[0].item;
+function FilterStore(oObjPassed, filterIndexPassed) {
+    // this can't be right
+    // oldFilter = oObjPassed.onfilterchange;
+    // oObjPassed.onfilterchange = null;
+    oldFilter = oObjPassed.filters[0].item;
 }
-// StdFilterRestore
+// FilterRestore
 // ...................................... //
-function StdFilterRestore(oObjPassed, filterIndexPassed)
-{
-if (oldFilter != null) {
-// ???? oObjPassed.onfilterchange = oldFilter;
-oObjPassed.filters[0].item = oldFilter;
-}
+function FilterRestore(oObjPassed, filterIndexPassed) {
+    if (oldFilter != null) {
+        // ???? oObjPassed.onfilterchange = oldFilter;
+        oObjPassed.filters[0].item = oldFilter;
+    }
 }
 // SectionBlock Filter Support function (s):
 // ...................................... //
 // ..................................................................................... _//
-// StdFilterResetThenAnimate
-function StdFilterResetThenAnimate(oObjPassed, filterIndexPassed)
-{
-switch(filterIndexPassed) {
-// Non Groups
-case filterClassMatrix:
-filterMatrixCounterDegreeCurrent = 40;
-StdFilterRestore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
-break;
-default:
-oObjPassed.filters[0].enabled = true;
-// if (!filterFirst)  { StdFilterRestore(oObjPassed, filterIndexPassed); }
-break;
-}
-// filterObjectMovement Effect
-// StdFilterGetRandom(filterIndexDynamicLow, filterIndexDynamicHigh);
-filterIndexPassed = filterTypeFlip;
-StdFilterAnimate(oObjPassed, filterIndexPassed);
-//
-// filterObjectFinal Effect
-// StdFilterGetRandom(filterIndexMatrixLow, filterIndexMatrixHigh);
-filterIndexPassed = filterTypeCheckerBoard;
-StdFilterAnimate(oObjPassed, filterIndexPassed);
-filterFirst = false;
+// FilterResetThenAnimate
+function FilterResetThenAnimate(oObjPassed, filterIndexPassed) {
+    switch (filterIndexPassed) {
+        // Non Groups
+        case filterClassMatrix:
+            filterMatrixCounterDegreeCurrent = 40;
+            FilterRestore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
+            break;
+        default:
+            oObjPassed.filters[0].enabled = true;
+            // if (!filterFirst)  { FilterRestore(oObjPassed, filterIndexPassed); }
+            break;
+    }
+    // filterObjectMovement Effect
+    // FilterGetRandom(filterIndexDynamicLow, filterIndexDynamicHigh);
+    filterIndexPassed = filterTypeFlip;
+    FilterAnimate(oObjPassed, filterIndexPassed);
+    //
+    // filterObjectFinal Effect
+    // FilterGetRandom(filterIndexMatrixLow, filterIndexMatrixHigh);
+    filterIndexPassed = filterTypeCheckerBoard;
+    FilterAnimate(oObjPassed, filterIndexPassed);
+    filterFirst = false;
 }
 // Animate Object
 // ...................................... //
-function StdFilterAnimate(oObjPassed, filterIndexPassed, flMultiplier)
-{
-switch(filterIndexPassed) {
-// Matrix
-case filterClassMatrix:
-// Matrix
-StdFilterSpin(oObjPassed, filterIndexPassed);
-break;
-// Default
-default:
-// Default
-break;
-}
+function FilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
+    switch (filterIndexPassed) {
+        // Matrix
+        case filterClassMatrix:
+            // Matrix
+            FilterSpin(oObjPassed, filterIndexPassed);
+            break;
+        // Default
+        default:
+            // Default
+            break;
+    }
 }
 // StyleBackground
 // ...................................... //
-function StdFilterBackgroundToggle(oObjPassed, filterIndexPassed) {
-if (filterStyleBackgroundToggle) {     filterStyleBackgroundToggle = 0;
-oObjPassed.style.backgroundColor= 'gold';
-} else {
-filterStyleBackgroundToggle = 1;
-oObjPassed.style.backgroundColor= 'green';
-}
-oObjPassed.filters[0].Apply();
-// oObjPassed.filters[0].Play();
+function FilterBackgroundToggle(oObjPassed, filterIndexPassed) {
+    if (filterStyleBackgroundToggle) {
+        filterStyleBackgroundToggle = 0;
+        oObjPassed.style.backgroundColor = 'gold';
+    } else {
+        filterStyleBackgroundToggle = 1;
+        oObjPassed.style.backgroundColor = 'green';
+    }
+    oObjPassed.filters[0].Apply();
+    // oObjPassed.filters[0].Play();
 }
 // SlideStyle:
 // ...................................... //
-// Std Slide Style Toggle
+//  Slide Style Toggle
 // ...................................... //
-function StdSlideStyleToggle(oObjPassed, filterIndexPassed) {
-// Use the array index to update and display  the slideStyle used.
-var  iStyleIndex = filterSlideStyleIndexCount % 3 ; // MOD function avoids resetting the counter.
-oObjPassed.filters[0].slideStyle = arrSlideStyles[filterSlideStyleIndexCount];
-oSpan.innerText = 'SlideStyle= ' + quoteOpen + arrSlideStyles[filterSlideStyleIndexCount]  + quoteClose;
-oObjPassed.filters[0].Apply();
-// After setting Apply, changes to the oDiv object
-//  are not displayed until Play is called.
-// oObjPassed.filters[0].Play();
-filterSlideStyleIndexCount += 1;
+function SlideStyleToggle(oObjPassed, filterIndexPassed) {
+    // Use the array index to update and display  the slideStyle used.
+    var iStyleIndex = filterSlideStyleIndexCount % 3; // MOD function avoids resetting the counter.
+    oObjPassed.filters[0].slideStyle = arrSlideStyles[filterSlideStyleIndexCount];
+    oSpan.innerText = 'SlideStyle= ' + quoteOpen + arrSlideStyles[filterSlideStyleIndexCount] + quoteClose;
+    oObjPassed.filters[0].Apply();
+    // After setting Apply, changes to the oDiv object
+    //  are not displayed until Play is called.
+    // oObjPassed.filters[0].Play();
+    filterSlideStyleIndexCount += 1;
 }
 // SectionBlock Filter Matrix Control function (s)
 // ...................................... //
-// StdFilterSpin
+// FilterSpin
 // ...................................... //
-function StdFilterSpin(oObjPassed, filterIndexPassed)
-{
-switch(filterIndexPassed) {
-// Non Groups
-case filterClassMatrix:
-// The function chosen for flMultiple defines size changes in the animation.
-filterMatrixCounterDegreeCurrent += 16;
-// The number of 360-degree rotations is three.
-StdFilterStore(oObjPassed, filterIndexPassed);
-if (filterMatrixCounterDegreeCurrent>= 360*1) { oObjPassed.onfilterchange = null; }
-//
-StdFilterSetRotation(oObjPassed, filterIndexPassed, filterMatrixCounterDegreeCurrent);
-//
-if (filterMatrixCounterDegreeCurrent < 360+1) {
-var flMultiple = filterMatrixCounterDegreeCurrent/360;//* 720;*/
-StdFilterResize(oObjPassed, flMultiple);
+function FilterSpin(oObjPassed, filterIndexPassed) {
+    switch (filterIndexPassed) {
+        // Non Groups
+        case filterClassMatrix:
+            // The function chosen for flMultiple defines size changes in the animation.
+            filterMatrixCounterDegreeCurrent += 16;
+            // The number of 360-degree rotations is three.
+            FilterStore(oObjPassed, filterIndexPassed);
+            if (filterMatrixCounterDegreeCurrent >= 360 * 1) { oObjPassed.onfilterchange = null; }
+            //
+            FilterSetRotation(oObjPassed, filterIndexPassed, filterMatrixCounterDegreeCurrent);
+            //
+            if (filterMatrixCounterDegreeCurrent < 360 + 1) {
+                var flMultiple = filterMatrixCounterDegreeCurrent / 360;//* 720;*/
+                FilterResize(oObjPassed, flMultiple);
+            }
+            break;
+        //
+        default:
+            // Type of animation triggered by filter change.
+            // The number of 360-degree rotations is three.
+            FilterStore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
+            // oObjPassed.onfilterchange = null;
+            // Type of animation triggered by Play command.
+            // Play the animation **
+            break;
+    }
+    // oObjPassed.filters[0].Play(3);
+    // oObjPassed.filters.item(0) = oObjPassed.style.filter;
+    oObjPassed.filters.item(0).Apply();
+    oObjPassed.filters.item(0).Play(1);
+    // oObjPassed.filters[0] = oObjPassed.style.filter;
+    // oObjPassed.filters[0].Apply();
+    // oObjPassed.filters[0].Play(3);
+    //
 }
-break;
-//
-default:
-// Type of animation triggered by filter change.
-// The number of 360-degree rotations is three.
-StdFilterStore(oObjPassed, filterIndexPassed);// s/b , filterIndexPassed
-// oObjPassed.onfilterchange = null;
-// Type of animation triggered by Play command.
-// Play the animation **
-break;
-}
-// oObjPassed.filters[0].Play(3);
-// oObjPassed.filters.item(0) = oObjPassed.style.filter;
-oObjPassed.filters.item(0).Apply();
-oObjPassed.filters.item(0).Play(1);
-// oObjPassed.filters[0] = oObjPassed.style.filter;
-// oObjPassed.filters[0].Apply();
-// oObjPassed.filters[0].Play(3);
-//
-}
-// StdSetRotation function
+// SetRotation function
 // ...................................... //
 //oObj input requires that a matrix filter be applied.
-function StdFilterSetRotation(oObjPassed, filterIndexPassed, deg)
-{
-rad = deg * deg2radians ;
-costheta = Math.cos(rad);
-sintheta = Math.sin(rad);
-//
-oObjPassed.filters.item(0).M11 = costheta;
-oObjPassed.filters.item(0).M12 = -sintheta;
-oObjPassed.filters.item(0).M21 = sintheta;
-oObjPassed.filters.item(0).M22 = costheta;
+function FilterSetRotation(oObjPassed, filterIndexPassed, deg) {
+    rad = deg * deg2radians;
+    costheta = Math.cos(rad);
+    sintheta = Math.sin(rad);
+    //
+    oObjPassed.filters.item(0).M11 = costheta;
+    oObjPassed.filters.item(0).M12 = -sintheta;
+    oObjPassed.filters.item(0).M21 = sintheta;
+    oObjPassed.filters.item(0).M22 = costheta;
 }
 // Resize
 // ...................................... //
 //
 // oObj input requires that a matrix filter be applied.
 // flMultiplier input defines the amount by which the oObj is resized.
-function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
-{
-if (!browserAnimationIsIe) { return; }
-// oObj.filters['DXImageTransform.Microsoft.Matrix']
-switch(filterIndexPassed) {
-// Non Groups
-case filterClassMatrix:
-if (flMultiplier < 0.05) { flMultiplier = 0.05; }
-// flMultiplier = 1 - flMultiplier;
-// oObjPassed.filters[0].SizingMethod = 'auto expand';
-oObjPassed.filters[0].M11 = flMultiplier;
-// oObjPassed.filters[0].M12 *= flMultiplier;
-// oObjPassed.filters[0].M21 *= flMultiplier;
-oObjPassed.filters[0].M22 = flMultiplier;
-/* --
-oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M11 *= flMultiplier;
-oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M12 *= flMultiplier;
-oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M21 *= flMultiplier;
-oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M22 *= flMultiplier;
--- */
-/* --
-oObjPassed.filters.item(0).M11 *= flMultiplier;
-oObjPassed.filters.item(0).M12 *= flMultiplier;
-oObjPassed.filters.item(0).M21 *= flMultiplier;
-oObjPassed.filters.item(0).M22 *= flMultiplier;
--- */
-default:
-// dumb
-}
+function FilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
+    if (!browserAnimationIsIe) { return; }
+    // oObj.filters['DXImageTransform.Microsoft.Matrix']
+    switch (filterIndexPassed) {
+        // Non Groups
+        case filterClassMatrix:
+            if (flMultiplier < 0.05) { flMultiplier = 0.05; }
+            // flMultiplier = 1 - flMultiplier;
+            // oObjPassed.filters[0].SizingMethod = 'auto expand';
+            oObjPassed.filters[0].M11 = flMultiplier;
+            // oObjPassed.filters[0].M12 *= flMultiplier;
+            // oObjPassed.filters[0].M21 *= flMultiplier;
+            oObjPassed.filters[0].M22 = flMultiplier;
+        /* --
+        oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M11 *= flMultiplier;
+        oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M12 *= flMultiplier;
+        oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M21 *= flMultiplier;
+        oObjPassed.filters['DXImageTransform.Microsoft.Matrix'].M22 *= flMultiplier;
+        -- */
+        /* --
+        oObjPassed.filters.item(0).M11 *= flMultiplier;
+        oObjPassed.filters.item(0).M12 *= flMultiplier;
+        oObjPassed.filters.item(0).M21 *= flMultiplier;
+        oObjPassed.filters.item(0).M22 *= flMultiplier;
+        -- */
+        default:
+        // dumb
+    }
 }
 //
 // SectionBlock Filter Primary Command  function (s)
@@ -581,162 +574,161 @@ var filterValid = false;
 var filterIndexCn = 0;
 var filterSelected = new Array(5);
 //
-function StdFilterGet(filterPlayAll, startIndex, endIndex,
+function FilterGet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-filterGetExit = false;// Set failure
-var filterIndexCn = 0;// Filter being set
-var filterCommandEval = new String();// Filter Set Command
-var filterMatrix;// Matrix filter
-//
-filterId = new Array(30);
-filterSelected = new Array(5);
-//
-while (!filterIndexCn && !filterGetExit) {
-//
-filterIdIndex = 0;filterIdPassed = filterIdIndex;
-// FileterPlayRandom
-//  or
-// Select Random Animation
-filterIndex = StdMathNumberRandomGetByRange(filterIndexDynamicLow, filterIndexDynamicHigh, filterRealFlag);
-// filterIndex = StdMathNumberRandomGetByRange(filterRangeLow, filterRangeHigh, filterRealFlag);
-// StdMathNumberRandomGetByRange(rangeLow, rangeHigh, realFlag)
-//  (filterIndexPassed = StdMathRandom())
-//
-if (browserAnimationIsIe)  {
-// filterCommandEval = 'oObjNextImage.style.filter= ' + quoteOpen;
-filterCommandEval = 'oObjNext.style.filter= ' + quoteInnerOpen;
-} else { filterCommandEval = ''; }
-// Resize (Matrix)
-if (filterResizeIsOn) {
-// Matrix always takes first spot (0)
-var filterClassMatrix = 3;
-filterMatrix = StdFilterGetByIndex(filterClassMatrix, filterClassStatic,
-        filterTypeMatrix, filterDataCommand, filterCompletionIsZero,
-        oObjNext, oObjNextImage,
-        oObjGroupIndex, oObjGroupImageIndex,
-        filterObjIdPassed, filterIdPassed);
-//
-filterCommandEval += filterMatrix + ';';
-filterId[filterIdIndex] = filterKey;
-filterSelected[filterIdIndex] = filterTypeMatrix;
-filterIdIndex += 1;filterIdPassed = filterIdIndex;
-}
-// Randomly chosen filter
-newFilter = StdFilterGetByIndex(filterClassSingle, filterClassStatic,
-        filterIndex, filterDataCommand, filterCompletionIsZero,
-        oObjNext, oObjNextImage,
-        oObjGroupIndex, oObjGroupImageIndex,
-        filterObjIdPassed, filterIdPassed);
-//
-filterCommandEval += newFilter + ';';
-filterId[filterIdIndex] = filterKey;
-filterSelected[filterIdIndex] = filterIndex;
-//
-if (browserAnimationIsIe) { filterCommandEval += quoteInnerClose; }
-// oObjNextImage.style.filter = newFilter;
-//
-// Set & Verify Filter Count
-filterIndexCn = StdFilterSet(filterPlayAll, startIndex, endIndex,
-    oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
-    filterCommandEval);
-//
-if (filterIndexCn < 1) {
-// Error - Set failed
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-'Invalid filter(' + filterIdPassed + ') error! On filter # ' + filterIndex + ' '
-+ charNewLineTag + filterCommandEval,
-'StdFilterGet', 3128, null, null,
-errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
-var bob = 'ted';
-filterIndexCn = 0;
-filterGetExit = true;// Exit on Set Error
-} else {
-// Set succeeded
-if (debugTimer && debugTimerDetail && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    'Filter(' + filterIdPassed + ') of ' + filterIndexCn
-    + ' set successfully! Random filter # ' + filterIndex + ' '
-    + charNewLineTag + filterCommandEval,
-    'StdFilterGet', 3139, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-//
-}
-}
-}
-filterCommand = filterCommandEval;
+    filterObjIdPassed, filterIdPassed) {
+    filterGetExit = false;// Set failure
+    var filterIndexCn = 0;// Filter being set
+    var filterCommandEval = new String();// Filter Set Command
+    var filterMatrix;// Matrix filter
+    //
+    filterId = new Array(30);
+    filterSelected = new Array(5);
+    //
+    while (!filterIndexCn && !filterGetExit) {
+        //
+        filterIdIndex = 0; filterIdPassed = filterIdIndex;
+        // FileterPlayRandom
+        //  or
+        // Select Random Animation
+        filterIndex = MathNumberRandomGetByRange(filterIndexDynamicLow, filterIndexDynamicHigh, filterRealFlag);
+        // filterIndex = MathNumberRandomGetByRange(filterRangeLow, filterRangeHigh, filterRealFlag);
+        // MathNumberRandomGetByRange(rangeLow, rangeHigh, realFlag)
+        //  (filterIndexPassed = MathRandom())
+        //
+        if (browserAnimationIsIe) {
+            // filterCommandEval = 'oObjNextImage.style.filter= ' + quoteOpen;
+            filterCommandEval = 'oObjNext.style.filter= ' + quoteInnerOpen;
+        } else { filterCommandEval = ''; }
+        // Resize (Matrix)
+        if (filterResizeIsOn) {
+            // Matrix always takes first spot (0)
+            var filterClassMatrix = 3;
+            filterMatrix = FilterGetByIndex(filterClassMatrix, filterClassStatic,
+                filterTypeMatrix, filterDataCommand, filterCompletionIsZero,
+                oObjNext, oObjNextImage,
+                oObjGroupIndex, oObjGroupImageIndex,
+                filterObjIdPassed, filterIdPassed);
+            //
+            filterCommandEval += filterMatrix + ';';
+            filterId[filterIdIndex] = filterKey;
+            filterSelected[filterIdIndex] = filterTypeMatrix;
+            filterIdIndex += 1; filterIdPassed = filterIdIndex;
+        }
+        // Randomly chosen filter
+        newFilter = FilterGetByIndex(filterClassSingle, filterClassStatic,
+            filterIndex, filterDataCommand, filterCompletionIsZero,
+            oObjNext, oObjNextImage,
+            oObjGroupIndex, oObjGroupImageIndex,
+            filterObjIdPassed, filterIdPassed);
+        //
+        filterCommandEval += newFilter + ';';
+        filterId[filterIdIndex] = filterKey;
+        filterSelected[filterIdIndex] = filterIndex;
+        //
+        if (browserAnimationIsIe) { filterCommandEval += quoteInnerClose; }
+        // oObjNextImage.style.filter = newFilter;
+        //
+        // Set & Verify Filter Count
+        filterIndexCn = FilterSet(filterPlayAll, startIndex, endIndex,
+            oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
+            filterCommandEval);
+        //
+        if (filterIndexCn < 1) {
+            // Error - Set failed
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                'Invalid filter(' + filterIdPassed + ') error! On filter # ' + filterIndex + ' '
+                + charNewLineTag + filterCommandEval,
+                'FilterGet', 3128, null, null,
+                errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
+            var bob = 'ted';
+            filterIndexCn = 0;
+            filterGetExit = true;// Exit on Set Error
+        } else {
+            // Set succeeded
+            if (debugTimer && debugTimerDetail && debugTimerTransition) {
+                MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                    'Filter(' + filterIdPassed + ') of ' + filterIndexCn
+                    + ' set successfully! Random filter # ' + filterIndex + ' '
+                    + charNewLineTag + filterCommandEval,
+                    'FilterGet', 3139, null, null,
+                    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                //
+            }
+        }
+    }
+    filterCommand = filterCommandEval;
 }
 // Filter Enable
 // ...................................... //
 // Enable Filter prior to Play
 //
-function StdFilterSet(filterPlayAll, startIndex, endIndex,
+function FilterSet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
-    filterCommand)
-{
-// Evaluate the filter commands and apply elements.
-if (browserAnimationIsIe) {
-if (filterCommand.length)  {
-eval(filterCommand);
-filterCommand = '';
-} else { return -99; }
-return oObjNext.filters.length;
-} else { return 1; }
+    filterCommand) {
+    // Evaluate the filter commands and apply elements.
+    if (browserAnimationIsIe) {
+        if (filterCommand.length) {
+            eval(filterCommand);
+            filterCommand = '';
+        } else { return -99; }
+        return oObjNext.filters.length;
+    } else { return 1; }
 }
 // Filter Enable
 // ...................................... //
 // Enable Filter prior to Play
 //
-function StdFilterEnable(filterPlayAll, startIndex, endIndex,
+function FilterEnable(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-if (browserAnimationIsIe) {
-if (filterResizeIsOn && filterIsOn) {
-// 0
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnabled)  {
-    oObjNext.filters.item(filterId[0]).Enabled = true; }
-// 1
-if (oObjNext.filters[1]) {
-    if (filterObj[filterObjIdPassed].filterSet[1].filterDoEnabled)  {
-        oObjNext.filters.item(filterId[1]).Enabled = true; }
-}
-//
-} else {
-// 0
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnabled)  {
-    oObjNext.filters.item(filterId[0]).Enabled = true; }
-}
-}
+    filterObjIdPassed, filterIdPassed) {
+    if (browserAnimationIsIe) {
+        if (filterResizeIsOn && filterIsOn) {
+            // 0
+            if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnabled) {
+                oObjNext.filters.item(filterId[0]).Enabled = true;
+            }
+            // 1
+            if (oObjNext.filters[1]) {
+                if (filterObj[filterObjIdPassed].filterSet[1].filterDoEnabled) {
+                    oObjNext.filters.item(filterId[1]).Enabled = true;
+                }
+            }
+            //
+        } else {
+            // 0
+            if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnabled) {
+                oObjNext.filters.item(filterId[0]).Enabled = true;
+            }
+        }
+    }
 }
 // Filter Apply
 // ...................................... //
 // Capture Rendered Content prior to Play
 //
-function StdFilterApply(filterPlayAll, startIndex, endIndex,
+function FilterApply(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-if (browserAnimationIsIe) {
-if (filterResizeIsOn && filterIsOn) {
-// 0
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoApply)  {
-// oObjNext.filters[0].apply();
-  oObjNext.filters.item(filterObj[filterObjIdPassed].filterSet[0].filterKey).apply();
-}
-// 1
-if (oObjNext.filters[1]) {
-if (filterObj[filterObjIdPassed].filterSet[1].filterDoApply) { oObjNext.filters[1].apply(); }
-}
-//
-} else {
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoApply) { oObjNext.filters[0].apply(); }
-}
-}
+    filterObjIdPassed, filterIdPassed) {
+    if (browserAnimationIsIe) {
+        if (filterResizeIsOn && filterIsOn) {
+            // 0
+            if (filterObj[filterObjIdPassed].filterSet[0].filterDoApply) {
+                // oObjNext.filters[0].apply();
+                oObjNext.filters.item(filterObj[filterObjIdPassed].filterSet[0].filterKey).apply();
+            }
+            // 1
+            if (oObjNext.filters[1]) {
+                if (filterObj[filterObjIdPassed].filterSet[1].filterDoApply) { oObjNext.filters[1].apply(); }
+            }
+            //
+        } else {
+            if (filterObj[filterObjIdPassed].filterSet[0].filterDoApply) { oObjNext.filters[0].apply(); }
+        }
+    }
 }
 // Filter Play
 // ...................................... //
@@ -749,84 +741,91 @@ if (filterObj[filterObjIdPassed].filterSet[0].filterDoApply) { oObjNext.filters[
 // This in turn could be structured
 // to implement specific players+versions.
 // ...................................... //
-function StdFilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
+function FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-//
-if (!filterDuration) { filterDuration = elementMoveDuration; }
-//
-if (filterMethod = filterMethodPlay) {
-if (filterResizeIsOn && filterIsOn) {
-if (browserAnimationIsIe) {
-// 0
-oObjNext.filters[0].duration = filterDuration;
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoPlay)  {
-    oObjNext.filters[0].play(filterDuration); }
-// 1
-if (oObjNext.filters[1]) {
-    if (oObjNext.filters[1].duration) { oObjNext.filters[1].duration = filterDuration; }
-    if (filterObj[filterObjIdPassed].filterSet[1].filterDoPlay)  {
-        oObjNext.filters[1].play(filterDuration); }
-}
-}
-} else {
-if (browserAnimationIsIe) {
-// 0
-if (oObjNext.filters[0].duration) { oObjNext.filters[0].duration = filterDuration; }
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoPlay)  {
-    oObjNext.filters[0].play(filterDuration); }
-}
-}
-}
-//
-// Visibility
-if (oObjNext.style.display != 'block') {
-oObjNext.style.display= 'block';
-// oObjNextImage.style.display= 'block';
-}
-// ...................................... //
-//
-if (filterMethod = filterMethodVisible) {
-oObjNext.style.visibility = 'hidden';
-oObjNext.style.visibility = 'visible';
-}
+    filterObjIdPassed, filterIdPassed) {
+    //
+    if (!filterDuration) { filterDuration = elementMoveDuration; }
+    //
+    if (filterMethod = filterMethodPlay) {
+        if (filterResizeIsOn && filterIsOn) {
+            if (browserAnimationIsIe) {
+                // 0
+                oObjNext.filters[0].duration = filterDuration;
+                if (filterObj[filterObjIdPassed].filterSet[0].filterDoPlay) {
+                    oObjNext.filters[0].play(filterDuration);
+                }
+                // 1
+                if (oObjNext.filters[1]) {
+                    if (oObjNext.filters[1].duration) { oObjNext.filters[1].duration = filterDuration; }
+                    if (filterObj[filterObjIdPassed].filterSet[1].filterDoPlay) {
+                        oObjNext.filters[1].play(filterDuration);
+                    }
+                }
+            }
+        } else {
+            if (browserAnimationIsIe) {
+                // 0
+                if (oObjNext.filters[0].duration) { oObjNext.filters[0].duration = filterDuration; }
+                if (filterObj[filterObjIdPassed].filterSet[0].filterDoPlay) {
+                    oObjNext.filters[0].play(filterDuration);
+                }
+            }
+        }
+    }
+    //
+    // Visibility
+    if (oObjNext.style.display != 'block') {
+        oObjNext.style.display = 'block';
+        // oObjNextImage.style.display= 'block';
+    }
+    // ...................................... //
+    //
+    if (filterMethod = filterMethodVisible) {
+        oObjNext.style.visibility = 'hidden';
+        oObjNext.style.visibility = 'visible';
+    }
 }
 // Filter Stop
 // ...................................... //
 //
-function StdFilterStop(filterPlayAll, startIndex, endIndex,
+function FilterStop(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-if (filterMethod = filterMethodPlay) {
-if (filterResizeIsOn && filterIsOn) {
-if (browserAnimationIsIe) {
-// 0
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop)  {
-    oObjNext.filters[0].stop(); }
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnable)  {
-     oObjNext.filters[0].Enabled = false; }
-// 1
-if (oObjNext.filters[1]) {
-    if (filterObj[filterObjIdPassed].filterSet[1].filterDoStop)  {
-         oObjNext.filters[1].stop(); }
-    if (filterObj[filterObjIdPassed].filterSet[1].filterDoEnable)  {
-         oObjNext.filters[1].Enabled = false; }
-}
-}
-} else {
-if (browserAnimationIsIe) {
-// 0
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop)  {
-    oObjNext.filters[0].stop(); }
-if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnable)  {
-     oObjNext.filters[0].Enabled = false; }
-}
-}
-}
+    filterObjIdPassed, filterIdPassed) {
+    if (filterMethod = filterMethodPlay) {
+        if (filterResizeIsOn && filterIsOn) {
+            if (browserAnimationIsIe) {
+                // 0
+                if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop) {
+                    oObjNext.filters[0].stop();
+                }
+                if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnable) {
+                    oObjNext.filters[0].Enabled = false;
+                }
+                // 1
+                if (oObjNext.filters[1]) {
+                    if (filterObj[filterObjIdPassed].filterSet[1].filterDoStop) {
+                        oObjNext.filters[1].stop();
+                    }
+                    if (filterObj[filterObjIdPassed].filterSet[1].filterDoEnable) {
+                        oObjNext.filters[1].Enabled = false;
+                    }
+                }
+            }
+        } else {
+            if (browserAnimationIsIe) {
+                // 0
+                if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop) {
+                    oObjNext.filters[0].stop();
+                }
+                if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnable) {
+                    oObjNext.filters[0].Enabled = false;
+                }
+            }
+        }
+    }
 }
 // function Filter Pause
 // ...................................... //
@@ -838,15 +837,13 @@ if (filterObj[filterObjIdPassed].filterSet[0].filterDoEnable)  {
 // ..................................................................................... _//
 // Filter Timing Get By Index
 // ...................................... //
-function StdFilterTimingGetByIndex()
-{
-return;
+function FilterTimingGetByIndex() {
+    return;
 }
 // Filter Timing Get Random
 // ...................................... //
-function StdFilterTimingGetRandom()
-{
-return;
+function FilterTimingGetRandom() {
+    return;
 }
 // SectionBlock Filter Get / Set function (s)
 // ...................................... //
@@ -857,347 +854,347 @@ return;
 // ..................................................................................... _//
 // Filter (Transition, Transform) Get by Index or Name
 // Filter Get By Index
-function StdFilterGetByIndex(
-filterClassCardinalityPassed, filterClassFixityPassed,
-filterIndexPassed, filterDataRequested, filterCompletionPassed,
-oObjNext, oObjNextImage,
-oObjGroupIndex, oObjGroupImageIndex,
-filterObjIdPassed, filterIdPassed)
-{
-// get interger
-filterKey = '';
-filterKeyPrefix = 'progid:';
-filterArguments = '';
-var filterCompletionSet = false;
-var filterCompletionRatio = 1;
-var UsePlay = false;
-var UseEnabled = false;
-if (!filterObj[filterIdPassed]) {
-StdFilterControlCreate(
-    true, 0, 30,
+function FilterGetByIndex(
+    filterClassCardinalityPassed, filterClassFixityPassed,
+    filterIndexPassed, filterDataRequested, filterCompletionPassed,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed); }
-if (filterDataRequested != filterDataCommand) { filterCompletionRatio = filterCompletionPassed; }
-//
-//
-switch(filterClassCardinalityPassed) {
-// ...................................... //
-// Transition from self
-case filterClassSingle:
-// Transition is Motion Oriented (Single)
-switch(filterClassFixityPassed) {
-// ..................................................................................... _//
-// ...................................... //
-// Transition suited to moveable content (Single)
-case filterClassDynamic:
-    switch(filterIndexPassed) {
-        // Not Used
-        case 9999:
-             break;
-        default:
-             break;
+    filterObjIdPassed, filterIdPassed) {
+    // get interger
+    filterKey = '';
+    filterKeyPrefix = 'progid:';
+    filterArguments = '';
+    var filterCompletionSet = false;
+    var filterCompletionRatio = 1;
+    var UsePlay = false;
+    var UseEnabled = false;
+    if (!filterObj[filterIdPassed]) {
+        FilterControlCreate(
+            true, 0, 30,
+            oObjNext, oObjNextImage,
+            oObjGroupIndex, oObjGroupImageIndex,
+            filterObjIdPassed, filterIdPassed);
     }
-break;
-// Transition suited to stationary content (Single)
-case filterClassStatic:
-default:
-    switch(filterIndexPassed) {
-           case 1:
-            // filterKey = '';
-               // filterArguments += '';
-               // break;
-        // MotionBlur
-        case filterTypeMotionBlur:
-            // imgHtml += 'progid:DXImageTransform.Microsoft.MotionBlur(strength= 13, direction= 310) ';
-            // filterArguments += 'progid:DXImageTransform.Microsoft.MotionBlur(strength= 13, direction= 310)';
-            if (!filterDirectionDegrees) { filterDirectionDegrees= 310; }
-             filterKey = 'DXImageTransform.Microsoft.MotionBlur';
-             filterArguments += '(';
-            filterArguments += '  strength= ' + filterStrength;
-            filterArguments += ', direction= ' + filterDirectionDegrees;
-            filterArguments += ', add= "true"';
-            filterArguments += ')';
-            UseEnabled = true;
+    if (filterDataRequested != filterDataCommand) { filterCompletionRatio = filterCompletionPassed; }
+    //
+    //
+    switch (filterClassCardinalityPassed) {
+        // ...................................... //
+        // Transition from self
+        case filterClassSingle:
+            // Transition is Motion Oriented (Single)
+            switch (filterClassFixityPassed) {
+                // ..................................................................................... _//
+                // ...................................... //
+                // Transition suited to moveable content (Single)
+                case filterClassDynamic:
+                    switch (filterIndexPassed) {
+                        // Not Used
+                        case 9999:
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                // Transition suited to stationary content (Single)
+                case filterClassStatic:
+                default:
+                    switch (filterIndexPassed) {
+                        case 1:
+                        // filterKey = '';
+                        // filterArguments += '';
+                        // break;
+                        // MotionBlur
+                        case filterTypeMotionBlur:
+                            // imgHtml += 'progid:DXImageTransform.Microsoft.MotionBlur(strength= 13, direction= 310) ';
+                            // filterArguments += 'progid:DXImageTransform.Microsoft.MotionBlur(strength= 13, direction= 310)';
+                            if (!filterDirectionDegrees) { filterDirectionDegrees = 310; }
+                            filterKey = 'DXImageTransform.Microsoft.MotionBlur';
+                            filterArguments += '(';
+                            filterArguments += '  strength= ' + filterStrength;
+                            filterArguments += ', direction= ' + filterDirectionDegrees;
+                            filterArguments += ', add= "true"';
+                            filterArguments += ')';
+                            UseEnabled = true;
+                            break;
+                        // Iris
+                        case filterTypeIris:
+                            filterKey = 'DXImageTransform.Microsoft.Iris';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', irisStyle= ' + 'DIAMOND';
+                            filterArguments += ', motion= ' + filterMotionOut;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Pixelate
+                        case filterTypePixelate:
+                            // filterArguments += '
+                            filterKey = 'DXImageTransform.Microsoft.Pixelate';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', maxSquare= ' + filterMaxSquare;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Random Dissolve
+                        case filterTypeRandomDissolve:
+                            filterKey = 'DXImageTransform.Microsoft.RandomDissolve';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', GridSizeX= ' + filterGridSizeX;
+                            filterArguments += ', GridSizeY= ' + filterGridSizeY;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;		// Spiral
+                        case filterTypeSpiral:
+                            filterKey = 'DXImageTransform.Microsoft.Spiral';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', GridSizeX= ' + filterGridSizeX;
+                            filterArguments += ', GridSizeY= ' + filterGridSizeY;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Stretch
+                        case filterTypeStretch:
+                            filterKey = 'DXImageTransform.Microsoft.Stretch';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', stretchStyle= ' + filterStretchStyle;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Strips
+                        case filterTypeStrips:
+                            filterKey = 'DXImageTransform.Microsoft.Strips';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', motion= ' + filterMotionDirectionRightDown;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Wheel
+                        case filterTypeWheel:
+                            // imgHtml += 'progid:DXImageTransform.Microsoft.Wheel(Duration= 1.0000);' + quoteClose;
+                            // filterArguments += 'progid:DXImageTransform.Microsoft.Wheel(duration= 3)';
+                            filterKey = 'DXImageTransform.Microsoft.Wheel';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', spokes= ' + filterSpokes;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Blinds
+                        case filterTypeBlinds:
+                            // imgHtml += 'progid:DXImageTransform.Microsoft.Blinds(Bands= 10, Duration= 2, Direction= down);' + quoteClose;
+                            // filterIndexPassed = filterTypeBlinds;
+                            filterKey = 'DXImageTransform.Microsoft.Blinds';
+                            filterArguments += '(';
+                            filterArguments += '  bands= ' + filterBands;
+                            filterArguments += ', duration= ' + filterDuration;
+                            filterArguments += ', direction= ' + filterDirection;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Barn
+                        case filterTypeBarn:
+                            filterKey = 'DXImageTransform.Microsoft.Barn';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', motion= ' + filterMotionOut;
+                            filterArguments += ', orientation= ' + filterOrientationVertical;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // CheckerBoard
+                        case filterTypeCheckerBoard:
+                            // CheckerBoard
+                            // filterTypeCheckerBoard
+                            // imgHtml += 'progid:DXImageTransform.Microsoft.CheckerBoard(Duration= 3, Direction= left);';
+                            filterKey = 'DXImageTransform.Microsoft.CheckerBoard';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', direction= ' + filterDirection;
+                            filterArguments += ', squaresX= ' + filterSquaresX;
+                            filterArguments += ', squaresY= ' + filterSquaresY;
+                            filterArguments += ')';
+                            break;
+                        // Gradient Wipe
+                        case filterTypeGradientWipe:
+                            filterGradientsize = 0.5;
+                            filterKey = 'DXImageTransform.Microsoft.gradientWipe';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', gradientsize= ' + filterGradientsize;
+                            filterArguments += ', motion= ' + filterMotionDirectionForward;
+                            filterArguments += ', WipeStyle= ' + filterWipeStyle;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Radial Wipe
+                        case filterTypeRadialWipe:
+                            var filterWipeStyleClock = 'CLOCK';
+                            var filterWipeStyleWedge = 'WEDGE';
+                            var filterWipeStyleRadial = 'RADIAL';
+                            filterKey = 'DXImageTransform.Microsoft.RadialWipe';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', WipeStyle= ' + filterWipeStyleRadial;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Random Bars
+                        case filterTypeRandomBars:
+                            filterKey = 'DXImageTransform.Microsoft.RandomBars';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', orientation= ' + filterOrientationVertical;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // ZigZag
+                        case filterTypeZigZag:
+                            filterKey = 'DXImageTransform.Microsoft.ZigZag';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', GridSizeX= ' + filterGridSizeX;
+                            filterArguments += ', GridSizeY= ' + filterGridSizeY;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // Wave
+                        case filterTypeWave:
+                            filterKey = 'DXImageTransform.Microsoft.Wave';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ', Add= "false", LightStrength= 20, Phase= 20, Strength= 5,  Freq= 5';
+                            filterArguments += ')';
+                            UseEnabled = true;
+                            break;
+                        // ..................................................................................... _//
+                        // Blur
+                        case filterTypeBlur:
+                            // imgHtml += 'progid:DXImageTransform.Microsoft.Blur(pixelradius= 2) ';
+                            // filterArguments += 'progid:DXImageTransform.Microsoft.Blur(pixelradius= 2)';
+                            filterKey = 'DXImageTransform.Microsoft.Blur';
+                            filterArguments += '(';
+                            filterArguments += '  pixelradius= ' + filterPixelRadius;
+                            filterArguments += ')';
+                            UseEnabled = true;
+                            break;
+                        // Inset
+                        case filterTypeInset:
+                            filterKey = 'DXImageTransform.Microsoft.Inset';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        // ..................................................................................... _//
+                        default:
+                        // break;
+                    }
+                    break;
+            }
             break;
-        // Iris
-        case filterTypeIris:
-            filterKey = 'DXImageTransform.Microsoft.Iris';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', irisStyle= ' + 'DIAMOND';
-            filterArguments += ', motion= ' + filterMotionOut;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
+        // Transition from prior content
+        case filterClassPaired:
+            // Transition is Motion Oriented (Paired)
+            switch (filterClassFixityPassed) {
+                // Transition suited to moveable content
+                case filterClassDynamic:
+                    switch (filterIndexPassed) {
+                        // Not Used
+                        case 9999:
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                // Transition suited to stationary content (Paired)
+                case filterClassStatic:
+                default:
+                    switch (filterIndexPassed) {
+                        // Fade
+                        case filterTypeFade:
+                            filterKey = 'DXImageTransform.Microsoft.Fade';
+                            filterArguments += '(';
+                            filterArguments += '  duration= ' + filterDuration;
+                            filterArguments += ')';
+                            UsePlay = true; UseEnabled = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+            }
             break;
-        // Pixelate
-        case filterTypePixelate:
-            // filterArguments += '
-            filterKey = 'DXImageTransform.Microsoft.Pixelate';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', maxSquare= ' + filterMaxSquare;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Random Dissolve
-        case filterTypeRandomDissolve:
-            filterKey = 'DXImageTransform.Microsoft.RandomDissolve';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-             filterArguments += ', GridSizeX= ' + filterGridSizeX;
-             filterArguments += ', GridSizeY= ' + filterGridSizeY;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;		// Spiral
-        case filterTypeSpiral:
-            filterKey = 'DXImageTransform.Microsoft.Spiral';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-             filterArguments += ', GridSizeX= ' + filterGridSizeX;
-             filterArguments += ', GridSizeY= ' + filterGridSizeY;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Stretch
-        case filterTypeStretch:
-             filterKey = 'DXImageTransform.Microsoft.Stretch';
-             filterArguments += '(';
-            filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', stretchStyle= ' + filterStretchStyle;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Strips
-        case filterTypeStrips:
-             filterKey = 'DXImageTransform.Microsoft.Strips';
-             filterArguments += '(';
-            filterArguments += '  duration= ' + filterDuration;
-             filterArguments += ', motion= ' + filterMotionDirectionRightDown;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Wheel
-        case filterTypeWheel:
-               // imgHtml += 'progid:DXImageTransform.Microsoft.Wheel(Duration= 1.0000);' + quoteClose;
-            // filterArguments += 'progid:DXImageTransform.Microsoft.Wheel(duration= 3)';
-             filterKey = 'DXImageTransform.Microsoft.Wheel';
-             filterArguments += '(';
-            filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', spokes= ' + filterSpokes;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Blinds
-        case filterTypeBlinds:
-            // imgHtml += 'progid:DXImageTransform.Microsoft.Blinds(Bands= 10, Duration= 2, Direction= down);' + quoteClose;
-            // filterIndexPassed = filterTypeBlinds;
-             filterKey = 'DXImageTransform.Microsoft.Blinds';
-             filterArguments += '(';
-            filterArguments += '  bands= ' + filterBands;
-            filterArguments += ', duration= ' + filterDuration;
-            filterArguments += ', direction= ' + filterDirection;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Barn
-        case filterTypeBarn:
-            filterKey = 'DXImageTransform.Microsoft.Barn';
-            filterArguments += '(';
-            filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', motion= ' + filterMotionOut;
-            filterArguments += ', orientation= ' + filterOrientationVertical;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // CheckerBoard
-        case filterTypeCheckerBoard:
-            // CheckerBoard
-            // filterTypeCheckerBoard
-            // imgHtml += 'progid:DXImageTransform.Microsoft.CheckerBoard(Duration= 3, Direction= left);';
-            filterKey = 'DXImageTransform.Microsoft.CheckerBoard';
-            filterArguments += '(';
-            filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', direction= ' + filterDirection;
-            filterArguments += ', squaresX= ' + filterSquaresX;
-            filterArguments += ', squaresY= ' + filterSquaresY;
-            filterArguments += ')';
-            break;
-        // Gradient Wipe
-        case filterTypeGradientWipe:
-            filterGradientsize = 0.5;
-            filterKey = 'DXImageTransform.Microsoft.gradientWipe';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', gradientsize= ' + filterGradientsize;
-             filterArguments += ', motion= ' + filterMotionDirectionForward;
-            filterArguments += ', WipeStyle= ' + filterWipeStyle;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Radial Wipe
-        case filterTypeRadialWipe:
-var filterWipeStyleClock = 'CLOCK';
-var filterWipeStyleWedge = 'WEDGE';
-var filterWipeStyleRadial = 'RADIAL';
-            filterKey = 'DXImageTransform.Microsoft.RadialWipe';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', WipeStyle= ' + filterWipeStyleRadial;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Random Bars
-        case filterTypeRandomBars:
-            filterKey = 'DXImageTransform.Microsoft.RandomBars';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', orientation= ' + filterOrientationVertical;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // ZigZag
-        case filterTypeZigZag:
-            filterKey = 'DXImageTransform.Microsoft.ZigZag';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-             filterArguments += ', GridSizeX= ' + filterGridSizeX;
-             filterArguments += ', GridSizeY= ' + filterGridSizeY;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-        // Wave
-        case filterTypeWave:
-            filterKey = 'DXImageTransform.Microsoft.Wave';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ', Add= "false", LightStrength= 20, Phase= 20, Strength= 5,  Freq= 5';
-            filterArguments += ')';
-            UseEnabled = true;
-            break;
-// ..................................................................................... _//
-        // Blur
-        case filterTypeBlur:
-            // imgHtml += 'progid:DXImageTransform.Microsoft.Blur(pixelradius= 2) ';
-            // filterArguments += 'progid:DXImageTransform.Microsoft.Blur(pixelradius= 2)';
-             filterKey = 'DXImageTransform.Microsoft.Blur';
-             filterArguments += '(';
-            filterArguments += '  pixelradius= ' + filterPixelRadius;
-            filterArguments += ')';
-            UseEnabled = true;
-            break;
-        // Inset
-        case filterTypeInset:
-            filterKey = 'DXImageTransform.Microsoft.Inset';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-            filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-            break;
-// ..................................................................................... _//
+        // ..................................................................................... _//
+        //
+        case filterClassMatrix:
         default:
-            // break;
+            //
+            switch (filterIndexPassed) {
+                // Matrix
+                case filterTypeMatrix:
+                    // imgHtml += 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod= auto expand, duration= 1.5);' + quoteClose;
+                    // filterIndexPassed = filterTypeMaxtrix;
+                    filterKey = 'DXImageTransform.Microsoft.Matrix';
+                    filterArguments += '(';
+                    // filterArguments += 'sizingMethod= ' + filterSizingMethod;
+                    filterArguments += '  duration= ' + filterDuration;
+                    filterArguments += ')';
+                    UseEnabled = true;
+                    break;
+                // Flip
+                case filterTypeFlip:
+                    // This is a Matrix Calculation...
+                    UseEnabled = true;
+                    break;
+                // Rotate
+                case filterTypeRotate:
+                    // This is a Matrix Calculation...
+                    filterKey = 'DXImageTransform.Microsoft.Matrix';
+                    filterArguments += '(';
+                    filterArguments += '  duration= ' + filterDuration;
+                    filterArguments += ')';
+                    UseEnabled = true;
+                    break;
+                // Spin
+                case filterTypeSpin:
+                    // needs Matrix handling
+                    UseEnabled = true;
+                    break;
+                // Default
+                default:
+                    break;
+            }
+            break;
     }
-break;
-}
-break;
-// Transition from prior content
-case filterClassPaired:
-// Transition is Motion Oriented (Paired)
-switch(filterClassFixityPassed) {
-// Transition suited to moveable content
-case filterClassDynamic:
-    switch(filterIndexPassed) {
-        // Not Used
-        case 9999:
-             break;
-        default:
-             break;
+    // ..................................................................................... _//
+    if (filterDataRequested = filterDataCommand) {
+        filterCommand = (filterKeyPrefix + filterKey + filterArguments);
+        var temp = ((filterKey).split('.'));// Id - short name... i.e. Blinds
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterVendor = temp[1];
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterName = temp[2];
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterKey = filterKey;// Key
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterArguments = filterArguments;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterCommand = filterCommand;
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterMsId = '';
+        filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterMSIndex = -1;
+        if (UsePlay) {
+            filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoApply = true;
+            filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoStop = true;
+            filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoPlay = true;
+        }
+        if (UseEnabled) {
+            filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoEnable = true;
+        }
+        return filterCommand;
+    } else {
+        return filterCompletionSet;
     }
-break;
-// Transition suited to stationary content (Paired)
-case filterClassStatic:
-default:
-    switch(filterIndexPassed) {
-        // Fade
-        case filterTypeFade:
-             filterKey = 'DXImageTransform.Microsoft.Fade';
-             filterArguments += '(';
-             filterArguments += '  duration= ' + filterDuration;
-             filterArguments += ')';
-            UsePlay = true;UseEnabled = true;
-             break;
-        default:
-             break;
-    }
-    break;
-}
-break;
-// ..................................................................................... _//
-//
-case filterClassMatrix:
-default:
-//
-switch(filterIndexPassed) {
-// Matrix
-case filterTypeMatrix:
-    // imgHtml += 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod= auto expand, duration= 1.5);' + quoteClose;
-    // filterIndexPassed = filterTypeMaxtrix;
-    filterKey = 'DXImageTransform.Microsoft.Matrix';
-    filterArguments += '(';
-    // filterArguments += 'sizingMethod= ' + filterSizingMethod;
-    filterArguments += '  duration= ' + filterDuration;
-    filterArguments += ')';
-    UseEnabled = true;
-    break;
-// Flip
-case filterTypeFlip:
-    // This is a Matrix Calculation...
-    UseEnabled = true;
-    break;
-// Rotate
-case filterTypeRotate:
-    // This is a Matrix Calculation...
-    filterKey = 'DXImageTransform.Microsoft.Matrix';
-     filterArguments += '(';
-     filterArguments += '  duration= ' + filterDuration;
-    filterArguments += ')';
-    UseEnabled = true;
-    break;
-   // Spin
-   case filterTypeSpin:
-    // needs Matrix handling
-    UseEnabled = true;
-    break;
-// Default
-default:
-    break;
-}
-break;
-}
-// ..................................................................................... _//
-if (filterDataRequested = filterDataCommand) {
-filterCommand = ( filterKeyPrefix + filterKey + filterArguments );
-var temp = ((filterKey).split('.'));// Id - short name... i.e. Blinds
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterVendor = temp[1];
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterName = temp[2];
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterKey = filterKey;// Key
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterArguments = filterArguments;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterCommand = filterCommand;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterMsId = '';
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterMSIndex = -1;
-if (UsePlay) {
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoApply = true;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoStop = true;
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoPlay = true;
-}
-if (UseEnabled) {
-filterObj[filterObjIdPassed].filterSet[filterIdPassed].filterDoEnable = true;
-}
-return filterCommand;
-} else  {
-return filterCompletionSet;
-}
 }
 // filterArguments += 'sizingMethod= auto expand';
 // filterArguments += 'duration= 1.5';
@@ -1206,1024 +1203,1023 @@ return filterCompletionSet;
 //
 // Filter Get By Tag
 // ...................................... //
-function StdFilterGetByTagName(filterTagNamePassed)
-{
-//
-filterTagName = 'div';
-return null;
+function FilterGetByTagName(filterTagNamePassed) {
+    //
+    filterTagName = 'div';
+    return null;
 }
 // Filter Get Random
 // ...................................... //
-function StdFilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
-filterDataCommand, filterCompletion,
-filterObjIdPassed, filterIdPassed)
-{
-filterRandom = '';
-if (filterRangeLowPassed < filterRangeLow) { filterRangeLowPassed = filterRangeLow; }
-if (filterRangeLowPassed > filterRangeHigh) { filterRangeLowPassed = filterRangeHigh; }
-if (filterRangeHighPassed < filterRangeLow) { filterRangeHighPassed = filterRangeHigh; }
-if (filterRangeHighPassed > filterRangeHigh) { filterRangeHighPassed = filterRangeLow; }
-if (filterRangeLowPassed > filterRangeHighPassed) { filterRangeLowPassed = filterRangeHighPassed; }
-//
-filterIndex = StdMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, realFlagOff);
-//
-filterRandom = StdFilterGetByIndex(filterClassSingle, filterClassDynamic, filterIndex,
+function FilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
+    filterDataCommand, filterCompletion,
+    filterObjIdPassed, filterIdPassed) {
+    filterRandom = '';
+    if (filterRangeLowPassed < filterRangeLow) { filterRangeLowPassed = filterRangeLow; }
+    if (filterRangeLowPassed > filterRangeHigh) { filterRangeLowPassed = filterRangeHigh; }
+    if (filterRangeHighPassed < filterRangeLow) { filterRangeHighPassed = filterRangeHigh; }
+    if (filterRangeHighPassed > filterRangeHigh) { filterRangeHighPassed = filterRangeLow; }
+    if (filterRangeLowPassed > filterRangeHighPassed) { filterRangeLowPassed = filterRangeHighPassed; }
+    //
+    filterIndex = MathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, realFlagOff);
+    //
+    filterRandom = FilterGetByIndex(filterClassSingle, filterClassDynamic, filterIndex,
         filterDataCommand, 0,
         filterObjIdPassed, filterIdPassed);
-return filterRandom;
+    return filterRandom;
 }
 //
 // SectionBlock Timer Task Related (Filter / Move) Commands function (s)
 // ...................................... //
-// StdTimerStartFilter
+// TimerStartFilter
 // ...................................... //
-function StdTimerStartFilter(playDirection,
+function TimerStartFilter(playDirection,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-//
-var timerType = timerTypeTransition;
-var timerGroup = oObjGroupIndex;
-var timerId = oObjGroupImageIndex;
-var timerItemKey = timerId + timerType;
-var timerRootKey = timerRootId + timerType;
-// numeric index used as id, not using a collections
-// new String(oObjNext.id + timerType);
-var timerReset = false;
-// Get
-if (!timerObj[timerGroup]) { timerReset = true; } else {
-if (!timerObj[timerGroup] [timerItemKey]) { timerReset = true; } else {
-//
-if ( playDirection == playDirectionForward) {
-if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
-} else {
-if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
+    filterObjIdPassed, filterIdPassed) {
+    //
+    var timerType = timerTypeTransition;
+    var timerGroup = oObjGroupIndex;
+    var timerId = oObjGroupImageIndex;
+    var timerItemKey = timerId + timerType;
+    var timerRootKey = timerRootId + timerType;
+    // numeric index used as id, not using a collections
+    // new String(oObjNext.id + timerType);
+    var timerReset = false;
+    // Get
+    if (!timerObj[timerGroup]) { timerReset = true; } else {
+        if (!timerObj[timerGroup][timerItemKey]) { timerReset = true; } else {
+            //
+            if (playDirection == playDirectionForward) {
+                if (timerObj[timerGroup][timerItemKey].elIsDisplayed != elIsDisplayed) { timerReset = true; }
+            } else {
+                if (timerObj[timerGroup][timerItemKey].elIsDisplayed != elIsNotDisplayed) { timerReset = true; }
+            }
+            if (timerObj[timerGroup][timerItemKey].timerIsRunning) { timerReset = false; }
+        }
+    }
+    // Constructor
+    if (timerReset) {
+        TimerInitialize(timerType, timerGroup, timerId,
+            playDirection,
+            timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
+            filterPlayAll, startIndex, endIndex,
+            oObjNext, oObjNextImage,
+            oObjGroupIndex, oObjGroupImageIndex,
+            filterObjIdPassed, filterIdPassed)
+        if (debugTimer && debugTimerTransition) {
+            // && debugTimerDetail
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'Item Add')
+                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                + ', Item added to group'
+                + ' at ' + Date()
+                + '.',
+                'TimerStartFilter', 4708, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+        //
+        // timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
+        //
+    } else if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+        // Timer exists and is currently busy.
+        if (debugTimer && debugTimerTransition) {
+            // && debugTimerDetail
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerRootKey].playDirection, 'Timing DoStep')
+                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                + ', Already running, perform single step'
+                + '.',
+                'TimerStartFilter', 4723, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+        //
+        if (timerMethod == timerMethodGroup) {
+            timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+        }
+        //
+        TimerItemDoStepFilter(timerType, timerGroup, timerId);
+        return;
+    }
+    // Create new timers
+    timerObj[timerGroup][timerItemKey].elMoveStepLeft = 0;
+    timerObj[timerGroup][timerItemKey].elMoveStepTop = 0;
+    //
+    // ...................................... //
+    if (debugTimer && debugTimerTransition) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                timerObj[timerGroup][timerItemKey].playDirection, 'Timer Start')
+            + ', Timer Start command being issued now'
+            + '.',
+            'TimerStartFilter', 4744, null, null,
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+    }
+    //
+    TimerStart(timerType, timerGroup, timerId,
+        timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
+        timerDelay);
+    //
+    // ...................................... //
+    //
 }
-if (timerObj[timerGroup] [timerItemKey].timerIsRunning) { timerReset = false; }
-}
-}
-// Constructor
-if (timerReset)  {
-StdTimerInitialize(timerType, timerGroup, timerId,
-    playDirection,
+// Start the Move (animation)
+// ...................................... //
+function TimerStartMove(playDirection,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-if (debugTimer && debugTimerTransition) {
-// && debugTimerDetail
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'Item Add')
-    + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-    + ', Item added to group'
-    + ' at ' + Date()
-    + '.',
-    'StdTimerStartFilter', 4708, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-// timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
-//
-} else if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
-// Timer exists and is currently busy.
-if (debugTimer && debugTimerTransition) {
-// && debugTimerDetail
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerRootKey].playDirection, 'Timing DoStep')
-    + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-    + ', Already running, perform single step'
-    + '.',
-    'StdTimerStartFilter', 4723, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-if (timerMethod == timerMethodGroup)  {
-timerObj[timerGroup] [timerItemKey].timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-}
-//
-StdTimerItemDoStepFilter(timerType, timerGroup, timerId);
-return;
-}
-// Create new timers
-timerObj[timerGroup] [timerItemKey].elementMoveStepLeft = 0;
-timerObj[timerGroup] [timerItemKey].elementMoveStepTop = 0;
-//
-// ...................................... //
-if (debugTimer && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'Timer Start')
-    + ', Timer Start command being issued now'
-    + '.',
-'StdTimerStartFilter', 4744, null, null,
-errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-StdTimerStart(timerType, timerGroup, timerId,
-timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
-timerDelay);
-//
-// ...................................... //
-//
-}
-//
-// ..................................................................................... _//
-// ...................................... //
-function StdTimerStartMove(playDirection,
-    timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
-    filterPlayAll, startIndex, endIndex,
-    oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
-    filterObjIdPassed, filterIdPassed)
-{
-//
-var timerType = timerTypeMove;// Type
-var timerGroup = oObjGroupIndex;// Group
-var timerId = oObjGroupImageIndex;// Id (numeric index used as id, not using a collections)
-// Element Id and Type Key
-var timerItemKey = timerId + timerType;
-var timerRootKey = timerRootId + timerType;
-var timerReset = false;
-//
-if (!timerObj[timerGroup]) { timerReset = true; } else {
-if (!timerObj[timerGroup] [timerItemKey]) { timerReset = true; } else {
-timerReset = false;
-//
-if (playDirection == playDirectionForward) {
-if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
-} else {
-if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
-}
-if (timerObj[timerGroup] [timerItemKey].timerIsRunning) { timerReset = false; }
-}
-}
-//
-if (timerReset)  {
-//
-StdTimerInitialize(timerType, timerGroup, timerId,
-playDirection,
-timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
-filterPlayAll, startIndex, endIndex,
-oObjNext, oObjNextImage,
-oObjGroupIndex, oObjGroupImageIndex,
-filterObjIdPassed, filterIdPassed);
-//
-if (debugTimer && debugTimerMove) {
-// && debugTimerDetail
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'Item Add')
-    + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-    + ', Item added to group'
-    + ' at ' + Date()
-    + '.',
-    'StdTimerStartMove', 4807, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-// timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
-//
-} else if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
-// Timer Already Exists...
-if (debugTimer && debugTimerMove) {
-// && debugTimerDetail
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'Timing DoStep')
-    + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-    + ', Already running, perform single step'
-    + '.',
-    'StdTimerStartMove', 4822, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-StdTimerItemDoStepMove(timerType, timerGroup, timerId);
-return;
-}
-// Set Style Left for menu image box
-// oObj.style.left = elementLeftOrig;
-// ...................................... //
-// Set Style Top for menu image box
-// oObj.style.top = elementTopOrig;
-//
-// ...................................... //
-// StdElementMove
-//
-// Distance
-moveDistanceLeft = Math.abs(elementLeftDest - elementLeftOrig);
-timerObj[timerGroup] [timerItemKey].moveDistanceLeft = moveDistanceLeft;
-//
-moveDistanceTop = Math.abs(elementTopDest - elementTopOrig);
-timerObj[timerGroup] [timerItemKey].moveDistanceTop = moveDistanceTop;
-//
-moveDistance = Math.sqrt( Math.pow(moveDistanceTop, 2) + Math.pow(moveDistanceLeft, 2) );
-//
-if (timerUseTime) {
-// time based movement
-moveDistancePerSec = moveDistance / timerDuration;
-moveDistancePerSecLeft = moveDistanceLeft / timerDuration;
-moveDistancePerSecTop = moveDistanceTop / timerDuration;
-// Q: Is iterStep Total Steps or Total Steps Per Second?
-// A: Steps per second is a better measure probably
-// timerStepsPerSecond = timerStep / timerDuration;
-// timerStepsPerSecond = timerStep;
-//
-moveOffset = moveDistancePerSec / timerStepsPerSecond;
-moveOffsetLeft = moveDistancePerSecLeft / timerStepsPerSecond;
-if (moveOffsetLeft < moveOffsetMin) { moveOffsetLeft = moveOffsetMin; }
-if (moveOffsetLeft > moveOffsetMax) { moveOffsetLeft = moveOffsetMax; }
-//
-moveOffsetTop = moveDistancePerSecTop / timerStepsPerSecond;
-if (moveOffsetTop < moveOffsetMin) { moveOffsetTop = moveOffsetMin; }
-if (moveOffsetTop > moveOffsetMax) { moveOffsetTop = moveOffsetMax; }
-//
-} else {
-// Step based movement
-moveDistancePerStep = moveDistance / timerStepMin;
-moveDistancePerStepLeft = moveDistanceLeft / timerStepMin;
-moveDistancePerStepTop = moveDistanceTop / timerStepMin;
-//
-moveOffset = moveDistancePerStep;
-moveOffsetLeft = moveDistancePerStepLeft;
-// if (moveOffsetLeft < moveOffsetMin) { moveOffsetLeft = moveOffsetMin; }
-// if (moveOffsetLeft > moveOffsetMax) { moveOffsetLeft = moveOffsetMax; }
-//
-moveOffsetTop = moveDistancePerStepTop;
-// if (moveOffsetTop < moveOffsetMin) { moveOffsetTop = moveOffsetMin; }
-// if (moveOffsetTop > moveOffsetMax) { moveOffsetTop = moveOffsetMax; }
-}
-timerObj[timerGroup] [timerItemKey].moveOffsetLeft = moveOffsetLeft;
-timerObj[timerGroup] [timerItemKey].moveOffsetTop = moveOffsetTop;
-//
-// ...................................... //
-if (debugTimer && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
-+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-+ ', Orig: ( ' + elementTopOrig + ', ' + elementLeftOrig + ' )'
-+ ', Dest: ( ' + elementTopDest + ', ' + elementLeftDest + ' )'
-+ ', Offset: ( ' + moveOffsetTop + ', ' + moveOffsetLeft + ' )'
-+ ', Move Top:' + moveDistanceTop
-+ ', Move Left:' + moveDistanceLeft
-+ '.',
-'StdTimerStartMove', 4873, null, null,
-errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-StdTimerStart(timerType, timerGroup, timerId,
-timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
-timerDelay);
-//
-// ...................................... //
-//
+    filterObjIdPassed, filterIdPassed) {
+    //
+    var timerType = timerTypeMove;// Type
+    var timerGroup = oObjGroupIndex;// Group
+    var timerId = oObjGroupImageIndex;// Id (numeric index used as id, not using a collections)
+    // Element Id and Type Key
+    var timerItemKey = timerId + timerType;
+    var timerRootKey = timerRootId + timerType;
+    var timerReset = false;
+    //
+    if (!timerObj[timerGroup]) { timerReset = true; } else {
+        if (!timerObj[timerGroup][timerItemKey]) { timerReset = true; } else {
+            timerReset = false;
+            //
+            if (playDirection == playDirectionForward) {
+                if (timerObj[timerGroup][timerItemKey].elIsDisplayed != elIsDisplayed) { timerReset = true; }
+            } else {
+                if (timerObj[timerGroup][timerItemKey].elIsDisplayed != elIsNotDisplayed) { timerReset = true; }
+            }
+            if (timerObj[timerGroup][timerItemKey].timerIsRunning) { timerReset = false; }
+        }
+    }
+    //
+    if (timerReset) {
+        //
+        TimerInitialize(timerType, timerGroup, timerId,
+            playDirection,
+            timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
+            filterPlayAll, startIndex, endIndex,
+            oObjNext, oObjNextImage,
+            oObjGroupIndex, oObjGroupImageIndex,
+            filterObjIdPassed, filterIdPassed);
+        //
+        if (debugTimer && debugTimerMove) {
+            // && debugTimerDetail
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'Item Add')
+                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                + ', Item added to group'
+                + ' at ' + Date()
+                + '.',
+                'TimerStartMove', 4807, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+        //
+        // timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
+        //
+    } else if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+        // Timer Already Exists...
+        if (debugTimer && debugTimerMove) {
+            // && debugTimerDetail
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'Timing DoStep')
+                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                + ', Already running, perform single step'
+                + '.',
+                'TimerStartMove', 4822, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+        TimerItemDoStepMove(timerType, timerGroup, timerId);
+        return;
+    }
+    // Set Style Left for menu image box
+    // oObj.style.left = elLeftOrig;
+    // ...................................... //
+    // Set Style Top for menu image box
+    // oObj.style.top = elTopOrig;
+    //
+    // ...................................... //
+    // ElementMove
+    //
+    // Distance
+    moveDistanceLeft = Math.abs(elLeftDest - elLeftOrig);
+    timerObj[timerGroup][timerItemKey].moveDistanceLeft = moveDistanceLeft;
+    //
+    moveDistanceTop = Math.abs(elTopDest - elTopOrig);
+    timerObj[timerGroup][timerItemKey].moveDistanceTop = moveDistanceTop;
+    //
+    moveDistance = Math.sqrt(Math.pow(moveDistanceTop, 2) + Math.pow(moveDistanceLeft, 2));
+    //
+    if (timerUseTime) {
+        // time based movement
+        moveDistancePerSec = moveDistance / timerDuration;
+        moveDistancePerSecLeft = moveDistanceLeft / timerDuration;
+        moveDistancePerSecTop = moveDistanceTop / timerDuration;
+        // Q: Is iterStep Total Steps or Total Steps Per Second?
+        // A: Steps per second is a better measure probably
+        // timerStepsPerSecond = timerStep / timerDuration;
+        // timerStepsPerSecond = timerStep;
+        //
+        moveOffset = moveDistancePerSec / timerStepsPerSecond;
+        moveOffsetLeft = moveDistancePerSecLeft / timerStepsPerSecond;
+        if (moveOffsetLeft < moveOffsetMin) { moveOffsetLeft = moveOffsetMin; }
+        if (moveOffsetLeft > moveOffsetMax) { moveOffsetLeft = moveOffsetMax; }
+        //
+        moveOffsetTop = moveDistancePerSecTop / timerStepsPerSecond;
+        if (moveOffsetTop < moveOffsetMin) { moveOffsetTop = moveOffsetMin; }
+        if (moveOffsetTop > moveOffsetMax) { moveOffsetTop = moveOffsetMax; }
+        //
+    } else {
+        // Step based movement
+        moveDistancePerStep = moveDistance / timerStepMin;
+        moveDistancePerStepLeft = moveDistanceLeft / timerStepMin;
+        moveDistancePerStepTop = moveDistanceTop / timerStepMin;
+        //
+        moveOffset = moveDistancePerStep;
+        moveOffsetLeft = moveDistancePerStepLeft;
+        // if (moveOffsetLeft < moveOffsetMin) { moveOffsetLeft = moveOffsetMin; }
+        // if (moveOffsetLeft > moveOffsetMax) { moveOffsetLeft = moveOffsetMax; }
+        //
+        moveOffsetTop = moveDistancePerStepTop;
+        // if (moveOffsetTop < moveOffsetMin) { moveOffsetTop = moveOffsetMin; }
+        // if (moveOffsetTop > moveOffsetMax) { moveOffsetTop = moveOffsetMax; }
+    }
+    timerObj[timerGroup][timerItemKey].moveOffsetLeft = moveOffsetLeft;
+    timerObj[timerGroup][timerItemKey].moveOffsetTop = moveOffsetTop;
+    //
+    // ...................................... //
+    if (debugTimer && debugTimerMove) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
+            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+            + ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
+            + ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )'
+            + ', Offset: ( ' + moveOffsetTop + ', ' + moveOffsetLeft + ' )'
+            + ', Move Top:' + moveDistanceTop
+            + ', Move Left:' + moveDistanceLeft
+            + '.',
+            'TimerStartMove', 4873, null, null,
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+    }
+    //
+    TimerStart(timerType, timerGroup, timerId,
+        timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
+        timerDelay);
+    //
+    // ...................................... //
+    //
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-function StdTimerGroupDoStepFilter(timerType, timerGroup, timerId)
-{
-var timerItemKey = timerId + timerType;
-var timerRootKey = timerRootId + timerType;
-var timerIdCurr;
-var timerIdCnMax = timerObj[timerGroup].length;
-var timerIsActive = false;
-var timerDoAbort = false;
-var timerInstanceIsDone = false;
-//
-timerObj[timerGroup] [timerRootKey].timerIntervalStep += 1;
-//
-if (debugTimer && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
-+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-+ ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
-+ ', Time:' + Date()
-+ ', Starting Group'
-+ '.',
-'StdTimerGroupDoStepMove', 5111, null, null,
-errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-// Process elements
-for (timerIdCurr = 1;timerIdCurr < (1+imgMaxByGroup[timerGroup]);timerIdCurr++)  {
-//
-timerItemKey = timerIdCurr + timerType;
-if (timerObj[timerGroup] [timerItemKey]) {
-if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
-timerInstanceIsDone = StdTimerItemDoStepFilter(timerType, timerGroup, timerIdCurr);
-if (!timerInstanceIsDone) { timerIsActive = true; }
-}
-}
-}
-//
-if ( timerObj[timerGroup] [timerRootKey].timerStepCurr > timerObj[timerGroup] [timerRootKey].timerStepMax)  {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group Step Max')
-+ ', Transition Group Timer Maximum (' + timerObj[timerGroup] [timerRootKey].timerStepMax
-+ ') number of interval steps (' + timerObj[timerGroup] [timerRootKey].timerStepCurr
-+ ') exceeded'
-+ '!!!',
-'StdTimerGroupDoStepFilter', 5134, null, null,
-errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
-timerDoAbort = true;
-}
-//
-if (timerDoAbort || (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) ) {
-// Turn Off Timer
-var timerIntervalId;
-timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-//
-window.clearInterval(timerIntervalId);
-//
-timerStarted -= 1;
-timerObj[timerGroup] [timerRootKey].timerIntervalIdPrev = timerIntervalId;
-timerObj[timerGroup] [timerRootKey].timerIntervalId = 0;
-//
-timerObj[timerGroup] [timerRootKey].timerDateEnd = new Date();
-timerObj[timerGroup] [timerRootKey].timerIsRunning = false;
-//
-if ( timerObj[timerGroup] [timerRootKey].playDirection = playDirectionForward ) {
-timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsDisplayed;
-} else { timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
-//
-//
-if (debugTimer && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-    timerObj[timerGroup] [timerRootKey].playDirection, 'Group Stop Timer')
-    + ', Interval Stopped'
-    + ', Stopping Group Timer'
-    + '.',
-    'StdTimerGroupDoStepFilter', 5164, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-}
-//
-if (debugTimer && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerRootKey].playDirection, 'Group Out')
-+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-+ ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
-+ ', Time:' + Date()
-+ ', Leaving process Group'
-+ '.',
-'StdTimerGroupDoStepFilter', 5177, null, null,
-errorElementComment, true, false);
-//
-if (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerRootKey].playDirection, 'Group End')
-+ ', Finished Group'
-+ '.',
-'StdTimerGroupDoStepFilter', 5185, null, null,
-errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-}
-}
-//
-// ..................................................................................... _//
-// ...................................... //
-function StdTimerItemDoStepFilter(timerType, timerGroup, timerId)
-{
-var timerItemKey = timerId + timerType
-var timerRootKey = timerRootId + timerType;
-//
-var tempFilterInProgress = true;
-var tempTimeOrStepsCompleted = false;
-//
-var timerDateElps;
-var timerCompletion;
-//
-var errorLogLine;
-//
-timerObj[timerGroup] [timerRootKey].timerStepCurr += 1;
-//
-if (!timerObj[timerGroup] [timerItemKey]) {
-errorLogLine = 'Invalid Timer Object Error!';
-errorLogLine += charNewLineTag + charTextIndex;
-errorLogLine += StdTimerKeyText(timerType, timerGroup, timerId);
-errorLogLine += charNewLineTag + charTextIndex;
-errorLogLine += StdTimerRootKeyText(timerType, timerGroup, timerId);
-eventCurr = Event;
-StdWindowError(eventCurr, errorLogLine, 'StdTimerItemDoStepFilter', 4257);
-}
-//
-timerObj[timerGroup] [timerItemKey].timerStepCurr += 1;
-timerObj[timerGroup] [timerItemKey].timerIntervalStep += 1;
-//
-if (timerObj[timerGroup] [timerItemKey].timerStepCurr = 1)  {
-tempMoveInProgress = false;// ******* what? *******
-}
-//
-if (timerObj[timerGroup] [timerItemKey].timerIntervalId = -1) {
-timerObj[timerGroup] [timerItemKey].timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-}
-//
-// ...................................... //
-// Set Completion for Step Based or Time Based execution
-if (timerUseTime) {
-//
-timerDateElps = StdTimerGetElapsed(timerType, timerGroup, timerId);
-timerCompletion = timerTimeCompletion = timerDateElps / ( timerObj[timerGroup] [timerItemKey].timerDuration * 1000 );
-if ( timerCompletion > 1 ) { tempTimeOrStepsCompleted = true; }
-//
-} else {
-timerCompletion = timerStepCompletion = timerObj[timerGroup] [timerItemKey].timerStepCurr
-/ timerObj[timerGroup] [timerItemKey].timerStepMin;
-//
-if ( timerObj[timerGroup] [timerItemKey].timerStepCurr > timerObj[timerGroup] [timerItemKey].timerStepMin ) {
-tempTimeOrStepsCompleted = true; }
-}
-//
-var tempPosTop;
-var tempPosLeft;
-//
-// Stop if maximum # of steps exceeded
-if ( timerObj[timerGroup] [timerItemKey].timerStepCurr > timerObj[timerGroup] [timerItemKey].timerStepMax)  {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
-+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
-+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
-+ ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
-+ ', Transition Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
-+ ') number of interval steps (' + timerObj[timerGroup] [timerItemKey].timerStepCurr
-+ ') exceeded' + '!!!',
-'StdTimerItemDoStepFilter', 5251, null, null,
-errorElementWarn, errorDoNotDisplayTag, errorDoNotAlert);
-tempTimeOrStepsCompleted = true;
-}
-// Mid play adjustments to filters
-// ...................................... //
-// End of loop
-var timerInstanceIsDone = false;
-if (!tempFilterInProgress || tempTimeOrStepsCompleted) {
-// Arrived at destinatioin
-timerInstanceIsDone = true;
-// One timer per Item or Element (per Timer Type)
-timerObj[timerGroup] [timerRootKey].timerInstance -= 1;
-if (timerMethod == timerMethodGroup) {
-// Group Timer
-timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-} else if (timerMethod == timerMethodItem) {
-// Item Timer
-// Turn Off Timer
-timerIntervalId = timerObj[timerGroup] [timerItemKey].timerIntervalId;
-//
-window.clearInterval(timerIntervalId);
-//
-if (debugTimer && debugTimerDetail && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
-    + ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
-    + ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
-    + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
-    + ', Interval Stopped'
-    + '.',
-    'StdTimerItemDoStepFilter', 5284, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-timerStarted -= 1;
-timerObj[timerGroup] [timerItemKey].timerIntervalIdPrev = timerIntervalId;
-timerObj[timerGroup] [timerItemKey].timerIntervalId = 0;
-//
-}
-if (filterResizeIsOn && !timerObj[timerGroup] [timerItemKey].elementIsDisplayed) {
-var temp;
-if (playDirection == playDirectionForward) { temp = 1; } else { temp = 0.05; }
-StdFilterResize(timerObj[timerGroup] [timerItemKey].oObj, filterClassMatrix, temp);
-}
-// if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop) {
-// (filterPlayAll, startIndex, endIndex,
-// oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed);
-StdFilterStop(
-timerObj[timerGroup] [timerItemKey].filterPlayAll,
-timerObj[timerGroup] [timerItemKey].startIndex,
-timerObj[timerGroup] [timerItemKey].endIndex,
-timerObj[timerGroup] [timerItemKey].oObj,
-timerObj[timerGroup] [timerItemKey].oObjImage,
-timerGroup,
-timerId,
-timerObj[timerGroup] [timerItemKey].filterObjId,
-timerObj[timerGroup] [timerItemKey].filterId
-);
-// }
-//
-timerObj[timerGroup] [timerItemKey].timerDateEnd = new Date();
-timerObj[timerGroup] [timerItemKey].timerIsRunning = false;
-//
-if ( timerObj[timerGroup] [timerItemKey].playDirection = playDirectionForward ) {
-timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
-} else  {
-if (elementMoveDuration < filterDuration) {
-timerObj[timerGroup] [timerItemKey].oObj.style.display = 'none';
-}
-timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
-}
-tempFilterInProgress || tempTimeOrStepsCompleted
-//
-if (debugTimer && debugTimerDetail && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
-+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
-+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
-+ ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5331 ' + ').',
-+ ', Stopping Item Timer'
-+ '.',
-'StdTimerItemDoStepFilter', 5331, null, null,
-errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-} else {
-if (debugTimer && debugTimerDetail && debugTimerTransition) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'SkipItem')
-+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
-+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
-+ ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
-+ ', Elapsed:' + timerObj[timerGroup] [timerItemKey].timerElapsed / 1000
-+ ', Step:' + timerObj[timerGroup] [timerItemKey].timerStepCurr
-+ ', Time:' + Date()
-+ ', Exiting Item but no action'
-+ '.',
-'StdTimerItemDoStepFilter', 5343, null, null,
-errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-}
-return timerInstanceIsDone;
+function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
+    var timerItemKey = timerId + timerType;
+    var timerRootKey = timerRootId + timerType;
+    var timerIdCurr;
+    var timerIdCnMax = timerObj[timerGroup].length;
+    var timerIsActive = false;
+    var timerDoAbort = false;
+    var timerInstanceIsDone = false;
+    //
+    timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
+    //
+    if (debugTimer && debugTimerTransition) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
+            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            + ', Time:' + Date()
+            + ', Starting Group'
+            + '.',
+            'TimerGroupDoStepMove', 5111, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+    }
+    //
+    // Process elements
+    for (timerIdCurr = 1; timerIdCurr < (1 + imgMaxByGroup[timerGroup]); timerIdCurr++) {
+        //
+        timerItemKey = timerIdCurr + timerType;
+        if (timerObj[timerGroup][timerItemKey]) {
+            if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+                timerInstanceIsDone = TimerItemDoStepFilter(timerType, timerGroup, timerIdCurr);
+                if (!timerInstanceIsDone) { timerIsActive = true; }
+            }
+        }
+    }
+    //
+    if (timerObj[timerGroup][timerRootKey].timerStepCurr > timerObj[timerGroup][timerRootKey].timerStepMax) {
+        MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group Step Max')
+            + ', Transition Group Timer Maximum (' + timerObj[timerGroup][timerRootKey].timerStepMax
+            + ') number of interval steps (' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            + ') exceeded'
+            + '!!!',
+            'TimerGroupDoStepFilter', 5134, null, null,
+            errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+        timerDoAbort = true;
+    }
+    //
+    if (timerDoAbort || (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1)) {
+        // Turn Off Timer
+        var timerIntervalId;
+        timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+        //
+        window.clearInterval(timerIntervalId);
+        //
+        timerStarted -= 1;
+        timerObj[timerGroup][timerRootKey].timerIntervalIdPrev = timerIntervalId;
+        timerObj[timerGroup][timerRootKey].timerIntervalId = 0;
+        //
+        timerObj[timerGroup][timerRootKey].timerDateEnd = new Date();
+        timerObj[timerGroup][timerRootKey].timerIsRunning = false;
+        //
+        if (timerObj[timerGroup][timerRootKey].playDirection = playDirectionForward) {
+            timerObj[timerGroup][timerRootKey].elIsDisplayed = elIsDisplayed;
+        } else { timerObj[timerGroup][timerRootKey].elIsDisplayed = elIsNotDisplayed; }
+        //
+        //
+        if (debugTimer && debugTimerTransition) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                    timerObj[timerGroup][timerRootKey].playDirection, 'Group Stop Timer')
+                + ', Interval Stopped'
+                + ', Stopping Group Timer'
+                + '.',
+                'TimerGroupDoStepFilter', 5164, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    }
+    //
+    if (debugTimer && debugTimerTransition) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                timerObj[timerGroup][timerRootKey].playDirection, 'Group Out')
+            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            + ', Time:' + Date()
+            + ', Leaving process Group'
+            + '.',
+            'TimerGroupDoStepFilter', 5177, null, null,
+            MessageElementComment, true, false);
+        //
+        if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                    timerObj[timerGroup][timerRootKey].playDirection, 'Group End')
+                + ', Finished Group'
+                + '.',
+                'TimerGroupDoStepFilter', 5185, null, null,
+                MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    }
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-function StdTimerGroupDoStepMove(timerType, timerGroup, timerId)
-{
-var timerItemKey = timerId + timerType;
-var timerRootKey = timerRootId + timerType;
-var timerIdCurr;
-var timerIdCnMax = timerObj[timerGroup].length;
-var timerIsActive = false;timerDoAbort = false;
-var timerInstanceIsDone = false;
-//
-timerObj[timerGroup] [timerRootKey].timerIntervalStep += 1;
-//
-if (debugTimer && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'Group In')
-+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-+ ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
-+ ', Time:' + Date()
-+ ', Starting Group'
-+ '.',
-'StdTimerGroupDoStepMove', 5371, null, null,
-errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-// Process elements
-for (timerIdCurr = 1;timerIdCurr < imgMaxByGroup[timerGroup]+1;timerIdCurr++)  {
-//
-timerIsActive = false;
-timerItemKey = timerIdCurr + timerType;
-if (timerObj[timerGroup] [timerItemKey]) {
-if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
-timerInstanceIsDone = StdTimerItemDoStepMove(timerType, timerGroup, timerIdCurr);
-if (!timerInstanceIsDone) { timerIsActive = true; }
-}
-}
-}
-//
-if ( timerObj[timerGroup] [timerRootKey].timerStepCurr > timerObj[timerGroup] [timerRootKey].timerStepMax)  {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerRootKey].playDirection, 'Group Step Max')
-+ 'Move.. Group Timer Maximum (' + timerObj[timerGroup] [timerRootKey].timerStepMax
-+ ') number of interval steps (' + timerObj[timerGroup] [timerRootKey].timerStepCurr
-+ ') exceeded'
-+ '!!!',
-'StdTimerGroupDoStepMove', 5393, null, null,
-errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
-timerDoAbort = true;
-}
-//
-if (timerDoAbort || (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) ) {
-// Turn Off Timer
-var timerIntervalId;
-timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-window.clearInterval(timerIntervalId);
-timerStarted -= 1;
-timerObj[timerGroup] [timerRootKey].timerIntervalIdPrev = timerIntervalId;
-timerObj[timerGroup] [timerRootKey].timerIntervalId = 0;
-//
-timerObj[timerGroup] [timerRootKey].timerDateEnd = new Date();
-timerObj[timerGroup] [timerRootKey].timerIsRunning = false;
-//
-if ( timerObj[timerGroup] [timerRootKey].playDirection = playDirectionForward ) {
-timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsDisplayed;
-} else { timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
-//
-if (debugTimer && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerRootKey].playDirection, 'Group Stop Timer')
-+ ', Stopping Group Timer'
-+ '.',
-'StdTimerGroupDoStepMove', 5419, null, null,
-errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-}
-//
-if (debugTimer && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerRootKey].playDirection, 'Group Out')
-+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-+ ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
-+ ', Time:' + Date()
-+ ', Leaving process Group'
-+ '.',
-'StdTimerGroupDoStepMove', 5432, null, null,
-errorElementComment, true, false);
-//
-if (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-timerObj[timerGroup] [timerRootKey].playDirection, 'End')
-+ ', Finished Group'
-+ '.',
-'StdTimerGroupDoStepMove', 5440, null, null,
-errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-//
-}
-}
+function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
+    var timerItemKey = timerId + timerType
+    var timerRootKey = timerRootId + timerType;
+    //
+    var tempFilterInProgress = true;
+    var tempTimeOrStepsCompleted = false;
+    //
+    var timerDateElps;
+    var timerCompletion;
+    //
+    var errorLogLine;
+    //
+    timerObj[timerGroup][timerRootKey].timerStepCurr += 1;
+    //
+    if (!timerObj[timerGroup][timerItemKey]) {
+        errorLogLine = 'Invalid Timer Object Error!';
+        errorLogLine += charNewLineTag + charTextIndex;
+        errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
+        errorLogLine += charNewLineTag + charTextIndex;
+        errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
+        eventCurr = Event;
+        WindowErrorDetail(eventCurr, errorLogLine, 'TimerItemDoStepFilter', 4257);
+    }
+    //
+    timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
+    timerObj[timerGroup][timerItemKey].timerIntervalStep += 1;
+    //
+    if (timerObj[timerGroup][timerItemKey].timerStepCurr = 1) {
+        tempMoveInProgress = false;// ******* what? *******
+    }
+    //
+    if (timerObj[timerGroup][timerItemKey].timerIntervalId = -1) {
+        timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+    }
+    //
+    // ...................................... //
+    // Set Completion for Step Based or Time Based execution
+    if (timerUseTime) {
+        //
+        timerDateElps = TimerGetElapsed(timerType, timerGroup, timerId);
+        timerCompletion = timerTimeCompletion = timerDateElps / (timerObj[timerGroup][timerItemKey].timerDuration * 1000);
+        if (timerCompletion > 1) { tempTimeOrStepsCompleted = true; }
+        //
+    } else {
+        timerCompletion = timerStepCompletion = timerObj[timerGroup][timerItemKey].timerStepCurr
+            / timerObj[timerGroup][timerItemKey].timerStepMin;
+        //
+        if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMin) {
+            tempTimeOrStepsCompleted = true;
+        }
+    }
+    //
+    var tempPosTop;
+    var tempPosLeft;
+    //
+    // Stop if maximum # of steps exceeded
+    if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMax) {
+        MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+
+            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                timerObj[timerGroup][timerItemKey].playDirection, 'StepStopItem')
+            + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
+            + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+            + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
+            + ', Transition Maximum (' + timerObj[timerGroup][timerItemKey].timerStepMax
+            + ') number of interval steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
+            + ') exceeded' + '!!!',
+            'TimerItemDoStepFilter', 5251, null, null,
+            MessageElementWarn, errorDoNotDisplayTag, errorDoNotAlert);
+
+        tempTimeOrStepsCompleted = true;
+    }
+    // Mid play adjustments to filters
+    // ...................................... //
+    // End of loop
+    var timerInstanceIsDone = false;
+    if (!tempFilterInProgress || tempTimeOrStepsCompleted) {
+        // Arrived at destinatioin
+        timerInstanceIsDone = true;
+        // One timer per Item or Element (per Timer Type)
+        timerObj[timerGroup][timerRootKey].timerInstance -= 1;
+        if (timerMethod == timerMethodGroup) {
+            // Group Timer
+            timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+        } else if (timerMethod == timerMethodItem) {
+            // Item Timer
+            // Turn Off Timer
+            timerIntervalId = timerObj[timerGroup][timerItemKey].timerIntervalId;
+            //
+            window.clearInterval(timerIntervalId);
+            //
+            if (debugTimer && debugTimerDetail && debugTimerTransition) {
+                MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                    TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                        timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
+                    + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
+                    + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+                    + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
+                    + ', Interval Stopped'
+                    + '.',
+                    'TimerItemDoStepFilter', 5284, null, null,
+                    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            }
+            //
+            timerStarted -= 1;
+            timerObj[timerGroup][timerItemKey].timerIntervalIdPrev = timerIntervalId;
+            timerObj[timerGroup][timerItemKey].timerIntervalId = 0;
+            //
+        }
+        if (filterResizeIsOn && !timerObj[timerGroup][timerItemKey].elIsDisplayed) {
+            var temp;
+            if (playDirection == playDirectionForward) { temp = 1; } else { temp = 0.05; }
+            FilterResize(timerObj[timerGroup][timerItemKey].oObj, filterClassMatrix, temp);
+        }
+        // if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop) {
+        // (filterPlayAll, startIndex, endIndex,
+        // oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed);
+        FilterStop(
+            timerObj[timerGroup][timerItemKey].filterPlayAll,
+            timerObj[timerGroup][timerItemKey].startIndex,
+            timerObj[timerGroup][timerItemKey].endIndex,
+            timerObj[timerGroup][timerItemKey].oObj,
+            timerObj[timerGroup][timerItemKey].oObjImage,
+            timerGroup,
+            timerId,
+            timerObj[timerGroup][timerItemKey].filterObjId,
+            timerObj[timerGroup][timerItemKey].filterId
+        );
+        // }
+        //
+        timerObj[timerGroup][timerItemKey].timerDateEnd = new Date();
+        timerObj[timerGroup][timerItemKey].timerIsRunning = false;
+        //
+        if (timerObj[timerGroup][timerItemKey].playDirection = playDirectionForward) {
+            timerObj[timerGroup][timerItemKey].elIsDisplayed = elIsDisplayed;
+        } else {
+            if (elementMoveDuration < filterDuration) {
+                timerObj[timerGroup][timerItemKey].oObj.style.display = 'none';
+            }
+            timerObj[timerGroup][timerItemKey].elIsDisplayed = elIsNotDisplayed;
+        }
+        tempFilterInProgress || tempTimeOrStepsCompleted
+        //
+        if (debugTimer && debugTimerDetail && debugTimerTransition) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
+                + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
+                + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+                + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5331 ' + ').',
+                + ', Stopping Item Timer'
+                + '.',
+                'TimerItemDoStepFilter', 5331, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    } else {
+        if (debugTimer && debugTimerDetail && debugTimerTransition) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'SkipItem')
+                + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
+                + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+                + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
+                + ', Elapsed:' + timerObj[timerGroup][timerItemKey].timerElapsed / 1000
+                + ', Step:' + timerObj[timerGroup][timerItemKey].timerStepCurr
+                + ', Time:' + Date()
+                + ', Exiting Item but no action'
+                + '.',
+                'TimerItemDoStepFilter', 5343, null, null,
+                MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    }
+    return timerInstanceIsDone;
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-function StdTimerItemDoStepMove(timerType, timerGroup, timerId)
-{
+function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
+    var timerItemKey = timerId + timerType;
+    var timerRootKey = timerRootId + timerType;
+    var timerIdCurr;
+    var timerIdCnMax = timerObj[timerGroup].length;
+    var timerIsActive = false; timerDoAbort = false;
+    var timerInstanceIsDone = false;
+    //
+    timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
+    //
+    if (debugTimer && debugTimerMove) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                timerObj[timerGroup][timerItemKey].playDirection, 'Group In')
+            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            + ', Time:' + Date()
+            + ', Starting Group'
+            + '.',
+            'TimerGroupDoStepMove', 5371, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+    }
+    // Process elements
+    for (timerIdCurr = 1; timerIdCurr < imgMaxByGroup[timerGroup] + 1; timerIdCurr++) {
+        //
+        timerIsActive = false;
+        timerItemKey = timerIdCurr + timerType;
+        if (timerObj[timerGroup][timerItemKey]) {
+            if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+                timerInstanceIsDone = TimerItemDoStepMove(timerType, timerGroup, timerIdCurr);
+                if (!timerInstanceIsDone) { timerIsActive = true; }
+            }
+        }
+    }
+    //
+    if (timerObj[timerGroup][timerRootKey].timerStepCurr > timerObj[timerGroup][timerRootKey].timerStepMax) {
+        MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                timerObj[timerGroup][timerRootKey].playDirection, 'Group Step Max')
+            + 'Move.. Group Timer Maximum (' + timerObj[timerGroup][timerRootKey].timerStepMax
+            + ') number of interval steps (' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            + ') exceeded'
+            + '!!!',
+            'TimerGroupDoStepMove', 5393, null, null,
+            errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+        timerDoAbort = true;
+    }
+    //
+    if (timerDoAbort || (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1)) {
+        // Turn Off Timer
+        var timerIntervalId;
+        timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+        window.clearInterval(timerIntervalId);
+        timerStarted -= 1;
+        timerObj[timerGroup][timerRootKey].timerIntervalIdPrev = timerIntervalId;
+        timerObj[timerGroup][timerRootKey].timerIntervalId = 0;
+        //
+        timerObj[timerGroup][timerRootKey].timerDateEnd = new Date();
+        timerObj[timerGroup][timerRootKey].timerIsRunning = false;
+        //
+        if (timerObj[timerGroup][timerRootKey].playDirection = playDirectionForward) {
+            timerObj[timerGroup][timerRootKey].elIsDisplayed = elIsDisplayed;
+        } else { timerObj[timerGroup][timerRootKey].elIsDisplayed = elIsNotDisplayed; }
+        //
+        if (debugTimer && debugTimerMove) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                    timerObj[timerGroup][timerRootKey].playDirection, 'Group Stop Timer')
+                + ', Stopping Group Timer'
+                + '.',
+                'TimerGroupDoStepMove', 5419, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    }
+    //
+    if (debugTimer && debugTimerMove) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                timerObj[timerGroup][timerRootKey].playDirection, 'Group Out')
+            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            + ', Time:' + Date()
+            + ', Leaving process Group'
+            + '.',
+            'TimerGroupDoStepMove', 5432, null, null,
+            MessageElementComment, true, false);
+        //
+        if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
+                    timerObj[timerGroup][timerRootKey].playDirection, 'End')
+                + ', Finished Group'
+                + '.',
+                'TimerGroupDoStepMove', 5440, null, null,
+                MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            //
+        }
+    }
+}
+//
+// ..................................................................................... _//
 // ...................................... //
-// Set Id's
-var timerItemKey = timerId + timerType;
-var timerRootKey = timerRootId + timerType;
-// ...................................... //
-// initialize completion variables
-var tempMoveInProgress = false;
-var tempTimeOrStepsCompleted = 0;
-var timerCompletionCurr = 0;
-var timerCompletionTemp = 0;
-// ...................................... //
-// initialize positions, direction and methodology variables
-var tempPosTop = -1;var tempPosLeft = -1;
-var playDirection = timerObj[timerGroup] [timerItemKey].playDirection;
-var elementMoveMethod = timerObj[timerGroup] [timerItemKey].elementMoveMethod;
-var DoMove = false;
-var IsRising = false;var IsRisingFactor = 1;
-var isRightward = false;var isRightwardFactor = -1;
-// ...................................... //
-// Set Timer for new menu image box
-if (timerObj[timerGroup] [timerItemKey].timerIntervalId = -1) {
-timerObj[timerGroup] [timerItemKey].timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-}
-// ...................................... //
-// Validate Object
-if (!timerObj[timerGroup] [timerItemKey]) {
-var errorLogLine = 'Invalid Timer Object Error!';
-errorLogLine += charNewLineTag + charTextIndex;
-errorLogLine += StdTimerKeyText(timerType, timerGroup, timerId);
-errorLogLine += charNewLineTag + charTextIndex;
-errorLogLine += StdTimerRootKeyText(timerType, timerGroup, timerId);
-eventCurr = Event;
-StdWindowError(eventCurr, errorLogLine, 'StdTimerItemDoStepFilter', 4258);
-}
-// ...................................... //
-// Increment Current Step
-timerObj[timerGroup] [timerRootKey].timerStepCurr += 1;
-timerObj[timerGroup] [timerItemKey].timerStepCurr += 1;
-//
-timerObj[timerGroup] [timerItemKey].timerIntervalStep += 1;
-//
-timerObj[timerGroup] [timerItemKey].elementMoveStepTop += 1;
-// ...................................... //
-// Set Style and Position for new menu image box
-if (timerObj[timerGroup] [timerItemKey].timerStepCurr == 1)  {
-// Start box in initial position
-if (playDirection == playDirectionReverse) {
-timerCompletionTemp = 1.0;
-// leave the object at its current position (the destination)
-// timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopDest + 'px';
-// timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftDest + 'px';
-} else {
-timerCompletionTemp = 0.05;
-timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopOrig + 'px';
-timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftOrig + 'px';
-}
-// Resize new object
-if (filterResizeIsOn && !timerObj[timerGroup] [timerItemKey].elementIsDisplayed)  {
-StdFilterResize(
-    timerObj[timerGroup] [timerItemKey].oObj,
-    filterClassMatrix,
-    timerCompletionTemp);
-}
-}
-//
-// ...................................... //
-// Set Completion based on methodology (Step based or Time Duration based execution)
-if (timerUseTime) {
-// (Elapsed) Time based
-timerObj[timerGroup] [timerItemKey].timerDateElps = StdTimerGetElapsed(timerType, timerGroup, timerId);
-timerCompletionTemp = timerObj[timerGroup] [timerItemKey].timerDateElps / ( timerObj[timerGroup] [timerItemKey].timerDuration * 1000 );
-} else {
-// Step based
-timerCompletionTemp = timerObj[timerGroup] [timerItemKey].timerStepCurr / timerObj[timerGroup] [timerItemKey].timerStepMin;
-if ( timerObj[timerGroup] [timerItemKey].timerStepCurr > timerObj[timerGroup] [timerItemKey].timerStepMin )  {
-tempTimeOrStepsCompleted = 5497;timerCompletionTemp = 1; }
-}
-//
-if ( timerCompletionTemp >= 1 ) { tempTimeOrStepsCompleted = 5492;timerCompletionTemp = 1; }
-// ...................................... //
-// Set Completion values
-timerCompletionCurr =
-timerObj[timerGroup] [timerItemKey].timerCompletion = timerCompletionTemp;
-if (timerUseTime) { timerObj[timerGroup] [timerItemKey].timerTimeCompletion = timerCompletionTemp; }
-if (!timerUseTime) { timerObj[timerGroup] [timerItemKey].timerStepCompletion = timerCompletionTemp; }
-//
-if (playDirection == playDirectionReverse) { timerCompletionCurr = 1 - timerCompletionTemp; }
-//
-// ...................................... //
-// StepStopItem
-// Stop if maximum # of steps exceeded
-// increment vertical step
-if ( timerObj[timerGroup] [timerItemKey].elementMoveStepTop > timerObj[timerGroup] [timerItemKey].timerStepMax)  {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
-+ ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
-+ '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
-+ ') number of interval vertical steps (' + timerObj[timerGroup] [timerItemKey].timerStepCurr
-+ ') exceeded'
-+ '!!!',
-'StdTimerItemDoStepMove', 5515, null, null,
-errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
-tempTimeOrStepsCompleted = 5515;
-}
-//
-// increment horizontal step
-timerObj[timerGroup] [timerItemKey].elementMoveStepLeft += 1;
-//
-/*
-if ( timerObj[timerGroup] [timerItemKey].elementMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
-+ ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
-+ '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
-+ ') number of interval horizontal steps (' + timerObj[timerGroup] [timerItemKey].timerStepCurr
-+ ') exceeded'
-+ '!!!',
-'StdTimerItemDoStepMove', 5525, null, null,
-errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
-tempTimeOrStepsCompleted = 5525;
-}
-*/
-//
-if (!tempTimeOrStepsCompleted) {
-// Ok to continue
-DoMove = true;
-// ...................................... //
-// Determine if Box is Rising or Dropping
-if (timerObj[timerGroup] [timerItemKey].elementTopOrig
-> timerObj[timerGroup] [timerItemKey].elementTopDest) { IsRising = true;IsRisingFactor = -1; }
-//
-/*
-// ...................................... //
-// Decide if move needed
-// Rising
-// was timerObj[timerGroup] [timerItemKey].oObj.style.top
-if (parseInt(timerObj[timerGroup] [timerItemKey].elementTopOrig ) < timerObj[timerGroup] [timerItemKey].elementTopDest) {
-if (IsRising)  {
-// if ( playDirection == playDirectionForward) { DoMove = true; }
-// if ( playDirection == playDirectionReverse) { DoMove = true; }
-// } else {
-}
-}
-//
-// Dropping
-// was timerObj[timerGroup] [timerItemKey].oObj.style.top
-if (parseInt(timerObj[timerGroup] [timerItemKey].elementTopOrig ) > timerObj[timerGroup] [timerItemKey].elementTopDest) {
-if (!IsRising)  {
-// if ( playDirection == playDirectionForward) { DoMove = true; }
-// if ( playDirection == playDirectionReverse) { DoMove = true; }
-// } else {
-}
-}
-*/
-// Move needed
-if (DoMove) {
-//
-// ...................................... //
-// Set Style Top for Box
-//
-if (elementMoveMethod == elementMoveMethodSlideDown && timerCompletionCurr > 0.5)  {
-// SlideDown
-tempPosTop = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.top);
-// don't change top during second half of SlideDown
-} else if (elementMoveMethod == elementMoveMethodSlideSide && timerCompletionCurr < 0.5)  {
-// Slide Side
-tempPosTop = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.top);
-// don't change top during first half of SlideSide
-} else {
-// Slide Diagonally
-// always change top during Direct (diagonal) move
-timerCompletionTemp = timerCompletionCurr;
-//
-// SlideDown
-if (elementMoveMethod == elementMoveMethodSlideDown) {
-    timerCompletionTemp = 2 * timerCompletionCurr;
-// Slide Side
-// Double speed during slide methods
-} else if (elementMoveMethod == elementMoveMethodSlideSide) {
-    timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
-}
-// calculate top position for Forward and Reverse
-tempPosTop = timerObj[timerGroup] [timerItemKey].elementTopOrig
-    + ( IsRisingFactor * timerCompletionTemp * timerObj[timerGroup] [timerItemKey].moveDistanceTop );
-//
-// tempPosTop = parseInt(tempPosTop);
-timerObj[timerGroup] [timerItemKey].oObj.style.top = tempPosTop + 'px';
-//
-} // end of Down, Side, or Diagonal movement
-//
-tempMoveInProgress = true;
-}
-//
-// ...................................... //
-// ...................................... //
-// Set Style Left for menu image box
-tempPosLeft = -1;
-//
-if (DoMove) {
-// ...................................... //
-// Determine if Box is moving Leftward
-if (timerObj[timerGroup] [timerItemKey].elementLeftOrig
-    < timerObj[timerGroup] [timerItemKey].elementLeftDest) { isRightward = true;isRightwardFactor = 1; }
-//
-// Slide Down
-if (!timerObj[timerGroup] [timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
-&& timerCompletionCurr < 0.5) {
-// horizontal movement does not start until half way
-// tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig;
-// tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
-// Slide Side
-} else if (timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideSide
-&& timerCompletionCurr > 0.5) {
-// horizontal movement stops after half way
-// tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig;
-// tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
-} else {
-// Slide Diagonally
-// always change left during Direct (diagonal) move
-timerCompletionTemp = timerCompletionCurr;
-// Slide Down
-// horizontal movement is at doubled speed.
-if (timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideDown) {
-    timerCompletionTemp = 2 * (timerCompletionCurr - 0.5); }
-// Slide Side
-// horizontal movement is at doubled speed.
-if (timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideSide) {
-    timerCompletionTemp = 2 * timerCompletionCurr; }
-//
-tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig
-    + ( isRightwardFactor * timerCompletionTemp * timerObj[timerGroup] [timerItemKey].moveDistanceLeft );
-//
-// tempPosLeft = parseInt(tempPosLeft);
-timerObj[timerGroup] [timerItemKey].oObj.style.left = tempPosLeft + 'px';
-//
-} // end of Down, Side, or Diagonal movement
-//
-tempMoveInProgress = true;
-//
-}
-//
-// Resize
-if (filterResizeIsOn && tempMoveInProgress
-&& !timerObj[timerGroup] [timerItemKey].elementIsDisplayed)  {
-//
-timerCompletionTemp = timerObj[timerGroup] [timerItemKey].timerCompletion;
-//
-if (playDirection == playDirectionReverse) {
-timerCompletionTemp = 1 - timerCompletionTemp; }
-//
-StdFilterResize(
-    timerObj[timerGroup] [timerItemKey].oObj,
-    filterClassMatrix,
-    timerCompletionTemp);
-}
-// timerStepCompletion
-//
-}
-//
-if (timerObj[timerGroup] [timerItemKey].timerCompletion > timerTen) {
-timerTen + 0.1;
-}
-//
-if (debugTimer && debugTimerDetail && debugTimerMove) {
-var tempDetails = ', At: ( step ' + timerObj[timerGroup] [timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
-}
-//
-// ...................................... //
-// End of loop
-var timerInstanceIsDone = false;
-if (!tempMoveInProgress || tempTimeOrStepsCompleted) {
-// Arrived at destinatioin
-timerInstanceIsDone = true;
-timerObj[timerGroup] [timerRootKey].timerInstance -= 1;
-if (timerMethod == timerMethodGroup) {
-// Group Timer
-timerIntervalId = timerObj[timerGroup] [timerRootKey].timerIntervalId;
-} else if (timerMethod == timerMethodItem) {
-// Item Timer
-// Turn Off Timer
-timerIntervalId = timerObj[timerGroup] [timerItemKey].timerIntervalId;
-//
-window.clearInterval(timerIntervalId);
-//
-if (debugTimer && debugTimerDetail && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-    StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
-    + tempDetails
-    + ', Stopping Item Timer'
-    + '.',
-    'StdTimerItemDoStepMove', 5711, null, null,
-    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-//
-timerStarted -= 1;
-timerObj[timerGroup] [timerItemKey].timerIntervalIdPrev = timerIntervalId;
-timerObj[timerGroup] [timerItemKey].timerIntervalId = 0;
-//
-}
-// Leave box in final position
-if (playDirection == playDirectionForward) {
-timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopDest + 'px';
-timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftDest + 'px';
-} else {
-timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopOrig + 'px';
-timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftOrig + 'px';
-}
-//
-timerObj[timerGroup] [timerItemKey].timerDateEnd = new Date();
-timerObj[timerGroup] [timerItemKey].timerIsRunning = false;
-//
-if ( playDirection == playDirectionForward ) {
-timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
-} else {
-if (elementMoveDuration >= filterDuration) {
-timerObj[timerGroup] [timerItemKey].oObj.style.display = 'none';
-}
-timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
-}
-//
-if (debugTimer && debugTimerDetail && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
-+ tempDetails
-+ ', Item Interval Timer Stopped'
-+ '.',
-'StdTimerItemDoStepMove', 5747, null, null,
-errorComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-} else {
-if (debugTimer && debugTimerDetail && debugTimerMove) {
-ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-StdTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-timerObj[timerGroup] [timerItemKey].playDirection, 'Item')
-+ tempDetails
-+ ', Elapsed:' + timerObj[timerGroup] [timerItemKey].timerElapsed / 1000
-+ ', Step:' + timerObj[timerGroup] [timerItemKey].timerStepCurr
-+ ', Time:' + Date()
-+ ', Move:' + moveDistanceLeft
-+ ', Rising:' + IsRisingFactor
-+ ', Compl:' + timerCompletionTemp
-+ ', Move Top:' + timerObj[timerGroup] [timerItemKey].moveDistanceTop
-+ ', Move Left:' + timerObj[timerGroup] [timerItemKey].moveDistanceLeft
-+ ', Exiting Item'
-+ '.',
-'StdTimerItemDoStepMove', 5754, null, null,
-errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-}
-}
-return timerInstanceIsDone;
+function TimerItemDoStepMove(timerType, timerGroup, timerId) {
+    // ...................................... //
+    // Set Id's
+    var timerItemKey = timerId + timerType;
+    var timerRootKey = timerRootId + timerType;
+    // ...................................... //
+    // initialize completion variables
+    var tempMoveInProgress = false;
+    var tempTimeOrStepsCompleted = 0;
+    var timerCompletionCurr = 0;
+    var timerCompletionTemp = 0;
+    // ...................................... //
+    // initialize positions, direction and methodology variables
+    var tempPosTop = -1; var tempPosLeft = -1;
+    var playDirection = timerObj[timerGroup][timerItemKey].playDirection;
+    var elMoveMethod = timerObj[timerGroup][timerItemKey].elMoveMethod;
+    var DoMove = false;
+    var IsRising = false; var IsRisingFactor = 1;
+    var isRightward = false; var isRightwardFactor = -1;
+    // ...................................... //
+    // Set Timer for new menu image box
+    if (timerObj[timerGroup][timerItemKey].timerIntervalId = -1) {
+        timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+    }
+    // ...................................... //
+    // Validate Object
+    if (!timerObj[timerGroup][timerItemKey]) {
+        var errorLogLine = 'Invalid Timer Object Error!';
+        errorLogLine += charNewLineTag + charTextIndex;
+        errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
+        errorLogLine += charNewLineTag + charTextIndex;
+        errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
+        eventCurr = Event;
+        WindowErrorDetail(eventCurr, errorLogLine, 'TimerItemDoStepFilter', 4258);
+    }
+    // ...................................... //
+    // Increment Current Step
+    timerObj[timerGroup][timerRootKey].timerStepCurr += 1;
+    timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
+    //
+    timerObj[timerGroup][timerItemKey].timerIntervalStep += 1;
+    //
+    timerObj[timerGroup][timerItemKey].elMoveStepTop += 1;
+    // ...................................... //
+    // Set Style and Position for new menu image box
+    if (timerObj[timerGroup][timerItemKey].timerStepCurr == 1) {
+        // Start box in initial position
+        if (playDirection == playDirectionReverse) {
+            timerCompletionTemp = 1.0;
+            // leave the object at its current position (the destination)
+            // timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elTopDest + 'px';
+            // timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elLeftDest + 'px';
+        } else {
+            timerCompletionTemp = 0.05;
+            timerObj[timerGroup][timerItemKey].oObj.style.top = timerObj[timerGroup][timerItemKey].elTopOrig + 'px';
+            timerObj[timerGroup][timerItemKey].oObj.style.left = timerObj[timerGroup][timerItemKey].elLeftOrig + 'px';
+        }
+        // Resize new object
+        if (filterResizeIsOn && !timerObj[timerGroup][timerItemKey].elIsDisplayed) {
+            FilterResize(
+                timerObj[timerGroup][timerItemKey].oObj,
+                filterClassMatrix,
+                timerCompletionTemp);
+        }
+    }
+    //
+    // ...................................... //
+    // Set Completion based on methodology (Step based or Time Duration based execution)
+    if (timerUseTime) {
+        // (Elapsed) Time based
+        timerObj[timerGroup][timerItemKey].timerDateElps = TimerGetElapsed(timerType, timerGroup, timerId);
+        timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerDateElps / (timerObj[timerGroup][timerItemKey].timerDuration * 1000);
+    } else {
+        // Step based
+        timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerStepCurr / timerObj[timerGroup][timerItemKey].timerStepMin;
+        if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMin) {
+            tempTimeOrStepsCompleted = 5497; timerCompletionTemp = 1;
+        }
+    }
+    //
+    if (timerCompletionTemp >= 1) { tempTimeOrStepsCompleted = 5492; timerCompletionTemp = 1; }
+    // ...................................... //
+    // Set Completion values
+    timerCompletionCurr =
+        timerObj[timerGroup][timerItemKey].timerCompletion = timerCompletionTemp;
+    if (timerUseTime) { timerObj[timerGroup][timerItemKey].timerTimeCompletion = timerCompletionTemp; }
+    if (!timerUseTime) { timerObj[timerGroup][timerItemKey].timerStepCompletion = timerCompletionTemp; }
+    //
+    if (playDirection == playDirectionReverse) { timerCompletionCurr = 1 - timerCompletionTemp; }
+    //
+    // ...................................... //
+    // StepStopItem
+    // Stop if maximum # of steps exceeded
+    // increment vertical step
+    if (timerObj[timerGroup][timerItemKey].elMoveStepTop > timerObj[timerGroup][timerItemKey].timerStepMax) {
+        MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                timerObj[timerGroup][timerItemKey].playDirection, 'StepStopItem')
+            + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
+            + '.  Move.. Maximum (' + timerObj[timerGroup][timerItemKey].timerStepMax
+            + ') number of interval vertical steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
+            + ') exceeded'
+            + '!!!',
+            'TimerItemDoStepMove', 5515, null, null,
+            errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+        tempTimeOrStepsCompleted = 5515;
+    }
+    //
+    // increment horizontal step
+    timerObj[timerGroup][timerItemKey].elMoveStepLeft += 1;
+    //
+    /*
+    if ( timerObj[timerGroup] [timerItemKey].elMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
+    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+    TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+    timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
+    + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
+    + '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
+    + ') number of interval horizontal steps (' + timerObj[timerGroup] [timerItemKey].timerStepCurr
+    + ') exceeded'
+    + '!!!',
+    'TimerItemDoStepMove', 5525, null, null,
+    errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+    tempTimeOrStepsCompleted = 5525;
+    }
+    */
+    //
+    if (!tempTimeOrStepsCompleted) {
+        // Ok to continue
+        DoMove = true;
+        // ...................................... //
+        // Determine if Box is Rising or Dropping
+        if (timerObj[timerGroup][timerItemKey].elTopOrig
+            > timerObj[timerGroup][timerItemKey].elTopDest) { IsRising = true; IsRisingFactor = -1; }
+        //
+        /*
+        // ...................................... //
+        // Decide if move needed
+        // Rising
+        // was timerObj[timerGroup] [timerItemKey].oObj.style.top
+        if (parseInt(timerObj[timerGroup] [timerItemKey].elTopOrig ) < timerObj[timerGroup] [timerItemKey].elTopDest) {
+        if (IsRising)  {
+        // if ( playDirection == playDirectionForward) { DoMove = true; }
+        // if ( playDirection == playDirectionReverse) { DoMove = true; }
+        // } else {
+        }
+        }
+        //
+        // Dropping
+        // was timerObj[timerGroup] [timerItemKey].oObj.style.top
+        if (parseInt(timerObj[timerGroup] [timerItemKey].elTopOrig ) > timerObj[timerGroup] [timerItemKey].elTopDest) {
+        if (!IsRising)  {
+        // if ( playDirection == playDirectionForward) { DoMove = true; }
+        // if ( playDirection == playDirectionReverse) { DoMove = true; }
+        // } else {
+        }
+        }
+        */
+        // Move needed
+        if (DoMove) {
+            //
+            // ...................................... //
+            // Set Style Top for Box
+            //
+            if (elMoveMethod == elMoveMethodSlideDown && timerCompletionCurr > 0.5) {
+                // SlideDown
+                tempPosTop = parseInt(timerObj[timerGroup][timerItemKey].oObj.style.top);
+                // don't change top during second half of SlideDown
+            } else if (elMoveMethod == elMoveMethodSlideSide && timerCompletionCurr < 0.5) {
+                // Slide Side
+                tempPosTop = parseInt(timerObj[timerGroup][timerItemKey].oObj.style.top);
+                // don't change top during first half of SlideSide
+            } else {
+                //
+                // Slide Diagonally
+                // always change top during Direct (diagonal) move
+                timerCompletionTemp = timerCompletionCurr;
+                //
+                // SlideDown
+                if (elMoveMethod == elMoveMethodSlideDown) {
+                    timerCompletionTemp = 2 * timerCompletionCurr;
+                    // Slide Side
+                    // Double speed during slide methods
+                } else if (elMoveMethod == elMoveMethodSlideSide) {
+                    timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
+                }
+                // calculate top position for Forward and Reverse
+                tempPosTop = timerObj[timerGroup][timerItemKey].elTopOrig
+                    + (IsRisingFactor * timerCompletionTemp * timerObj[timerGroup][timerItemKey].moveDistanceTop);
+                //
+                // tempPosTop = parseInt(tempPosTop);
+                timerObj[timerGroup][timerItemKey].oObj.style.top = tempPosTop + 'px';
+                //
+            } // end of Down, Side, or Diagonal movement
+            //
+            tempMoveInProgress = true;
+        }
+        //
+        // ...................................... //
+        // ...................................... //
+        // Set Style Left for menu image box
+        tempPosLeft = -1;
+        //
+        if (DoMove) {
+            // ...................................... //
+            // Determine if Box is moving Leftward
+            if (timerObj[timerGroup][timerItemKey].elLeftOrig
+                < timerObj[timerGroup][timerItemKey].elLeftDest) { isRightward = true; isRightwardFactor = 1; }
+            //
+            // Slide Down
+            if (!timerObj[timerGroup][timerItemKey].elMoveMethod == elMoveMethodSlideDown
+                && timerCompletionCurr < 0.5) {
+                // horizontal movement does not start until half way
+                // tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig;
+                // tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
+                // Slide Side
+            } else if (timerObj[timerGroup][timerItemKey].elMoveMethod = elMoveMethodSlideSide
+                && timerCompletionCurr > 0.5) {
+                // horizontal movement stops after half way
+                // tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig;
+                // tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
+            } else {
+                // Slide Diagonally
+                // always change left during Direct (diagonal) move
+                timerCompletionTemp = timerCompletionCurr;
+                // Slide Down
+                // horizontal movement is at doubled speed.
+                if (timerObj[timerGroup][timerItemKey].elMoveMethod = elMoveMethodSlideDown) {
+                    timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
+                }
+                // Slide Side
+                // horizontal movement is at doubled speed.
+                if (timerObj[timerGroup][timerItemKey].elMoveMethod = elMoveMethodSlideSide) {
+                    timerCompletionTemp = 2 * timerCompletionCurr;
+                }
+                //
+                tempPosLeft = timerObj[timerGroup][timerItemKey].elLeftOrig
+                    + (isRightwardFactor * timerCompletionTemp * timerObj[timerGroup][timerItemKey].moveDistanceLeft);
+                //
+                // tempPosLeft = parseInt(tempPosLeft);
+                timerObj[timerGroup][timerItemKey].oObj.style.left = tempPosLeft + 'px';
+                //
+            } // end of Down, Side, or Diagonal movement
+            //
+            tempMoveInProgress = true;
+            //
+        }
+        //
+        // Resize
+        if (filterResizeIsOn && tempMoveInProgress
+            && !timerObj[timerGroup][timerItemKey].elIsDisplayed) {
+            //
+            timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerCompletion;
+            //
+            if (playDirection == playDirectionReverse) {
+                timerCompletionTemp = 1 - timerCompletionTemp;
+            }
+            //
+            FilterResize(
+                timerObj[timerGroup][timerItemKey].oObj,
+                filterClassMatrix,
+                timerCompletionTemp);
+        }
+        // timerStepCompletion
+        //
+    }
+    //
+    if (timerObj[timerGroup][timerItemKey].timerCompletion > timerTen) {
+        timerTen + 0.1;
+    }
+    //
+    if (debugTimer && debugTimerDetail && debugTimerMove) {
+        var tempDetails = ', At: ( step ' + timerObj[timerGroup][timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
+    }
+    //
+    // ...................................... //
+    // End of loop
+    var timerInstanceIsDone = false;
+    if (!tempMoveInProgress || tempTimeOrStepsCompleted) {
+        // Arrived at destinatioin
+        timerInstanceIsDone = true;
+        timerObj[timerGroup][timerRootKey].timerInstance -= 1;
+        if (timerMethod == timerMethodGroup) {
+            // Group Timer
+            timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+        } else if (timerMethod == timerMethodItem) {
+            // Item Timer
+            // Turn Off Timer
+            timerIntervalId = timerObj[timerGroup][timerItemKey].timerIntervalId;
+            //
+            window.clearInterval(timerIntervalId);
+            //
+            if (debugTimer && debugTimerDetail && debugTimerMove) {
+                MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                    TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                        timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
+                    + tempDetails
+                    + ', Stopping Item Timer'
+                    + '.',
+                    'TimerItemDoStepMove', 5711, null, null,
+                    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            }
+            //
+            timerStarted -= 1;
+            timerObj[timerGroup][timerItemKey].timerIntervalIdPrev = timerIntervalId;
+            timerObj[timerGroup][timerItemKey].timerIntervalId = 0;
+            //
+        }
+        // Leave box in final position
+        if (playDirection == playDirectionForward) {
+            timerObj[timerGroup][timerItemKey].oObj.style.top = timerObj[timerGroup][timerItemKey].elTopDest + 'px';
+            timerObj[timerGroup][timerItemKey].oObj.style.left = timerObj[timerGroup][timerItemKey].elLeftDest + 'px';
+        } else {
+            timerObj[timerGroup][timerItemKey].oObj.style.top = timerObj[timerGroup][timerItemKey].elTopOrig + 'px';
+            timerObj[timerGroup][timerItemKey].oObj.style.left = timerObj[timerGroup][timerItemKey].elLeftOrig + 'px';
+        }
+        //
+        timerObj[timerGroup][timerItemKey].timerDateEnd = new Date();
+        timerObj[timerGroup][timerItemKey].timerIsRunning = false;
+        //
+        if (playDirection == playDirectionForward) {
+            timerObj[timerGroup][timerItemKey].elIsDisplayed = elIsDisplayed;
+        } else {
+            if (elementMoveDuration >= filterDuration) {
+                timerObj[timerGroup][timerItemKey].oObj.style.display = 'none';
+            }
+            timerObj[timerGroup][timerItemKey].elIsDisplayed = elIsNotDisplayed;
+        }
+        //
+        if (debugTimer && debugTimerDetail && debugTimerMove) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
+                + tempDetails
+                + ', Item Interval Timer Stopped'
+                + '.',
+                'TimerItemDoStepMove', 5747, null, null,
+                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    } else {
+        if (debugTimer && debugTimerDetail && debugTimerMove) {
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
+                    timerObj[timerGroup][timerItemKey].playDirection, 'Item')
+                + tempDetails
+                + ', Elapsed:' + timerObj[timerGroup][timerItemKey].timerElapsed / 1000
+                + ', Step:' + timerObj[timerGroup][timerItemKey].timerStepCurr
+                + ', Time:' + Date()
+                + ', Move:' + moveDistanceLeft
+                + ', Rising:' + IsRisingFactor
+                + ', Compl:' + timerCompletionTemp
+                + ', Move Top:' + timerObj[timerGroup][timerItemKey].moveDistanceTop
+                + ', Move Left:' + timerObj[timerGroup][timerItemKey].moveDistanceLeft
+                + ', Exiting Item'
+                + '.',
+                'TimerItemDoStepMove', 5754, null, null,
+                MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+        }
+    }
+    return timerInstanceIsDone;
 }
 // SectionBlock Timer Control function (s)
 // ...................................... //
@@ -2232,80 +2228,75 @@ return timerInstanceIsDone;
 // Timer Calculate current running time
 // ...................................... //
 // Included a setTimeout in BODY onload to delay start of text movement.
-// oObjPassed, elementLeftOrig, elementTopOrig, elementLeftDest, elementTopDest)
-function StdTimerGetElapsed(timerType, timerGroup, timerId) {
-var timerItemKey = timerId + timerType;
-timerDateCurr = new Date();
-// timerDateElps  = timerDateStart - timerDateCurr;
-var timerDateStartMin = timerObj[timerGroup] [timerItemKey].timerDateStart.getMinutes();
-var timerDateStartSec = timerObj[timerGroup] [timerItemKey].timerDateStart.getSeconds();
-var timerDateStartMil = timerObj[timerGroup] [timerItemKey].timerDateStart.getMilliseconds();
-//
-var timerDateCurrMin = timerDateCurr.getMinutes();
-var timerDateCurrSec = timerDateCurr.getSeconds();
-var timerDateCurrMil = timerDateCurr.getMilliseconds();
-//
-var timerDateElpsMin  =
-timerDateCurrMin - timerDateStartMin
-+ ( ( timerDateStartMin > timerDateCurrMin ) * 60)
-- ( timerDateStartSec > timerDateCurrSec );
-var timerDateElpsSec  =
-timerDateCurrSec - timerDateStartSec
-+ ( ( timerDateStartSec > timerDateCurrSec ) * 60)
-- ( timerDateStartMil > timerDateCurrMil );
-var timerDateElpsMil  =
-timerDateCurrMil - timerDateStartMil
-+ ( ( timerDateStartMil > timerDateCurrMil ) * 1000);
-//
-timerObj[timerGroup] [timerItemKey].timerElapsed =
-( ( ( timerDateElpsMin * 60 ) + timerDateElpsSec ) * 1000 ) + timerDateElpsMil;
-//
-return timerObj[timerGroup] [timerItemKey].timerElapsed;
-//
+// oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
+function TimerGetElapsed(timerType, timerGroup, timerId) {
+    var timerItemKey = timerId + timerType;
+    timerDateCurr = new Date();
+    // timerDateElps  = timerDateStart - timerDateCurr;
+    var timerDateStartMin = timerObj[timerGroup][timerItemKey].timerDateStart.getMinutes();
+    var timerDateStartSec = timerObj[timerGroup][timerItemKey].timerDateStart.getSeconds();
+    var timerDateStartMil = timerObj[timerGroup][timerItemKey].timerDateStart.getMilliseconds();
+    //
+    var timerDateCurrMin = timerDateCurr.getMinutes();
+    var timerDateCurrSec = timerDateCurr.getSeconds();
+    var timerDateCurrMil = timerDateCurr.getMilliseconds();
+    //
+    var timerDateElpsMin =
+        timerDateCurrMin - timerDateStartMin
+        + ((timerDateStartMin > timerDateCurrMin) * 60)
+        - (timerDateStartSec > timerDateCurrSec);
+    var timerDateElpsSec =
+        timerDateCurrSec - timerDateStartSec
+        + ((timerDateStartSec > timerDateCurrSec) * 60)
+        - (timerDateStartMil > timerDateCurrMil);
+    var timerDateElpsMil =
+        timerDateCurrMil - timerDateStartMil
+        + ((timerDateStartMil > timerDateCurrMil) * 1000);
+    //
+    timerObj[timerGroup][timerItemKey].timerElapsed =
+        (((timerDateElpsMin * 60) + timerDateElpsSec) * 1000) + timerDateElpsMil;
+    //
+    return timerObj[timerGroup][timerItemKey].timerElapsed;
+    //
 }
 //
-// ..................................................................................... _//
 // ...................................... //
-function StdTimerStartMoveBusy(timerType, timerGroup, timerId, UseLog)
-{
-var timerItemKey = timerId + timerType;
-var timerMoveBusy = false;
-if (timerObj[timerGroup])  {
-if (timerObj[timerGroup] [timerItemKey])  {
-if (timerObj[timerGroup] [timerItemKey].timerIsRunning) { timerMoveBusy = true; }
+function TimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
+    var timerItemKey = timerId + timerType;
+    var timerMoveBusy = false;
+    if (timerObj[timerGroup]) {
+        if (timerObj[timerGroup][timerItemKey]) {
+            if (timerObj[timerGroup][timerItemKey].timerIsRunning) { timerMoveBusy = true; }
+        }
+    }
+    //
+    if (UseLog && timerMoveBusy) {
+        consoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+            'Busy Timer', 'ElementEventCheckDuplicate', 0);
+    }
+    //
 }
-}
-//
-if (UseLog && timerMoveBusy) {
-ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-'Busy Timer', 'StdElementEventCheckDuplicate', 0); }
-//
-}
-//
-// ..................................................................................... _//
 // Timer Move Box (Element, i.e. Div)
 // ...................................... //
 // This test incrementally repositions an element.
 // It loops through a set number of times.
-function StdTimerMoveTest(timerType, timerGroup, timerId)
-{
-var timerItemKey = timerId + timerType;
-var timerRootKey = timerRootId + timerType;
-//
-for(i= 0;i < 10;i++)
-{
-iHorizontal+= 1;
-iVertical= iHorizontal;
-divMove.style.top= iVertical;
-divMove.style.left= iHorizontal;
-}
-//  iInterval tracks how many times moveDiv has looped and clears the interval
-//  after a set number of loops.
-iInterval++;
-if(iInterval>25) {
-window.clearInterval(vTimerID);
-divToggle.style.visibility= 'visible';
-}
+function TimerMoveTest(timerType, timerGroup, timerId) {
+    var timerItemKey = timerId + timerType;
+    var timerRootKey = timerRootId + timerType;
+    //
+    for (i = 0; i < 10; i++) {
+        iHorizontal += 1;
+        iVertical = iHorizontal;
+        divMove.style.top = iVertical;
+        divMove.style.left = iHorizontal;
+    }
+    //  iInterval tracks how many times moveDiv has looped and clears the interval
+    //  after a set number of loops.
+    iInterval++;
+    if (iInterval > 25) {
+        window.clearInterval(vTimerID);
+        divToggle.style.visibility = 'visible';
+    }
 }
 script_state = "Mdm Standard fun Animation functions loaded.";
 if (debugLoadIsOn) { debugger; }

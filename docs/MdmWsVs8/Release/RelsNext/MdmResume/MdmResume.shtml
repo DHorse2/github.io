@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="../Css/Page/MdmResume.css">
 	<link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
-	<script src="../../RelsBuildStage.js"></script>
+	<script src="../../PageBuildStage.js"></script>
 	<script src="../MdmJs/MdmParamInit.js"></script>
 	<script src="../MdmJs/MdmParamSet.js"></script>
 	<script src="../MdmJs/MdmPageInit.js"></script>
@@ -49,7 +49,7 @@
                 <div id="BodyLayoutToggle"
             	     class="BodyLayoutToggle ViewToggleButton
 					 MenuListItem  BorderThin "
-                     onmousedown="StdLayoutNext(0)"
+                     onmousedown="LayoutNext(0)"
             	     >
                     View
                 </div>
@@ -59,7 +59,7 @@
 					<div id="BodyConsoleMouseOverToggle"
 						 class="BodyConsoleToggle ViewToggleButton
 						 ViewToggleBlockLabel MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleMouseOver')"
+						 onmousedown="BodyConsoleToggle('ConsoleMouseOver')"
 						 >
 						MoOv
 					</div>
@@ -72,7 +72,7 @@
 						<div id="BodyConsoleDebugToggle"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleDebug')"
+							 onmousedown="BodyConsoleToggle('ConsoleDebug')"
 							 >
 							D
 						</div>
@@ -82,14 +82,14 @@
 						<div id="BodyConsoleDebugOnErrorToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleDebugOnError')"
+							 onmousedown="BodyConsoleToggle('ConsoleDebugOnError')"
 							 >
 							o
 						</div>
 						<div id="BodyConsoleDebugAllToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleDebugAll')"
+							 onmousedown="BodyConsoleToggle('ConsoleDebugAll')"
 							 >
 							a
 						</div>
@@ -100,28 +100,28 @@
 					<div id="BodyConsoleDebugMoveToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugMove')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugMove')"
 						 >
 						m
 					</div>
 					<div id="BodyConsoleDebugTransitionToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugTransition')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugTransition')"
 						 >
 						t
 					</div>
 					<div id="BodyConsoleDebugDetailToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugDetail')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugDetail')"
 						 >
 						d
 					</div>
 					<div id="BodyConsoleDebugEventsToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugEvents')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugEvents')"
 						 >
 						v
 					</div>
@@ -134,7 +134,7 @@
 						<div id="BodyConsoleToggle"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin"
-							 onmousedown="StdBodyConsoleToggle('ConsoleAll')"
+							 onmousedown="BodyConsoleToggle('ConsoleAll')"
 							 >
 							C
 						</div>
@@ -144,21 +144,21 @@
 						<div id="BodyConsoleErrorToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleError')"
+							 onmousedown="BodyConsoleToggle('ConsoleError')"
 							 >
 							e
 						</div>
 						<div id="BodyConsoleEventToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleEvent')"
+							 onmousedown="BodyConsoleToggle('ConsoleEvent')"
 							 >
 							v
 						</div>
 						<div id="BodyConsoleStateToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleState')"
+							 onmousedown="BodyConsoleToggle('ConsoleState')"
 							 >
 							s
 						</div>
@@ -169,14 +169,14 @@
 					<div id="BodyConsoleTestToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin"
-						 onmousedown="StdBodyConsoleToggle('ConsoleTest')"
+						 onmousedown="BodyConsoleToggle('ConsoleTest')"
 						 >
 						T
 					</div>
 					<div id="BodyConsoleClearToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleClear')"
+						 onmousedown="BodyConsoleToggle('ConsoleClear')"
 						 >
 						c
 					</div>
@@ -203,7 +203,7 @@
           <!--*-->
           <p id="MenuGroup1Header"
               	class="eB f8 cBlack MenuColumnHeading"
-onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWebDevImage, MdmWebDev, oObjImageSizeSmall, 1, 1, true, false)"
+onmousedown="MenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWebDevImage, MdmWebDev, oObjImageSizeSmall, 1, 1, true, false)"
               	>
       	 <span class="fMicro">Click menu headings to see thumbnail menus<br></span>
               Career History and Methodology
@@ -315,7 +315,7 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
                 <div id="BodyLayoutToggleCopy"
             	     class="BodyLayoutToggle ViewToggleButton
 					 MenuListItem  BorderThin "
-                     onmousedown="StdLayoutNext(0)"
+                     onmousedown="LayoutNext(0)"
             	     >
                     View
                 </div>
@@ -325,7 +325,7 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 					<div id="BodyConsoleMouseOverToggleCopy"
 						 class="BodyConsoleToggle ViewToggleButton
 						 ViewToggleBlockLabel MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleMouseOver')"
+						 onmousedown="BodyConsoleToggle('ConsoleMouseOver')"
 						 >
 						MoOv
 					</div>
@@ -338,7 +338,7 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 						<div id="BodyConsoleDebugToggleCopy"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleDebug')"
+							 onmousedown="BodyConsoleToggle('ConsoleDebug')"
 							 >
 							D
 						</div>
@@ -348,14 +348,14 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 						<div id="BodyConsoleDebugOnErrorToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleDebugOnError')"
+							 onmousedown="BodyConsoleToggle('ConsoleDebugOnError')"
 							 >
 							o
 						</div>
 						<div id="BodyConsoleDebugAllToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleDebugAll')"
+							 onmousedown="BodyConsoleToggle('ConsoleDebugAll')"
 							 >
 							a
 						</div>
@@ -366,28 +366,28 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 					<div id="BodyConsoleDebugMoveToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugMove')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugMove')"
 						 >
 						m
 					</div>
 					<div id="BodyConsoleDebugTransitionToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugTransition')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugTransition')"
 						 >
 						t
 					</div>
 					<div id="BodyConsoleDebugDetailToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugDetail')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugDetail')"
 						 >
 						d
 					</div>
 					<div id="BodyConsoleDebugEventsToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleDebugEvents')"
+						 onmousedown="BodyConsoleToggle('ConsoleDebugEvents')"
 						 >
 						v
 					</div>
@@ -400,7 +400,7 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 						<div id="BodyConsoleToggleCopy"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin"
-							 onmousedown="StdBodyConsoleToggle('ConsoleAll')"
+							 onmousedown="BodyConsoleToggle('ConsoleAll')"
 							 >
 							C
 						</div>
@@ -410,21 +410,21 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 						<div id="BodyConsoleErrorToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleError')"
+							 onmousedown="BodyConsoleToggle('ConsoleError')"
 							 >
 							e
 						</div>
 						<div id="BodyConsoleEventToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleEvent')"
+							 onmousedown="BodyConsoleToggle('ConsoleEvent')"
 							 >
 							v
 						</div>
 						<div id="BodyConsoleStateToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="StdBodyConsoleToggle('ConsoleState')"
+							 onmousedown="BodyConsoleToggle('ConsoleState')"
 							 >
 							s
 						</div>
@@ -435,14 +435,14 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 					<div id="BodyConsoleTestToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin"
-						 onmousedown="StdBodyConsoleToggle('ConsoleTest')"
+						 onmousedown="BodyConsoleToggle('ConsoleTest')"
 						 >
 						T
 					</div>
 					<div id="BodyConsoleClearToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="StdBodyConsoleToggle('ConsoleClear')"
+						 onmousedown="BodyConsoleToggle('ConsoleClear')"
 						 >
 						c
 					</div>
@@ -465,10 +465,10 @@ onmousedown="StdMenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWe
 <div id="BodyBannerTop">
 <div id="BodyBanner" class="BodyBanner">
 <!--** Menu Blocks **-->
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
 <!--#else -->
     <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
@@ -506,10 +506,10 @@ Test Console
 <div id="BodyConsoleTestBoxInput" class="BodyConsoleTestBoxInput BodyConsoleTestTextBox CalloutBorderFull">
 <!--** Console Blocks **-->
 <!-- different UI for Current and Next Releases Console -->
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtConsoleForm.shtml"-->
 <!--#else -->
     <!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
@@ -540,7 +540,7 @@ Test Data
                 <div id="DivSection1" class="BodyParaBox">
                 <!--*-->
                 <!--*-->
-                <div id="DivBox1" class="BodyParaLeft ColumnType1">
+                <div id="DivBox1" class="BodyParaLeft layoutBodyColumnType1">
                     <div id="DivCallout1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
                         <p id="C1P1" class="BodyCallout aLeft">
 						C# Applications Development.<br>
@@ -587,7 +587,7 @@ Test Data
                 </div> <!-- end of DivBox1 -->
                 <!--*-->
                 <!--*-->
-                <div id="DivBox2" class="BodyParaRight ColumnType1">
+                <div id="DivBox2" class="BodyParaRight layoutBodyColumnType1">
                     <div id="DivCallout2" class="BodyParaLeft CalloutBox CalloutBoxSmall CalloutBorder">
                         <p id="C2P1" class="BodyCallout aLeft CP">
 						Don't forget to check the incredible
@@ -655,10 +655,10 @@ Test Data
 	  <!--*-->
       <div id="BodyBannerBottom">
       <!--** Menu Blocks **-->
-      <!--#include virtual="../../RelsBuildStage.js"-->
-      <!--#if expr="${RelsBuild}=RelsNext" -->
+      <!--#include virtual="../../PageBuildStage.js"-->
+      <!--#if expr="${PageBuild}=RelsNext" -->
           <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
-      <!--#elif expr="${RelsBuild}=RelsCurr" -->
+      <!--#elif expr="${PageBuild}=RelsCurr" -->
           <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
       <!--#else -->
           <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
@@ -682,8 +682,8 @@ Test Data
 <!--* Right Column Content **-->
 <!-- 2 Layout Area 2 (Right) of 2 -->
 <div id="BodyMenuLayout2" class="BodyMenuLayout">
-<!-- MenuRight1 -->
-<div id="MenuRight1" class="BodyMenuGroupLayout">
+<!-- bodyMenuRight1 -->
+<div id="bodyMenuRight1" class="BodyMenuGroupLayout">
     <h4 id="H3TopRight">
     	Come inside...
     </h4>
@@ -693,7 +693,7 @@ Test Data
         >
         <p id="MenuGroup4Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="StdElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
+           onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
     	   >
         Software
         Products
@@ -706,7 +706,7 @@ Test Data
               <a id="MdmImportTldMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmImportTld.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 4, 1, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 4, 1, false, true)"
                   >
               C# database schema<br>
               and data converter </a></li>
@@ -715,7 +715,7 @@ Test Data
               <a id="MdmKBilMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmKBil.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmImportTld', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmImportTld', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
                   >
               K-Bil<br>
               Subscriber Billing<br>
@@ -725,7 +725,7 @@ Test Data
               <a id="MdmNetAppFrame4MenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmNetAppFrame.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmKBil42', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmKBil42', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
                   >
               C# Application Framework</a></li>
               <!-- 4 -->
@@ -733,7 +733,7 @@ Test Data
               <a id="MdmSrtMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmSrt.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
                   >
               SRT Code Conversion Tool</a></li>
               <!-- 5 -->
@@ -741,7 +741,7 @@ Test Data
               <a id="MdmPickTrMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmPickTr.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
                   >
               PickTR Adaptive Communications Protocol</a></li>
               <!-- 6 -->
@@ -749,7 +749,7 @@ Test Data
                   <a id="MdmOutlookSyncMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmOutlookSync.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
                   >
               Outlook folder to disk sync add-on</a></li>
               <!-- 7 -->
@@ -757,7 +757,7 @@ Test Data
                   <a id="MdmPickOssMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmPickOss.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
                   >
               Pick Application Framework</a></li>
               <!-- 8 -->
@@ -765,33 +765,33 @@ Test Data
                   <a id="MdmOtherApps"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmBlank.shtml"
-                  onmouseover="StdElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
+                  onmouseover="ElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
                   >
               Release Management, Accounting,<br>
               and duh not currently available.</a></li>
               <!-- x -->
           </ul>
 	</div> <!-- end of MenuContainerRight1 -->
-	<br id="MenuRight1ColBreak" class="aClearBoth">
-</div> <!-- end of MenuRight1 -->
+	<br id="bodyMenuRight1ColBreak" class="aClearBoth">
+</div> <!-- end of bodyMenuRight1 -->
 <!-- x ------------------------------------------------------------------------------------- -->
-<!-- MenuRight2 - BodyViewToggle and BodyConsole -->
-<div id="MenuRight2" class="BodyMenuGroupLayout">
+<!-- bodyMenuRight2 - BodyViewToggle and BodyConsole -->
+<div id="bodyMenuRight2" class="BodyMenuGroupLayout">
 <!--** Menu Blocks **-->
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtViewMenu.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtViewMenu.shtml"-->
 <!--#else -->
     <!--#include virtual="../../TemplatePage/MdmPtViewMenu.shtml"-->
     <!--#include virtual="/release/RelsNotSetError.htm"-->
 <!--#endif -->
-</div> <!-- end of MenuRight2 -->
+</div> <!-- end of bodyMenuRight2 -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
-<!-- MenuRight3 -->
-<div id="MenuRight3" class="BodyMenuGroupLayout">
+<!-- bodyMenuRight3 -->
+<div id="bodyMenuRight3" class="BodyMenuGroupLayout">
     <h4 id="H3BottomRight">
         Hmmm no<br>advertising...
     </h4>
@@ -799,10 +799,10 @@ Test Data
         class="MenuContainer MenuColumnClass fText f10 "
         >
 	</div> <!-- end of MenuContainerRight3 -->
-    <br id="MenuRight3ColBreak" class="aClearBoth">
-</div> <!-- end of MenuRight3 -->
+    <br id="bodyMenuRight3ColBreak" class="aClearBoth">
+</div> <!-- end of bodyMenuRight3 -->
 <!-- x ------------------------------------------------------------------------------------- -->
-    <br id="MenuRightEndColBreak" class="aClearBoth">
+    <br id="bodyMenuRightEndColBreak" class="aClearBoth">
 </div> <!-- end of BodyLayout2 -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- (end of) Left Right, Outer, Inner Closing Divs -->
@@ -824,9 +824,9 @@ Test Data
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x Section BodyMenuImageContainer -->
 <div id="BodyMenuImageContainer" >
-    <!-- onmousedown="StdElementEventMouse(event);"  -->
-    <!-- onmouseover="StdElementEventMouse(event);"  -->
-    <!-- onmouseout="StdElementEventMouse(event);" -->
+    <!-- onmousedown="ElementEventMouse(event);"  -->
+    <!-- onmouseover="ElementEventMouse(event);"  -->
+    <!-- onmouseout="ElementEventMouse(event);" -->
 </div> <!-- end of BodyMenuImageContainer -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
@@ -840,13 +840,13 @@ Test Data
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x Section Document Initialization
-// onlayoutcomplete="StdDocumentLoadInit();";
-StdDocumentLoadInit();
+// onlayoutcomplete="DocumentLoadInit();";
+DocumentLoadInit();
 //
-StdMenuImagesHtmlBuild();
+MenuImagesHtmlBuild();
 //
 // Choose Standard Layout
-StdLayoutSelectByIndex(layoutStandard);
+LayoutSelectByIndex(layoutStandard);
 -->
 <!-- Section Post Document Load Script -->
 <!-- * -->

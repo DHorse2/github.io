@@ -184,15 +184,15 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				var temp = parseInt(varValuePassed);
 				if (temp && temp >= 0) {
 					elementMoveDuration = varValuePassed;
-					elementMoveStepsPerSecond = elementMoveStepMax / elementMoveDuration;
+					elMoveStepsPerSecond = elMoveStepMax / elementMoveDuration;
 				}
 				break;
 			//
-			case 'elementMoveStepMax':
+			case 'elMoveStepMax':
 				var temp = parseInt(varValuePassed);
 				if (temp && temp >= 0) {
-					elementMoveStepMax = varValuePassed;
-					elementMoveStepsPerSecond = elementMoveStepMax / elementMoveDuration;
+					elMoveStepMax = varValuePassed;
+					elMoveStepsPerSecond = elMoveStepMax / elementMoveDuration;
 				}
 				break;
 			//
@@ -301,20 +301,20 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 
 			// Manner by which images move across the screen
 			////////////////////////////////////////////////
-			case 'elementMoveMethod':
+			case 'elMoveMethod':
 				switch (varValuePassed) {
-					case 'elementMoveMethodDirect':
-						elementMoveMethod = elementMoveMethodDirect;// Slide diagonally to destination
+					case 'elMoveMethodDirect':
+						elMoveMethod = elMoveMethodDirect;// Slide diagonally to destination
 						break;
-					case 'elementMoveMethodSlideDown':
-						elementMoveMethod = elementMoveMethodSlideDown;// Slide down, then sideways
+					case 'elMoveMethodSlideDown':
+						elMoveMethod = elMoveMethodSlideDown;// Slide down, then sideways
 						break;
-					case 'elementMoveMethodSlideSide':
-						elementMoveMethod = elementMoveMethodSlideSide;// Slide sideways, then down
+					case 'elMoveMethodSlideSide':
+						elMoveMethod = elMoveMethodSlideSide;// Slide sideways, then down
 						break;
-					case 'elementMoveMethodRandom':
+					case 'elMoveMethodRandom':
 					default:
-						elementMoveMethod = elementMoveMethodRandom;// Use random choice each time
+						elMoveMethod = elMoveMethodRandom;// Use random choice each time
 						break;
 				}
 				break;

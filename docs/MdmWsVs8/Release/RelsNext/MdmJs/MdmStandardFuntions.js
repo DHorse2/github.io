@@ -12,22 +12,34 @@ var indexRight = 2;
 var indexWidth = 2;
 var indexBottom = 3;
 var indexHeight = 3;
+
+// Math
+// ...................................... //
 // Storage Location for Group
 // var indexGroup = 0;
 // Section Standard and Utility function (s)
 // Standard function (s) - Math
 // ..................................................................................... _//
 // Random Number Get By Range
-function StdMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed) {
+function MathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed) {
     return ((Math.random()
         * (filterRangeHighPassed - filterRangeLowPassed))
         + filterRangeLowPassed
     );
 }
+
+// Random Number Get By Range
+function MathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed) {
+    var temp = ((Math.random()
+        * (filterRangeHighPassed - filterRangeLowPassed + 1))
+        + filterRangeLowPassed
+    );
+    return (temp - (temp % 1));
+}
 // Standard function (s) - String
 // ..................................................................................... _//
 // Get Token By Prefix
-function StdStringGetTokenByPrefix(stringPassed, stringPrefix) {
+function StringGetTokenByPrefix(stringPassed, stringPrefix) {
     var itemCn = 0
     var item = stringPassed.split(' ');
     while (itemCn + 1 < 1 + item.length) {
@@ -38,27 +50,8 @@ function StdStringGetTokenByPrefix(stringPassed, stringPrefix) {
     }
     return '';
 }
-// Standard function (s) - Math
-// ..................................................................................... _//
-// Random Number Get By Range
-function StdMathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed, filterRealFlagPassed) {
-    var temp = ((Math.random()
-        * (filterRangeHighPassed - filterRangeLowPassed + 1))
-        + filterRangeLowPassed
-    );
-    return (temp - (temp % 1));
-}
-// Standard function (s) - Font Size
-// Base Font Size Increase
-function StdFontSizeIncrease() {
-    return;
-}
-// Base Font Size Decrease
-function StdFontSizeDecrease() {
-    return;
-}
-//
-function StdTextReplace(textPassed, stringFind, stringReplace) {
+// String Replace
+function StringTextReplace(textPassed, stringFind, stringReplace) {
     // return textPassed.replace(stringFind, stringReplace);
     var TextNew = '';
     var TextPos = 0;
@@ -72,16 +65,61 @@ function StdTextReplace(textPassed, stringFind, stringReplace) {
     TextNew += textPassed;
     return TextNew;
 }
+// Standard function (s) - Fonts
+// ..................................................................................... _//
+// Standard function (s) - Font Size
+
+// Base Font Size Increase
+function FontSizeIncrease() {
+    return;
+}
+// Base Font Size Decrease
+function FontSizeDecrease() {
+    return;
+}
+function FontEmToPx(em) {
+    return em * 16;
+}
+// Transform pixels, em, and percentage value used in layout adjustments.
+// ..................................................................................... _//
+// Source: https://stackoverflow.com/questions/15807021/convert-pixel-to-percentage-using-javascript
+// Math Px To Percentage Window
+//    - totalpx: Total of pixels depending on the width or height, could be 1920.0 or 1080.0, 1280.0 or 720.0, etc...
+// var Totalpx;
+//      respectively.
+//    - px: the pixel desidered to be converted.
+// var px;
+//    - ItIsHeight: boolean to know if is axis x or y ot make the correct calculation.
+// var ItIsHeight;
+//    - BaseOfConversionWidth & BaseOfConversionHeight: the base of conversion from the original pixel are take it, if
+//      the design is HD ready then will be 1280.0 and 720.0, if is full HD then will be 1920.0 and 1080.0, etc...
+//      DHorse2: alternatively this could be the parent container dimentions.
+// var BaseOfConversionWidth;
+// var BaseOfConversionHeight;
+//
+function FontPxToPercentageWindow(Totalpx, px, ItIsHeight, BaseOfConversionWidth, BaseOfConversionHeight) {
+    if (ItIsHeight)
+        return (px / BaseOfConversionHeight) * Totalpx;
+    else
+        return (px / BaseOfConversionWidth) * Totalpx;
+}
+function FontPxToPercentageParent(Totalpx, px, ItIsHeight, BaseOfConversionWidth, BaseOfConversionHeight) {
+    if (ItIsHeight)
+        return (px / BaseOfConversionHeight) * Totalpx;
+    else
+        return (px / BaseOfConversionWidth) * Totalpx;
+}
+
 // Execute Function
 // ..................................................................................... _//
 // Source: Stack Overflow
 // http://stackoverflow.com/questions/359788/javascript-function-name-as-a-string
 // (c) 2011 stack exchange inc;user contributions licensed under cc-wiki with attribution required
 //
-function StdFunctionDoExecuteByName(functionName, context /*, args */) {
+function FunctionDoExecuteByName(functionName, context /*, args */) {
     // ['My']['Namespace']['functionName'](arguments);// succeeds
-    // StdFunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
-    // StdFunctionDoExecuteByName('Namespace.functionName', My, arguments);
+    // FunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
+    // FunctionDoExecuteByName('Namespace.functionName', My, arguments);
     //
     var args = Array.prototype.slice.call(arguments).splice(2);
     var namespaces = functionName.split('.');
@@ -94,7 +132,7 @@ function StdFunctionDoExecuteByName(functionName, context /*, args */) {
     return context[func].apply(this, args);
 }
 //
-function StdFunctionDoExecuteJsNode(node) {
+function FunctionDoExecuteJsNode(node) {
     if (!node) return;
     /* IE Upper Case */
     var elementScriptSourceInNode = node.getElementByTagName('SCRIPT');
@@ -127,51 +165,129 @@ function StdFunctionDoExecuteJsNode(node) {
         //
     } // next i
 }
-
+// Alerts
+function AlertDo() {
+    // do something.
+}
 // Errors
 /////////
-function ErrorSet() {
-    errorCaller = eventCurr.caller;
+var ErrorSync = 0;
+function ErrorSet(eventCurr) {
+    ErrorSync++;
+    EventSet(eventCurr);
+    errorCaller = NaN;
     errorCallerName = 'Finding...';;
-    errrorValid = true;
-    if (!errorCaller) { errorCaller = Event.caller; }
-    if (!errorCaller) { errorCaller = StdWindowError.caller; }
-    if (!errorCaller) {
-        errorCaller = Event.caller;
-        if (!errorCaller) {
-            errorCaller = 'anoynmous';
-            errorCallerName = 'anoynmous';
-            errrorValid = false;
+    if (eventCurr) {
+        if (browserIsFF) {
+            errorCaller = eventCurrentTarget;
+            if (errorCaller) {
+                errorCallerName = errorCaller.toString();
+            }
+            // ErrorEvent
+            // The ErrorEvent interface represents events providing information related to errors in scripts or in files.
+            // Instance properties
+            // Also inherits properties from its parent Event.
+            // eventMessage = ErrorEvent.message; // Read only
+            //     A string containing a human-readable error message describing the problem. Lacking a crossorigin setting reduces error logging.
+            // eventFileName = ErrorEvent.filename; // Read only
+            //     A string containing the name of the script file in which the error occurred.
+            // eventFileLine = ErrorEvent.lineno; // Read only
+            //     An integer containing the line number of the script file on which the error occurred.
+            // eventFileColumn = ErrorEvent.colno; // Read only
+            //     An integer containing the column number of the script file on which the error occurred.
+            // eventError = ErrorEvent.error; // Read only
+            // Constructor A JavaScript Object that is concerned by the event.
+            // ErrorEvent()
+            //     Creates an ErrorEvent event with the given parameters.
+        } else if (browserIsOld) {
+            errorCaller = eventCurr.caller;
+            errorCallerName = 'Finding...';
+            errrorValid = true;
+            if (!errorCaller) { errorCaller = Event.caller; }
+            if (!errorCaller) { errorCaller = WindowError.caller; }
         } else {
-            errorCallerName = errorCaller.toString();
-            eventFileName = "?";
-            eventFuncName = EventCallerFunctionNameFind(callerFunc);
-            eventColNum = 0;
-
+            // modern
+            errorCaller = eventCurr.target;
+            errorCallerName = "";
+            if (eventCurr && eventCurr.type == "error") {
+                // do
+            } else {
+                // ??? mouse ??? other ???
+                // target
+                // timestamp
+                // currentTarget
+            }
         }
+        if (!errorCaller) {
+            errorCaller = Event.caller;
+            if (!errorCaller) {
+                errorCaller = 'anoynmous';
+                errorCallerName = 'anoynmous';
+                errrorValid = false;
+            } else {
+                errorCallerName = errorCaller.toString();
+                eventFileName = "?";
+                eventFuncName = EventCallerFunctionNameFind(callerFunc);
+                eventColNum = 0;
+
+            }
+        }
+    } else {
+        // event missing todo
+    }
+}
+
+function ErrorNew() {
+    if (browserIsFF) {
+        // ErrorEvent
+        // The ErrorEvent interface represents events providing information related to errors in scripts or in files.
+        // Also inherits properties from its parent Event.
+        // ErrorEvent.message Read only
+        //     A string containing a human-readable error message describing the problem. Lacking a crossorigin setting reduces error logging.
+        // ErrorEvent.filename Read only
+        //     A string containing the name of the script file in which the error occurred.
+        // ErrorEvent.lineno Read only
+        //     An integer containing the line number of the script file on which the error occurred.
+        // ErrorEvent.colno Read only
+        //     An integer containing the column number of the script file on which the error occurred.
+        // ErrorEvent.error Read only
+        //     A JavaScript Object that is concerned by the event.
+        // Constructor
+        return ErrorEvent();
+        //     Creates an ErrorEvent event with the given parameters.
+    } else {
+        return ErrorEvent();
     }
 }
 
 function ErrorMessageGet() {
-    var errorMessageFinal = "";
-    if (errorUrl) { errorMessageFinal += " Url:" + errorUrl; }
-    if (eventFileName) { errorMessageFinal += " File:" + eventFileName; }
-    if (eventFileFunction) { errorMessageFinal += " Function:" + eventFileFunction; }
-    if (eventFileLine) { errorMessageFinal += " Line:" + eventFileLine; }
-    if (eventFileColumn) { errorMessageFinal += " Column:" + eventFileColumn; }
-    if (errorMessageFinal.length) {
-        errorMessageFinal = " At: ( " + errorMessageFinal;
-        errorMessageFinal += " )";
+    var MessageFinal = "";
+    if (MessageUrl) { MessageFinal += " Url:" + MessageUrl; }
+    if (eventFileName) { MessageFinal += " File:" + eventFileName; }
+    if (eventFileFunction) { MessageFinal += " Function:" + eventFileFunction; }
+    if (eventFileLine) { MessageFinal += " Line:" + eventFileLine; }
+    if (eventFileColumn) { MessageFinal += " Column:" + eventFileColumn; }
+    if (MessageFinal.length) {
+        MessageFinal = " At: ( " + MessageFinal;
+        MessageFinal += " )";
     }
-    if (eventMessage) { errorMessageFinal += " Message:" + eventMessage; }
-    return errorMessageFinal;
+    if (eventMessage) { MessageFinal += " Message:" + eventMessage; }
+    return MessageFinal;
 }
 
 // Events
 /////////
-function EventSet() {
+function EventSet(eventCurr) {
     // Also inherits properties from its parent Event.
-    if (!eventCurr) { eventCurr = Event; }
+    // https://developer.mozilla.org/en-US/docs/Web/Events
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+    //
+    eventIsOld = false;
+    if (!eventCurr && Event) {
+        eventCurr = Event;
+        eventIsOld = true;
+    }
     if (eventCurr) {
         eventObject = eventCurr;
         eventId = EventIdGetNext();
@@ -190,7 +306,6 @@ function EventSet() {
         eventFileColumn = eventCurr.colno;
         // ErrorEvent.error Read only. A JavaScript Object that is concerned by the event.
         eventError = eventCurr.error;
-        eventIsOld = false;
         //
     } else { eventIsOld = true; }
 

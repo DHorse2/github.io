@@ -36,9 +36,9 @@ border-right:1px solid black;
 /* Position */
 position:relative;
 top: 6.3em;
-left:1%;
+left:1em;
 /* Size */
-min-height:1%;
+min-height:1em;
 /* Alignment */
 padding-left: 2.5em;
 }

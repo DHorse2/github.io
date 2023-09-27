@@ -28,10 +28,10 @@
                 <!-- x -->
 <!-- x -->
 <!--** Menu Blocks **-->
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
 <!--#else -->
     <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
@@ -47,7 +47,7 @@
                 <!--*-->
                 <!--*-->
 		<div id="DivSection1" class="BodyParaBox">
-                <div id="DivB1" class="BodyParaLeft ColumnType4">
+                <div id="DivB1" class="BodyParaLeft layoutBodyColumnType4">
                     <div id="DivC4" class="BodyParaRight CalloutBox CalloutBorder">
                         <p id="C4P1" class="CalloutContent CP">
 						Business applications ranging<br>
@@ -98,7 +98,7 @@ Outlook Replication Classes, Developer
                 <!--*-->
 			<div id="DivSection2" class="BodyParaBox">
                 <!--*-->
-                <div id="DivBox3" class="BodyParaLeft ColumnType4">
+                <div id="DivBox3" class="BodyParaLeft layoutBodyColumnType4">
                     <div id="DivC3" class="BodyParaRight CalloutBox CalloutBorder">
                         <p id="C3P1" class="CalloutContent CP">
 						Combining Projects for Efficiency.<br>
@@ -141,7 +141,7 @@ Outlook Replication Classes, Developer
 				<br>
                 <!--*-->
                 <!--*-->
-                <div id="DivBox4" class="BodyParaRight ColumnType4">
+                <div id="DivBox4" class="BodyParaRight layoutBodyColumnType4">
                     <div id="DivC4" class="BodyParaLeft CalloutBox CalloutBorder">
                         <p id="C4P1" class="CalloutContent CP">
 						   Becoming a renaissance man.<br>
@@ -174,7 +174,7 @@ Outlook Replication Classes, Developer
 				<br>
                 <!--*-->
                 <!--*-->
-                <div id="DivBox5" class="BodyParaLeft ColumnType4">
+                <div id="DivBox5" class="BodyParaLeft layoutBodyColumnType4">
                     <div id="DivC5" class="BodyParaRight CalloutBox CalloutBorder">
                         <p id="C5P1" class="CalloutContent CP">
 						Career management and search <br>

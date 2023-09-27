@@ -1,5 +1,12 @@
 	<!--** Body Console Form Blocks **-->
-	<form id="BodyConsoleTestBoxForm" action="DebugFormUpdate();" method="post">
+	<form id="BodyConsoleTestBoxForm"
+		class="BodyParaLeft layoutBodyColumnType1"
+		action="DebugFormUpdate();"
+		method="post">
+		<button type="submit" value="Log">
+			To Log
+		</button>
+		<!-- <input type="submit" value="Send Request"> -->
 		<!-- * -->
 		<fieldset><legend>Browser Type</legend >
 		<!-- * -->
@@ -22,7 +29,7 @@
 		Add Elements to DOM: <br >
 		</p>
 		<label for="formImgLoadUseDOM">imgLoadUseDOM </label>
-		<input id="formImgLoadUseDOM" type="checkbox" checked="checked"
+		<input id="formImgLoadUseDOM" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'imgLoadUseDOM', 'Toggle');"
 			>
 		<p >
@@ -38,13 +45,13 @@
 		Single Event Listener (dispatcher): <br >
 		</p>
 		<label for="formImgLoadUseEventHandler">imgLoadUseEventHandler </label>
-		<input id="formImgLoadUseEventHandler" type="checkbox" checked="checked"
+		<input id="formImgLoadUseEventHandler" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'imgLoadUseEventHandler', 'Toggle');"
 			>
 		<p >
 		<!-- * -->
 		Controls clearing of <br >
-		elBodyMenuImageContainer for testing: <br >
+		bodyMenuImageContainer for testing: <br >
 		</p>
 		<label for="formImgLoadEventTest">imgLoadEventTest </label>
 		<input id="formImgLoadEventTest" type="checkbox"
@@ -69,7 +76,7 @@
 		Object Moves From Origin to Destination: <br >
 		</p>
 		<label for="formMoveIsOn">moveIsOn </label>
-		<input id="formMoveIsOn" type="checkbox" checked="checked"
+		<input id="formMoveIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'moveIsOn', 'Toggle');"
 			>
 		<p >
@@ -77,7 +84,7 @@
 		Transition and Filters are used: <br >
 		</p>
 		<label for="formFilterIsOn">filterIsOn </label>
-		<input id="formFilterIsOn" type="checkbox" checked="checked"
+		<input id="formFilterIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'filterIsOn', 'Toggle');"
 			>
 		<p >
@@ -85,7 +92,7 @@
 		Growing image during animation: <br >
 		</p>
 		<label for="formFilterResizeIsOn">filterResizeIsOn </label>
-		<input id="formFilterResizeIsOn" type="checkbox" checked="checked"
+		<input id="formFilterResizeIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'filterResizeIsOn', 'Toggle');"
 			>
 		<p >
@@ -93,7 +100,7 @@
 		Timers use elapsed time instead of a step count: <br >
 		</p>
 		<label for="formTimerUseTime">timerUseTime </label>
-		<input id="formTimerUseTime" type="checkbox" checked="checked"
+		<input id="formTimerUseTime" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'timerUseTime', 'Toggle');"
 			>
 		<p >
@@ -121,7 +128,7 @@
 		</p>
 		<label for="formOObjImageSizeRatio">oObjImageSizeRatio </label>
 		<input id="formOObjImageSizeRatio" type="text"
-			size="5" maxlength="5" value = "0.7"
+			size="5" maxlength="5" value="0.7"
 			onchange="DebugParameterSet(this, 'oObjImageSizeRatio', this.value);"
 			>
 		</fieldset>
@@ -156,24 +163,24 @@
 		<!-- * -->
 		Manner by which images move across the screen: <br >
 		</p>
-		<label for="formElementMoveMethod">elementMoveMethod </label>
-		<select id="formElementMoveMethod"
-			onchange="DebugParameterSet(this, 'elementMoveMethod', this.options[this.selectedIndex].value);" >
-            <option id="formElementMoveMethod_elementMoveMethodDirect"
-			value="elementMoveMethodDirect">elementMoveMethodDirect</option>
-            <option id="formElementMoveMethod_elementMoveMethodSlideDown"
-			value="elementMoveMethodSlideDown">elementMoveMethodSlideDown</option>
-            <option id="formElementMoveMethod_elementMoveMethodSlideSide"
-			value="elementMoveMethodSlideSide">elementMoveMethodSlideSide</option>
-            <option id="formElementMoveMethod_elementMoveMethodRandom"
-			value="elementMoveMethodRandom" selected>elementMoveMethodRandom</option>
+		<label for="formelMoveMethod">elMoveMethod </label>
+		<select id="formelMoveMethod"
+			onchange="DebugParameterSet(this, 'elMoveMethod', this.options[this.selectedIndex].value);" >
+            <option id="formelMoveMethod_elMoveMethodDirect"
+			value="elMoveMethodDirect">elMoveMethodDirect</option>
+            <option id="formelMoveMethod_elMoveMethodSlideDown"
+			value="elMoveMethodSlideDown">elMoveMethodSlideDown</option>
+            <option id="formelMoveMethod_elMoveMethodSlideSide"
+			value="elMoveMethodSlideSide">elMoveMethodSlideSide</option>
+            <option id="formelMoveMethod_elMoveMethodRandom"
+			value="elMoveMethodRandom" selected>elMoveMethodRandom</option>
         </select>
 		</fieldset>
 		<!-- * end of Basic Controls -->
 <!-- x ------------------------------------------------------------------------------------- -->
 		<fieldset><legend>Logging</legend>
 		<p>
-		Trace & Log Timer activity: <br >
+		Trace &amp; Log Timer activity: <br >
 		</p>
 		<label for="formDebugTimer">debugTimer </label>
 		<input id="formDebugTimer" type="checkbox"
@@ -181,7 +188,7 @@
 			>
 		<p >
 		<!-- * -->
-		Trace & Log Move activity: <br >
+		Trace &amp; Log Move activity: <br >
 		</p>
 		<label for="formDebugTimerMove">debugTimerMove </label>
 		<input id="formDebugTimerMove" type="checkbox"
@@ -189,7 +196,7 @@
 			>
 		<p >
 		<!-- * -->
-		Trace & Log Filters and Transition activity: <br >
+		Trace &amp; Log Filters and Transition activity: <br >
 		</p>
 		<label for="formDebugTimerTransition">debugTimerTransition </label>
 		<input id="formDebugTimerTransition" type="checkbox"
@@ -197,7 +204,7 @@
 			>
 		<p >
 		<!-- * -->
-		Trace & Log Timer activity for individual images: <br >
+		Trace &amp; Log Timer activity for individual images: <br >
 		</p>
 		<label for="formDebugTimerDetail">debugTimerDetail </label>
 		<input id="formDebugTimerDetail" type="checkbox"
@@ -205,7 +212,7 @@
 			>
 		<p >
 		<!-- * -->
-		Trace & Log Mouse Events: <br >
+		Trace &amp; Log Mouse Events: <br >
 		</p>
 		<label for="formDebugLogEvents">debugLogEvents </label>
 		<input id="formDebugLogEvents" type="checkbox"
@@ -229,10 +236,10 @@
 		<!-- * -->
 		Number of Steps to accomplish movement: <br >
 		</p>
-		<label for="formElementMoveStepMax">elementMoveStepMax </label>
-		<input id="formElementMoveStepMax" type="text"
+		<label for="formelMoveStepMax">elMoveStepMax </label>
+		<input id="formelMoveStepMax" type="text"
 			size="5" maxlength="5" value="80"
-			onchange="DebugParameterSet(this, 'elementMoveStepMax', this.value);"
+			onchange="DebugParameterSet(this, 'elMoveStepMax', this.value);"
 			>
 		<p >
 		<!-- * -->
@@ -326,14 +333,13 @@
 		</p>
 		<label for="formErrorUseDebugOnAll">errorUseDebugOnAll </label>
 		<input id="formErrorUseDebugOnAll" type="checkbox"
-			onchange="DebugSetToggleerrorUseDebugOnAll', 'Toggle');"
-			>
+			 onchange="DebugSetToggleerrorUseDebugOnAll(null, 'Toggle')">
 		<p >
 		<!-- * -->
 		Allow degguger usage: <br >
 		</p>
 		<label for="formDebugIsOn">debugIsOn </label>
-		<input id="formDebugIsOn" type="checkbox" checked="checked"
+		<input id="formDebugIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'debugIsOn', 'Toggle');"
 			>
 		<p >
@@ -366,7 +372,7 @@
 		until after Page Load: <br >
 		</p>
 		<label for="formJavaLoadDelay">loadDelayJava </label>
-		<input id="formJavaLoadDelay" type="checkbox" checked="checked"
+		<input id="formJavaLoadDelay" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'loadDelayJava', 'Toggle');"
 			>
 		<p >
@@ -375,7 +381,7 @@
 		until after Page Load: <br >
 		</p>
 		<label for="formBodyImageLoadDelay">loadDelayBodyImage </label>
-		<input id="formBodyImageLoadDelay" type="checkbox" checked="checked"
+		<input id="formBodyImageLoadDelay" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'loadDelayBodyImage', 'Toggle');"
 			>
 		<p >
@@ -384,7 +390,7 @@
 		until after Page Load: <br >
 		</p>
 		<label for="formMenuImageLoadDelay">loadDelayMenuImage </label>
-		<input id="formMenuImageLoadDelay" type="checkbox" checked="checked"
+		<input id="formMenuImageLoadDelay" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'loadDelayMenuImage', 'Toggle');"
 			>
 		</fieldset>

@@ -1,7 +1,7 @@
 // Mdm Menu functions
 // Object Set: Object, Image, Parent, Index
 ////////////////////////////////////////////////
-// StdMenuObjectSetAll
+// MenuObjectSetAll
 ////////////////////////////////////////////////
 
 script_state = "Mdm Standard Menu functions loaded. (none)";

@@ -154,8 +154,8 @@ function DebugParameterInitLocal()
 	elementObject = document.getElementById('formElementMoveDuration');
 	elementObject.value = elementMoveDuration;
 	//
-	elementObject = document.getElementById('formElementMoveStepMax');
-	elementObject.value = elementMoveStepMax;
+	elementObject = document.getElementById('formelMoveStepMax');
+	elementObject.value = elMoveStepMax;
 	//
 	elementObject = document.getElementById('formElementMoveInterval');
 	elementObject.value = elementMoveInterval;
@@ -206,19 +206,19 @@ function DebugParameterInitLocal()
 	tempSelected = false;
 	// ...................................... //
 	// Manner by which images move across the screen
-	elementObject = document.getElementById('formElementMoveMethod_elementMoveMethodDirect');
-	if (elementMoveMethod = elementMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formelMoveMethod_elMoveMethodDirect');
+	if (elMoveMethod = elMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formElementMoveMethod_elementMoveMethodSlideDown');
-	if (elementMoveMethod = elementMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formelMoveMethod_elMoveMethodSlideDown');
+	if (elMoveMethod = elMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formElementMoveMethod_elementMoveMethodSlideSide');
-	if (elementMoveMethod = elementMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formelMoveMethod_elMoveMethodSlideSide');
+	if (elMoveMethod = elMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formElementMoveMethod_elementMoveMethodRandom');
-	if (elementMoveMethod = elementMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formelMoveMethod_elMoveMethodRandom');
+	if (elMoveMethod = elMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { document.getElementById('formElementMoveMethod_elementMoveMethodRandom').selected = true; }
+	if (!tempSelected) { document.getElementById('formelMoveMethod_elMoveMethodRandom').selected = true; }
     //
     debugStateLoadFirst = false;
 	//
@@ -1212,9 +1212,9 @@ function fnTimerDurationSet()
 		elementMoveDuration = 3;// default value
 		// if (browserIsIE) { elementMoveDuration = elementMoveDuration / 4; } // browser specific default value
 		// if (browserIsFF) { elementMoveDuration = 3; } // browser specific default value
-		elementMoveStepMin = 10;// default value
+		elMoveStepMin = 10;// default value
 		// Max should based on the formula 1000 ms / X ms Interval * Y sec Duration
-		elementMoveStepMax = 400;// default value for exceptions and race conditions
+		elMoveStepMax = 400;// default value for exceptions and race conditions
 		elementMoveInterval = 25;// default value
 		elementMoveDelay = 0;// default value
 	} else {
@@ -1222,23 +1222,23 @@ function fnTimerDurationSet()
 		elementMoveDuration = 2;// default value
 		// if (browserIsFF) { elementMoveDuration = 3; } // browser specific default value
 		//
-		elementMoveStepMin = 25;// default value
-		// if (browserIsCH) { elementMoveStepMin = 2 * elementMoveStepMin; } // browser specific default value
-		if (browserIsIE) { elementMoveStepMin = elementMoveStepMin / 2; } // browser specific default value
+		elMoveStepMin = 25;// default value
+		// if (browserIsCH) { elMoveStepMin = 2 * elMoveStepMin; } // browser specific default value
+		if (browserIsIE) { elMoveStepMin = elMoveStepMin / 2; } // browser specific default value
 		//
 		// Max should not be more than 80 ( 1000ms / 25ms * 2sec)
-		elementMoveStepMax = 400;// default value for exceptions and race conditions
+		elMoveStepMax = 400;// default value for exceptions and race conditions
 		elementMoveInterval = 25;// default value
 		elementMoveDelay = 0;// default value
 	}
-    elementMoveStepsPerSecond = elementMoveStepMin / elementMoveDuration;
+    elMoveStepsPerSecond = elMoveStepMin / elementMoveDuration;
     //
     // Timer Control:
     if (!timerDurationOverride) {
         if (!timerDuration) { timerDuration = elementMoveDuration; }
         if (!timerInterval) { timerInterval = elementMoveInterval; }
-        if (!timerStepMin) { timerStepMin = elementMoveStepMin; }
-        if (!timerStepMax) { timerStepMax = elementMoveStepMax; }
+        if (!timerStepMin) { timerStepMin = elMoveStepMin; }
+        if (!timerStepMax) { timerStepMax = elMoveStepMax; }
         if (!timerDelay) { timerDelay = elementMoveDelay; }
     }
     timerStepsPerSecond = timerStepMax / timerDuration;
@@ -1246,8 +1246,8 @@ function fnTimerDurationSet()
     // Animation Transition Control:
     if (!filterDurationOverride) {
         if (!filterDuration) { filterDuration = elementMoveDuration; }
-        if (!filterStepMin) { filterStepMin = elementMoveStepMin; }
-        if (!filterStepMax) { filterStepMax = elementMoveStepMax; }
+        if (!filterStepMin) { filterStepMin = elMoveStepMin; }
+        if (!filterStepMax) { filterStepMax = elMoveStepMax; }
         if (!filterInterval) { filterInterval = 200; } // default value
         if (!filterDelay) { filterDelay = 250; } // default value
         //
@@ -1285,7 +1285,7 @@ function fnTimerItemDeactivate(timerType, timerGroup, timerId, UseRoot)
 				timerObj[timerGroup] [timerLevelKey].timerIsRunning = false;
 				timerObj[timerGroup] [timerLevelKey].timerIntervalId = 0;
 				timerObj[timerGroup] [timerLevelKey].timerIntervalIdPrev = 0;
-				timerObj[timerGroup] [timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
+				timerObj[timerGroup] [timerLevelKey].elIsDisplayed = elIsNotDisplayed;
 			}
 		}
 		// deconstruct
@@ -1353,26 +1353,26 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
     	timerObj[timerGroup] [timerItemKey] = new Object;
         fnTimerItemDeactivate(timerType, timerGroup, timerId, false);
 		//
-		timerObj[timerGroup] [timerItemKey].elementMoveMethod =
-		        timerObj[timerGroup] [timerRootKey].elementMoveMethod;
+		timerObj[timerGroup] [timerItemKey].elMoveMethod =
+		        timerObj[timerGroup] [timerRootKey].elMoveMethod;
 	}
 	//
 	if (timerObj[timerGroup] [timerRootKey].timerInstance < 1) {
         //
 		timerGroupNew = true;
         if (timerType = timerTypeMove) {
-            if (elementMoveMethod != 0) {
-                timerObj[timerGroup] [timerRootKey].elementMoveMethod = elementMoveMethod;
+            if (elMoveMethod != 0) {
+                timerObj[timerGroup] [timerRootKey].elMoveMethod = elMoveMethod;
             } else {
 				if ( playDirection = playDirectionForward) {
-					var elementMoveMethodTemp = fnMathNumberRandomGetByRange(1, 3, filterRealFlag);
-					if (elementMoveMethodTemp = elementMoveMethodPrev)  {
-						elementMoveMethodTemp += 1 - ((elementMoveMethodTemp > 2) * 3); }
-					timerObj[timerGroup] [timerRootKey].elementMoveMethod = elementMoveMethodTemp;
-					elementMoveMethodPrev = elementMoveMethodTemp;
+					var elMoveMethodTemp = fnMathNumberRandomGetByRange(1, 3, filterRealFlag);
+					if (elMoveMethodTemp = elMoveMethodPrev)  {
+						elMoveMethodTemp += 1 - ((elMoveMethodTemp > 2) * 3); }
+					timerObj[timerGroup] [timerRootKey].elMoveMethod = elMoveMethodTemp;
+					elMoveMethodPrev = elMoveMethodTemp;
 				}
             }
-        } else { timerObj[timerGroup] [timerRootKey].elementMoveMethod = 0; }
+        } else { timerObj[timerGroup] [timerRootKey].elMoveMethod = 0; }
 	}
 	// Timer Type
 	var timerLevelKey = new String;
@@ -1421,8 +1421,8 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
             timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
             timerObj[timerGroup] [timerLevelKey].timerIntervalStep = 0;
         	//
-            timerObj[timerGroup] [timerLevelKey].elementMoveStepLeft = 0;
-            timerObj[timerGroup] [timerLevelKey].elementMoveStepTop = 0;
+            timerObj[timerGroup] [timerLevelKey].elMoveStepLeft = 0;
+            timerObj[timerGroup] [timerLevelKey].elMoveStepTop = 0;
     		//
     		break;
             //
@@ -1437,19 +1437,19 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
             timerObj[timerGroup] [timerLevelKey].timerDelay = elementMoveDelay;
         	// Step
             timerObj[timerGroup] [timerLevelKey].timerStep = 0;
-            timerObj[timerGroup] [timerLevelKey].timerStepsPerSecond = elementMoveStepsPerSecond;
-            timerObj[timerGroup] [timerLevelKey].timerStepMin = elementMoveStepMin;
+            timerObj[timerGroup] [timerLevelKey].timerStepsPerSecond = elMoveStepsPerSecond;
+            timerObj[timerGroup] [timerLevelKey].timerStepMin = elMoveStepMin;
     	    if (LevelCn = 0) {
     	        timerObj[timerGroup] [timerLevelKey].timerStepMin =
-    	            timerObj[timerGroup] [timerLevelKey].elementMoveStepMin * imgMaxByGroup[timerId]; }
-            timerObj[timerGroup] [timerLevelKey].timerStepMax = elementMoveStepMax;
+    	            timerObj[timerGroup] [timerLevelKey].elMoveStepMin * imgMaxByGroup[timerId]; }
+            timerObj[timerGroup] [timerLevelKey].timerStepMax = elMoveStepMax;
     	    if (LevelCn = 0) {
     	        timerObj[timerGroup] [timerLevelKey].timerStepMax =
-    	            timerObj[timerGroup] [timerLevelKey].elementMoveStepMax * imgMaxByGroup[timerId]; }
+    	            timerObj[timerGroup] [timerLevelKey].elMoveStepMax * imgMaxByGroup[timerId]; }
             timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
         	//
-            timerObj[timerGroup] [timerLevelKey].elementMoveStepLeft = 0;
-            timerObj[timerGroup] [timerLevelKey].elementMoveStepTop = 0;
+            timerObj[timerGroup] [timerLevelKey].elMoveStepLeft = 0;
+            timerObj[timerGroup] [timerLevelKey].elMoveStepTop = 0;
     		//
     		break;
     	default:
@@ -1474,8 +1474,8 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
     	            timerObj[timerGroup] [timerLevelKey].timerStepMax * imgMaxByGroup[timerId]; }
             timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
         	//
-            timerObj[timerGroup] [timerLevelKey].elementMoveStepLeft = 0;
-            timerObj[timerGroup] [timerLevelKey].elementMoveStepTop = 0;
+            timerObj[timerGroup] [timerLevelKey].elMoveStepLeft = 0;
+            timerObj[timerGroup] [timerLevelKey].elMoveStepTop = 0;
     		//
     		break;
     	}
@@ -1501,10 +1501,10 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
         timerObj[timerGroup] [timerLevelKey].FunctionGroup = timerFunctionGroupPassed;
         timerObj[timerGroup] [timerLevelKey].FunctionItm = timerFunctionItemPassed;
         // Origin and Postion of Element
-        timerObj[timerGroup] [timerLevelKey].elementLeftDest = elementLeftDest;
-        timerObj[timerGroup] [timerLevelKey].elementTopDest = elementTopDest;
-        timerObj[timerGroup] [timerLevelKey].elementLeftOrig = elementLeftOrig;
-        timerObj[timerGroup] [timerLevelKey].elementTopOrig = elementTopOrig;
+        timerObj[timerGroup] [timerLevelKey].elLeftDest = elLeftDest;
+        timerObj[timerGroup] [timerLevelKey].elTopDest = elTopDest;
+        timerObj[timerGroup] [timerLevelKey].elLeftOrig = elLeftOrig;
+        timerObj[timerGroup] [timerLevelKey].elTopOrig = elTopOrig;
         //
     	// Methos, Behaviors, etc...
         timerObj[timerGroup] [timerLevelKey].filterPlayAll = filterPlayAll;
@@ -1521,8 +1521,8 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
 	            timerObj[timerGroup] [timerLevelKey].timerIntervalId
 	                    = timerObj[timerGroup] [timerRootKey].timerIntervalId;
 		        //
-		        timerObj[timerGroup] [timerLevelKey].elementMoveMethod =
-		                timerObj[timerGroup] [timerRootKey].elementMoveMethod;
+		        timerObj[timerGroup] [timerLevelKey].elMoveMethod =
+		                timerObj[timerGroup] [timerRootKey].elMoveMethod;
 				//
 				timerObj[timerGroup] [timerLevelKey].playDirection =
 							timerObj[timerGroup] [timerRootKey].playDirection;
@@ -1530,7 +1530,7 @@ function fnTimerInitialize(timerType, timerGroup, timerId,
 				timerObj[timerGroup] [timerLevelKey].playDirection = playDirection;
 			}
             // Display / visibility (& Filter triggering)
-    	    timerObj[timerGroup] [timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
+    	    timerObj[timerGroup] [timerLevelKey].elIsDisplayed = elIsNotDisplayed;
 		} else {
 			timerObj[timerGroup] [timerRootKey].playDirection = playDirection;
 		}
@@ -1739,9 +1739,9 @@ function fnTimerStartFilter(playDirection,
 	    if (!timerObj[timerGroup] [timerItemKey]) { timerReset = true; } else {
 		    //
 		    if ( playDirection = playDirectionForward) {
-		        if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
+		        if (timerObj[timerGroup] [timerItemKey].elIsDisplayed != elIsDisplayed) { timerReset = true; }
 		    } else {
-		        if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
+		        if (timerObj[timerGroup] [timerItemKey].elIsDisplayed != elIsNotDisplayed) { timerReset = true; }
 		    }
 		    if (timerObj[timerGroup] [timerItemKey].timerIsRunning) { timerReset = false; }
 	    }
@@ -1768,7 +1768,7 @@ function fnTimerStartFilter(playDirection,
                     errorComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
 		//
-    	// timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
+    	// timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
 		//
     } else if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
 		// Timer exists and is currently busy.
@@ -1792,8 +1792,8 @@ function fnTimerStartFilter(playDirection,
         return;
     }
 	// Create new timers
-    timerObj[timerGroup] [timerItemKey].elementMoveStepLeft = 0;
-    timerObj[timerGroup] [timerItemKey].elementMoveStepTop = 0;
+    timerObj[timerGroup] [timerItemKey].elMoveStepLeft = 0;
+    timerObj[timerGroup] [timerItemKey].elMoveStepTop = 0;
     //
     // ...................................... //
     if (debugTimer && debugTimerTransition) {
@@ -1837,9 +1837,9 @@ function fnTimerStartMove(playDirection,
 	        timerReset = false;
 		    //
 		    if (playDirection = playDirectionForward) {
-		        if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
+		        if (timerObj[timerGroup] [timerItemKey].elIsDisplayed != elIsDisplayed) { timerReset = true; }
 		    } else {
-		        if (timerObj[timerGroup] [timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
+		        if (timerObj[timerGroup] [timerItemKey].elIsDisplayed != elIsNotDisplayed) { timerReset = true; }
 		    }
 		    if (timerObj[timerGroup] [timerItemKey].timerIsRunning) { timerReset = false; }
 	    }
@@ -1868,7 +1868,7 @@ function fnTimerStartMove(playDirection,
                     errorComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
 		//
-    	// timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
+    	// timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
 		//
     } else if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
 		// Timer Already Exists...
@@ -1889,19 +1889,19 @@ function fnTimerStartMove(playDirection,
     //
     // ...................................... //
     // Set Style Left for menu image box
-    // oObj.style.left = elementLeftOrig;
+    // oObj.style.left = elLeftOrig;
     // ...................................... //
     // Set Style Top for menu image box
-    // oObj.style.top = elementTopOrig;
+    // oObj.style.top = elTopOrig;
     //
     // ...................................... //
     // fnElementMove
     //
 	// Distance
-    moveDistanceLeft = Math.abs(elementLeftDest - elementLeftOrig);
+    moveDistanceLeft = Math.abs(elLeftDest - elLeftOrig);
     timerObj[timerGroup] [timerItemKey].moveDistanceLeft = moveDistanceLeft;
     //
-    moveDistanceTop = Math.abs(elementTopDest - elementTopOrig);
+    moveDistanceTop = Math.abs(elTopDest - elTopOrig);
     timerObj[timerGroup] [timerItemKey].moveDistanceTop = moveDistanceTop;
     //
     moveDistance = Math.sqrt( Math.pow(moveDistanceTop, 2) + Math.pow(moveDistanceLeft, 2) );
@@ -1949,8 +1949,8 @@ function fnTimerStartMove(playDirection,
         ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
                 + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
-                + ', Orig: ( ' + elementTopOrig + ', ' + elementLeftOrig + ' )'
-                + ', Dest: ( ' + elementTopDest + ', ' + elementLeftDest + ' )'
+                + ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
+                + ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )'
 				+ ', Offset: ( ' + moveOffsetTop + ', ' + moveOffsetLeft + ' )'
 				+ ', Move Top:' + moveDistanceTop
 				+ ', Move Left:' + moveDistanceLeft
@@ -2032,8 +2032,8 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId)
 		timerObj[timerGroup] [timerRootKey].timerIsRunning = false;
 		//
 		if ( timerObj[timerGroup] [timerRootKey].playDirection = playDirectionForward ) {
-		    timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsDisplayed;
-		} else { timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
+		    timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsDisplayed;
+		} else { timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsNotDisplayed; }
         //
         //
         if (debugTimer && debugTimerTransition) {
@@ -2185,7 +2185,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId)
             timerObj[timerGroup] [timerItemKey].timerIntervalId = 0;
             //
 		}
-        if (filterResizeIsOn && !timerObj[timerGroup] [timerItemKey].elementIsDisplayed) {
+        if (filterResizeIsOn && !timerObj[timerGroup] [timerItemKey].elIsDisplayed) {
             var temp;
             if (playDirection = playDirectionForward) { temp = 1; } else { temp = 0.05; }
 			fnFilterResize(timerObj[timerGroup] [timerItemKey].oObj, filterClassMatrix, temp);
@@ -2210,12 +2210,12 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId)
 		timerObj[timerGroup] [timerItemKey].timerIsRunning = false;
 		//
 		if ( timerObj[timerGroup] [timerItemKey].playDirection = playDirectionForward ) {
-		    timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
+		    timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
 		} else  {
 		    if (elementMoveDuration < filterDuration) {
 		        timerObj[timerGroup] [timerItemKey].oObj.style.display = 'none';
 		    }
-		    timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
+		    timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsNotDisplayed;
 		}
 		tempFilterInProgress || tempTimeOrStepsCompleted
         //
@@ -2315,8 +2315,8 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId)
 		timerObj[timerGroup] [timerRootKey].timerIsRunning = false;
 		//
 		if ( timerObj[timerGroup] [timerRootKey].playDirection = playDirectionForward ) {
-		    timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsDisplayed;
-		} else { timerObj[timerGroup] [timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
+		    timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsDisplayed;
+		} else { timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsNotDisplayed; }
         //
         if (debugTimer && debugTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
@@ -2372,7 +2372,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
     // initialize positions, direction and methodology variables
     var tempPosTop = -1;var tempPosLeft = -1;
 	var playDirection = timerObj[timerGroup] [timerItemKey].playDirection;
-	var elementMoveMethod = timerObj[timerGroup] [timerItemKey].elementMoveMethod;
+	var elMoveMethod = timerObj[timerGroup] [timerItemKey].elMoveMethod;
 	var DoMove = false;
 	var IsRising = false;var IsRisingFactor = 1;
 	var isRightward = false;var isRightwardFactor = -1;
@@ -2398,7 +2398,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 	//
 	timerObj[timerGroup] [timerItemKey].timerIntervalStep += 1;
 	//
-	timerObj[timerGroup] [timerItemKey].elementMoveStepTop += 1;
+	timerObj[timerGroup] [timerItemKey].elMoveStepTop += 1;
 	// ...................................... //
 	// Set Style and Position for new menu image box
     if (timerObj[timerGroup] [timerItemKey].timerStepCurr = 1)  {
@@ -2406,15 +2406,15 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
         if (playDirection = playDirectionReverse) {
             timerCompletionTemp = 1.0;
 			// leave the object at its current position (the destination)
-            // timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopDest + 'px';
-            // timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftDest + 'px';
+            // timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elTopDest + 'px';
+            // timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elLeftDest + 'px';
         } else {
             timerCompletionTemp = 0.05;
-            timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopOrig + 'px';
-            timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftOrig + 'px';
+            timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elTopOrig + 'px';
+            timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elLeftOrig + 'px';
         }
         // Resize new object
-        if (filterResizeIsOn && !timerObj[timerGroup] [timerItemKey].elementIsDisplayed)  {
+        if (filterResizeIsOn && !timerObj[timerGroup] [timerItemKey].elIsDisplayed)  {
             fnFilterResize(
 					timerObj[timerGroup] [timerItemKey].oObj,
 					filterClassMatrix,
@@ -2449,7 +2449,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 	// StepStopItem
 	// Stop if maximum # of steps exceeded
 	// increment vertical step
-    if ( timerObj[timerGroup] [timerItemKey].elementMoveStepTop > timerObj[timerGroup] [timerItemKey].timerStepMax)  {
+    if ( timerObj[timerGroup] [timerItemKey].elMoveStepTop > timerObj[timerGroup] [timerItemKey].timerStepMax)  {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
@@ -2464,10 +2464,10 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
     }
 	//
 	// increment horizontal step
-	timerObj[timerGroup] [timerItemKey].elementMoveStepLeft += 1;
+	timerObj[timerGroup] [timerItemKey].elMoveStepLeft += 1;
 	//
 	/*
-    if ( timerObj[timerGroup] [timerItemKey].elementMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
+    if ( timerObj[timerGroup] [timerItemKey].elMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
@@ -2487,15 +2487,15 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 		DoMove = true;
 		// ...................................... //
 		// Determine if Box is Rising or Dropping
-        if (timerObj[timerGroup] [timerItemKey].elementTopOrig
-                > timerObj[timerGroup] [timerItemKey].elementTopDest) { IsRising = true;IsRisingFactor = -1; }
+        if (timerObj[timerGroup] [timerItemKey].elTopOrig
+                > timerObj[timerGroup] [timerItemKey].elTopDest) { IsRising = true;IsRisingFactor = -1; }
         //
 		/*
 		// ...................................... //
 		// Decide if move needed
 		// Rising
 		// was timerObj[timerGroup] [timerItemKey].oObj.style.top
-		if (parseInt(timerObj[timerGroup] [timerItemKey].elementTopOrig ) < timerObj[timerGroup] [timerItemKey].elementTopDest) {
+		if (parseInt(timerObj[timerGroup] [timerItemKey].elTopOrig ) < timerObj[timerGroup] [timerItemKey].elTopDest) {
 			if (IsRising)  {
 				// if ( playDirection = playDirectionForward) { DoMove = true; }
 				// if ( playDirection = playDirectionReverse) { DoMove = true; }
@@ -2505,7 +2505,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 		//
 		// Dropping
 		// was timerObj[timerGroup] [timerItemKey].oObj.style.top
-		if (parseInt(timerObj[timerGroup] [timerItemKey].elementTopOrig ) > timerObj[timerGroup] [timerItemKey].elementTopDest) {
+		if (parseInt(timerObj[timerGroup] [timerItemKey].elTopOrig ) > timerObj[timerGroup] [timerItemKey].elTopDest) {
 			if (!IsRising)  {
 				// if ( playDirection = playDirectionForward) { DoMove = true; }
 				// if ( playDirection = playDirectionReverse) { DoMove = true; }
@@ -2519,11 +2519,11 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 			// ...................................... //
 			// Set Style Top for Box
 			//
-            if (elementMoveMethod = elementMoveMethodSlideDown && timerCompletionCurr > 0.5)  {
+            if (elMoveMethod = elMoveMethodSlideDown && timerCompletionCurr > 0.5)  {
 				// SlideDown
 				tempPosTop = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.top);
 				// don't change top during second half of SlideDown
-            } else if (elementMoveMethod = elementMoveMethodSlideSide && timerCompletionCurr < 0.5)  {
+            } else if (elMoveMethod = elMoveMethodSlideSide && timerCompletionCurr < 0.5)  {
 				// Slide Side
 				tempPosTop = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.top);
 				// don't change top during first half of SlideSide
@@ -2533,15 +2533,15 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
                 timerCompletionTemp = timerCompletionCurr;
                 //
 				// SlideDown
-                if (elementMoveMethod = elementMoveMethodSlideDown) {
+                if (elMoveMethod = elMoveMethodSlideDown) {
                     timerCompletionTemp = 2 * timerCompletionCurr;
 				// Slide Side
 				// Double speed during slide methods
-                } else if (elementMoveMethod = elementMoveMethodSlideSide) {
+                } else if (elMoveMethod = elMoveMethodSlideSide) {
                     timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
 				}
                 // calculate top position for Forward and Reverse
-				tempPosTop = timerObj[timerGroup] [timerItemKey].elementTopOrig
+				tempPosTop = timerObj[timerGroup] [timerItemKey].elTopOrig
 					+ ( IsRisingFactor * timerCompletionTemp * timerObj[timerGroup] [timerItemKey].moveDistanceTop );
 			   //
 				// tempPosTop = parseInt(tempPosTop);
@@ -2560,20 +2560,20 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
         if (DoMove) {
 			// ...................................... //
 			// Determine if Box is moving Leftward
-			if (timerObj[timerGroup] [timerItemKey].elementLeftOrig
-					< timerObj[timerGroup] [timerItemKey].elementLeftDest) { isRightward = true;isRightwardFactor = 1; }
+			if (timerObj[timerGroup] [timerItemKey].elLeftOrig
+					< timerObj[timerGroup] [timerItemKey].elLeftDest) { isRightward = true;isRightwardFactor = 1; }
 			//
 			// Slide Down
-			if (!timerObj[timerGroup] [timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
+			if (!timerObj[timerGroup] [timerItemKey].elMoveMethod == elMoveMethodSlideDown
 				&& timerCompletionCurr < 0.5) {
 				// horizontal movement does not start until half way
-				// tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig;
+				// tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig;
 				// tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
 			// Slide Side
-			} else if (timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideSide
+			} else if (timerObj[timerGroup] [timerItemKey].elMoveMethod = elMoveMethodSlideSide
 				&& timerCompletionCurr > 0.5) {
 				// horizontal movement stops after half way
-				// tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig;
+				// tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig;
 				// tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
 			} else {
 				// Slide Diagonally
@@ -2581,14 +2581,14 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
                 timerCompletionTemp = timerCompletionCurr;
 				// Slide Down
 				// horizontal movement is at doubled speed.
-				if (timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideDown) {
+				if (timerObj[timerGroup] [timerItemKey].elMoveMethod = elMoveMethodSlideDown) {
 					timerCompletionTemp = 2 * (timerCompletionCurr - 0.5); }
 				// Slide Side
 				// horizontal movement is at doubled speed.
-				if (timerObj[timerGroup] [timerItemKey].elementMoveMethod = elementMoveMethodSlideSide) {
+				if (timerObj[timerGroup] [timerItemKey].elMoveMethod = elMoveMethodSlideSide) {
 					timerCompletionTemp = 2 * timerCompletionCurr; }
 				//
-				tempPosLeft = timerObj[timerGroup] [timerItemKey].elementLeftOrig
+				tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig
 					+ ( isRightwardFactor * timerCompletionTemp * timerObj[timerGroup] [timerItemKey].moveDistanceLeft );
 				//
 				// tempPosLeft = parseInt(tempPosLeft);
@@ -2602,7 +2602,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 		//
         // Resize
         if (filterResizeIsOn && tempMoveInProgress
-            && !timerObj[timerGroup] [timerItemKey].elementIsDisplayed)  {
+            && !timerObj[timerGroup] [timerItemKey].elIsDisplayed)  {
             //
             timerCompletionTemp = timerObj[timerGroup] [timerItemKey].timerCompletion;
             //
@@ -2661,23 +2661,23 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 		}
 		// Leave box in final position
 		if (playDirection = playDirectionForward) {
-            timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopDest + 'px';
-            timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftDest + 'px';
+            timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elTopDest + 'px';
+            timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elLeftDest + 'px';
         } else {
-            timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elementTopOrig + 'px';
-            timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elementLeftOrig + 'px';
+            timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elTopOrig + 'px';
+            timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elLeftOrig + 'px';
         }
 		//
         timerObj[timerGroup] [timerItemKey].timerDateEnd = new Date();
 		timerObj[timerGroup] [timerItemKey].timerIsRunning = false;
 		//
 		if ( playDirection = playDirectionForward ) {
-		    timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
+		    timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
 		} else {
 		    if (elementMoveDuration >= filterDuration) {
 		        timerObj[timerGroup] [timerItemKey].oObj.style.display = 'none';
 		    }
-		    timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
+		    timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsNotDisplayed;
 		}
 		//
         if (debugTimer && debugTimerDetail && debugTimerMove) {
@@ -2722,7 +2722,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 // Timer Calculate current running time
 // ...................................... //
 // Included a setTimeout in BODY onload to delay start of text movement.
-// oObjPassed, elementLeftOrig, elementTopOrig, elementLeftDest, elementTopDest)
+// oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
 function fnTimerGetElapsed(timerType, timerGroup, timerId) {
 		var timerItemKey = timerId + timerType;
         timerDateCurr = new Date();
@@ -2930,7 +2930,7 @@ function fnTimerRootKeyText(timerType, timerGroup, timerId)
 		    if (!timerObj[timerGroup] [timerItemKey].timerIsRunning) {
 		    timerIsRunningText += '0';
 		    } else { timerIsRunningText += '1'; }
-		    timerIsDisplayedText += timerObj[timerGroup] [timerItemKey].elementIsDisplayed;
+		    timerIsDisplayedText += timerObj[timerGroup] [timerItemKey].elIsDisplayed;
 		} else  {
 		    timerIsRunningText += 'x';
 		    timerIsDisplayedText += 'x';
@@ -2976,14 +2976,14 @@ function fnBodyImagesHtmlBuild()
 //
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx TO DO xxxxxxxxxxxxxxx
 // document.write(imgHtml);
-elBodyImageContainer = fnElementGetRef(elBodyImageContainer, 'BodyImageContainer', 'BodyImageContainer');
-elBodyImageContainer.innerHTML = imgHtml;
+bodyImageContainer = fnElementGetRef(bodyImageContainer, 'BodyImageContainer', 'BodyImageContainer');
+bodyImageContainer.innerHTML = imgHtml;
 //
 // This page has no stock of body images
 // just text captions.
 bodyImageLoadFirst = false;
 //
-return elBodyImageContainer;
+return bodyImageContainer;
 }
 //
 //
@@ -3010,7 +3010,7 @@ function fnMenuImagesHtmlBuild()
 filterIndexPassed = filterTypeCheckerBoard;
 // + ', ' + filterTypeCheckerBoard + ')
 //
-elBodyMenuImageContainer = fnElementGetRef(elBodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
+bodyMenuImageContainer = fnElementGetRef(bodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
 //
 tempFirst = true;
 var imgHtmlDivBoth = document.createElement('div');
@@ -3150,7 +3150,7 @@ imgHtmlDivInner += attributeStyle + quoteOpen;// Style
 // Layout
 // Size
 imgHtmlDivSmall.style.padding = '0%';// Padding Bottom
-imgHtmlDivInner += attributeStylePadding + '0%;';// Display (visibility)
+imgHtmlDivInner += attributeStylePadding + '0em;';// Display (visibility)
 //
 // imgHtmlDivSmall.style.width = (oObjImageSizeSmall + 0) + 'px';// Width
 // imgHtmlDivInner += ' width: 0em;';// Width
@@ -3192,10 +3192,10 @@ imgHtmlAInner += attributeHref + quoteOpen + '../MdmWebPages/' + oName + '.shtml
 imgHtmlAInner += attributeStyle + quoteOpen;// Style
 //
 // imgHtmlA.style.padding = '0%';// Padding
-// imgHtmlAInner += ' padding:0%;';// Display (visibility)
+// imgHtmlAInner += ' padding:0em;';// Display (visibility)
 //
 // imgHtmlA.style.margin = '0%';// Margin
-// imgHtmlAInner += ' margin:0%;';// Display (visibility)
+// imgHtmlAInner += ' margin:0em;';// Display (visibility)
 //
 imgHtmlAInner += quoteClose;// style end quote
 //
@@ -3315,10 +3315,10 @@ if (!imgLoadUseEventHandler) {
 imgHtmlImgInner += attributeStyle + quoteOpen;// Style
 // Padding
 imgHtmlImg.style.padding = '0%';// Padding
-imgHtmlImgInner += attributeStylePadding + '0%;';// Display (visibility)
+imgHtmlImgInner += attributeStylePadding + '0em;';// Display (visibility)
 // Margin
 imgHtmlImg.style.margin = '0%';// Margin
-imgHtmlImgInner += attributeStyleMargin + '0%;';// Display (visibility)
+imgHtmlImgInner += attributeStyleMargin + '0em;';// Display (visibility)
 // Size
 // Width
 imgHtmlImg.style.width = oObjImageSizeSmall + 'px';// Width
@@ -3644,8 +3644,8 @@ imgHtmlDivLargeInner += imgHtmlAInner;
 imgHtmlDivLargeInner += tagDivEnd;
 //
 if (!imgLoadUseInner) {
-    elBodyMenuImageContainer.appendChild(imgHtmlDivSmall);
-    elBodyMenuImageContainer.appendChild(imgHtmlDivLarge);
+    bodyMenuImageContainer.appendChild(imgHtmlDivSmall);
+    bodyMenuImageContainer.appendChild(imgHtmlDivLarge);
 } else {
 	imgHtmlDivBothInner += imgHtmlDivSmallInner + imgHtmlDivLargeInner;
 }
@@ -3655,30 +3655,30 @@ if (!imgLoadUseInner) {
     }
 //
 if (imgLoadUseInner)  {
-	elBodyMenuImageContainer.innerHTML = imgHtmlDivBothInner;
+	bodyMenuImageContainer.innerHTML = imgHtmlDivBothInner;
 }
 if (!imgLoadUseEventHandler && !imgLoadEventTest) {
-	elBodyMenuImageContainer.onmouseover = null;
-	elBodyMenuImageContainer.onmouseout = null;
-	elBodyMenuImageContainer.onmousedown = null;
+	bodyMenuImageContainer.onmouseover = null;
+	bodyMenuImageContainer.onmouseout = null;
+	bodyMenuImageContainer.onmousedown = null;
  } else {
-     elBodyMenuImageContainer.onmousedown = fnElementEventMouse;
-     elBodyMenuImageContainer.onmouseover = fnElementEventMouse;
-     elBodyMenuImageContainer.onmouseout = fnElementEventMouse;
+     bodyMenuImageContainer.onmousedown = fnElementEventMouse;
+     bodyMenuImageContainer.onmouseover = fnElementEventMouse;
+     bodyMenuImageContainer.onmouseout = fnElementEventMouse;
 }
 //
-// elBodyMenuImageContainer.style.display = 'none';
+// bodyMenuImageContainer.style.display = 'none';
 // if (browserIsIE) { document.recalc(); }
 //
 // ..................................................................................... _//
 // imgHtml += tagDivEnd;
 // imgHtmlDiv.innerHTML = imgHtml;
 // document.write(imgHtml);
-// elBodyMenuImageContainer = fnElementGetRef(elBodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
+// bodyMenuImageContainer = fnElementGetRef(bodyMenuImageContainer, 'BodyMenuImageContainer', 'BodyMenuImageContainer');
 //
-// elBodyMenuImageContainer.innerHTML = imgHtml;
-// elBodyMenuImageContainer.appendChild(imgHtmlDivSmall);
-// elBodyMenuImageContainer.appendChild(imgHtmlDivLarge);
+// bodyMenuImageContainer.innerHTML = imgHtml;
+// bodyMenuImageContainer.appendChild(imgHtmlDivSmall);
+// bodyMenuImageContainer.appendChild(imgHtmlDivLarge);
 //
 menuImageLoadFirst = false;
 //
@@ -3878,26 +3878,26 @@ function fnWindowContainerHeightGetAll()
     layoutBodyHeightVertMax = 0;
     layoutMenuWidthMax = 0;
     //
-    elBodyMainCenterHeight = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainCenter);
+    bodyMainCenterHeight = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
 	//
     if (debugAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
-			' Height of BodyMainCenterHeight: ' + elBodyMainCenterHeight
+			' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
 			+ '.',
             'fnWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
-	tempLayoutBodyHeightVertMax += elBodyMainCenterHeight;
-    if (tempLayoutBodyHeightHorzMax < elBodyMainCenterHeight) { tempLayoutBodyHeightHorzMax = elBodyMainCenterHeight; }
+	tempLayoutBodyHeightVertMax += bodyMainCenterHeight;
+    if (tempLayoutBodyHeightHorzMax < bodyMainCenterHeight) { tempLayoutBodyHeightHorzMax = bodyMainCenterHeight; }
     //
 	// Left
-	elBodyMenuLayout1Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft);
-    // if (layoutResizeCn = 0) { elBodyMenuLayout1Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft); }
+	bodyLayoutMenu1Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
+    // if (layoutResizeCn = 0) { bodyLayoutMenu1Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
 	//
     if (debugAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
-			' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
+			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
             'fnWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
@@ -3905,28 +3905,28 @@ function fnWindowContainerHeightGetAll()
 	//
 	// Check the accumaltion of Left1, Left2, Left3
 	if (layoutIndex = layoutStandard) {
-		fnWindowContainerHeightGetMenu(elBodyMainLeft);
-	} else { fnWindowContainerHeightGetMenu(elBodyMainCenterTopLeft); }
+		fnWindowContainerHeightGetMenu(bodyMainLeft);
+	} else { fnWindowContainerHeightGetMenu(bodyMainCenterTopLeft); }
 	//
     if (debugAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
-			' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
+			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
             'fnWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
-	tempLayoutBodyHeightVertMax += elBodyMenuLayout1Height;
+	tempLayoutBodyHeightVertMax += bodyLayoutMenu1Height;
 	if (layoutIndex = layoutStandard) {
-		if (tempLayoutBodyHeightHorzMax < elBodyMenuLayout1Height) { tempLayoutBodyHeightHorzMax = elBodyMenuLayout1Height; }
+		if (tempLayoutBodyHeightHorzMax < bodyLayoutMenu1Height) { tempLayoutBodyHeightHorzMax = bodyLayoutMenu1Height; }
 	}
     // Right
-	elBodyMenuLayout2Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight);
-    // if (layoutResizeCn = 0) { elBodyMenuLayout2Height = fnElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight); }
+	bodyLayoutMenu2Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
+    // if (layoutResizeCn = 0) { bodyLayoutMenu2Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
 	//
     if (debugAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
-			' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
+			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
             'fnWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
@@ -3934,27 +3934,27 @@ function fnWindowContainerHeightGetAll()
 	//
 	// Check the accumaltion of Right1, Right2, Right3
 	if (layoutIndex = layoutStandard) {
-		fnWindowContainerHeightGetMenu(elBodyMainRight);
-	} else { fnWindowContainerHeightGetMenu(elBodyMainCenterTopRight); }
+		fnWindowContainerHeightGetMenu(bodyMainRight);
+	} else { fnWindowContainerHeightGetMenu(bodyMainCenterTopRight); }
 	//
     if (debugAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
-			' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
+			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
             'fnWindowContainerHeightGetAll', 6769, null, null,
             errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
-	tempLayoutBodyHeightVertMax += elBodyMenuLayout2Height;
+	tempLayoutBodyHeightVertMax += bodyLayoutMenu2Height;
 	if (layoutIndex = layoutStandard) {
-		// if (elBodyMenuLayout1Height < layoutMenuHeightVertMax) { elBodyMenuLayout1Height = layoutMenuHeightVertMax; }
-		if (tempLayoutBodyHeightHorzMax < elBodyMenuLayout2Height) { tempLayoutBodyHeightHorzMax = elBodyMenuLayout2Height; }
+		// if (bodyLayoutMenu1Height < layoutMenuHeightVertMax) { bodyLayoutMenu1Height = layoutMenuHeightVertMax; }
+		if (tempLayoutBodyHeightHorzMax < bodyLayoutMenu2Height) { tempLayoutBodyHeightHorzMax = bodyLayoutMenu2Height; }
 	} else if (layoutIndex = layoutWindowed) {
-		tempLayoutBodyHeightHorzMax = elBodyMainCenterHeight;
-		if (elBodyMenuLayout1Height > elBodyMenuLayout2Height) {
-			tempLayoutBodyHeightHorzMax += elBodyMenuLayout1Height;
+		tempLayoutBodyHeightHorzMax = bodyMainCenterHeight;
+		if (bodyLayoutMenu1Height > bodyLayoutMenu2Height) {
+			tempLayoutBodyHeightHorzMax += bodyLayoutMenu1Height;
 		} else {
-			tempLayoutBodyHeightHorzMax += elBodyMenuLayout2Height;
+			tempLayoutBodyHeightHorzMax += bodyLayoutMenu2Height;
 		}
 	}
     //
@@ -3994,8 +3994,8 @@ function fnWindowContainerHeightGetMenu(elementPassed)
 	// Left groups is temporary and is not reliable.
 	//
 	// The Left menu elements are extracted from one of:
-	// 		elBodyMainCenterTopLeft
-	//		elBodyMenuLayout1
+	// 		bodyMainCenterTopLeft
+	//		bodyLayoutMenu1
 	//............................................................---//
 	var menuGroup1;
 	var menuGroup2;
@@ -4026,7 +4026,7 @@ function fnWindowContainerHeightGetMenu(elementPassed)
 // ...................................... //
 // Recalculate Screen Display
 var boxClass;
-var columnType;
+var layoutBodyColumnType;
 // ...................................... //
 // Layout Block, Callout and Document (BodyMainCenter) Width
 //
@@ -4061,10 +4061,10 @@ var calloutBlockWidthNarrow = '82%';
 var layoutBlockWidth;
 var calloutBlockWidth;
 //
-var elementBlockCn;
+var bodylockCn;
 //
-var elementWidthDefault = 250;
-var elBodyBlockWidth;
+var layoutBlockWidthDefault = 250;
+var bodyBlockWidth;
 //
 function fnWindowResize() {
       // Recalculate Screen Display
@@ -4078,24 +4078,24 @@ function fnWindowResize() {
       // ...................................... //
       // Load Containers if missing
       //
-	  if (!elBodyMainLeft) { fnElementObjectContainerCreate(); }
+	  if (!bodyMainLeft) { fnElementObjectContainerCreate(); }
       // ...................................... //
       // Recalculate Positions for Menu Images
 	  if (layoutResizeCn = 0) { fnWindowContainerHeightGetAll(); }
       //
-	  var elBodyMainCenterLeftAdj = 0;
-	  var elBodyMainCenterWidthAdj = 0;
+	  var bodyMainCenterLeftAdj = 0;
+	  var bodyMainCenterWidthAdj = 0;
 	  //
 	// ...................................... //
 	// Process DivBox and Callout layout
 	//
 	// Count Display Blocks (s/b DivBox containers)
-	elementBlockCn = fnElementObjectBlockCount();
+	bodylockCn = fnElementObjectBlockCount();
 	//
 	// Determine DivBox (Body Content) column and callout sizes
-	if (elBodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && elementBlockCn > 4 && columnMax > 2) {
+	if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && bodylockCn > 4 && layoutBodyColumnMax > 2) {
 			layoutBlockWidth = layoutBlockWidthWide;
-	} else if (elBodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutEmRation)   && columnMax > 1) {
+	} else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutEmRation)   && layoutBodyColumnMax > 1) {
 			layoutBlockWidth = layoutBlockWidthStandard;
 	} else {
 			layoutBlockWidth  = layoutBlockWidthNarrow;
@@ -4107,40 +4107,40 @@ function fnWindowResize() {
 	if (layoutDocumentWidth > layoutMenuDocWidthWide) {
 		// ...................................... //
 		// Standard Layout
-		if (layoutIndex = layoutStandard && (elBodyMainLeftVisible || elBodyMainRightVisible) ) {
+		if (layoutIndex = layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible) ) {
 			// Left
-			// elBodyMainLeft.style.width = '10%';
-			// elBodyMainLeft.style.width = '15%';
-			if (elBodyMainLeftVisible)  {
-				elBodyMainLeft.style.width = '12%';
+			// bodyMainLeft.style.width = '10%';
+			// bodyMainLeft.style.width = '15%';
+			if (bodyMainLeftVisible)  {
+				bodyMainLeft.style.width = '12%';
 			} else {
-				elBodyMainLeft.style.width = '0%';
-				elBodyMainCenterLeftAdj = 12;
-				elBodyMainCenterWidthAdj += 10;
+				bodyMainLeft.style.width = '0%';
+				bodyMainCenterLeftAdj = 12;
+				bodyMainCenterWidthAdj += 10;
 			}
 			// Right
-			// elBodyMainRight.style.top = 0%
-			if (elBodyMainRightVisible)  {
-				if (layoutUseAbsolute) { elBodyMainRight.style.left = '88%'; }
-				elBodyMainRight.style.width = '12%';
+			// bodyMainRight.style.top = 0%
+			if (bodyMainRightVisible)  {
+				if (layoutUseAbsolute) { bodyMainRight.style.left = '88%'; }
+				bodyMainRight.style.width = '12%';
 			} else {
-				if (layoutUseAbsolute) { elBodyMainRight.style.left = '100%'; }
-				elBodyMainRight.style.width = '0%';
-				elBodyMainCenterWidthAdj += 9;
+				if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+				bodyMainRight.style.width = '0%';
+				bodyMainCenterWidthAdj += 9;
 			}
 			//
 			// Center
-			// elBodyMainCenter.style.top = 0%
-			if (layoutUseAbsolute) { elBodyMainCenter.style.left = (12 - elBodyMainCenterLeftAdj) + '%'; }
-			elBodyMainCenter.style.width = (76 + elBodyMainCenterWidthAdj) + '%';
+			// bodyMainCenter.style.top = 0%
+			if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
+			bodyMainCenter.style.width = (76 + bodyMainCenterWidthAdj) + '%';
 			 //
 		} else {
 			 // ...................................... //
 			 // Wide Layout Options (no side menus)
 			 // Center
-			 // elBodyMainCenter.style.top = 0%
-			 if (layoutUseAbsolute) { elBodyMainCenter.style.left = '0%'; }
-			 elBodyMainCenter.style.width = '100%';
+			 // bodyMainCenter.style.top = 0%
+			 if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+			 bodyMainCenter.style.width = '100%';
 		}
 		//
 		layoutIsWide = true;
@@ -4152,38 +4152,38 @@ function fnWindowResize() {
 		// ...................................... //
 		//
 		// ...................................... //
-	  	 if (layoutIndex = layoutStandard && (elBodyMainLeftVisible || elBodyMainRightVisible) ) {
+	  	 if (layoutIndex = layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible) ) {
         	  	 // Left
-        		 // elBodyMainLeft.style.top = 0%
-        		 // if (layoutUseAbsolute) { elBodyMainLeft.style.left = '0%'; }
-				if (elBodyMainLeftVisible)  {
-					elBodyMainLeft.style.width = '20%';
+        		 // bodyMainLeft.style.top = 0%
+        		 // if (layoutUseAbsolute) { bodyMainLeft.style.left = '0%'; }
+				if (bodyMainLeftVisible)  {
+					bodyMainLeft.style.width = '20%';
 				} else {
-					if (layoutUseAbsolute) { elBodyMainLeft.style.width = '0%'; }
-					elBodyMainCenterLeftAdj = 20;
-					elBodyMainCenterWidthAdj += 20;
+					if (layoutUseAbsolute) { bodyMainLeft.style.width = '0%'; }
+					bodyMainCenterLeftAdj = 20;
+					bodyMainCenterWidthAdj += 20;
 				}
 				 //
         	  	 // Right
-        		 // elBodyMainRight.style.top = 0%
-				if (elBodyMainRightVisible)  {
-					if (layoutUseAbsolute) { elBodyMainRight.style.left = '80%'; }
-					elBodyMainRight.style.width = '20%';
+        		 // bodyMainRight.style.top = 0%
+				if (bodyMainRightVisible)  {
+					if (layoutUseAbsolute) { bodyMainRight.style.left = '80%'; }
+					bodyMainRight.style.width = '20%';
 				} else {
-					if (layoutUseAbsolute) { elBodyMainRight.style.left = '100%'; }
-					elBodyMainRight.style.width = '0%';
-					elBodyMainCenterWidthAdj += 20;
+					if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+					bodyMainRight.style.width = '0%';
+					bodyMainCenterWidthAdj += 20;
 				}
 				 //
         	  	 // Center
-        		 // elBodyMainCenter.style.top = 0%
-        		 if (layoutUseAbsolute) { elBodyMainCenter.style.left = '20%'; }
-        		 elBodyMainCenter.style.width = '60%';
+        		 // bodyMainCenter.style.top = 0%
+        		 if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; }
+        		 bodyMainCenter.style.width = '60%';
 			} else {
         	  	 // Center
-        		 // elBodyMainCenter.style.top = 0%
-        		 if (layoutUseAbsolute) { elBodyMainCenter.style.left = '0%'; }
-        		 elBodyMainCenter.style.width = '100%';
+        		 // bodyMainCenter.style.top = 0%
+        		 if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+        		 bodyMainCenter.style.width = '100%';
 			}
 		//
 		layoutIsWide = false;
@@ -4193,10 +4193,10 @@ function fnWindowResize() {
 		// ...................................... //
 		// Search Sections for Callouts
 		layoutSectionCn = 0;
-		while (elBodyMainCenterCenter.childNodes[layoutSectionCn]) {
+		while (bodyMainCenterCenter.childNodes[layoutSectionCn]) {
 			// ...................................... //
 			// Section
-			layoutSection = elBodyMainCenterCenter.childNodes[layoutSectionCn];
+			layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
 			if (layoutSection.id) {
 			  if ((layoutSection.id).substr(0,4) = 'DivS') {
 				  layoutBlockCn = 0;
@@ -4207,10 +4207,10 @@ function fnWindowResize() {
 					if (layoutBlock.id) {
 						if ((layoutBlock.id).substr(0,4) = 'DivB') {
 							boxClass = layoutBlock.className;
-							columnType = fnStringGetTokenByPrefix(boxClass, 'ColumnType');
-							if (columnType != 'ColumnTypeFixed') { layoutBlock.style.width = layoutBlockWidth; }
-							// elBodyBlockWidth = parseInt(layoutBlock.style.width);
-							elBodyBlockWidth = fnElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, elementWidthDefault);
+							layoutBodyColumnType = fnStringGetTokenByPrefix(boxClass, 'layoutBodyColumnType');
+							if (layoutBodyColumnType != 'layoutBodyColumnTypeFixed') { layoutBlock.style.width = layoutBlockWidth; }
+							// bodyBlockWidth = parseInt(layoutBlock.style.width);
+							bodyBlockWidth = fnElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, layoutBlockWidthDefault);
 							//
 							// ...................................... //
 							// Callout
@@ -4222,12 +4222,12 @@ function fnWindowResize() {
 									if ((calloutBlock.id).substr(0,4) = 'DivC') {
 										// Get Column Type from Box class
 										boxClass = calloutBlock.className;
-										columnType = fnStringGetTokenByPrefix(boxClass, 'ColumnType');
+										layoutBodyColumnType = fnStringGetTokenByPrefix(boxClass, 'layoutBodyColumnType');
 										// Set Callout Width and Layout
-										if (columnType != 'ColumnTypeFixed') {
-											if (elBodyBlockWidth > calloutBlockLayoutWidthWide)  {
+										if (layoutBodyColumnType != 'layoutBodyColumnTypeFixed') {
+											if (bodyBlockWidth > calloutBlockLayoutWidthWide)  {
 												calloutBlock.style.width = calloutBlockWidthWide;
-											} else if (elBodyBlockWidth < calloutBlockLayoutWidthStandard) {
+											} else if (bodyBlockWidth < calloutBlockLayoutWidthStandard) {
 												calloutBlock.style.width = calloutBlockWidthNarrow;
 											} else {
 												calloutBlock.style.width = calloutBlockWidthStandard;
@@ -4260,7 +4260,7 @@ function fnWindowResize() {
 	  //
 	  // if (layoutResizeCn = 1) {
 		//
-		// elBodyMainContainer.style.height = '100%';
+		// bodyMainContainer.style.height = '100%';
 		// Height of left and right menu containers
 		/* -- */
 		//
@@ -4276,23 +4276,23 @@ function fnWindowResize() {
 				errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
-		elBody.style.height = (layoutHeight + 50) + 'px';
-		elBodyMainContainer.style.height = (layoutHeight) + 'px';
+		body.style.height = (layoutHeight + 50) + 'px';
+		bodyMainContainer.style.height = (layoutHeight) + 'px';
 		  //
 		  // Experiments:
-          // // elBodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuHeightHorzMax) + 'px';
-          // // elBodyMainCenter.style.height = 'auto';// '100%';// layoutMenuHeightHorzMax + 'px';
-          // // elBodyMainContainer.style.height = '100%';// (layoutMenuHeightHorzMax) + 'px';// 'auto';// (layoutMenuHeightHorzMax + 100) + 'px';
-          // elBody.style.height = '';// (layoutMenuHeightHorzMax + 100) + 'px';
+          // // bodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuHeightHorzMax) + 'px';
+          // // bodyMainCenter.style.height = 'auto';// '100%';// layoutMenuHeightHorzMax + 'px';
+          // // bodyMainContainer.style.height = '100%';// (layoutMenuHeightHorzMax) + 'px';// 'auto';// (layoutMenuHeightHorzMax + 100) + 'px';
+          // body.style.height = '';// (layoutMenuHeightHorzMax + 100) + 'px';
     	  //
 		  //
-          // elBodyMainLeft.style.height = layoutHeight + 'px';;
-          // elBodyMainRight.style.height = layoutHeight + 'px';;
-          // elBodyMenuLayout1.style.height = layoutHeight + 'px';;
-          // elBodyMenuLayout2.style.height = layoutHeight + 'px';;
+          // bodyMainLeft.style.height = layoutHeight + 'px';;
+          // bodyMainRight.style.height = layoutHeight + 'px';;
+          // bodyLayoutMenu1.style.height = layoutHeight + 'px';;
+          // bodyLayoutMenu2.style.height = layoutHeight + 'px';;
 		  //
-          // elBodyMenuLayout1.style.height = '100%';
-          // elBodyMenuLayout2.style.height = '100%';
+          // bodyLayoutMenu1.style.height = '100%';
+          // bodyLayoutMenu2.style.height = '100%';
           // // BodyMainLeft.style.height = 'auto;
           // // BodyMainRight.style.height = 'auto';
 	  // }
@@ -4458,8 +4458,8 @@ function fnDocumentLoadInit()
     }
 	//
 	// Left and Right Areas
-	if (!elBodyMainLeftVisible) { elBodyMainLeft.style.display = 'none'; }
-	if (!elBodyMainRightVisible) { elBodyMainRight.style.display = 'none'; }
+	if (!bodyMainLeftVisible) { bodyMainLeft.style.display = 'none'; }
+	if (!bodyMainRightVisible) { bodyMainRight.style.display = 'none'; }
 	//
     // Resize Window
     fnWindowResize();
@@ -4572,13 +4572,13 @@ function DebugStart(debugOptionPassed, debugMessagePassed)
 // ..................................................................................... _//
 // Error message build
 // ...................................... //
-var errorMessageFinal = new String();
+var MessageFinal = new String();
 var errorInnerHTML = new String();
 var errorSourceInnerHTML = new String();
 //
 var errorMessageAllLog = new String();
 //
-var errorMessageFinalLog = new String();
+var MessageFinalLog = new String();
 var errorInnerHTMLLog = new String();
 var errorSourceInnerHTMLLog = new String();
 //
@@ -4595,12 +4595,12 @@ function ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 		+ ' ' + eventCurrRootObj.id
 		+ ' ' + eventText
 		+ charNoWrapTagEnd + charNewLineTag
-		+ elBodyConsoleEventTextBox.innerHTML;
+		+ consoleEventTextBox.innerHTML;
 //
-	elBodyConsoleEventTextBox.innerHTML = eventMessage + elBodyConsoleEventTextBox.innerHTML;
+	consoleEventTextBox.innerHTML = eventMessage + consoleEventTextBox.innerHTML;
 //
-	if ((elBodyConsoleEventTextBox.innerHTML).length > consoleLogLengthMax) {
-	    elBodyConsoleEventTextBox.innerHTML = (elBodyConsoleEventTextBox.innerHTML).substr(0, consoleLogLengthTrim); }
+	if ((consoleEventTextBox.innerHTML).length > consoleLogLengthMax) {
+	    consoleEventTextBox.innerHTML = (consoleEventTextBox.innerHTML).substr(0, consoleLogLengthTrim); }
 //
 	if (errorUseDebugOnAll) {
 		fnWindowErrorDebug(eventMessage, eventUrl, eventLine); }
@@ -4615,32 +4615,32 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
     if (!elementPassed) { elementPassed = null; }
     if (!elementSourcePassed) { elementSourcePassed = null; }
     //
-    errorMessageFinal = '';
+    MessageFinal = '';
     // Error Type
     switch (errorSeverityPassed) {
         case errorElementFatal:
-            errorMessageFinal += 'Fatal';
+            MessageFinal += 'Fatal';
             break;
         case errorElementSevere:
-            errorMessageFinal += 'Severe';
+            MessageFinal += 'Severe';
             break;
         case errorElementWarn:
-            errorMessageFinal += 'Warning';
+            MessageFinal += 'Warning';
             break;
         case errorElementComment:
         default:
-            errorMessageFinal += '(Comment) No';
+            MessageFinal += '(Comment) No';
             break;
     }
     //
-    errorMessageFinal += ' Error: ' + errorMsgPassed;
+    MessageFinal += ' Error: ' + errorMsgPassed;
     if ((errorUrlPassed).length)  {
-		errorMessageFinal += ' in ' + errorUrlPassed;
+		MessageFinal += ' in ' + errorUrlPassed;
 		if (!UseSingeLinePassed
-			&& (errorMessageFinal.length > 30
+			&& (MessageFinal.length > 30
 			&& errorUrlPassed.length > 30)
 		)  {
-			errorMessageFinal += charNewLineTag + charTextIndent;
+			MessageFinal += charNewLineTag + charTextIndent;
 		}
 	}
     //
@@ -4662,15 +4662,15 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
            }
            if (tempMessage.length > 0) {
 				if (!UseSingeLinePassed
-					&& (errorMessageFinal.length > 30
+					&& (MessageFinal.length > 30
 					&& tempMessage.length > 30)
 				)  {
-					errorMessageFinal += charNewLineTag + charTextIndent;
+					MessageFinal += charNewLineTag + charTextIndent;
 				}
 				//
-               errorMessageFinal += 'Target tag ' + tempMessage;
+               MessageFinal += 'Target tag ' + tempMessage;
            } else {
-               errorMessageFinal += '. No target tag';
+               MessageFinal += '. No target tag';
            }
 		   //
            if (elementPassed.innerHTML) {
@@ -4684,13 +4684,13 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
 					}
                }
 				if (!UseSingeLinePassed
-					&& (errorMessageFinal.length > 30
+					&& (MessageFinal.length > 30
 					&& tempMessage.length > 30)
 				)  {
-					errorMessageFinal += charNewLineTag + charTextIndent;
+					MessageFinal += charNewLineTag + charTextIndent;
 				}
 				//
-					errorMessageFinal += 'Inner HTML ' + errorInnerHTML;
+					MessageFinal += 'Inner HTML ' + errorInnerHTML;
            }
         }
         //
@@ -4714,18 +4714,18 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
            }
            if (tempMessage.length > 0) {
 				if (!UseSingeLinePassed
-					&& (errorMessageFinal.length > 30
+					&& (MessageFinal.length > 30
 					&& tempMessage.length > 30)
 				)  {
-					errorMessageFinal += charNewLineTag + charTextIndent;
+					MessageFinal += charNewLineTag + charTextIndent;
 				}
 				//
-               errorMessageFinal += 'Source tag ' + tempMessage;
+               MessageFinal += 'Source tag ' + tempMessage;
            } else {
-               errorMessageFinal += '. No source tag';
+               MessageFinal += '. No source tag';
            }
         }
-        errorMessageFinal += '.';
+        MessageFinal += '.';
         //
     }
     //
@@ -4737,26 +4737,26 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
         case errorFatal:
         case errorElementFatal:
             if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
-            // errorLogFatal += errorMessageFinal;
+            // errorLogFatal += MessageFinal;
 			errorSeverityColor = 'Red';
             break;
         case errorSevere:
         case errorElementSevere:
             if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
-            // errorMessageSevere += errorMessageFinal;
+            // errorMessageSevere += MessageFinal;
 			errorSeverityColor = 'Yellow';
             break;
         case errorWarn:
         case errorElementWarn:
             if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
-            // errorMessageWarn += errorMessageFinal;
+            // errorMessageWarn += MessageFinal;
 			errorSeverityColor = 'Orange';
             break;
         case errorComment:
         case errorElementComment:
         default:
             if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
-            // errorMessageComment += errorMessageFinal;
+            // errorMessageComment += MessageFinal;
 			errorSeverityColor = 'Lime';
             break;
     }
@@ -4771,20 +4771,20 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
 		// Coloured button to inform user
 		if (errorSeverityColor != 'White') {
 			if (errorSeverityPassed >= errorSevere || errorSeverityPassed >= errorDebugLevel) {
-				elBodyConsoleClearToggle.style.backgroundColor = errorSeverityColor;
-				elBodyConsoleClearToggle.style.color = 'Black';
-				elBodyConsoleClearToggle.style.borderColor = 'White';
+				consoleClearToggle.style.backgroundColor = errorSeverityColor;
+				consoleClearToggle.style.color = 'Black';
+				consoleClearToggle.style.borderColor = 'White';
 			} else {
-				elBodyConsoleClearToggle.style.borderColor = errorSeverityColor;
+				consoleClearToggle.style.borderColor = errorSeverityColor;
 			}
 		} else {
-			elBodyConsoleClearToggle.style.borderColor = ButtonIsOnColor;
+			consoleClearToggle.style.borderColor = ButtonIsOnColor;
 		}
 		//
 		errorSeverityHighest = errorSeverityPassed;
 	}
     //
-    // errorMessageAllLog += errorMessageFinal;
+    // errorMessageAllLog += MessageFinal;
     //
     ConsoleMessageLogAction(errorMsgPassed,
             errorUrlPassed, errorLineNumPassed, elementPassed, elementSourcePassed,
@@ -4802,21 +4802,21 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
 	//
 	// Text display
 	// New line
-    // elBodyConsoleErrorTextBox.innerHTML = charNewLineTag + elBodyConsoleErrorTextBox.innerHTML;
+    // consoleErrorTextBox.innerHTML = charNewLineTag + consoleErrorTextBox.innerHTML;
 	// Message
     var tempInnerHTML = charNoWrapTagStart + '(#' + tempCount
-			+ ', &#64;' + errorLineNumPassed + ')' + ' ' + errorMessageFinal
-			+ charNoWrapTagEnd + elBodyConsoleErrorTextBox.innerHTML;
-    elBodyConsoleErrorTextBox.innerHTML = tempInnerHTML;
+			+ ', &#64;' + errorLineNumPassed + ')' + ' ' + MessageFinal
+			+ charNoWrapTagEnd + consoleErrorTextBox.innerHTML;
+    consoleErrorTextBox.innerHTML = tempInnerHTML;
 	//
-	if ((elBodyConsoleErrorTextBox.innerHTML).length > consoleLogLengthMax) {
-        elBodyConsoleErrorTextBox.innerHTML = (elBodyConsoleErrorTextBox.innerHTML).substr(0, consoleLogLengthTrim); }
+	if ((consoleErrorTextBox.innerHTML).length > consoleLogLengthMax) {
+        consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substr(0, consoleLogLengthTrim); }
 	//
 	// Scroll to top when not in focus
 	if (browserIsIE)  {
-		// while (consoleErrorLogScrollCn > 20 && !elBodyConsoleErrorTextBox.hasFocus()) {
+		// while (consoleErrorLogScrollCn > 20 && !consoleErrorTextBox.hasFocus()) {
         while (consoleErrorLogScrollCn > 20) {
-			elBodyConsoleErrorTextBox.doScroll('scrollbarPageUp');
+			consoleErrorTextBox.doScroll('scrollbarPageUp');
 			consoleErrorLogScrollCn -= 20;
 		}
 	} else {
@@ -4825,7 +4825,7 @@ function ConsoleMessageLog(UseDebug, UseSingeLinePassed, errorMsgPassed,
 	//
     // Alert
     if (errorDoAlertPassed) {
-        alert('(' + tempCount + ')' + ' ' + fnTextReplace(errorMessageFinal, charNewLineTag, charNewLine) );
+        alert('(' + tempCount + ')' + ' ' + fnTextReplace(MessageFinal, charNewLineTag, charNewLine) );
     }
 	//
     // Abort & Debug
@@ -4926,11 +4926,11 @@ function fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed)
     // if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
 	//
     if (errorUseDebugOnError || errorUseDebugOnAll) {
-        if (elBodyConsoleBox.style.display != 'block')  {
+        if (consoleBox.style.display != 'block')  {
             fnBodyConsoleToggle('ConsoleAll');
             fnBodyConsoleToggle('ConsoleEvent');
             fnBodyConsoleToggle('ConsoleState');
-        } else if (elBodyConsoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
+        } else if (consoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
 		//
         if (browserIsIE) {
             debugger;
@@ -5061,19 +5061,19 @@ function fnElementEventClick(menuImage)
 // Count all Blocks in the Center Center Area
 function fnElementObjectBlockCount()
 {
-	var elementBlockCn = 0;
+	var bodylockCn = 0;
 	// Search Sections for Callouts
 	layoutSectionCn = 0;
-	while (elBodyMainCenterCenter.childNodes[layoutSectionCn]) {
-	layoutSection = elBodyMainCenterCenter.childNodes[layoutSectionCn];
+	while (bodyMainCenterCenter.childNodes[layoutSectionCn]) {
+	layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
 	// Section
 	layoutBlockCn = 0;
 	if (layoutSection.id) {
 		if ((layoutSection.id).substr(0,4) = 'DivS') {
-		  while (elBodyMainCenterCenter.childNodes[layoutSectionCn].childNodes[layoutBlockCn]) {
+		  while (bodyMainCenterCenter.childNodes[layoutSectionCn].childNodes[layoutBlockCn]) {
 		  if (layoutSection.childNodes[layoutBlockCn].id) {
 				if ((layoutSection.childNodes[layoutBlockCn].id).substr(0,4) = 'DivB')  {
-					elementBlockCn += 1;
+					bodylockCn += 1;
 				} // DivB
 		  }
 			  //
@@ -5084,7 +5084,7 @@ function fnElementObjectBlockCount()
 	layoutSectionCn++;
 	} // while sections
 	//
-	return elementBlockCn;
+	return bodylockCn;
 }
 //
 //............................................................---//
@@ -5095,18 +5095,18 @@ function fnElementObjectContainerCreate()
 //............................................................---//
 // Body Container References
 //............................................................---//
-elBody = fnElementGetRef(elBody, 'BodyBox', 'BodyBox');
-elBodyMainContainer = fnElementGetRef(elBodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
+body = fnElementGetRef(body, 'BodyBox', 'BodyBox');
+bodyMainContainer = fnElementGetRef(bodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
 // Body Center Area References
-elBodyMainCenter = fnElementGetRef(elBodyMainCenter,'BodyMainCenter','BodyMainCenter');
+bodyMainCenter = fnElementGetRef(bodyMainCenter,'BodyMainCenter','BodyMainCenter');
 // Body Left Area Copy
-elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');
+bodyMainLeft = fnElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');
 // Body Right Area Copy
-elBodyMainRight = fnElementGetRef(elBodyMainRight,'BodyMainRight','BodyMainRight');
+bodyMainRight = fnElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
 //
-elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
+bodyMainCenterCenter = fnElementGetRef(bodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
 //
-// elColumnType1 = fnElementGetRef(elColumnType1,'ColumnType1','ColumnType1');
+// layoutBodylayoutBodyColumnType1 = fnElementGetRef(layoutBodylayoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
 }
 //
 // ..................................................................................... _//
@@ -5116,7 +5116,7 @@ function fnElementObjectCreate()
 {
 	  // State change at top to avoid duplicate calls.
 	  javaLoadFirst = false;
-	  // elBodyFirst = false;
+	  // bodyFirst = false;
 //............................................................---//
 // Body Container References
 //............................................................---//
@@ -5125,123 +5125,123 @@ fnElementObjectContainerCreate();
 //............................................................---//
 // Banner References (Top Menu, Logo and Graphics)
 //............................................................---//
-elBodyBanner = fnElementGetRef(elBodyBanner, 'BodyBanner', 'BodyBanner');
-elBodyBannerTop = fnElementGetRef(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
-elBodyBannerBottom = fnElementGetRef(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
+bodyBanner = fnElementGetRef(bodyBanner, 'BodyBanner', 'BodyBanner');
+bodyBannerTop = fnElementGetRef(bodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
+bodyBannerBottom = fnElementGetRef(bodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
 //
 //............................................................---//
 // Body View Toggle and Message Area Containers
 //............................................................---//
-// elBodyViewToggle View Toggle and Message Area
-elBodyViewToggleContainer = fnElementGetRef(elBodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
-elBodyViewToggleContainerCenter = fnElementGetRef(elBodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
-elBodyViewToggleContainerLeft = fnElementGetRef(elBodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+// bodyViewToggle View Toggle and Message Area
+bodyViewToggleContainer = fnElementGetRef(bodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+bodyViewToggleContainerCenter = fnElementGetRef(bodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
+bodyViewToggleContainerLeft = fnElementGetRef(bodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
 //
-elBodyConsoleMouseOverToggle = fnElementGetRef(elBodyConsoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
+consoleMouseOverToggle = fnElementGetRef(consoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
 //
 //............................................................---//
 // Body Console Toggle and Message Area
 //............................................................---//
 // Toggle Buttons
-elBodyConsoleBoxButtons = fnElementGetRef(elBodyConsoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
-elBodyConsoleBoxToggles = fnElementGetRef(elBodyConsoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
-elBodyConsoleLogToggles = fnElementGetRef(elBodyConsoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
-elBodyConsoleAuxillaryToggles = fnElementGetRef(elBodyConsoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
+consoleBoxButtons = fnElementGetRef(consoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
+consoleBoxToggles = fnElementGetRef(consoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
+consoleLogToggles = fnElementGetRef(consoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
+consoleAuxillaryToggles = fnElementGetRef(consoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
 //
-elBodyConsoleToggle = fnElementGetRef(elBodyConsoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
+consoleToggle = fnElementGetRef(consoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
 //
-elBodyConsoleErrorToggle = fnElementGetRef(elBodyConsoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
-elBodyConsoleEventToggle = fnElementGetRef(elBodyConsoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
-elBodyConsoleStateToggle = fnElementGetRef(elBodyConsoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
-elBodyConsoleTestToggle = fnElementGetRef(elBodyConsoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
-elBodyConsoleClearToggle = fnElementGetRef(elBodyConsoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
+consoleErrorToggle = fnElementGetRef(consoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
+consoleEventToggle = fnElementGetRef(consoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
+consoleStateToggle = fnElementGetRef(consoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
+consoleTestToggle = fnElementGetRef(consoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
+consoleClearToggle = fnElementGetRef(consoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
 //
-elBodyConsoleDebugButtons = fnElementGetRef(elBodyConsoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
-elBodyConsoleDebugToggles = fnElementGetRef(elBodyConsoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
-elBodyConsoleDebugMainToggles = fnElementGetRef(elBodyConsoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
-elBodyConsoleDebugTypesToggles = fnElementGetRef(elBodyConsoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
+consoleDebugButtons = fnElementGetRef(consoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
+consoleDebugToggles = fnElementGetRef(consoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
+consoleDebugMainToggles = fnElementGetRef(consoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
+consoleDebugTypesToggles = fnElementGetRef(consoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
 //
-elBodyConsoleDebugToggle = fnElementGetRef(elBodyConsoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
+consoleDebugToggle = fnElementGetRef(consoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
 //
-elBodyConsoleDebugMoveToggle = fnElementGetRef(elBodyConsoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
-elBodyConsoleDebugTransitionToggle = fnElementGetRef(elBodyConsoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
-elBodyConsoleDebugDetailToggle = fnElementGetRef(elBodyConsoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
-elBodyConsoleDebugAllToggle = fnElementGetRef(elBodyConsoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
-elBodyConsoleDebugOnErrorToggle = fnElementGetRef(elBodyConsoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
-elBodyConsoleDebugEventsToggle = fnElementGetRef(elBodyConsoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
+consoleDebugMoveToggle = fnElementGetRef(consoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
+consoleDebugTransitionToggle = fnElementGetRef(consoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
+consoleDebugDetailToggle = fnElementGetRef(consoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
+consoleDebugAllToggle = fnElementGetRef(consoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
+consoleDebugOnErrorToggle = fnElementGetRef(consoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
+consoleDebugEventsToggle = fnElementGetRef(consoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
 //
 // Body Console Toggle and Message Area
-elBodyConsoleContainer = fnElementGetRef(elBodyConsoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
-elBodyConsoleBox = fnElementGetRef(elBodyConsoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
-elBodyConsoleErrorBox = fnElementGetRef(elBodyConsoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
-elBodyConsoleErrorTextBox = fnElementGetRef(elBodyConsoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
-elBodyConsoleEventBox = fnElementGetRef(elBodyConsoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
-elBodyConsoleEventTextBox = fnElementGetRef(elBodyConsoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
-elBodyConsoleStateBox = fnElementGetRef(elBodyConsoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
-elBodyConsoleStateTextBox = fnElementGetRef(elBodyConsoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
-elBodyConsoleTestBox = fnElementGetRef(elBodyConsoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
-elBodyConsoleTestTextBox = fnElementGetRef(elBodyConsoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
+consoleContainer = fnElementGetRef(consoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
+consoleBox = fnElementGetRef(consoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
+consoleErrorBox = fnElementGetRef(consoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
+consoleErrorTextBox = fnElementGetRef(consoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
+consoleEventBox = fnElementGetRef(consoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
+consoleEventTextBox = fnElementGetRef(consoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
+consoleStateBox = fnElementGetRef(consoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
+consoleStateTextBox = fnElementGetRef(consoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
+consoleTestBox = fnElementGetRef(consoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
+consoleTestTextBox = fnElementGetRef(consoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
 //
-if (elBodyConsoleBox.style.display = '') { elBodyConsoleBox.style.display = 'none' }
-if (elBodyConsoleErrorBox.style.display = '') { elBodyConsoleErrorBox.style.display = 'block'; }
-if (elBodyConsoleEventBox.style.display = '') { elBodyConsoleEventBox.style.display = 'block'; }
-if (elBodyConsoleStateBox.style.display = '') { elBodyConsoleStateBox.style.display = 'block'; }
-if (elBodyConsoleTestBox.style.display = '') { elBodyConsoleTestBox.style.display = 'block'; }
+if (consoleBox.style.display = '') { consoleBox.style.display = 'none' }
+if (consoleErrorBox.style.display = '') { consoleErrorBox.style.display = 'block'; }
+if (consoleEventBox.style.display = '') { consoleEventBox.style.display = 'block'; }
+if (consoleStateBox.style.display = '') { consoleStateBox.style.display = 'block'; }
+if (consoleTestBox.style.display = '') { consoleTestBox.style.display = 'block'; }
 //
 fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug );
-// if (elBodyConsoleBoxToggles.style.display = '') { elBodyConsoleBoxToggles.style.display = 'block'; }
+// if (consoleBoxToggles.style.display = '') { consoleBoxToggles.style.display = 'block'; }
 fnBodyConsoleShow(DoNotUseHide, DoUseDebug );
-// if (elBodyConsoleDebugToggles.style.display = '') { elBodyConsoleDebugToggles.style.display = 'block'; }
+// if (consoleDebugToggles.style.display = '') { consoleDebugToggles.style.display = 'block'; }
 //
 //............................................................---//
 // Body Center Area References
 //............................................................---//
-// elBodyMainCenter = fnElementGetRef(elBodyMainCenter,'BodyMainCenter','BodyMainCenter');
+// bodyMainCenter = fnElementGetRef(bodyMainCenter,'BodyMainCenter','BodyMainCenter');
 //
-elBodyMainCenterTop = fnElementGetRef(elBodyMainCenterTop,'BodyMainCenterTop','BodyMainCenterTop');
-elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft,'BodyMainCenterTopLeft','BodyMainCenterTopLeft');
-elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight,'BodyMainCenterTopRight','BodyMainCenterTopRight');
+bodyMainCenterTop = fnElementGetRef(bodyMainCenterTop,'BodyMainCenterTop','BodyMainCenterTop');
+bodyMainCenterTopLeft = fnElementGetRef(bodyMainCenterTopLeft,'BodyMainCenterTopLeft','BodyMainCenterTopLeft');
+bodyMainCenterTopRight = fnElementGetRef(bodyMainCenterTopRight,'BodyMainCenterTopRight','BodyMainCenterTopRight');
 //
-elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak,'BodyMainCenterTopColBreak','BodyMainCenterTopColBreak');
+bodyMainCenterTopColBreak = fnElementGetRef(bodyMainCenterTopColBreak,'BodyMainCenterTopColBreak','BodyMainCenterTopColBreak');
 //
-// elBodyMainCenterCenter = fnElementGetRef(elBodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
+// bodyMainCenterCenter = fnElementGetRef(bodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
 //
-elBodyMainCenterBottom = fnElementGetRef(elBodyMainCenterBottom,'BodyMainCenterBottom','BodyMainCenterBottom');
+bodyMainCenterBottom = fnElementGetRef(bodyMainCenterBottom,'BodyMainCenterBottom','BodyMainCenterBottom');
 //
 //............................................................---//
 // Body Left Area Copy
 //............................................................---//
-// elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
-// elBodyMainLeft = fnElementGetRef(elBodyMainLeft,'BodyMainLeft','BodyMainLeft');
-elBodyMainLeftCopy = fnElementCopy(elBodyMainLeftCopy, elBodyMainLeftCopyFirst, elBodyMainLeft, 'block');
-elBodyMainLeftCurr = fnElementCopy(elBodyMainLeftCurr, elBodyMainLeftCurrFirst, elBodyMainLeft, 'block');
-elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'block');
+// bodyMainLeft = fnElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
+// bodyMainLeft = fnElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');
+bodyMainLeftCopy = fnElementCopy(bodyMainLeftCopy, bodyMainLeftCopyFirst, bodyMainLeft, 'block');
+bodyMainLeftCurr = fnElementCopy(bodyMainLeftCurr, bodyMainLeftCurrFirst, bodyMainLeft, 'block');
+bodyMainLeftOrig = fnElementCopy(bodyMainLeftOrig, bodyMainLeftOrigFirst, bodyMainLeft, 'block');
 //
 // if (false = true) {
-elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainLeftCopy)
-// elBodyMainLeftOuter = fnElementGetRef(elBodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
-elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainLeftCopy)
-// elBodyMainLeftInner = fnElementGetRef(elBodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
+bodyMainLeftOuter = fnElementGetRefFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainLeftCopy)
+// bodyMainLeftOuter = fnElementGetRef(bodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
+bodyMainLeftInner = fnElementGetRefFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainLeftCopy)
+// bodyMainLeftInner = fnElementGetRef(bodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
 //
-elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainLeftCopy)
-// elBodyMenuLayout1 = fnElementGetRef(elBodyMenuLayout1,'BodyMenuLayout1','BodyMenuLayout1');
-elMenuContainerLeft1 = fnElementGetRefFromElement(elMenuContainerLeft1, 'MenuContainerLeft1', 'MenuContainerLeft1', elBodyMainLeftCopy)
+bodyLayoutMenu1 = fnElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy)
+// bodyLayoutMenu1 = fnElementGetRef(bodyLayoutMenu1,'BodyMenuLayout1','BodyMenuLayout1');
+elMenuContainerLeft1 = fnElementGetRefFromElement(elMenuContainerLeft1, 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy)
 // elMenuContainerLeft1 = fnElementGetRef(elMenuContainerLeft1,'MenuContainerLeft1','MenuContainerLeft1');
 // Left 1
-elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', elBodyMainLeftCopy)
+elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', bodyMainLeftCopy)
 // elMenuLeft1 = fnElementGetRef(elMenuLeft1,'MenuLeft1','MenuLeft1');
-// elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, elMenuLeft1.id, elMenuLeft1.name, elBodyMainLeft)
+// elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, elMenuLeft1.id, elMenuLeft1.name, bodyMainLeft)
 // var elMenuLeft1Save = fnElementGetRef(elMenuLeft1Save,'MenuLeft1Save','MenuLeft1Save');
 // Left 2
-elMenuContainerLeft2 = fnElementGetRefFromElement(elMenuContainerLeft2, 'MenuContainerLeft2', 'MenuContainerLeft2', elBodyMainLeftCopy)
+elMenuContainerLeft2 = fnElementGetRefFromElement(elMenuContainerLeft2, 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
 // elMenuContainerLeft2 = fnElementGetRef(elMenuContainerLeft2,'MenuContainerLeft2','MenuContainerLeft2');
-elMenuLeft2 = fnElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', elBodyMainLeftCopy)
+elMenuLeft2 = fnElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', bodyMainLeftCopy)
 // elMenuLeft2 = fnElementGetRef(elMenuLeft2,'MenuLeft2','MenuLeft2');
 // var elMenuLeft2Save = fnElementGetRef(elMenuLeft2Save,'MenuLeft2Save','MenuLeft2Save');
 // Left 3
-elMenuContainerLeft3 = fnElementGetRefFromElement(elMenuContainerLeft3, 'MenuContainerLeft3', 'MenuContainerLeft3', elBodyMainLeftCopy)
+elMenuContainerLeft3 = fnElementGetRefFromElement(elMenuContainerLeft3, 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy)
 // elMenuContainerLeft3 = fnElementGetRef(elMenuContainerLeft3,'MenuContainerLeft3','MenuContainerLeft3');
-elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', elBodyMainLeftCopy)
+elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', bodyMainLeftCopy)
 // elMenuLeft3 = fnElementGetRef(elMenuLeft3,'MenuLeft3','MenuLeft3');
 // var elMenuLeft3Save = fnElementGetRef(elMenuLeft3Save,'MenuLeft3Save','MenuLeft3Save');
 // }
@@ -5249,39 +5249,39 @@ elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', 
 //............................................................---//
 // Body Right Area Copy
 //............................................................---//
-// elBodyMainRight = fnElementGetRef(elBodyMainRight,'BodyMainRight','BodyMainRight');
-elBodyMainRightCopy = fnElementCopy(elBodyMainRightCopy, elBodyMainRightCopyFirst, elBody, 'block');
-elBodyMainRightCurr = fnElementCopy(elBodyMainRightCurr, elBodyMainRightCurrFirst, elBodyMainRight, 'block');
-elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'block');
+// bodyMainRight = fnElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
+bodyMainRightCopy = fnElementCopy(bodyMainRightCopy, bodyMainRightCopyFirst, body, 'block');
+bodyMainRightCurr = fnElementCopy(bodyMainRightCurr, bodyMainRightCurrFirst, bodyMainRight, 'block');
+bodyMainRightOrig = fnElementCopy(bodyMainRightOrig, bodyMainRightOrigFirst, bodyMainRight, 'block');
 //
-elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainRightCopy)
-// elBodyMainRightOuter = fnElementGetRef(elBodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
-elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainRightCopy)
-// elBodyMainRightInner = fnElementGetRef(elBodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
+bodyMainRightOuter = fnElementGetRefFromElement(bodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainRightCopy)
+// bodyMainRightOuter = fnElementGetRef(bodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
+bodyMainRightInner = fnElementGetRefFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainRightCopy)
+// bodyMainRightInner = fnElementGetRef(bodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
 //
-elBodyMenuLayout2 = fnElementGetRef(elBodyMenuLayout2,'BodyMenuLayout2','BodyMenuLayout2');
+bodyLayoutMenu2 = fnElementGetRef(bodyLayoutMenu2,'BodyMenuLayout2','BodyMenuLayout2');
 //
-elMenuContainerRight1 = fnElementGetRefFromElement(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1', elBodyMainRightCopy);
+elMenuContainerRight1 = fnElementGetRefFromElement(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1', bodyMainRightCopy);
 // elMenuContainerRight1 = fnElementGetRef(elMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1');
-elMenuRight1 = fnElementGetRefFromElement(elMenuRight1, 'elMenuRight1', 'elMenuRight1', elBodyMainRightCopy);
+elMenuRight1 = fnElementGetRefFromElement(elMenuRight1, 'elMenuRight1', 'elMenuRight1', bodyMainRightCopy);
 // var elMenuRight1Save = fnElementGetRef(elMenuRight1Save,'MenuRight1Save','MenuRight1Save');
-elMenuContainerRight2 = fnElementGetRefFromElement(elMenuContainerRight2,'MenuContainerRight2','MenuContainerRight2', elBodyMainRightCopy);
-elMenuRight2 = fnElementGetRefFromElement(elMenuRight2,'MenuRight2','MenuRight2', elBodyMainRightCopy);
+elMenuContainerRight2 = fnElementGetRefFromElement(elMenuContainerRight2,'MenuContainerRight2','MenuContainerRight2', bodyMainRightCopy);
+elMenuRight2 = fnElementGetRefFromElement(elMenuRight2,'MenuRight2','MenuRight2', bodyMainRightCopy);
 // var elMenuRight2Save = fnElementGetRef(elMenuRight2Save,'MenuRight2Save','MenuRight2Save');
-elMenuContainerRight3 = fnElementGetRefFromElement(elMenuContainerRight3,'MenuContainerRight3','MenuContainerRight3', elBodyMainRightCopy);
-elMenuRight3 = fnElementGetRefFromElement(elMenuRight3,'MenuRight3','MenuRight3', elBodyMainRightCopy);
+elMenuContainerRight3 = fnElementGetRefFromElement(elMenuContainerRight3,'MenuContainerRight3','MenuContainerRight3', bodyMainRightCopy);
+elMenuRight3 = fnElementGetRefFromElement(elMenuRight3,'MenuRight3','MenuRight3', bodyMainRightCopy);
 // var elMenuRight3Save = fnElementGetRef(elMenuRight3Save,'MenuRight3Save','MenuRight3Save');
 //
 //............................................................---//
 // Body Far Right Area
 //............................................................---//
-elBodyMainRightFar = fnElementGetRef(elBodyMainRightFar,'BodyMainRightFar','BodyMainRightFar');
+bodyMainRightFar = fnElementGetRef(bodyMainRightFar,'BodyMainRightFar','BodyMainRightFar');
 //
 //............................................................---//
 // Other...
 //............................................................---//
-// elBodyMainCenterTopColBreak
-elBodyMainCenterTopColBreak = fnElementGetRef(elBodyMainCenterTopColBreak,'BodyMainCenterTopColBreak','BodyMainCenterTopColBreak');
+// bodyMainCenterTopColBreak
+bodyMainCenterTopColBreak = fnElementGetRef(bodyMainCenterTopColBreak,'BodyMainCenterTopColBreak','BodyMainCenterTopColBreak');
 //
 elMenuLeft1ColBreak = fnElementGetRef(elMenuLeft1ColBreak, 'MenuLeft1ColBreak', 'MenuLeft1ColBreak');
 elMenuLeft2ColBreak = fnElementGetRef(elMenuLeft2ColBreak, 'MenuLeft2ColBreak', 'MenuLeft2ColBreak');
@@ -5296,7 +5296,7 @@ elMenuRight3ColBreak = fnElementGetRef(elMenuRight3ColBreak, 'MenuRight3ColBreak
 	  // document.recalc();
 	  //
 	  javaLoadFirst = false;
-	  // elBodyFirst = false;
+	  // bodyFirst = false;
 }
 //
 // ..................................................................................... _//
@@ -5346,8 +5346,8 @@ function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNameP
 		// fnElementGetFromElement(
 		//		elementPassed, elementIdPassed, elementNamePassed,
 		//		elementSourcePassed,
-		//		elementFindDoSetPassed, elementValuePassed
-			elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
+		//		elDoFindSetPassed, elementValuePassed
+			elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elDoFindReturn, null)
 			// elementPassed = elementSourcePassed.getElementsByName(elementIdPassed);
 			// elementPassed = elementSourcePassed.childNodes.item(elementIdPassed);
       	 	// elementPassed = elementSourcePassed.childNodes[elementIdPassed];
@@ -5360,7 +5360,7 @@ function fnElementGetRefFromElement(elementPassed, elementIdPassed, elementNameP
 					DoSet, null);
 			//
 			// elementPassed = elementSourcePassed.getElementById(elementIdPassed);
-			// elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elementFindDoReturn, null)
+			// elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elDoFindReturn, null)
       	 	// elementPassed = document.getElementById(elementIdPassed);
         }
         return elementPassed;
@@ -5437,7 +5437,7 @@ function fnElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePas
 function fnElementGetFromElement(
 		elementPassed, elementIdPassed, elementNamePassed,
 		elementSourcePassed,
-		elementFindDoSetPassed, elementValuePassed
+		elDoFindSetPassed, elementValuePassed
 		)
 {
     // Dest = fnElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
@@ -5458,7 +5458,7 @@ function fnElementGetFromElement(
               if (elementChildObject.id != null) {
 			  if (elementChildObject.id != '' && elementChildObject.id == elementIdPassed) {
                   //
-                  if (elementFindDoSetPassed = elementFindDoSet) {
+                  if (elDoFindSetPassed = elDoFindSet) {
     				  	if (elementFound) {
                           	elementSourcePassed.childNodes[elmCn] = elementPassed;
     					} else {
@@ -5492,7 +5492,7 @@ function fnElementGetFromElement(
 			  //
     	  	  if (elementChildObject.childNodes) {
     	  	  if (elementChildObject.childNodes.length) {
-    		  		elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elementFindDoSetPassed, elementValuePassed);
+    		  		elementPassed = fnElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elDoFindSetPassed, elementValuePassed);
     				if (elementFound) { return elementPassed; }
     		  }
     		  }
@@ -5598,7 +5598,7 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 		} else {
         	elementTarget = document.createElement('br');
 		}
-		elementTarget = fnElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elementFindDoReturn, null);
+		elementTarget = fnElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elDoFindReturn, null);
         // elementTarget = fnElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
 		//
 		// note: Switched from 'in' element operator to If(element.property)
@@ -5660,13 +5660,13 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 // ..................................................................................... _//
 // Element Position Get
 // ...................................... //
-function fnElementPosGet(DoScroll, DoBase, elementPassed, elementWidthDefault, elementHeightDefault)
+function fnElementPosGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault, elHeightDefault)
 {
    oObjTop = fnElementTopMaxGet(DoScroll, DoBase, elementPassed);
    oObjLeft = fnElementLeftMaxGet(DoScroll, DoBase, elementPassed);
    if (!oObjTop || !oObjLeft) { fnElementPosCalculate(elementPassed) } else  {
-       oObjWidth = fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault);
-       oObjHeight = fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault);
+       oObjWidth = fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault);
+       oObjHeight = fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault);
    }
    //
    return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
@@ -5760,7 +5760,7 @@ function fnElementLeftMaxGet(DoScroll, DoBase, elementPassed)
 // ..................................................................................... _//
 // ...................................... //
 // Layout Width Get
-function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefault)
+function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault)
 {
 	var DoOffset = true;
 	if (!elementPassed) { return 0; }
@@ -5779,7 +5779,7 @@ function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefau
 	if (DoScroll) {
 		if (widthScroll > thisWidth) { thisWidth = widthScroll; }
 	}
-	if (thisWidth = 0) { thisWidth = elementWidthDefault; }
+	if (thisWidth = 0) { thisWidth = layoutBlockWidthDefault; }
 	if (thisWidth > 3000) {
 		// ERROR
 		thisWidth = 3000;
@@ -5797,7 +5797,7 @@ function fnElementWidthMaxGet(DoScroll, DoBase, elementPassed, elementWidthDefau
 	var heightNode = 0;
 	var heightRects = 0;
 	var clientRectsIndex = 0;
-function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDefault)
+function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault)
 {
 	var DoOffset = true;
 	if (!elementPassed) { return 0; }
@@ -5826,10 +5826,10 @@ function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDef
 	if (thisHeight = 0)  {
 		// Dom Add:
 		// all else failed so use the protype approach...
-		var elBodyTempContainer = document.getElementById('BodyTempContainer');
-		elBodyTempContainer.appendChild(elementPassed.cloneNode(true));
-		heightNode = elBodyTempContainer.childNodes[0].offsetHeight;
-		elBodyTempContainer.removeChild(elBodyTempContainer.childNodes[0]);
+		var bodyTempContainer = document.getElementById('BodyTempContainer');
+		bodyTempContainer.appendChild(elementPassed.cloneNode(true));
+		heightNode = bodyTempContainer.childNodes[0].offsetHeight;
+		bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
 		if (heightNode > thisHeight) { thisHeight = heightNode; }
 		//
 		// Bounding Rect:
@@ -5850,7 +5850,7 @@ function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDef
 	//
 	// Minimum or default
     // Default height not appropriate here
-	// if (thisHeight = 0) { thisHeight = elementHeightDefault; }
+	// if (thisHeight = 0) { thisHeight = elHeightDefault; }
 	// Maximum
 	if (thisHeight > 10000) {
 		// ERROR
@@ -5862,7 +5862,7 @@ function fnElementHeightMaxGet(DoScroll, DoBase, elementPassed, elementHeightDef
 // ..................................................................................... _//
 // ...................................... //
 // Layout Height Note
-function fnElementLayoutHeightNote(DoScroll, DoBase, elementPassed, elementWidthDefault)
+function fnElementLayoutHeightNote(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault)
 {
 	// From: http://stackoverflow.com/questions/526347/css-javascript-how-do-you-get-the-rendered-height-of-an-element
 	//
@@ -5898,30 +5898,30 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Mouse Over Menus is OFF',
                     'fnBodyConsoleToggle', 8307, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
+            consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
         } else {
             eventMouseOverEnabled = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Mouse Over Menus is ON',
                     'fnBodyConsoleToggle', 8314, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
+            consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
         }
 		//
         break;
 		//
     case 'ConsoleError':
-        if (elBodyConsoleBox.style.display != 'block')  {
-            boxStyleSaved = elBodyConsoleErrorBox.style.display;
+        if (consoleBox.style.display != 'block')  {
+            boxStyleSaved = consoleErrorBox.style.display;
             fnBodyConsoleToggle('ConsoleAll');
-            elBodyConsoleErrorBox.style.display = boxStyleSaved;
+            consoleErrorBox.style.display = boxStyleSaved;
         } else {
-			if (elBodyConsoleErrorBox.style.display != 'block') {
-				elBodyConsoleErrorBox.style.display = 'block';
-				elBodyConsoleErrorToggle.style.borderColor = ButtonIsOnColor;
+			if (consoleErrorBox.style.display != 'block') {
+				consoleErrorBox.style.display = 'block';
+				consoleErrorToggle.style.borderColor = ButtonIsOnColor;
 			} else {
-				elBodyConsoleErrorBox.style.display = 'none';
-				elBodyConsoleErrorToggle.style.borderColor = ButtonIsOffColor;
+				consoleErrorBox.style.display = 'none';
+				consoleErrorToggle.style.borderColor = ButtonIsOffColor;
 			}
 		}
 		//
@@ -5930,19 +5930,19 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
 		//
     case 'ConsoleEvent':
-        if (elBodyConsoleBox.style.display != 'block') {
-            boxStyleSaved = elBodyConsoleEventBox.style.display;
+        if (consoleBox.style.display != 'block') {
+            boxStyleSaved = consoleEventBox.style.display;
             fnBodyConsoleToggle('ConsoleAll');
-            elBodyConsoleEventBox.style.display = boxStyleSaved;
+            consoleEventBox.style.display = boxStyleSaved;
         } else {
-			if (elBodyConsoleEventBox.style.display != 'block') {
-				elBodyConsoleEventBox.style.display = 'block';
-				elBodyConsoleEventToggle.style.borderColor = ButtonIsOnColor;
-				elBodyConsoleErrorBox.style.width = '31%';
+			if (consoleEventBox.style.display != 'block') {
+				consoleEventBox.style.display = 'block';
+				consoleEventToggle.style.borderColor = ButtonIsOnColor;
+				consoleErrorBox.style.width = '31%';
 			} else {
-				elBodyConsoleEventBox.style.display = 'none';
-				elBodyConsoleEventToggle.style.borderColor = ButtonIsOffColor;
-				elBodyConsoleErrorBox.style.width = '64%';
+				consoleEventBox.style.display = 'none';
+				consoleEventToggle.style.borderColor = ButtonIsOffColor;
+				consoleErrorBox.style.width = '64%';
 			}
 		}
 		//
@@ -5951,20 +5951,20 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
 		//
     case 'ConsoleState':
-        if (elBodyConsoleBox.style.display != 'block') {
+        if (consoleBox.style.display != 'block') {
 			if (debugStateLoadFirst) { DebugParameterInit(); }
-            boxStyleSaved = elBodyConsoleStateBox.style.display;
+            boxStyleSaved = consoleStateBox.style.display;
             fnBodyConsoleToggle('ConsoleAll');
-            elBodyConsoleStateBox.style.display = boxStyleSaved;
+            consoleStateBox.style.display = boxStyleSaved;
         } else {
-			if (elBodyConsoleStateBox.style.display != 'block') {
-				elBodyConsoleStateBox.style.display = 'block';
-				elBodyConsoleStateTextBox.style.display = 'block';
-				elBodyConsoleStateToggle.style.borderColor = ButtonIsOnColor;
+			if (consoleStateBox.style.display != 'block') {
+				consoleStateBox.style.display = 'block';
+				consoleStateTextBox.style.display = 'block';
+				consoleStateToggle.style.borderColor = ButtonIsOnColor;
 			} else {
-				elBodyConsoleStateBox.style.display = 'none';
-				elBodyConsoleStateTextBox.style.display = 'none';
-				elBodyConsoleStateToggle.style.borderColor = ButtonIsOffColor;
+				consoleStateBox.style.display = 'none';
+				consoleStateTextBox.style.display = 'none';
+				consoleStateToggle.style.borderColor = ButtonIsOffColor;
 			}
 		}
 		//
@@ -5973,21 +5973,21 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
 		//
     case 'ConsoleTest':
-        if (elBodyConsoleBox.style.display != 'block') {
-            boxStyleSaved = elBodyConsoleTestBox.style.display;
+        if (consoleBox.style.display != 'block') {
+            boxStyleSaved = consoleTestBox.style.display;
             fnBodyConsoleToggle('ConsoleAll');
-            elBodyConsoleTestBox.style.display = boxStyleSaved;
+            consoleTestBox.style.display = boxStyleSaved;
         }
 		//
-        if (elBodyConsoleTestBox.style.display != 'block') {
-            elBodyConsoleTestBox.style.display = 'block';
-            elBodyConsoleTestTextBox.style.display = 'block';
-            elBodyConsoleTestToggle.style.borderColor = ButtonIsOnColor;
+        if (consoleTestBox.style.display != 'block') {
+            consoleTestBox.style.display = 'block';
+            consoleTestTextBox.style.display = 'block';
+            consoleTestToggle.style.borderColor = ButtonIsOnColor;
         }
         // execute test
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingeLine,
 				'This is a test message for checking the console display...',
-                'fnBodyConsoleToggle', 8225, elBodyConsoleTestBox, elBodyConsoleTestBox,
+                'fnBodyConsoleToggle', 8225, consoleTestBox, consoleTestBox,
                 errorSevere, errorDoDisplayTag, errorDoAlert);
 		//
         checkNoVisibleConsole = true;
@@ -5995,15 +5995,15 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
 		//
     case 'ConsoleClear':
-		elBodyConsoleErrorTextBox.innerHTML = '';
+		consoleErrorTextBox.innerHTML = '';
 		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 			'Error and Log Console has been cleared...',
 			'fnBodyConsoleToggle', 8235, null, null,
 			errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
-		elBodyConsoleClearToggle.style.backgroundColor = '';
-		elBodyConsoleClearToggle.style.color = '';
-		elBodyConsoleClearToggle.style.borderColor = '';
+		consoleClearToggle.style.backgroundColor = '';
+		consoleClearToggle.style.color = '';
+		consoleClearToggle.style.borderColor = '';
 		errorSeverityHighest = 0;
         checkNoVisibleConsole = true;
         checkBoxSize = true;
@@ -6011,25 +6011,25 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 // ..................................................................................... _//
 //
     case 'ConsoleDebug':
-        if (elBodyConsoleDebugMainToggles.style.display != 'block') {
+        if (consoleDebugMainToggles.style.display != 'block') {
 			debugTimerMove = true;
-			elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 			debugTimerTransition = true;
-			elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 			debugTimerDetail = true;
-			elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 			errorUseDebugOnAll = true;
-			elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 			errorUseDebugOnError = true;
-			elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 			// errorUseDebugOnError = true;
-			// elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
+			// consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 			debugLogEvents = true;
-			elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 			//
 			fnBodyConsoleShow(DoNotUseHide, DoUseDebug);
             //
-			if (elBodyConsoleBox.style.display != 'block')  {
+			if (consoleBox.style.display != 'block')  {
 				fnBodyConsoleToggle('ConsoleAll');
 			}
 			//
@@ -6046,23 +6046,23 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         } else {
 		//
 			debugTimerMove = false;
-			elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 			debugTimerTransition = false;
-			elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			debugTimerDetail = false;
-			elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			errorUseDebugOnAll = false;
-			elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			errorUseDebugOnError = false;
-			elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			// errorUseDebugOnError = false;
-			// elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
+			// consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 			debugLogEvents = false;
-			elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			//
 			fnBodyConsoleShow(DoUseHide, DoUseDebug);
-            // elBodyConsoleDebugToggles.style.display = 'none';
-            elBodyConsoleDebugToggle.style.borderColor = ButtonIsOffColor;
+            // consoleDebugToggles.style.display = 'none';
+            consoleDebugToggle.style.borderColor = ButtonIsOffColor;
 			fnBodyConsoleDebugButtons = false;
         }
         break;
@@ -6074,14 +6074,14 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Debug Move is OFF',
                     'fnBodyConsoleToggle', 8307, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
+            consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
         } else {
             debugTimerMove = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Move is ON',
                     'fnBodyConsoleToggle', 8314, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
+            consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 			checkLogMode = true;
         }
 		//
@@ -6098,14 +6098,14 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Debug Transition is OFF',
                     'fnBodyConsoleToggle', 8331, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
+            consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
         } else {
             debugTimerTransition = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Transition is ON',
                     'fnBodyConsoleToggle', 8338, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
+            consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 			checkLogMode = true;
         }
 		//
@@ -6122,14 +6122,14 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Debug Detail is OFF',
                     'fnBodyConsoleToggle', 8355, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
+            consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
         } else {
             debugTimerDetail = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug Detail is ON',
                     'fnBodyConsoleToggle', 8362, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
+            consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 			checkLogMode = true;
         }
 		//
@@ -6144,14 +6144,14 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Debug On Error in debugger is OFF',
                     'fnBodyConsoleToggle', 8377, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
+            consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
         } else {
 			errorUseDebugOnError = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug On Error in debugger is ON',
                     'fnBodyConsoleToggle', 8384, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
+            consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 			checkLogMode = true;
         }
 		checkLogModeSeeEvents = false;
@@ -6166,7 +6166,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Debug All messages in debugger is OFF',
                     'fnBodyConsoleToggle', 8399, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
+            consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
         } else {
             errorUseDebugOnAll = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
@@ -6174,7 +6174,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
                     'fnBodyConsoleToggle', 8406, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 			if (!errorUseDebugOnError) { fnBodyConsoleToggle('ConsoleDebugOnError'); }
-            elBodyConsoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+            consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 			checkLogMode = true;
         }
 		//
@@ -6190,14 +6190,14 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 					'Debug (Mouse) Events is OFF',
                     'fnBodyConsoleToggle', 8423, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+            consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
         } else {
             debugLogEvents = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 					'Debug (Mouse) Events is ON',
                     'fnBodyConsoleToggle', 8430, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-            elBodyConsoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
+            consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 			checkLogMode = true;
         }
 		//
@@ -6216,25 +6216,25 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 	//
 	if (checkLogMode) {
 		if (checkLogModeSeeErrors) {
-			if (elBodyConsoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			if (consoleErrorBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleError'); }
 		} else {
-			// if (elBodyConsoleErrorBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleError'); }
+			// if (consoleErrorBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleError'); }
 		}
 		if (checkLogModeSeeEvents) {
-			if (elBodyConsoleEventBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
+			if (consoleEventBox.style.display != 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
 		} else {
-			// if (elBodyConsoleEventBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
+			// if (consoleEventBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleEvent'); }
 		}
-        if (elBodyConsoleStateBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleState'); }
+        if (consoleStateBox.style.display = 'block') { fnBodyConsoleToggle('ConsoleState'); }
 	}
     //
     // Check if any Console Box settings are on or content is visible
     if (checkNoVisibleConsole) {
-        if (elBodyConsoleErrorBox.style.display != 'block'
-			&& elBodyConsoleEventBox.style.display != 'block'
-			&& elBodyConsoleStateBox.style.display != 'block'
+        if (consoleErrorBox.style.display != 'block'
+			&& consoleEventBox.style.display != 'block'
+			&& consoleStateBox.style.display != 'block'
 		) {
-			elBodyConsoleBox.style.display = 'none';
+			consoleBox.style.display = 'none';
 			fnBodyConsoleShow(DoHide = true, DoDebug = false);
 			checkBoxSize = false;
         } else {
@@ -6244,7 +6244,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
     }
     // Check if any Debugs settings are on or content is visible
     if (checkNoVisibleDebug) {
-        if (elBodyConsoleDebugToggles.style.display != 'block'
+        if (consoleDebugToggles.style.display != 'block'
 			&& !debugTimerMove
 			&& !debugTimerTransition
 			&& !debugTimerDetail
@@ -6265,47 +6265,47 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         checkBoxSize = true;
         // Toggle Test 1 - Buttons Visible
         if (fnBodyConsoleBoxButtons) {
-            if (elBodyConsoleBox.style.display != 'block') {
+            if (consoleBox.style.display != 'block') {
 				//
 				if (debugStateLoadFirst) { DebugParameterInit(); }
 				//
-				// elBodyConsoleTop.style.display = 'block';
+				// consoleTop.style.display = 'block';
 				//
-                elBodyConsoleBox.style.display = 'block';
+                consoleBox.style.display = 'block';
                 //
 				fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
                 //
-                if (elBodyConsoleErrorBox.style.display != 'block'
-                 && elBodyConsoleEventBox.style.display != 'block'
-                 && elBodyConsoleStateBox.style.display != 'block') {
-                        elBodyConsoleErrorBox.style.display = 'block';
-                        elBodyConsoleEventBox.style.display = 'block';
-                        elBodyConsoleStateBox.style.display = 'block';
-                        elBodyConsoleStateTextBox.style.display = 'block';
-                        elBodyConsoleStateTextBox.style.display = 'block';
-                        elBodyConsoleTestBox.style.display = 'block';
-                        elBodyConsoleTestTextBox.style.display = 'block';
-                        elBodyConsoleTestToggle.style.display = 'block';
-                        elBodyConsoleClearToggle.style.display = 'block';
+                if (consoleErrorBox.style.display != 'block'
+                 && consoleEventBox.style.display != 'block'
+                 && consoleStateBox.style.display != 'block') {
+                        consoleErrorBox.style.display = 'block';
+                        consoleEventBox.style.display = 'block';
+                        consoleStateBox.style.display = 'block';
+                        consoleStateTextBox.style.display = 'block';
+                        consoleStateTextBox.style.display = 'block';
+                        consoleTestBox.style.display = 'block';
+                        consoleTestTextBox.style.display = 'block';
+                        consoleTestToggle.style.display = 'block';
+                        consoleClearToggle.style.display = 'block';
                 }
             //
-			if (elBodyConsoleErrorBox.style.display = 'block')  {
-				elBodyConsoleErrorToggle.style.borderColor = ButtonIsOnColor;
-			} else { elBodyConsoleErrorToggle.style.borderColor = ButtonIsOffColor; }
+			if (consoleErrorBox.style.display = 'block')  {
+				consoleErrorToggle.style.borderColor = ButtonIsOnColor;
+			} else { consoleErrorToggle.style.borderColor = ButtonIsOffColor; }
 			//
-			if (elBodyConsoleEventBox.style.display = 'block') {
-				elBodyConsoleEventToggle.style.borderColor = ButtonIsOnColor;
-			} else { elBodyConsoleEventToggle.style.borderColor = ButtonIsOffColor; }
+			if (consoleEventBox.style.display = 'block') {
+				consoleEventToggle.style.borderColor = ButtonIsOnColor;
+			} else { consoleEventToggle.style.borderColor = ButtonIsOffColor; }
 			//
-			if (elBodyConsoleStateBox.style.display = 'block') {
-				elBodyConsoleStateToggle.style.borderColor = ButtonIsOnColor;
-			} else { elBodyConsoleStateToggle.style.borderColor = ButtonIsOffColor; }
+			if (consoleStateBox.style.display = 'block') {
+				consoleStateToggle.style.borderColor = ButtonIsOnColor;
+			} else { consoleStateToggle.style.borderColor = ButtonIsOffColor; }
 			//
             // Toggle Test 2 - Display Not Window Visible
-            } else if (elBodyConsoleBox.style.display = 'block') {
-                // elBodyConsoleTop.style.display = 'none';
+            } else if (consoleBox.style.display = 'block') {
+                // consoleTop.style.display = 'none';
 				//
-                elBodyConsoleBox.style.display = 'none';
+                consoleBox.style.display = 'none';
                 //
 				fnBodyConsoleShow(DoUseHide, DoNotUseDebug);
                 //
@@ -6314,7 +6314,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         // Toggle Test 2 - Display Window Visible
         } else {
 			//
-            elBodyConsoleBox.style.display = 'block';
+            consoleBox.style.display = 'block';
 			//
 			fnBodyConsoleShow(DoNotUseHide, DoNotUseDebug);
         }
@@ -6322,68 +6322,68 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
     }
     //
-    if (elBodyConsoleStateBox.style.display = 'block') {
+    if (consoleStateBox.style.display = 'block') {
         // State visible
-        if (elBodyConsoleErrorBox.style.display != 'block') {
+        if (consoleErrorBox.style.display != 'block') {
             // State visible, no Error visible
-            if (elBodyConsoleEventBox.style.display != 'block') {
+            if (consoleEventBox.style.display != 'block') {
                 // State visible, no Error & Event visible
-                elBodyConsoleStateBox.style.left = '2%';
-                elBodyConsoleStateBox.style.width = '97%';
+                consoleStateBox.style.left = '2%';
+                consoleStateBox.style.width = '97%';
             } else {
                 // State & Event, no Error visible
-                elBodyConsoleEventBox.style.left = '2%';
-                elBodyConsoleEventBox.style.width = '31%';
+                consoleEventBox.style.left = '2%';
+                consoleEventBox.style.width = '31%';
                 //
-                elBodyConsoleStateBox.style.left = '35%';
-                elBodyConsoleStateBox.style.width = '64%';
+                consoleStateBox.style.left = '35%';
+                consoleStateBox.style.width = '64%';
             }
         } else {
             // State & Error visible
-            if (elBodyConsoleEventBox.style.display != 'block') {
+            if (consoleEventBox.style.display != 'block') {
                 // State & Error visible, no Event visible
-                elBodyConsoleErrorBox.style.left = '2%';
-                elBodyConsoleErrorBox.style.width = '64%';
+                consoleErrorBox.style.left = '2%';
+                consoleErrorBox.style.width = '64%';
                 //
-                elBodyConsoleStateBox.style.left = '68%';
-                elBodyConsoleStateBox.style.width = '31%';
+                consoleStateBox.style.left = '68%';
+                consoleStateBox.style.width = '31%';
                 //
             } else {
                 // State, Error & Event visible
-                elBodyConsoleErrorBox.style.left = '2%';
-                elBodyConsoleErrorBox.style.width = '31%';
+                consoleErrorBox.style.left = '2%';
+                consoleErrorBox.style.width = '31%';
                 //
-                elBodyConsoleEventBox.style.left = '35%';
-                elBodyConsoleEventBox.style.width = '31%';
+                consoleEventBox.style.left = '35%';
+                consoleEventBox.style.width = '31%';
                 //
-                elBodyConsoleStateBox.style.left = '68%';
-                elBodyConsoleStateBox.style.width = '31%';
+                consoleStateBox.style.left = '68%';
+                consoleStateBox.style.width = '31%';
             }
         }
     } else {
         // State not visible
-        if (elBodyConsoleErrorBox.style.display != 'block') {
+        if (consoleErrorBox.style.display != 'block') {
             // no State & Error visible
-            if (elBodyConsoleEventBox.style.display != 'block') {
+            if (consoleEventBox.style.display != 'block') {
                 // nothing visible, no State, Error & Event visible
             } else {
                 // Event visible, no State & Error visible
-                elBodyConsoleEventBox.style.left = '2%';
-                elBodyConsoleEventBox.style.width = '97%';
+                consoleEventBox.style.left = '2%';
+                consoleEventBox.style.width = '97%';
             }
         } else {
             // Error visible, no State visible
-            if (elBodyConsoleEventBox.style.display != 'block') {
+            if (consoleEventBox.style.display != 'block') {
                 // Error visible, no State & Event visible
-                elBodyConsoleErrorBox.style.left = '2%';
-                elBodyConsoleErrorBox.style.width = '97%';
+                consoleErrorBox.style.left = '2%';
+                consoleErrorBox.style.width = '97%';
             } else {
                 // Error & Event visible, no State visible
-                elBodyConsoleErrorBox.style.left = '2%';
-                elBodyConsoleErrorBox.style.width = '46%';
+                consoleErrorBox.style.left = '2%';
+                consoleErrorBox.style.width = '46%';
                 //
-                elBodyConsoleEventBox.style.left = '52%';
-                elBodyConsoleEventBox.style.width = '46%';
+                consoleEventBox.style.left = '52%';
+                consoleEventBox.style.width = '46%';
                 //
             }
         }
@@ -6405,15 +6405,15 @@ function fnBodyConsoleShow(DoHide, DoDebug)
 		if (DoHide) {
 			fnBodyConsoleDebugButtons = false;
 			// BodyConsoleDebugToggles.style.display = 'none';
-			elBodyConsoleDebugMainToggles.style.display = 'none';
-			elBodyConsoleDebugTypesToggles.style.display = 'none';
+			consoleDebugMainToggles.style.display = 'none';
+			consoleDebugTypesToggles.style.display = 'none';
 		} else {
 			fnBodyConsoleDebugButtons = true;
 			// BodyConsoleDebugToggles.style.display = 'block';
-			elBodyConsoleDebugMainToggles.style.display = 'block';
-			elBodyConsoleDebugTypesToggles.style.display = 'block';
+			consoleDebugMainToggles.style.display = 'block';
+			consoleDebugTypesToggles.style.display = 'block';
 		}
-        if (elBodyConsoleDebugToggles.style.display != 'block'
+        if (consoleDebugToggles.style.display != 'block'
 			&& !debugTimerMove
 			&& !debugTimerTransition
 			&& !debugTimerDetail
@@ -6422,32 +6422,32 @@ function fnBodyConsoleShow(DoHide, DoDebug)
 			&& !debugLogEvents
 		) {
 			// 			&& !errorUseDebugOnError
-			elBodyConsoleDebugToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugToggle.style.borderColor = ButtonIsOffColor;
         } else {
-			elBodyConsoleDebugToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugToggle.style.borderColor = ButtonIsOnColor;
 		}
 	} else {
 		//
 		// Process Console Box Action
 		if (DoHide) {
             fnBodyConsoleBoxButtons = false;
-			elBodyConsoleLogToggles.style.display = 'none';
-			elBodyConsoleAuxillaryToggles.style.display = 'none';
+			consoleLogToggles.style.display = 'none';
+			consoleAuxillaryToggles.style.display = 'none';
 		} else {
             fnBodyConsoleBoxButtons = true;
-			elBodyConsoleLogToggles.style.display = 'block';
-			elBodyConsoleAuxillaryToggles.style.display = 'block';
+			consoleLogToggles.style.display = 'block';
+			consoleAuxillaryToggles.style.display = 'block';
 		}
-        if (elBodyConsoleBox.style.display != 'block'
+        if (consoleBox.style.display != 'block'
 		) {
 			/*
-			&& elBodyConsoleErrorBox.style.display != 'block'
-			&& elBodyConsoleEventBox.style.display != 'block'
-			&& elBodyConsoleStateBox.style.display != 'block'
+			&& consoleErrorBox.style.display != 'block'
+			&& consoleEventBox.style.display != 'block'
+			&& consoleStateBox.style.display != 'block'
         */
-        elBodyConsoleToggle.style.borderColor = ButtonIsOffColor;
+        consoleToggle.style.borderColor = ButtonIsOffColor;
         } else {
-        elBodyConsoleToggle.style.borderColor = ButtonIsOnColor;
+        consoleToggle.style.borderColor = ButtonIsOnColor;
         }
         //
         }
@@ -6542,35 +6542,35 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
         //............................................................---//
         // Load Element for first pass
         //............................................................---//
-        if (elBodyFirst) {
+        if (bodyFirst) {
         //............................................................---//
         //      Body Element Creation
         if (javaLoadFirst) { fnElementObjectCreate(); }
         //............................................................---//
         //      Body Main Container (contains Left Center and Right
-        if (!elBodyMainContainer) { elBodyMainContainer = document.getElementById('BodyMainContainer'); }
+        if (!bodyMainContainer) { bodyMainContainer = document.getElementById('BodyMainContainer'); }
         // Body Container
         //............................................................---//
         //			    Menu at Left
-        // elBodyMainLeftOrig.innerHTML = elBodyMainLeft.innerHTML;
-        elBodyMainLeftOrig = fnElementCopy(elBodyMainLeftOrig, elBodyMainLeftOrigFirst, elBodyMainLeft, 'none');
-        elBodyMainLeftOrigFirst = false;
+        // bodyMainLeftOrig.innerHTML = bodyMainLeft.innerHTML;
+        bodyMainLeftOrig = fnElementCopy(bodyMainLeftOrig, bodyMainLeftOrigFirst, bodyMainLeft, 'none');
+        bodyMainLeftOrigFirst = false;
         //............................................................---//
         //			    Menu at Right
-        // elBodyMainLeftOrig.innerHTML = elBodyMainRight.innerHTML;
-        elBodyMainRightOrig = fnElementCopy(elBodyMainRightOrig, elBodyMainRightOrigFirst, elBodyMainRight, 'none');
-        elBodyMainRightOrigFirst = false;
+        // bodyMainLeftOrig.innerHTML = bodyMainRight.innerHTML;
+        bodyMainRightOrig = fnElementCopy(bodyMainRightOrig, bodyMainRightOrigFirst, bodyMainRight, 'none');
+        bodyMainRightOrigFirst = false;
         //............................................................---//
         // 	 		 Banner at Center Bottom
-        elBodyBanner = fnElementGetRefFromElement(elBodyBanner, 'BodyBanner', 'BodyBanner', elBodyMainCenterTop);
-        elBodyBannerTop = fnElementGetRefFromElement(elBodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', elBodyMainCenterTop);
-        elBodyBannerBottom = fnElementGetRefFromElement(elBodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', elBodyMainCenterBottom);
-        elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
-        elBodyBannerBottomFirst = false;
+        bodyBanner = fnElementGetRefFromElement(bodyBanner, 'BodyBanner', 'BodyBanner', bodyMainCenterTop);
+        bodyBannerTop = fnElementGetRefFromElement(bodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', bodyMainCenterTop);
+        bodyBannerBottom = fnElementGetRefFromElement(bodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', bodyMainCenterBottom);
+        bodyBannerBottom = fnElementCopy(bodyBannerBottom, bodyBannerBottomFirst, bodyBanner, 'block');
+        bodyBannerBottomFirst = false;
         //
         //............................................................---//
         //  BodyMain Center Center ColBreak
-        elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstDummy = true, 'block', 'visible', 'both')
+        bodyMainCenterTopLeft = fnElementBreakSet(bodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstDummy = true, 'block', 'visible', 'both')
         //
         }
         //
@@ -6589,88 +6589,88 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
         //............................................................---//
         // Enclose Box
         if (BodyMainCenterTopClass.length) {
-        elBodyMainCenterTop.className = BodyMainCenterTopClass;
+        bodyMainCenterTop.className = BodyMainCenterTopClass;
         }
         //............................................................---//
         // Final adjustments to Center Top
         boxHeight = 0;
         //............................................................---//
-        // elBodyViewToggle View Toggle and Message Area
+        // bodyViewToggle View Toggle and Message Area
         //
         // Box
-        boxHeight += elBodyViewToggleContainer.scrollHeight;
+        boxHeight += bodyViewToggleContainer.scrollHeight;
         // Banner Should be zero, don't use..,
-        elBodyBannerTop.style.display = 'block';
-        boxHeight += elBodyBannerTop.scrollHeight;
+        bodyBannerTop.style.display = 'block';
+        boxHeight += bodyBannerTop.scrollHeight;
         //
-        elTitleTopLeft = fnElementGetRefFromElement(elTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', elBodyMainCenterTop);
-        boxHeight += elTitleTopLeft.scrollHeight;
+        bodyTitleTopLeft = fnElementGetRefFromElement(bodyTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', bodyMainCenterTop);
+        boxHeight += bodyTitleTopLeft.scrollHeight;
         //
-        elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
-        boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
+        bodyMainCenterTopColBreak = fnElementGetRefFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
+        boxHeight += bodyMainCenterTopColBreak.scrollHeight;
         //
         // BodyViewToggle + Banner + Left/Right
-        // elBodyMainCenterTop.style.height = boxHeight;
-        elBodyMainCenterTop.style.height = 'auto';
+        // bodyMainCenterTop.style.height = boxHeight;
+        bodyMainCenterTop.style.height = 'auto';
         //............................................................---//
         //			 Menu1 at Left
-        elBodyMainLeft.style.width = '20%';
-        // elBodyMainLeft.style.height = 'auto';
+        bodyMainLeft.style.width = '20%';
+        // bodyMainLeft.style.height = 'auto';
         //............................................................---//
         //			 Body Center 'BodyMainCenter'
-        if (layoutUseAbsolute) { elBodyMainCenter.style.left = '20%'; } // 0.20 * layoutWidth + 3;
-        elBodyMainCenter.style.width = '60%';//0.60 * layoutWidth - 6;
-        // elBodyMainCenter.style.height = '100%';
-        // elBodyMainCenter.style.height = '100%';
+        if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; } // 0.20 * layoutWidth + 3;
+        bodyMainCenter.style.width = '60%';//0.60 * layoutWidth - 6;
+        // bodyMainCenter.style.height = '100%';
+        // bodyMainCenter.style.height = '100%';
         //
         layoutZindex += 1;
-        elBodyMainCenter.style.zIndex = layoutZindex;
+        bodyMainCenter.style.zIndex = layoutZindex;
         //
-        elBodyMainCenterCenter.style.top = 0;
+        bodyMainCenterCenter.style.top = 0;
         //............................................................---//
         //			 Menu2 at Right
-        if (layoutUseAbsolute) { elBodyMainRight.style.left = '80%'; }
-        elBodyMainRight.style.width = '20%';
-        // elBodyMainRight.style.height = 'auto';
+        if (layoutUseAbsolute) { bodyMainRight.style.left = '80%'; }
+        bodyMainRight.style.width = '20%';
+        // bodyMainRight.style.height = 'auto';
         //............................................................---//
         // 	 		 Banner at Top 'BodyBanner'
         //............................................................---//
         // 	 		 Final adjustments
         // this code should also adjust oversided views
         /* --
-        elBodyMainContainer.style.height = layoutHeight;
-        if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainLeft)) {
-      	 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainLeft);
+        bodyMainContainer.style.height = layoutHeight;
+        if (bodyMainContainer.style.height < fnElementHeightMaxGet(true, true, bodyMainLeft)) {
+      	 bodyMainContainer.style.height = fnElementHeightMaxGet(true, true, bodyMainLeft);
       }
-      if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainCenter)) {
-      	 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainCenter);
+      if (bodyMainContainer.style.height < fnElementHeightMaxGet(true, true, bodyMainCenter)) {
+      	 bodyMainContainer.style.height = fnElementHeightMaxGet(true, true, bodyMainCenter);
       }
-      if (elBodyMainContainer.style.height < fnElementHeightMaxGet(true, true, elBodyMainRight)) {
-      	 elBodyMainContainer.style.height = fnElementHeightMaxGet(true, true, elBodyMainRight);
+      if (bodyMainContainer.style.height < fnElementHeightMaxGet(true, true, bodyMainRight)) {
+      	 bodyMainContainer.style.height = fnElementHeightMaxGet(true, true, bodyMainRight);
       }
 	  -- */
-	  // elBodyMainContainer.style.height = 'auto';
+	  // bodyMainContainer.style.height = 'auto';
       //............................................................---//
       // Area Displays
-      elBodyBanner.style.display = 'block';
-      elBodyBannerBottom.style.display = 'none';
-      elBodyBannerTop.style.display = 'block';
-    // elBodyViewToggle View Toggle and Message Area
-	// elBodyViewToggleContainer.style.display = 'none';
-	elBodyViewToggleContainerLeft.style.display = 'block';
-	elBodyViewToggleContainerCenter.style.display = 'none';
+      bodyBanner.style.display = 'block';
+      bodyBannerBottom.style.display = 'none';
+      bodyBannerTop.style.display = 'block';
+    // bodyViewToggle View Toggle and Message Area
+	// bodyViewToggleContainer.style.display = 'none';
+	bodyViewToggleContainerLeft.style.display = 'block';
+	bodyViewToggleContainerCenter.style.display = 'none';
 	//
 	// Console
 	//
-      elBodyMainLeft.style.display = 'block';
-      elBodyMainCenter.style.display = 'block';
-      elBodyMainRight.style.display = 'block';
-      // elBodyMainRightFar.style.display = 'none';
-      elBodyMainCenterTop.style.display = 'block';
-      elBodyMainCenterTopLeft.style.display = 'none';
-      elBodyMainCenterTopRight.style.display = 'none';
-	  elBodyMainCenterCenter.style.display = 'block';
-	  elBodyMainCenterBottom.style.display = 'none';
+      bodyMainLeft.style.display = 'block';
+      bodyMainCenter.style.display = 'block';
+      bodyMainRight.style.display = 'block';
+      // bodyMainRightFar.style.display = 'none';
+      bodyMainCenterTop.style.display = 'block';
+      bodyMainCenterTopLeft.style.display = 'none';
+      bodyMainCenterTopRight.style.display = 'none';
+	  bodyMainCenterCenter.style.display = 'block';
+	  bodyMainCenterBottom.style.display = 'none';
       //............................................................---//
 	  //
 	  layoutStandardFirst = false;
@@ -6687,10 +6687,10 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 //............................................................---//
 //			 Body Center
       // Break between center top and center center
-      // if (layoutUseAbsolute) { elBodyMainCenter.style.left = '0%'; }
-      // elBodyMainCenter.style.top = '0%';
-      // elBodyMainCenter.style.width = '100%';
-      // elBodyMainCenter.style.height = '100%';
+      // if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+      // bodyMainCenter.style.top = '0%';
+      // bodyMainCenter.style.width = '100%';
+      // bodyMainCenter.style.height = '100%';
 //............................................................---//
 //			 Hidden Menu1 at Left
       // Center Top Left Area Columns
@@ -6702,36 +6702,36 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
       //............................................................---//
 	  // Hidden Banner at Bottom
       if (!layoutReadingModeFirst)  {
-         elBodyBannerBottom = fnElementCopy(elBodyBannerBottom, elBodyBannerBottomFirst, elBodyBanner, 'block');
-		 elBodyBannerBottomFirst = false;
+         bodyBannerBottom = fnElementCopy(bodyBannerBottom, bodyBannerBottomFirst, bodyBanner, 'block');
+		 bodyBannerBottomFirst = false;
       }
 	  //
-      elBodyBanner.style.display = 'block';
-      elBodyBannerBottom.style.display = 'block';
-      elBodyBannerTop.style.display = 'none';
+      bodyBanner.style.display = 'block';
+      bodyBannerBottom.style.display = 'block';
+      bodyBannerTop.style.display = 'none';
       //
       //............................................................---//
-      // elBodyViewToggle View Toggle and Message Area
-      // elBodyViewToggleContainer.style.display = 'none';
-      elBodyViewToggleContainerLeft.style.display = 'none';
-      elBodyViewToggleContainerCenter.style.display = 'block';
+      // bodyViewToggle View Toggle and Message Area
+      // bodyViewToggleContainer.style.display = 'none';
+      bodyViewToggleContainerLeft.style.display = 'none';
+      bodyViewToggleContainerCenter.style.display = 'block';
       //
       // Console
       //
       // Left, Center, and Right
-      elBodyMainLeft.style.display = 'none';
-      elBodyMainCenter.style.display = 'block';
-      elBodyMainRight.style.display = 'none';
-      // elBodyMainRightFar.style.display = 'none';
+      bodyMainLeft.style.display = 'none';
+      bodyMainCenter.style.display = 'block';
+      bodyMainRight.style.display = 'none';
+      // bodyMainRightFar.style.display = 'none';
 		//
 		// Center Top
-      elBodyMainCenterTop.style.display = 'block';
-      elBodyMainCenterTopLeft.style.display = 'none';
-      elBodyMainCenterTopRight.style.display = 'none';
+      bodyMainCenterTop.style.display = 'block';
+      bodyMainCenterTopLeft.style.display = 'none';
+      bodyMainCenterTopRight.style.display = 'none';
       // Center Center
-	  elBodyMainCenterCenter.style.display = 'block';
+	  bodyMainCenterCenter.style.display = 'block';
 	  // Center Bottom
-	  elBodyMainCenterBottom.style.display = 'block';
+	  bodyMainCenterBottom.style.display = 'block';
       //............................................................---//
 	  //
 	  layoutReadingModeFirst = false;
@@ -6754,26 +6754,26 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 		var TopLeftWidthInner = 0;
 		// BodyMenuLayout
 		//............................................................---//
-		// elBodyMenuLayout1 BodyMenuLayout
+		// bodyLayoutMenu1 BodyMenuLayout
 		if (false = true) {
-			if (!elelBodyMenuLayout1 && elBodyMainCenterTopLeft) {
-				elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
+			if (!elbodyLayoutMenu1 && bodyMainCenterTopLeft) {
+				bodyLayoutMenu1 = fnElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainCenterTopLeft);
 			}
 			//
-			TopLeftWidth = elBodyMenuLayout1.style.posWidth;
+			TopLeftWidth = bodyLayoutMenu1.style.posWidth;
 			if (TopLeftWidth = 0) { TopLeftWidth = layoutWidth / 2; }
 			TopLeftWidthInner = TopLeftWidth;
 		}
 		//
 		// Process Left Column
 		//
-		// elBodyMainLeft.innerHTML = elBodyMainLeftOrig.innerHTML
-		elBodyMainLeftCopy = fnElementCopy(elBodyMainLeft, elBodyMainLeftFirst, elBodyMainLeftOrig, 'block');
-		elBodyMainLeftFirst = false;
+		// bodyMainLeft.innerHTML = bodyMainLeftOrig.innerHTML
+		bodyMainLeftCopy = fnElementCopy(bodyMainLeft, bodyMainLeftFirst, bodyMainLeftOrig, 'block');
+		bodyMainLeftFirst = false;
 		//
-		// elBodyMainRight.innerHTML = elBodyMainLeftOrig.innerHTML
-		elBodyMainRightCopy = fnElementCopy(elBodyMainRight, elBodyMainRightFirst, elBodyMainRightOrig, 'block');
-		elBodyMainRightFirst = false;
+		// bodyMainRight.innerHTML = bodyMainLeftOrig.innerHTML
+		bodyMainRightCopy = fnElementCopy(bodyMainRight, bodyMainRightFirst, bodyMainRightOrig, 'block');
+		bodyMainRightFirst = false;
 		// end of layoutWindowFirst
 	}
           //
@@ -6783,9 +6783,9 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
           //
           //............................................................---//
           // Enclose Box
-          if (!BodyMainCenterTopClass.length) { BodyMainCenterTopClass = elBodyMainCenterTop.className; }
-          elBodyMainCenterTop.className = elBodyMainCenterTop.className + ' CalloutBoxBg CalloutBorderFull';
-          elBodyMainCenterTop.width = '100%';
+          if (!BodyMainCenterTopClass.length) { BodyMainCenterTopClass = bodyMainCenterTop.className; }
+          bodyMainCenterTop.className = bodyMainCenterTop.className + ' CalloutBoxBg CalloutBorderFull';
+          bodyMainCenterTop.width = '100%';
           //
           // if (true = true) {
           if (layoutWindowedFirst) {
@@ -6793,47 +6793,47 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			  // Set Center Top Left Element
 			  // MainCenterTopLeft is a Reference pointer into the page
 			  // that has MainLeft HTML copied into it.
-			  elBodyMainCenterTopLeft = fnElementGetRef(elBodyMainCenterTopLeft,'BodyMainCenterTopLeft','BodyMainCenterTopLeft');
-			  elBodyMainCenterTopLeft = fnElementCopy(elBodyMainCenterTopLeft, elBodyMainCenterTopLeftFirst, elBodyMainLeftOrig, 'block');
-			  elBodyMainCenterTopLeftFirst = false;
+			  bodyMainCenterTopLeft = fnElementGetRef(bodyMainCenterTopLeft,'BodyMainCenterTopLeft','BodyMainCenterTopLeft');
+			  bodyMainCenterTopLeft = fnElementCopy(bodyMainCenterTopLeft, bodyMainCenterTopLeftFirst, bodyMainLeftOrig, 'block');
+			  bodyMainCenterTopLeftFirst = false;
 			  //............................................................---//
 			  // Enclose Box
-			  elBodyMainCenterTopLeft.className = elBodyMainCenterTopLeft.className + ' CalloutBorderFull';
+			  bodyMainCenterTopLeft.className = bodyMainCenterTopLeft.className + ' CalloutBorderFull';
 			  //............................................................---//
 			  // Left Menu Container
 			  //............................................................---//
 			  // Left Body Column (BodyMainLeft)
 			  //............................................................---//
-			  // elBodyMenuLayout1 BodyMenuLayout
-			  elBodyMenuLayout1 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout1', 'BodyMenuLayout1', elBodyMainCenterTopLeft);
+			  // bodyLayoutMenu1 BodyMenuLayout
+			  bodyLayoutMenu1 = fnElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainCenterTopLeft);
 			  //............................................................---//
 			  // Width of Layout area (previous?)
 			  //............................................................---//
 			  // Left Outer and Inner Decorative Divs
-			  elBodyMainLeftOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', elBodyMainCenterTopLeft);
-			  elBodyMainLeftOuter.style.paddingLeft = '3%';
-			  elBodyMainLeftOuter.style.width = '97%';
+			  bodyMainLeftOuter = fnElementGetRefFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainCenterTopLeft);
+			  bodyMainLeftOuter.style.paddingLeft = '3%';
+			  bodyMainLeftOuter.style.width = '97%';
 			  //
-			  elBodyMainLeftInner = fnElementGetRefFromElement(elBodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', elBodyMainCenterTopLeft);
-			  elBodyMainLeftInner.style.paddingRight = '3%';
-			  elBodyMainLeftInner.style.width = '97%';
-			  elBodyMainLeftInner.style.paddingTop = '1.0em';
+			  bodyMainLeftInner = fnElementGetRefFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainCenterTopLeft);
+			  bodyMainLeftInner.style.paddingRight = '3%';
+			  bodyMainLeftInner.style.width = '97%';
+			  bodyMainLeftInner.style.paddingTop = '1.0em';
 			  //............................................................---//
 			  //
 			  // fnElementGetFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1',
-			  // 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft1)
+			  // 		bodyMainCenterTopLeft, elDoFindSet, elMenuLeft1)
 			  // fnElementGetFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2',
-			  // 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft2)
+			  // 		bodyMainCenterTopLeft, elDoFindSet, elMenuLeft2)
 			  // fnElementGetFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3',
-			  // 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft3)
+			  // 		bodyMainCenterTopLeft, elDoFindSet, elMenuLeft3)
 			  //
 			  //............................................................---//
 			  // Left elMenuLeft1, 2, 3
-			  elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', elBodyMainCenterTopLeft);
-			  elMenuLeft2 = fnElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', elBodyMainCenterTopLeft);
-			  elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', elBodyMainCenterTopLeft);
+			  elMenuLeft1 = fnElementGetRefFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1', bodyMainCenterTopLeft);
+			  elMenuLeft2 = fnElementGetRefFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2', bodyMainCenterTopLeft);
+			  elMenuLeft3 = fnElementGetRefFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3', bodyMainCenterTopLeft);
 			  //
-			  fnWindowContainerHeightGetMenu(elBodyMainCenterTopLeft);
+			  fnWindowContainerHeightGetMenu(bodyMainCenterTopLeft);
 			  //
 			  //............................................................---//
 			  // elMenuLeft1
@@ -6862,27 +6862,27 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 			//............................................................---//
 			//
 			// fnElementGetFromElement(elMenuLeft1, 'MenuLeft1', 'MenuLeft1',
-			// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft1)
+			// 		bodyMainCenterTopLeft, elDoFindSet, elMenuLeft1)
 			// fnElementGetFromElement(elMenuLeft2, 'MenuLeft2', 'MenuLeft2',
-			// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft2)
+			// 		bodyMainCenterTopLeft, elDoFindSet, elMenuLeft2)
 			// fnElementGetFromElement(elMenuLeft3, 'MenuLeft3', 'MenuLeft3',
-			// 		elBodyMainCenterTopLeft, elementFindDoSet, elMenuLeft3)
+			// 		bodyMainCenterTopLeft, elDoFindSet, elMenuLeft3)
 			//
 			  //............................................................---//
 			  // elDivC21 Callout Paragraph Contents
 			  if (true = false) {
-				  var elDivC21 = fnElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', elBodyMainCenterTopLeft);
+				  var elDivC21 = fnElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', bodyMainCenterTopLeft);
 				  if (elDivC21) { elDivC21.style.display = 'none'; }
 			  }
 			  //............................................................---//
 			  // elDivC22 Callout Paragraph Contents
-			  var elDivC22 = fnElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', elBodyMainCenterTopLeft);
+			  var elDivC22 = fnElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', bodyMainCenterTopLeft);
 			  if (elDivC22) { elDivC22.style.display = 'none'; }
 			  //............................................................---//
 			  // Left Body Text Alignment Breaks
-			  elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-			  elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-			  elBodyMainCenterTopLeft = fnElementBreakSet(elBodyMainCenterTopLeft, 'MenuLeft3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+			  bodyMainCenterTopLeft = fnElementBreakSet(bodyMainCenterTopLeft, 'MenuLeft1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+			  bodyMainCenterTopLeft = fnElementBreakSet(bodyMainCenterTopLeft, 'MenuLeft2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+			  bodyMainCenterTopLeft = fnElementBreakSet(bodyMainCenterTopLeft, 'MenuLeft3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
 			  // end of layoutWindowFirst
 		}
 //
@@ -6894,31 +6894,31 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	  if (layoutWindowedFirst) {
           // Right Body Text Alignment Breaks
           // Set (Copy To) Top Left Element
-          elBodyMainCenterTopRight = fnElementGetRef(elBodyMainCenterTopRight,'BodyMainCenterTopRight','BodyMainCenterTopRight');
-          elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, 'block');
+          bodyMainCenterTopRight = fnElementGetRef(bodyMainCenterTopRight,'BodyMainCenterTopRight','BodyMainCenterTopRight');
+          bodyMainCenterTopRight = fnElementCopy(bodyMainCenterTopRight, bodyMainCenterTopRightFirst, bodyMainRightOrig, 'block');
           //............................................................---//
           // Enclose Box
-          elBodyMainCenterTopRight.className = elBodyMainCenterTopRight.className + ' CalloutBorderFull';
+          bodyMainCenterTopRight.className = bodyMainCenterTopRight.className + ' CalloutBorderFull';
           //............................................................---//
-          // elBodyMenuLayout2 BodyMenuLayout
-          elBodyMenuLayout2 = fnElementGetRefFromElement(elBodyMenuLayout1, 'BodyMenuLayout2', 'BodyMenuLayout2', elBodyMainCenterTopRight);
+          // bodyLayoutMenu2 BodyMenuLayout
+          bodyLayoutMenu2 = fnElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout2', 'BodyMenuLayout2', bodyMainCenterTopRight);
           //............................................................---//
 		  // Right Outer and Inner Decorative Divs
-          elBodyMainRightOuter = fnElementGetRefFromElement(elBodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', elBodyMainCenterTopRight);
-          elBodyMainLeftOuter.style.paddingLeft = '3%';
-          elBodyMainLeftOuter.style.width = '97%';
+          bodyMainRightOuter = fnElementGetRefFromElement(bodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainCenterTopRight);
+          bodyMainLeftOuter.style.paddingLeft = '3%';
+          bodyMainLeftOuter.style.width = '97%';
           //
-          elBodyMainRightInner = fnElementGetRefFromElement(elBodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', elBodyMainCenterTopRight);
-          elBodyMainRightInner.style.paddingRight = '3%';
-          elBodyMainRightInner.style.width = '97%';
-          elBodyMainRightInner.style.paddingTop = '1.0em';
+          bodyMainRightInner = fnElementGetRefFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainCenterTopRight);
+          bodyMainRightInner.style.paddingRight = '3%';
+          bodyMainRightInner.style.width = '97%';
+          bodyMainRightInner.style.paddingTop = '1.0em';
           //............................................................---//
 		  var elementHeight = 0;
 		  layoutMenuHeightHorzMax = 0;
           // Right elMenuRight1, 2, 3
-          elMenuRight1 = fnElementGetRefFromElement(elMenuRight1, 'MenuRight1', 'MenuRight1', elBodyMainCenterTopRight);
-          elMenuRight2 = fnElementGetRefFromElement(elMenuRight2, 'MenuRight2', 'MenuRight2', elBodyMainCenterTopRight);
-          elMenuRight3 = fnElementGetRefFromElement(elMenuRight3, 'MenuRight3', 'MenuRight3', elBodyMainCenterTopRight);
+          elMenuRight1 = fnElementGetRefFromElement(elMenuRight1, 'MenuRight1', 'MenuRight1', bodyMainCenterTopRight);
+          elMenuRight2 = fnElementGetRefFromElement(elMenuRight2, 'MenuRight2', 'MenuRight2', bodyMainCenterTopRight);
+          elMenuRight3 = fnElementGetRefFromElement(elMenuRight3, 'MenuRight3', 'MenuRight3', bodyMainCenterTopRight);
           //............................................................---//
 		      // elMenuRight1
 		  elMenuRight1.style.position = 'absolute';
@@ -6950,9 +6950,9 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
           if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
           //............................................................---//
           // Column and Float Breaks and Clear
-          elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuRight1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-          elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuRight2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
-          elBodyMainCenterTopRight = fnElementBreakSet(elBodyMainCenterTopRight, 'MenuRight3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+          bodyMainCenterTopRight = fnElementBreakSet(bodyMainCenterTopRight, 'MenuRight1ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+          bodyMainCenterTopRight = fnElementBreakSet(bodyMainCenterTopRight, 'MenuRight2ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
+          bodyMainCenterTopRight = fnElementBreakSet(bodyMainCenterTopRight, 'MenuRight3ColBreak', elementLayoutFirstDummy = true, 'none', 'hidden', 'none')
 			  // end of layoutWindowFirst
 	  }
     //............................................................---//
@@ -6960,24 +6960,24 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
     // BodyViewToggle + Banner + Left/Right
     boxHeight = 0;
 	//
-    // elBodyViewToggle View Toggle and Message Area
-	elBodyViewToggleContainerCenter.style.display = 'none';
+    // bodyViewToggle View Toggle and Message Area
+	bodyViewToggleContainerCenter.style.display = 'none';
 	//
-    boxHeight += fnElementHeightMaxGet(true, true, elBodyViewToggleContainer);
+    boxHeight += fnElementHeightMaxGet(true, true, bodyViewToggleContainer);
     // Banner Should be zero, don't use..,
-    boxHeight += fnElementHeightMaxGet(true, true, elBodyBannerTop);
+    boxHeight += fnElementHeightMaxGet(true, true, bodyBannerTop);
     //
     // Height of left and right menu containers
 	// fnWindowContainerHeightGetAll();
     //
-    // if (elBodyMenuLayout2Height > elBodyMenuLayout1Height)  {
-        // elBodyMenuLayout1.style.height = elBodyMenuLayout2Height + 'px';
+    // if (bodyLayoutMenu2Height > bodyLayoutMenu1Height)  {
+        // bodyLayoutMenu1.style.height = bodyLayoutMenu2Height + 'px';
     // } else {
-        // elBodyMenuLayout2.style.height = elBodyMenuLayout1Height + 'px';
+        // bodyLayoutMenu2.style.height = bodyLayoutMenu1Height + 'px';
     // }
     // Set Left and Right Container Heights
-    // elBodyMainCenterTopLeft.style.height = (fnElementHeightMaxGet(true, true, elBodyMenuLayout1) + 20) + 'px';
-    // elBodyMainCenterTopRight.style.height = (fnElementHeightMaxGet(true, true, elBodyMenuLayout2) + 20) + 'px';
+    // bodyMainCenterTopLeft.style.height = (fnElementHeightMaxGet(true, true, bodyLayoutMenu1) + 20) + 'px';
+    // bodyMainCenterTopRight.style.height = (fnElementHeightMaxGet(true, true, bodyLayoutMenu2) + 20) + 'px';
     //
     if (layoutMenuHeightHorzMax < 50) {
 		// ERROR HERE //
@@ -6988,33 +6988,33 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 		Y = fnElementHeightMaxGet(true, true, elMenuRight1);
 		if ( X > Y ) { layoutMenuHeightHorzMax = X; } else { layoutMenuHeightHorzMax = Y; }
 		//
-		X = fnElementHeightMaxGet(true, true, elBodyMainCenterTopLeft);
-		Y = fnElementHeightMaxGet(true, true, elBodyMainCenterTopRight);
+		X = fnElementHeightMaxGet(true, true, bodyMainCenterTopLeft);
+		Y = fnElementHeightMaxGet(true, true, bodyMainCenterTopRight);
 		if ( X > Y ) { boxHeight = X; } else { boxHeight = Y; }
 		// boxHeight += fnElementHeightMaxGet(true, true, BodyViewToggleContainerCenter);
-		// boxHeight += fnElementHeightMaxGet(true, true, elBodyMainCenterTopColBreak);
+		// boxHeight += fnElementHeightMaxGet(true, true, bodyMainCenterTopColBreak);
     }
     // Set Left and Right Container Heights
-    elBodyMainCenterTopLeft.style.height = (layoutMenuHeightHorzMax + 50 ) + 'px';
-    // elBodyMainCenterTopLeft.style.height = '100%';
-    // elBodyMainCenterTopLeft.style.height = 'auto';
-    elBodyMainCenterTopRight.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
-    // elBodyMainCenterTopRight.style.height = '100%';
+    bodyMainCenterTopLeft.style.height = (layoutMenuHeightHorzMax + 50 ) + 'px';
+    // bodyMainCenterTopLeft.style.height = '100%';
+    // bodyMainCenterTopLeft.style.height = 'auto';
+    bodyMainCenterTopRight.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
+    // bodyMainCenterTopRight.style.height = '100%';
     //
-    elBodyMainCenterTopColBreak = fnElementGetRefFromElement(elBodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', elBodyMainCenterTop);
+    bodyMainCenterTopColBreak = fnElementGetRefFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
     //
-    elBodyMainCenterTop.style.height = (layoutMenuHeightHorzMax + 75) + 'px';// boxHeight
-	// elBodyMainCenterTop.style.height = '100%';
+    bodyMainCenterTop.style.height = (layoutMenuHeightHorzMax + 75) + 'px';// boxHeight
+	// bodyMainCenterTop.style.height = '100%';
     //
 	//............................................................---//
-    elBodyMainCenterCenter.style.top = (layoutMenuHeightHorzMax + 100) + 'px';// adjust by boxHeight
+    bodyMainCenterCenter.style.top = (layoutMenuHeightHorzMax + 100) + 'px';// adjust by boxHeight
     //
 //
 //............................................................---//
 //			 Body Center Columns
 	  if (layoutWindowedFirst) {
 		  // BodyMainCenter
-          elBodyMainCenter.style.width = '100%';
+          bodyMainCenter.style.width = '100%';
 		  // Center Center
 	  }
 //
@@ -7022,18 +7022,18 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 // 	 		 Final adjustments
       //............................................................---//
       // Area Displays
-      elBodyBanner.style.display = 'block';
-      elBodyBannerBottom.style.display = 'block';
-      elBodyBannerTop.style.display = 'none';
-      elBodyMainLeft.style.display = 'none';// none
-      elBodyMainCenter.style.display = 'block';
-      elBodyMainRight.style.display = 'none';// none
-      // elBodyMainRightFar.style.display = 'none';
-      elBodyMainCenterTop.style.display = 'block';
-      elBodyMainCenterTopLeft.style.display = 'block';
-      elBodyMainCenterTopRight.style.display = 'block';
-	   elBodyMainCenterCenter.style.display = 'block';
-	  elBodyMainCenterBottom.style.display = 'block';
+      bodyBanner.style.display = 'block';
+      bodyBannerBottom.style.display = 'block';
+      bodyBannerTop.style.display = 'none';
+      bodyMainLeft.style.display = 'none';// none
+      bodyMainCenter.style.display = 'block';
+      bodyMainRight.style.display = 'none';// none
+      // bodyMainRightFar.style.display = 'none';
+      bodyMainCenterTop.style.display = 'block';
+      bodyMainCenterTopLeft.style.display = 'block';
+      bodyMainCenterTopRight.style.display = 'block';
+	   bodyMainCenterCenter.style.display = 'block';
+	  bodyMainCenterBottom.style.display = 'block';
       //............................................................---//
       //
 	  layoutWindowedFirst = false;
@@ -7049,11 +7049,11 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 //............................................................---//
 //			 Body Center (Top Left)
       //
-      elBodyMainCenter.style.top = '0%';
-      if (layoutUseAbsolute) { elBodyMainCenter.style.left = 3; }
-      elBodyMainCenter.style.posWidth = layoutWidth - 6;
-      elBodyMainCenter.style.width = elBodyMainCenter.style.posWidth;
-      // elBodyMainCenter.style.height = 'auto';
+      bodyMainCenter.style.top = '0%';
+      if (layoutUseAbsolute) { bodyMainCenter.style.left = 3; }
+      bodyMainCenter.style.posWidth = layoutWidth - 6;
+      bodyMainCenter.style.width = bodyMainCenter.style.posWidth;
+      // bodyMainCenter.style.height = 'auto';
 //
 //............................................................---//
 //			 All Other at Right
@@ -7070,23 +7070,23 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 //............................................................---//
 // 	 		 	 Banner at Bottom
 // xx
-    // elBodyViewToggle View Toggle and Message Area
-	elBodyViewToggleContainerCenter.style.display = 'block';
+    // bodyViewToggle View Toggle and Message Area
+	bodyViewToggleContainerCenter.style.display = 'block';
 	//
       //............................................................---//
       // Area Displays
-      elBodyBanner.style.display = 'block';
-      elBodyBannerBottom.style.display = 'none';
-      elBodyBannerTop.style.display = 'none';
-      elBodyMainLeft.style.display = 'none';
-      elBodyMainCenter.style.display = 'block';
-      elBodyMainRight.style.display = 'none';
-      // elBodyMainRightFar.style.display = 'none';
-      elBodyMainCenterTop.style.display = 'block';
-      elBodyMainCenterTopLeft.style.display = 'none';
-      elBodyMainCenterTopRight.style.display = 'none';
-	  elBodyMainCenterCenter.style.display = 'block';
-	  elBodyMainCenterBottom.style.display = 'none';
+      bodyBanner.style.display = 'block';
+      bodyBannerBottom.style.display = 'none';
+      bodyBannerTop.style.display = 'none';
+      bodyMainLeft.style.display = 'none';
+      bodyMainCenter.style.display = 'block';
+      bodyMainRight.style.display = 'none';
+      // bodyMainRightFar.style.display = 'none';
+      bodyMainCenterTop.style.display = 'block';
+      bodyMainCenterTopLeft.style.display = 'none';
+      bodyMainCenterTopRight.style.display = 'none';
+	  bodyMainCenterCenter.style.display = 'block';
+	  bodyMainCenterBottom.style.display = 'none';
       //............................................................---//
       //
 	  layoutReadingModeLeftFirst = false;
@@ -7100,7 +7100,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 //............................................................---//
           case 999:
       // Break between center top and center center
-	  elBodyMainCenterTopColBreak.style.display = 'none';
+	  bodyMainCenterTopColBreak.style.display = 'none';
 	  //
 //
 //............................................................---//
@@ -7131,26 +7131,26 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
 	  elMenuRight3ColBreak = fnElementGetRef(elMenuRight3ColBreak, 'MenuRight3ColBreak', 'MenuRight3ColBreak');
       elMenuRight3ColBreak.style.display = 'none';
       //
-      elBodyMainCenterTopRight = fnElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, 'none');
-	  elBodyMainCenterTopRightFirst = false;
+      bodyMainCenterTopRight = fnElementCopy(bodyMainCenterTopRight, bodyMainCenterTopRightFirst, bodyMainRight, 'none');
+	  bodyMainCenterTopRightFirst = false;
 //
 //............................................................---//
 // 	 		 	 Banner at Bottom
-	   elBodyBanner = document.getElementById('BodyBanner');
+	   bodyBanner = document.getElementById('BodyBanner');
       //............................................................---//
       // Area Displays
-      elBodyBanner.style.display = 'block';
-      elBodyBannerBottom.style.display = 'none';
-      elBodyBannerTop.style.display = 'none';
-      elBodyMainLeft.style.display = 'none';
-      elBodyMainCenter.style.display = 'block';
-      elBodyMainRight.style.display = 'none';
-      // elBodyMainRightFar.style.display = 'block';
-      elBodyMainCenterTop.style.display = 'none';
-      elBodyMainCenterTopLeft.style.display = 'none';
-      elBodyMainCenterTopRight.style.display = 'none';
-	  elBodyMainCenterCenter.style.display = 'block';
-	  elBodyMainCenterBottom.style.display = 'none';
+      bodyBanner.style.display = 'block';
+      bodyBannerBottom.style.display = 'none';
+      bodyBannerTop.style.display = 'none';
+      bodyMainLeft.style.display = 'none';
+      bodyMainCenter.style.display = 'block';
+      bodyMainRight.style.display = 'none';
+      // bodyMainRightFar.style.display = 'block';
+      bodyMainCenterTop.style.display = 'none';
+      bodyMainCenterTopLeft.style.display = 'none';
+      bodyMainCenterTopRight.style.display = 'none';
+	  bodyMainCenterCenter.style.display = 'block';
+	  bodyMainCenterBottom.style.display = 'none';
       //............................................................---//
       //
 	  layoutReadingModeLeftFirst = false;
@@ -7171,7 +7171,7 @@ function fnLayoutSelectByIndex(layoutIndexPassed) {
     //
     fnWindowResize();
     //
-    elBodyFirst = false;
+    bodyFirst = false;
     // return;
 //
 }
@@ -7623,7 +7623,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			// Check if displayed or not...
 			if ( playDirection = playDirectionForward) {
 				// Forward
-				if (timerObj[timerGroup] [timerItemTransitionKey].elementIsDisplayed = elementIsDisplayed)  {
+				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsDisplayed)  {
 					if (debugTimer && debugTimerDetail && debugTimerTransition) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7639,7 +7639,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerGroup] [timerItemTransitionKey].elementIsDisplayed = elementIsNotDisplayed)  {
+				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsNotDisplayed)  {
 					if (debugTimer && debugTimerDetail && debugTimerTransition) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 								fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7705,7 +7705,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			// Check if displayed or not...
 			if ( playDirection = playDirectionForward) {
 				// Forward
-				if (timerObj[timerGroup] [timerItemMoveKey].elementIsDisplayed = elementIsDisplayed)  {
+				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsDisplayed)  {
 					if (debugTimer && debugTimerDetail && debugTimerMove) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 								fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7720,7 +7720,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerGroup] [timerItemMoveKey].elementIsDisplayed = elementIsNotDisplayed)  {
+				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsNotDisplayed)  {
 					if (debugTimer && debugTimerDetail && debugTimerMove) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 								fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7757,45 +7757,45 @@ function fnElementPlay(playDirection, IsImageLarge,
     oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
     //
 	// POSITION
-    // elementLeftOrig, elementTopOrig, elementLeftDest, elementTopDest,
+    // elLeftOrig, elTopOrig, elLeftDest, elTopDest,
 	var oObjIndexTemp = oObjIndex;
 	if (!IsImageLarge) { oObjIndexTemp = oObjRootIndex; }
-    elementLeftOrig = menuImagePositionLeft[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
+    elLeftOrig = menuImagePositionLeft[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
     // if CascadeRight
     if (!IsImageLarge) {
 		if (oObjGroupIndex < 3) {
-      		elementLeftOrig += menuImagePositionWidth[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
+      		elLeftOrig += menuImagePositionWidth[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 		}
     }
     if (IsImageLarge) {
 		if (oObjGroupIndex >= 3) {
-      		elementLeftOrig += menuImagePositionWidth[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
+      		elLeftOrig += menuImagePositionWidth[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 		}
     }
-    elementTopOrig = menuImagePositionTop[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
+    elTopOrig = menuImagePositionTop[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 	// if (layoutCascadeDown && IsImageLarge) {
-    // 		elementTopOrig += menuImagePositionHeight[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
+    // 		elTopOrig += menuImagePositionHeight[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 	// }
     //
-    elementLeftDest = menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge];
-    elementTopDest = menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge];
-    // elementLeftDest = oObjNext.style.posLeft;
-    // elementTopDest = oObjNext.style.posTop;
+    elLeftDest = menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge];
+    elTopDest = menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge];
+    // elLeftDest = oObjNext.style.posLeft;
+    // elTopDest = oObjNext.style.posTop;
 	//
 	//
 	if (debugTimer && debugTimerMove) {
 		ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 				+ ', Item orgin and destination set'
-                + ', Orig: ( ' + elementTopOrig + ', ' + elementLeftOrig + ' )'
-                + ', Dest: ( ' + elementTopDest + ', ' + elementLeftDest + ' )',
+                + ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
+                + ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
 				'fnElementPlay', 10341, null, null,
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	// DURATION
     // elementMoveDuration = 2;// 2 / 90
-    // elementMoveStepMax = 100;// 100 / 200
+    // elMoveStepMax = 100;// 100 / 200
     // elementMoveInterval = 5;// 5 / 10
     // elementMoveDelay = 0;
     //
@@ -7913,12 +7913,12 @@ function fnElementPlay(playDirection, IsImageLarge,
         var tempSize;
         if (playDirection = playDirectionReverse)  {
             tempSize = 1.0;
-            oObjNext.style.left = elementLeftDest + 'px';
-            oObjNext.style.top = elementTopDest + 'px';
+            oObjNext.style.left = elLeftDest + 'px';
+            oObjNext.style.top = elTopDest + 'px';
         } else {
             tempSize = 0.05;
             oObjNext.style.left = elementLeftOrig + 'px';
-            oObjNext.style.top = elementTopOrig + 'px';
+            oObjNext.style.top = elTopOrig + 'px';
         }
         //
         if (filterIsOn || filterResizeIsOn) {
@@ -7946,7 +7946,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     } else if (filterIsOn || filterResizeIsOn) {
         //
         // **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
-        if (filterResizeIsOn && !elementIsDisplayed)  {
+        if (filterResizeIsOn && !elIsDisplayed)  {
             //
             if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingeLine,
@@ -8233,8 +8233,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 			    //
                 // ...................................... //
                 // Image Size
-				var elementWidthDefault = iImageSize + (menuImageBorderWidth * 2);
-				var elementHeightDefault = (iImageSize * oObjImageSizeRatio) + (menuImageBorderWidth * 2);
+				var layoutBlockWidthDefault = iImageSize + (menuImageBorderWidth * 2);
+				var elHeightDefault = (iImageSize * oObjImageSizeRatio) + (menuImageBorderWidth * 2);
 			    //
 				////////////////////////////////////////////
             	// Position
@@ -8308,7 +8308,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                     if (layoutIndex = layoutWindowed) {
                         oObjNextOffsetTop = 30;
               			// Set Top
-                        oObjNextOffsetTop += elBodyMainCenterTop.offsetHeight;
+                        oObjNextOffsetTop += bodyMainCenterTop.offsetHeight;
                         oObjNextTop = ((oObjIndex - 1) * 50) + oObjNextOffsetTop;
           			    if (IsImageLarge) { oObjNextTop += 100; }
                     } else {
@@ -8410,7 +8410,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 					if (layoutCascadeRight)  {
                     	oObjNextLeft += menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsSmall];
 					} else {
-                    	oObjNextLeft -= elementWidthDefault;
+                    	oObjNextLeft -= layoutBlockWidthDefault;
 						// menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge];
 					}
 					//
@@ -8497,17 +8497,17 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                 // note this should be an adjustable value
 				var oObjNextLeft;var imageLeftEdge;var imageRightEdge;var bodyLeftEdge;var bodyRightEdge;
 				//
-				fnElementPosGet(UseScroll, UseBase, elBodyMainCenterCenter, 0, 0);
+				fnElementPosGet(UseScroll, UseBase, bodyMainCenterCenter, 0, 0);
 				bodyLeftEdge = oObjLeft;
                 bodyRightEdge = oObjLeft + oObjWidth;
-				// bodyLeftEdge = fnElementLeftMaxGet(DoNotUseScroll, UseBase, elBodyMainCenterCenter);
-                // bodyRightEdge = bodyLeftEdge + fnElementWidthMaxGet(DoNotUseScroll, UseBase, elBodyMainCenterCenter);
+				// bodyLeftEdge = fnElementLeftMaxGet(DoNotUseScroll, UseBase, bodyMainCenterCenter);
+                // bodyRightEdge = bodyLeftEdge + fnElementWidthMaxGet(DoNotUseScroll, UseBase, bodyMainCenterCenter);
   				oObjNextLeft = fnElementLeftMaxGet(UseScroll, UseBase, oObjNext);
 				//
 				var oObjNextLeftChanged = false;
 				do {
   					imageRightEdge = oObjNextLeft
-  							+ elementWidthDefault;
+  							+ layoutBlockWidthDefault;
   					//
       				if (imageRightEdge + 10 > bodyRightEdge) {
           				   oObjNextLeft -= 50;oObjNextLeftChanged = true;
@@ -8530,7 +8530,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                 //
                 // ...................................... //
                 // Store Postion
-        		fnElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elementHeightDefault);
+        		fnElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elHeightDefault);
 menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLeft;// parseInt(oObjNext.style.left);
 menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
 menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
@@ -9018,10 +9018,10 @@ oObjNotFound = false;
 // switch(oObjGroupIndex) {
 // ...................................... //
   // Non Groups
-    // case 101:  elementIsRoot = true;return 101;
-    // case 102:  elementIsRoot = true;return 102;
-    // case 103:  elementIsRoot = true;return 103;
-    // case 104:  elementIsRoot = true;return 104;
+    // case 101:  elIsRoot = true;return 101;
+    // case 102:  elIsRoot = true;return 102;
+    // case 103:  elIsRoot = true;return 103;
+    // case 104:  elIsRoot = true;return 104;
 	// ...................................... //
 	// Group 1
 	// case 1:
@@ -9033,7 +9033,7 @@ oObjNotFound = false;
 	}
 	//
   switch(oObjPassed.id){
-    case 'MenuContainerLeft1': 	oObjGroupIndex = 1;oObjIndex = 0;elementIsRoot = true;break;
+    case 'MenuContainerLeft1': 	oObjGroupIndex = 1;oObjIndex = 0;elIsRoot = true;break;
     case 'MdmImportTld11': 		oObjGroupIndex = 1;oObjIndex = 1;break;
     case 'MdmNetAppFrame12': 	oObjGroupIndex = 1;oObjIndex = 2;break;
     case 'MdmWebUi13': 	oObjGroupIndex = 1;oObjIndex = 3;break;
@@ -9057,7 +9057,7 @@ oObjNotFound = false;
 	// ...................................... //
 	// Group 2
   // case 2: switch(oObjPassed.id){
-    case 'MenuContainerLeft2': 	oObjGroupIndex = 2;oObjIndex = 0;elementIsRoot = true;break;
+    case 'MenuContainerLeft2': 	oObjGroupIndex = 2;oObjIndex = 0;elIsRoot = true;break;
     case 'MdmResume21': 		oObjGroupIndex = 2;oObjIndex = 1;break;
     case 'MdmRsmIt22': 			oObjGroupIndex = 2;oObjIndex = 2;break;
     case 'MdmDghCarBio': 		oObjGroupIndex = 2;oObjIndex = 3;break;
@@ -9073,7 +9073,7 @@ oObjNotFound = false;
   	// ...................................... //
   	// Group 3
   // case 3: switch(oObjPassed.id){
-    case 'MenuContainerLeft3': 	oObjGroupIndex = 3;oObjIndex = 0;elementIsRoot = true;break;
+    case 'MenuContainerLeft3': 	oObjGroupIndex = 3;oObjIndex = 0;elIsRoot = true;break;
     case 'MdmTechRsrch31': 		oObjGroupIndex = 3;oObjIndex = 1;break;
     case 'MdmCogSciProj': 	oObjGroupIndex = 3;oObjIndex = 2;break;
     case 'MdmMvvmProj33': 		oObjGroupIndex = 3;oObjIndex = 3;break;
@@ -9089,7 +9089,7 @@ oObjNotFound = false;
   // case 4:
   // default:
   // switch(oObjPassed.id) {
-    case 'MenuContainerRight1': 	oObjGroupIndex = 4;oObjIndex = 0;elementIsRoot = true;break;
+    case 'MenuContainerRight1': 	oObjGroupIndex = 4;oObjIndex = 0;elIsRoot = true;break;
     case 'MdmImportTld41': 			oObjGroupIndex = 4;oObjIndex = 1;break;
     case 'MdmKBil42': 				oObjGroupIndex = 4;oObjIndex = 2;break;
     case 'MdmNetAppFrame43': 		oObjGroupIndex = 4;oObjIndex = 3;break;

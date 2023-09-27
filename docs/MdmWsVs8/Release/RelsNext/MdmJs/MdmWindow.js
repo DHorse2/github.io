@@ -3,31 +3,35 @@
 // Window Events (Load, Resize)
 // Misc:
 var boxClass;
-var columnType;
+var layoutBodyColumnType;
 // Window Load
 ////////////////////////////////////////////////
 // // Document Window OnLoad:
-// window.onload = function () { StdlayoutWindowOnload(); }
-function StdlayoutWindowOnload() {
+// window.onload = function () { WindowOnload(); }
+function WindowOnload(e) {
     // Error handling
-    // window.onerror = function() { StdWindowError(); };
+    // window.onerror = function() { WindowError(); };
     // Initialize and Set Global Variables
-    StdDocumentLoadInit();
+    DocumentLoadInit();
+    // Includes
+    if (!loadDelayIncludes && loadIncludes && !loadIncludesDone) {
+        includeHtmlFileAll();
+    }
     // Build Body Images Div
     if (!loadDelayBodyImage) {
-        elBodyImageContainer = StdBodyImagesHtmlBuild();
+        bodyImageContainer = BodyImagesHtmlBuild();
     }
     // Build Menu Images Div
     if (!loadDelayMenuImage) {
-        elBodyMenuImageContainer = StdMenuImagesHtmlBuild();
+        bodyMenuImageContainer = MenuImagesHtmlBuild();
     }
     // Docuement Element Initialize & Store Original Menu Columns.
     if (!loadDelayJava) {
         // Initialize and save
-        StdElementObjectCreate();
+        ElementObjectCreate();
         // Choose Standard Layout
-        StdLayoutNext(layoutStandard)
-        // StdLayoutSelectByIndex(layoutStandard);
+        LayoutNext(layoutStandard)
+        // LayoutSelectByIndex(layoutStandard);
     }
     //
     if (!loadDelayDebugState) {
@@ -39,172 +43,215 @@ function StdlayoutWindowOnload() {
     }
     //
     // Inactive code:
-    // window.onload= "StdDocumentLoadInit();";
+    // window.onload= "DocumentLoadInit();";
 }
 // Document Window Resize
 // Adjustments:
-var layoutWidthMargin = 60; // ??? really?
-var layoutHeightMargin = 50;
-var layoutMenuHeightMax = 0;
+// var layoutWidthMargin = 60; // ??? really?
+// var layoutHeightMargin = 50;
+// var layoutMenuHeightMax = 0;
 // Client Window Size
 var layoutWidthPrev = 0;
 var layoutHeightPrev = 0;
 // Current Layout Strategy
-var layoutIsWide = false;
-var layoutIsStandard = true;
+// var layoutIsWide = false;
+// var layoutIsStandard = true;
 // //
-// window.onresize = function () { StdlayoutWindowResize(); }
-function StdlayoutWindowResize() {
+// window.onresize = function () { WindowResizeLayout(); }
+
+function WindowResizeLayoutDepreciated() {
     // Recalculate Screen Display
     //
     ////////////////////////////////////////////////
     // Recalculate Globals for Screen
     //
-    StdWindowClientWidth();
+    WindowClientWidth();
     ////////////////////////////////////////////////
     // Load Containers if missing
-    if (!elBodyMainLeft) { StdElementObjectContainerCreate(); }
+    if (!bodyMainLeft) { ElementObjectContainerCreate(); }
     ////////////////////////////////////////////////
     // Recalculate Positions for Menu Images
     // if (BodyMainCenterCenter.offsetWidth > 900) {
+    // Layout handling - Set Left, Center, Right
+    var calloutBoxWidth = 0;
     if (layoutDocumentWidth > layoutDocumentWidthMin) {
+        // Standard Layout handling - Set Left, Center, Right
         // Are menus visible? todo
         if (layoutIndex = layoutStandard) {
             // Left
-            // elBodyMainLeft.style.top = 0%
-            // elBodyMainLeft.style.left = "0%";
-            elBodyMainLeft.style.width = "12%";
-            // elBodyMainLeft.style.width = "10%";
-            // elBodyMainLeft.style.width = "15%";
+            // bodyMainLeft.style.top = 0%
+            // bodyMainLeft.style.left = "0%";
+            bodyMainLeft.style.width = "12%";
+            // bodyMainLeft.style.width = "10%";
+            // bodyMainLeft.style.width = "15%";
             //
             // Center
-            // elBodyMainCenter.style.top = 0%
-            elBodyMainCenter.style.left = "12%";
-            elBodyMainCenter.style.width = "76%";
-            // elBodyMainCenter.style.left = "10%";
-            // elBodyMainCenter.style.width = "80%";
-            // elBodyMainCenter.style.left = "15%";
-            // elBodyMainCenter.style.width = "70%";
+            // bodyMainCenter.style.top = 0%
+            bodyMainCenter.style.left = "12%";
+            bodyMainCenter.style.width = "76%";
+            // bodyMainCenter.style.left = "10%";
+            // bodyMainCenter.style.width = "80%";
+            // bodyMainCenter.style.left = "15%";
+            // bodyMainCenter.style.width = "70%";
             //
             // Right
-            // elBodyMainRight.style.top = 0%
-            elBodyMainRight.style.left = "88%";
-            elBodyMainRight.style.width = "12%";
-            // elBodyMainRight.style.left = "90%";
-            // elBodyMainRight.style.width = "10%";
-            // elBodyMainRight.style.left = "85%";
-            // elBodyMainRight.style.width = "15%";
+            // bodyMainRight.style.top = 0%
+            bodyMainRight.style.left = "88%";
+            bodyMainRight.style.width = "12%";
+            // bodyMainRight.style.left = "90%";
+            // bodyMainRight.style.width = "10%";
+            // bodyMainRight.style.left = "85%";
+            // bodyMainRight.style.width = "15%";
             //
         } else {
             // Center
-            // elBodyMainCenter.style.top = 0%
-            elBodyMainCenter.style.left = "0%";
-            elBodyMainCenter.style.width = "100%";
-        }
-        var Cn = 0;
-        var tmp;
-        var tmpAdjust;
-        // Document content (generally) is placed in BodyMainCenterCenter
-        // This in term has a column abstraction (for large screens)
-        // IE wide columns do not allow good reading mechanics or styling.
-        // This is structured as:
-        // Section, or maybe:
-        // Grouping
-        // (1 here),
-        //   DivP(aragraphBoxes),
-        //     DivC(alloutBoxes)
-        // todo what about "Sections?", should "DivBoxX" be uses?
-        while (BodyMainCenterCenter.childNodes[1].childNodes[Cn]) {
-            // Blocks of content
-            tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
-            if (tmp && tmp.id) {
-                if (tmp.id.substr(0, 4) == "DivP" || tmp.id.substr(0, 4) == "DivB" || tmp.id.substr(0, 6) == "DivBox") {
-                    // a Content Box
-                    tmpAdjust = 0;
-                    if (tmp.style) {
-                        if (tmp.style.marginLeft) { tmpAdjust += parseInt(tmp.style.marginLeft); }
-                        if (tmp.style.marginRight) { tmpAdjust += parseInt(tmp.style.marginRight); }
-                        if (tmp.style.paddingLeft) { tmpAdjust += parseInt(tmp.style.paddingLeft); }
-                        if (tmp.style.paddingRight) { tmpAdjust += parseInt(tmp.style.paddingRight); }
-                    }
-                    if (tmpAdjust == 0) { tmpAdjust = 2; }
-                    if (BodyMainCenterCenter.offsetWidth > 1000) {
-                        // 3 columns
-                        // tmp.style.maxWidth = "33%";
-                        // tmp.style.posWidth = "33%";
-                        // tmp.style.width = "33%";
-                        BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (33 - tmpAdjust) + "%";
-                        // tmp.style.maxWidth = 350;
-                    } else {
-                        // 2 columns
-                        BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (50 - tmpAdjust) + "%";
-                        // tmp.style.width = (50 - tmpAdjust) + "%";
-                        // tmp.style.width = "50%";
-                        // tmp.style.maxWidth = "50%";
-                        // tmp.style.width = "50%";
-                    }
-                    // Callout Boxes
-                    if (tmp.childNodes && tmp.childNodes[0] && tmp.childNodes[0].id) {
-                        if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
-                            tmp.childNodes[0].style.posWidth = "";
-                            tmp.childNodes[0].style.width = "82%";
-                        }
-                    }
-                }
-            }
-            Cn++;
+            // bodyMainCenter.style.top = 0%
+            bodyMainCenter.style.left = "0%";
+            bodyMainCenter.style.width = "100%";
         }
         //
+        calloutBoxWidth = 82;
         layoutIsWide = true;
         layoutIsStandard = false;
     } else {
+        // Narrow Layout Mode
         if (layoutIndex = layoutStandard) {
             // Left
-            // elBodyMainLeft.style.top = 0%
-            // elBodyMainLeft.style.left = "0%";
-            elBodyMainLeft.style.width = "20%";
+            // bodyMainLeft.style.top = 0%
+            // bodyMainLeft.style.left = "0%";
+            bodyMainLeft.style.width = "20%";
             // Center
-            // elBodyMainCenter.style.top = 0%
-            elBodyMainCenter.style.left = "20%";
-            elBodyMainCenter.style.width = "60%";
+            // bodyMainCenter.style.top = 0%
+            bodyMainCenter.style.left = "20%";
+            bodyMainCenter.style.width = "60%";
             // Right
             // ? or maybe 80 - 2?
-            // elBodyMainRight.style.top = 0%
-            elBodyMainRight.style.left = "80%";
-            elBodyMainRight.style.width = "20%";
+            // bodyMainRight.style.top = 0%
+            bodyMainRight.style.left = "80%";
+            bodyMainRight.style.width = "20%";
         } else {
             // Center
-            // elBodyMainCenter.style.top = 0%
-            elBodyMainCenter.style.left = "0%";
-            elBodyMainCenter.style.width = "100%";
+            // bodyMainCenter.style.top = 0%
+            bodyMainCenter.style.left = "0%";
+            bodyMainCenter.style.width = "100%";
         }
-        //
-        var Cn = 0;
-        var tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
-        while (BodyMainCenterCenter.childNodes[1].childNodes[Cn]) {
-            tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
-            if (tmp.id) {
-                if (tmp.id.substr(0, 4) == "DivP" || tmp.id.substr(0, 4) == "DivB" || tmp.id.substr(0, 6) == "DivBox") {
-                    BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = "98%";
-                    // if (tmp.id.substr(0, 4) = "DivP") {
-                    // tmp.style.maxWidth = "";
-                    // tmp.style.width = "";
-                    // tmp.style.posWidth = "";
-                    // Callout Boxes
-                    if (tmp.childNodes && tmp.childNodes[0] && tmp.childNodes[0].id) {
-                        if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
-                            tmp.childNodes[0].style.posWidth = "";
-                            tmp.childNodes[0].style.width = "45%";
-                        }
+        layoutIsWide = false;
+        layoutIsStandard = true;
+        calloutBoxWidth = 45;
+    }
+    //
+    var Cn = 0;
+    var tmp;
+    var tmpAdjust;
+
+    // Document content (generally) is placed in BodyMainCenterCenter
+    // This in turn has a column abstraction (for large screens)
+    // IE wide columns do not allow good reading mechanics or styling.
+    // This is structured as:
+    // Section, or maybe:
+    // Grouping
+    // (1 here),
+    //   DivP(aragraphBoxes),
+    //     DivC(alloutBoxes)
+    // todo what about "Sections?", should "DivBoxX" be uses?
+    while (BodyMainCenterCenter.childNodes[1].childNodes[Cn]) {
+        // Blocks of content
+        tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
+        if (tmp && tmp.id) {
+            if (tmp.id.substr(0, 4) == "DivP" || tmp.id.substr(0, 4) == "DivB" || tmp.id.substr(0, 6) == "DivBox") {
+                // a Content Box
+                // Adjust for margin, padding & border custom styling
+                tmpAdjust = ElementContainerAdjustGet(tmp, BodyMainCenterCenter, true);
+                // See MdmMain to adjust these settings.
+                if (BodyMainCenterCenter.offsetWidth > layoutBlockCol4Min) {
+                    // 4 columns - layoutBlockWidthBig
+                    BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthBig - tmpAdjust) + "%";
+                    //
+                } else if (BodyMainCenterCenter.offsetWidth > layoutBlockCol3Min) {
+                    // 3 columns - layoutBlockWidthWide
+                    BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthWide - tmpAdjust) + "%";
+                    // tmp.style.maxWidth = "33%";
+                    // tmp.style.posWidth = "33%";
+                    // tmp.style.width = "33%";
+                    // tmp.style.maxWidth = 350;
+                } else if (BodyMainCenterCenter.offsetWidth > layoutBlockCol2Min) {
+                    // 2 columns
+                    BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthStandard - tmpAdjust) + "%";
+                    // tmp.style.width = (50 - tmpAdjust) + "%";
+                    // tmp.style.width = "50%";
+                    // tmp.style.maxWidth = "50%";
+                    // tmp.style.width = "50%";
+                } else {
+                    // 1 columns
+                    BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthNarrow - tmpAdjust) + "%";
+                    // tmp.style.width = (100 - tmpAdjust) + "%";
+                    // tmp.style.width = "100%";
+                    // tmp.style.maxWidth = "100%";
+                    // tmp.style.width = "100%";
+                }
+                // Callout Boxes
+                if (tmp.childNodes && tmp.childNodes[0] && tmp.childNodes[0].id) {
+                    if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
+                        tmp.childNodes[0].style.posWidth = "";
+                        // Get tmpAdjust for Callout?
+                        tmp.childNodes[0].style.width = calloutBoxWidth + "%";
                     }
                 }
             }
-            Cn++;
         }
-        //
-        layoutIsWide = false;
-        layoutIsStandard = true;
+        Cn++;
     }
+    // //
+    // layoutIsWide = true;
+    // layoutIsStandard = false;
+    // } else {
+    //     if (layoutIndex = layoutStandard) {
+    //         // Left
+    //         // bodyMainLeft.style.top = 0%
+    //         // bodyMainLeft.style.left = "0%";
+    //         bodyMainLeft.style.width = "20%";
+    //         // Center
+    //         // bodyMainCenter.style.top = 0%
+    //         bodyMainCenter.style.left = "20%";
+    //         bodyMainCenter.style.width = "60%";
+    //         // Right
+    //         // ? or maybe 80 - 2?
+    //         // bodyMainRight.style.top = 0%
+    //         bodyMainRight.style.left = "80%";
+    //         bodyMainRight.style.width = "20%";
+    //     } else {
+    //         // Center
+    //         // bodyMainCenter.style.top = 0%
+    //         bodyMainCenter.style.left = "0%";
+    //         bodyMainCenter.style.width = "100%";
+    //     }
+    //     //
+    //     var Cn = 0;
+    //     var tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
+    //     while (BodyMainCenterCenter.childNodes[1].childNodes[Cn]) {
+    //         tmp = BodyMainCenterCenter.childNodes[1].childNodes[Cn];
+    //         if (tmp.id) {
+    //             if (tmp.id.substr(0, 4) == "DivP" || tmp.id.substr(0, 4) == "DivB" || tmp.id.substr(0, 6) == "DivBox") {
+    //                 BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = "98%";
+    //                 // if (tmp.id.substr(0, 4) = "DivP") {
+    //                 // tmp.style.maxWidth = "";
+    //                 // tmp.style.width = "";
+    //                 // tmp.style.posWidth = "";
+    //                 // Callout Boxes
+    //                 if (tmp.childNodes && tmp.childNodes[0] && tmp.childNodes[0].id) {
+    //                     if (tmp.childNodes[0].id.substr(0, 4) = "DivC") {
+    //                         tmp.childNodes[0].style.posWidth = "";
+    //                         tmp.childNodes[0].style.width = "45%";
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         Cn++;
+    //     }
+    //     //
+    //     layoutIsWide = false;
+    //     layoutIsStandard = true;
+    // }
     //
     layoutWidthPrev = layoutWidth;
     layoutHeightPrev = layoutHeight;
@@ -223,7 +270,7 @@ var layoutAvailHeight = 0;
 var layoutDocumentWidth = 0;
 var layoutDocumentHeight = 0;
 //
-function StdWindowClientWidth() {
+function WindowClientWidth() {
     // Window Width
     layoutDocumentWidth = window.document.documentElement.offsetWidth;
     layoutAvailWidth = window.screen.availWidth;
@@ -256,14 +303,14 @@ function StdWindowClientWidth() {
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // Window Session Load
-function StdWindowSessionLoad() {
+function WindowSessionLoad() {
     // Load Layout and Images Displayed
     // Get Cookie
     // Apply Cookie to Window
     // Apply Default to Window
 }
 // Window Session Save
-function StdWindowSessionSave() {
+function WindowSessionSave() {
     // Load Layout and Images Displayed
     // Build Oookie
     // Save Cookie
@@ -271,24 +318,24 @@ function StdWindowSessionSave() {
 // Window Cookies Functions
 ///////////////////////////////////////////////
 // Window Cookie Save
-function StdWindowCookieSave() {
+function WindowCookieSave() {
     // Load Layout and Images Displayed
     //
 }
 // Window Cookie Save
-function StdWindowCookieSave() {
+function WindowCookieSave() {
     // Load Layout and Images Displayed
     //
 }
 // Window Cookie Build
-function StdWindowCookieBuild() {
+function WindowCookieBuild() {
     // Build the Cookie
     //
 }
 // Window Document Functions
 ///////////////////////////////////////////////
-// Std Document Load Initinitialize Variablesm, Arrays and Default Data
-function StdDocumentLoadInit() {
+//  Document Load Initinitialize Variablesm, Arrays and Default Data
+function DocumentLoadInit() {
     //  for (imgCn = 1;imgCn < 1+imgUsedCn;imgCn++){
     //    menuImage = oObjIndexSetmenuImage(imgCn);
     //    intervalSet = imgCn * 100;
@@ -302,7 +349,7 @@ function StdDocumentLoadInit() {
         //    menuImage = oObjIndexSetmenuImage(imgCn);
         //    menuImage.src = "imgnone.gif";
     }
-    //
+
     // imgGroupMax
     // imgMax
     //
@@ -315,14 +362,17 @@ function StdDocumentLoadInit() {
     //         menuImageLocked[imgGroupCn][imgCn] = false;
     //     }
     // }
+
+
+
     // Resize Window
-    StdlayoutWindowResize();
+    WindowResizeLayout();
     //
 }
 // SectionBlock Window Document function (s)
 ///////////////////////////////////////////////
-// Std Document Load Initinitialize Variablesm, Arrays and Default Data
-function StdDocumentLoadInitDepreciated() {
+//  Document Load Initinitialize Variablesm, Arrays and Default Data
+function DocumentLoadInitDepreciated() {
     //
     //  for (imgCn = 1;imgCn < imgUsedCn;imgCn++){
     //    menuImage = oObjIndexSetmenuImage(imgCn);
@@ -353,30 +403,30 @@ function StdDocumentLoadInitDepreciated() {
     }
     //
     // Left and Right Areas
-    if (!elBodyMainLeftVisible) { elBodyMainLeft.style.display = 'none'; }
-    if (!elBodyMainRightVisible) { elBodyMainRight.style.display = 'none'; }
+    if (!bodyMainLeftVisible) { bodyMainLeft.style.display = 'none'; }
+    if (!bodyMainRightVisible) { bodyMainRight.style.display = 'none'; }
     //
     // Resize Window
-    StdWindowResize();
+    WindowResizeLayout();
     //
 }
 // Diaglogs and Pop-ups
 ////////////////////////////////////////////////
 // Create all Elements used in Layout
-function StdWindowPopupOpen() {
+function WindowPopupOpen() {
     // Popup Window
     var sConfig = 'left= 100, top= 0, height= 500, width= 400, menubar= 0, scrollbars= 0, status= 0, toolbar= 0, location= 0';
     var myWindow = window.open("http://myPopupWindow.html", "MyWindowName", sConfig);
 }
 // Document Layout Size of Core Layout Boxes
-function StdWindowContainerHeightGetAll() {
+function WindowContainerHeightGetAll() {
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Height of left and right menu containers vs the center menu container'
             + ': ',
-            'StdWindowContainerHeightGetAll', 6769, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 6769, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Height of left and right menu containers vs the center menu container
@@ -386,83 +436,83 @@ function StdWindowContainerHeightGetAll() {
     layoutBodyHeightVertMax = 0;
     layoutMenuWidthMax = 0;
     //
-    elBodyMainCenterHeight = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainCenter);
+    bodyMainCenterHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-            ' Height of BodyMainCenterHeight: ' + elBodyMainCenterHeight
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            ' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
             + '.',
-            'StdWindowContainerHeightGetAll', 6769, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 6769, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
-    tempLayoutBodyHeightVertMax += elBodyMainCenterHeight;
-    if (tempLayoutBodyHeightHorzMax < elBodyMainCenterHeight) { tempLayoutBodyHeightHorzMax = elBodyMainCenterHeight; }
+    tempLayoutBodyHeightVertMax += bodyMainCenterHeight;
+    if (tempLayoutBodyHeightHorzMax < bodyMainCenterHeight) { tempLayoutBodyHeightHorzMax = bodyMainCenterHeight; }
     //
     // Left
-    elBodyMenuLayout1Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft);
-    // if (layoutResizeCn == 0) { elBodyMenuLayout1Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainLeft); }
+    bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
+    // if (layoutResizeCn == 0) { bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-            ' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            ' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
             + '.',
-            'StdWindowContainerHeightGetAll', 6769, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 6769, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check the accumaltion of Left1, Left2, Left3
     if (layoutIndex == layoutStandard) {
-        StdWindowContainerHeightGetMenu(elBodyMainLeft);
-    } else { StdWindowContainerHeightGetMenu(elBodyMainCenterTopLeft); }
+        WindowContainerHeightGetMenu(bodyMainLeft);
+    } else { WindowContainerHeightGetMenu(bodyMainCenterTopLeft); }
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-            ' Height of elBodyMenuLayout1Height: ' + elBodyMenuLayout1Height
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            ' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
             + '.',
-            'StdWindowContainerHeightGetAll', 6769, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 6769, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
-    tempLayoutBodyHeightVertMax += elBodyMenuLayout1Height;
+    tempLayoutBodyHeightVertMax += bodyLayoutMenu1Height;
     if (layoutIndex == layoutStandard) {
-        if (tempLayoutBodyHeightHorzMax < elBodyMenuLayout1Height) { tempLayoutBodyHeightHorzMax = elBodyMenuLayout1Height; }
+        if (tempLayoutBodyHeightHorzMax < bodyLayoutMenu1Height) { tempLayoutBodyHeightHorzMax = bodyLayoutMenu1Height; }
     }
     // Right
-    elBodyMenuLayout2Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight);
-    // if (layoutResizeCn == 0) { elBodyMenuLayout2Height = StdElementHeightMaxGet(UseScroll, UseBase, elBodyMainRight); }
+    bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
+    // if (layoutResizeCn == 0) { bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-            ' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
             + '.',
-            'StdWindowContainerHeightGetAll', 6769, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 6769, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check the accumaltion of Right1, Right2, Right3
     if (layoutIndex == layoutStandard) {
-        StdWindowContainerHeightGetMenu(elBodyMainRight);
-    } else { StdWindowContainerHeightGetMenu(elBodyMainCenterTopRight); }
+        WindowContainerHeightGetMenu(bodyMainRight);
+    } else { WindowContainerHeightGetMenu(bodyMainCenterTopRight); }
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
-            ' Height of BodyMenuLayout2Height: ' + elBodyMenuLayout2Height
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
             + '.',
-            'StdWindowContainerHeightGetAll', 6769, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 6769, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
-    tempLayoutBodyHeightVertMax += elBodyMenuLayout2Height;
+    tempLayoutBodyHeightVertMax += bodyLayoutMenu2Height;
     if (layoutIndex == layoutStandard) {
-        // if (elBodyMenuLayout1Height < layoutMenuHeightVertMax) { elBodyMenuLayout1Height = layoutMenuHeightVertMax; }
-        if (tempLayoutBodyHeightHorzMax < elBodyMenuLayout2Height) { tempLayoutBodyHeightHorzMax = elBodyMenuLayout2Height; }
+        // if (bodyLayoutMenu1Height < layoutMenuHeightVertMax) { bodyLayoutMenu1Height = layoutMenuHeightVertMax; }
+        if (tempLayoutBodyHeightHorzMax < bodyLayoutMenu2Height) { tempLayoutBodyHeightHorzMax = bodyLayoutMenu2Height; }
     } else if (layoutIndex == layoutWindowed) {
-        tempLayoutBodyHeightHorzMax = elBodyMainCenterHeight;
-        if (elBodyMenuLayout1Height > elBodyMenuLayout2Height) {
-            tempLayoutBodyHeightHorzMax += elBodyMenuLayout1Height;
+        tempLayoutBodyHeightHorzMax = bodyMainCenterHeight;
+        if (bodyLayoutMenu1Height > bodyLayoutMenu2Height) {
+            tempLayoutBodyHeightHorzMax += bodyLayoutMenu1Height;
         } else {
-            tempLayoutBodyHeightHorzMax += elBodyMenuLayout2Height;
+            tempLayoutBodyHeightHorzMax += bodyLayoutMenu2Height;
         }
     }
     //
@@ -483,7 +533,7 @@ function StdWindowContainerHeightGetAll() {
     layoutHeight = layoutBodyHeightHorzMax;
 }
 // Document Layout Size of Core Layout Boxes
-function StdWindowContainerHeightGetMenu(elementPassed) {
+function WindowContainerHeightGetMenu(elementPassed) {
     // Height of left and right menu containers:
     // Greatest height when layed out side by side
     layoutBodyHeightHorzMax = 0;
@@ -498,8 +548,8 @@ function StdWindowContainerHeightGetMenu(elementPassed) {
     // Left groups is temporary and is not reliable.
     //
     // The Left menu elements are extracted from one of:
-    // 		elBodyMainCenterTopLeft
-    //		elBodyMenuLayout1
+    // 		bodyMainCenterTopLeft
+    //		bodyLayoutMenu1
     //............................................................---//
     var menuGroup1;
     var menuGroup2;
@@ -507,59 +557,55 @@ function StdWindowContainerHeightGetMenu(elementPassed) {
     // Left menuGroup1, 2, 3
     if (!menuGroup1) {
         if (elementPassed) {
-            menuGroup1 = StdElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
-            menuGroup2 = StdElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
-            menuGroup3 = StdElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
+            menuGroup1 = ElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
+            menuGroup2 = ElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
+            menuGroup3 = ElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
         }
     }
     //
-    elMenuGroup1Height = StdElementHeightMaxGet(true, true, menuGroup1);
-    elMenuGroup2Height = StdElementHeightMaxGet(true, true, menuGroup2);
-    elMenuGroup3Height = StdElementHeightMaxGet(true, true, menuGroup3);
+    bodyMenuGroupHeight[1] = ElementHeightMaxGet(true, true, menuGroup1);
+    bodyMenuGroupHeight[2] = ElementHeightMaxGet(true, true, menuGroup2);
+    bodyMenuGroupHeight[3] = ElementHeightMaxGet(true, true, menuGroup3);
     //
-    layoutMenuHeightVertMax = elMenuGroup1Height + elMenuGroup2Height + elMenuGroup3Height;
+    layoutMenuHeightVertMax = bodyMenuGroupHeight[1] + bodyMenuGroupHeight[2] + bodyMenuGroupHeight[3];
     //
     layoutMenuHeightHorzMax = 0;
-    if (layoutMenuHeightHorzMax < elMenuGroup1Height) { layoutMenuHeightHorzMax = elMenuGroup1Height; }
-    if (layoutMenuHeightHorzMax < elMenuGroup2Height) { layoutMenuHeightHorzMax = elMenuGroup2Height; }
-    if (layoutMenuHeightHorzMax < elMenuGroup3Height) { layoutMenuHeightHorzMax = elMenuGroup3Height; }
+    if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[1]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[1]; }
+    if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[2]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[2]; }
+    if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[3]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[3]; }
     //
 }
 // Recalculate Screen Display
-function StdWindowResize() {
+function WindowResizeLayout() {
     // Recalculate Screen Display
+    var calloutBoxWidth = 0;
+    var bodyMainCenterLeftAdj = 0;
+    var bodyMainCenterWidthAdj = 0;
     //
-    if (loadFirstJava) { StdElementObjectCreate(); }
+    //
+    if (loadFirstJava) { ElementObjectCreate(); }
     //
     // ...................................... //
     // Recalculate Globals for Screen
     //
-    StdWindowClientWidth();
+    WindowClientWidth();
     // ...................................... //
     // Load Containers if missing
     //
-    if (!elBodyMainLeft) { StdElementObjectContainerCreate(); }
+    if (!bodyMainLeft) { ElementObjectContainerCreate(); }
     // ...................................... //
     // Recalculate Positions for Menu Images
-    if (layoutResizeCn == 0) { StdWindowContainerHeightGetAll(); }
-    //
-    var elBodyMainCenterLeftAdj = 0;
-    var elBodyMainCenterWidthAdj = 0;
+    if (layoutResizeCn == 0) { WindowContainerHeightGetAll(); }
     //
     // ...................................... //
     // Process DivBox and Callout layout
     //
     // Count Display Blocks (s/b DivBox containers)
-    elementBlockCn = StdElementObjectBlockCount();
+    bodyBlockCn = ElementObjectBlockCount();
     //
     // Determine DivBox (Body Content) column and callout sizes
-    if (elBodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && elementBlockCn > 4 && columnMax > 2) {
-        layoutBlockWidth = layoutBlockWidthWide;
-    } else if (elBodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutEmRation) && columnMax > 1) {
-        layoutBlockWidth = layoutBlockWidthStandard;
-    } else {
-        layoutBlockWidth = layoutBlockWidthNarrow;
-    }
+    // Note that fewer text block is detected.
+    layoutBlockWidth = LayoutBlockWidthGet();
     // ...................................... //
     // Width over layoutMenuDocWidthWide
     // ...................................... //
@@ -567,40 +613,40 @@ function StdWindowResize() {
     if (layoutDocumentWidth > layoutMenuDocWidthWide) {
         // ...................................... //
         // Standard Layout
-        if (layoutIndex == layoutStandard && (elBodyMainLeftVisible || elBodyMainRightVisible)) {
+        if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
             // Left
-            // elBodyMainLeft.style.width = '10%';
-            // elBodyMainLeft.style.width = '15%';
-            if (elBodyMainLeftVisible) {
-                elBodyMainLeft.style.width = '12%';
+            // bodyMainLeft.style.width = '10%';
+            // bodyMainLeft.style.width = '15%';
+            if (bodyMainLeftVisible) {
+                bodyMainLeft.style.width = '12%';
             } else {
-                elBodyMainLeft.style.width = '0%';
-                elBodyMainCenterLeftAdj = 12;
-                elBodyMainCenterWidthAdj += 10;
+                bodyMainLeft.style.width = '0%';
+                bodyMainCenterLeftAdj = 12;
+                bodyMainCenterWidthAdj += 10;
             }
             // Right
-            // elBodyMainRight.style.top = 0%
-            if (elBodyMainRightVisible) {
-                if (layoutUseAbsolute) { elBodyMainRight.style.left = '88%'; }
-                elBodyMainRight.style.width = '12%';
+            // bodyMainRight.style.top = 0%
+            if (bodyMainRightVisible) {
+                if (layoutUseAbsolute) { bodyMainRight.style.left = '88%'; }
+                bodyMainRight.style.width = '12%';
             } else {
-                if (layoutUseAbsolute) { elBodyMainRight.style.left = '100%'; }
-                elBodyMainRight.style.width = '0%';
-                elBodyMainCenterWidthAdj += 9;
+                if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+                bodyMainRight.style.width = '0%';
+                bodyMainCenterWidthAdj += 9;
             }
             //
             // Center
-            // elBodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { elBodyMainCenter.style.left = (12 - elBodyMainCenterLeftAdj) + '%'; }
-            elBodyMainCenter.style.width = (76 + elBodyMainCenterWidthAdj) + '%';
+            // bodyMainCenter.style.top = 0%
+            if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
+            bodyMainCenter.style.width = (76 + bodyMainCenterWidthAdj) + '%';
             //
         } else {
             // ...................................... //
             // Wide Layout Options (no side menus)
             // Center
-            // elBodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { elBodyMainCenter.style.left = '0%'; }
-            elBodyMainCenter.style.width = '100%';
+            // bodyMainCenter.style.top = 0%
+            if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+            bodyMainCenter.style.width = '100%';
         }
         //
         layoutIsWide = true;
@@ -612,38 +658,38 @@ function StdWindowResize() {
         // ...................................... //
         //
         // ...................................... //
-        if (layoutIndex == layoutStandard && (elBodyMainLeftVisible || elBodyMainRightVisible)) {
+        if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
             // Left
-            // elBodyMainLeft.style.top = 0%
-            // if (layoutUseAbsolute) { elBodyMainLeft.style.left = '0%'; }
-            if (elBodyMainLeftVisible) {
-                elBodyMainLeft.style.width = '20%';
+            // bodyMainLeft.style.top = 0%
+            // if (layoutUseAbsolute) { bodyMainLeft.style.left = '0%'; }
+            if (bodyMainLeftVisible) {
+                bodyMainLeft.style.width = '20%';
             } else {
-                if (layoutUseAbsolute) { elBodyMainLeft.style.width = '0%'; }
-                elBodyMainCenterLeftAdj = 20;
-                elBodyMainCenterWidthAdj += 20;
+                if (layoutUseAbsolute) { bodyMainLeft.style.width = '0%'; }
+                bodyMainCenterLeftAdj = 20;
+                bodyMainCenterWidthAdj += 20;
             }
             //
             // Right
-            // elBodyMainRight.style.top = 0%
-            if (elBodyMainRightVisible) {
-                if (layoutUseAbsolute) { elBodyMainRight.style.left = '80%'; }
-                elBodyMainRight.style.width = '20%';
+            // bodyMainRight.style.top = 0%
+            if (bodyMainRightVisible) {
+                if (layoutUseAbsolute) { bodyMainRight.style.left = '80%'; }
+                bodyMainRight.style.width = '20%';
             } else {
-                if (layoutUseAbsolute) { elBodyMainRight.style.left = '100%'; }
-                elBodyMainRight.style.width = '0%';
-                elBodyMainCenterWidthAdj += 20;
+                if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+                bodyMainRight.style.width = '0%';
+                bodyMainCenterWidthAdj += 20;
             }
             //
             // Center
-            // elBodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { elBodyMainCenter.style.left = '20%'; }
-            elBodyMainCenter.style.width = '60%';
+            // bodyMainCenter.style.top = 0%
+            if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; }
+            bodyMainCenter.style.width = '60%';
         } else {
             // Center
-            // elBodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { elBodyMainCenter.style.left = '0%'; }
-            elBodyMainCenter.style.width = '100%';
+            // bodyMainCenter.style.top = 0%
+            if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+            bodyMainCenter.style.width = '100%';
         }
         //
         layoutIsWide = false;
@@ -651,12 +697,38 @@ function StdWindowResize() {
         //
     }
     // ...................................... //
-    // Search Sections for Callouts
+    // Adjust for margin, padding & border custom styling
+    tmpAdjust = ElementContainerAdjustGet(layoutBlock, BodyMainCenterCenter, true);
+    // See MdmMain to adjust these settings.
+    if (BodyMainCenterCenter.offsetWidth > layoutBlockCol4Min) {
+        // 4 columns - layoutBlockWidthBig
+        layoutBlockWidth = (layoutBlockWidthBig - tmpAdjust) + "%";
+        // BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthBig - tmpAdjust) + "%";
+        calloutBoxWidth = calloutLayoutBlockWidthBig;
+        //
+    } else if (BodyMainCenterCenter.offsetWidth > layoutBlockCol3Min) {
+        // 3 columns - layoutBlockWidthWide
+        layoutBlockWidth = (layoutBlockWidthWide - tmpAdjust) + "%";
+        // BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthWide - tmpAdjust) + "%";
+        calloutBoxWidth = calloutLayoutBlockWidthWide;
+    } else if (BodyMainCenterCenter.offsetWidth > layoutBlockCol2Min) {
+        // 2 columns
+        layoutBlockWidth = (layoutBlockWidthStandard - tmpAdjust) + "%";
+        // BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthStandard - tmpAdjust) + "%";
+        calloutBoxWidth = calloutLayoutBlockWidthStandard;
+    } else {
+        // 1 columns
+        layoutBlockWidth = (layoutBlockWidthNarrow - tmpAdjust) + "%";
+        // BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthNarrow - tmpAdjust) + "%";
+        calloutBoxWidth = calloutLayoutBlockWidthNarrow;
+    }
+    // ...................................... //
+    // Search Sections and adjust layout
     layoutSectionCn = 0;
-    while (elBodyMainCenterCenter.childNodes[layoutSectionCn]) {
+    while (bodyMainCenterCenter.childNodes[layoutSectionCn]) {
         // ...................................... //
         // Section
-        layoutSection = elBodyMainCenterCenter.childNodes[layoutSectionCn];
+        layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
         if (layoutSection.id) {
             if ((layoutSection.id).substr(0, 4) == 'DivS') {
                 layoutBlockCn = 0;
@@ -665,14 +737,14 @@ function StdWindowResize() {
                     // Block
                     layoutBlock = layoutSection.childNodes[layoutBlockCn];
                     if (layoutBlock.id) {
-                        if ((layoutBlock.id).substr(0, 4) == 'DivB') {
+                        if (layoutBlock.id.substr(0, 4) == "DivP" || layoutBlock.id.substr(0, 4) == "DivB" || layoutBlock.id.substr(0, 6) == "DivBox") {
                             boxClass = layoutBlock.className;
-                            columnType = StdStringGetTokenByPrefix(boxClass, 'ColumnType');
-                            if (columnType != 'ColumnTypeFixed') { layoutBlock.style.width = layoutBlockWidth; }
-                            // elBodyBlockWidth = parseInt(layoutBlock.style.width);
-                            elBodyBlockWidth = StdElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, elementWidthDefault);
-                            //
-                            // ...................................... //
+                            layoutBodyColumnType = StringGetTokenByPrefix(boxClass, 'layoutBodyColumnType');
+                            if (layoutBodyColumnType != 'layoutBodyColumnTypeFixed') {
+                                layoutBlock.style.width = layoutBlockWidth;
+                            }
+                            // bodyBlockWidth = parseInt(layoutBlock.style.width);
+                            bodyBlockWidthMax = ElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, layoutBlockWidthDefault);
                             // Callout
                             calloutBlockCn = 0;
                             while (layoutBlock.childNodes[calloutBlockCn]) {
@@ -682,16 +754,10 @@ function StdWindowResize() {
                                         if ((calloutBlock.id).substr(0, 4) == 'DivC') {
                                             // Get Column Type from Box class
                                             boxClass = calloutBlock.className;
-                                            columnType = StdStringGetTokenByPrefix(boxClass, 'ColumnType');
+                                            layoutBodyColumnType = StringGetTokenByPrefix(boxClass, 'layoutBodyColumnType');
                                             // Set Callout Width and Layout
-                                            if (columnType != 'ColumnTypeFixed') {
-                                                if (elBodyBlockWidth > calloutBlockLayoutWidthWide) {
-                                                    calloutBlock.style.width = calloutBlockWidthWide;
-                                                } else if (elBodyBlockWidth < calloutBlockLayoutWidthStandard) {
-                                                    calloutBlock.style.width = calloutBlockWidthNarrow;
-                                                } else {
-                                                    calloutBlock.style.width = calloutBlockWidthStandard;
-                                                }
+                                            if (layoutBodyColumnType != 'layoutBodyColumnTypeFixed') {
+                                                calloutBlock.style.width = calloutBoxWidth;
                                             }
                                         } // DivC
                                     } // DivC Id
@@ -710,9 +776,9 @@ function StdWindowResize() {
     //
     layoutResizeCn += 1;
     if (layoutResizeCn > 500) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             'Window Resize Excessive Usage (Possible Error)',
-            'StdWindowResize', 0, null, null,
+            'WindowResizeLayout', 0, null, null,
             errorSevere, errorDoNotDisplayTag, errorDoAlert);
         layoutResizeCn = 0;
         // layoutMenuHeightHorzMax = 2000;
@@ -720,51 +786,52 @@ function StdWindowResize() {
     //
     // if (layoutResizeCn == 1) {
     //
-    // elBodyMainContainer.style.height = '100%';
+    // bodyMainContainer.style.height = '100%';
     // Height of left and right menu containers
     /* -- */
     //
-    StdWindowContainerHeightGetAll();
+    WindowContainerHeightGetAll();
     /* -- */
     //
     //
     if (debugAlert) {
-        ConsoleMessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
             ' Main Container layoutHeight (body +5em): ' + layoutHeight
             + '.',
-            'StdWindowResize', 7189, null, null,
-            errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowResizeLayout', 7189, null, null,
+            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
-    elBody.style.height = (layoutHeight + 50) + 'px';
-    elBodyMainContainer.style.height = (layoutHeight) + 'px';
+    body.style.height = (layoutHeight + 50) + 'px';
+    bodyMainContainer.style.height = (layoutHeight) + 'px';
     //
     // Experiments:
-    // // elBodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuHeightHorzMax) + 'px';
-    // // elBodyMainCenter.style.height = 'auto';// '100%';// layoutMenuHeightHorzMax + 'px';
-    // // elBodyMainContainer.style.height = '100%';// (layoutMenuHeightHorzMax) + 'px';// 'auto';// (layoutMenuHeightHorzMax + 100) + 'px';
-    // elBody.style.height = '';// (layoutMenuHeightHorzMax + 100) + 'px';
+    // // bodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuHeightHorzMax) + 'px';
+    // // bodyMainCenter.style.height = 'auto';// '100%';// layoutMenuHeightHorzMax + 'px';
+    // // bodyMainContainer.style.height = '100%';// (layoutMenuHeightHorzMax) + 'px';// 'auto';// (layoutMenuHeightHorzMax + 100) + 'px';
+    // body.style.height = '';// (layoutMenuHeightHorzMax + 100) + 'px';
     //
     //
-    // elBodyMainLeft.style.height = layoutHeight + 'px';;
-    // elBodyMainRight.style.height = layoutHeight + 'px';;
-    // elBodyMenuLayout1.style.height = layoutHeight + 'px';;
-    // elBodyMenuLayout2.style.height = layoutHeight + 'px';;
+    // bodyMainLeft.style.height = layoutHeight + 'px';;
+    // bodyMainRight.style.height = layoutHeight + 'px';;
+    // bodyLayoutMenu1.style.height = layoutHeight + 'px';;
+    // bodyLayoutMenu2.style.height = layoutHeight + 'px';;
     //
-    // elBodyMenuLayout1.style.height = '100%';
-    // elBodyMenuLayout2.style.height = '100%';
+    // bodyLayoutMenu1.style.height = '100%';
+    // bodyLayoutMenu2.style.height = '100%';
     // // BodyMainLeft.style.height = 'auto;
     // // BodyMainRight.style.height = 'auto';
     // }
     //
     layoutWidthPrev = layoutWidth;
     layoutHeightPrev = layoutHeight;
+    layoutResizeDo = false;
     // ...................................... //
     // Recalculate Positions for Menu Images
     //
 }
 // Document Window Client Width
-function StdWindowClientWidth() {
+function WindowClientWidth() {
     // Window Width
     layoutDocumentWidth = window.document.documentElement.offsetWidth;
     layoutAvailWidth = window.screen.availWidth;
@@ -792,5 +859,6 @@ function StdWindowClientWidth() {
     //
 }
 // ..................................................................................... _//
+
 script_state = "Mdm Standard Window functions loaded. (Window, Client, Resize, Cookie, Session, Popup)";
 if (debugLoadIsOn) { debugger; }

@@ -155,7 +155,7 @@ z-index:3;
 /* align-self: center; */
 /* text-align: center; */
 /* Visibility */
-padding: 2% 0% 2% 0%;
+padding: 2% 0% 2% 0em;
 display:block;
 }
 /* */
@@ -312,7 +312,7 @@ display:block;
 #BodyMainLeftOuter, .BodyMainLeftOuter {
 /* Position */
 position:static;
-padding-left:10%;
+padding-left:10em;
 /* Size */
 width:90%;
 height:100%;
@@ -328,7 +328,7 @@ background:#ffffff url(../Images/Common/SwirlsLeft.gif) repeat-y left top;
 #BodyMainLeftInner, .BodyMainLeftInner {
 /* Position */
 position:static;
-padding-right:10%;
+padding-right:10em;
 /* Size */
 width:90%;
 height:100%;
@@ -441,7 +441,7 @@ background:#ffffff url(../Images/Common/SwirlsRight.gif) repeat-y right top;
 #BodyMainRightInner, .BodyMainRightInner {
 /* Position */
 position:static;
-padding-left:10%;
+padding-left:10em;
 /* Size */
 width:80%;
 height:100%;
@@ -544,7 +544,7 @@ height:30.0em;
 /* height:40.0em; */
 /* Layout / Visibility */
 margin:1.0em 0em 0em 0em;
-padding-top:0%;
+padding-top:0em;
 display:none;
 /* Background */
 background: url(../Images/Common/BackgroundBlueSpiral.jpg);

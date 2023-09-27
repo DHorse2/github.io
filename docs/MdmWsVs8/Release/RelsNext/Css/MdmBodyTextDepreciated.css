@@ -1,0 +1,46 @@
+/* -- Tag Specific: h, a, p, span, ... */
+/* -------------------------------------------- */
+h.BodyPara {
+    /* Alignment */
+    text-align: center;
+    /* Decoration */
+    font-weight: bold;
+}
+
+p.BodyPara {
+    /* Alignment */
+    /* text-align:justify; */
+    text-indent: 1em;
+    font-size: 1em;
+}
+
+/* padding: 0% 0.5% 0.25% 0.5em; */
+
+span.BodyPara {
+    /* Alignment */
+    text-indent: 0em;
+}
+
+/*
+    a.BodyPara  {
+    text-indent:1em;
+    padding: 0em;
+    margin: 0em;
+    }
+    /* padding: 0% 0.5% 0.25% 0.5em; */
+
+h1.BodyPara,
+h2.BodyPara,
+h3.BodyPara,
+h4.BodyPara,
+h5.BodyPara,
+h6.BodyPara .h1.BodyPara,
+.h2.BodyPara,
+.h3.BodyPara,
+.h4.BodyPara,
+.h5.BodyPara,
+.h6.BodyPara {
+    /* Alignment */
+    text-indent: 0em;
+}
+

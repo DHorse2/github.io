@@ -25,7 +25,7 @@
             <!-- ..................................................................................... -->
                     <div id="DivSection1" class="BodyParaBox">
                             <!-- * -->
-                            <div id="DivBox11" class="BodyPara aLeft ColumnType1">
+                            <div id="DivBox11" class="BodyPara aLeft layoutBodyColumnType1">
                                 <p class="BodyPara BodyParaLast">
 <br>
 <br>-------------------------------------------------------------------------------------
@@ -101,87 +101,87 @@
 <br>SectionBlock STANDARD function
 <br>------------------------------------------------
 <br>Global
-<br>		 StdDocumentLoadInit
+<br>		 DocumentLoadInit
 <br>Elements
-<br>		StdElementPosGet
+<br>		ElementPosGet
 <br>Layout
-<br>		StdLayoutSelectByIndex
+<br>		LayoutSelectByIndex
 <br>Menu Images
-<br>		StdMenuImagesHtmlBuild
+<br>		MenuImagesHtmlBuild
 <br>Mouse
-<br>		StdElementEventMouseOver
-<br>		StdElementEventMouseOut
-<br>		StdElementEventClick
+<br>		ElementEventMouseOver
+<br>		ElementEventMouseOut
+<br>		ElementEventClick
 <br>
 <br>------------------------------------------------
 <br>SectionBlock Menu function
 <br>------------------------------------------------
 <br>Menu Image Show / Hide
 <br>Menu Show
-<br>		StdElementGroupShowRange
-<br>		StdElementItemShowIndex
-<br>		StdElementGroupShowStack
-<br>		StdElementItemToggle
-<br>		StdElementItemShow
+<br>		ElementGroupShowRange
+<br>		ElementItemShowIndex
+<br>		ElementGroupShowStack
+<br>		ElementItemToggle
+<br>		ElementItemShow
 <br>Menu Hide
-<br>		StdElementGroupToggleRange
-<br>		StdElementItemHide
+<br>		ElementGroupToggleRange
+<br>		ElementItemHide
 <br>Menu Object Selection
-<br>		StdElementItemGetAllFromIndex
-<br>		StdElementItemGetDescription
-<br>		StdElementItemGetName
-<br>		StdElementItemIndexSetFromObj
-<br>		StdElementItemIndexSetFromName
+<br>		ElementItemGetAllFromIndex
+<br>		ElementItemGetDescription
+<br>		ElementItemGetName
+<br>		ElementItemIndexSetFromObj
+<br>		ElementItemIndexSetFromName
 <br>
 <br>------------------------------------------------
 <br>SectionBlock LAYOUT MANAGEMENT function
 <br>------------------------------------------------
-<br>		StdLayoutCheck
-<br>		StdLayoutRefresh
-<br>		StdLayoutNext
+<br>		LayoutCheck
+<br>		LayoutRefresh
+<br>		LayoutNext
 <br>
 <br>------------------------------------------------
 <br>SectionBlock STANDARD function
 <br>------------------------------------------------
 <br>Math Functions
-<br>		StdMathNumberRandomGetByRange
+<br>		MathNumberRandomGetByRange
 <br>Font Size Control
-<br>		StdFontSizeIncrease
-<br>		StdFontSizeDecrease
+<br>		FontSizeIncrease
+<br>		FontSizeDecrease
 <br>
 <br>------------------------------------------------
 <br>SectionBlock OBJECT ANIMATION function
 <br>------------------------------------------------
 <br>Filter (Transition, Transform) Get by Index or Name
-<br>		StdFilterGetByIndex
+<br>		FilterGetByIndex
 <br>
 <br>------------------------------------------------
 <br>SectionBlock FILTER MANAGEMENT function
 <br>------------------------------------------------
 <br>General
-<br>		StdFilterResetThenAnimate
+<br>		FilterResetThenAnimate
 <br>Filter Store / Restore
-<br>		StdFilterStore
-<br>		StdFilterRestore
+<br>		FilterStore
+<br>		FilterRestore
 <br>Animate Object
-<br>		StdFilterAnimate
+<br>		FilterAnimate
 <br>Filter Specific Functions
 <br>		StyleBackground
-<br>				StdFilterBackgroundToggle
+<br>				FilterBackgroundToggle
 <br>		Matrix
-<br>			  	StdFilterSpin
-<br>				StdFilterSetRotation
-<br>				StdFilterResize
-<br>		StdSlideStyleToggle
-<br>				StdSlideStyleToggle
+<br>			  	FilterSpin
+<br>				FilterSetRotation
+<br>				FilterResize
+<br>		SlideStyleToggle
+<br>				SlideStyleToggle
 <br>		Other
 <br>			 	OtherFunction...
 <br>Filter Get / Set
-<br>		StdFilterGetByIndex
-<br>		StdFilterGetRandom
+<br>		FilterGetByIndex
+<br>		FilterGetRandom
 <br>Filter Timing Get By Index
-<br>		StdFilterTimingGetByIndex
-<br>		StdFilterTimingGetRandom
+<br>		FilterTimingGetByIndex
+<br>		FilterTimingGetRandom
 <br>
 <br>------------------------------------------------
 <br>SectionBlock DOCUMENT EVENTS function
@@ -251,7 +251,7 @@
 <br>BodyImageContainer
 <br>BodyMenuImageContainer
 <br>
-<br>ColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
+<br>layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
 <br>
 <br>-------------------------------------------------------------------------------------
 <br>-------------------------------------------------------------------------------------

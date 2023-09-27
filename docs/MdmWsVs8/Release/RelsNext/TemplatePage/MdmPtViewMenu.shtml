@@ -4,7 +4,7 @@
         >
         <p id="MenuGroup5Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="StdElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 5, 8, true, false)"
+           onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 5, 8, true, false)"
     	   >
     	    Flexibile User Interface Design<br >
     		(Toggle these settings)
@@ -12,11 +12,11 @@
         <!-- IN PROGRESS NOTE lnumbered altering list presentation... -->
     	<ul id="MenuGroup5" class=" MenuColumnClass MenuList lNumbered">
 <!-- x ------------------------------------------------------------------------------------- -->
-            <!-- StdLayoutNext -->
+            <!-- LayoutNext -->
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuViewToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdLayoutNext(0)"
+    			onmousedown="LayoutNext(0)"
                 >
     		Change View<br >(4 Options)
     		</span></li>
@@ -25,7 +25,7 @@
             <li class="MenuListItem">
             	<span id="MenuConsoleToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleAll')"
+    			onmousedown="BodyConsoleToggle('ConsoleAll')"
                 >
             Console for Events, Errors and Messages (C)
     		</span></li>
@@ -33,7 +33,7 @@
             <li class="MenuListItem">
             	<span id="MenuConsoleErrorToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleError')"
+    			onmousedown="BodyConsoleToggle('ConsoleError')"
                 >
             View Errors and Log (e)
     		</span></li>
@@ -41,7 +41,7 @@
             <li class="MenuListItem">
             	<span id="MenuConsoleEventToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleEvent')"
+    			onmousedown="BodyConsoleToggle('ConsoleEvent')"
                 >
             View Events (v)
     		</span></li>
@@ -49,7 +49,7 @@
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuConsoleStateToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleState')"
+    			onmousedown="BodyConsoleToggle('ConsoleState')"
                 >
             View Messages and Test Area (s)
     		</span></li>
@@ -57,7 +57,7 @@
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuConsoleClearToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleClear')"
+    			onmousedown="BodyConsoleToggle('ConsoleClear')"
                 >
             CLear Errors and Log (c)
     		</span></li>
@@ -66,7 +66,7 @@
             <li class="MenuListItem">
             	<span id="MenuConsoleDebugToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebug')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebug')"
                 >
             Toggle Debug Button's Visibility (D)
     		</span></li>
@@ -74,7 +74,7 @@
             <li class="MenuListItem">
             	<span id="MenuConsoleDebugMoveToggleLink"
                 class="MenuListItem "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebugMove')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebugMove')"
                 >
             Toggle Debug Movement (m)
     		</span></li>
@@ -82,7 +82,7 @@
             <li class="MenuListItem">
             	<span id="MenuConsoleDebugTransitionToggleLink"
                 class="MenuListItem  "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebugTransition')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebugTransition')"
                 >
             Toggle Debug Transitions (t)
     		</span></li>
@@ -90,7 +90,7 @@
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuConsoleDebugDetailToggleLink"
                 class="MenuListItem  "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebugDetail')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebugDetail')"
                 >
             Toggle Debug Details (d)
     		</span></li>
@@ -98,7 +98,7 @@
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuConsoleDebugOnErrorToggleLink"
                 class="MenuListItem  "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebugOnError')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebugOnError')"
                 >
             Toggle Debug Stop on OnError Messages (o)
     		</span></li>
@@ -106,7 +106,7 @@
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuConsoleDebugAllToggleLink"
                 class="MenuListItem  "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebugAll')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebugAll')"
                 >
             Toggle Debug Stop on All Messages (a)
     		</span></li>
@@ -114,7 +114,7 @@
             <li class="MenuListItem MenuListItemLast">
             	<span id="MenuConsoleDebugEventsToggleLink"
                 class="MenuListItem  "
-    			onmousedown="StdBodyConsoleToggle('ConsoleDebugEvents')"
+    			onmousedown="BodyConsoleToggle('ConsoleDebugEvents')"
                 >
             Toggle Log (Mouse) Event Messages (v)
     		</span></li>
@@ -123,7 +123,7 @@
             <li class="MenuListItem">
                 <span id="MenuViewZoomLink"
                 class="MenuListItem "
-    			onmousedown="StdLayoutFontSize('BodyFontToggle')"
+    			onmousedown="LayoutFontSize('BodyFontToggle')"
                 >
             Font Size Controls
     		</span></li>
@@ -131,7 +131,7 @@
             <li class="MenuListItem">
                 <span id="MenuFontZoomInLink"
                 class="MenuListItem "
-    			onmousedown="StdLayoutFontSize('BodyFontZoomIn')"
+    			onmousedown="LayoutFontSize('BodyFontZoomIn')"
                 >
             Bigger Text
     		</span></li>
@@ -139,7 +139,7 @@
             <li class="MenuListItem  MenuListItemLast">
                 <span id="MenuFontZoomOutLink"
                 class="MenuListItem "
-    			onmousedown="StdLayoutFontSize('BodyFontZoomOut')"
+    			onmousedown="LayoutFontSize('BodyFontZoomOut')"
                 >
             SmallerText
     		</span></li>

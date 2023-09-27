@@ -39,8 +39,8 @@ transform:
 /*
 
 	filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
-					onfilterchange="StdSpin(this)"
-					onmouseover="StdReset(this)"
+					onfilterchange="Spin(this)"
+					onmouseover="Reset(this)"
 
      
      <DIV STYLE="width:100%; filter:
@@ -70,17 +70,17 @@ object.style.filter ="progid:DXImageTransform.Microsoft.Slide(sProperties)"
 /*
 	<div id="MdmImportTldLarge"
 		 class="imgThumbLarge MenuImageBorder MenuImageContainer"
-      	 onmouseout="StdMenuImgHide(MdmImportTldLargeImage, MdmImportTldLarge, 1, false)"
-    	 onmouseover="StdMenuImgShow(true, MdmImportTld, MdmImportTldLargeImage, MdmImportTldLarge, 600, 1, false); StdReset(this)"
+      	 onmouseout="MenuImgHide(MdmImportTldLargeImage, MdmImportTldLarge, 1, false)"
+    	 onmouseover="MenuImgShow(true, MdmImportTld, MdmImportTldLargeImage, MdmImportTldLarge, 600, 1, false); Reset(this)"
     	 width=" 0em"
     	 height=" 0em"
   	STYLE="position:absolute;
   	display:none;
 filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', duration='1.5')"
-  	onfilterchange="StdSpin(this)"
+  	onfilterchange="Spin(this)"
 		 >
 
-<!--     onmouseover="StdMenuImgShowStack(MdmSystemMgnt, MdmWebDevImage, MdmWebDev, 0, 1, true)" -->
+<!--     onmouseover="MenuImgShowStack(MdmSystemMgnt, MdmWebDevImage, MdmWebDev, 0, 1, true)" -->
 
 */
          	

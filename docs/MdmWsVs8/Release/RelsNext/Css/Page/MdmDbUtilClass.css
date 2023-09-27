@@ -15,7 +15,7 @@ max-height:220.0em;
 /* Position */
 position:relative;
 /* top:2 6.3em; */
-left:1%;
+left:1em;
 /* Size */
 width:250.0em;
 height:175.0em;
@@ -48,7 +48,7 @@ position:relative;
 width:48.0em;
 /* Alignment */
 float: left;
-margin: 2%;
+margin: 2em;
 /* Layering */
 z-index:2;
 }
@@ -81,7 +81,7 @@ width:32.5em;
 min-height:45.0em;
 /* Alignment */
 float: left;
-margin: 2%;
+margin: 2em;
 /* Layering */
 z-index:1;
 }
@@ -115,7 +115,7 @@ width:70%;
 height:90%;
 /* Alignment */
 float: right;
-margin: 2%;
+margin: 2em;
 /* Layering */
 z-index:1;
 }

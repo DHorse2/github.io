@@ -1,18 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <!-- Mdm Page Template Wide -->
 <!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="Author" content="David G. Horsman" />
-    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" />
-    <link rel="stylesheet" type="text/css" href="../Css/MdmDghAccom.css" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="Author" content="David G. Horsman">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmDghAccom.css">
     <title>Career Accomplishments for Dave Horsman</title>
 </head>
 <body id="MdmDbUtilClassBody" class="BodyBox">
@@ -28,10 +28,10 @@
                 <!-- x -->
 <!-- x -->
 <!--** Menu Blocks **-->
-<!--#include virtual="../../RelsBuildStage.js"-->
-<!--#if expr="${RelsBuild}=RelsNext" -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
     <!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
-<!--#elif expr="${RelsBuild}=RelsCurr" -->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
     <!--#include virtual="/mdmsite/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
 <!--#else -->
     <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
@@ -72,14 +72,14 @@
 <li class="BodyListItem lNumbered ">MacroDM Web and Document Standards (&rsquo;02, &rsquo;04, &rsquo;11)</li>
 <li class="BodyListItem lNumbered ">Mdm post-relational to SQL import utility (&rsquo;08-&rsquo;10)</li>
 <li class="BodyListItem lNumbered ">Minor VBA driven applications. (&rsquo;02-&rsquo;05)</li>
-<li class="BodyListItem lNumbered ">Property development & accounting. (&rsquo;82-&rsquo;85)</li>
+<li class="BodyListItem lNumbered ">Property development &amp; accounting. (&rsquo;82-&rsquo;85)</li>
  					</ul>
                     <h4 id="B7D1H2b" class="BodyPara h4">
 					Applied Research and Development, other published applications
 					</h4>
 					<ul class="BodyPara BodyList lB0">
 					The following projects were note worthy due to their original technology:
-<li class="BodyListItem lNumbered ">SRT search & conversion tools. (&rsquo;88-&rsquo;91)</li>
+<li class="BodyListItem lNumbered ">SRT search &amp; conversion tools. (&rsquo;88-&rsquo;91)</li>
 <li class="BodyListItem lNumbered ">Real-time context sensitive UI&rsquo;s. (&rsquo;84-85)</li>
 <li class="BodyListItem lNumbered ">PickTr smart communications. (&rsquo;87-&rsquo;91)</li>
 <li class="BodyListItem lNumbered ">Addressable communications. (&rsquo;93-&rsquo;96)</li>
@@ -119,7 +119,7 @@
                         <p id="C4P1" class="BodyCallout">
 						Business applications ranging<br>
 						from minimal to highly complex.<br>
-						Extensive effective original R&D.<br>
+						Extensive effective original R&amp;D.<br>
 						Reliable, cost effective solutions.
                         </p>
                     </div>
@@ -140,7 +140,7 @@
 					this should be in combination with a partial effort in
 					research.
                     </p>
-                    <p id="D1P2" class="BodyPara">
+                    <p id="D1P2a" class="BodyPara">
 					It is my hope to provide good service to a few clients and
 					hopefully make some new friends along the way.
 					<br><br>
@@ -198,8 +198,8 @@
                 <!--*-->
                 <div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
                 <div id="DivD4" class="BodyParaRight">
-                    <div id="DivC4" class="BodyParaLeft CalloutBox CalloutBorder">
-                        <p id="C4P1" class="BodyCallout">
+                    <div id="DivC4a" class="BodyParaLeft CalloutBox CalloutBorder">
+                        <p id="C4P1a" class="BodyCallout">
 						   Becoming a renaissance man.<br>
                             From IT to log homes...<br>
 							Accounting to sales and marketing<br>
@@ -267,7 +267,7 @@
 						None are open source or in the form of downloadable installs at this time
 						so just send me an email with any questions you might have.
                     </p>
-                    <p id="D5P2" class="BodyPara">
+                    <p id="D5P2a" class="BodyPara">
 					The recent C# framework has been an enjoyable and productive effort.
 					As part of the development process many different features and patterns
 					within .Net have gotten some attention.  Though not the fast way to complete

@@ -21,16 +21,21 @@ var browserEventsIsFf; // FF mouse out
 // Note that differences in object model
 // booleans
 var browserIsTEST;
-var browserIsIE;
-var browserIsCH;
-var browserIsFF;
-var browserIsSA;
-var browserIsOP;
-var browserIsNE;
+var browserIsIE; // Internet Explorer
+var browserIsCH; // Chrome
+var browserIsFF; // FireFox
+var browserIsSA; // Safari
+var browserIsOP; // Opera
+var browserIsNE; // Netschape??
+var browserIsLynx; // Lynx text only
+var browserIsEdge; // todo
+var browserIsTor; // todo
+var browserIsOld; // todo
+
 // SectionBlock Window Browser
 // ...................................... //
 // Browser Type Get
-function StdBrowserGetVs() {
+function BrowserGetVs() {
     // Browser Type
     browserType = '';
     browserVs = 0;
@@ -50,6 +55,10 @@ function StdBrowserGetVs() {
     browserIsSA = false;
     browserIsOP = false;
     browserIsNE = false;
+    browserIsLynx = false;
+    browserIsEdge = false;
+    browserIsTor = false;
+    browserIsOld = false;
     //
     if ((navigator.userAgent).indexOf('TEST') != -1) { browserIsTEST = true; browserAnimationIsMozilla = true; browserType = 'TEST'; } else {
         if ((navigator.userAgent).indexOf('MSIE') != -1) { browserIsIE = true; browserAnimationIsIe = true; browserType = 'MSIE'; } else {
@@ -94,7 +103,7 @@ function StdBrowserGetVs() {
     }
 }
 // Browser Type Get2
-function StdBrowserGetFromWindow() {
+function BrowserGetFromWindow() {
     // IE
     browserType = window.appName;
     browserVs = window.appVersion;

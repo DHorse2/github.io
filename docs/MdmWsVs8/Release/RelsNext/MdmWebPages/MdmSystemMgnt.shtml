@@ -37,7 +37,7 @@
 				<div class="BodyParaBox BorderThin">
 					<!--*-->
 					<!--*-->
-					<div id="DivB1" class="BodyParaLeft ColumnType1">
+					<div id="DivB1" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="B1C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
 							<a id="B1C1A" href="#" class="CPA">
 								<span class="BodyParaGround CPA aCenter">More...</span>
@@ -140,7 +140,7 @@
 					<!--*-->
 				</div><!--** End of DivB1 *-->
 				<!--*-->
-				<div id="DivB264" class="BodyParaLeft ColumnType1 ">
+				<div id="DivB264" class="BodyParaLeft layoutBodyColumnType1 ">
 						<!--** Block 2 - Import / Export **-->
 					<div id="DivB2" class="DivB2 BodyParaBox BorderThin BodyParaBoxBg">
 						<div id="B2D1" class="BodyParaLeft">
@@ -244,7 +244,7 @@
 				<!--*-->
 				<!--*-->
 				<!--** Block 3 - The Project **-->
-				<div id="DivB3" class="BodyParaLeft ColumnType1">
+				<div id="DivB3" class="BodyParaLeft layoutBodyColumnType1">
 					<div id="B3D1" class="BodyParaLeft">
 						<div id="B3C1" class="BodyParaRight CalloutBorder">
 							<a id="B3C1A" href="#" class="CalloutContent CPA">

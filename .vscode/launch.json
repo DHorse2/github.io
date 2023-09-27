@@ -27,7 +27,7 @@
             "relativePathBase": "${workspaceFolder}\\docs\\MdmWsVs8\\Release\\RelsNext\\MdmWebPages\\}",
             // "pid": "${command:pickMyProcess}",
             "windows": {
-                "args": ["${workspaceFolder}\\docs\\MdmWsVs8\\Release\\RelsNext\\MdmWebPages\\MdmMain.html"],
+                "args": ["${workspaceFolder}\\docs\\MdmWsVs8\\Release\\RelsNext\\MdmWebPages\\MdmMain.shtml"],
             },
             // "logging": {
             //     "moduleLoad": false,

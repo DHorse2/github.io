@@ -8,8 +8,8 @@ left:25%;
 /* Size */
 width:50%;
 /* Alignment */
-margin: 2% 0% 0% 0%;
-padding:1%;
+margin: 2em 0em 0em 0em;
+padding:1em;
 text-align:center;
 /* Background */
 background: url(../Images/TransparentBg30.png);
@@ -21,9 +21,9 @@ background: url(../Images/TransparentBg30.png);
 /* Position */
 position:relative;
 /* Size */
-width:35%;
+width:35em;
 /* Alignment */
-margin-top: 2%;
+margin-top: 2em;
 /* ----------------- */
 }
 
@@ -55,7 +55,7 @@ position:relative;
 /* Size */
 width:55%;
 /* Alignment */
-margin-top: 2%;
+margin-top: 2em;
 }
 
 #B2D1 {
@@ -180,8 +180,8 @@ position:relative;
 /* Size */
 width:33%;
 /* Alignment */
-margin-top: 2%;
-margin-Bottom: 2%;
+margin-top: 2em;
+margin-Bottom: 2em;
 }
 
 /* #B4D1P1 { } */
@@ -224,7 +224,7 @@ position: relative;
 /* Size */
 width: 35%;
 /* Alignment */
-margin-top: 2%;
+margin-top: 2em;
 }
 
 /* #B5D1P1 { } */

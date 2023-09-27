@@ -65,7 +65,7 @@ overflow:hidden;
 /* Position */
 float:left;
 z-index:20;
-padding-left:10%;
+padding-left:10em;
 /* Size */
 width:90%;
 height:inherit;

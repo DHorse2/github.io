@@ -14,7 +14,7 @@
 // Script language="javascript" src="../TemplatePage/MdmTimer.js" >
 // Script language="javascript" src="../TemplatePage/MdmAnimation.js" >
 // Script language="javascript" src="../TemplatePage/MdmBodyBox.js" >
-// Script language="javascript" src="../TemplatePage/MdmLayout.js" >
+// Script language="javascript" src="../TemplatePage/MdmWindowLayout.js" >
 // Script language="javascript" src="../TemplatePage/MdmMenu.js" >
 // Script language="javascript" src="../TemplatePage/MdmMenuImage.js" >
 // Script language="javascript" src="../TemplatePage/MdmMenuImageCollection.js" >
@@ -31,78 +31,78 @@
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Global
-// 		 StdDocumentLoadInit
+// 		 DocumentLoadInit
 // Elements
-// 		StdElementPosGet
+// 		ElementPosGet
 // Layout
-//		StdLayoutSelectByIndex
+//		LayoutSelectByIndex
 // Menu Images
-// 		StdMenuImagesHtmlBuild
+// 		MenuImagesHtmlBuild
 // Mouse
-// 		StdMouseOverImg
-//		StdMouseOutImg
-//		StdMouseClickImg
+// 		MouseOverImg
+//		MouseOutImg
+//		MouseClickImg
 //
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // MENUS
 // Menu Image Show / Hide
 // Menu Show
-// 		StdMenuImgShowRange
-//		StdMenuImgShowIndex
-//		StdMenuImgShowStack
-//		StdMenuImgToggle
-//		StdMenuImgShow
+// 		MenuImgShowRange
+//		MenuImgShowIndex
+//		MenuImgShowStack
+//		MenuImgToggle
+//		MenuImgShow
 // Menu Hide
-// 		StdMenuImgToggleRange
-//		StdMenuImgHide
+// 		MenuImgToggleRange
+//		MenuImgHide
 // Menu Object Selection
-// 		StdMenuObjectSetAll
-//		StdMenuObjectTextSet
-//		StdMenuObjectNameSet
-//		StdMenuIndexSet
-//		StdMenuIndexSetByName
+// 		MenuObjectSetAll
+//		MenuObjectTextSet
+//		MenuObjectNameSet
+//		MenuIndexSet
+//		MenuIndexSetByName
 ////////////////////////////////////////////////
 // LAYOUT MANAGEMENT
-// 		StdLayoutCheck
-//		StdLayoutRefresh
-//		StdLayoutNext
+// 		LayoutCheck
+//		LayoutRefresh
+//		LayoutNext
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Math Functions
-// 		StdMathNumberRandomGetByRange
+// 		MathNumberRandomGetByRange
 // Font Size Control
-//		StdFontSizeIncrease
-//		StdFontSizeDecrease
+//		FontSizeIncrease
+//		FontSizeDecrease
 ////////////////////////////////////////////////
 // OBJECT ANIMATION
 // Filter (Transition, Transform) Get by Index or Name
-// 		StdFilterGetByIndex
+// 		FilterGetByIndex
 ////////////////////////////////////////////////
 // FILTER MANAGEMENT
 // General
-// 		StdFilterResetThenAnimate
+// 		FilterResetThenAnimate
 // Filter Store / Restore
-// 		StdFilterStore
-//		StdFilterRestore
+// 		FilterStore
+//		FilterRestore
 // Animate Object
-// 		StdFilterAnimate
+// 		FilterAnimate
 // Filter Specific Functions
 // 		StyleBackground
-//				StdStyleBackgroundToggle
+//				StyleBackgroundToggle
 // 		Matrix
-//			  	StdFilterSpin
-//				StdFilterSetRotation
-//				StdFilterResize
-//		StdSlideStyleToggle
-//				StdSlideStyleToggle
+//			  	FilterSpin
+//				FilterSetRotation
+//				FilterResize
+//		SlideStyleToggle
+//				SlideStyleToggle
 //		Other
 //			 	OtherFunction...
 // Filter Get / Set
-// 		StdFilterGetByIndex
-//		StdFilterGetRandom
+// 		FilterGetByIndex
+//		FilterGetRandom
 // Filter Timing Get By Index
-// 		StdFilterTimingGetByIndex
+// 		FilterTimingGetByIndex
 //		fFilterTimingGetRandom
 ////////////////////////////////////////////////
 // DOCUMENT EVENTS
@@ -168,7 +168,7 @@
 // BodyImageContainer
 // BodyMenuImageContainer
 //
-// ColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
+// layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
 // ------------------------------------------------------------------------------------- _//
 ///////////////////////////////////////////////
 // Body Layout Management (Combinations)
@@ -427,26 +427,26 @@
 // GLOBAL / COMMON
 ////////////////////////////////////////////////
 // Elements
-// 		StdElementPosGet
+// 		ElementPosGet
 // Layout
-//		StdLayoutSelectByIndex
-//		StdMouseClickImg
+//		LayoutSelectByIndex
+//		MouseClickImg
 // Mouse
-// 		StdMouseOverImg
-//		StdMouseOutImg
-//		StdMouseClickImg
+// 		MouseOverImg
+//		MouseOutImg
+//		MouseClickImg
 ////////////////////////////////////////////////
 // Object Animation
 ////////////////////////////////////////////////
-// StdFilterStore function
-// StdFilterRestore
+// FilterStore function
+// FilterRestore
 // filterSupportFunctions:
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // General (Common) functions & properties:
-// StdFilter Management
+// Filter Management
 ////////////////////////////////////////////////
-// StdFilterResetThenAnimate function
+// FilterResetThenAnimate function
 // ------------------------------------------------------------------------------------- _//
 // Animate Object
 // ------------------------------------------------------------------------------------- _//
@@ -456,19 +456,19 @@
 // Matrix Control Functions
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
-// StdFilterSpin
-// StdSetRotation function
-function StdFilterSetRotation(oObjPassed, filterIndexPassed, deg)
+// FilterSpin
+// SetRotation function
+function FilterSetRotation(oObjPassed, filterIndexPassed, deg)
 // ------------------------------------------------------------------------------------- _//
-// StdResize function
-function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
+// Resize function
+function FilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // SlideStyle:
 ////////////////////////////////////////////////
 //
 // ------------------------------------------------------------------------------------- _//
-// Std Slide Style Toggle
+//  Slide Style Toggle
 // Declare an array and index counter to access  slideStyles.
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
@@ -549,12 +549,12 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Menu Image Filter Play First
 // ------------------------------------------------------------------------------------- _//
-// StdMenuImageFilterPlayFirst
-// StdMenuImageFilterPlayNext
-// StdMenuImageFilterPlayAgain
+// MenuImageFilterPlayFirst
+// MenuImageFilterPlayNext
+// MenuImageFilterPlayAgain
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
-// StdMenuImageFilterPlay
+// MenuImageFilterPlay
     // Play Animation for this image
           // FileterPlayRandom
           //  or
@@ -583,7 +583,7 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Menu Images Move Action
     // Speed
-    // StdElementMove
+    // ElementMove
     //
     // Q: Is iterStep Total Steps or Total Steps Per Second?
     // A: Steps per second is a better measure probably
@@ -595,7 +595,7 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
     // Timer Pause before Start
     ////////////////////////////////////////////////
     // Included a setTimeout in BODY onload to delay start of text movement.
-    // oObjPassed, elementLeftOrig, elementTopOrig, elementLeftDest, elementTopDest)
+    // oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
     ////////////////////////////////////////////////
     // Set Style Left for menu image box
     ////////////////////////////////////////////////
@@ -632,7 +632,7 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 ///////////////////////////////////////////////
 // Html Variables
 // Build (inner) HTML for Menu Images
-// StdMenuImagesHtmlBuild();
+// MenuImagesHtmlBuild();
 ////////////////////////////////////////////////
 // Filter in use is Type Checkerboard;
 // ------------------------------------------------------------------------------------- _//
@@ -697,7 +697,7 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
     // Element: Img
     // Link Text
 // ------------------------------------------------------------------------------------- _//
-// StdResize function
+// Resize function
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////
 // Other
@@ -709,7 +709,7 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Window Events (Load, Resize)
 // Window Load
-// onlayoutcomplete= "StdDocumentLoadInit();";
+// onlayoutcomplete= "DocumentLoadInit();";
 // Document Window OnLoad:
 	  ////////////////////////////////////////////////
 	  // Initialize and Set Global Variables
@@ -718,17 +718,17 @@ function StdFilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 	  // Docuement Element Initialize & Store Original Menu Columns.
     	  // Initialize and save
           // Choose Standard Layout
-          // StdLayoutSelectByIndex(layoutStandard);
+          // LayoutSelectByIndex(layoutStandard);
 // Inactive code:
-// window.onload= "StdDocumentLoadInit();";
-// onlayoutcomplete= "StdDocumentLoadInit();";
+// window.onload= "DocumentLoadInit();";
+// onlayoutcomplete= "DocumentLoadInit();";
 // ------------------------------------------------------------------------------------- _//
 // Document Window Resize
 // Adjustments:
 // Client Window Size
 // Current Layout Strategy
 //
-window.onresize = function() { StdlayoutWindowResize(); }
+window.onresize = function() { WindowResizeLayout(); }
       // Recalculate Screen Display
       // Recalculate Globals for Screen
       // Load Containers if missing
@@ -762,7 +762,7 @@ window.onresize = function() { StdlayoutWindowResize(); }
 ///////////////////////////////////////////////
 // Window Document Functions
 ///////////////////////////////////////////////
-// Std Document Load Initinitialize Variablesm, Arrays and Default Data
+//  Document Load Initinitialize Variablesm, Arrays and Default Data
     // imgGroupMax
     // imgMax
     // Resize Window
@@ -786,9 +786,9 @@ window.onresize = function() { StdlayoutWindowResize(); }
 ////////////////////////////////////////////////
 // Image Standard Mouse Events
 // Mouse
-// 		StdMouseOverImg
-//		    StdMouseOutImg
-//		    StdMouseClickImg
+// 		MouseOverImg
+//		    MouseOutImg
+//		    MouseClickImg
 ////////////////////////////////////////////////
 // ------------------------------------------------------------------------------------- _//
 // Mouse Over
@@ -981,15 +981,15 @@ window.onresize = function() { StdlayoutWindowResize(); }
           // Left Menu Container
           //---------------------------------------------------------------//
           // Left Body Column (BodyMainLeft)
-          // Do Not Alter... elMenuMainLeft.style.width = "97%";
+          // Do Not Alter... bodyMenuMainLeft.style.width = "97%";
           //---------------------------------------------------------------//
           //---------------------------------------------------------------//
           // Width of Layout area (previous?)
 		      // Left Outer and Inner Decorative Divs
           //---------------------------------------------------------------//
-		      // elMenuGroup1
-		      // elMenuGroup2
-		      // elMenuGroup3
+		      // bodyMenuGroup1
+		      // bodyMenuGroup[2]
+		      // bodyMenuGroup[3]
           // elDivC21 Callout Paragraph Contents
           //---------------------------------------------------------------//
           // elDivC22 Callout Paragraph Contents
@@ -1003,81 +1003,81 @@ window.onresize = function() { StdlayoutWindowResize(); }
 	  if (layoutWindowedFirst) {
           // Right Body Text Alignment Breaks
           // Set (Copy To) Top Left Element
-          elBodyMainCenterTopRight = StdElementGetRef(elBodyMainCenterTopRight,"BodyMainCenterTopRight","BodyMainCenterTopRight");
-          elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRightOrig, "block");
-		      // elBodyMainCenterTopRightFirst = false;
+          bodyMainCenterTopRight = ElementGetRef(bodyMainCenterTopRight,"BodyMainCenterTopRight","BodyMainCenterTopRight");
+          bodyMainCenterTopRight = ElementCopy(bodyMainCenterTopRight, bodyMainCenterTopRightFirst, bodyMainRightOrig, "block");
+		      // bodyMainCenterTopRightFirst = false;
 		      //
           //---------------------------------------------------------------//
           // Enclose Box
-          elBodyMainCenterTopRight.className = elBodyMainCenterTopRight.className + " CalloutBorderFull";
+          bodyMainCenterTopRight.className = bodyMainCenterTopRight.className + " CalloutBorderFull";
           //---------------------------------------------------------------//
-          // elBodyMenuLayout2 BodyMenuLayout
-          elBodyMenuLayout2 = StdElementGetRefFromElement(elBodyMenuLayout1, "BodyMenuLayout2", "BodyMenuLayout2", elBodyMainCenterTopRight);
+          // bodyLayoutMenu2 BodyMenuLayout
+          bodyLayoutMenu2 = ElementGetRefFromElement(bodyLayoutMenu1, "BodyMenuLayout2", "BodyMenuLayout2", bodyMainCenterTopRight);
           //---------------------------------------------------------------//
 		      // Right Outer and Inner Decorative Divs
-          elBodyMainRightOuter = StdElementGetRefFromElement(elBodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", elBodyMainCenterTopRight);
-          elBodyMainLeftOuter.style.paddingLeft = "3%";
-          elBodyMainLeftOuter.style.width = "97%";
+          bodyMainRightOuter = ElementGetRefFromElement(bodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", bodyMainCenterTopRight);
+          bodyMainLeftOuter.style.paddingLeft = "3%";
+          bodyMainLeftOuter.style.width = "97%";
           //
-          elBodyMainRightInner = StdElementGetRefFromElement(elBodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", elBodyMainCenterTopRight);
-          elBodyMainRightInner.style.paddingRight = "3%";
-          elBodyMainRightInner.style.width = "97%";
-          elBodyMainRightInner.style.paddingTop = 10;
+          bodyMainRightInner = ElementGetRefFromElement(bodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", bodyMainCenterTopRight);
+          bodyMainRightInner.style.paddingRight = "3%";
+          bodyMainRightInner.style.width = "97%";
+          bodyMainRightInner.style.paddingTop = 10;
           //---------------------------------------------------------------//
-          // Right elMenuGroup4, 2, 3
-          elMenuGroup4 = StdElementGetRefFromElement(elMenuGroup4, "MenuGroup4", "MenuGroup4", elBodyMainCenterTopRight);
-          elMenuGroup5 = StdElementGetRefFromElement(elMenuGroup5, "MenuGroup5", "MenuGroup5", elBodyMainCenterTopRight);
-          elMenuGroup6 = StdElementGetRefFromElement(elMenuGroup6, "MenuGroup6", "MenuGroup6", elBodyMainCenterTopRight);
+          // Right bodyMenuGroup4, 2, 3
+          bodyMenuGroup4 = ElementGetRefFromElement(bodyMenuGroup4, "MenuGroup4", "MenuGroup4", bodyMainCenterTopRight);
+          bodyMenuGroup5 = ElementGetRefFromElement(bodyMenuGroup5, "MenuGroup5", "MenuGroup5", bodyMainCenterTopRight);
+          bodyMenuGroup6 = ElementGetRefFromElement(bodyMenuGroup6, "MenuGroup6", "MenuGroup6", bodyMainCenterTopRight);
           //---------------------------------------------------------------//
-		      // elMenuGroup4
-          elMenuGroup4.style.posLeft = "-7%";
-          elMenuGroup4.style.maxWidth = "33%";
-          elMenuGroup4.style.styleFloat = "left";
-          if (layoutMenuHeightMax < elMenuGroup4.style.height) { layoutMenuHeightMax = elMenuGroup4.style.height; }
+		      // bodyMenuGroup4
+          bodyMenuGroup4.style.posLeft = "-7%";
+          bodyMenuGroup4.style.maxWidth = "33%";
+          bodyMenuGroup4.style.styleFloat = "left";
+          if (layoutMenuHeightMax < bodyMenuGroup4.style.height) { layoutMenuHeightMax = bodyMenuGroup4.style.height; }
           //---------------------------------------------------------------//
-		      // elMenuGroup5
-          elMenuGroup5.style.maxWidth = "30%";
-          elMenuGroup5.style.marginLeft = "3%";
-          elMenuGroup5.style.styleFloat = "left";
-          if (layoutMenuHeightMax < elMenuGroup5.style.height) { layoutMenuHeightMax = elMenuGroup5.style.height; }
+		      // bodyMenuGroup5
+          bodyMenuGroup5.style.maxWidth = "30%";
+          bodyMenuGroup5.style.marginLeft = "3%";
+          bodyMenuGroup5.style.styleFloat = "left";
+          if (layoutMenuHeightMax < bodyMenuGroup5.style.height) { layoutMenuHeightMax = bodyMenuGroup5.style.height; }
           //---------------------------------------------------------------//
-		      // elMenuGroup3
-          elMenuGroup6.style.maxWidth = "30%";
-          elMenuGroup6.style.marginLeft = "3%";
-          elMenuGroup6.style.styleFloat = "left";
-          if (layoutMenuHeightMax < elMenuGroup6.style.height) { layoutMenuHeightMax = elMenuGroup6.style.height; }
+		      // bodyMenuGroup[3]
+          bodyMenuGroup6.style.maxWidth = "30%";
+          bodyMenuGroup6.style.marginLeft = "3%";
+          bodyMenuGroup6.style.styleFloat = "left";
+          if (layoutMenuHeightMax < bodyMenuGroup6.style.height) { layoutMenuHeightMax = bodyMenuGroup6.style.height; }
           //---------------------------------------------------------------//
           // Column and Float Breaks and Clear
           var elementLayoutFirstPhatomData;
-          elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
-          elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
-          elBodyMainCenterTopRight = StdtElementBreakSet(elBodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          bodyMainCenterTopRight = tElementBreakSet(bodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          bodyMainCenterTopRight = tElementBreakSet(bodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          bodyMainCenterTopRight = tElementBreakSet(bodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
           //
 	  }
     //---------------------------------------------------------------//
     // Final adjustments to Center Top
     var boxHeight = 0;
     //---------------------------------------------------------------//
-    // elBodyViewToggle View Toggle and Message Area
-    var elBodyViewToggle = StdElementGetRefFromElement(elBodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", elBodyMainCenterTop);
-    boxHeight += elBodyViewToggle.scrollHeight;
+    // bodyViewToggle View Toggle and Message Area
+    var bodyViewToggle = ElementGetRefFromElement(bodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", bodyMainCenterTop);
+    boxHeight += bodyViewToggle.scrollHeight;
     // Banner Should be zero, don't use..,
-    boxHeight += elBodyBannerTop.scrollHeight;
+    boxHeight += bodyBannerTop.scrollHeight;
     //
-    if (elBodyMenuLayout2.scrollHeight > elBodyMenuLayout1.scrollHeight)  {
-          elBodyMenuLayout1.style.posHeight = elBodyMenuLayout2.scrollHeight;
+    if (bodyLayoutMenu2.scrollHeight > bodyLayoutMenu1.scrollHeight)  {
+          bodyLayoutMenu1.style.posHeight = bodyLayoutMenu2.scrollHeight;
     } else {
-          elBodyMenuLayout2.style.posHeight = elBodyMenuLayout1.scrollHeight;
+          bodyLayoutMenu2.style.posHeight = bodyLayoutMenu1.scrollHeight;
     }
-    boxHeight += elBodyMenuLayout1.style.posHeight;
+    boxHeight += bodyLayoutMenu1.style.posHeight;
     //
-    elBodyMainCenterTopColBreak = StdElementGetRefFromElement(elBodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", elBodyMainCenterTop);
-    boxHeight += elBodyMainCenterTopColBreak.scrollHeight;
+    bodyMainCenterTopColBreak = ElementGetRefFromElement(bodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", bodyMainCenterTop);
+    boxHeight += bodyMainCenterTopColBreak.scrollHeight;
     //
     // BodyViewToggle + Banner + Left/Right
-    elBodyMainCenterTop.style.posHeight = boxHeight + 40;
-    elBodyMainCenterTopLeft.style.posHeight = elBodyMenuLayout1.style.posHeight + 10;
-    elBodyMainCenterTopRight.style.posHeight = elBodyMenuLayout1.style.posHeight + 10;
+    bodyMainCenterTop.style.posHeight = boxHeight + 40;
+    bodyMainCenterTopLeft.style.posHeight = bodyLayoutMenu1.style.posHeight + 10;
+    bodyMainCenterTopRight.style.posHeight = bodyLayoutMenu1.style.posHeight + 10;
     //
 //
 //---------------------------------------------------------------//
@@ -1086,48 +1086,48 @@ window.onresize = function() { StdlayoutWindowResize(); }
 	  if (layoutWindowedFirst) {
     	  //
 		      // BodyMainCenter
-          // elBodyMainCenter.style.top = " 0em";
-          // elBodyMainCenter.style.left = 0 * layoutWidth;
-          // elBodyMainCenter.style.posWidth = layoutWidth;
-          // elBodyMainCenter.style.width = elBodyMainCenter.style.posWidth;
-          elBodyMainCenter.style.width = "100%";
-          // elBodyMainCenter.style.maxWidth = elBodyMainCenter.style.posWidth;
-          // elBodyMainCenter.style.height = "auto";
+          // bodyMainCenter.style.top = " 0em";
+          // bodyMainCenter.style.left = 0 * layoutWidth;
+          // bodyMainCenter.style.posWidth = layoutWidth;
+          // bodyMainCenter.style.width = bodyMainCenter.style.posWidth;
+          bodyMainCenter.style.width = "100%";
+          // bodyMainCenter.style.maxWidth = bodyMainCenter.style.posWidth;
+          // bodyMainCenter.style.height = "auto";
           //
 		      // Center Center
-          // elBodyMainCenterCenter.style.top = elBodyMainCenterTop.scrollHeight + 10;
-          // elBodyMainCenterCenter.style.top = elBodyMainCenterTop.style.bottom;
-          // elBodyMainCenter.style.posTop = " 0em";
+          // bodyMainCenterCenter.style.top = bodyMainCenterTop.scrollHeight + 10;
+          // bodyMainCenterCenter.style.top = bodyMainCenterTop.style.bottom;
+          // bodyMainCenter.style.posTop = " 0em";
 	  }
 //
 //---------------------------------------------------------------//
 // 	 		 Final adjustments
       /*--
-      elBodyMainContainer.style.posHeight = layoutHeight;
-      if (elBodyMainContainer.style.posHeight < elBodyMainLeft.clientHeight) {
-      	 elBodyMainContainer.style.posHeight = elBodyMainLeft.clientHeight;
+      bodyMainContainer.style.posHeight = layoutHeight;
+      if (bodyMainContainer.style.posHeight < bodyMainLeft.clientHeight) {
+      	 bodyMainContainer.style.posHeight = bodyMainLeft.clientHeight;
       }
-      if (elBodyMainContainer.style.posHeight < elBodyMainCenter.clientHeight) {
-      	 elBodyMainContainer.style.posHeight = elBodyMainCenter.clientHeight;
+      if (bodyMainContainer.style.posHeight < bodyMainCenter.clientHeight) {
+      	 bodyMainContainer.style.posHeight = bodyMainCenter.clientHeight;
       }
-      if (elBodyMainContainer.style.posHeight < elBodyMainRight.clientHeight) {
-      	 elBodyMainContainer.style.posHeight = elBodyMainRight.clientHeight;
+      if (bodyMainContainer.style.posHeight < bodyMainRight.clientHeight) {
+      	 bodyMainContainer.style.posHeight = bodyMainRight.clientHeight;
       }
 	  --*/
       //---------------------------------------------------------------//
       // Area Displays
-      elBodyBanner.style.display = "block";
-      elBodyBannerBottom.style.display = "block";
-      elBodyBannerTop.style.display = "none";
-      elBodyMainLeft.style.display = "none";// none
-      elBodyMainCenter.style.display = "block";
-      elBodyMainRight.style.display = "none";// none
-      // elBodyMainRightFar.style.display = "none";
-      elBodyMainCenterTop.style.display = "block";
-      elBodyMainCenterTopLeft.style.display = "block";
-      elBodyMainCenterTopRight.style.display = "block";
-	   elBodyMainCenterCenter.style.display = "block";
-	  elBodyMainCenterBottom.style.display = "block";
+      bodyBanner.style.display = "block";
+      bodyBannerBottom.style.display = "block";
+      bodyBannerTop.style.display = "none";
+      bodyMainLeft.style.display = "none";// none
+      bodyMainCenter.style.display = "block";
+      bodyMainRight.style.display = "none";// none
+      // bodyMainRightFar.style.display = "none";
+      bodyMainCenterTop.style.display = "block";
+      bodyMainCenterTopLeft.style.display = "block";
+      bodyMainCenterTopRight.style.display = "block";
+	   bodyMainCenterCenter.style.display = "block";
+	  bodyMainCenterBottom.style.display = "block";
       //---------------------------------------------------------------//
       //
 	  layoutWindowedFirst = false;
@@ -1143,14 +1143,14 @@ window.onresize = function() { StdlayoutWindowResize(); }
 //---------------------------------------------------------------//
 //			 Body Center (Top Left)
       //
-      // elBodyMainCenter.style.position = "absolute";
-      elBodyMainCenter.style.top = "0%";
-      elBodyMainCenter.style.left = 3;
-      elBodyMainCenter.style.posWidth = layoutWidth - 6;
-      elBodyMainCenter.style.width = elBodyMainCenter.style.posWidth;
-      // elBodyMainCenter.style.maxWidth = elBodyMainCenter.style.posWidth;
-      elBodyMainCenter.style.height = "auto";
-	  // elBodyMainCenterCenter.style.top = "auto"
+      // bodyMainCenter.style.position = "absolute";
+      bodyMainCenter.style.top = "0%";
+      bodyMainCenter.style.left = 3;
+      bodyMainCenter.style.posWidth = layoutWidth - 6;
+      bodyMainCenter.style.width = bodyMainCenter.style.posWidth;
+      // bodyMainCenter.style.maxWidth = bodyMainCenter.style.posWidth;
+      bodyMainCenter.style.height = "auto";
+	  // bodyMainCenterCenter.style.top = "auto"
 //
 //---------------------------------------------------------------//
 //			 All Other at Right
@@ -1169,18 +1169,18 @@ window.onresize = function() { StdlayoutWindowResize(); }
 // xx
       //---------------------------------------------------------------//
       // Area Displays
-      elBodyBanner.style.display = "block";
-      elBodyBannerBottom.style.display = "none";
-      elBodyBannerTop.style.display = "none";
-      elBodyMainLeft.style.display = "none";
-      elBodyMainCenter.style.display = "block";
-      elBodyMainRight.style.display = "none";
-      // elBodyMainRightFar.style.display = "none";
-      elBodyMainCenterTop.style.display = "block";
-      elBodyMainCenterTopLeft.style.display = "none";
-      elBodyMainCenterTopRight.style.display = "none";
-	  elBodyMainCenterCenter.style.display = "block";
-	  elBodyMainCenterBottom.style.display = "none";
+      bodyBanner.style.display = "block";
+      bodyBannerBottom.style.display = "none";
+      bodyBannerTop.style.display = "none";
+      bodyMainLeft.style.display = "none";
+      bodyMainCenter.style.display = "block";
+      bodyMainRight.style.display = "none";
+      // bodyMainRightFar.style.display = "none";
+      bodyMainCenterTop.style.display = "block";
+      bodyMainCenterTopLeft.style.display = "none";
+      bodyMainCenterTopRight.style.display = "none";
+	  bodyMainCenterCenter.style.display = "block";
+	  bodyMainCenterBottom.style.display = "none";
       //---------------------------------------------------------------//
       //
 	  layoutReadingModeLeftFirst = false;
@@ -1194,7 +1194,7 @@ window.onresize = function() { StdlayoutWindowResize(); }
 //---------------------------------------------------------------//
           case 999:
       // Break between center top and center center
-	  elBodyMainCenterTopColBreak.style.display = "none";
+	  bodyMainCenterTopColBreak.style.display = "none";
 	  //
 //
 //---------------------------------------------------------------//
@@ -1206,45 +1206,45 @@ window.onresize = function() { StdlayoutWindowResize(); }
 // xx
       //---------------------------------------------------------------//
       // Left Body Text Alignment Breaks
-	  elMenuGroup1ColBreak = StdElementGetRef(elMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
-      elMenuGroup1ColBreak.style.display = "none";
-	  elMenuGroup2ColBreak = StdElementGetRef(elMenuGroup2ColBreak, "MenuGroup2ColBreak", "MenuGroup2ColBreak");
-      elMenuGroup2ColBreak.style.display = "none";
-	  elMenuGroup3ColBreak = StdElementGetRef(elMenuGroup3ColBreak, "MenuGroup3ColBreak", "MenuGroup3ColBreak");
-      elMenuGroup3ColBreak.style.display = "none";
+	  bodyMenuGroup1ColBreak = ElementGetRef(bodyMenuGroup1ColBreak, "MenuGroup1ColBreak", "MenuGroup1ColBreak");
+      bodyMenuGroup1ColBreak.style.display = "none";
+	  bodyMenuGroupColBreak[2] = ElementGetRef(bodyMenuGroupColBreak[2], "MenuGroup2ColBreak", "MenuGroup2ColBreak");
+      bodyMenuGroupColBreak[2].style.display = "none";
+	  bodyMenuGroupColBreak[3] = ElementGetRef(bodyMenuGroupColBreak[3], "MenuGroup3ColBreak", "MenuGroup3ColBreak");
+      bodyMenuGroupColBreak[3].style.display = "none";
 //
 //---------------------------------------------------------------//
 //			 	 Menu2 at Top Right
 // xx
       //---------------------------------------------------------------//
       // Right Body Text Alignment Breaks
-	  elMenuGroup4ColBreak = StdElementGetRef(elMenuGroup4ColBreak, "MenuGroup4ColBreak", "MenuGroup4ColBreak");
-      elMenuGroup4ColBreak.style.display = "none";
-	  elMenuGroup5ColBreak = StdElementGetRef(elMenuGroup5ColBreak, "MenuGroup5ColBreak", "MenuGroup5ColBreak");
-      elMenuGroup5ColBreak.style.display = "none";
-	  elMenuGroup6ColBreak = StdElementGetRef(elMenuGroup6ColBreak, "MenuGroup6ColBreak", "MenuGroup6ColBreak");
-      elMenuGroup6ColBreak.style.display = "none";
+	  bodyMenuGroupColBreak[4] = ElementGetRef(bodyMenuGroupColBreak[4], "MenuGroup4ColBreak", "MenuGroup4ColBreak");
+      bodyMenuGroupColBreak[4].style.display = "none";
+	  bodyMenuGroupColBreak[5] = ElementGetRef(bodyMenuGroupColBreak[5], "MenuGroup5ColBreak", "MenuGroup5ColBreak");
+      bodyMenuGroupColBreak[5].style.display = "none";
+	  bodyMenuGroupColBreak[6] = ElementGetRef(bodyMenuGroupColBreak[6], "MenuGroup6ColBreak", "MenuGroup6ColBreak");
+      bodyMenuGroupColBreak[6].style.display = "none";
       //
-      elBodyMainCenterTopRight = StdElementCopy(elBodyMainCenterTopRight, elBodyMainCenterTopRightFirst, elBodyMainRight, "none");
-	  elBodyMainCenterTopRightFirst = false;
+      bodyMainCenterTopRight = ElementCopy(bodyMainCenterTopRight, bodyMainCenterTopRightFirst, bodyMainRight, "none");
+	  bodyMainCenterTopRightFirst = false;
 //
 //---------------------------------------------------------------//
 // 	 		 	 Banner at Bottom
-	   elBodyBanner = StdElementGetFromId("BodyBanner");
+	   bodyBanner = ElementGetFromId("BodyBanner");
       //---------------------------------------------------------------//
       // Area Displays
-      elBodyBanner.style.display = "block";
-      elBodyBannerBottom.style.display = "none";
-      elBodyBannerTop.style.display = "none";
-      elBodyMainLeft.style.display = "none";
-      elBodyMainCenter.style.display = "block";
-      elBodyMainRight.style.display = "none";
-      // elBodyMainRightFar.style.display = "block";
-      elBodyMainCenterTop.style.display = "none";
-      elBodyMainCenterTopLeft.style.display = "none";
-      elBodyMainCenterTopRight.style.display = "none";
-	  elBodyMainCenterCenter.style.display = "block";
-	  elBodyMainCenterBottom.style.display = "none";
+      bodyBanner.style.display = "block";
+      bodyBannerBottom.style.display = "none";
+      bodyBannerTop.style.display = "none";
+      bodyMainLeft.style.display = "none";
+      bodyMainCenter.style.display = "block";
+      bodyMainRight.style.display = "none";
+      // bodyMainRightFar.style.display = "block";
+      bodyMainCenterTop.style.display = "none";
+      bodyMainCenterTopLeft.style.display = "none";
+      bodyMainCenterTopRight.style.display = "none";
+	  bodyMainCenterCenter.style.display = "block";
+	  bodyMainCenterBottom.style.display = "none";
       //---------------------------------------------------------------//
       //
 	  layoutReadingModeLeftFirst = false;
@@ -1263,9 +1263,9 @@ window.onresize = function() { StdlayoutWindowResize(); }
 //
 // document.recalc();
 //
-StdlayoutWindowResize();
+WindowResizeLayout();
 //
-elBodyFirst = false;
+bodyFirst = false;
 // return;
 //
 }
@@ -1293,43 +1293,43 @@ elBodyFirst = false;
 // Menu Image Show / Hide
 ////////////////////////////////////////////////
 // Menu Show
-// 		StdMenuImgShowRange
-//		StdMenuImgShowIndex
-//		StdMenuImgShowStack
-//		StdMenuImgToggle
-//		StdMenuImgShow
+// 		MenuImgShowRange
+//		MenuImgShowIndex
+//		MenuImgShowStack
+//		MenuImgToggle
+//		MenuImgShow
 // Menu Hide
-// 		StdMenuImgToggleRange
-//		StdMenuImgHide
+// 		MenuImgToggleRange
+//		MenuImgHide
 //
 ////////////////////////////////////////////////
 // Menu Hide
 ////////////////////////////////////////////////
-// StdMenu Mouse Out function
+// Menu Mouse Out function
 ////////////////////////////////////////////////
-function StdMenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 ////////////////////////////////////////////////
 // Menu Toggle Show
 ////////////////////////////////////////////////
-// StdMenu Mouse Out function
+// Menu Mouse Out function
 ////////////////////////////////////////////////
-function StdMenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
-// StdMenu Toggle Menu Show Item (Mouse Down function)
+function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+// Menu Toggle Menu Show Item (Mouse Down function)
 ////////////////////////////////////////////////
-function StdMenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 ////////////////////////////////////////////////
 // Menu Show
 ////////////////////////////////////////////////
-// StdMenu Mouse Over function
-function StdMenuImgShowRange
-// StdMenu Mouse Over function
-function StdMenuImgShowIndex
-// StdMenu Menu Show Item and all Previous (Mouse Over function)
-// function StdMenuImgShowStack
-// StdMenu Menu Show Item (Mouse Over function)
-// StdMenuImgShow
-// StdMenuObjectSetAll
-// function StdMenuObjectTextSet(oObjGroupCn, oObjCn)
-// function StdMenuObjectNameSet(oObjGroupCn, oObjCn)
-// StdMenuIndexSet
-// StdMenuIndexSetByName
+// Menu Mouse Over function
+function MenuImgShowRange
+// Menu Mouse Over function
+function MenuImgShowIndex
+// Menu Menu Show Item and all Previous (Mouse Over function)
+// function MenuImgShowStack
+// Menu Menu Show Item (Mouse Over function)
+// MenuImgShow
+// MenuObjectSetAll
+// function MenuObjectTextSet(oObjGroupCn, oObjCn)
+// function MenuObjectNameSet(oObjGroupCn, oObjCn)
+// MenuIndexSet
+// MenuIndexSetByName

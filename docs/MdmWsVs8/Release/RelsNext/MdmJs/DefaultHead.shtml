@@ -16,7 +16,7 @@
 	<link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
 	<script src="../MdmJs/MdmIncludeHtml.js"></script>
-	<script src="../../RelsBuildStage.js"></script>
+	<script src="../../PageBuildStage.js"></script>
 	<script src="../MdmJs/MdmDeclarations.js"></script>
 	<script src="../MdmJs/Page/Defaults.js"></script>
 	<script src="../MdmJs/Page/MdmMain.js"></script>
@@ -32,7 +32,7 @@
 	<script src="../MdmJs/MdmElement.js"></script>
     <script src="../MdmJs/MdmTimer.js"></script>
 	<script src="../MdmJs/MdmDebugTagHover.js"></script>
-	<script src="../MdmJs/MdmLayout.js"></script>
+	<script src="../MdmJs/MdmWindowLayout.js"></script>
 	<script src="../MdmJs/MdmMenu.js"></script>
 	<script src="../MdmJs/MdmMenuImage.js"></script>
 	<script src="../MdmJs/MdmMenuImageCollection.js"></script>

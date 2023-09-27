@@ -1,4 +1,4 @@
-function StdMenuObjectSetAll(oObjGroupCn, oObjCn) {
+function MenuObjectSetAll(oObjGroupCn, oObjCn) {
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     ////////////////////////////////////////////////
@@ -173,17 +173,17 @@ function StdMenuObjectSetAll(oObjGroupCn, oObjCn) {
             switch (oObjCn) {
                 case 0: return MenuContainerRight1;
                 case 1:
-                    oObj = MdmImportTldRIght;
+                    oObj = MdmImportTldRight;
                     oObjImage = MdmImportTldImage;
                     oObjParent = MenuContainerRight1;
                     oObjLarge = MdmImportTldLarge;
                     oObjImageLarge = MdmImportTldLargeImage;
                     oObjText = "C# Schema Converter";
-                    return MdmImportTldRIght;
+                    return MdmImportTldRight;
                 case 2:
                     oObj = MdmKBil;
                     oObjImage = MdmKBilImage;
-                    oObjParent = MdmImportTldRIght;
+                    oObjParent = MdmImportTldRight;
                     oObjLarge = MdmKBill;
                     oObjImageLarge = MdmKBillImage;
                     oObjText = "K-Bil<br>Subscriber Billing<br>System";
@@ -237,13 +237,13 @@ function StdMenuObjectSetAll(oObjGroupCn, oObjCn) {
                     oObjText = "Mdm Blank";
                     return MdmBlank;
                 default:
-                    oObj = MdmImportTldRIght;
+                    oObj = MdmImportTldRight;
                     oObjImage = MdmImportTldImage;
                     oObjParent = MenuContainerRight1;
                     oObjLarge = MdmImportTldLarge;
                     oObjImageLarge = MdmImportTldLargeImage;
                     oObjText = "C# Schema Converter";
-                    return MdmImportTldRIght;
+                    return MdmImportTldRight;
             }
             return;
     }
@@ -251,9 +251,9 @@ function StdMenuObjectSetAll(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// function StdMenuObjectTextSet(oObjGroupCn, oObjCn)
+// function MenuObjectTextSet(oObjGroupCn, oObjCn)
 ////////////////////////////////////////////////
-function StdMenuObjectTextSet(oObjGroupCn, oObjCn) {
+function MenuObjectTextSet(oObjGroupCn, oObjCn) {
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     switch (oObjGroupIndex) {
@@ -321,9 +321,9 @@ function StdMenuObjectTextSet(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// function StdMenuObjectNameSet(oObjGroupCn, oObjCn)
+// function MenuObjectNameSet(oObjGroupCn, oObjCn)
 ////////////////////////////////////////////////
-function StdMenuObjectNameSet(oObjGroupCn, oObjCn) {
+function MenuObjectNameSet(oObjGroupCn, oObjCn) {
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     ////////////////////////////////////////////////
@@ -391,9 +391,9 @@ function StdMenuObjectNameSet(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// StdMenuIndexSet
+// MenuIndexSet
 ////////////////////////////////////////////////
-function StdMenuIndexSet(oObjGroupIndex, oObjPassed) {
+function MenuIndexSet(oObjGroupIndex, oObjPassed) {
     switch (oObjGroupIndex) {
         ////////////////////////////////////////////////
         // Non Groups
@@ -459,7 +459,7 @@ function StdMenuIndexSet(oObjGroupIndex, oObjPassed) {
         default:
             switch (oObjPassed) {
                 case MenuContainerRight1: return 0;
-                case MdmImportTldRIght: return 1;
+                case MdmImportTldRight: return 1;
                 case MdmKBil: return 2;
                 case MdmNetAppFrame: return 3;
                 case MdmSrt: return 4;
@@ -484,9 +484,9 @@ function StdMenuIndexSet(oObjGroupIndex, oObjPassed) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// StdMenuIndexSetByName
+// MenuIndexSetByName
 ////////////////////////////////////////////////
-function StdMenuIndexSetByName(oObjPassed) {
+function MenuIndexSetByName(oObjPassed) {
     for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
         //    alert(imgCn + "--" + imgUsedCn + "--" + imgMax);
         //    alert(oObjPassed.name);
