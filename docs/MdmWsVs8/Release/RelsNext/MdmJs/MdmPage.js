@@ -65,10 +65,8 @@ var bodyMainLeftOuter;
 var bodyMainLeftInner;
 
 var bodyLayoutMenu1;
-var bodyMenuContainer;
-// var bodyMenuGroupSave;
-var bodyMenuContainer;
-var bodyMenuGroup;
+// var bodyMenuContainer;
+// var bodyMenuGroup;
 // var bodyMenuGroupSave;
 
 
@@ -88,12 +86,18 @@ var bodyMenuContainerRight1;
 var bodyMainRightFar;
 //
 // Other...
-// bodyMainCenterTopColBreak
-var bodyMainCenterTopColBreak;
-//
+var elMenuLeft1ColBreak;
+var elMenuLeft2ColBreak;
+var elMenuLeft3ColBreak;
+var elMenuRight1ColBreak;
+var elMenuRight2ColBreak;
+var elMenuRight3ColBreak;
 //
 var bodyImageContainer;
 var bodyMenuImageContainer;
+
+// bodyMainCenterTopColBreak
+var bodyMainCenterTopColBreak;
 //
 var layoutBodylayoutBodyColumnType1 = true;
 // Global Objects - GLOBAL / COMMON
@@ -151,7 +155,7 @@ function MouseOverImg(menuImage) {
 		return;
 	}
 	imgMouseHover[menuImageCn] = 1;
-	if (imgFocus = menuImageCn) {
+	if (imgFocus == menuImageCn) {
 		//    menuImage.src = menuImage.name + "/" + menuImage.name + "fh.gif";
 	}
 	else {
@@ -169,7 +173,7 @@ function MouseOutImg(menuImage) {
 		return;
 	}
 	imgMouseHover[menuImageCn] = 0;
-	if (imgFocus = menuImageCn) {
+	if (imgFocus == menuImageCn) {
 		//    menuImage.src = menuImage.name + "/" + menuImage.name + "f.gif";
 	} else {
 		//    menuImage.src = menuImage.name + "/" + menuImage.name + "b.gif";
@@ -182,7 +186,7 @@ function MouseClickImg(menuImage) {
 	if (menuImageCn > imgUsedCn) {
 		return;
 	}
-	if (imgFocus = menuImageCn) {
+	if (imgFocus == menuImageCn) {
 		return;
 	}
 	// old folder
@@ -199,9 +203,9 @@ function MouseClickImg(menuImage) {
 	//  img0.src = menuImage.name + "lr.gif";
 	//  img0text.src = menuImage.name + "text.txt";
 	if (debugImages) {
-		errorComment = "Getting " + menuImageCn + ": " +  menuImage.Name;
+		errorComment = "Getting " + menuImageCn + ": " + menuImage.Name;
 		if (debugDoAlert) { alert(errorComment); }
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	imgSelect = menuImageCn;
@@ -261,7 +265,26 @@ function ElementObjectContainerCreate() {
 	//
 	// layoutBodylayoutBodyColumnType1 = ElementGetRef(layoutBodylayoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
 }
+
 // Create all Elements used in Layout
+// SectionBlock Body Layout Element Objects:
+// ...................................... //
+// Body Container
+var body;
+// Body Container
+var bodyMainContainer;
+// Banner (Top Menu, Logo and Graphics
+var bodyBanner;
+var bodyBannerTop;
+var bodyBannerBottom;
+
+// View, Console and Debug Toggle Buttons
+var bodyViewToggleContainer;
+var bodyViewToggleContainerCenter;
+var bodyViewToggleContainerLeft;
+
+var consoleMouseOverToggle;
+
 function ElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
 	loadFirstJava = false;
@@ -328,14 +351,15 @@ function ElementObjectCreate() {
 	consoleEventTextBox = ElementGetRef(consoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
 	consoleStateBox = ElementGetRef(consoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
 	consoleStateTextBox = ElementGetRef(consoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
+	// ConsoleFormInit();
 	consoleTestBox = ElementGetRef(consoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
 	consoleTestTextBox = ElementGetRef(consoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
 	//
-	if (consoleBox.style.display = '') { consoleBox.style.display = 'none' }
-	if (consoleErrorBox.style.display = '') { consoleErrorBox.style.display = 'block'; }
-	if (consoleEventBox.style.display = '') { consoleEventBox.style.display = 'block'; }
-	if (consoleStateBox.style.display = '') { consoleStateBox.style.display = 'block'; }
-	if (consoleTestBox.style.display = '') { consoleTestBox.style.display = 'block'; }
+	if (consoleBox.style.display == '') { consoleBox.style.display = 'none' }
+	if (consoleErrorBox.style.display == '') { consoleErrorBox.style.display = 'block'; }
+	if (consoleEventBox.style.display == '') { consoleEventBox.style.display = 'block'; }
+	if (consoleStateBox.style.display == '') { consoleStateBox.style.display = 'block'; }
+	if (consoleTestBox.style.display == '') { consoleTestBox.style.display = 'block'; }
 	//
 	BodyConsoleShow(DoNotUseHide, DoNotUseDebug); // todo
 	// if (consoleBoxToggles.style.display = '') { consoleBoxToggles.style.display = 'block'; }
@@ -367,34 +391,39 @@ function ElementObjectCreate() {
 	bodyMainLeftOrig = ElementCopy(bodyMainLeftOrig, bodyMainLeftOrigFirst, bodyMainLeft, 'block');
 	//
 	// if (false == true) {
-	bodyMainLeftOuter = ElementGetRefFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainLeftCopy)
+	bodyMainLeftOuter = ElementGetFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMainLeftOuter = ElementGetRef(bodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
-	bodyMainLeftInner = ElementGetRefFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainLeftCopy)
+	bodyMainLeftInner = ElementGetFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMainLeftInner = ElementGetRef(bodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
 	//
-	bodyLayoutMenu1 = ElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy)
+	bodyLayoutMenu1 = ElementGetFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyLayoutMenu1 = ElementGetRef(bodyLayoutMenu1,'BodyMenuLayout1','BodyMenuLayout1');
-	bodyMenuContainer[bodyMenuLeft][1] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft][1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy)
+
+	// for (bodyMenuGroupIndex=0; bodyMenuGroupIndex =< bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
+	// 	//
+	// }
+	// Left 1 todo can this be abstracted? or additional script in Page?
+	bodyMenuContainer[bodyMenuLeft][1] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMenuContainer[bodyMenuLeft][1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][1],'MenuContainerLeft1','MenuContainerLeft1');
-	// Left 1 todo
-	bodyMenuGroup1 = ElementGetRefFromElement(bodyMenuGroup1, 'MenuGroup1', 'MenuGroup1', bodyMainLeftCopy)
+	bodyMenuGroup[1] = ElementGetFromElement(bodyMenuGroup[1], 'MenuGroup1', 'MenuGroup1', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMenuGroup1 = ElementGetRef(bodyMenuGroup1,'MenuGroup1','MenuGroup1');
 	// bodyMenuGroup1 = ElementGetRefFromElement(bodyMenuGroup1, bodyMenuGroup1.id, bodyMenuGroup1.name, bodyMainLeft)
 	// var bodyMenuGroupSave[1] = ElementGetRef(bodyMenuGroupSave[1],'MenuGroup1Save','MenuGroup1Save');
 	// Left 2
-	bodyMenuContainer[bodyMenuLeft][2] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft][2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
+	bodyMenuContainer[bodyMenuLeft][2] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
 	// bodyMenuContainer[bodyMenuLeft][2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][2],'MenuContainerLeft2','MenuContainerLeft2');
-	bodyMenuGroup[2] = ElementGetRefFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainLeftCopy)
+	bodyMenuGroup[2] = ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMenuGroup[2] = ElementGetRef(bodyMenuGroup[2],'MenuGroup2','MenuGroup2');
 	// var bodyMenuGroup[2]Save = ElementGetRef(bodyMenuGroup[2]Save,'MenuGroup2Save','MenuGroup2Save');
 	// Left 3
-	bodyMenuContainer[bodyMenuLeft][3] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft][3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy)
+	bodyMenuContainer[bodyMenuLeft][3] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMenuContainer[bodyMenuLeft][3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][3],'MenuContainerLeft3','MenuContainerLeft3');
-	bodyMenuGroup[3] = ElementGetRefFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainLeftCopy)
+	bodyMenuGroup[3] = ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMenuGroup[3] = ElementGetRef(bodyMenuGroup[3],'MenuGroup3','MenuGroup3');
 	// var bodyMenuGroup[3]Save = ElementGetRef(bodyMenuGroup[3]Save,'MenuGroup3Save','MenuGroup3Save');
 	// }
-	//
+	// Left N - you can have up Max on either side.
+	// Here it's 3 Left & 1 Right
 	//............................................................---//
 	// Body Right Area Copy
 	//............................................................---//
@@ -403,22 +432,24 @@ function ElementObjectCreate() {
 	bodyMainRightCurr = ElementCopy(bodyMainRightCurr, bodyMainRightCurrFirst, bodyMainRight, 'block');
 	bodyMainRightOrig = ElementCopy(bodyMainRightOrig, bodyMainRightOrigFirst, bodyMainRight, 'block');
 	//
-	bodyMainRightOuter = ElementGetRefFromElement(bodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainRightCopy)
+	bodyMainRightOuter = ElementGetFromElement(bodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainRightCopy, DoFindReturn, null)
 	// bodyMainRightOuter = ElementGetRef(bodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
-	bodyMainRightInner = ElementGetRefFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainRightCopy)
+	bodyMainRightInner = ElementGetFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainRightCopy, DoFindReturn, null)
 	// bodyMainRightInner = ElementGetRef(bodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
 	//
 	bodyLayoutMenu2 = ElementGetRef(bodyLayoutMenu2, 'BodyMenuLayout2', 'BodyMenuLayout2');
 	//
-	bodyMenuContainerRight1 = ElementGetRefFromElement(bodyMenuContainerRight1, 'MenuContainerRight1', 'MenuContainerRight1', bodyMainRightCopy);
-	// bodyMenuContainerRight1 = ElementGetRef(bodyMenuContainerRight1,'MenuContainerRight1','MenuContainerRight1');
-	bodyMenuGroup4 = ElementGetRefFromElement(bodyMenuGroup4, 'bodyMenuGroup4', 'bodyMenuGroup4', bodyMainRightCopy);
+	// Right (4)
+	bodyMenuContainer[bodyMenuRight][1] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][1], 'MenuContainerRight1', 'MenuContainerRight1', bodyMainRightCopy);
+	bodyMenuGroup[4] = ElementGetFromElement(bodyMenuGroup[4], 'MenuGroup4', 'MenuGroup4', bodyMainRightCopy);
 	// var bodyMenuGroup4Save = ElementGetRef(bodyMenuGroup4Save,'MenuGroup4Save','MenuGroup4Save');
-	bodyMenuContainerRight2 = ElementGetRefFromElement(bodyMenuContainerRight2, 'MenuContainerRight2', 'MenuContainerRight2', bodyMainRightCopy);
-	bodyMenuGroup5 = ElementGetRefFromElement(bodyMenuGroup5, 'MenuGroup5', 'MenuGroup5', bodyMainRightCopy);
+	// Right (5)
+	bodyMenuContainer[bodyMenuRight][2] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][2], 'MenuContainerRight2', 'MenuContainerRight2', bodyMainRightCopy);
+	bodyMenuGroup[5] = ElementGetFromElement(bodyMenuGroup[5], 'MenuGroup5', 'MenuGroup5', bodyMainRightCopy);
 	// var bodyMenuGroup5Save = ElementGetRef(bodyMenuGroup5Save,'MenuGroup5Save','MenuGroup5Save');
-	bodyMenuContainerRight3 = ElementGetRefFromElement(bodyMenuContainerRight3, 'MenuContainerRight3', 'MenuContainerRight3', bodyMainRightCopy);
-	bodyMenuGroup6 = ElementGetRefFromElement(bodyMenuGroup6, 'MenuGroup6', 'MenuGroup6', bodyMainRightCopy);
+	// Right (6)
+	bodyMenuContainer[bodyMenuRight][3] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][3], 'MenuContainerRight3', 'MenuContainerRight3', bodyMainRightCopy);
+	bodyMenuGroup[6] = ElementGetFromElement(bodyMenuGroup[6], 'MenuGroup6', 'MenuGroup6', bodyMainRightCopy);
 	// var bodyMenuGroup6Save = ElementGetRef(bodyMenuGroup6Save,'MenuGroup6Save','MenuGroup6Save');
 	//
 	//............................................................---//
@@ -432,12 +463,12 @@ function ElementObjectCreate() {
 	// bodyMainCenterTopColBreak
 	bodyMainCenterTopColBreak = ElementGetRef(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
 	//
-	bodyMenuGroupColBreak[1] = ElementGetRef(bodyMenuGroupColBreak[1], 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
-	bodyMenuGroupColBreak[2] = ElementGetRef(bodyMenuGroupColBreak[2], 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
-	bodyMenuGroupColBreak[3] = ElementGetRef(bodyMenuGroupColBreak[3], 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
-	bodyMenuGroupColBreak[4] = ElementGetRef(bodyMenuGroupColBreak[4], 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
-	bodyMenuGroupColBreak[5] = ElementGetRef(bodyMenuGroupColBreak[5], 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
-	bodyMenuGroupColBreak[6] = ElementGetRef(bodyMenuGroupColBreak[6], 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
+	// bodyMenuGroupColBreak[1] = ElementGetRef(bodyMenuGroupColBreak[1], 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
+	// bodyMenuGroupColBreak[2] = ElementGetRef(bodyMenuGroupColBreak[2], 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
+	// bodyMenuGroupColBreak[3] = ElementGetRef(bodyMenuGroupColBreak[3], 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
+	// bodyMenuGroupColBreak[4] = ElementGetRef(bodyMenuGroupColBreak[4], 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
+	// bodyMenuGroupColBreak[5] = ElementGetRef(bodyMenuGroupColBreak[5], 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
+	// bodyMenuGroupColBreak[6] = ElementGetRef(bodyMenuGroupColBreak[6], 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
 	//
 	//............................................................---//
 	//............................................................---//

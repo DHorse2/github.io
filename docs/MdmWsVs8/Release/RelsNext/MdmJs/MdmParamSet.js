@@ -301,20 +301,20 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 
 			// Manner by which images move across the screen
 			////////////////////////////////////////////////
-			case 'elMoveMethod':
+			case 'elementMoveMethod':
 				switch (varValuePassed) {
-					case 'elMoveMethodDirect':
-						elMoveMethod = elMoveMethodDirect;// Slide diagonally to destination
+					case 'elementMoveMethodDirect':
+						elementMoveMethod = elementMoveMethodDirect;// Slide diagonally to destination
 						break;
-					case 'elMoveMethodSlideDown':
-						elMoveMethod = elMoveMethodSlideDown;// Slide down, then sideways
+					case 'elementMoveMethodSlideDown':
+						elementMoveMethod = elementMoveMethodSlideDown;// Slide down, then sideways
 						break;
-					case 'elMoveMethodSlideSide':
-						elMoveMethod = elMoveMethodSlideSide;// Slide sideways, then down
+					case 'elementMoveMethodSlideSide':
+						elementMoveMethod = elementMoveMethodSlideSide;// Slide sideways, then down
 						break;
-					case 'elMoveMethodRandom':
+					case 'elementMoveMethodRandom':
 					default:
-						elMoveMethod = elMoveMethodRandom;// Use random choice each time
+						elementMoveMethod = elementMoveMethodRandom;// Use random choice each time
 						break;
 				}
 				break;

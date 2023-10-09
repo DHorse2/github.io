@@ -340,11 +340,12 @@ function MenuObjectNameSet(oObjGroupCn, oObjCn) {
             case 0: return "MenuContainerLeft1";
             case 1: return "MdmImportTld";
             case 2: return "MdmNetAppFrame";
-            case 3: return "MdmNetVirList";
+            case 3: return "MdmWebUi";
             case 4: return "MdmDbUtilClass";
             case 5: return "MdmOutlookSync";
-            case 6: return "MdmSystemMgnt";
-            case 7: return "MdmWebDev";
+            case 6: return "MdmNetVirList";
+            case 7: return "MdmSystemMgnt";
+            case 8: return "MdmWebDev";
             default: return "MdmImportTld";
         }
             return;
@@ -490,7 +491,7 @@ function MenuIndexSetByName(oObjPassed) {
     for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
         //    alert(imgCn + "--" + imgUsedCn + "--" + imgMax);
         //    alert(oObjPassed.name);
-        if (oObjPassed.name = "img" + imgCn) {
+        if (oObjPassed.name == "img" + imgCn) {
             //    alert("Object No: " + imgCn);
             return imgCn;
         }

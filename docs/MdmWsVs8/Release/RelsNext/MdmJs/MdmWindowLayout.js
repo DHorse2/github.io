@@ -48,10 +48,22 @@
 // //
 // var layoutBlockWidthDefault = 250;
 // var bodyBlockWidth;
+var layoutStandard = 1;
+var layoutReadingMode = 2;
+var layoutWindowed = 3;
+var layoutReadingModeLeft = 4;
 
+var layoutIndex = layoutStandard;
+var layoutIndexMax = 4;
+var layoutRefreshCn = layoutStandard;
+var layoutRefreshCnLast = layoutStandard;
+
+var layoutStandardFirst = true;
+var layoutReadingModeFirst = true;
+var layoutWindowedFirst = true;
+var layoutReadingModeLeftFirst = true;
 //
 
-// ------------------------------------------------------------------------------------- _//
 // Layout
 // ------------------------------------------------------------------------------------- _//
 // Layout Next
@@ -399,11 +411,11 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//............................................................---//
 				//
 				// ElementGetFromElement(bodyMenuGroup1, 'MenuGroup1', 'MenuGroup1',
-				// 		bodyMainCenterTopLeft, elDoFindSet, bodyMenuGroup1)
+				// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup1)
 				// ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2',
-				// 		bodyMainCenterTopLeft, elDoFindSet, bodyMenuGroup[2])
+				// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[2])
 				// ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3',
-				// 		bodyMainCenterTopLeft, elDoFindSet, bodyMenuGroup[3])
+				// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[3])
 				//
 				//............................................................---//
 				// Left bodyMenuGroup1, 2, 3
@@ -440,11 +452,11 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//............................................................---//
 				//
 				// ElementGetFromElement(bodyMenuGroup1, 'MenuGroup1', 'MenuGroup1',
-				// 		bodyMainCenterTopLeft, elDoFindSet, bodyMenuGroup1)
+				// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup1)
 				// ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2',
-				// 		bodyMainCenterTopLeft, elDoFindSet, bodyMenuGroup[2])
+				// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[2])
 				// ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3',
-				// 		bodyMainCenterTopLeft, elDoFindSet, bodyMenuGroup[3])
+				// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[3])
 				//
 				//............................................................---//
 				// elDivC21 Callout Paragraph Contents
@@ -690,7 +702,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			// xx
 			//............................................................---//
 			// Left Body Text Alignment Breaks
-			bodyMenuGroup[bodyMenuGroupIndex] 1ColBreak = ElementGetRef(bodyMenuGroupColBreak[1], 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
+			bodyMenuGroupColBreak[1] = ElementGetRef(bodyMenuGroupColBreak[1], 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
 			bodyMenuGroupColBreak[1].style.display = 'none';
 			bodyMenuGroupColBreak[2] = ElementGetRef(bodyMenuGroupColBreak[2], 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
 			bodyMenuGroupColBreak[2].style.display = 'none';

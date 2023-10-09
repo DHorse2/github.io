@@ -8,42 +8,53 @@ var layoutBodyColumnType;
 ////////////////////////////////////////////////
 // // Document Window OnLoad:
 // window.onload = function () { WindowOnload(); }
-function WindowOnload(e) {
-    // Error handling
-    // window.onerror = function() { WindowError(); };
+function WindowOnload() {
+    // Get browser type
+    BrowserVsGet();
+
     // Initialize and Set Global Variables
     DocumentLoadInit();
+
     // Includes
     if (!loadDelayIncludes && loadIncludes && !loadIncludesDone) {
-        includeHtmlFileAll();
+        IncludeHtmlFileAll();
     }
-    // Build Body Images Div
-    if (!loadDelayBodyImage) {
-        bodyImageContainer = BodyImagesHtmlBuild();
-    }
+
+    // Build Body Images Div - depreciated
+    // if (!loadDelayBodyImage) {
+    //     bodyImageContainer = BodyImagesHtmlBuild();
+    // }
+
     // Build Menu Images Div
     if (!loadDelayMenuImage) {
+        MdmMenuImageInit();
         bodyMenuImageContainer = MenuImagesHtmlBuild();
     }
+
     // Docuement Element Initialize & Store Original Menu Columns.
     if (!loadDelayJava) {
+        // BodyMenuInit();
         // Initialize and save
         ElementObjectCreate();
         // Choose Standard Layout
         LayoutNext(layoutStandard)
         // LayoutSelectByIndex(layoutStandard);
     }
-    //
+
+    // Sync Form
     if (!loadDelayDebugState) {
         if (serverIsOn) {
-            DebugParameterInit();
+            FormElementSync();
         } else {
-            DebugParameterInitLocal();
+            FormElementSyncLocal();
         }
     }
-    //
-    // Inactive code:
-    // window.onload= "DocumentLoadInit();";
+
+    // Timers
+    TimerCreate();
+    TimerFunctionSet();
+    // Intervals and Duration
+    TimerDurationSet();
 }
 // Document Window Resize
 // Adjustments:
@@ -77,7 +88,7 @@ function WindowResizeLayoutDepreciated() {
     if (layoutDocumentWidth > layoutDocumentWidthMin) {
         // Standard Layout handling - Set Left, Center, Right
         // Are menus visible? todo
-        if (layoutIndex = layoutStandard) {
+        if (layoutIndex == layoutStandard) {
             // Left
             // bodyMainLeft.style.top = 0%
             // bodyMainLeft.style.left = "0%";
@@ -115,7 +126,7 @@ function WindowResizeLayoutDepreciated() {
         layoutIsStandard = false;
     } else {
         // Narrow Layout Mode
-        if (layoutIndex = layoutStandard) {
+        if (layoutIndex == layoutStandard) {
             // Left
             // bodyMainLeft.style.top = 0%
             // bodyMainLeft.style.left = "0%";
@@ -205,7 +216,7 @@ function WindowResizeLayoutDepreciated() {
     // layoutIsWide = true;
     // layoutIsStandard = false;
     // } else {
-    //     if (layoutIndex = layoutStandard) {
+    //     if (layoutIndex == layoutStandard) {
     //         // Left
     //         // bodyMainLeft.style.top = 0%
     //         // bodyMainLeft.style.left = "0%";
@@ -270,29 +281,29 @@ var layoutAvailHeight = 0;
 var layoutDocumentWidth = 0;
 var layoutDocumentHeight = 0;
 //
-function WindowClientWidth() {
-    // Window Width
-    layoutDocumentWidth = window.document.documentElement.offsetWidth;
-    layoutAvailWidth = window.screen.availWidth;
-    // layoutClientWidth = window.screen.availWidth - layoutWidthMargin;
-    layoutClientWidth = window.document.offsetWidth - layoutWidthMargin;
-    // if (layoutClientWidth LT 100) { layoutClientWidth = document.body.parentElement.clientWidth - layoutWidthMargin; }
-    //
-    layoutDocumentHeight = window.document.documentElement.offsetHeight;
-    layoutAvailHeight = window.screen.availHeight;
-    layoutClientHeightht = window.screen.availHeight - layoutHeightMargin;
-    // if (layoutClientHeight < 100) { layoutClientHeight = document.body.parentElement.clientHeight - layoutHeightMargin; }
-    //
-    layoutWidth = layoutDocumentWidth;
-    if (layoutWidth < 100) { layoutWidth = document.body.parentElement.clientWidth; }
-    // layoutWidth -= layoutWidthMargin;
-    layoutHeight = layoutDocumentHeight;
-    if (layoutHeight < 100) { layoutHeight = document.body.parentElement.clientHeight; }
-    // layoutHeight -= layoutHeightMargin;
-    // layoutWidth -= 20;
-    // layoutHeight -= 20;
-    //
-}
+// function WindowClientWidth() {
+//     // Window Width
+//     layoutDocumentWidth = window.document.documentElement.offsetWidth;
+//     layoutAvailWidth = window.screen.availWidth;
+//     // layoutClientWidth = window.screen.availWidth - layoutWidthMargin;
+//     layoutClientWidth = window.document.offsetWidth - layoutWidthMargin;
+//     // if (layoutClientWidth LT 100) { layoutClientWidth = document.body.parentElement.clientWidth - layoutWidthMargin; }
+//     //
+//     layoutDocumentHeight = window.document.documentElement.offsetHeight;
+//     layoutAvailHeight = window.screen.availHeight;
+//     layoutClientHeighth = window.screen.availHeight - layoutHeightMargin;
+//     // if (layoutClientHeight < 100) { layoutClientHeight = document.body.parentElement.clientHeight - layoutHeightMargin; }
+//     //
+//     layoutWidth = layoutDocumentWidth;
+//     if (layoutWidth < 100) { layoutWidth = document.body.parentElement.clientWidth; }
+//     // layoutWidth -= layoutWidthMargin;
+//     layoutHeight = layoutDocumentHeight;
+//     if (layoutHeight < 100) { layoutHeight = document.body.parentElement.clientHeight; }
+//     // layoutHeight -= layoutHeightMargin;
+//     // layoutWidth -= 20;
+//     // layoutHeight -= 20;
+//     //
+// }
 // ------------------------------------------------------------------------------------- _//
 // ------------------------------------------------------------------------------------- _//
 //
@@ -336,6 +347,12 @@ function WindowCookieBuild() {
 ///////////////////////////////////////////////
 //  Document Load Initinitialize Variablesm, Arrays and Default Data
 function DocumentLoadInit() {
+
+    BodyMenuInit();
+    MdmMenuImageInit();
+    // ConsoleFormInit();
+    ElementObjectCreate();
+
     //  for (imgCn = 1;imgCn < 1+imgUsedCn;imgCn++){
     //    menuImage = oObjIndexSetmenuImage(imgCn);
     //    intervalSet = imgCn * 100;
@@ -343,12 +360,12 @@ function DocumentLoadInit() {
     //    intervalName = menuImage.name + "AnimationCycle()";
     //    setInterval (intervalName, intervalSet);
     //  }
-    for (imgCn = imgUsedCn + 1; imgCn < 1 + imgMax; imgCn++) {
-        imgAniToggle[imgCn] = 0;
-        imgMouseHover[imgCn] = 0;
-        //    menuImage = oObjIndexSetmenuImage(imgCn);
-        //    menuImage.src = "imgnone.gif";
-    }
+    // for (imgCn = imgUsedCn + 1; imgCn < 1 + imgMax; imgCn++) {
+    //     imgAniToggle[imgCn] = 0;
+    //     imgMouseHover[imgCn] = 0;
+    //     //    menuImage = oObjIndexSetmenuImage(imgCn);
+    //     //    menuImage.src = "imgnone.gif";
+    // }
 
     // imgGroupMax
     // imgMax
@@ -362,12 +379,10 @@ function DocumentLoadInit() {
     //         menuImageLocked[imgGroupCn][imgCn] = false;
     //     }
     // }
-
-
-
+    //
+    ConsoleFormInit();
     // Resize Window
     WindowResizeLayout();
-    //
 }
 // SectionBlock Window Document function (s)
 ///////////////////////////////////////////////
@@ -422,11 +437,11 @@ function WindowPopupOpen() {
 function WindowContainerHeightGetAll() {
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of left and right menu containers vs the center menu container'
             + ': ',
-            'WindowContainerHeightGetAll', 6769, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            'WindowContainerHeightGetAll', 444, null, null,
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Height of left and right menu containers vs the center menu container
@@ -439,11 +454,11 @@ function WindowContainerHeightGetAll() {
     bodyMainCenterHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
             + '.',
             'WindowContainerHeightGetAll', 6769, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     tempLayoutBodyHeightVertMax += bodyMainCenterHeight;
@@ -454,11 +469,11 @@ function WindowContainerHeightGetAll() {
     // if (layoutResizeCn == 0) { bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
             + '.',
             'WindowContainerHeightGetAll', 6769, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check the accumaltion of Left1, Left2, Left3
@@ -467,11 +482,11 @@ function WindowContainerHeightGetAll() {
     } else { WindowContainerHeightGetMenu(bodyMainCenterTopLeft); }
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
             + '.',
             'WindowContainerHeightGetAll', 6769, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     tempLayoutBodyHeightVertMax += bodyLayoutMenu1Height;
@@ -483,11 +498,11 @@ function WindowContainerHeightGetAll() {
     // if (layoutResizeCn == 0) { bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
             + '.',
             'WindowContainerHeightGetAll', 6769, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check the accumaltion of Right1, Right2, Right3
@@ -496,11 +511,11 @@ function WindowContainerHeightGetAll() {
     } else { WindowContainerHeightGetMenu(bodyMainCenterTopRight); }
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
             + '.',
             'WindowContainerHeightGetAll', 6769, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     tempLayoutBodyHeightVertMax += bodyLayoutMenu2Height;
@@ -551,6 +566,65 @@ function WindowContainerHeightGetMenu(elementPassed) {
     // 		bodyMainCenterTopLeft
     //		bodyLayoutMenu1
     //............................................................---//
+    layoutMenuHeightVertMax = 0
+    layoutMenuHeightHorzMax = 0;
+    for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
+        // var menuGroup1;
+        // var menuGroup2;
+        // var menuGroup3;
+        // Left menuGroup1, 2, 3
+        // Load the Menu Group element
+        // todo not really correct.
+        if (bodyMenuGroup[bodyMenuGroupIndex]) {
+            // todo this fails call:
+            if (!bodyMenuGroup[bodyMenuGroupIndex]) {
+                if (elementPassed) {
+                    bodyMenuGroup[bodyMenuGroupIndex] = ElementGetRefFromElement(null, 'MenuGroup' + bodyMenuGroupIndex, 'MenuGroup' + bodyMenuGroupIndex, elementPassed);
+                    // bodyMenuGroup[bodyMenuGroupIndex] = ElementGetRefFromElement(bodyMenuGroup[bodyMenuGroupIndex], 'MenuGroup' + bodyMenuGroupIndex, 'MenuGroup' + bodyMenuGroupIndex, elementPassed);
+                    // menuGroup1 = ElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
+                    // menuGroup2 = ElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
+                    // menuGroup3 = ElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
+                }
+            }
+            // Get the height
+            bodyMenuGroupHeight[bodyMenuGroupIndex] = ElementHeightMaxGet(true, true, bodyMenuGroup[bodyMenuGroupIndex]);
+            // bodyMenuGroupHeight[1] = ElementHeightMaxGet(true, true, menuGroup1);
+            // bodyMenuGroupHeight[2] = ElementHeightMaxGet(true, true, menuGroup2);
+            // bodyMenuGroupHeight[3] = ElementHeightMaxGet(true, true, menuGroup3);
+            //
+            // You add up the height
+            layoutMenuHeightVertMax += bodyMenuGroupHeight[bodyMenuGroupIndex];
+            // layoutMenuHeightVertMax = bodyMenuGroupHeight[1] + bodyMenuGroupHeight[2] + bodyMenuGroupHeight[3];
+            //
+            // You want to know the widest group
+            // layoutMenuHeightHorzMax = 0;
+            if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[bodyMenuGroupIndex]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[bodyMenuGroupIndex]; }
+            // if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[1]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[1]; }
+            // if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[2]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[2]; }
+            // if (layoutMenuHeightHorzMax < bodyMenuGroupHeight[3]) { layoutMenuHeightHorzMax = bodyMenuGroupHeight[3]; }
+            //
+        }
+    }
+}
+// Document Layout Size of Core Layout Boxes
+function WindowContainerHeightGetMenuDepreciated(elementPassed) {
+    // Height of left and right menu containers:
+    // Greatest height when layed out side by side
+    layoutBodyHeightHorzMax = 0;
+    // Greatest height when layed out vertically
+    layoutBodyHeightVertMax = 0;
+    // Note: that HorzMax indicates the maximum height
+    // of the menu groups layed out horizontally side by side.
+    // It is not the width nor the accumulated height (VertMax)
+    //
+    // Note: The implies assumption that the left menu is taller than the right menu
+    // or that the first Left menu group (menuGroup1) is the tallest of the three
+    // Left groups is temporary and is not reliable.
+    //
+    // The Left menu elements are extracted from one of:
+    // 		bodyMainCenterTopLeft
+    //		bodyLayoutMenu1
+    //............................................................---//
     var menuGroup1;
     var menuGroup2;
     var menuGroup3;
@@ -581,38 +655,37 @@ function WindowResizeLayout() {
     var calloutBoxWidth = 0;
     var bodyMainCenterLeftAdj = 0;
     var bodyMainCenterWidthAdj = 0;
-    //
-    //
+
     if (loadFirstJava) { ElementObjectCreate(); }
-    //
+
     // ...................................... //
     // Recalculate Globals for Screen
-    //
+
     WindowClientWidth();
-    // ...................................... //
+
     // Load Containers if missing
-    //
+    // ...................................... //
     if (!bodyMainLeft) { ElementObjectContainerCreate(); }
     // ...................................... //
     // Recalculate Positions for Menu Images
     if (layoutResizeCn == 0) { WindowContainerHeightGetAll(); }
-    //
-    // ...................................... //
+
     // Process DivBox and Callout layout
-    //
+    // ...................................... //
     // Count Display Blocks (s/b DivBox containers)
     bodyBlockCn = ElementObjectBlockCount();
-    //
+
     // Determine DivBox (Body Content) column and callout sizes
     // Note that fewer text block is detected.
     layoutBlockWidth = LayoutBlockWidthGet();
-    // ...................................... //
+
     // Width over layoutMenuDocWidthWide
     // ...................................... //
     // if (BodyMainCenterCenter.offsetWidth > layoutMenuDocWidthWide) {
     if (layoutDocumentWidth > layoutMenuDocWidthWide) {
-        // ...................................... //
+
         // Standard Layout
+        // ...................................... //
         if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
             // Left
             // bodyMainLeft.style.width = '10%';
@@ -641,8 +714,9 @@ function WindowResizeLayout() {
             bodyMainCenter.style.width = (76 + bodyMainCenterWidthAdj) + '%';
             //
         } else {
-            // ...................................... //
+
             // Wide Layout Options (no side menus)
+            // ...................................... //
             // Center
             // bodyMainCenter.style.top = 0%
             if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
@@ -653,10 +727,8 @@ function WindowResizeLayout() {
         layoutIsStandard = false;
         //
     } else {
-        // ...................................... //
+
         // Width under layoutMenuDocWidthWide
-        // ...................................... //
-        //
         // ...................................... //
         if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
             // Left
@@ -696,10 +768,12 @@ function WindowResizeLayout() {
         layoutIsStandard = true;
         //
     }
-    // ...................................... //
+
     // Adjust for margin, padding & border custom styling
-    tmpAdjust = ElementContainerAdjustGet(layoutBlock, BodyMainCenterCenter, true);
-    // See MdmMain to adjust these settings.
+    // ...................................... //
+    tmpAdjust = ElementContainerAdjustGet(BodyMainCenterCenter, BodyMainCenter, true);
+
+    // Number of Columns - See MdmMain to adjust these settings.
     if (BodyMainCenterCenter.offsetWidth > layoutBlockCol4Min) {
         // 4 columns - layoutBlockWidthBig
         layoutBlockWidth = (layoutBlockWidthBig - tmpAdjust) + "%";
@@ -722,19 +796,22 @@ function WindowResizeLayout() {
         // BodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthNarrow - tmpAdjust) + "%";
         calloutBoxWidth = calloutLayoutBlockWidthNarrow;
     }
-    // ...................................... //
+
     // Search Sections and adjust layout
+    // ...................................... //
     layoutSectionCn = 0;
     while (bodyMainCenterCenter.childNodes[layoutSectionCn]) {
-        // ...................................... //
+
         // Section
+        // ...................................... //
         layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
         if (layoutSection.id) {
             if ((layoutSection.id).substr(0, 4) == 'DivS') {
                 layoutBlockCn = 0;
                 while (layoutSection.childNodes[layoutBlockCn]) {
-                    // ...................................... //
+
                     // Block
+                    // ...................................... //
                     layoutBlock = layoutSection.childNodes[layoutBlockCn];
                     if (layoutBlock.id) {
                         if (layoutBlock.id.substr(0, 4) == "DivP" || layoutBlock.id.substr(0, 4) == "DivB" || layoutBlock.id.substr(0, 6) == "DivBox") {
@@ -776,7 +853,7 @@ function WindowResizeLayout() {
     //
     layoutResizeCn += 1;
     if (layoutResizeCn > 500) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             'Window Resize Excessive Usage (Possible Error)',
             'WindowResizeLayout', 0, null, null,
             errorSevere, errorDoNotDisplayTag, errorDoAlert);
@@ -795,11 +872,11 @@ function WindowResizeLayout() {
     //
     //
     if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Main Container layoutHeight (body +5em): ' + layoutHeight
             + '.',
             'WindowResizeLayout', 7189, null, null,
-            MessageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     body.style.height = (layoutHeight + 50) + 'px';
@@ -841,7 +918,7 @@ function WindowClientWidth() {
     //
     layoutDocumentHeight = window.document.documentElement.offsetHeight;
     layoutAvailHeight = window.screen.availHeight;
-    layoutClientHeightht = window.screen.availHeight - layoutHeightMargin;
+    layoutClientHeighth = window.screen.availHeight - layoutHeightMargin;
     // if (layoutClientHeight < 100) { layoutClientHeight = document.body.parentNode.clientHeight - layoutHeightMargin; }
     //
     layoutWidth = layoutDocumentWidth;

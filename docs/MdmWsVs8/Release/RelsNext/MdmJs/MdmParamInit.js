@@ -1,13 +1,13 @@
 // text/javascript
 // ServerIsOn (Page came from server not local)
 serverIsOn = true;
-DebugParameterInitDone = false;
+FormElementSyncDone = false;
 //
-function DebugParameterInit()
+function FormElementSync()
 {
 	// todo console
-	if (DebugParameterInit) { return; }
-	DebugParameterInitDone = true;
+	if (FormElementSync) { return; }
+	FormElementSyncDone = true;
 	var tempSelected = false;
 	var elementObject = document.createElement('input');
 	//
@@ -213,21 +213,21 @@ function DebugParameterInit()
 	tempSelected = false;
 	////////////////////////////////////////////////
 	// Manner by which images move across the screen
-	elementObject = ElementGetFromId('formelMoveMethod_elMoveMethodDirect');
-	if (elMoveMethod == elMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formelementMoveMethod_elementMoveMethodDirect');
+	if (elementMoveMethod == elementMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formelMoveMethod_elMoveMethodSlideDown');
-	if (elMoveMethod == elMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formelementMoveMethod_elementMoveMethodSlideDown');
+	if (elementMoveMethod == elementMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formelMoveMethod_elMoveMethodSlideSide');
-	if (elMoveMethod == elMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formelementMoveMethod_elementMoveMethodSlideSide');
+	if (elementMoveMethod == elementMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formelMoveMethod_elMoveMethodRandom');
-	if (elMoveMethod == elMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formelementMoveMethod_elementMoveMethodRandom');
+	if (elementMoveMethod == elementMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { ElementGetFromId('formelMoveMethod_elMoveMethodRandom').selected = true; }
+	if (!tempSelected) { ElementGetFromId('formelementMoveMethod_elementMoveMethodRandom').selected = true; }
     //
-    loadFirebugState = false;
+    loadFirstDebugState = false;
 	//
 }
 // ..................................................................................... _//

@@ -103,7 +103,7 @@
 <br>Global
 <br>		 DocumentLoadInit
 <br>Elements
-<br>		ElementPosGet
+<br>		ElementPosGetFromObj
 <br>Layout
 <br>		LayoutSelectByIndex
 <br>Menu Images
@@ -249,7 +249,7 @@
 <br>BodyMainRightFar
 <br>
 <br>BodyImageContainer
-<br>BodyMenuImageContainer
+<br>BodyImageContainer
 <br>
 <br>layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
 <br>
@@ -416,7 +416,7 @@
 <br> MenuContainerRight3
 <br>
 <br> BodyImageContainer
-<br> BodyMenuImageContainer
+<br> BodyImageContainer
 <br>
 <br>
 <br> -------------------------------------------------------------------------------------

@@ -1,3 +1,6 @@
+menuImageBorderWidth = 6;
+filterMotionDirectionSourceAngle = 292.5;
+
 // ServerIsOn (Page came from local or server)
 // ...................................... //
 serverIsOn = false;
@@ -21,34 +24,27 @@ var loadDelayMenuImage = false;
 var loadFirstMenuImage = true;
 // Testing / Debug State Window
 var loadDelayDebugState = false;
-var loadFirebugState = true;
+var loadFirstDebugState = true;
 // Local Parameter Initialization specified here.
-function DebugParameterInitLocal() { DebugParameterInit(); } // uses defaults.
+function FormElementSyncLocal() { FormElementSync(); } // uses defaults.
 
 // Log usage
 // ...................................... //
 // Example of naming for corresponding parameters
 // (this is not an actual global parameter)
-// var UseLog = DoNotUseLog;
-// ie UseName (argument / parameter), DoUseName (passed value), DoNotUseName (passed value)...
-var DoUseLog = true;
-var DoNotUseLog = false;
+var UseLog = DoUseLog;
 // Size at which logs are trimmed
 var consoleLogLengthMax = 40000;
 var consoleLogLengthTrim = 35000;
 // compact format
-var UseSingleLine = DoNotUseSingeLine;
+var UseSingleLine = DoNotUseSingleLine;
 
-// Console (debug)
-// ...................................... //
-// colour
-var ButtonIsOnColor = 'Lime';
-var ButtonIsOffColor = 'Red';
-
+var errorResultOnFail = errorDidNotOccur;
+var errorMessage = "Page settings initializing";
 // Find Iteration Options (note)
 // ...................................... //
-// var elDoFindSet = 1
-// var elDoFindReturn = 2;
+// var DoFindSet = 1
+// var DoFindReturn = 2;
 
 // Errors
 // ...................................... //
@@ -89,18 +85,31 @@ var errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
 var errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
 
 // Steps through loading script files
- debugLoadIsOn = false;
+// debugLoadIsOn = false;
 
 // Error Severity
-var errorDidNotOccur = 0;
-var errorComment = 5;
-var errorWarn = 10;
-var errorSevere = 20;
-var errorFatal = 30;
+errorDidNotOccur = 0;
+errorComment = 5;
+errorWarn = 10;
+errorSevere = 20;
+errorFatal = 30;
 
 // Initial settings:
-var errorSeverity = errorDidNotOccur;
-var errorDebugLevel = errorSevere;
+errorSeverity = errorDidNotOccur;
+errorSeverityLevel = errorDidNotOccur;
+errorDebugLevel = errorSevere;
+
+// Console (debug)
+// ...................................... //
+// colour
+ButtonIsOnColor = 'Lime';
+ButtonIsOffColor = 'Red';
+// Message Colors
+errorSeverityColorFatal = 'Red';
+errorSeverityColorSevere = 'Yellow';
+errorSeverityColorWarn = 'Orange';
+errorSeverityColorComment = 'Lime';
+errorSeverityColor = errorSeverityColorComment;
 
 // SectionBlock Object Postion
 // ...................................... //
@@ -109,29 +118,23 @@ var errorDebugLevel = errorSevere;
 // By setting both the 'Use' and 'DoNotUse' to
 // true or false they can be forced or negated.
 // ...................................... //
-var UseScroll = true;
-var UseBase = true;
-var UseOffset = true;
-var DoUseScroll = true;
-var DoUseBase = true;
-var DoUseOffset = true;
-var DoNotUseScroll = false;
-var DoNotUseBase = false;
-var DoNotUseOffset = false;
+UseOffset = DoUseOffset;
+UseBase = DoUseBase;
+UseScroll = DoUseScroll;
 
 // Section Menu Image (Standard) Objects
 // ...................................... //
 // Storage Location for Group and Menu Item / Image
 var oObjGroupIndex = 1;
-var oObjRootIndex = 0;
 // location of Group / Roots in arrays
+var oObjRootIndex = 0;
 var indexGroup = 0;
 
 // SectionBlock Image Handling
 // ...................................... //
-// BrowserGetVs();
+// BrowserVsGet();
 // Type of Image Group Page Generation
-var imgLoadEventTest = false; // controls clearing of bodyMenuImageContainer for testing
+var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
 var imgLoadUseInner = false; // Use innerHTML for content
 var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
@@ -177,31 +180,32 @@ var layoutParaWidthMax = 500; // todo Off currently
 // ...................................... //
 var bodyMenuLeft = 0;
 var bodyMenuRight = 1;
-var bodyMenuGroupUsedCn = 4;
+var bodyMenuGroupUsedCn = 6;
 var bodyMenuGroupMax = 8;
 var bodyMenuGroupIndex = 0;
 
-var bodyMenuContainer = new Array(2);
-bodyMenuContainer[bodyMenuLeft] = new Array(bodyMenuGroupMax);
-bodyMenuContainer[bodyMenuLeft][1] = NaN;
-bodyMenuContainer[bodyMenuRight] = new Array(bodyMenuGroupMax);
-bodyMenuContainer[bodyMenuRight][1] = NaN;
+var bodyMenuContainer; // = new Array(2);
+var bodyMenuGroup; // = new Array(bodyMenuGroupUsedCn);
+// var bodyMenuGroupSave; // = new Array(bodyMenuGroupUsedCn);
+var bodyMenuGroupTop; // = new Array(bodyMenuGroupUsedCn);
+var bodyMenuGroupHeight; // = new Array(bodyMenuGroupUsedCn);
+var bodyMenuGroupColBreak; // = new Array(bodyMenuGroupUsedCn);
 
-var bodyMenuGroup = new Array(bodyMenuGroupMax);
-bodyMenuGroup[1] = NaN;
-// var bodyMenuGroupSave = new Array(bodyMenuGroupMax);
-var bodyMenuGroupTop = new Array(bodyMenuGroupMax);
-
-var bodyMenuGroupHeight = new Array(bodyMenuGroupMax);
-bodyMenuGroupHeight[1] = 0; // todo
-
-var bodyMenuGroupColBreak = new Array(bodyMenuGroupMax);
-bodyMenuGroupColBreak[1] = 0;
+// Menu Image Groups
+////////////////////////////////////////////////
+// Menu Current Image Object By Group (Image Group)
+// set the number of groups and the images per group
+// // Image Group
+var imgGroupMax = bodyMenuGroupUsedCn;
+var imgGroupBoxCount = 20; // depreciated
+var imgGroupCount = imgGroupMax + 1;
+var imgGroupArraySize = imgGroupMax + 1;
+var imgGroupImageArraySize = imgGroupMax + 1;
 
 // SectionBlock Animation Control
 // ...................................... //
 // Basic Options:
-var moveIsOn = true; // Objectt Move From Origin to Destination
+var moveIsOn = true; // Object Move From Origin to Destination
 // Animations and transitions
 var filterIsOn = true; // Transition
 var filterResizeIsOn = true; // Growing image
@@ -240,12 +244,12 @@ var elementMoveDelay = 0;
 // ...................................... //
 // Methodology used to move animated objects
 // from origin to destination
-var elMoveMethodDirect = 1; // Slide diagonally to destination
-var elMoveMethodSlideDown = 2; // Slide down, then sideways
-var elMoveMethodSlideSide = 3; // Slide sideways, then down
-var elMoveMethodRandom = 0; // Use random choice on each Group move
+var elementMoveMethodDirect = 1; // Slide diagonally to destination
+var elementMoveMethodSlideDown = 2; // Slide down, then sideways
+var elementMoveMethodSlideSide = 3; // Slide sideways, then down
+var elementMoveMethodRandom = 0; // Use random choice on each Group move
 // Setting it to '0' causes a random setting on each display
-var elMoveMethod = elMoveMethodRandom; // Use random
+var elementMoveMethod = elementMoveMethodRandom; // Use random
 
 // Timer Movement
 var timerDuration = elementMoveDuration;
@@ -258,6 +262,9 @@ var timerDelay = elementMoveDelay;
 var timerStepMin = 10;
 var timerStepMax = elMoveStepMax;
 var timerStepsPerSecond = 10;
+
+// Timer Object & Indexes
+var timerGroupIndexMax = imgGroupMax;
 
 // Animation Transition Control:
 // ...................................... //
@@ -303,7 +310,15 @@ var filterMethod = filterMethodPlay;
 // SectionBlock Human readable arguments and comparisons todo
 // ...................................... //
 // State Friendly Names
+var IsAtEnd = 1;
+var IsNotAtEnd = 0;
 var AtEnd = IsAtEnd;
+
+// Indicate actions is on Group (Root) or Item
+var DoNotUseRoot = 0; // Item only
+var DoUseRoot = 1; // Root only
+var DoUseBoth = 2; // Both
+var DoNotUseEither = 3; // Both
 var UseRoot = DoUseRoot;
 
 // Column Management

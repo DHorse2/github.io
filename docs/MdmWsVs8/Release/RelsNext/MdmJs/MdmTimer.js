@@ -92,14 +92,22 @@ var timerStep = 0;
 // var timerStepMax = elMoveStepMax;
 // var timerStepsPerSecond = 10;
 
-var timerObj = new Array(timerGroupIndexMax);
-for (timerGroupIndex = 0; timerGroupIndex < timerGroupIndexMax + 1; timerGroupIndex++) {
-    timerObj[timerGroupIndex] = new Array(imgMaxByGroup[timerGroupIndex]); // Menu Image Items
-}
+// Timer Object & Indexes
+var timerGroupIndex; // = 0;
+// var timerGroupIndexMax; // = imgGroupMax;
+var timerIndex = 0;
+var timerIdIndex = 0;
 //
+// var timerMethodItem; // = 1;
+// var timerMethodGroup; // = 2;
+// var timerMethod; // = timerMethodGroup;
+//
+var timerObj; // = new Array(timerGroupIndexMax);
+var timerGroupIndex; // = 0;
+
 // State Tests
-var elIsDisplayed = 1;
-var elIsNotDisplayed = 0;
+var elementIsDisplayed = 1;
+var elementIsNotDisplayed = 0;
 //
 // Completion Status
 var timerDateStart = new Date();
@@ -517,7 +525,7 @@ function TimerItemDeactivate(timerType, timerGroup, timerId, UseRoot) {
                 timerObj[timerGroup][timerLevelKey].timerIsRunning = false;
                 timerObj[timerGroup][timerLevelKey].timerIntervalId = 0;
                 timerObj[timerGroup][timerLevelKey].timerIntervalIdPrev = 0;
-                timerObj[timerGroup][timerLevelKey].elIsDisplayed = elIsNotDisplayed;
+                timerObj[timerGroup][timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
             }
         }
         // deconstruct
@@ -546,6 +554,16 @@ function TimerItemAbort(timerType, timerGroup, timerId, UseRoot) {
     // deconstruct
     // delete timerObj[timerGroup] [timerLevelKey];
 }
+function TimerCreate() {
+    timerObj = new Array(bodyMenuGroupUsedCn);
+    for (timerGroupCn = 0; timerGroupCn < 1 + bodyMenuGroupUsedCn; timerGroupCn++) {
+        timerObj[timerGroupCn] = new Array(imgMaxByGroup[timerGroupCn]);
+        for (timerGroupObjectCn = 0; timerGroupObjectCn < 1 + imgMaxByGroup[timerGroupCn]; timerGroupObjectCn++) {
+            timerObj[timerGroupCn][timerGroupObjectCn] = new Object;
+        }
+    }
+}
+
 // Menu Images Move Action
 // TimerStartMove();
 // ...................................... //
@@ -559,12 +577,14 @@ function TimerInitialize(timerType, timerGroup, timerId,
     var timerItemKey = timerId + timerType;
     var timerRootKey = timerRootId + timerType;
     // Timer Group and Image Box
-    if (!timerObj) { timerObj = new Array; }
+    if (!timerObj) { TimerCreate(); }
     // Group Level
     // Timer Group Creation
     var timerGroupNew = false;
     var timerItemNew = false;
-    if (!timerObj[timerGroup]) { timerObj[timerGroup] = new Array; }
+    if (!timerObj) { TimerCreate(); }
+    // if (!timerObj) { timerObj = new Array(imgGroupImageArraySize); }
+    // if (!timerObj[timerGroup]) { timerObj[timerGroup] = new Array(imgMaxByGroup[timerGroup]); }
     // Timer Group Creation
     if (!timerObj[timerGroup][timerRootKey]) {
         timerGroupNew = true;
@@ -578,27 +598,27 @@ function TimerInitialize(timerType, timerGroup, timerId,
         timerObj[timerGroup][timerItemKey] = new Object;
         TimerItemDeactivate(timerType, timerGroup, timerId, false);
         //
-        timerObj[timerGroup][timerItemKey].elMoveMethod =
-            timerObj[timerGroup][timerRootKey].elMoveMethod;
+        timerObj[timerGroup][timerItemKey].elementMoveMethod =
+            timerObj[timerGroup][timerRootKey].elementMoveMethod;
     }
     //
     if (timerObj[timerGroup][timerRootKey].timerInstance < 1) {
         //
         timerGroupNew = true;
         if (timerType == timerTypeMove) {
-            if (elMoveMethod != 0) {
-                timerObj[timerGroup][timerRootKey].elMoveMethod = elMoveMethod;
+            if (elementMoveMethod != 0) {
+                timerObj[timerGroup][timerRootKey].elementMoveMethod = elementMoveMethod;
             } else {
                 if (playDirection == playDirectionForward) {
-                    var elMoveMethodTemp = MathNumberRandomGetByRange(1, 3, filterRealFlag);
-                    if (elMoveMethodTemp == elMoveMethodPrev) {
-                        elMoveMethodTemp += 1 - ((elMoveMethodTemp > 2) * 3);
+                    var elementMoveMethodTemp = MathNumberRandomGetByRange(1, 3, filterRealFlag);
+                    if (elementMoveMethodTemp == elementMoveMethodPrev) {
+                        elementMoveMethodTemp += 1 - ((elementMoveMethodTemp > 2) * 3);
                     }
-                    timerObj[timerGroup][timerRootKey].elMoveMethod = elMoveMethodTemp;
-                    elMoveMethodPrev = elMoveMethodTemp;
+                    timerObj[timerGroup][timerRootKey].elementMoveMethod = elementMoveMethodTemp;
+                    elementMoveMethodPrev = elementMoveMethodTemp;
                 }
             }
-        } else { timerObj[timerGroup][timerRootKey].elMoveMethod = 0; }
+        } else { timerObj[timerGroup][timerRootKey].elementMoveMethod = 0; }
     }
     // Timer Type
     var timerLevelKey = new String;
@@ -747,15 +767,15 @@ function TimerInitialize(timerType, timerGroup, timerId,
             if (timerMethod == timerMethodGroup) {
                 timerObj[timerGroup][timerLevelKey].timerIntervalId
                     = timerObj[timerGroup][timerRootKey].timerIntervalId;
-                timerObj[timerGroup][timerLevelKey].elMoveMethod =
-                    timerObj[timerGroup][timerRootKey].elMoveMethod;
+                timerObj[timerGroup][timerLevelKey].elementMoveMethod =
+                    timerObj[timerGroup][timerRootKey].elementMoveMethod;
                 timerObj[timerGroup][timerLevelKey].playDirection =
                     timerObj[timerGroup][timerRootKey].playDirection;
             } else {
                 timerObj[timerGroup][timerLevelKey].playDirection = playDirection;
             }
             // Display / visibility (& Filter triggering)
-            timerObj[timerGroup][timerLevelKey].elIsDisplayed = elIsNotDisplayed;
+            timerObj[timerGroup][timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
         } else {
             timerObj[timerGroup][timerRootKey].playDirection = playDirection;
         }
@@ -820,7 +840,7 @@ function TimerStart(timerType, timerGroup, timerId,
                         if (timerMethod == timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = -1; }
                     }
                     if (debugFunctionIsOn) {
-                        MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+                        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
                             TimerLogText(timerType, timerGroup, timerId,
                                 (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
                                 timerObj[timerGroup][timerItemKey].playDirection, 'Timer Pending')
@@ -851,7 +871,7 @@ function TimerStart(timerType, timerGroup, timerId,
         }
         //
         if (debugFunctionIsOn) {
-            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Timer Running')
                 + ', Already running'
@@ -895,7 +915,7 @@ function TimerSet(timerType, timerGroup, timerId,
         if (timerMethod == timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = vTimerID; }
         //
         if (debugFunctionIsOn) {
-            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
                 + '.',
                 'TimerSet', 4633, null, null,
@@ -909,7 +929,7 @@ function TimerSet(timerType, timerGroup, timerId,
         }
         //
         if (debugFunctionIsOn) {
-            MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+            MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Interval Running')
                 + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -1026,7 +1046,7 @@ function TimerRootKeyText(timerType, timerGroup, timerId) {
             if (!timerObj[timerGroup][timerItemKey].timerIsRunning) {
                 timerIsRunningText += '0';
             } else { timerIsRunningText += '1'; }
-            timerIsDisplayedText += timerObj[timerGroup][timerItemKey].elIsDisplayed;
+            timerIsDisplayedText += timerObj[timerGroup][timerItemKey].elementIsDisplayed;
         } else {
             timerIsRunningText += 'x';
             timerIsDisplayedText += 'x';

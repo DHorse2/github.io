@@ -46,11 +46,11 @@ var DoNotUseOffset; // = false;
 // SectionBlock Image Handling
 // ...................................... //
 
-// BrowserGetVs();
+// BrowserVsGet();
 // ...................................... //
 
 // Type of Image Group Page Generation
-var imgLoadEventTest; // = false; // controls clearing of bodyMenuImageContainer for testing
+var imgLoadEventTest; // = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM; // = true; // Add Elements to DOM
 var imgLoadUseInner; // = false; // Use innerHTML for content
 var imgLoadUseEventHandler; // = true; // Single Event Listener (dispatcher)
@@ -606,7 +606,7 @@ var bodyMainRightFar;
 // Other...
 // ...................................... //
 var bodyImageContainer;
-var bodyMenuImageContainer;
+var bodyImageContainer;
 
 // SectionBlock Column
 // ...................................... //
@@ -621,21 +621,12 @@ var bodyMenuGroupMax; //  = 4;
 var bodyMenuGroupIndex; //  = 0;
 
 var bodyMenuContainer; //  = new Array(2);
-// bodyMenuContainer[bodyMenuLeft] = new Array(bodyMenuGroupMax);
-// bodyMenuContainer[bodyMenuLeft][1] = NaN;
-// bodyMenuContainer[bodyMenuRight] = new Array(bodyMenuGroupMax);
-// bodyMenuContainer[bodyMenuRight][1] = NaN;
 
-var bodyMenuGroup; //  = new Array(bodyMenuGroupMax);
-// bodyMenuGroup[1] = NaN;
-// var bodyMenuGroupSave = new Array(bodyMenuGroupMax);
-var bodyMenuGroupTop; //  = new Array(bodyMenuGroupMax);
-
-var bodyMenuGroupHeight; //  = new Array(bodyMenuGroupMax);
-// bodyMenuGroupHeight[1] = 0; // todo
-
-var bodyMenuGroupColBreak; //  = new Array(bodyMenuGroupMax);
-// bodyMenuGroupColBreak[1] = 0;
+var bodyMenuGroup; //  = new Array(bodyMenuGroupUsedCn);
+// var bodyMenuGroupSave = new Array(bodyMenuGroupUsedCn);
+var bodyMenuGroupTop; //  = new Array(bodyMenuGroupUsedCn);
+var bodyMenuGroupHeight; //  = new Array(bodyMenuGroupUsedCn);
+var bodyMenuGroupColBreak; //  = new Array(bodyMenuGroupUsedCn);
 
 // Section Menu Image Group and Item Variables
 // ...................................... //
@@ -815,11 +806,11 @@ var imgMouseHover; // = new Array;
 // Movement Patterns:
 // Method used to move animated objects
 // from origin to destination
-var elMoveMethodDirect; // = 1;
-var elMoveMethodSlideDown; // = 2;
-var elMoveMethodSlideSide; // = 3;
-var elMoveMethod; // = 0;
-var elMoveMethodPrev; // = 0;
+var elementMoveMethodDirect; // = 1;
+var elementMoveMethodSlideDown; // = 2;
+var elementMoveMethodSlideSide; // = 3;
+var elementMoveMethod; // = 0;
+var elementMoveMethodPrev; // = 0;
 
 // Steps / Iterations
 var elMoveStep; // = 0;
@@ -1234,8 +1225,8 @@ var filterSelected = new Array(5);
 // ...................................... //
 // Html Variables
 var imgHtml = new String();
-// var BodyMenuImageContainer; // = document.documentElement['BodyMenuImageContainer'];
-// .getElementById('BodyMenuImageContainer');
+// var BodyImageContainer; // = document.documentElement['BodyImageContainer'];
+// .getElementById('BodyImageContainer');
 //
 
 // Build (inner) HTML for Menu Images
@@ -1295,4 +1286,22 @@ script_state = "Mdm Websit Declarations loaded.";
 if (debugLoadIsOn) {
     script_state = "MdmDeclarations completed. debugLoadIsOn is " + debugLoadIsOn + ", see top of script.";
     debugger;
+}
+// ..................................................................................... _//
+// Error Message Display
+////////////////////////////////////////////////
+function ErrorOccuredDepreciated(eventCurr, MessageElementPassed, MessageElementSourcePassed, MessagePassed, errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
+    if (errorSeverityPassed == errorFatal) {
+        // display alert
+        // dipslay in HTML Critial Message Area
+    } else if (errorSeverityPassed == errrorSevere) {
+        // display alert
+        // dipslay in HTML Critial Message Area
+    } else if (errorSeverityPassed == errorWarn) {
+        // dipslay in HTML Warnging Message Area
+    } else if (errorSeverityPassed == errorDidNotOccur) {
+        // dipslay in HTML Message Area
+    } else {
+        // dipslay in HTML Message Area
+    }
 }

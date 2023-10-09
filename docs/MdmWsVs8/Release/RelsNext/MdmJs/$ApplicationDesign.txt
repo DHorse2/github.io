@@ -1,7 +1,7 @@
 	if (debugImages) {
 		errorComment = "Getting " + menuImageCn + ": " +  menuImage.Name;
 		if (debugDoAlert) { alert(errorComment); }
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingeLine,
+		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 // ------------------------------------------------------------------------------------- _//
@@ -21,7 +21,7 @@
 // Global
 // 		 DocumentLoadInit
 // Elements
-// 		ElementPosGet
+// 		ElementPosGetFromObj
 // Layout
 //		LayoutSelectByIndex
 // Menu Images
@@ -154,7 +154,7 @@
 // BodyMainRightFar
 //
 // BodyImageContainer
-// BodyMenuImageContainer
+// BodyImageContainer
 //
 // layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
 // ------------------------------------------------------------------------------------- _//

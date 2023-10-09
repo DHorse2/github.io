@@ -49,7 +49,7 @@ Right
 // MenuContainerRight3
 //
 // BodyImageContainer
-// BodyMenuImageContainer
+// BodyImageContainer
 //
 ////////////////////////////////////////////////
 -- */
@@ -525,7 +525,8 @@ Right
 .BodyConsoleDetailBox {
   /* Position */
   position: absolute;
-  Top: 0%;
+  top: 0%;
+  left: 3%;
   /* Size */
   width: 31%;
   height: 95%;
@@ -549,7 +550,8 @@ Right
 .BodyConsoleTextBox {
   /* Position */
   position: absolute;
-  Top: 8%;
+  top: 3%;
+  left: 3%;
   /* Size */
   width: 96%;
   height: 85%;
@@ -614,7 +616,7 @@ Right
 .BodyConsoleTestTextBox {
   /* Position */
   position: static;
-  /* Top:8%; */
+  /* top:8%; */
   /* Size */
   width: 96%;
   /* height:85%; */
@@ -634,7 +636,7 @@ Right
   z-index: 500;
 }
 
-.BodyConsoleTestBoxInput {
+.BodyConsoleTestBoxInclude {
   /* Position */
   position: static;
   left: 2%;

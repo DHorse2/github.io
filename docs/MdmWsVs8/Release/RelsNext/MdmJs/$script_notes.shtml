@@ -100,7 +100,7 @@ LayoutSelectByIndex(layoutStandard);
 // MenuContainerRight3
 //
 // BodyImageContainer
-// BodyMenuImageContainer
+// BodyImageContainer
 //
 ////////////////////////////////////////////////
 // ..................................................................................... _//
@@ -148,7 +148,7 @@ LayoutSelectByIndex(layoutStandard);
 //
 ////////////////////////////////////////////////
 // Elements
-// 		ElementPosGet
+// 		ElementPosGetFromObj
 // Layout
 //		LayoutSelectByIndex
 //		MouseClickImg

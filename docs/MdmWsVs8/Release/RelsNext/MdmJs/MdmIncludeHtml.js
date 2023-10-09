@@ -13,7 +13,7 @@ var includeValid;
 var xhttpWorker;
 
 // Load html content from file
-function includeHtmlFileAll() {
+function IncludeHtmlFileAll() {
   var elArray, eiIndex, element, xhttp;
   if (loadIncludesDone) { return; }
   loadIncludesDone = true;
@@ -97,7 +97,7 @@ function junk() {
         // todo console
       } else {
         includeValid = false;
-        MessageTemp = "Unknown Status:" + this.status;
+        messageTemp = "Unknown Status:" + this.status;
         // todo console
       }
       // recursively call this function once more:
@@ -105,10 +105,10 @@ function junk() {
       // This doesn't appear to be async, it's top down and adding below.
       // That should capture nested includes, elArray.length increases.
 
-      // includeHtmlFileAll();
+      // IncludeHtmlFileAll();
     } else {
       // todo console some other readyState reporting;
-      MessageTemp = "Request Ready State:" + this.readyState;
+      messageTemp = "Request Ready State:" + this.readyState;
     }
     /* Exit the function: */
     // return;
@@ -179,4 +179,5 @@ function xhttpTransferCanceled(evt) {
   console.log("The transfer has been canceled by the user.");
 }
 
+if (debugLoadIsOn) { debugger; }
 script_state = "MdmIncludeHTML loaded";

@@ -65,7 +65,7 @@
 					<div id="BodyConsoleMouseOverToggle"
 						 class="BodyConsoleToggle ViewToggleButton
 						 ViewToggleBlockLabel MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleMouseOver')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleMouseOver')"
 						 >
 						MoOv
 					</div>
@@ -78,7 +78,7 @@
 						<div id="BodyConsoleDebugToggle"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleDebug')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleDebug')"
 							 >
 							D
 						</div>
@@ -88,14 +88,14 @@
 						<div id="BodyConsoleDebugOnErrorToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleDebugOnError')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugOnError')"
 							 >
 							o
 						</div>
 						<div id="BodyConsoleDebugAllToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleDebugAll')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugAll')"
 							 >
 							a
 						</div>
@@ -106,28 +106,28 @@
 					<div id="BodyConsoleDebugMoveToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugMove')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugMove')"
 						 >
 						m
 					</div>
 					<div id="BodyConsoleDebugTransitionToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugTransition')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugTransition')"
 						 >
 						t
 					</div>
 					<div id="BodyConsoleDebugDetailToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugDetail')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugDetail')"
 						 >
 						d
 					</div>
 					<div id="BodyConsoleDebugEventsToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugEvents')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugEvents')"
 						 >
 						v
 					</div>
@@ -140,7 +140,7 @@
 						<div id="BodyConsoleToggle"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin"
-							 onmousedown="BodyConsoleToggle('ConsoleAll')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleAll')"
 							 >
 							C
 						</div>
@@ -150,21 +150,21 @@
 						<div id="BodyConsoleErrorToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleError')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleError')"
 							 >
 							e
 						</div>
 						<div id="BodyConsoleEventToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleEvent')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleEvent')"
 							 >
 							v
 						</div>
 						<div id="BodyConsoleStateToggle"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleState')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleState')"
 							 >
 							s
 						</div>
@@ -175,14 +175,14 @@
 					<div id="BodyConsoleTestToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin"
-						 onmousedown="BodyConsoleToggle('ConsoleTest')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleTest')"
 						 >
 						T
 					</div>
 					<div id="BodyConsoleClearToggle"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleClear')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleClear')"
 						 >
 						c
 					</div>
@@ -482,7 +482,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 					<div id="BodyConsoleMouseOverToggleCopy"
 						 class="BodyConsoleToggle ViewToggleButton
 						 ViewToggleBlockLabel MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleMouseOver')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleMouseOver')"
 						 >
 						MoOv
 					</div>
@@ -495,7 +495,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<div id="BodyConsoleDebugToggleCopy"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleDebug')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleDebug')"
 							 >
 							D
 						</div>
@@ -505,14 +505,14 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<div id="BodyConsoleDebugOnErrorToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleDebugOnError')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugOnError')"
 							 >
 							o
 						</div>
 						<div id="BodyConsoleDebugAllToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleDebugAll')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugAll')"
 							 >
 							a
 						</div>
@@ -523,28 +523,28 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 					<div id="BodyConsoleDebugMoveToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugMove')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugMove')"
 						 >
 						m
 					</div>
 					<div id="BodyConsoleDebugTransitionToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugTransition')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugTransition')"
 						 >
 						t
 					</div>
 					<div id="BodyConsoleDebugDetailToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugDetail')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugDetail')"
 						 >
 						d
 					</div>
 					<div id="BodyConsoleDebugEventsToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleDebugEvents')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleDebugEvents')"
 						 >
 						v
 					</div>
@@ -557,7 +557,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<div id="BodyConsoleToggleCopy"
 							 class="BodyConsoleToggle ViewToggleButton
 							 ViewToggleBlockLabel MenuListItem BorderThin"
-							 onmousedown="BodyConsoleToggle('ConsoleAll')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleAll')"
 							 >
 							C
 						</div>
@@ -567,21 +567,21 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<div id="BodyConsoleErrorToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 ViewToggleBlock MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleError')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleError')"
 							 >
 							e
 						</div>
 						<div id="BodyConsoleEventToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleEvent')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleEvent')"
 							 >
 							v
 						</div>
 						<div id="BodyConsoleStateToggleCopy"
 							 class="BodyConsoleLog ViewToggleButton
 							 MenuListItem BorderThin "
-							 onmousedown="BodyConsoleToggle('ConsoleState')"
+							 onmousedown="BodyConsoleToggle(true, 'ConsoleState')"
 							 >
 							s
 						</div>
@@ -592,14 +592,14 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 					<div id="BodyConsoleTestToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 ViewToggleBlock MenuListItem BorderThin"
-						 onmousedown="BodyConsoleToggle('ConsoleTest')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleTest')"
 						 >
 						T
 					</div>
 					<div id="BodyConsoleClearToggleCopy"
 						 class="BodyConsoleLog ViewToggleButton
 						 MenuListItem BorderThin "
-						 onmousedown="BodyConsoleToggle('ConsoleClear')"
+						 onmousedown="BodyConsoleToggle(true, 'ConsoleClear')"
 						 >
 						c
 					</div>
@@ -660,7 +660,7 @@ State<br>
 <div id="BodyConsoleTestBox" class="BodyConsoleTestBox BodyConsoleTextBox CalloutBorderFull">
 Test Console
 <!-- * -->
-<div id="BodyConsoleTestBoxInput" class="BodyConsoleTestBoxInput BodyConsoleTestTextBox CalloutBorderFull">
+<div id="BodyConsoleTestBoxInclude" class="BodyConsoleTestBoxInclude BodyConsoleTestTextBox CalloutBorderFull">
 <!--** Console Blocks **-->
 <!-- different UI for Current and Next Releases Console -->
 <!--#include virtual="../../PageBuildStage.js"-->
@@ -904,12 +904,12 @@ Test Data
 </div> <!-- end of BodyImageContainer -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
-<!-- x Section BodyMenuImageContainer -->
-<div id="BodyMenuImageContainer" >
+<!-- x Section BodyImageContainer -->
+<div id="BodyImageContainer" >
     <!-- onmousedown="ElementEventMouse(event);"  -->
     <!-- onmouseover="ElementEventMouse(event);"  -->
     <!-- onmouseout="ElementEventMouse(event);" -->
-</div> <!-- end of BodyMenuImageContainer -->
+</div> <!-- end of BodyImageContainer -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x Section BodyConsoleContainer -->

@@ -3,13 +3,12 @@
 // ElementItemGetAllFromIndex
 // ...................................... //
 function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
+	if (loadFirstJava) { ElementObjectCreate(); } // todo save indexes first?
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	oObjValid = true;
 	oObjId = new String();
 	oObjParentId = new String();
-	//
-	if (loadFirstJava) { ElementObjectCreate(); }
 	// ...................................... //
 	switch (oObjGroupIndex) {
 		// Non Groups
@@ -31,9 +30,9 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 					oObjId = 'MdmWebUi'; oObjParentId = 'MdmNetAppFrame'; break;
 				case 4:
 					oObjId = 'MdmDbUtilClass'; oObjParentId = 'MdmWebUi'; break;
-				case 6:
-					oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmDbUtilClass'; break;
 				case 5:
+					oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmDbUtilClass'; break;
+				case 6:
 					oObjId = 'MdmNetVirList'; oObjParentId = 'MdmOutlookSync'; break;
 				case 7:
 					oObjId = 'MdmSystemMgnt'; oObjParentId = 'MdmNetVirList'; break;
@@ -83,9 +82,9 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 			switch (oObjCn) {
 				case 0: break;
 				case 1:
-					oObjId = 'MdmImportTldRight'; oObjParentId = 'MenuContainerRight1'; break;
+					oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerRight1'; break;
 				case 2:
-					oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTldRight'; break;
+					oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTld'; break;
 				case 3:
 					oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmKBil'; break;
 				case 4:
@@ -107,23 +106,31 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 			oObjValid = false;
 			oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
 	}
+	// ...................................... //
 	if (oObjValid) {
-		oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-		oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
+		oObj = ElementGetRef(oObj, oObjId, oObjId);
+		if (!oObj) { oObjValid = false;}
+		oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+		// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
+		// oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
 		if (!oObjParent) {
 	        oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
 		}
+		if (!oObjParent) { oObjValid = false; }
 		// oObjImage = ElementGetRef(oObjImage, oObjId, oObjId);
 		oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
 		oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
 		oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
 		oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
-	} else {
-		// oObj = null;
-		// oObjImage = null;
-		// oObjParent = null;
-		// oObjLarge = null;
-		// oObjImageLarge = null;
+	}
+	if (!oObjValid) {
+		// todo error
+		debugger;
+		oObj = null;
+		oObjImage = null;
+		oObjParent = null;
+		oObjLarge = null;
+		oObjImageLarge = null;
 		oObjText = 'Object Not Found!';
 	}
 	//
@@ -281,10 +288,10 @@ function ElementItemIndexSetFromObj(oObjPassed) {
 	// switch(oObjGroupIndex) {
 	// ...................................... //
 	// Non Groups
-	// case 101:  elIsRoot = true;return 101;
-	// case 102:  elIsRoot = true;return 102;
-	// case 103:  elIsRoot = true;return 103;
-	// case 104:  elIsRoot = true;return 104;
+	// case 101:  elementIsRoot = true;return 101;
+	// case 102:  elementIsRoot = true;return 102;
+	// case 103:  elementIsRoot = true;return 103;
+	// case 104:  elementIsRoot = true;return 104;
 	// ...................................... //
 	// Group 1
 	// case 1:
@@ -296,7 +303,7 @@ function ElementItemIndexSetFromObj(oObjPassed) {
 	}
 	//
 	switch (oObjPassed.id) {
-		case 'MenuContainerLeft1': oObjGroupIndex = 1; oObjIndex = 0; elIsRoot = true; break;
+		case 'MenuContainerLeft1': oObjGroupIndex = 1; oObjIndex = 0; elementIsRoot = true; break;
 		case 'MdmImportTld': oObjGroupIndex = 1; oObjIndex = 1; break;
 		case 'MdmNetAppFrame': oObjGroupIndex = 1; oObjIndex = 2; break;
 		case 'MdmWebUi': oObjGroupIndex = 1; oObjIndex = 3; break;
@@ -320,7 +327,7 @@ function ElementItemIndexSetFromObj(oObjPassed) {
 		// ...................................... //
 		// Group 2
 		// case 2: switch(oObjPassed.id){
-		case 'MenuContainerLeft2': oObjGroupIndex = 2; oObjIndex = 0; elIsRoot = true; break;
+		case 'MenuContainerLeft2': oObjGroupIndex = 2; oObjIndex = 0; elementIsRoot = true; break;
 		case 'MdmResume': oObjGroupIndex = 2; oObjIndex = 1; break;
 		case 'MdmRsmIt': oObjGroupIndex = 2; oObjIndex = 2; break;
 		case 'MdmDghCarBio': oObjGroupIndex = 2; oObjIndex = 3; break;
@@ -336,7 +343,7 @@ function ElementItemIndexSetFromObj(oObjPassed) {
 		// ...................................... //
 		// Group 3
 		// case 3: switch(oObjPassed.id){
-		case 'MenuContainerLeft3': oObjGroupIndex = 3; oObjIndex = 0; elIsRoot = true; break;
+		case 'MenuContainerLeft3': oObjGroupIndex = 3; oObjIndex = 0; elementIsRoot = true; break;
 		case 'MdmTechRsrch': oObjGroupIndex = 3; oObjIndex = 1; break;
 		case 'MdmCogSciProj': oObjGroupIndex = 3; oObjIndex = 2; break;
 		case 'MdmMvvmProj': oObjGroupIndex = 3; oObjIndex = 3; break;
@@ -352,7 +359,7 @@ function ElementItemIndexSetFromObj(oObjPassed) {
 		// case 4:
 		// default:
 		// switch(oObjPassed.id) {
-		case 'MenuContainerRight1': oObjGroupIndex = 4; oObjIndex = 0; elIsRoot = true; break;
+		case 'MenuContainerRight1': oObjGroupIndex = 4; oObjIndex = 0; elementIsRoot = true; break;
 		case 'MdmImportTldRight': oObjGroupIndex = 4; oObjIndex = 1; break;
 		case 'MdmKBil': oObjGroupIndex = 4; oObjIndex = 2; break;
 		case 'MdmNetAppFrame': oObjGroupIndex = 4; oObjIndex = 3; break;

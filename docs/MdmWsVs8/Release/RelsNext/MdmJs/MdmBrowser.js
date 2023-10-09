@@ -34,8 +34,8 @@ var browserIsOld; // todo
 
 // SectionBlock Window Browser
 // ...................................... //
-// Browser Type Get
-function BrowserGetVs() {
+// Browser Type Reset () {
+function BrowserVsReset() {
     // Browser Type
     browserType = '';
     browserVs = 0;
@@ -59,6 +59,11 @@ function BrowserGetVs() {
     browserIsEdge = false;
     browserIsTor = false;
     browserIsOld = false;
+}
+// Browser Type Get
+function BrowserVsGet() {
+    //
+    BrowserVsReset();
     //
     if ((navigator.userAgent).indexOf('TEST') != -1) { browserIsTEST = true; browserAnimationIsMozilla = true; browserType = 'TEST'; } else {
         if ((navigator.userAgent).indexOf('MSIE') != -1) { browserIsIE = true; browserAnimationIsIe = true; browserType = 'MSIE'; } else {

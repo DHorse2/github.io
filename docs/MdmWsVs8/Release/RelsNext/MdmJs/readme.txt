@@ -33,7 +33,7 @@
 // Global
 // 		 DocumentLoadInit
 // Elements
-// 		ElementPosGet
+// 		ElementPosGetFromObj
 // Layout
 //		LayoutSelectByIndex
 // Menu Images
@@ -166,7 +166,7 @@
 // BodyMainRightFar
 //
 // BodyImageContainer
-// BodyMenuImageContainer
+// BodyImageContainer
 //
 // layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
 // ------------------------------------------------------------------------------------- _//
@@ -427,7 +427,7 @@
 // GLOBAL / COMMON
 ////////////////////////////////////////////////
 // Elements
-// 		ElementPosGet
+// 		ElementPosGetFromObj
 // Layout
 //		LayoutSelectByIndex
 //		MouseClickImg
@@ -733,7 +733,7 @@ window.onresize = function() { WindowResizeLayout(); }
       // Recalculate Globals for Screen
       // Load Containers if missing
       // Recalculate Positions for Menu Images
-	  	 if (layoutIndex = layoutStandard) {
+	  	 if (layoutIndex == layoutStandard) {
             // Left
             // Center
             // Right
@@ -874,13 +874,13 @@ window.onresize = function() { WindowResizeLayout(); }
         // Add message to appropriate log
 // ------------------------------------------------------------------------------------- _//
 // Error Message Display
-    if (errorSeverityPassed = errorFatal) {
+    if (errorSeverityPassed == errorFatal) {
         // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed = errrorSevere) {
+    } else if (errorSeverityPassed == errrorSevere) {
         // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed = errorWarn) {
+    } else if (errorSeverityPassed == errorWarn) {
         // dipslay in HTML Warnging Message Area
-    } else if (errorSeverityPassed = errorDidNotOccur) {
+    } else if (errorSeverityPassed == errorDidNotOccur) {
         // dipslay in HTML Message Area
     } else {
         // dipslay in HTML Message Area
@@ -1049,9 +1049,9 @@ window.onresize = function() { WindowResizeLayout(); }
           //---------------------------------------------------------------//
           // Column and Float Breaks and Clear
           var elementLayoutFirstPhatomData;
-          bodyMainCenterTopRight = tElementBreakSet(bodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
-          bodyMainCenterTopRight = tElementBreakSet(bodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
-          bodyMainCenterTopRight = tElementBreakSet(bodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, "MenuGroup4ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, "MenuGroup5ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
+          bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, "MenuGroup6ColBreak", elementLayoutFirstPhatomData = true, "none", "hidden", "none")
           //
 	  }
     //---------------------------------------------------------------//

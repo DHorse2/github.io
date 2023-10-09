@@ -21,7 +21,7 @@ function ElementGetRef(elementObject, elementObjectId, elementObjectName) {
 function ElementGetFromElement(
     elementPassed, elementIdPassed, elementNamePassed,
     elementSourcePassed,
-    elDoFindSetPassed, elementValuePassed
+    DoFindSetPassed, elementValuePassed
 ) {
     // Dest = ElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
     //
@@ -41,13 +41,16 @@ function ElementGetFromElement(
                 if (elementChildObject.id != null) {
                     if (elementChildObject.id != '' && elementChildObject.id == elementIdPassed) {
                         //
-                        if (elDoFindSetPassed == elDoFindSet) {
+                        if (DoFindSetPassed == DoFindSet) {
+                            // set the source element to the passed one.
+                            // this doesn't make sense. todo
                             if (elementFound) {
                                 elementSourcePassed.childNodes[elmCn] = elementPassed;
                             } else {
                                 elementSourcePassed.childNodes[elmCn] = elementValuePassed;
                                 elementFound = true;
                             }
+                            // pass the matching element found in the source
                             return elementSourcePassed.childNodes[elmCn];
                         }
                         if (!elementFound) {
@@ -62,7 +65,7 @@ function ElementGetFromElement(
                 //
                 if (elementChildObject.childNodes) {
                     if (elementChildObject.childNodes.length) {
-                        elementPassed = ElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, elDoFindSetPassed, elementValuePassed);
+                        elementPassed = ElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, DoFindSetPassed, elementValuePassed);
                         if (elementFound) { return elementPassed; }
                     }
                 }
@@ -74,7 +77,7 @@ function ElementGetFromElement(
     return;
 }
 // Layout Menu Area Element Common Fields Set
-function ElementGetRefFromElement(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
+function ElementGetRefFromElementId(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
     // DOES THIS NEED TO BE COPIES.
     // As written it results in pointers into the Source Document
     // Dest = ElementGetRefFromElement(Dest, "DestId", "DestName", Source);
@@ -235,7 +238,7 @@ function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, 
 }
 // Layout Menu Area Element Common Fields Set
 ////////////////////////////////////////////////
-function tElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
+function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
     if (!elementPassed) {
         elementPassed = ElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
         // var elementPassed = elementPassed.childNodes[elementIdPassed];
@@ -253,15 +256,15 @@ function tElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPass
         if ("style" in elementTarget) {
             if ("display" in elementTarget.style) {
                 if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Style missing", MessageElementWarn, true, false); }
+            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Style missing", errorWarn, true, false); }
             //
             if ("visibility" in elementTarget.style) {
                 if (elementStyleVisibilityPassed.length) { elementTarget.style.visibility = elementStyleVisibilityPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Visibility missing", MessageElementWarn, true, false); }
+            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Visibility missing", errorWarn, true, false); }
             //
             if ("clear" in elementTarget.style) {
                 if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Clear missing", MessageElementWarn, true, false); }
+            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Clear missing", errorWarn, true, false); }
         }
     }
     elementLayoutFirstPassed = false;
@@ -270,7 +273,7 @@ function tElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPass
 }
 // Element Position Get
 ////////////////////////////////////////////////
-function ElementPosGet(oObjPassed) {
+function ElementPosGetFromObj(oObjPassed) {
     oObjTop = 0;
     oObjLeft = 0;
     oObjWidth = 0;
@@ -311,32 +314,6 @@ function ElementGetFromId(IdPassed) {
     }
     return elementObject;
 }
-// Element Get Pointer
-function ElementGetRef(elementObject, elementObjectId, elementNamePassed) {
-    elementObject = ElementGetFromId(elementObjectId);
-    if (!elementObject) {
-        if (!elementNamePassed.length) {
-            elementObjectId = elementNamePassed;
-        }
-        elementObject = ElementGetFromId(elementObjectId);
-    }
-    return elementObject;
-}
-// Layout Menu Area Element Common Fields Set
-function ElementGetRefFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed) {
-    // DOES THIS NEED TO BE COPIES.
-    // As written it results in pointers into the Source Document
-    if (!elementNamePassed.length) { elementNamePassed = elementIdPassed; }
-    // elementPassed = ElementGetFromId(elementNamePassed);
-    // if (!elementPassed) {
-    elementPassed = ElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, elDoFindReturn, null)
-    // }
-    // Dest = ElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
-    // NOT browserIE or browserIsFF
-    // var DoSet = false;
-    // elementPassed = ElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementSourcePassed, DoSet, null);
-    return elementPassed;
-}
 // Layout Menu Area Element Common Fields Set
 function ElementCreate(elementPassed, elementLayoutFirstPassed) {
     var elementCreate = false;
@@ -358,7 +335,7 @@ function ElementCreate(elementPassed, elementLayoutFirstPassed) {
     return elementPassed;
 }
 // Layout Menu Area Element Common Fields Set
-function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
+function ElementCopyOld(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
     var elementIdCurr;
     var elementSourceIdCurr;
     if (elementSourcePassed.id) {
@@ -389,7 +366,7 @@ function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePasse
                 // ElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
             }
         }
-        // if (elementPassed.innerHTML = null || elementPassed.innerHTML.length = 0) {
+        // if (elementPassed.innerHTML == null || elementPassed.innerHTML.length = 0) {
         // elementPassed.innerHTML = elementSourcePassed.innerHTML;
         // }
         if (!elementPassed.style) {
@@ -401,7 +378,7 @@ function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePasse
 }
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
+function ElementEventsCopyOld(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
     var elementChildObject;
     var elementSourceChildObject;
     //
@@ -476,7 +453,7 @@ function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, 
 }
 // Layout Menu Area Element Common Fields Set
 // ...................................... //
-function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
+function ElementBreakSetOld(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
     if (!elementPassed) {
         elementPassed = ElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
         // var elementPassed = elementPassed.childNodes[elementIdPassed];
@@ -490,7 +467,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
     } else {
         elementTarget = document.createElement('br');
     }
-    elementTarget = ElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, elDoFindReturn, null);
+    elementTarget = ElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, DoFindReturn, null);
     // elementTarget = ElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
     //
     // note: Switched from 'in' element operator to If(element.property)
@@ -504,20 +481,20 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
             if ('display' in elementTarget.style) {
                 if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
             } else if (debugTimerDetail) {
-                MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+                MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
                     'Element Break Set, Style missing',
                     'ElementBreakSet', 7742, elementTarget, elementPassed,
-                    MessageElementWarn, errorDoDisplayTag, errorDoNotAlert);
+                    errorWarn, errorDoDisplayTag, errorDoNotAlert);
             }
             // set Visibilty.
             if (elementStyleVisibilityPassed.length) {
                 if (elementTarget.style.visibility) {
                     elementTarget.style.visibility = elementStyleVisibilityPassed;
                 } else if (debugTimerDetail) {
-                    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+                    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
                         'Element Break Set, Visibility missing',
                         'ElementBreakSet', 7751, elementTarget, elementPassed,
-                        MessageElementWarn, errorDoDisplayTag, errorDoNotAlert);
+                        errorWarn, errorDoDisplayTag, errorDoNotAlert);
                     elementTarget.style.visibility = elementStyleVisibilityPassed;
                 }
             }
@@ -527,10 +504,10 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
                 if (elementTarget.style.clear) {
                     if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
                 } else if (debugTimerDetail) {
-                    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingeLine,
+                    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
                         'Element Break Set, Clear missing',
                         'ElementBreakSet', 7760, elementTarget, elementPassed,
-                        MessageElementWarn, errorDoDisplayTag, errorDoNotAlert);
+                        errorWarn, errorDoDisplayTag, errorDoNotAlert);
                     elementTarget.style.clear = elsementStyleClearPassed;
                 }
             }
@@ -647,7 +624,7 @@ function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDef
     if (DoScroll) {
         if (widthScroll > thisWidth) { thisWidth = widthScroll; }
     }
-    if (thisWidth = 0) { thisWidth = layoutBlockWidthDefault; }
+    if (thisWidth == 0) { thisWidth = layoutBlockWidthDefault; }
     if (thisWidth > 3000) {
         // ERROR
         thisWidth = 3000;
@@ -678,9 +655,9 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
         if (heightScroll > thisHeight) { thisHeight = heightScroll; }
     }
     //
-    if (thisHeight = 0) { thisHeight = heightClient; }
+    if (thisHeight == 0) { thisHeight = heightClient; }
     //
-    if (thisHeight = 0) {
+    if (thisHeight == 0) {
         // Dom Add:
         // all else failed so use the protype approach...
         var bodyTempContainer = document.getElementById('BodyTempContainer');
@@ -707,7 +684,7 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
     //
     // Minimum or default
     // Default height not appropriate here
-    // if (thisHeight = 0) { thisHeight = elHeightDefault; }
+    // if (thisHeight == 0) { thisHeight = elHeightDefault; }
     // Maximum
     if (thisHeight > 10000) {
         // ERROR
