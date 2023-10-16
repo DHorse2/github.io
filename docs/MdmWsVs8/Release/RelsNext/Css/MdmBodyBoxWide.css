@@ -11,8 +11,8 @@ position:relative;
 top: 0em;
 left: 0em;
 /* Size */
-min-width:95%;
-max-width:200.0em;
+/* min-width:95%; */
+/* max-width:200.0em; */
 min-height:80.0em;
 height:auto;
 /* Background */

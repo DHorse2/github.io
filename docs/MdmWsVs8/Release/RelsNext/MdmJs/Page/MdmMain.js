@@ -148,43 +148,17 @@ var oObjImageSizeLarge = 500;
 var oObjImageSizeRatio = 0.7;
 var oObjImageSize = 0;
 
-// Layout
-// Current Layout Strategy
-var layoutIsWide = false;
-var layoutIsStandard = true;
-
-// ...................................... //
-// (the content pane)
-var layoutDocumentWidthMin = 900; // px
-
-// Columns across page
-// ...................................... //
-var layoutBodyColumnMax = 4; // todo s/b 4
-var layoutBodylayoutBodyColumnType1 = true;
-var bodyMainLeftVisible = true;
-var bodyMainRightVisible = true;
-var layoutUseAbsolute = false;
-
-var layoutStyleUnitsEm = 1;
-var layoutStyleUnitsPx = 2;
-var layoutSytleUnitsPercent = 3;
-// IMPORTANT NOTE: Percent no longer works on firefox todo
-// borders and margins. (Possibly) todo
-var layoutStyleUnits = layoutStyleUnitsEm;
-// Resize
-var layoutResizeCn = 0;
-var layoutResizeDelay = 0;
-var layoutParaWidthMax = 500; // todo Off currently
-
 // Body Menu Groups
 // ...................................... //
 var bodyMenuLeft = 0;
 var bodyMenuRight = 1;
-var bodyMenuGroupUsedCn = 6;
+var bodyMenuGroupUsedLeftCn = 3;
+var bodyMenuGroupUsedRightCn = 3;
 var bodyMenuGroupMax = 8;
 var bodyMenuGroupIndex = 0;
 
 var bodyMenuContainer; // = new Array(2);
+var bodyMenuContainerGroupIndex; // = new Array(2);
 var bodyMenuGroup; // = new Array(bodyMenuGroupUsedCn);
 // var bodyMenuGroupSave; // = new Array(bodyMenuGroupUsedCn);
 var bodyMenuGroupTop; // = new Array(bodyMenuGroupUsedCn);
@@ -196,11 +170,11 @@ var bodyMenuGroupColBreak; // = new Array(bodyMenuGroupUsedCn);
 // Menu Current Image Object By Group (Image Group)
 // set the number of groups and the images per group
 // // Image Group
-var imgGroupMax = bodyMenuGroupUsedCn;
+var bodyMenuGroupMax = bodyMenuGroupUsedLeftCn + bodyMenuGroupUsedRightCn;
 var imgGroupBoxCount = 20; // depreciated
-var imgGroupCount = imgGroupMax + 1;
-var imgGroupArraySize = imgGroupMax + 1;
-var imgGroupImageArraySize = imgGroupMax + 1;
+var imgGroupCount = bodyMenuGroupMax + 1;
+var imgGroupArraySize = bodyMenuGroupMax + 1;
+var imgGroupImageArraySize = bodyMenuGroupMax + 1;
 
 // SectionBlock Animation Control
 // ...................................... //
@@ -264,7 +238,7 @@ var timerStepMax = elMoveStepMax;
 var timerStepsPerSecond = 10;
 
 // Timer Object & Indexes
-var timerGroupIndexMax = imgGroupMax;
+var timerGroupIndexMax = bodyMenuGroupMax;
 
 // Animation Transition Control:
 // ...................................... //
@@ -325,6 +299,45 @@ var UseRoot = DoUseRoot;
 // Layout Font, Blocks, Columns and Callouts
 // ...................................... //
 // ...................................... //
+// Layout
+// Current Layout Strategy
+var layoutIsWide = false;
+var layoutIsStandard = true;
+
+// (the content pane)
+// ...................................... //
+var layoutDocumentWidthMin = 900; // px
+// These are all in pixels unless otherwise stated
+// Resize should take this into account.
+// Absolute maximums (for reading)
+var layoutMenuDocWidthWide = 1000; // px
+// The maximum width for paragraphs
+var layoutParaWidthMax = 600; // todo Off currently
+// The point at which callout boxes are put in-line
+// (instead of floating) (px)
+var layoutParaWidthMin = 200;
+
+// Columns across page
+// ...................................... //
+var layoutBodyColumnMax = 4; // todo s/b 4 (works)
+var layoutBodyColumnType1 = true;
+
+// Left and Right (Menu usage) are optional
+var bodyMainLeftVisible = true;
+var bodyMainRightVisible = true;
+var layoutUseAbsolute = false;
+
+// Resize
+var layoutResizeCn = 0;
+var layoutResizeDelay = 0;
+
+var layoutStyleUnitsEm = 1;
+var layoutStyleUnitsPx = 2;
+var layoutSytleUnitsPercent = 3;
+
+// IMPORTANT NOTE: Percent no longer works on firefox todo
+// borders and margins. (Possibly) todo
+var layoutStyleUnits = layoutStyleUnitsEm;
 // This variable is the multiplier that will reflect font-size;
 // Using a 1em font is the default (1em = 1.0 EmRation)
 // refered to as medium size on most browsers.
@@ -334,41 +347,48 @@ var UseRoot = DoUseRoot;
 // pushing down the content that wont fit beside the
 // callout.
 var layoutEmRation = 1.0;
-// These are all in pixels unless otherwise stated
-// Resize should take this into account.
-// Absolute maximums (for reading)
-var layoutMenuDocWidthWide = 900; // px
-var layoutParaWidthMax = 500; // px
+
+// Columns in pixels
 // When will it add more columns in the display
-var layoutBlockCol4Min = 1600; // px // todo
-var layoutBlockCol3Min = 1000; // px
-var layoutBlockCol2Min = 500; // px
-var layoutBlockCol1Min = 'float';
-// How wide is a column
-var layoutBlockWidthBig = 22; // % // 4 cols
-var layoutBlockWidthWide = 30; // % // 3 cols
-var layoutBlockWidthStandard = 45; // % // 2 cols
-var layoutBlockWidthNarrow = 96; // % // 1 cols
+var layoutBlockCol4Min = 1800; // px // todo
+var layoutBlockCol3Min = 1200; // px
+var layoutBlockCol2Min = 600; // px
+var layoutBlockCol1Min = 0; // float
+//
+// var layoutBlockCol4Min = 1400; // px // todo
+// var layoutBlockCol3Min = 1000; // px
+// var layoutBlockCol2Min = 500; // px
+// var layoutBlockCol1Min = 0; // float
+
+// Layout Percentage (used by columns)
+var layoutBlockWidthBig = 25; // % // 4 cols
+var layoutBlockWidthWide = 33; // % // 3 cols
+var layoutBlockWidthStandard = 50; // % // 2 cols
+var layoutBlockWidthNarrow = 100; // % // 1 cols
 var layoutBlockWidthDefault = 250; // px
-// Callout Layout
+
+// Callout Pixels
 var calloutLayoutBlockWidthPxBig = 800; // px
 var calloutLayoutBlockWidthPxWide = 600; // px
 var calloutLayoutBlockWidthPxStandard = 350; // px
 var calloutLayoutBlockWidthPxNarrow = 150; // px
-// Callout width
+
+// Callout width Percentage (in use)
 var calloutLayoutBlockWidthBig = 20; // %
 var calloutLayoutBlockWidthWide = 33; // %
 var calloutLayoutBlockWidthStandard = 45; // %
-var calloutLayoutBlockWidthNarrow = 82; // %
+var calloutLayoutBlockWidthNarrow = 65; // %
 
+// var calloutBoxWidthStandard = 82;
+// var calloutBoxWidthNarrow = 45;
+var calloutBoxWidth = 0;
 var bodyMainCenterTopClass = "";
 
 // Document Window Resize
-// Adjustments:
+// Adjustments: todo is this used?
 var layoutWidthMargin = 60; // ??? really?
 var layoutHeightMargin = 50;
-var layoutMenuHeightMax = 0;
+var layoutMenuSizeMax = 0;
 
 script_state = "MdmMain Custom settings used";
 if (debugLoadIsOn) { debugger; }
-

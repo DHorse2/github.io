@@ -6,16 +6,16 @@
 /* Position */
 position:absolute;
 /* Size */
-width:1000px;
-height:650px;
+min-width:1000px;
+min-height:650px;
 }
 
 #BodyMainContainerBg {
 /* Position */
 position:absolute;
 /* Size */
-width:1000px;
-height:650px;
+min-width:1000px;
+min-height:650px;
 /* Background */
 background:#e1e2e5;
 /* for IE */
@@ -41,7 +41,7 @@ position:absolute;
 top:0px;
 left:200px;
 /* Size */
-width:600px;
+min-width:600px;
 height:inherit;
 /* Background */
 background: url(../Images/TransparentWhiteBg50.png);
@@ -56,7 +56,7 @@ position:absolute;
 top:0px;
 left:0px;
 /* Size */
-width:200px;
+min-width:200px;
 height:inherit;
 overflow:hidden;
 }
@@ -93,7 +93,7 @@ position:absolute;
 top:0px;
 left:800px;
 /* Size */
-width:200px;
+min-width:200px;
 height:inherit;
 overflow:hidden;
 }
@@ -127,7 +127,7 @@ background:transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
 .BodyParaBox{
 /* Position */
 padding:10px;
-width:250px;
+min-width:250px;
 height:200px;
 float:none;
 border-color:grey;
@@ -136,7 +136,7 @@ border-color:grey;
 .BodyParaBoxBg{
 /* Position */
 padding:10px;
-width:250px;
+min-width:250px;
 height:200px;
 overflow:visible;
 /* Background */

@@ -9,7 +9,7 @@
 // var layoutWidth;
 // var layoutHeight;
 //
-// var layoutMenuHeightMax = 0;
+// var layoutMenuSizeMax = 0;
 // //
 // var layoutZindex = 20;
 // //
@@ -29,7 +29,7 @@
 // var layoutBlockCol2Min = 500;
 // var layoutBlockCol1Min = 'float';
 // //
-// var layoutBlockWidthWide = '31%';
+// var layoutBlockWidthWide = '33%';
 // var layoutBlockWidthStandard = '47%';
 // var layoutBlockWidthNarrow = '98%';
 // //
@@ -118,7 +118,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// Window Width
 	WindowClientWidth();
-	// layoutMenuHeightHorzMax = 0;
+	// layoutMenuSizeHorzMax = 0;
 	if (browserIsFF) {
 		// debug-instance-off LayoutSelectByIndex;
 	}
@@ -423,7 +423,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMenuGroup[2] = ElementGetRefFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainCenterTopLeft);
 				bodyMenuGroup[3] = ElementGetRefFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainCenterTopLeft);
 				//
-				WindowContainerHeightGetMenu(bodyMainCenterTopLeft);
+				WindowContainerSizeGetMenu(bodyMainCenterTopLeft);
 				//
 				//............................................................---//
 				// bodyMenuGroup1
@@ -504,7 +504,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMainRightInner.style.paddingTop = '1.0em';
 				//............................................................---//
 				var elementHeight = 0;
-				layoutMenuHeightHorzMax = 0;
+				layoutMenuSizeHorzMax = 0;
 				// Right bodyMenuGroup 4(1), 5(2), 6(3)
 				bodyMenuGroup4 = ElementGetRefFromElement(bodyMenuGroup4, 'MenuGroup4', 'MenuGroup4', bodyMainCenterTopRight);
 				bodyMenuGroup5 = ElementGetRefFromElement(bodyMenuGroup5, 'MenuGroup5', 'MenuGroup5', bodyMainCenterTopRight);
@@ -517,7 +517,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMenuGroup4.style.maxWidth = '30%';
 				// bodyMenuGroup4.style.styleFloat = 'left';
 				elementHeight = ElementHeightMaxGet(true, true, bodyMenuGroup4);
-				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
+				if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
 				//............................................................---//
 				// bodyMenuGroup5
 				bodyMenuGroup5.style.position = 'absolute';
@@ -527,7 +527,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// bodyMenuGroup5.style.marginLeft = '3%';
 				// bodyMenuGroup5.style.styleFloat = 'left';
 				elementHeight = ElementHeightMaxGet(true, true, bodyMenuGroup5);
-				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
+				if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
 				//............................................................---//
 				// bodyMenuGroup[3]
 				bodyMenuGroup6.style.position = 'absolute';
@@ -537,7 +537,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// bodyMenuGroup6.style.marginLeft = '3%';
 				// bodyMenuGroup6.style.styleFloat = 'left';
 				elementHeight = ElementHeightMaxGet(true, true, bodyMenuGroup6);
-				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
+				if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
 				//............................................................---//
 				// Column and Float Breaks and Clear
 				bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, 'MenuGroup4ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
@@ -558,7 +558,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			boxHeight += ElementHeightMaxGet(true, true, bodyBannerTop);
 			//
 			// Height of left and right menu containers
-			// WindowContainerHeightGetAll();
+			// WindowContainerSizeGetAll();
 			//
 			// if (bodyLayoutMenu2Height > bodyLayoutMenu1Height)  {
 			// bodyLayoutMenu1.style.height = bodyLayoutMenu2Height + 'px';
@@ -569,14 +569,14 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			// bodyMainCenterTopLeft.style.height = (ElementHeightMaxGet(true, true, bodyLayoutMenu1) + 20) + 'px';
 			// bodyMainCenterTopRight.style.height = (ElementHeightMaxGet(true, true, bodyLayoutMenu2) + 20) + 'px';
 			//
-			if (layoutMenuHeightHorzMax < 50) {
+			if (layoutMenuSizeHorzMax < 50) {
 				// ERROR HERE //
 				//
 				var X; var Y;
 				X = ElementHeightMaxGet(true, true, bodyMenuGroup1);
 				X += boxHeight;
 				Y = ElementHeightMaxGet(true, true, bodyMenuGroup4);
-				if (X > Y) { layoutMenuHeightHorzMax = X; } else { layoutMenuHeightHorzMax = Y; }
+				if (X > Y) { layoutMenuSizeHorzMax = X; } else { layoutMenuSizeHorzMax = Y; }
 				//
 				X = ElementHeightMaxGet(true, true, bodyMainCenterTopLeft);
 				Y = ElementHeightMaxGet(true, true, bodyMainCenterTopRight);
@@ -585,19 +585,19 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// boxHeight += ElementHeightMaxGet(true, true, bodyMainCenterTopColBreak);
 			}
 			// Set Left and Right Container Heights
-			bodyMainCenterTopLeft.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
+			bodyMainCenterTopLeft.style.height = (layoutMenuSizeHorzMax + 50) + 'px';
 			// bodyMainCenterTopLeft.style.height = '100%';
 			// bodyMainCenterTopLeft.style.height = 'auto';
-			bodyMainCenterTopRight.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
+			bodyMainCenterTopRight.style.height = (layoutMenuSizeHorzMax + 50) + 'px';
 			// bodyMainCenterTopRight.style.height = '100%';
 			//
 			bodyMainCenterTopColBreak = ElementGetRefFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
 			//
-			bodyMainCenterTop.style.height = (layoutMenuHeightHorzMax + 75) + 'px';// boxHeight
+			bodyMainCenterTop.style.height = (layoutMenuSizeHorzMax + 75) + 'px';// boxHeight
 			// bodyMainCenterTop.style.height = '100%';
 			//
 			//............................................................---//
-			bodyMainCenterCenter.style.top = (layoutMenuHeightHorzMax + 100) + 'px';// adjust by boxHeight
+			bodyMainCenterCenter.style.top = (layoutMenuSizeHorzMax + 100) + 'px';// adjust by boxHeight
 			//
 			//
 			//............................................................---//

@@ -187,12 +187,16 @@ function MathNumberRandomGetByRange(filterRangeLowPassed, filterRangeHighPassed,
 // Standard function (s) - String
 // ..................................................................................... _//
 // Get Token By Prefix
-function StringGetTokenByPrefix(stringPassed, stringPrefix) {
+function StringGetTokenByPrefix(DoWholeWord, stringPassed, stringPrefix) {
     var itemCn = 0
     var item = stringPassed.split(' ');
     while (itemCn + 1 < 1 + item.length) {
         if (item[itemCn].substr(0, stringPrefix.length) == stringPrefix) {
-            return item[itemCn];
+            if (DoWholeWord) {
+                return item[itemCn];
+            } else {
+                return item[itemCn].substr(stringPrefix.length);
+            }
         }
         itemCn++;
     }

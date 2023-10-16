@@ -28,7 +28,7 @@ var bodyMainRightCopyFirst = true;
 //
 var bodyMainRightFarFirst = true;
 //
-var layoutBodylayoutBodyColumnType1First = true;
+var layoutBodyColumnType1First = true;
 //
 ////////////////////////////////////////////////
 // Body Layout Objects:
@@ -99,7 +99,7 @@ var bodyMenuImageContainer;
 // bodyMainCenterTopColBreak
 var bodyMainCenterTopColBreak;
 //
-var layoutBodylayoutBodyColumnType1 = true;
+var layoutBodyColumnType1 = true;
 // Global Objects - GLOBAL / COMMON
 // ------------------------------------------------------------------------------------- _//
 // MENUS - Menu Image Objects, Menu Image Pointers
@@ -206,7 +206,8 @@ function MouseClickImg(menuImage) {
 		errorComment = "Getting " + menuImageCn + ": " + menuImage.Name;
 		if (debugDoAlert) { alert(errorComment); }
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, 6555, null, null,
+			errorSevere, errorDoNotDisplayTag, errorDoAlert);
 	}
 	imgSelect = menuImageCn;
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
@@ -263,7 +264,7 @@ function ElementObjectContainerCreate() {
 	//
 	bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
 	//
-	// layoutBodylayoutBodyColumnType1 = ElementGetRef(layoutBodylayoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
+	// layoutBodyColumnType1 = ElementGetRef(layoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
 }
 
 // Create all Elements used in Layout

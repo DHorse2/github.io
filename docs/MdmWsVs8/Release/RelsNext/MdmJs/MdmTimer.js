@@ -59,7 +59,7 @@ var timerStepsPerSecond = 0;
 
 // Timer Object & Indexes
 var timerGroupIndex = 0;
-var timerGroupIndexMax = imgGroupMax;
+var timerGroupIndexMax = bodyMenuGroupMax;
 var timerIndex = 0;
 var timerIdIndex = 0;
 
@@ -94,7 +94,7 @@ var timerStep = 0;
 
 // Timer Object & Indexes
 var timerGroupIndex; // = 0;
-// var timerGroupIndexMax; // = imgGroupMax;
+// var timerGroupIndexMax; // = bodyMenuGroupMax;
 var timerIndex = 0;
 var timerIdIndex = 0;
 //

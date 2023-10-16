@@ -31,7 +31,7 @@
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Global
-// 		 DocumentLoadInit
+// 		 WindowLoadInit
 // Elements
 // 		ElementPosGetFromObj
 // Layout
@@ -709,7 +709,7 @@ function FilterResize(oObjPassed, filterIndexPassed, flMultiplier)
 // ------------------------------------------------------------------------------------- _//
 // Window Events (Load, Resize)
 // Window Load
-// onlayoutcomplete= "DocumentLoadInit();";
+// onlayoutcomplete= "WindowLoadInit();";
 // Document Window OnLoad:
 	  ////////////////////////////////////////////////
 	  // Initialize and Set Global Variables
@@ -720,8 +720,8 @@ function FilterResize(oObjPassed, filterIndexPassed, flMultiplier)
           // Choose Standard Layout
           // LayoutSelectByIndex(layoutStandard);
 // Inactive code:
-// window.onload= "DocumentLoadInit();";
-// onlayoutcomplete= "DocumentLoadInit();";
+// window.onload= "WindowLoadInit();";
+// onlayoutcomplete= "WindowLoadInit();";
 // ------------------------------------------------------------------------------------- _//
 // Document Window Resize
 // Adjustments:
@@ -763,7 +763,7 @@ window.onresize = function() { WindowResizeLayout(); }
 // Window Document Functions
 ///////////////////////////////////////////////
 //  Document Load Initinitialize Variablesm, Arrays and Default Data
-    // imgGroupMax
+    // bodyMenuGroupMax
     // imgMax
     // Resize Window
 // ------------------------------------------------------------------------------------- _//
@@ -1033,19 +1033,19 @@ window.onresize = function() { WindowResizeLayout(); }
           bodyMenuGroup4.style.posLeft = "-7%";
           bodyMenuGroup4.style.maxWidth = "33%";
           bodyMenuGroup4.style.styleFloat = "left";
-          if (layoutMenuHeightMax < bodyMenuGroup4.style.height) { layoutMenuHeightMax = bodyMenuGroup4.style.height; }
+          if (layoutMenuSizeMax < bodyMenuGroup4.style.height) { layoutMenuSizeMax = bodyMenuGroup4.style.height; }
           //---------------------------------------------------------------//
 		      // bodyMenuGroup5
           bodyMenuGroup5.style.maxWidth = "30%";
           bodyMenuGroup5.style.marginLeft = "3%";
           bodyMenuGroup5.style.styleFloat = "left";
-          if (layoutMenuHeightMax < bodyMenuGroup5.style.height) { layoutMenuHeightMax = bodyMenuGroup5.style.height; }
+          if (layoutMenuSizeMax < bodyMenuGroup5.style.height) { layoutMenuSizeMax = bodyMenuGroup5.style.height; }
           //---------------------------------------------------------------//
 		      // bodyMenuGroup[3]
           bodyMenuGroup6.style.maxWidth = "30%";
           bodyMenuGroup6.style.marginLeft = "3%";
           bodyMenuGroup6.style.styleFloat = "left";
-          if (layoutMenuHeightMax < bodyMenuGroup6.style.height) { layoutMenuHeightMax = bodyMenuGroup6.style.height; }
+          if (layoutMenuSizeMax < bodyMenuGroup6.style.height) { layoutMenuSizeMax = bodyMenuGroup6.style.height; }
           //---------------------------------------------------------------//
           // Column and Float Breaks and Clear
           var elementLayoutFirstPhatomData;

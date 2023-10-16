@@ -3,199 +3,200 @@
 /* -- Body Divisions 3 Columns -- */
 
 #BodyMainContainer {
-/* Position */
-position:absolute;
-/* Size */
-width:100.0em;
-height:65.0em;
+    /* Position */
+    position: absolute;
+    /* Size */
+    width: 100.0em;
+    height: 65.0em;
 }
 
 #BodyMainContainerBg {
-/* Position */
-position:absolute;
-/* Size */
-width:100.0em;
-height:65.0em;
-/* Background */
-background:#e1e2e5;
-/* for IE */
-filter:alpha(opacity=65);
-/* CSS3 standard */
-opacity:0.65;
+    /* Position */
+    position: absolute;
+    /* Size */
+    width: 100.0em;
+    height: 65.0em;
+    /* Background */
+    background: #e1e2e5;
+    /* for IE */
+    filter: alpha(opacity=65);
+    /* CSS3 standard */
+    opacity: 0.65;
 }
 
 .BodyMainBorder {
-/* Border */
-border-width: .5em;
-border:solid;
-border-color: #3e3d66;
--moz-border-radius: 1em;
--webkit-border-radius: 1em;
+    /* Border */
+    border-width: .5em;
+    border: solid;
+    border-color: #3e3d66;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
 }
+
 /* -- end -- */
 
 /* -- CENTER -- */
 #BodyMainCenter {
-/* Position */
-position:absolute;
-top: 0em;
-left:20.0em;
-/* Size */
-width:60.0em;
-height:inherit;
-/* Background */
-background: url(../Images/TransparentWhiteBg50.png);
-/* Alignment */
-overflow:auto;
+    /* Position */
+    position: absolute;
+    top: 0em;
+    left: 20.0em;
+    /* Size */
+    width: 60.0em;
+    height: inherit;
+    /* Background */
+    background: url(../Images/TransparentWhiteBg50.png);
+    /* Alignment */
+    overflow: auto;
 }
 
 /* -- LEFT -- */
 #BodyMainLeft {
-/* Position */
-position:absolute;
-top: 0em;
-left: 0em;
-/* Size */
-width:20.0em;
-height:inherit;
-overflow:hidden;
+    /* Position */
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    /* Size */
+    width: 20.0em;
+    height: inherit;
+    overflow: hidden;
 }
 
 #BodyMainLeftOuter {
-/* Position */
-float:left;
-z-index:20;
-padding-left:10em;
-/* Size */
-width:90%;
-height:inherit;
-overflow:hidden;
-/* Background */
-background:#ffffff url(../Images/SwirlsLeft.gif) repeat-y left top;
+    /* Position */
+    float: left;
+    z-index: 20;
+    padding-left: 10em;
+    /* Size */
+    width: 90%;
+    height: inherit;
+    overflow: hidden;
+    /* Background */
+    background: #ffffff url(../Images/SwirlsLeft.gif) repeat-y left top;
 }
 
 #BodyMainLeftInner {
-/* Position */
-float:right;
-z-index:21;
-/* Size */
-width:100%;
-height:inherit;
-overflow:hidden;
-/* Background */
-background:transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
+    /* Position */
+    float: right;
+    z-index: 21;
+    /* Size */
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+    /* Background */
+    background: transparent url(../Images/SwirlsEdge.gif) repeat-y right top;
 }
 
 /* -- Right -- */
 #BodyMainRight {
-/* Position */
-position:absolute;
-top: 0em;
-left:80.0em;
-/* Size */
-width:20.0em;
-height:inherit;
-overflow:hidden;
+    /* Position */
+    position: absolute;
+    top: 0em;
+    left: 80.0em;
+    /* Size */
+    width: 20.0em;
+    height: inherit;
+    overflow: hidden;
 }
 
 #BodyMainRightOuter {
-/* Position */
-float:right;
-z-index:20;
-/* Size */
-width:100%;
-height:inherit;
-/* Background */
-background:#ffffff url(../Images/SwirlsRight.gif) repeat-y right top;
+    /* Position */
+    float: right;
+    z-index: 20;
+    /* Size */
+    width: 100%;
+    height: inherit;
+    /* Background */
+    background: #ffffff url(../Images/SwirlsRight.gif) repeat-y right top;
 }
 
 #BodyMainRightInner {
-/* Position */
-float:left;
-z-index:21;
-/* Size */
-width:100%;
-height:inherit;
-/* Background */
-background:transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
+    /* Position */
+    float: left;
+    z-index: 21;
+    /* Size */
+    width: 100%;
+    height: inherit;
+    /* Background */
+    background: transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
 }
 
 /* -- end -- */
 /* -- */
 
 /* -- Body Paragraph Content -- */
-.BodyParaBox{
-/* Position */
-padding:1.0em;
-width:25.0em;
-height:20.0em;
-float:none;
-border-color:grey;
+.BodyParaBox {
+    /* Position */
+    padding: 1.0em;
+    width: 25.0em;
+    height: 20.0em;
+    float: none;
+    border-color: grey;
 }
 
-.BodyParaBoxBg{
-/* Position */
-padding:1.0em;
-width:25.0em;
-height:20.0em;
-overflow:visible;
-/* Background */
-background:#F5FEFF;
-/* for IE */
-filter:alpha(opacity=65);
-/* CSS3 standard */
-opacity:0.65;
+.BodyParaBoxBg {
+    /* Position */
+    padding: 1.0em;
+    width: 25.0em;
+    height: 20.0em;
+    overflow: visible;
+    /* Background */
+    background: #F5FEFF;
+    /* for IE */
+    filter: alpha(opacity=65);
+    /* CSS3 standard */
+    opacity: 0.65;
 }
 
-.BodyPara{
-margin: 0em 1em 0em 1em;
-background:#F5FEFF;
+.BodyPara {
+    margin: 0em 1em 0em 1em;
+    background: #F5FEFF;
 }
 
-p.BodyPara  {
-text-indent: 2em;
-padding-bottom: .5em;
+p.BodyPara {
+    text-indent: 2em;
+    padding-bottom: .5em;
 }
 
-.BodyParaLeft{
-position:relative;
-float:left;
+.BodyParaLeft {
+    position: relative;
+    float: left;
 }
 
-.BodyParaRight{
-      position:relative;
-      float:right;
-  }
+.BodyParaRight {
+    position: relative;
+    float: right;
+}
 
-  /* -- Body Callouts -- */
-  .CalloutContent{
-      margin:1.0em 1em 1em 1em;
-       text-align:justify;
-      z-index:5;
-   }
+/* -- Body Callouts -- */
+.CalloutContent {
+    margin: 1.0em 1em 1em 1em;
+    text-align: justify;
+    z-index: 5;
+}
 
-  .CalloutBorder{
-      /* Border */
-      border-style:solid;
-      /* border-style:groove; */
-      border-width: .8em;
-      /* border:solid; */
-      border-color:#999933; /* cPcd */
-      /* Background */
-      background-color:#FFFFCC;
-      /* Border */
-      -moz-border-radius: 1em;
-      -webkit-border-radius: 1em;
-       padding: .5em .5em 1em 1em;
-   }
-   
-/* -- end -- */
-/* -- */
-
-#DivC1{
-margin-top: .5em;
+.CalloutBorder {
+    /* Border */
+    border-style: solid;
+    /* border-style:groove; */
+    border-width: .8em;
+    /* border:solid; */
+    border-color: #999933;
+    /* cPcd */
+    /* Background */
+    background-color: #FFFFCC;
+    /* Border */
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    padding: .5em .5em 1em 1em;
 }
 
 /* -- end -- */
 /* -- */
-    
+
+#DivC1 {
+    margin-top: .5em;
+}
+
+/* -- end -- */
+/* -- */

@@ -15,8 +15,8 @@ max-height:2200px;
 
 #BodyMainCenter{
 /* Size */
-width:2600px;
-height:1740px;
+min-width:2600px;
+min-height:1740px;
 }
 
 /* ----------------- */
@@ -46,8 +46,8 @@ position:absolute;
 top:25px;
 left:20px;
 /* Size */
-width:500px;
-height:185px;
+min-width:500px;
+min-height:185px;
 /* Alignment */
 /* Layering */
 z-index:2;
@@ -92,7 +92,7 @@ z-index:1;
 
 .DivB3HeightOld {
 /* Size */
-height:450px;
+min-height:450px;
 }
 
 #B3D1P4{
@@ -119,8 +119,8 @@ position:absolute;
 top:50px;
 left:560px;
 /* Size */
-width:1980px;
-height:1650px;
+min-width:1980px;
+min-height:1650px;
 /* Alignment */
 /* Layering */
 z-index:1;
@@ -137,8 +137,8 @@ position:absolute;
 top:0px;
 left:0px;
 /* Size */
-width:2000px;
-height:1670px;
+min-width:2000px;
+min-height:1670px;
 }
 
 /* ----------------- */

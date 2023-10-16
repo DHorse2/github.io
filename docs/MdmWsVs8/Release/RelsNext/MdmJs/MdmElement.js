@@ -611,23 +611,67 @@ function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDef
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
     var thisWidth = 0;
-    var widthBase = parseInt(elementPassed.style.width);
-    var widthOffset = parseInt(elementPassed.offsetWidth);
-    var widthScroll = parseInt(elementPassed.scrollWidth);
+    if (elementPassed.style) {
+        if (browserIsOld) {
+            widthBase = parseFloat(elementPassed.style.width);
+            widthOffset = parseFloat(elementPassed.offsetWidth);
+            widthScroll = parseFloat(elementPassed.scrollWidth);
+            widthClient = parseFloat(elementPassed.clientWidth);
+        } else {
+            widthBase = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('Width'));
+            widthOffset = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetWidth'));
+            widthScroll = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollWidth'));
+            widthClient = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('clientWidth'));
+        }
+        widthNode = 0;
+        widthRects = 0;
+        clientRectsIndex = 0;
+        //
+        if (DoBase && widthBase) {
+            if (widthBase > thisWidth) { thisWidth = widthBase; }
+        }
+        if (DoOffset && widthOffset) {
+            if (widthOffset > thisWidth) { thisWidth = widthOffset; }
+        }
+        if (DoScroll && widthScroll) {
+            if (widthScroll > thisWidth) { thisWidth = widthScroll; }
+        }
+        //
+        if (thisWidth == 0 && widthClient) { thisWidth = widthClient; }
+    }
     //
-    if (DoBase) {
-        if (widthBase > thisWidth) { thisWidth = widthBase; }
+    if (thisWidth == 0) {
+        // Dom Add:
+        // all else failed so use the protype approach...
+        var bodyTempContainer = document.getElementById('BodyTempContainer');
+        bodyTempContainer.appendChild(elementPassed.cloneNode(true));
+        widthNode = bodyTempContainer.childNodes[0].offsetWidth;
+        bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
+        if (widthNode > thisWidth) { thisWidth = widthNode; }
+        //
+        // Bounding Rect:
+        // Or this approach...
+        if (!browserIsIE) {
+            // if (elementPassed.getClientRects) {
+            var clientRects = elementPassed.getClientRects();
+            if (clientRects != null) {
+                while (clientRectsIndex < clientRects.length) {
+                    widthRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
+                    clientRectsIndex++;
+                }
+                if (widthRects > thisWidth) { thisWidth = widthRects; }
+            }
+            // }
+        }
     }
-    if (DoOffset) {
-        if (widthOffset > thisWidth) { thisWidth = widthOffset; }
-    }
-    if (DoScroll) {
-        if (widthScroll > thisWidth) { thisWidth = widthScroll; }
-    }
-    if (thisWidth == 0) { thisWidth = layoutBlockWidthDefault; }
-    if (thisWidth > 3000) {
+    //
+    // Minimum or default
+    // Default width not appropriate here
+    // if (thisWidth == 0) { thisWidth = elWidthDefault; }
+    // Maximum
+    if (thisWidth > 10000) {
         // ERROR
-        thisWidth = 3000;
+        thisWidth = 10000;
     }
     return thisWidth;
 }
@@ -637,25 +681,34 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
     var thisHeight = 0;
-    heightBase = parseInt(elementPassed.style.height);
-    heightOffset = parseInt(elementPassed.offsetHeight);
-    heightScroll = parseInt(elementPassed.scrollHeight);
-    heightClient = parseInt(elementPassed.clientHeight);
-    heightNode = 0;
-    heightRects = 0;
-    clientRectsIndex = 0;
-    //
-    if (DoBase) {
-        if (heightBase > thisHeight) { thisHeight = heightBase; }
+    if (elementPassed.style) {
+        if (browserIsOld) {
+            heightBase = parseFloat(elementPassed.style.height);
+            heightOffset = parseFloat(elementPassed.offsetHeight);
+            heightScroll = parseFloat(elementPassed.scrollHeight);
+            heightClient = parseFloat(elementPassed.clientHeight);
+        } else {
+            heightBase = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('Height'));
+            heightOffset = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetHeight'));
+            heightScroll = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollHeight'));
+            heightClient = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('clientHeight'));
+        }
+        heightNode = 0;
+        heightRects = 0;
+        clientRectsIndex = 0;
+        //
+        if (DoBase && heightBase) {
+            if (heightBase > thisHeight) { thisHeight = heightBase; }
+        }
+        if (DoOffset && heightOffset) {
+            if (heightOffset > thisHeight) { thisHeight = heightOffset; }
+        }
+        if (DoScroll && heightScroll) {
+            if (heightScroll > thisHeight) { thisHeight = heightScroll; }
+        }
+        //
+        if (thisHeight == 0 && heightClient) { thisHeight = heightClient; }
     }
-    if (DoOffset) {
-        if (heightOffset > thisHeight) { thisHeight = heightOffset; }
-    }
-    if (DoScroll) {
-        if (heightScroll > thisHeight) { thisHeight = heightScroll; }
-    }
-    //
-    if (thisHeight == 0) { thisHeight = heightClient; }
     //
     if (thisHeight == 0) {
         // Dom Add:
@@ -700,8 +753,8 @@ function ElementLayoutHeightNote(DoScroll, DoBase, elementPassed, layoutBlockWid
     // 		add it to the DOM tree, get the offsetHeight, and remove it.
     // 		(That's what the prototype library does behind the lines last time I checked).
 }
-function ElementContainerAdjustGet(element, elementContainer, UsePercent) {
-    var elementAdjust, elementAdjustPercentage, ContainerWidth;
+var elementRaw, elementAdjust, elementAdjustPercentage, ContainerWidth;
+function ElementContainerAdjustGet(element, elementContainer, UsePercent, DoPadding, DoMargin, DoBorder) {
     if (element && element.style) {
         // a Content Box
         elementRaw = 0;
@@ -716,15 +769,38 @@ function ElementContainerAdjustGet(element, elementContainer, UsePercent) {
             return 0;
         }
         if (element.style) {
-            if (element.style.marginLeft) { elementRaw += parseInt(element.style.marginLeft); }
-            if (element.style.marginRight) { elementRaw += parseInt(element.style.marginRight); }
-            if (element.style.paddingLeft) { elementRaw += parseInt(element.style.paddingLeft); }
-            if (element.style.paddingRight) { elementRaw += parseInt(element.style.paddingRight); }
+            if (!browserIsOld) {
+                if (DoPadding) {
+                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-left'));
+                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-right'));
+                }
+                if (DoMargin) {
+                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('margin-left'));
+                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('margin-right'));
+                }
+                if (DoBorder) {
+                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('border-left'));
+                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('border-right'));
+                }
+            } else {
+                if (DoPadding) {
+                    if (element.style.marginLeft) { elementRaw += parseInt(element.style.marginLeft); }
+                    if (element.style.marginRight) { elementRaw += parseInt(element.style.marginRight); }
+                }
+                if (DoMargin) {
+                    if (element.style.paddingLeft) { elementRaw += parseInt(element.style.paddingLeft); }
+                    if (element.style.paddingRight) { elementRaw += parseInt(element.style.paddingRight); }
+                }
+                if (DoBorder) {
+                    if (element.style.borderLeft) { elementRaw += parseInt(element.style.borderLeft); }
+                    if (element.style.borderRight) { elementRaw += parseInt(element.style.borderRight); }
+                }
+            }
         }
         // ? is em ?
         elementAdjust = elementRaw;
         if (layoutStyleUnits != layoutSytleUnitsPercent) {
-            if (layoutStyleUnits == layoutStyleUnitsEm) { elementAdjust *= 16; }
+            if (layoutStyleUnits == layoutStyleUnitsEm && browserIsOld) { elementAdjust *= 16; }
             elementAdjust = elementAdjust / ContainerWidth;
             if (UsePercent) elementAdjust *= 100;
         }

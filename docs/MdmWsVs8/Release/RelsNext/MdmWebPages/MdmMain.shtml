@@ -601,7 +601,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!-- BodyConsoleTestBox * -->
 							<div id="BodyConsoleTestBox"
 								class=" BodyConsoleTextBox CalloutBorderFull">
-								Test Console
+								<button type="button" onclick="ConsoleFormFocusToggle(null)">Test Console</button>
 								<!-- * -->
 								<!-- w3-include-html-file="../TemplatePage/MdmPtConsoleForm.shtml" -->
 								<div id="BodyConsoleTestBoxInclude">
@@ -708,31 +708,31 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<br>
 							<span class="eB">Languages: </span>
 							C#, Javascript, X/HTML/CSS, Silerlight, multivalued object databases.
+							<br>
 						</p>
-						<br>
 						<p id="B12P2" class="BodyPara ">
 							<span class="eB">Applications: </span>
 							Service Billing, Accounting, Inverntory/SOE, Project Accounting, Purchasing, Mangaement
 							Reporting, OLAP, Service Billing, Release Management, Legal, Foods, Importing, Distribution,
 							many others.
+							<br>
 						</p>
-						<br>
 						<p id="B12P3" class="BodyPara ">
 							<span class="eB">Specializations: </span>
 							Service Billing, Mangement Reporting, Broadcasting and Cable Television, Communications and
 							System Links, Protocols and Interfaces, e-commerce, IDE utilities, Data and Code Conversion.
+							<br>
 						</p>
-						<br>
 						<p id="B12P4" class="BodyPara ">
 							<span class="eB">Free Stuff: </span>
 							see the "free stuff" listing on this page.
+							<br>
 						</p>
-						<br>
 						<p id="B12P5" class="BodyPara BodyParaLast ">
 							<span class="eB">Myself: </span>
 							Resumes, skills and accomplishments.
+							<br>
 						</p>
-						<br>
 					</div>
 					<!-- * -->
 					<div id="DivBox13" class="BodyParaLeft layoutBodyColumnType1">
@@ -776,6 +776,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							This works best by being focused on the role and task at hand in combination with
 							drawing on a much broader than typical background of experience.
 						</p>
+						<br>
 						<br>
 					</div>
 					<!-- end of DivBox14 -->
@@ -1236,8 +1237,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<br>
 					</div> <!-- end of DivBox1 -->
 					<!-- * -->
-					<!-- * -->
-					<div id="DivBox2" class="BodyParaRight layoutBodyColumnType1">
+					<!-- * Right -->
+					<div id="DivBox2" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout2" class="BodyParaLeft CalloutBox CalloutBorder">
 							<!-- * -->
 							<h4 id="C2H1" class="BodyParaGround CP">
@@ -1351,8 +1352,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- <br class="aClearBoth"> -->
 					</div> <!-- end of DivBox3 -->
 					<!-- * -->
-					<!-- * -->
-					<div id="DivBox4" class="BodyParaRight layoutBodyColumnType1">
+					<!-- * Right -->
+					<div id="DivBox4" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout4" class="BodyParaLeft CalloutBox CalloutBorder">
 							<h4 id="C4H1" class="BodyParaGround CP">
 								Commercial business applications.
@@ -1656,8 +1657,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 	<!-- x ------------------------------------------------------------------------------------- -->
 	<!-- x ------------------------------------------------------------------------------------- -->
 	<!-- x Section Document Initialization 2010 -->
-	<!-- // onlayoutcomplete="DocumentLoadInit();"; -->
-	<!-- DocumentLoadInit(); -->
+	<!-- // onlayoutcomplete="WindowLoadInit();"; -->
+	<!-- WindowLoadInit(); -->
 	<!-- MenuImagesHtmlBuild(); -->
 	<!-- // Choose Standard Layout -->
 	<!-- LayoutSelectByIndex(layoutStandard); -->

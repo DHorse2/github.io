@@ -28,7 +28,7 @@ var headingGroupCnCurr = 6;
 ////////////////////////////////////////////////
 // set the number of groups and the images per group
 // Menu Current Image Object By Group
-var imgGroupMax = 4;
+var bodyMenuGroupMax = 4;
 var imgGroupCnStart = 1;
 var imgGroupCnEnd = 4;
 ////////////////////////////////////////////////

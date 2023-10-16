@@ -622,6 +622,7 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
             }
         } else {
             // TODO scrolling for other browsers
+            consoleErrorTextBox.scrollTo(0, 0);
         }
     }
     // Logging and Action

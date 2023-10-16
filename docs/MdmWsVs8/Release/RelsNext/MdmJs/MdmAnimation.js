@@ -1,6 +1,6 @@
 // ..................................................................................... _//
 // SectionBlock Column
-var layoutBodylayoutBodyColumnType1 = true;
+var layoutBodyColumnType1 = true;
 // var layoutBodyColumnMax = 1;
 //
 // ..................................................................................... _//
@@ -1888,7 +1888,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
                         timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
                     + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
                     + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
-                    + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
+                    + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5344 ' + ')'
                     + ', Interval Stopped'
                     + '.',
                     'TimerItemDoStepFilter', 5284, null, null,
@@ -1953,7 +1953,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
                     timerObj[timerGroup][timerItemKey].playDirection, 'SkipItem')
                 + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
                 + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
-                + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
+                + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5345 ' + ')'
                 + ', Elapsed:' + timerObj[timerGroup][timerItemKey].timerElapsed / 1000
                 + ', Step:' + timerObj[timerGroup][timerItemKey].timerStepCurr
                 + ', Time:' + Date()

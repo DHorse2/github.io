@@ -369,14 +369,14 @@ border-color: #3e3d66;
 .FixPara{
 /* Position */
 position:relative;
-height:10px;
+min-height:10px;
 }
 
 .FixClear {
 /* Position */
 position:relative;
 /* Size */
-height: 1px;
+min-height: 1px;
 clear: both;
 display:block;
 content: ".";
@@ -385,14 +385,14 @@ content: ".";
 .FixClear2 {
 /* Position */
 /* Size */
-height: 1px;
+min-height: 1px;
 }
 
 .FixClear2:after {
 /* Position */
 position:relative;
 /* Size */
-height: 1px;
+min-height: 1px;
 clear: both;
 display:block;
 content: ".";
@@ -402,14 +402,14 @@ content: ".";
 /* Position */
 position:relative;
 /* Size */
-height: 1px;
+min-height: 1px;
 width:100%;
 }
 
 .FixClear1:after {
 /* Position */
 /* Size */
-height: 1px;
+min-height: 1px;
 clear: both;
 visibility: hidden;
 display:block;
@@ -418,6 +418,6 @@ content: ".";
 
 .FixClear2{
 overflow: auto;
-height: 1%;
+min-height: 1%;
 }
 

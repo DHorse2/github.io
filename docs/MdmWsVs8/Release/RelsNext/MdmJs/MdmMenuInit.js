@@ -2,27 +2,41 @@
 function BodyMenuInit() {
     // // Timers
     // timerObj = new Array(bodyMenuGroupUsedCn);
+
     // Containers
     bodyMenuContainer = new Array(2);
-    bodyMenuContainer[bodyMenuLeft] = new Array(bodyMenuGroupUsedCn);
-    bodyMenuContainer[bodyMenuRight] = new Array(bodyMenuGroupUsedCn);
-    // Groups
-    bodyMenuGroup = new Array(bodyMenuGroupUsedCn);
-    // var bodyMenuGroupSave = new Array(bodyMenuGroupUsedCn);
-    bodyMenuGroupTop = new Array(bodyMenuGroupUsedCn);
-    bodyMenuGroupHeight = new Array(bodyMenuGroupUsedCn);
-    bodyMenuGroupColBreak = new Array(bodyMenuGroupUsedCn);
+    bodyMenuContainerGroupIndex = new Array(2);
 
-    for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1+bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
+    bodyMenuContainer[bodyMenuLeft] = new Array(bodyMenuGroupUsedLeftCn);
+    bodyMenuContainerGroupIndex[bodyMenuLeft] = new Array(bodyMenuGroupUsedLeftCn);
+
+    bodyMenuContainer[bodyMenuRight] = new Array(bodyMenuGroupUsedRightCn);
+    bodyMenuContainerGroupIndex[bodyMenuRight] = new Array(bodyMenuGroupUsedRightCn);
+
+    for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupUsedLeftCn; bodyMenuGroupIndex++) {
+        bodyMenuContainer[bodyMenuLeft][bodyMenuGroupIndex] = null;
+        bodyMenuContainerGroupIndex[bodyMenuLeft][bodyMenuGroupIndex] = bodyMenuGroupIndex;
+    }
+    for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupUsedRightCn; bodyMenuGroupIndex++) {
+        bodyMenuContainer[bodyMenuRight][bodyMenuGroupIndex] = null;
+        bodyMenuContainerGroupIndex[bodyMenuRight][bodyMenuGroupIndex] = bodyMenuGroupIndex;
+    }
+
+    // Groups
+    bodyMenuGroup = new Array(bodyMenuGroupMax);
+    // var bodyMenuGroupSave = new Array(bodyMenuGroupMax);
+    bodyMenuGroupTop = new Array(bodyMenuGroupMax);
+    bodyMenuGroupHeight = new Array(bodyMenuGroupMax);
+    bodyMenuGroupColBreak = new Array(bodyMenuGroupMax);
+
+    for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupMax; bodyMenuGroupIndex++) {
         bodyMenuGroup[bodyMenuGroupIndex] = null;
         bodyMenuGroupTop[bodyMenuGroupIndex] = 0;
         bodyMenuGroupHeight[bodyMenuGroupIndex] = 0;
         bodyMenuGroupColBreak[bodyMenuGroupIndex] = 0;
-        bodyMenuContainer[bodyMenuLeft][bodyMenuGroupIndex] = null;
-        bodyMenuContainer[bodyMenuRight][bodyMenuGroupIndex] = null;
     }
 }
-function menuImageGroupInitAll(imgGroupMax) {
+function menuImageGroupInitAll(bodyMenuGroupMax) {
     // Image Object Array
     menuImage = new Array(imgGroupImageArraySize); // By, imgGroupBoxMax);
     for (imgGroupIndex = 0; imgGroupIndex < 1 + imgGroupImageArraySize; imgGroupIndex++) {
@@ -51,7 +65,7 @@ function menuImageGroupInit(imgGroupIndex, imgGroupBoxMaxPassed) {
         // oObjectRowMax = new Array(imgGroupImageArraySize);
         // Image Display (Visible) Locked Array
         ////////////////////////////////////////////////
-        menuImageTimerCn= new Array(imgGroupImageArraySize);
+        menuImageTimerCn = new Array(imgGroupImageArraySize);
         menuImageLocked = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
         // menuImageLocked[oObjGroupIndex] = new Array(imgGroupImageArraySize);
         // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height

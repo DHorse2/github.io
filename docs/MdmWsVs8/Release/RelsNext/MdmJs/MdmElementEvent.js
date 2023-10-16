@@ -62,7 +62,7 @@ function ElementEventMouseOver(elementCurr) {
 			+ ' set successfully! Random filter # ' + filterIndex + ' '
 			+ charNewLineTag + 'top: ' + tempTop
 			+ charNewLineTag + 'Left: ' + tempLeft,
-			'ElementEventMouseOver', 7140, null, null,
+			'ElementEventMouseOver', 6140, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
@@ -110,7 +110,7 @@ function ElementEventClick(menuImage) {
 			'Move.. Over occured on content image'
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
 			+ charNewLineTag + 'Image number selected: ' + menuImageCn,
-			'ElementEventClick', 7196, null, null,
+			'ElementEventClick', 6196, null, null,
 			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
@@ -123,7 +123,7 @@ function ElementEventMouse(e) {
 	if (!imgLoadUseEventHandler && !imgLoadEventTest) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'You have conflicting event handling options...',
-			'ElementEventMouse', 9555, null, null,
+			'ElementEventMouse', 6155, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoAlert);
 	}
 	if (loadFirstJava) { ElementObjectCreate(); }

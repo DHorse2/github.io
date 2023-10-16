@@ -37,10 +37,10 @@ function MenuImagesHtmlBuild() {
     //
     imgHtml = "";
     // imgHtml += lt + 'div id="BodyImageContainer"' + gt;
-    for (imgGroupCn = 0; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
+    for (imgGroupCn = 0; imgGroupCn < 1 + bodyMenuGroupMax; imgGroupCn++) {
         for (imgCn = 0; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
             oName = MenuObjectNameSet(imgGroupCn, imgCn);
-            imgHtml += '    ' + lt + '1-- Image ' + imgGroupCn + ',' + imgCn + ' --' + gt;
+            // imgHtml += '    ' + lt + '1-- Image ' + imgGroupCn + ',' + imgCn + ' --' + gt;
             // Image Small
             // ------------------------------------------------------------------------------------- _//
             // Element Div

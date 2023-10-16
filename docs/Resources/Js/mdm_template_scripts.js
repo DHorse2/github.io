@@ -3874,8 +3874,8 @@ function fnWindowContainerHeightGetAll()
     // Height of left and right menu containers vs the center menu container
 	var tempLayoutBodyHeightHorzMax = 0;
 	var tempLayoutBodyHeightVertMax = 0;
-    layoutBodyHeightHorzMax = 0;
-    layoutBodyHeightVertMax = 0;
+    layoutBodySizeHorzMax = 0;
+    layoutBodySizeVertMax = 0;
     layoutMenuWidthMax = 0;
     //
     bodyMainCenterHeight = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
@@ -3960,8 +3960,8 @@ function fnWindowContainerHeightGetAll()
     //
     // tempLayoutBodyHeightHorzMax += 100;
     //
-    layoutBodyHeightHorzMax = tempLayoutBodyHeightHorzMax;
-    layoutBodyHeightVertMax = tempLayoutBodyHeightVertMax;
+    layoutBodySizeHorzMax = tempLayoutBodyHeightHorzMax;
+    layoutBodySizeVertMax = tempLayoutBodyHeightVertMax;
     //
 	// TODO	Here is the location for a flag that indicates vertical stacking of left and right menus  Much more...
 	// *** This flag is not implemented in this phase (Vert is not used yet.) ***
@@ -3972,7 +3972,7 @@ function fnWindowContainerHeightGetAll()
 	// Vertical refers to extremely narrow Windows where 3 menus are stacked on 3 menus plus the
 	// center height where the order of stacking is machted to the current Layout View (layoutIndex.)
 	//
-    layoutHeight = layoutBodyHeightHorzMax;
+    layoutHeight = layoutBodySizeHorzMax;
 }
 //
 // ..................................................................................... _//
@@ -3982,9 +3982,9 @@ function fnWindowContainerHeightGetMenu(elementPassed)
 {
     // Height of left and right menu containers:
 	// Greatest height when layed out side by side
-    layoutBodyHeightHorzMax = 0;
+    layoutBodySizeHorzMax = 0;
 	// Greatest height when layed out vertically
-    layoutBodyHeightVertMax = 0;
+    layoutBodySizeVertMax = 0;
 	// Note: that HorzMax indicates the maximum height
 	// of the menu groups layed out horizontally side by side.
 	// It is not the width nor the accumulated height (VertMax)
@@ -5106,7 +5106,7 @@ bodyMainRight = fnElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
 //
 bodyMainCenterCenter = fnElementGetRef(bodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
 //
-// layoutBodylayoutBodyColumnType1 = fnElementGetRef(layoutBodylayoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
+// layoutBodyColumnType1 = fnElementGetRef(layoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
 }
 //
 // ..................................................................................... _//

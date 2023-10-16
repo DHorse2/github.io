@@ -510,7 +510,7 @@ Right
   position: relative;
   /* Size */
   width: 100%;
-  height: 30.0em;
+  min-height: 30.0em;
   /* height:40.0em; */
   /* Layout / Visibility */
   margin: 1.0em 0em 0em 0em;
@@ -525,10 +525,10 @@ Right
 .BodyConsoleDetailBox {
   /* Position */
   position: absolute;
-  top: 0%;
-  left: 3%;
+  /* top: 0%; */
+  /* left: 3%; */
   /* Size */
-  width: 31%;
+  width: 33%;
   height: 95%;
   /* height:100%; */
   /* Alignment */
@@ -550,8 +550,8 @@ Right
 .BodyConsoleTextBox {
   /* Position */
   position: absolute;
-  top: 3%;
-  left: 3%;
+  /* top: 3%; */
+  /* left: 3%; */
   /* Size */
   width: 96%;
   height: 85%;
@@ -574,25 +574,26 @@ Right
 /* -------------------------------------------- */
 .BodyConsoleErrorBox {
   /* Position */
-  left: 2%;
+  /* left: 2%; */
+  left: 0%
 }
 
 /* -------------------------------------------- */
 .BodyConsoleEventBox {
   /* Position */
-  left: 35%;
+  left: 33%;
 }
 
 /* -------------------------------------------- */
 .BodyConsoleStateBox {
   /* Position */
-  left: 68%;
+  left: 66%;
 }
 
 /* StateTextBox & TestBox is contained in StateBox */
 .BodyConsoleStateTextBox {
   /* Position */
-  left: 2%;
+  left: 0%;
   /* Size */
   width: 46%;
 }
@@ -608,7 +609,7 @@ Right
 .BodyConsoleTestBoxDisplay {
   /* Position */
   position: static;
-  left: 2%;
+  left: 0%;
   /* Size */
   width: 96%;
 }
@@ -639,7 +640,7 @@ Right
 .BodyConsoleTestBoxInclude {
   /* Position */
   position: static;
-  left: 2%;
+  left: 0%;
   /* Size */
   width: auto;
   /* Alignment */

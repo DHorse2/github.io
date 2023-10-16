@@ -102,7 +102,7 @@ position:absolute;
 top:35px;
 left:20px;
 /* Size */
-height:125px;
+min-height:125px;
 }
 
 /* -- end -- */

@@ -840,8 +840,8 @@ Test Data
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x Section Document Initialization
-// onlayoutcomplete="DocumentLoadInit();";
-DocumentLoadInit();
+// onlayoutcomplete="WindowLoadInit();";
+WindowLoadInit();
 //
 MenuImagesHtmlBuild();
 //

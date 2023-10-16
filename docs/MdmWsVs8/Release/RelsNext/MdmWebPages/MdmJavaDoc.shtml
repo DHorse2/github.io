@@ -101,7 +101,7 @@
 <br>SectionBlock STANDARD function
 <br>------------------------------------------------
 <br>Global
-<br>		 DocumentLoadInit
+<br>		 WindowLoadInit
 <br>Elements
 <br>		ElementPosGetFromObj
 <br>Layout

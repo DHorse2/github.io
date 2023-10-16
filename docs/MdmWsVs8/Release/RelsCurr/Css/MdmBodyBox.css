@@ -28,7 +28,7 @@ overflow-y:visible;
 /* Position */
 position:absolute;
 /* Size */
-width:1000px;
+min-width:1000px;
 min-height:650px;
 /* Background */
 background:#e1e2e5;
@@ -262,7 +262,7 @@ background:transparent url(../Images/SwirlsEdge.gif) repeat-y left top;
 /* Position */
 position:relative;
 /* Size */
-width: 200px;
+min-width: 200px;
 }
 /* -- end -- */
     
@@ -276,7 +276,7 @@ width: 200px;
 /* Headings and text */
 .RightColHeading{
 /* Size */
-width: 152px;
+min-width: 152px;
 /* Alignment */
 margin:0px 0px 0px 0px;
 padding: 3px 3px 3px 3px;
@@ -306,7 +306,7 @@ font-size:10pt;
 /* -- Links -- */
 .RightMenuContainer a {
 /* Size */
-width: 157px;
+min-width: 157px;
 /* Alignment */
 text-decoration:none;
 display: block;

@@ -140,8 +140,8 @@ display:inline;
 #B2C1Img1 {
 /* Position */
 /* Size */
-width:500px;
-height:500px;
+min-width:500px;
+min-height:500px;
 /* Alignment */
 /* Layering */
 z-index:4;
@@ -167,8 +167,8 @@ display:inline;
 #B2C2Img1 {
 /* Position */
 /* Size */
-width:500px;
-height:500px;
+min-width:500px;
+min-height:500px;
 /* Alignment */
 /* Layering */
 z-index:4;
@@ -180,8 +180,8 @@ position:absolute;
 top:0px;
 left:0px;
 /* Size */
-width:500px;
-height:500px;
+min-width:500px;
+min-height:500px;
 /* Alignment */
 /* Layering */
 z-index:4;

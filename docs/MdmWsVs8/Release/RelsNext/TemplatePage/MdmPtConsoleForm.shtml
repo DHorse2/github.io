@@ -10,6 +10,12 @@
 	<button type="submit" value="Log">
 		To Log
 	</button>
+	<button type="button" onclick="ConsoleFormElementSync(false)">
+		Get
+	</button>
+	<button type="button" onclick="ConsoleFormElementSync(true)">
+		Set
+	</button>
 	<!-- <input type="submit" value="Send Request"> -->
 	<!-- * -->
 	<fieldset>

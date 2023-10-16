@@ -3039,7 +3039,7 @@ function MenuImagesHtmlBuild() {
 	var DivLargeOnmousedownFunctionName = new String();
 	//
 	// imgHtml += 'div id='BodyImageContainer'>';
-	for (imgGroupCn = 1; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
+	for (imgGroupCn = 1; imgGroupCn < 1 + bodyMenuGroupMax; imgGroupCn++) {
 		for (imgCn = 1; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
 			oName = ElementItemGetName(imgGroupCn, imgCn);
 			// ..................................................................................... _//
@@ -3798,12 +3798,12 @@ function FunctionDoExecuteJsNode(node) {
 // ..................................................................................... _//
 // Window Load
 // ...................................... //
-// onlayoutcomplete= 'DocumentLoadInit();';
+// onlayoutcomplete= 'WindowLoadInit();';
 //
 window.onload = function () { // function Document Window OnLoad
 	// ...................................... //
 	// Initialize and Set Global Variables
-	DocumentLoadInit();
+	WindowLoadInit();
 	//
 	// ...................................... //
 	// Build Body Images Div
@@ -3835,8 +3835,8 @@ window.onload = function () { // function Document Window OnLoad
 	}
 	//
 	// Inactive code:
-	// window.onload= 'DocumentLoadInit();';
-	// onlayoutcomplete= 'DocumentLoadInit();';
+	// window.onload= 'WindowLoadInit();';
+	// onlayoutcomplete= 'WindowLoadInit();';
 }
 //
 // ..................................................................................... _//
@@ -3846,13 +3846,13 @@ window.onload = function () { // function Document Window OnLoad
 // ..................................................................................... _//
 // ...................................... //
 // Document Layout Size of Core Layout Boxes
-function WindowContainerHeightGetAll() {
+function WindowContainerSizeGetAll() {
 	//
 	if (debugAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of left and right menu containers vs the center menu container'
 			+ ': ',
-			'WindowContainerHeightGetAll', 6769, null, null,
+			'WindowContainerSizeGetAll', 6769, null, null,
 			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3869,7 +3869,7 @@ function WindowContainerHeightGetAll() {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
 			+ '.',
-			'WindowContainerHeightGetAll', 6769, null, null,
+			'WindowContainerSizeGetAll', 6769, null, null,
 			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3884,20 +3884,20 @@ function WindowContainerHeightGetAll() {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
-			'WindowContainerHeightGetAll', 6769, null, null,
+			'WindowContainerSizeGetAll', 6769, null, null,
 			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	// Check the accumaltion of Left1, Left2, Left3
 	if (layoutIndex = layoutStandard) {
-		WindowContainerHeightGetMenu(bodyMainLeft);
-	} else { WindowContainerHeightGetMenu(bodyMainCenterTopLeft); }
+		WindowContainerSizeGetMenu(bodyMainLeft);
+	} else { WindowContainerSizeGetMenu(bodyMainCenterTopLeft); }
 	//
 	if (debugAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
-			'WindowContainerHeightGetAll', 6769, null, null,
+			'WindowContainerSizeGetAll', 6769, null, null,
 			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -3913,26 +3913,26 @@ function WindowContainerHeightGetAll() {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
-			'WindowContainerHeightGetAll', 6769, null, null,
+			'WindowContainerSizeGetAll', 6769, null, null,
 			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	// Check the accumaltion of Right1, Right2, Right3
 	if (layoutIndex == layoutStandard) {
-		WindowContainerHeightGetMenu(bodyMainRight);
-	} else { WindowContainerHeightGetMenu(bodyMainCenterTopRight); }
+		WindowContainerSizeGetMenu(bodyMainRight);
+	} else { WindowContainerSizeGetMenu(bodyMainCenterTopRight); }
 	//
 	if (debugAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
-			'WindowContainerHeightGetAll', 6769, null, null,
+			'WindowContainerSizeGetAll', 6769, null, null,
 			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	tempLayoutBodyHeightVertMax += bodyLayoutMenu2Height;
 	if (layoutIndex == layoutStandard) {
-		// if (bodyLayoutMenu1Height < layoutMenuHeightVertMax) { bodyLayoutMenu1Height = layoutMenuHeightVertMax; }
+		// if (bodyLayoutMenu1Height < layoutMenuSizeVertMax) { bodyLayoutMenu1Height = layoutMenuSizeVertMax; }
 		if (tempLayoutBodyHeightHorzMax < bodyLayoutMenu2Height) { tempLayoutBodyHeightHorzMax = bodyLayoutMenu2Height; }
 	} else if (layoutIndex == layoutWindowed) {
 		tempLayoutBodyHeightHorzMax = bodyMainCenterHeight;
@@ -3957,13 +3957,13 @@ function WindowContainerHeightGetAll() {
 	// Vertical refers to extremely narrow Windows where 3 menus are stacked on 3 menus plus the
 	// center height where the order of stacking is machted to the current Layout View (layoutIndex.)
 	//
-	layoutHeight = layoutBodyHeightHorzMax;
+	layoutHeight = layoutBodySizeHorzMax;
 }
 //
 // ..................................................................................... _//
 // ...................................... //
 // Document Layout Size of Core Layout Boxes
-function WindowContainerHeightGetMenu(elementPassed) {
+function WindowContainerSizeGetMenu(elementPassed) {
 	// Height of left and right menu containers:
 	// Greatest height when layed out side by side
 	layoutBodyHeightHorzMax = 0;
@@ -3997,12 +3997,12 @@ function WindowContainerHeightGetMenu(elementPassed) {
 	bodybodyMenuLeft2Height = ElementHeightMaxGet(true, true, menuGroup2);
 	bodybodyMenuLeft3Height = ElementHeightMaxGet(true, true, menuGroup3);
 	//
-	layoutMenuHeightVertMax = bodybodyMenuLeft1Height + bodybodyMenuLeft2Height + bodybodyMenuLeft3Height;
+	layoutMenuSizeVertMax = bodybodyMenuLeft1Height + bodybodyMenuLeft2Height + bodybodyMenuLeft3Height;
 	//
-	layoutMenuHeightHorzMax = 0;
-	if (layoutMenuHeightHorzMax < bodybodyMenuLeft1Height) { layoutMenuHeightHorzMax = bodybodyMenuLeft1Height; }
-	if (layoutMenuHeightHorzMax < bodybodyMenuLeft2Height) { layoutMenuHeightHorzMax = bodybodyMenuLeft2Height; }
-	if (layoutMenuHeightHorzMax < bodybodyMenuLeft3Height) { layoutMenuHeightHorzMax = bodybodyMenuLeft3Height; }
+	layoutMenuSizeHorzMax = 0;
+	if (layoutMenuSizeHorzMax < bodybodyMenuLeft1Height) { layoutMenuSizeHorzMax = bodybodyMenuLeft1Height; }
+	if (layoutMenuSizeHorzMax < bodybodyMenuLeft2Height) { layoutMenuSizeHorzMax = bodybodyMenuLeft2Height; }
+	if (layoutMenuSizeHorzMax < bodybodyMenuLeft3Height) { layoutMenuSizeHorzMax = bodybodyMenuLeft3Height; }
 	//
 }
 //
@@ -4065,7 +4065,7 @@ function WindowResizeLayout() {
 	if (!bodyMainLeft) { ElementObjectContainerCreate(); }
 	// ...................................... //
 	// Recalculate Positions for Menu Images
-	if (layoutResizeCn = 0) { WindowContainerHeightGetAll(); }
+	if (layoutResizeCn = 0) { WindowContainerSizeGetAll(); }
 	//
 	var bodyMainCenterLeftAdj = 0;
 	var bodyMainCenterWidthAdj = 0;
@@ -4239,7 +4239,7 @@ function WindowResizeLayout() {
 			'WindowResizeLayout', 0, null, null,
 			errorSevere, errorDoNotDisplayTag, errorDoAlert);
 		layoutResizeCn = 0;
-		// layoutMenuHeightHorzMax = 2000;
+		// layoutMenuSizeHorzMax = 2000;
 	}
 	//
 	// if (layoutResizeCn = 1) {
@@ -4248,7 +4248,7 @@ function WindowResizeLayout() {
 	// Height of left and right menu containers
 	/* -- */
 	//
-	WindowContainerHeightGetAll();
+	WindowContainerSizeGetAll();
 	/* -- */
 	//
 	//
@@ -4264,10 +4264,10 @@ function WindowResizeLayout() {
 	bodyMainContainer.style.height = (layoutHeight) + 'px';
 	//
 	// Experiments:
-	// // bodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuHeightHorzMax) + 'px';
-	// // bodyMainCenter.style.height = 'auto';// '100%';// layoutMenuHeightHorzMax + 'px';
-	// // bodyMainContainer.style.height = '100%';// (layoutMenuHeightHorzMax) + 'px';// 'auto';// (layoutMenuHeightHorzMax + 100) + 'px';
-	// body.style.height = '';// (layoutMenuHeightHorzMax + 100) + 'px';
+	// // bodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuSizeHorzMax) + 'px';
+	// // bodyMainCenter.style.height = 'auto';// '100%';// layoutMenuSizeHorzMax + 'px';
+	// // bodyMainContainer.style.height = '100%';// (layoutMenuSizeHorzMax) + 'px';// 'auto';// (layoutMenuSizeHorzMax + 100) + 'px';
+	// body.style.height = '';// (layoutMenuSizeHorzMax + 100) + 'px';
 	//
 	//
 	// bodyMainLeft.style.height = layoutHeight + 'px';;
@@ -4409,7 +4409,7 @@ function WindowCookieBuild() {
 // ..................................................................................... _//
 // ...................................... //
 //  Document Load Initinitialize Variablesm, Arrays and Default Data
-function DocumentLoadInit() {
+function WindowLoadInit() {
 	//
 	//  for (imgCn = 1;imgCn < 1+imgUsedCn;imgCn++){
 	//    menuImage = oObjIndexSetmenuImage(imgCn);
@@ -4425,10 +4425,10 @@ function DocumentLoadInit() {
 		//    menuImage.src = 'imgnone.gif';
 	}
 	//
-	// imgGroupMax
+	// bodyMenuGroupMax
 	// imgMax
 	//
-	for (imgGroupCn = 0; imgGroupCn < 1 + imgGroupMax; imgGroupCn++) {
+	for (imgGroupCn = 0; imgGroupCn < 1 + bodyMenuGroupMax; imgGroupCn++) {
 		imgMax = imgMaxByGroup[imgGroupCn];
 		for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
 			// imgCnByGroup[imgGroupCn];
@@ -5079,7 +5079,7 @@ function ElementObjectContainerCreate() {
 	//
 	bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
 	//
-	// layoutBodylayoutBodyColumnType1 = ElementGetRef(layoutBodylayoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
+	// layoutBodyColumnType1 = ElementGetRef(layoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
 }
 //
 // ..................................................................................... _//
@@ -5904,7 +5904,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 				} else {
 					consoleEventBox.style.display = 'none';
 					consoleEventToggle.style.borderColor = ButtonIsOffColor;
-					consoleErrorBox.style.width = '64%';
+					consoleErrorBox.style.width = '66%';
 				}
 			}
 			//
@@ -6298,14 +6298,14 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 				consoleEventBox.style.width = '31%';
 				//
 				consoleStateBox.style.left = '35%';
-				consoleStateBox.style.width = '64%';
+				consoleStateBox.style.width = '66%';
 			}
 		} else {
 			// State & Error visible
 			if (consoleEventBox.style.display != 'block') {
 				// State & Error visible, no Event visible
 				consoleErrorBox.style.left = '2%';
-				consoleErrorBox.style.width = '64%';
+				consoleErrorBox.style.width = '66%';
 				//
 				consoleStateBox.style.left = '68%';
 				consoleStateBox.style.width = '31%';
@@ -6485,7 +6485,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// Window Width
 	WindowClientWidth();
-	// layoutMenuHeightHorzMax = 0;
+	// layoutMenuSizeHorzMax = 0;
 	if (browserIsFF) {
 		// debug-instance-off LayoutSelectByIndex;
 	}
@@ -6790,7 +6790,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodybodyMenuLeft2 = ElementGetRefFromElement(bodybodyMenuLeft2, 'bodyMenuLeft2', 'bodyMenuLeft2', bodyMainCenterTopLeft);
 				bodybodyMenuLeft3 = ElementGetRefFromElement(bodybodyMenuLeft3, 'bodyMenuLeft3', 'bodyMenuLeft3', bodyMainCenterTopLeft);
 				//
-				WindowContainerHeightGetMenu(bodyMainCenterTopLeft);
+				WindowContainerSizeGetMenu(bodyMainCenterTopLeft);
 				//
 				//............................................................---//
 				// bodybodyMenuLeft1
@@ -6871,7 +6871,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMainRightInner.style.paddingTop = '1.0em';
 				//............................................................---//
 				var elementHeight = 0;
-				layoutMenuHeightHorzMax = 0;
+				layoutMenuSizeHorzMax = 0;
 				// Right bodybodyMenuRight1, 2, 3
 				bodybodyMenuRight1 = ElementGetRefFromElement(bodybodyMenuRight1, 'bodyMenuRight1', 'bodyMenuRight1', bodyMainCenterTopRight);
 				bodybodyMenuRight2 = ElementGetRefFromElement(bodybodyMenuRight2, 'bodyMenuRight2', 'bodyMenuRight2', bodyMainCenterTopRight);
@@ -6884,7 +6884,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodybodyMenuRight1.style.maxWidth = '30%';
 				// bodybodyMenuRight1.style.styleFloat = 'left';
 				elementHeight = ElementHeightMaxGet(true, true, bodybodyMenuRight1);
-				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
+				if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
 				//............................................................---//
 				// bodybodyMenuRight2
 				bodybodyMenuRight2.style.position = 'absolute';
@@ -6894,7 +6894,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// bodybodyMenuRight2.style.marginLeft = '3%';
 				// bodybodyMenuRight2.style.styleFloat = 'left';
 				elementHeight = ElementHeightMaxGet(true, true, bodybodyMenuRight2);
-				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
+				if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
 				//............................................................---//
 				// bodybodyMenuLeft3
 				bodybodyMenuRight3.style.position = 'absolute';
@@ -6904,7 +6904,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// bodybodyMenuRight3.style.marginLeft = '3%';
 				// bodybodyMenuRight3.style.styleFloat = 'left';
 				elementHeight = ElementHeightMaxGet(true, true, bodybodyMenuRight3);
-				if (layoutMenuHeightHorzMax < elementHeight) { layoutMenuHeightHorzMax = elementHeight; }
+				if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
 				//............................................................---//
 				// Column and Float Breaks and Clear
 				bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, 'bodyMenuRight1ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
@@ -6925,7 +6925,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			boxHeight += ElementHeightMaxGet(true, true, bodyBannerTop);
 			//
 			// Height of left and right menu containers
-			// WindowContainerHeightGetAll();
+			// WindowContainerSizeGetAll();
 			//
 			// if (bodyLayoutMenu2Height > bodyLayoutMenu1Height)  {
 			// bodyLayoutMenu1.style.height = bodyLayoutMenu2Height + 'px';
@@ -6936,14 +6936,14 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			// bodyMainCenterTopLeft.style.height = (ElementHeightMaxGet(true, true, bodyLayoutMenu1) + 20) + 'px';
 			// bodyMainCenterTopRight.style.height = (ElementHeightMaxGet(true, true, bodyLayoutMenu2) + 20) + 'px';
 			//
-			if (layoutMenuHeightHorzMax < 50) {
+			if (layoutMenuSizeHorzMax < 50) {
 				// ERROR HERE //
 				//
 				var X; var Y;
 				X = ElementHeightMaxGet(true, true, bodybodyMenuLeft1);
 				X += boxHeight;
 				Y = ElementHeightMaxGet(true, true, bodybodyMenuRight1);
-				if (X > Y) { layoutMenuHeightHorzMax = X; } else { layoutMenuHeightHorzMax = Y; }
+				if (X > Y) { layoutMenuSizeHorzMax = X; } else { layoutMenuSizeHorzMax = Y; }
 				//
 				X = ElementHeightMaxGet(true, true, bodyMainCenterTopLeft);
 				Y = ElementHeightMaxGet(true, true, bodyMainCenterTopRight);
@@ -6952,19 +6952,19 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// boxHeight += ElementHeightMaxGet(true, true, bodyMainCenterTopColBreak);
 			}
 			// Set Left and Right Container Heights
-			bodyMainCenterTopLeft.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
+			bodyMainCenterTopLeft.style.height = (layoutMenuSizeHorzMax + 50) + 'px';
 			// bodyMainCenterTopLeft.style.height = '100%';
 			// bodyMainCenterTopLeft.style.height = 'auto';
-			bodyMainCenterTopRight.style.height = (layoutMenuHeightHorzMax + 50) + 'px';
+			bodyMainCenterTopRight.style.height = (layoutMenuSizeHorzMax + 50) + 'px';
 			// bodyMainCenterTopRight.style.height = '100%';
 			//
 			bodyMainCenterTopColBreak = ElementGetRefFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
 			//
-			bodyMainCenterTop.style.height = (layoutMenuHeightHorzMax + 75) + 'px';// boxHeight
+			bodyMainCenterTop.style.height = (layoutMenuSizeHorzMax + 75) + 'px';// boxHeight
 			// bodyMainCenterTop.style.height = '100%';
 			//
 			//............................................................---//
-			bodyMainCenterCenter.style.top = (layoutMenuHeightHorzMax + 100) + 'px';// adjust by boxHeight
+			bodyMainCenterCenter.style.top = (layoutMenuSizeHorzMax + 100) + 'px';// adjust by boxHeight
 			//
 			//
 			//............................................................---//

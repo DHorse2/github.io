@@ -17,7 +17,7 @@ var headingGroupCnCurr;
 ////////////////////////////////////////////////
 // Menu Current Image Object By Group (Image Group)
 // set the number of groups and the images per group
-// var imgGroupMax;
+// var bodyMenuGroupMax;
 // var imgGroupCount;
 // var imgGroupArraySize;
 var imgGroupBoxCount;
@@ -61,6 +61,54 @@ var headingGroupCnCurr;
 var imgAniToggle;
 var imgMouseHover;
 
+// SectionBlock Appearance //
+// ...................................... //
+var menuImageBorderWidth = 6;
+
+// SectionBlock Group and Item Image Array Initialization
+// ...................................... //
+// Current Image and Position
+// Current Image Index By Group
+var imgCnByGroup;
+// Maximum # of Images By Group
+var imgMaxByGroup;
+// Maximum # of Images Per Cascading Row By Group
+var oObjectRowMax;
+// Image Display (Visible) Locked Array
+
+var menuImageLocked;
+
+// First Image
+// ...................................... //
+// First Image Offset By Group, By Top, Left
+var menuImageOffsetFirstAll;
+// These are layout postion patterns to be applied
+var menuImageOffsetLeftAll;
+var menuImageOffsetTopAll;
+
+// Image Position
+// ...................................... //
+// Position of Parent Image (Parent of First only stored at this time)
+var menuImagePositionLeft;
+var menuImagePositionTop;
+var menuImagePositionWidth;
+var menuImagePositionHeight;
+
+// Animation Timer by Group by Image
+// ...................................... //
+// Not currently in use
+var menuImageTimerCn;
+
+// Image Postioning Offsets - Large
+// ...................................... //
+var menuImageOffsetLeftLarge;
+var menuImageOffsetTopLarge;
+
+// Image Postioning Offsets - Small
+// ...................................... //
+// These are layout postion patterns to be applied
+var menuImageOffsetLeftAll;
+var menuImageOffsetTopAll;
 
 // Position All
 function MdmMenuImageInit() {
@@ -75,8 +123,8 @@ function MdmMenuImageInit() {
     // menuImage = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 
     //  imgGroupCnStart = 1;
-    imgGroupCnEnd = imgGroupMax;
-    imgGroupCount = imgGroupMax + 1;
+    imgGroupCnEnd = bodyMenuGroupMax;
+    imgGroupCount = bodyMenuGroupMax + 1;
 
     // Image Group Arrays
     // imgGroupArraySize = imgGroupCount;
@@ -90,14 +138,13 @@ function MdmMenuImageInit() {
     oObjectRowMax = new Array(imgGroupArraySize);
     // Image Display (Visible) Locked Array
     menuImageLocked = new Array(imgGroupArraySize);
-
+    menuImageTimerCn = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 
     // Image Offsets
     // By Top, Left (2)
     menuImageOffsetFirstAll = new Array(imgGroupImageArraySize);
     // These are layout postion patterns to be applied
     // Not currently in use
-    menuImageTimerCn = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
     // ...................................... //
     // Image Postioning Offsets - Large
     menuImageOffsetLeftLarge = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
@@ -160,7 +207,7 @@ function MdmMenuImageInit() {
     menuImageRootPosition[3] = 0;
     menuImageRootPosition[4] = 0;
 
-    menuImageGroupInitAll(imgGroupMax);
+    menuImageGroupInitAll(bodyMenuGroupMax);
 
     // Heading Image Group
     ////////////////////////////////////////////////
