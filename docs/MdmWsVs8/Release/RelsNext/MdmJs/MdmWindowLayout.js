@@ -21,7 +21,7 @@
 // // A larger font size will disturb the floating by
 // // pushing down the content that wont fit beside the
 // // callout.
-// var layoutEmRation = 1.0;
+// var layoutFontRatio = 1.0;
 // //
 // var layoutMenuDocWidthWide = 900;
 // //
@@ -68,30 +68,31 @@ var layoutReadingModeLeftFirst = true;
 // ------------------------------------------------------------------------------------- _//
 // Layout Next
 function LayoutNext(layoutIndexPassed) {
-    if (layoutIndexPassed > 0) {
-        layoutRefreshCn = layoutIndexPassed;
-    } else {
-        layoutRefreshCn += 1;
-    }
+	if (layoutIndexPassed > 0) {
+		layoutRefreshCn = layoutIndexPassed;
+	} else {
+		layoutRefreshCn += 1;
+	}
 	// todo maybe limit the number?
-    if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
-    LayoutRefresh(layoutRefreshCn);
+	if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
+	LayoutRefresh(layoutRefreshCn);
 }
 // Check Layout
 function LayoutCheck(layoutPrefered) {
-    return;
+	return;
 }
 // Layout Refresh
 function LayoutRefresh(layoutIndexPassed) {
-    if (layoutIndexPassed != layoutRefreshCnLast) {
-        // Choose Standard Layout
-        layoutIndex = layoutIndexPassed;
-        LayoutSelectByIndex(layoutIndex);
-        layoutRefreshCnLast = layoutRefreshCn;
-    }
+	if (layoutIndexPassed != layoutRefreshCnLast) {
+		// Choose Standard Layout
+		layoutIndex = layoutIndexPassed;
+		LayoutSelectByIndex(layoutIndex);
+		layoutRefreshCnLast = layoutRefreshCn;
+	}
 }
 // Section Layout Management function (s)
-// Body ViewToggle - Layout Next
+// Body Layout Font Size
+// Zoom
 function LayoutFontSize(zoomCommandPassed) {
 	switch (zoomCommandPassed) {
 		case 'BodyFontZoomIn':
@@ -103,6 +104,76 @@ function LayoutFontSize(zoomCommandPassed) {
 			break;
 	}
 }
+// Font Size todo buttons
+function LayoutFontSizeReset() {
+	layoutFontRatio = 1.0;
+	LayoutFontSizeSet(layoutFontRatio);
+}
+// Font Size
+function LayoutFontSizeBigger() {
+	if (layoutFontRatio >= 10) { return; }
+	layoutFontRatio += 0.25;
+	LayoutFontSizeSet(layoutFontRatio);
+}
+// Font Size
+function LayoutFontSizeSmaller() {
+	if (layoutFontRatio < 0.251) { return; }
+	layoutFontRatio -= 0.25;
+	LayoutFontSizeSet(layoutFontRatio);
+}
+function LayoutFontSizeSet(passedLayoutFontRatio) {
+	var fontUnits, fontCalc;
+	// Classes H1-6,
+	if (layoutStyleUnits == layoutStyleUnitsEm) {
+		fontUnits = 'em';
+	} else {
+		fontUnits = 'px';
+	}
+	changeCSSStyle('MdmBaseTags', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits);
+	changeCSSStyle('MdmBaseTags', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits);
+	changeCSSStyle('MdmBaseTags', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits);
+	changeCSSStyle('MdmBaseTags', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits);
+	changeCSSStyle('MdmBaseTags', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits);
+	changeCSSStyle('MdmBaseTags', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits);
+	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
+	// Scan 6-36 to see which fonts are defined/used.
+	for (idx = 6; idx < 37; idx++) {
+		fontCalc = idx * passedLayoutFontRatio;
+		if (layoutStyleUnits == layoutStyleUnitsEm) {
+			fontCalc = fontCalc / 10;
+			fontUnits = 'em';
+		} else {
+			fontUnits = 'px';
+		}
+		changeCSSStyle('MdmBaseTags.css', '.f' + idx, 'fontSize', (fontCalc) + fontUnits);
+		// Title1-2, Caption1-2
+	}
+}
+
+// ssMain is the stylesheet's index based on load order. See document.styleSheets. E.g. 0=reset.css, 1=main.css.
+var ssMain = 0;
+// var cssRules = (document.querySelectorAll("*")) ? 'rules' : 'cssRules';
+var cssRules = (document.all) ? 'rules' : 'cssRules';
+function changeCSSStyle(sheetTitle, selector, cssProp, cssVal) {
+	// StyleSheets.title (from ssMain) (removed ===)
+	if (document.styleSheets[ssMain]) {
+		if (document.styleSheets[ssMain][cssRules]) {
+			for (idx = 0, len = document.styleSheets[ssMain][cssRules].length; idx < len; idx++) {
+				// if (StyleSheets.title == sheetTitle) {
+				if (document.styleSheets[ssMain][cssRules][idx].selectorText == selector) {
+					document.styleSheets[ssMain][cssRules][idx].style[cssProp] = cssVal;
+					return;
+				}
+			}
+
+		}
+	}
+}
+function changeCSSStyleTest() {
+	changeCSSStyle('MdmBaseTags.css', '.h1', 'color', 'red');
+	changeCSSStyle('MdmBaseTags.css', 'p.f12', 'fontSize', '24px');
+}
+
 // Body Layout Selection
 function LayoutSelectByIndex(layoutIndexPassed) {
 	//
@@ -768,15 +839,15 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 }
 
 function LayoutBlockWidthGet() {
-    if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol4Min * layoutEmRation) && bodyBlockCn > 3 && layoutBodyColumnMax > 3) {
-        layoutBlockWidth = layoutBlockWidthBig;
-    } else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && bodyBlockCn > 2 && layoutBodyColumnMax > 2) {
-        layoutBlockWidth = layoutBlockWidthWide;
-    } else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutEmRation) && layoutBodyColumnMax > 1) {
-        layoutBlockWidth = layoutBlockWidthStandard;
-    } else {
-        layoutBlockWidth = layoutBlockWidthNarrow;
-    }
+	if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol4Min * layoutFontRatio) && bodyBlockCn > 3 && layoutBodyColumnMax > 3) {
+		layoutBlockWidth = layoutBlockWidthBig;
+	} else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutFontRatio) && bodyBlockCn > 2 && layoutBodyColumnMax > 2) {
+		layoutBlockWidth = layoutBlockWidthWide;
+	} else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutFontRatio) && layoutBodyColumnMax > 1) {
+		layoutBlockWidth = layoutBlockWidthStandard;
+	} else {
+		layoutBlockWidth = layoutBlockWidthNarrow;
+	}
 }
 
 script_state = "Mdm Standard Layout functions loaded.";

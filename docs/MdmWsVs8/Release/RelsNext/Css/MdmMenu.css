@@ -217,7 +217,7 @@ a.MenuBlockLink:active {
     padding-left: 0em;
     /* Decoration */
     list-style-type: none;
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 /* -- Links -- */

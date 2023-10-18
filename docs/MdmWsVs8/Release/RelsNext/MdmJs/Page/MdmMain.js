@@ -346,7 +346,14 @@ var layoutStyleUnits = layoutStyleUnitsEm;
 // A larger font size will disturb the floating by
 // pushing down the content that wont fit beside the
 // callout.
-var layoutEmRation = 1.0;
+var layoutFontRatio = 1.0;
+var layoutFontH1 = 2.0;
+var layoutFontH2 = 1.8;
+var layoutFontH3 = 1.4;
+var layoutFontH4 = 1.2;
+var layoutFontH5 = 1.0;
+var layoutFontH6 = 1.0;
+// Just to keep the math simple f10 = 1.0em;
 
 // Columns in pixels
 // When will it add more columns in the display

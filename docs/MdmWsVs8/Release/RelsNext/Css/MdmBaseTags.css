@@ -52,7 +52,7 @@ a,
         "Book Antiqua",
         "Bookman Old Style"
     ;
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 p,
@@ -82,15 +82,15 @@ padding-bottom: 0em;
 
 
 .fStandard {
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 .fNormal {
-    font-size: 1.4vw;
+    font-size: 1.4em;
 }
 
 .fText {
-    margin-top: .3vw;
+    margin-top: .3em;
 }
 
 /* -- Links -- */
@@ -104,19 +104,19 @@ padding-bottom: 0em;
 }
 
 .fPromo {
-    font-size: 1.2vw;
+    font-size: 1.2em;
 }
 
 .fBlurb {
-    font-size: 1.2vw;
+    font-size: 1.2em;
 }
 
 .fTiny {
-    font-size: 0.8vw;
+    font-size: 0.8em;
 }
 
 .fMicro {
-    font-size: .6vw;
+    font-size: .6em;
 }
 
 /* -- Fonts Code -- */
@@ -131,8 +131,8 @@ padding-bottom: 0em;
         "Lucida Sans Typewriter",
         "DejaVu Sans Mono",
         monospace;
-    font-size: 1vw;
-    LINE-HEIGHT: 1.1vw;
+    font-size: 1em;
+    LINE-HEIGHT: 1.1em;
     list-style: lower-roman;
 }
 
@@ -142,7 +142,7 @@ padding-bottom: 0em;
         Storybook,
         OldCentury,
         cursive;
-    font-size: 1.4vw;
+    font-size: 1.4em;
     list-style: lower-roman;
 }
 
@@ -412,51 +412,51 @@ H6,
 
 /* -- Fonts Size -- */
 .f8 {
-    font-size: 0.8vw;
+    font-size: 0.8em;
 }
 
 .f10 {
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 .f11 {
-    font-size: 1.1vw;
+    font-size: 1.1em;
 }
 
 .f12 {
-    font-size: 1.2vw;
+    font-size: 1.2em;
 }
 
 .f14 {
-    font-size: 1.4vw;
+    font-size: 1.4em;
 }
 
 .f16 {
-    font-size: 1.6vw;
+    font-size: 1.6em;
 }
 
 .f18 {
-    font-size: 1.8vw;
+    font-size: 1.8em;
 }
 
 .f20 {
-    font-size: 2.0vw;
+    font-size: 2.0em;
 }
 
 .f24 {
-    font-size: 2.4vw;
+    font-size: 2.4em;
 }
 
 .f28 {
-    font-size: 2.8vw;
+    font-size: 2.8em;
 }
 
 .f32 {
-    font-size: 3.2vw;
+    font-size: 3.2em;
 }
 
 .f36 {
-    font-size: 3.6vw;
+    font-size: 3.6em;
 }
 
 /* Alignment */
