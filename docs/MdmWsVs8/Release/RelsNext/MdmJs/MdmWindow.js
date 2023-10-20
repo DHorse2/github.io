@@ -14,6 +14,7 @@ function WindowOnload() {
     // Get browser type
     BrowserVsGet();
 
+    // document.styleSheets[1].disabled=false;
     // Initialize and Set Global Variables
     WindowLoadInit();
 
@@ -57,6 +58,7 @@ function WindowOnload() {
     TimerFunctionSet();
     // Intervals and Duration
     TimerDurationSet();
+	// document.styleSheets[1].disabled=true;
 }
 // Document Window Resize
 // Adjustments:
@@ -158,7 +160,7 @@ function WindowContainerSizeGetAll() {
     //
     if (debugAlert) {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-            ' Height of bodyLayout: (' + layoutMenuSizeSideHorzMax + ', ' 
+            ' Height of bodyLayout: (' + layoutMenuSizeSideHorzMax + ', '
             + layoutMenuSizeSideVertMax + ', ' + layoutMenuSizeSideHorzTallest
             + ').',
             'WindowContainerSizeGetAll', 6769, null, null,

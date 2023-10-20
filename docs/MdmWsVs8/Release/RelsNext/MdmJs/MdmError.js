@@ -162,26 +162,26 @@ function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messa
     localDoUseDebug = false;
     // Error Severity Level
     if (errorSeverityPassed >= errorFatal) {
-        messageFinal += "FATAL Error";
+        messageFinal = "FATAL Error " + messageFinal;
         errorSeverityLevel = errorFatal;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogFatal += messageFinal;
         errorSeverityColor = 'Red';
     } else if (errorSeverityPassed >= errorSevere) {
-        messageFinal += "SEVERE Error";
+        messageFinal = "SEVERE Error " + messageFinal;
         errorSeverityLevel = errorSevere;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogSevere += messageFinal;
         errorSeverityColor = 'Yellow';
     } else if (errorSeverityPassed >= errorWarn) {
-        messageFinal += "Warning!";
+        messageFinal = "Warning! " + messageFinal;
         errorSeverityLevel = errorWarn;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogWarn += messageFinal;
         errorSeverityColor = 'Orange';
     } else {
         // errorComment:
-        messageFinal += "(Comment)";
+        messageFinal = "(Comment) " + messageFinal;
         errorSeverityLevel = errorDidNotOccur;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogComment += messageFinal;
@@ -266,7 +266,7 @@ function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messa
 // eventFileLine = 0;
 // eventFileColumn = 0;
 // function WindowError(eventCurrPassed, argumentsPassed) {
-function WindowError(eventCurrPassed, errorSeverityPassed) {
+function WindowError(eventCurrPassed, errorSeverityPassed, errorArguments) {
     // eventArguments = argumentsPassed.toString();
     eventStack = new Error().stack;
     // SO:
@@ -688,7 +688,7 @@ function MessageLogAction(eventCurr, messagePassed,
 // ..................................................................................... _//
 // Attach the listener for Errors
 // It will fire when an error occurs.
-window.onerror = function (event) { WindowError(event, errorSevere); };
+window.onerror = function (event) { WindowError(event, errorSevere, Arguments[1]); };
 // window.onerror = (event) => {
 //     WindowError(event);
 // };

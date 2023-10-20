@@ -22,21 +22,21 @@
 		<!-- * -->
 		Add Elements to DOM: <br >
 		<label for="formImgLoadUseDOM">imgLoadUseDOM </label>
-		<input id="formImgLoadUseDOM" type=checkbox checked
+		<input id="formImgLoadUseDOM" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'imgLoadUseDOM', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Use innerHTML for content: <br >
 		<label for="formImgLoadUseInner">imgLoadUseInner </label>
-		<input id="formImgLoadUseInner" type=checkbox
+		<input id="formImgLoadUseInner" type="checkbox"
 			onchange="DebugParameterSet(this, 'imgLoadUseInner', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Single Event Listener (dispatcher): <br >
 		<label for="formImgLoadUseEventHandler">imgLoadUseEventHandler </label>
-		<input id="formImgLoadUseEventHandler" type=checkbox checked
+		<input id="formImgLoadUseEventHandler" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'imgLoadUseEventHandler', 'Toggle')"
 			>
 		<p ></p>
@@ -44,7 +44,7 @@
 		Controls clearing of <br >
 		bodyImageContainer for testing: <br >
 		<label for="formImgLoadEventTest">imgLoadEventTest </label>
-		<input id="formImgLoadEventTest" type=checkbox
+		<input id="formImgLoadEventTest" type="checkbox"
 			onchange="DebugParameterSet(this, 'imgLoadEventTest', 'Toggle')"
 			>
 		<p ></p>
@@ -55,7 +55,7 @@
 		<fieldset><legend>User Interface Features</legend>
 		Mouse Hover activation of image display:<br >
 		<label for="formEventMouseOverEnabled">eventMouseOverEnabled </label>
-		<input id="formEventMouseOverEnabled" type=checkbox
+		<input id="formEventMouseOverEnabled" type="checkbox"
 			onchange="DebugParameterSet(this, 'eventMouseOverEnabled', 'Toggle')"
 			>
 		<p ></p>
@@ -66,28 +66,28 @@
 		<fieldset><legend>Animation Control</legend>
 		Object Moves From Origin to Destination: <br >
 		<label for="formMoveIsOn">moveIsOn </label>
-		<input id="formMoveIsOn" type=checkbox checked
+		<input id="formMoveIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'moveIsOn', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Transition and Filters are used: <br >
 		<label for="formFilterIsOn">filterIsOn </label>
-		<input id="formFilterIsOn" type=checkbox checked
+		<input id="formFilterIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'filterIsOn', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Growing image during animation: <br >
 		<label for="formFilterResizeIsOn">filterResizeIsOn </label>
-		<input id="formFilterResizeIsOn" type=checkbox checked
+		<input id="formFilterResizeIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'filterResizeIsOn', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Timers use elapsed time instead of a step count: <br >
 		<label for="formTimerUseTime">timerUseTime </label>
-		<input id="formTimerUseTime" type=checkbox checked
+		<input id="formTimerUseTime" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'timerUseTime', 'Toggle')"
 			>
 		<p ></p>
@@ -163,35 +163,35 @@
 		<fieldset><legend>Logging</legend>
 		Trace & Log Timer activity: <br >
 		<label for="formDebugTimer">debugTimer </label>
-		<input id="formDebugTimer" type=checkbox
+		<input id="formDebugTimer" type="checkbox"
 			onchange="DebugParameterSet(this, 'debugTimer', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Move activity: <br >
 		<label for="formDebugTimerMove">debugTimerMove </label>
-		<input id="formDebugTimerMove" type=checkbox
+		<input id="formDebugTimerMove" type="checkbox"
 			onchange="DebugParameterSet(this, 'debugTimerMove', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Filters and Transition activity: <br >
 		<label for="formDebugTimerTransition">debugTimerTransition </label>
-		<input id="formDebugTimerTransition" type=checkbox
+		<input id="formDebugTimerTransition" type="checkbox"
 			onchange="DebugParameterSet(this, 'debugTimerTransition', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Timer activity for individual images: <br >
 		<label for="formDebugTimerDetail">debugTimerDetail </label>
-		<input id="formDebugTimerDetail" type=checkbox
+		<input id="formDebugTimerDetail" type="checkbox"
 			onchange="DebugParameterSet(this, 'debugTimerDetail', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Mouse Events: <br >
 		<label for="formDebugLogEvents">debugLogEvents </label>
-		<input id="formDebugLogEvents" type=checkbox
+		<input id="formDebugLogEvents" type="checkbox"
 			onchange="DebugParameterSet(this, 'debugLogEvents', 'Toggle')"
 			>
 		<p ></p>
@@ -292,28 +292,28 @@
 		<fieldset><legend>Debugger Control</legend>
 		Enter the debugger when errors occur: <br >
 		<label for="formErrorUseDebugOnError">errorUseDebugOnError </label>
-		<input id="formErrorUseDebugOnError" type=checkbox
+		<input id="formErrorUseDebugOnError" type="checkbox"
 			onchange="DebugParameterSet(this, 'errorUseDebugOnError', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Enter the debugger after each Log entry: <br >
 		<label for="formErrorUseDebugOnAll">errorUseDebugOnAll </label>
-		<input id="formErrorUseDebugOnAll" type=checkbox
+		<input id="formErrorUseDebugOnAll" type="checkbox"
 			onchange="DebugSetToggleerrorUseDebugOnAll', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Allow degguger usage: <br >
 		<label for="formDebugIsOn">debugIsOn </label>
-		<input id="formDebugIsOn" type=checkbox checked
+		<input id="formDebugIsOn" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'debugIsOn', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Display debug messages in an alert box: <br >
 		<label for="formDebugDoAlert">debugDoAlert </label>
-		<input id="formDebugDoAlert" type=checkbox
+		<input id="formDebugDoAlert" type="checkbox"
 			onchange="DebugParameterSet(this, 'debugDoAlert', 'Toggle')"
 			>
 		<p ></p>
@@ -336,7 +336,7 @@
 		Delay Java initialization functions<br >
 		until after Page Load: <br >
 		<label for="formJavaLoadDelay">loadDelayJava </label>
-		<input id="formJavaLoadDelay" type=checkbox checked
+		<input id="formJavaLoadDelay" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'loadDelayJava', 'Toggle')"
 			>
 		<div><br >
@@ -344,7 +344,7 @@
 		Delay downloading Body Content images<br >
 		until after Page Load: <br >
 		<label for="formBodyImageLoadDelay">loadDelayBodyImage </label>
-		<input id="formBodyImageLoadDelay" type=checkbox checked
+		<input id="formBodyImageLoadDelay" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'loadDelayBodyImage', 'Toggle')"
 			>
 		<div><br >
@@ -352,7 +352,7 @@
 		Delay loading Menu Thumbnail images<br >
 		until after Page Load: <br >
 		<label for="formMenuImageLoadDelay">loadDelayMenuImage </label>
-		<input id="formMenuImageLoadDelay" type=checkbox checked
+		<input id="formMenuImageLoadDelay" type="checkbox" checked
 			onchange="DebugParameterSet(this, 'loadDelayMenuImage', 'Toggle')"
 			>
 		</fieldset>

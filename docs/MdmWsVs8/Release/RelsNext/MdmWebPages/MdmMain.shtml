@@ -7,61 +7,59 @@
 	<meta name="Author" content="David G. Horsman">
 	<meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
-	<link id="MdmBaseTags" rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
-	<link rel="stylesheet" type="text/css" href="../Css/Page/MdmMain.css">
-	<!-- <link rel="stylesheet" type="text/css" href="../Css/Page/MdmDebugTagHover.css"> -->
-	<link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
+	<link id="MdmBaseTagsStyles" rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+	<link id="MdmColourPalletStyles" rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+	<link id="MdmBodyHeaderStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+	<link id="MdmMenuStyles" rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+	<link id="MdmMenuImageStyles" rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
+	<link id="MdmBodyBoxStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+	<link id="MdmBodyTextStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+	<link id="MdmMainStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmMain.css">
+	<link id="ShortcutIcon" rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
+	<link id="ShortcutIconApple" rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
+	<link id="MdmDebugTagHoverStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmDebugTagHover.css">
 	<!-- // Script -->
 	<!-- // 	Load -->
 	<!-- //			Build Version -->
-	<script src="../../RelsBuildStage.js"></script>
+	<script id="RelsBuildStage" src="../../RelsBuildStage.js"></script>
 	<!-- // 	Core -->
-	<script src="../MdmJs/MdmIncludeHtml.js"></script>
-	<!-- <script src="../MdmJs/MdmDeclarations.js"></script> -->
-	<script src="../MdmJs/MdmBrowser.js"></script>
-	<script src="../MdmJs/MdmStandardFuntions.js"></script>
-	<script src="../MdmJs/MdmError.js"></script>
-	<script src="../MdmJs/MdmDebugConsole.js"></script>
+	<script id="MdmIncludeHtml" src="../MdmJs/MdmIncludeHtml.js"></script>
+	<!-- <script id="MdmDeclarations" src="../MdmJs/MdmDeclarations.js"></script> -->
+	<script id="MdmBrowser" src="../MdmJs/MdmBrowser.js"></script>
+	<script id="MdmStandardFuntions" src="../MdmJs/MdmStandardFuntions.js"></script>
+	<script id="MdmError" src="../MdmJs/MdmError.js"></script>
+	<script id="MdmDebugConsole" src="../MdmJs/MdmDebugConsole.js"></script>
 	<!-- // 		Initialization -->
 	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
 	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
-	<script src="../MdmJs/Page/MdmMain.js"></script>
-	<script src="../MdmJs/MdmMenuInit.js"></script>
-	<script src="../MdmJs/Page/MdmMenuImageInit.js"></script>
-	<script src="../MdmJs/Page/MdmMenuImageElement.js"></script>
+	<script id="MdmMain" src="../MdmJs/Page/MdmMain.js"></script>
+	<script id="MdmMenuInit" src="../MdmJs/MdmMenuInit.js"></script>
+	<script id="MdmMenuImageInit" src="../MdmJs/Page/MdmMenuImageInit.js"></script>
+	<script id="MdmMenuImageElement" src="../MdmJs/Page/MdmMenuImageElement.js"></script>
 	<!-- //		 -->
-	<script src="../MdmJs/MdmTimer.js"></script>
-	<script src="../MdmJs/MdmImageZoom.js"></script>
-	<script src="../MdmJs/MdmParamSet.js"></script>
-	<script src="../MdmJs/MdmParamInit.js"></script>
-	<script src="../MdmJs/MdmDebugTagHover.js"></script>
+	<script id="MdmTimer" src="../MdmJs/MdmTimer.js"></script>
+	<script id="MdmImageZoom" src="../MdmJs/MdmImageZoom.js"></script>
+	<script id="MdmParamSet" src="../MdmJs/MdmParamSet.js"></script>
+	<script id="MdmParamInit" src="../MdmJs/MdmParamInit.js"></script>
+	<script id="MdmDebugTagHover" src="../MdmJs/MdmDebugTagHover.js"></script>
 	<!-- // 			Elements (dom) -->
-	<script src="../MdmJs/MdmElement.js"></script>
+	<script id="MdmElement" src="../MdmJs/MdmElement.js"></script>
 	<!-- // 	Components -->
 	<!-- //			Window -->
-	<script src="../MdmJs/MdmWindow.js"></script>
+	<script id="MdmWindow" src="../MdmJs/MdmWindow.js"></script>
 	<!-- // 			Page -->
-	<script src="../MdmJs/MdmPage.js"></script>
-	<script src="../MdmJs/MdmWindowLayout.js"></script>
+	<script id="MdmPage" src="../MdmJs/MdmPage.js"></script>
+	<script id="MdmWindowLayout" src="../MdmJs/MdmWindowLayout.js"></script>
 	<!-- // 			Menus -->
-	<script src="../MdmJs/MdmMenu.js"></script>
-	<script src="../MdmJs/MdmMenuImage.js"></script>
-	<script src="../MdmJs/Page/MdmMenuImageCollection.js"></script>
+	<script id="MdmMenuImageCollection" src="../MdmJs/Page/MdmMenuImageCollection.js"></script>
 	<!-- // 		Animation -->
-	<script src="../MdmJs/MdmAnimation.js"></script>
-	<script src="../MdmJs/MdmElementEvent.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
+	<script id="MdmAnimation" src="../MdmJs/MdmAnimation.js"></script>
+	<script id="MdmElementEvent" src="../MdmJs/MdmElementEvent.js"></script>
+	<script id="MdmPageElement" src="../MdmJs/MdmPageElement.js"></script>
 	<!-- // 	Initialization -->
-	<script src="../MdmJs/MdmPageInit.js"></script>
+	<script id="MdmPageInit" src="../MdmJs/MdmPageInit.js"></script>
 </head>
 <!-- Section HTML Body Content -->
 <!-- ..................................................................................... -->
@@ -135,6 +133,51 @@
 										</div>
 									</div> <!-- end of BodyConsoleMouseOverButton -->
 									<!-- ..................................................................................... -->
+									<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
+										<div id="BodyConsoleBoxToggles"
+											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleBoxButton" class="ViewToggleBlockContainer">
+												<div id="BodyConsoleToggle"
+													class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin"
+													onmousedown="BodyConsoleToggle(true, 'ConsoleAll');">
+													C
+												</div>
+											</div> <!-- end of BodyConsoleBoxButton -->
+											<!-- * -->
+											<div id="BodyConsoleLogToggles" class="ViewToggleBlockContainer">
+												<div id="BodyConsoleErrorToggle"
+													class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
+													onmousedown="BodyConsoleToggle(true, 'ConsoleError');">
+													e
+												</div>
+												<div id="BodyConsoleEventToggle"
+													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+													onmousedown="BodyConsoleToggle(true, 'ConsoleEvent');">
+													v
+												</div>
+												<div id="BodyConsoleStateToggle"
+													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+													onmousedown="BodyConsoleToggle(true, 'ConsoleState');">
+													s
+												</div>
+											</div> <!-- end of BodyConsoleLogToggles -->
+										</div> <!-- end of BodyConsoleBoxToggles -->
+										<!-- * -->
+										<div id="BodyConsoleAuxillaryToggles"
+											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleTestToggle"
+												class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
+												onmousedown="BodyConsoleToggle(true, 'ConsoleTest');">
+												T
+											</div>
+											<div id="BodyConsoleClearToggle"
+												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+												onmousedown="BodyConsoleToggle(true, 'ConsoleClear');">
+												c
+											</div>
+										</div> <!-- end of BodyConsoleAuxillaryToggles -->
+									</div> <!-- end of BodyConsoleBoxButtons -->
+									<!-- ..................................................................................... -->
 									<div id="BodyConsoleDebugButtons" class=" ViewToggleBlockContainerOuterTopZero">
 										<!-- Note: No Hide for buttons -->
 										<div id="BodyConsoleDebugToggles"
@@ -185,51 +228,6 @@
 											</div>
 										</div> <!-- end of BodyConsoleDebugTypesToggles -->
 									</div> <!-- end of BodyConsoleDebugButtons -->
-									<!-- ..................................................................................... -->
-									<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
-										<div id="BodyConsoleBoxToggles"
-											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleBoxButton" class="ViewToggleBlockContainer">
-												<div id="BodyConsoleToggle"
-													class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin"
-													onmousedown="BodyConsoleToggle(true, 'ConsoleAll');">
-													C
-												</div>
-											</div> <!-- end of BodyConsoleBoxButton -->
-											<!-- * -->
-											<div id="BodyConsoleLogToggles" class="ViewToggleBlockContainer">
-												<div id="BodyConsoleErrorToggle"
-													class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleError');">
-													e
-												</div>
-												<div id="BodyConsoleEventToggle"
-													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleEvent');">
-													v
-												</div>
-												<div id="BodyConsoleStateToggle"
-													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleState');">
-													s
-												</div>
-											</div> <!-- end of BodyConsoleLogToggles -->
-										</div> <!-- end of BodyConsoleBoxToggles -->
-										<!-- * -->
-										<div id="BodyConsoleAuxillaryToggles"
-											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleTestToggle"
-												class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
-												onmousedown="BodyConsoleToggle(true, 'ConsoleTest');">
-												T
-											</div>
-											<div id="BodyConsoleClearToggle"
-												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-												onmousedown="BodyConsoleToggle(true, 'ConsoleClear');">
-												c
-											</div>
-										</div> <!-- end of BodyConsoleAuxillaryToggles -->
-									</div> <!-- end of BodyConsoleBoxButtons -->
 									<!-- ..................................................................................... -->
 								</div> <!-- end of View Toggle Left -->
 								<br id="BrViewToggleLeft" class="aClearBoth">
@@ -1497,11 +1495,15 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 			<!-- ..................................................................................... -->
 			<!-- BodyMainCenterBottom (Hide / Show) -->
 			<!-- ..................................................................................... -->
-			<div id="BodyMainCenterBottom">
+			<div id="BodyMainCenterBottom" class="BorderThin">
 				<!-- * -->
 				<!-- * -->
 				<!-- BodyMainCenterTopLeft -->
 				<div id="BodyMainCenterBottomLeft">
+				</div>
+				<!-- * -->
+				<!-- * -->
+				<div id="BodyMainCenterBottomCenter">
 				</div>
 				<!-- * -->
 				<!-- * -->
@@ -1511,7 +1513,10 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 				<!-- * -->
 				<!-- * -->
 				<div id="BodyBannerBottom">
-					<!-- ** Menu Blocks ** -->
+					<!-- ** Blocks ** -->
+					<object id="MdmPtConsoleBannerBottom" 
+					class="BodyBannerBottomBox CalloutBorderFull"
+					name="MdmPtDocBottom" type="text/html" data="../TemplatePage/MdmPtDocBottom.shtml" src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
 					<!--#include virtual="../../PageBuildStage.js"-->
 					<!--#if expr="${PageBuild}=RelsNext" -->
 					<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
@@ -1521,9 +1526,9 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 					<!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
 					<!--#include virtual="/release/RelsNotSetError.htm"-->
 					<!--#endif -->
-				</div> <!-- end of BodyBannerBottom -->
-				<!-- * -->
-				<br class="aClearBoth">
+					<br>
+					<!-- * -->
+					</div> <!-- end of BodyBannerBottom -->
 				<!-- * -->
 			</div> <!-- end of BodyMainCenterBottom -->
 			<!-- * -->

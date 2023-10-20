@@ -129,12 +129,12 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 	} else {
 		fontUnits = 'px';
 	}
-	changeCSSStyle('MdmBaseTags', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits);
-	changeCSSStyle('MdmBaseTags', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits);
-	changeCSSStyle('MdmBaseTags', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits);
-	changeCSSStyle('MdmBaseTags', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits);
-	changeCSSStyle('MdmBaseTags', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits);
-	changeCSSStyle('MdmBaseTags', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits);
+	changeCSSStyle('MdmBaseTagsStyles', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
 	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
 	// Scan 6-36 to see which fonts are defined/used.
 	for (idx = 6; idx < 37; idx++) {
@@ -145,33 +145,109 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 		} else {
 			fontUnits = 'px';
 		}
-		changeCSSStyle('MdmBaseTags.css', '.f' + idx, 'fontSize', (fontCalc) + fontUnits);
+		changeCSSStyle('MdmBaseTagsStyles', '.f' + idx, 'fontSize', (fontCalc) + fontUnits, true);
 		// Title1-2, Caption1-2
 	}
 }
 
-// ssMain is the stylesheet's index based on load order. See document.styleSheets. E.g. 0=reset.css, 1=main.css.
-var ssMain = 0;
+// idxSheet is the stylesheet's index based on load order. See document.styleSheets. E.g. 0=reset.css, 1=main.css.
+var idxSheet = 0;
+// this is for old browsers.
 // var cssRules = (document.querySelectorAll("*")) ? 'rules' : 'cssRules';
-var cssRules = (document.all) ? 'rules' : 'cssRules';
-function changeCSSStyle(sheetTitle, selector, cssProp, cssVal) {
-	// StyleSheets.title (from ssMain) (removed ===)
-	if (document.styleSheets[ssMain]) {
-		if (document.styleSheets[ssMain][cssRules]) {
-			for (idx = 0, len = document.styleSheets[ssMain][cssRules].length; idx < len; idx++) {
-				// if (StyleSheets.title == sheetTitle) {
-				if (document.styleSheets[ssMain][cssRules][idx].selectorText == selector) {
-					document.styleSheets[ssMain][cssRules][idx].style[cssProp] = cssVal;
+// var cssRules = (document.all) ? 'rules' : 'cssRules';
+
+var sheetName;
+var sheetCurrent;
+var sheetId;
+
+function changeCSSStyleByQuery(sheetId, selector, cssProp, cssValue, isStyle) {
+	sheetName = "../Css/" + sheetId + ".css";
+	sheetCurrent = document.querySelector("id='" + sheetId + "'");
+	if (!sheetCurrent) { sheetCurrent = document.styleSheets[sheetId]; }
+	if (sheetCurrent) {
+		if (!isStyle) {
+			document.styleSheets[idxSheet][cssRules][idx].cssProp = cssValue;
+		} else {
+			for (idx = 0, len = sheetCurrent[cssRules].length; idx < len; idx++) {
+				// if (StyleSheets.title == sheetId) {
+				if (sheetCurrent[cssRules][idx].selectorText == selector) {
+					sheetCurrent[cssRules][idx].style[cssProp] = cssValue;
 					return;
 				}
 			}
-
 		}
 	}
 }
+
+function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
+	// StyleSheets.title (from idxSheet) (removed ===) added Id's
+	var idxSheetStart = 0;
+	var sheetRules;
+	// passed id
+	// when numeric start the scan there.
+	var sheetIdxNumeric = parseInt(sheetId);
+	if (sheetIdxNumeric > 0 || passedSheetId == "0") {
+		idxSheetStart = sheetIdxNumeric;
+	}
+	// Seach through the sytle sheets
+	for (idxSheet = idxSheetStart, lenSheet = document.styleSheets.length; idxSheet < lenSheet; idx++) {
+		if (document.styleSheets[idxSheet] && document.styleSheets[idxSheet].ownerNode) {
+			sheetCurrent = document.styleSheets[idxSheet];
+			if (sheetCurrent.ownerNode.id && sheetCurrent.ownerNode.id.length) {
+				sheetId = sheetCurrent.ownerNode.id;
+			} else {
+				if (sheetCurrent.href && sheetCurrent.href.length) {
+					sheetId = path.split(sheetCurrent.href).pop();
+				}
+			}
+			if (!sheetId) { sheetId = ""; }
+
+			if (sheetCurrent.ownerNode.id == sheetId) {
+				// Found the sheet id
+				if (!isStyle) {
+					sheetCurrent[cssProp] = cssValue;
+					// sheetCurrent.ownerNode[cssProp] = cssValue;
+					return true;
+				} else {
+					if (sheetCurrent) {
+						if (!browserIsOld) {
+							sheetRules = sheetCurrent.cssRules;
+						} else {
+							sheetRules = sheetCurrent.rules;
+						}
+						for (idx = 0, len = sheetRules.length; idx < len; idx++) {
+							if (sheetRules[idx].selectorText == selector) {
+								sheetRules[idx].style[cssProp] = cssValue;
+								return true; // only the first instance of the style is altered
+							}
+						}
+					}
+					return false; // end search once sheet found (failed)
+				}
+			}
+		}
+	}
+	return false; // sheet not found
+}
+// if (document.styleSheets[idxSheet][cssRules]) {
+// 	for (idx = 0, len = document.styleSheets[idxSheet][cssRules].length; idx < len; idx++) {
+// 		// if (StyleSheets.title == sheetId) {
+// 		if (document.styleSheets[idxSheet][cssRules][idx].selectorText == selector) {
+// 			document.styleSheets[idxSheet][cssRules][idx].style[cssProp] = cssVal;
+// 			return;
+// 		}
+// 	}
+
+// }
+
+
+
 function changeCSSStyleTest() {
-	changeCSSStyle('MdmBaseTags.css', '.h1', 'color', 'red');
-	changeCSSStyle('MdmBaseTags.css', 'p.f12', 'fontSize', '24px');
+	changeCSSStyle('MdmBaseTagsStyles', '.h1', 'color', 'red', true);
+	changeCSSStyle('MdmBaseTagsStyles', 'p.f12', 'fontSize', '24px', true);
+	changeCSSStyle('0', 'h5', 'color', 'purple', true);
+	document.styleSheets.item(1).disabled = false;
+	changeCSSStyle('MdmBaseTagsStyles', 'disabled', 'disabled', true, false);
 }
 
 // Body Layout Selection

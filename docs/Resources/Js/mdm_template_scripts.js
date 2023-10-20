@@ -4038,7 +4038,7 @@ var layoutBodyColumnType;
 // A larger font size will disturb the floating by
 // pushing down the content that wont fit beside the
 // callout.
-var layoutFontRatio = 1.0;
+var layoutEmRation = 1.0;
 //
 var layoutMenuDocWidthWide = 900;
 //
@@ -4093,9 +4093,9 @@ function fnWindowResize() {
 	bodylockCn = fnElementObjectBlockCount();
 	//
 	// Determine DivBox (Body Content) column and callout sizes
-	if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutFontRatio) && bodylockCn > 4 && layoutBodyColumnMax > 2) {
+	if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol3Min * layoutEmRation) && bodylockCn > 4 && layoutBodyColumnMax > 2) {
 			layoutBlockWidth = layoutBlockWidthWide;
-	} else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutFontRatio)   && layoutBodyColumnMax > 1) {
+	} else if (bodyMainCenterCenter.offsetWidth > (layoutBlockCol2Min * layoutEmRation)   && layoutBodyColumnMax > 1) {
 			layoutBlockWidth = layoutBlockWidthStandard;
 	} else {
 			layoutBlockWidth  = layoutBlockWidthNarrow;

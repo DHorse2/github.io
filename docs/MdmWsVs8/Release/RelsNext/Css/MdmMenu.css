@@ -49,8 +49,17 @@
 .ViewToggleBlockContainerOuterTop:hover {
     /* Size */
     /* Border */
-    border-left: .3em solid white;
-    border-right: .4em solid white;
+    background-color: black;
+    /* border-left: .3em solid black; */
+    /* border-right: .4em solid black; */
+}
+
+.ViewToggleBlockContainerOuterTop:hover {
+    /* Size */
+    /* Border */
+    background-color: white;
+    /* border-left: .3em solid white; */
+    /* border-right: .4em solid white; */
 }
 
 .ViewToggleBlockContainerOuterTopZero:hover {
@@ -60,8 +69,10 @@
     /* Alignment */
     float: left;
     text-align: center;
-    border-left: .3em solid black;
-    border-right: .4em solid black;
+    /* Border */
+    background-color: green;
+    /* border-left: .3em solid black; */
+    /* border-right: .4em solid black; */
 }
 
 
@@ -92,7 +103,7 @@
     /* border-left: .4em inset #036; */
     /* border-right:.5em inset #036; */
     /* border-color:#036; */
-    border: .2em inset blue;
+    border: .2em outset blue;
 }
 
 .ViewToggleBlockLabel {

@@ -750,14 +750,26 @@ function BodyConsoleShow(DoHide, DoDebug) {
 // Sycn form element with page internal settings or vice versa (fromForm)
 function ConsoleFormElementSync(fromForm) {
 	var tempSelected = false;
+	// if (!consoleStateFormValid) { return; } // It's off or omitted
 	var elementObject = document.createElement('input');
 
 	// Toggled Variables
 	// ...................................... //
+	consoleStateFormValid = true;
 	elementObject = document.getElementById('formImgLoadUseEventHandler');
-	if (!elementObject) { return; }
+	// Is the form accessible?
+	if (!elementObject) {
+		ErrorOccured(eventCurr, elementObject, consoleStateForm, "Console Form cannot be accessed or synced", errorWarn, false, false);
+		consoleStateFormValid = false; // turn it off
+		return;
+	}
+
 	// ** Javascript Parameter Init Blocks **
-	if (imgLoadUseEventHandler) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (fromForm) {
+		if (elementObject.checked) { imgLoadUseEventHandler = true; } else { imgLoadUseEventHandler = false; }
+	} else {
+		if (imgLoadUseEventHandler) { elementObject.checked = true; } else { elementObject.checked = false; }
+	}
 	//
 	elementObject = document.getElementById('formImgLoadUseInner');
 	if (fromForm) {
@@ -1218,8 +1230,11 @@ function ConsoleFormFocusToggle(event) {
 }
 function ConsoleFormFocusIn(event) {
 	consoleFormFocus = true;
+	ConsoleFormElementSync(false);
 	if (!consoleStateFormValid) { return; }
 	if (!consoleStateBoxValid) { return; }
+	// update form (settings can be altered by running code)
+	ConsoleFormElementSync(false);
 	consoleFormFocusWidthLast = consoleStateBox.style.width;
 	consoleFormFocusLeftLast = consoleStateBox.style.left;
 	consoleStateBox.style.left = "0%";

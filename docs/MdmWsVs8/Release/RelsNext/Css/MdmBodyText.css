@@ -182,7 +182,7 @@
 .CalloutBox {
     /* Position */
     /* Size */
-    width: 50%;
+    width: 48%;
     max-width: 40.0em;
     /* Alignment */
     text-align: left;
@@ -286,7 +286,7 @@
     /* Border */
     border-style: solid;
     /* border-style:groove; */
-    border-width: .4em;
+    border-width: .2em;
     /* border:solid; */
     border-color: #999933;
     /* cPcd */

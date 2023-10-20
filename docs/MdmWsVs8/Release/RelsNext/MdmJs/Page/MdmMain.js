@@ -1,13 +1,15 @@
 menuImageBorderWidth = 6;
 filterMotionDirectionSourceAngle = 292.5;
 
+// Sever SECTION
 // ServerIsOn (Page came from local or server)
 // ...................................... //
 serverIsOn = false;
 // Override server settings.
 PageBuild = "RelsNext";
 PageMode = "Dev";
-// Page Loading Optimization
+
+// Page Loading / Optimization SECTION
 // ...................................... //
 // Include based file loads:
 var loadDelayIncludes = false;
@@ -28,7 +30,27 @@ var loadFirstDebugState = true;
 // Local Parameter Initialization specified here.
 function FormElementSyncLocal() { FormElementSync(); } // uses defaults.
 
-// Log usage
+// SECTION - general SETTINGS (and in Console Form)
+// ...................................... //
+
+// Block Animation Control AREA
+// ...................................... //
+// Basic Options:
+var moveIsOn = true; // Object Move From Origin to Destination
+// Animations and transitions
+var filterIsOn = true; // Transition
+var filterResizeIsOn = true; // Growing image
+var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
+
+// Mouse Hover activation of image display
+var eventMouseOverEnabled = false;
+// Type of Image Group Page Generation
+var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
+var imgLoadUseDOM = true; // Add Elements to DOM
+var imgLoadUseInner = false; // Use innerHTML for content
+var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
+
+// AREA Log usage
 // ...................................... //
 // Example of naming for corresponding parameters
 // (this is not an actual global parameter)
@@ -41,65 +63,73 @@ var UseSingleLine = DoNotUseSingleLine;
 
 var errorResultOnFail = errorDidNotOccur;
 var errorMessage = "Page settings initializing";
-// Find Iteration Options (note)
-// ...................................... //
-// var DoFindSet = 1
-// var DoFindReturn = 2;
 
-// Errors
-// ...................................... //
-var errorDoDisplayTag = true;
-var errorDoNotDisplayTag = false;
-var errorDoAlert = true;
-var errorDoNotAlert = false;
-
-// Debug
+// AREA Debug. This AREA is for controlling javascript debugging.
 // ...................................... //
 var debugIsOn = true; // FLAG ON!!! todo
 var debugDoAlert = false;
+// PageBuild, PageMode, debugLoadIsOn, script_state
+
+// Error debug Handling
+// Use debugger on error. This toggle can be on by default
+var errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
+var errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
+
 var debugAlert = true;
 var debugConsole = true;
 // Log events to console
 var debugLogEvents = true;
 var debugLogEventDuplicates = false;
 
-// NEW todo
-// These are normalized
+// AREA Debug Areas
+// These are normalized Areas
+// main features and components
 var debugAnitmation = true;
-var debugEvents = true;
 var debugImages = true;
 var debugMenus = true;
+// Elements
+// Page
+// Window
+// Layout
+var debugEvents = true;
 var debugLayout = true;
-
 // Debug Timers
 var debugTimer = false;
 var debugTimerMove = false;
 var debugTimerTransition = false;
 var debugTimerDetail = false;
+// Load - Steps through loading script files
+debugLoadIsOn = false;
 
-// Error Handling
+// AREA Error Severity
 // ...................................... //
-// Use debugger on error:
-// this (debug on error) is the only toggle possibly on by default
-var errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
-var errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
-
-// Steps through loading script files
-// debugLoadIsOn = false;
-
-// Error Severity
 errorDidNotOccur = 0;
 errorComment = 5;
 errorWarn = 10;
 errorSevere = 20;
 errorFatal = 30;
 
+// Severity that triggers debugger. Usually severe or warning.
+errorDebugLevel = errorSevere;
+
 // Initial settings:
 errorSeverity = errorDidNotOccur;
 errorSeverityLevel = errorDidNotOccur;
-errorDebugLevel = errorSevere;
 
-// Console (debug)
+// Potentially these can be overridden.
+// Find Iteration Options (note)
+// ...................................... //
+// DoFindSet = 1
+// DoFindReturn = 2;
+
+// Error Options
+// ...................................... //
+// errorDoDisplayTag = true; // or override
+// errorDoNotDisplayTag = false; // same...
+// errorDoAlert = true;
+// errorDoNotAlert = false;
+
+// Console (debug) SECTION
 // ...................................... //
 // colour
 ButtonIsOnColor = 'Lime';
@@ -129,18 +159,6 @@ var oObjGroupIndex = 1;
 // location of Group / Roots in arrays
 var oObjRootIndex = 0;
 var indexGroup = 0;
-
-// SectionBlock Image Handling
-// ...................................... //
-// BrowserVsGet();
-// Type of Image Group Page Generation
-var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
-var imgLoadUseDOM = true; // Add Elements to DOM
-var imgLoadUseInner = false; // Use innerHTML for content
-var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
-
-// Mouse Hover activation of image display
-var eventMouseOverEnabled = false;
 
 // Menu Image Size
 var oObjImageSizeSmall = 150;
@@ -175,15 +193,6 @@ var imgGroupBoxCount = 20; // depreciated
 var imgGroupCount = bodyMenuGroupMax + 1;
 var imgGroupArraySize = bodyMenuGroupMax + 1;
 var imgGroupImageArraySize = bodyMenuGroupMax + 1;
-
-// SectionBlock Animation Control
-// ...................................... //
-// Basic Options:
-var moveIsOn = true; // Object Move From Origin to Destination
-// Animations and transitions
-var filterIsOn = true; // Transition
-var filterResizeIsOn = true; // Growing image
-var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 
 // Animated Images
 // ...................................... //

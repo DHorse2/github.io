@@ -18,6 +18,13 @@ var DoNotUseHide = false;
 var DoFindSet = 1
 var DoFindReturn = 2;
 
+// Error Options
+// ...................................... //
+var errorDoDisplayTag = true;
+var errorDoNotDisplayTag = false;
+var errorDoAlert = true;
+var errorDoNotAlert = false;
+
 // Offsets
 // ...................................... //
 var DoUseOffset = true;
@@ -428,20 +435,22 @@ function ErrorMessageGet() {
     var messageFinal = "";
     if (messageUrl) {
         messageFinal += " Url:" + messageUrl;
-        if (!UseSingleLine && messageUrl.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
     }
     if (eventFileName) {
+        if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
         messageFinal += " File:" + eventFileName;
-        if (!UseSingleLine && eventFileName.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
-    }
-    // todo this gets parsed (last /)
-    if (eventTimeStamp) { messageFinal += " TimeStamp:" + eventTimeStamp; }
-    if (messageFinal.length) {
-        messageFinal = "  Message at: ( " + messageFinal;
-        if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
         if (eventFileLine) { messageFinal += " Line:" + eventFileLine; }
         if (eventFileColumn) { messageFinal += " Column:" + eventFileColumn; }
-            messageFinal += " )";
+    }
+    // todo this gets parsed (last /)
+    if (eventTimeStamp) {
+        if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
+        messageFinal += " TimeStamp:" + eventTimeStamp;
+    }
+    if (messageFinal.length && !UseSingleLine) {
+        messageFinal = "  Details: " + messageFinal;
+        if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
+            messageFinal += " ";
     }
     if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
     if (eventMessage) { messageFinal += "" + eventMessage; }

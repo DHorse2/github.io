@@ -462,6 +462,16 @@ function ElementPlay(playDirection, IsImageLarge,
 // ElementGroupToggleRange
 // ...................................... //
 function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	// Set succeeded
+	if (debugAnitmation) {
+		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+			'GroupToggleRange(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
+			+ 'Started: Hide small/large: ' + HideImage + ', ' + HideImageLarge + '. '
+			+ charNewLineTag,
+			'FilterGet', 3139, null, null,
+			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+		//
+	}
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
@@ -550,6 +560,16 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	if (debugAnitmation) {
+		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+			'ElementGroupShowStack(' + oObjNextImageId.id
+			+ oObjGroupIndex + ', ' + oObjGroupImageIndex + ') size:' + iImageSize + '. '
+			+ 'Image: isLarge: ' + IsImageLarge + '. '
+			+ charNewLineTag,
+			'FilterGet', 3139, null, null,
+			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+		//
+	}
 	// load and validate event and objects
 	ElementEventFromHtmlCheck(null, debugLogEvents); // todo review
 	if (eventCurrId == oObjNextParentId

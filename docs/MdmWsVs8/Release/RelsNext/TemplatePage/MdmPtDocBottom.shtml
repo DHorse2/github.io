@@ -1,8 +1,5 @@
-                            </div>
-                            <div class="FixClear"><p></p></div>
-                            <div class="FixClear"><p></p></div>
                             <!--** Footer Block **-->
-                            <div id="B3D1" class="BodyParaLeft BorderThin">
+                            <div id="DivBodyBannerBottom" class="BodyParaLeft BorderThin">
                                 <div id="B3C1" class="BodyParaRight CalloutBorder">
                                     <a id="B3C1A" href="#" class="CalloutContent CP">
 									   <span id="B3C1A1" class="CPA">No Link Here</span>
@@ -29,25 +26,3 @@
                                     <br>
                                 </p>
                             </div>
-                            <!-- D3D1 -->
-                            <div class="FixClear"><p></p></div>
-                        </div>
-                        <!-- DivB2i -->
-                        <!--*-->
-                    </div>
-                    <!-- DivB2o -->
-                </div>
-                <!-- DivB2c -->
-            </div>
-            <!-- BodyMainCenter -->
-        </div>
-        <!-- BodyMainContainer -->
-        <!--** End of Body Main Center *-->
-        <!--<div class="FixClear"><p>BodyMainContainer</p></div>-->
-    </div>
-    <!--** Body Area **-->
-    <!--*-->
-    <!--** End of Main Page Body BodyMainContainer *-->
-    <!--** End of Content Container BodyArea *-->
-    <!--*-->
-    <!--<div class="FixClear"><p>Body</p></div>-->
