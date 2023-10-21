@@ -693,7 +693,7 @@ Test Data
   <!--** Block 1 **-->
   <div id="DivSection1" class="DivSection1 BodyParaBox BorderThin BodyParaBoxBg">
 	<div id="DivBox1" class="DivBox1 BodyParaLeft">
-		  <div id="DivCallout1" class="BodyParaRight CalloutBox2 CalloutBorder layoutBodyColumnTypeFixed">
+		  <div id="DivCallout1" class="BodyParaRight CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed">
 			  <a id="C1A" href="#" class="CalloutContent CPA">
 				  <h4 class="CPA">the broader scope...</h4>
 				 <!-- x -->
@@ -769,7 +769,7 @@ Test Data
 			A third goal was to produce content using very basic language and
 			features that would also include attractive interactive and animated features.
 		</p>
-	<div id="DivCallout2" class="BodyParaRight CalloutBox2 CalloutBorder layoutBodyColumnTypeFixed ">
+	<div id="DivCallout2" class="BodyParaRight CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed ">
 			<!-- x -->
 		  <a id="C2A" href="#" class="CalloutContent CPA">
 			<h4 id="C2AH1" class="CPA aCenter">
@@ -794,7 +794,7 @@ Test Data
 			(like JQuery but perhaps specialized such as animation libraries.)
 		</p>
 	<!--* C3-->
-	<div id="DivCallout3" class="BodyParaLeft CalloutBox2 CalloutBorder layoutBodyColumnTypeFixed">
+	<div id="DivCallout3" class="BodyParaLeft CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed">
 		<h4 id="C3H1" class="BodyPara cSd CPT">
 			Project Objectives.<br>
 		</h4>

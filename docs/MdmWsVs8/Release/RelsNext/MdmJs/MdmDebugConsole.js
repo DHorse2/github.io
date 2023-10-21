@@ -76,14 +76,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is OFF',
 						'BodyConsoleToggle', 8307, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					eventMouseOverEnabled = true;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is ON',
 						'BodyConsoleToggle', 8314, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 				}
 				//
@@ -92,13 +92,13 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is OFF',
 						'BodyConsoleToggle', 8317, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is ON',
 						'BodyConsoleToggle', 8314, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 				}
 
@@ -229,7 +229,7 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 			MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 				'This is a test message for checking the console display...',
 				'BodyConsoleToggle', 8225, consoleTestBox, consoleTestBox,
-				errorSevere, errorDoDisplayTag, errorDoAlert);
+				errorIsSevere, errorDoDisplayTag, errorDoAlert);
 			//
 			checkNoVisibleConsole = true;
 			checkBoxSize = true;
@@ -240,7 +240,7 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 				'Error and Log Console has been cleared...',
 				'BodyConsoleToggle', 8235, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 			consoleClearToggle.style.backgroundColor = '';
 			consoleClearToggle.style.color = '';
@@ -319,14 +319,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is OFF',
 						'BodyConsoleToggle ConsoleDebugMove', 8313, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					debugTimerMove = true;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is ON',
 						'BodyConsoleToggle ConsoleDebugMove', 8323, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 					checkLogMode = true;
 				}
@@ -340,13 +340,13 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is OFF',
 						'BodyConsoleToggle ConsoleDebugMove', 8333, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is ON',
 						'BodyConsoleToggle ConsoleDebugMove', 8343, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 					checkLogMode = true;
 				}
@@ -356,13 +356,13 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move Transition is OFF',
 						'BodyConsoleToggle ConsoleDebugMove', 8353, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move Transition is ON',
 						'BodyConsoleToggle ConsoleDebugMove', 8363, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 					checkLogMode = true;
 				}
@@ -378,14 +378,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is OFF',
 					'BodyConsoleToggle', 8331, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerTransition = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is ON',
 					'BodyConsoleToggle', 8341, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -402,14 +402,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is OFF',
 					'BodyConsoleToggle', 8355, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerDetail = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is ON',
 					'BodyConsoleToggle', 8365, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -424,14 +424,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is OFF',
 					'BodyConsoleToggle', 8377, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnError = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is ON',
 					'BodyConsoleToggle', 8387, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -446,14 +446,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is OFF',
 					'BodyConsoleToggle', 8399, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnAll = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is ON',
 					'BodyConsoleToggle', 8406, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				if (!errorUseDebugOnError) { BodyConsoleToggle(true, 'ConsoleDebugOnError'); }
 				consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -470,14 +470,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is OFF',
 					'BodyConsoleToggle', 8423, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugLogEvents = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is ON',
 					'BodyConsoleToggle', 8430, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -759,7 +759,7 @@ function ConsoleFormElementSync(fromForm) {
 	elementObject = document.getElementById('formImgLoadUseEventHandler');
 	// Is the form accessible?
 	if (!elementObject) {
-		ErrorOccured(eventCurr, elementObject, consoleStateForm, "Console Form cannot be accessed or synced", errorWarn, false, false);
+		ErrorOccured(eventCurr, elementObject, consoleStateForm, "Console Form cannot be accessed or synced", errorIsWarning, false, false);
 		consoleStateFormValid = false; // turn it off
 		return;
 	}
@@ -987,36 +987,36 @@ function ConsoleFormElementSync(fromForm) {
 		if (errorDebugLevel == errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorComment');
+	elementObject = document.getElementById('formErrorDebugLevel_errorIsComment');
 	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorComment; } else { errorDebugLevel = true; }
+		if (elementObject.selected) { errorDebugLevel = errorIsComment; } else { errorDebugLevel = true; }
 	} else {
-		if (errorDebugLevel == errorComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		if (errorDebugLevel == errorIsComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorWarn');
+	elementObject = document.getElementById('formErrorDebugLevel_errorIsWarning');
 	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorWarn; tempSelected = true; }
+		if (elementObject.selected) { errorDebugLevel = errorIsWarning; tempSelected = true; }
 	} else {
-		if (errorDebugLevel == errorWarn) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		if (errorDebugLevel == errorIsWarning) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorSevere');
+	elementObject = document.getElementById('formErrorDebugLevel_errorIsSevere');
 	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorSevere; tempSelected = true; }
+		if (elementObject.selected) { errorDebugLevel = errorIsSevere; tempSelected = true; }
 	} else {
-		if (errorDebugLevel == errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		if (errorDebugLevel == errorIsSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorFatal');
+	elementObject = document.getElementById('formErrorDebugLevel_errorIsFatal');
 	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorFatal; tempSelected = true; }
+		if (elementObject.selected) { errorDebugLevel = errorIsFatal; tempSelected = true; }
 	} else {
-		if (errorDebugLevel == errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		if (errorDebugLevel == errorIsFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	// default when not selected/set
 	// ...................................... //
-	if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorSevere').selected = true; }
+	if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorIsSevere').selected = true; }
 	//
 	elementObject = document.createElement('input');
 

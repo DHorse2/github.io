@@ -104,13 +104,13 @@ debugLoadIsOn = false;
 // AREA Error Severity
 // ...................................... //
 errorDidNotOccur = 0;
-errorComment = 5;
-errorWarn = 10;
-errorSevere = 20;
-errorFatal = 30;
+errorIsComment = 5;
+errorIsWarning = 10;
+errorIsSevere = 20;
+errorIsFatal = 30;
 
 // Severity that triggers debugger. Usually severe or warning.
-errorDebugLevel = errorSevere;
+errorDebugLevel = errorIsSevere;
 
 // Initial settings:
 errorSeverity = errorDidNotOccur;

@@ -874,11 +874,11 @@ window.onresize = function() { WindowResizeLayout(); }
         // Add message to appropriate log
 // ------------------------------------------------------------------------------------- _//
 // Error Message Display
-    if (errorSeverityPassed == errorFatal) {
+    if (errorSeverityPassed == errorIsFatal) {
         // dipslay in HTML Critial Message Area
     } else if (errorSeverityPassed == errrorSevere) {
         // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed == errorWarn) {
+    } else if (errorSeverityPassed == errorIsWarning) {
         // dipslay in HTML Warnging Message Area
     } else if (errorSeverityPassed == errorDidNotOccur) {
         // dipslay in HTML Message Area

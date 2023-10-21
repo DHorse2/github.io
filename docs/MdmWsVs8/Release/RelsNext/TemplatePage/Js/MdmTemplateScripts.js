@@ -130,8 +130,8 @@ function FormElementSyncLocal(fromForm) {
 	elementObject = document.getElementById('formErrorDebugLevel_errorSevere');
 	if (errorDebugLevel == errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorFatal');
-	if (errorDebugLevel == errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorIsFatal');
+	if (errorDebugLevel == errorIsFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
 	if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorSevere').selected = true; }
 	//
@@ -4595,7 +4595,7 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 	messageFinal = '';
 	// Error Type
 	switch (errorSeverityPassed) {
-		case errorFatal:
+		case errorIsFatal:
 			messageFinal += 'Fatal';
 			break;
 		case messageElementSevere:
@@ -4711,8 +4711,8 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 	// Add message to appropriate log
 	// Error Type
 	switch (errorSeverityPassed) {
-		case errorFatal:
-		case errorFatal:
+		case errorIsFatal:
+		case errorIsFatal:
 			if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
 			// errorMessageLogFatal += messageFinal;
 			errorSeverityColor = 'Red';
@@ -4822,7 +4822,7 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 function MessageLogAction(MessagePassed,
 	messageUrlPassed, MessageLineNumPassed, messageElementPassed, messageElementSourcePassed,
 	errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
-	if (errorSeverityPassed == errorFatal) {
+	if (errorSeverityPassed == errorIsFatal) {
 		// display alert
 		// dipslay in HTML Critial Message Area
 	} else if (errorSeverityPassed == errorSevere) {

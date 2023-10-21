@@ -727,6 +727,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							</a>
 						</div> <!-- end of DivC1b -->
 						<!-- * -->
+						<br>
 						<h3 id="B12H1" class="h4 BodyPara cSd">
 							If you need more details about skills:
 						</h3>
@@ -812,7 +813,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- -->
 						<!-- Callout Box -->
 						<div id="DivCalloutB15C1"
-							class="BodyParaLeft CalloutBox3 CalloutBorder layoutBodyColumnTypeFixed">
+							class="BodyParaLeft CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed">
 							<!-- -->
 							<!-- Callout Box visible portion and link-->
 							<a id="B15C1A" href="#" class="CalloutContent CPA">
@@ -964,7 +965,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- -->
 						<!-- Callout Box -->
 						<div id="DivCalloutB15C2"
-							class="BodyParaLeft CalloutBox3 CalloutBorder layoutBodyColumnTypeFixed">
+							class="BodyParaLeft CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed">
 							<a id="B15C2A" href="#" class="CalloutContent CPA">
 								<span class="h4 CPA">
 									Warning!!! <br>Before you <br>grab this client script...<br>

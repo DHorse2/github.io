@@ -848,7 +848,7 @@ function TimerStart(timerType, timerGroup, timerId,
                             + (vTimerStart ? 'Ok' : 'Failed')
                             + (vTimerStart ? '.' : '!!!'),
                             'TimerStart', 4557, null, null,
-                            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
                     }
                 }
             } else { timerIsRunning = true; }
@@ -877,7 +877,7 @@ function TimerStart(timerType, timerGroup, timerId,
                 + ', Already running'
                 + '.',
                 'TimerStart', 4587, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
     }
@@ -919,7 +919,7 @@ function TimerSet(timerType, timerGroup, timerId,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
                 + '.',
                 'TimerSet', 4633, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
     } else {
@@ -936,7 +936,7 @@ function TimerSet(timerType, timerGroup, timerId,
                 + ', Already running, delayed start not done'
                 + '.',
                 'TimerSet', 4649, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
     }

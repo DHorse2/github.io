@@ -140,16 +140,16 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				switch (varValuePassed) {
 					case 'errorDidNotOccur': errorDebugLevel = errorDidNotOccur;
 						break;
-					case 'errorComment': errorDebugLevel = errorComment;
+					case 'errorIsComment': errorDebugLevel = errorIsComment;
 						break;
-					case 'errorWarn': errorDebugLevel = errorWarn;
+					case 'errorIsWarning': errorDebugLevel = errorIsWarning;
 						break;
-					case 'errorSevere': errorDebugLevel = errorSevere;
+					case 'errorIsSevere': errorDebugLevel = errorIsSevere;
 						break;
-					case 'errorFatal': errorDebugLevel = errorFatal;
+					case 'errorIsFatal': errorDebugLevel = errorIsFatal;
 						break;
 					default:
-						errorDebugLevel = errorSevere;
+						errorDebugLevel = errorIsSevere;
 						break;
 				}
 				break;

@@ -128,19 +128,19 @@ function FormElementSync()
 	elementObject = ElementGetFromId('formErrorDebugLevel_errorDidNotOccur');
 	if (errorDebugLevel == errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formErrorDebugLevel_errorComment');
-	if (errorDebugLevel == errorComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formErrorDebugLevel_errorIsComment');
+	if (errorDebugLevel == errorIsComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formErrorDebugLevel_errorWarn');
-	if (errorDebugLevel == errorWarn) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formErrorDebugLevel_errorIsWarning');
+	if (errorDebugLevel == errorIsWarning) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formErrorDebugLevel_errorSevere');
-	if (errorDebugLevel == errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formErrorDebugLevel_errorIsSevere');
+	if (errorDebugLevel == errorIsSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = ElementGetFromId('formErrorDebugLevel_errorFatal');
-	if (errorDebugLevel == errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = ElementGetFromId('formErrorDebugLevel_errorIsFatal');
+	if (errorDebugLevel == errorIsFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
-	if (!tempSelected) { ElementGetFromId('formErrorDebugLevel_errorSevere').selected = true; }
+	if (!tempSelected) { ElementGetFromId('formErrorDebugLevel_errorIsSevere').selected = true; }
 	//
 	elementObject = document.createElement('input');
 	////////////////////////////////////////////////

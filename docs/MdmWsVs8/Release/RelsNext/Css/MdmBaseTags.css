@@ -94,61 +94,9 @@ H6,
     font-size: 2.0vw
 }
 
-/* -- Fonts Standard-- */
-/* -- HTML Tags -- */
-/* body, blocks */
-/* body,
-/* div,
-/* para, span */
 p,
-.p,
-span,
-.span,
-/* font size */
-big,
-.big,
-small,
-.small,
-/* decoration */
-i,
-.i,
-b,
-.b,
-strong,
-/* list */
-li,
-.li,
-ol,
-.li,
-ul,
-.ul,
-/* table */
-td,
-.td,
-th,
-.th,
-tbody,
-/* links */
-a,
-.a,
-
-/* -- Fonts Standard-- */
-.fNormal,
-.fStandard,
-.fText {
-    font-family:
-        "Courier New",
-        "Courier",
-        "Times New Roman",
-        "serif",
-        "Times New Roman",
-        "Georgia",
-        "Palatino Linotype",
-        "Sylfaen",
-        "Garamond",
-        "Book Antiqua",
-        "Bookman Old Style"
-    ;
+.p
+{
     font-size: 1em;
 }
 
@@ -248,6 +196,63 @@ padding-bottom: 0em;
     list-style: lower-roman;
 }
 
+
+/* -- HTML Tags -- */
+/* body, blocks */
+/* body,
+/* div,
+/* para, span */
+p,
+.p,
+span,
+.span,
+/* font size */
+big,
+.big,
+small,
+.small,
+large,
+.large,
+/* decoration */
+i,
+.i,
+b,
+.b,
+strong,
+/* list */
+li,
+.li,
+ol,
+.li,
+ul,
+.ul,
+/* table */
+td,
+.td,
+th,
+.th,
+tbody,
+/* links */
+a,
+.a,
+/* -- Fonts Standard-- */
+.fNormal,
+.fStandard,
+.fText {
+    font-family:
+        "Courier New",
+        "Courier",
+        "Times New Roman",
+        "serif",
+        "Times New Roman",
+        "Georgia",
+        "Palatino Linotype",
+        "Sylfaen",
+        "Garamond",
+        "Book Antiqua",
+        "Bookman Old Style"
+    ;
+}
 
 /* -- Headings -- */
 H1,

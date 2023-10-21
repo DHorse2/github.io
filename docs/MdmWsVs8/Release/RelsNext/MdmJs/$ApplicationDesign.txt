@@ -1,8 +1,8 @@
 	if (debugImages) {
-		errorComment = "Getting " + menuImageCn + ": " +  menuImage.Name;
-		if (debugDoAlert) { alert(errorComment); }
+		errorIsComment = "Getting " + menuImageCn + ": " +  menuImage.Name;
+		if (debugDoAlert) { alert(errorIsComment); }
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 // ------------------------------------------------------------------------------------- _//
 ////////////////////////////////////////////////

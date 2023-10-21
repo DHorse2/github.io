@@ -336,7 +336,7 @@
 			<option id="formErrorDebugLevel_errorComment" value="errorComment">errorComment</option>
 			<option id="formErrorDebugLevel_errorWarn" value="errorWarn">errorWarn</option>
 			<option id="formErrorDebugLevel_errorSevere" value="errorSevere" selected>errorSevere</option>
-			<option id="formErrorDebugLevel_errorFatal" value="errorFatal">errorFatal</option>
+			<option id="formErrorDebugLevel_errorIsFatal" value="errorIsFatal">errorIsFatal</option>
 		</select>
 	</fieldset>
 	<!-- * end of Debugger Control -->

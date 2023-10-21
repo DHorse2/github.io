@@ -52,7 +52,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			+ ', Play command requested'
 			+ '.',
 			'ElementPlay', 3819, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	var PlayAbort = false;
 	//
@@ -71,7 +71,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, deactivating'
 						+ '.',
 						'ElementPlay', 3837, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
@@ -84,7 +84,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, performing a Transition step instead'
 						+ '.',
 						'ElementPlay', 3850, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// the next step will be performed and the new play command skipped
 				if (timerMethod == timerMethodGroup) {
@@ -109,7 +109,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Item is already displayed'
 							+ '.',
 							'ElementPlay', 3875, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -125,7 +125,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Item is already hidden'
 							+ '.',
 							'ElementPlay', 3891, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -153,7 +153,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, deactivating'
 						+ '.',
 						'ElementPlay', 3919, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
@@ -166,7 +166,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, performing a Move step instead'
 						+ '.',
 						'ElementPlay', 3932, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				//
 				if (timerMethod == timerMethodGroup) {
@@ -190,7 +190,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed...',
 							'ElementPlay', 3956, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -205,7 +205,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden...',
 							'ElementPlay', 3971, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -269,7 +269,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
 			+ ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
 			'ElementPlay', 10341, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	// DURATION
@@ -294,7 +294,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Get command issued'
 				+ '.',
 				'ElementPlay', 4055, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
 		FilterGet(filterPlayAll, startIndex, endIndex,
@@ -324,7 +324,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Enable command issued'
 				+ '.',
 				'ElementPlay', 4085, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
 		FilterEnable(filterPlayAll, startIndex, endIndex,
@@ -343,7 +343,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Apply command issued'
 				+ '.',
 				'ElementPlay', 4104, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
 		FilterApply(filterPlayAll, startIndex, endIndex,
@@ -358,7 +358,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Start command issued'
 				+ '.',
 				'ElementPlay', 4119, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
 		TimerStartFilter(playDirection, timerMethod, TimerGroupDoStepFilter, TimerItemDoStepFilter,
@@ -374,7 +374,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Vendor Play command issued'
 				+ '.',
 				'ElementPlay', 4135, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
 		FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
@@ -413,7 +413,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Move Start command issued'
 				+ '.',
 				'ElementPlay', 4174, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
 		TimerStartMove(playDirection, timerMethod, TimerGroupDoStepMove, TimerItemDoStepMove,
@@ -433,7 +433,7 @@ function ElementPlay(playDirection, IsImageLarge,
 					+ ', Resize command issued'
 					+ '.',
 					'ElementPlay', 4194, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 			}
 			//
 			FilterResize(oObjNext, filterClassMatrix, 0.05);
@@ -469,7 +469,7 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 			+ 'Started: Hide small/large: ' + HideImage + ', ' + HideImageLarge + '. '
 			+ charNewLineTag,
 			'FilterGet', 3139, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
 	if (loadFirstJava) { ElementObjectCreate(); }
@@ -521,7 +521,7 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 				oObjIndexCurr++;
 			}
 		}
-	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorWarn, true, false); }
+	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 }
 // Menu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
@@ -554,7 +554,7 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 				oObjNext.style.display = 'none';
 			}
 		}
-	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorWarn, true, false); }
+	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 	//
 }
 // Menu Menu Show Item and all Previous (Mouse Over function)
@@ -562,12 +562,12 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	if (debugAnitmation) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-			'ElementGroupShowStack(' + oObjNextImageId.id
-			+ oObjGroupIndex + ', ' + oObjGroupImageIndex + ') size:' + iImageSize + '. '
-			+ 'Image: isLarge: ' + IsImageLarge + '. '
+			'ElementGroupShowStack ' + oObjNextImageId.id
+			+ ' (' + oObjGroupIndex + ', ' + oObjGroupImageIndex + ')'
+			+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
 			+ charNewLineTag,
 			'FilterGet', 3139, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
 	// load and validate event and objects
@@ -624,7 +624,7 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		} else {
 			// skipped due to mouse event settings
 		}
-	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorWarn, true, false); }
+	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 }
 // ElementGroupShowRange
 // ...................................... //
@@ -692,7 +692,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			+ ', Time:' + Date()
 			+ '.',
 			'ElementItemShow', 10141, oObjNext, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	WindowClientWidth();
@@ -1125,7 +1125,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				+ ', Time:' + Date()
 				+ '.',
 				'ElementItemHide', 9876, oObjNext, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		return;
 	}
@@ -1138,7 +1138,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			+ ', Time:' + Date()
 			+ '.',
 			'ElementItemHide', 9889, oObjNext, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
 	if (moveIsOn || filterIsOn) {

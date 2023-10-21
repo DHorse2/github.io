@@ -135,6 +135,8 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 	changeCSSStyle('MdmBaseTagsStyles', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
+	//
+	changeCSSStyle('MdmBaseTagsStyles', 'p', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
 	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
 	// Scan 6-36 to see which fonts are defined/used.
 	for (idx = 6; idx < 37; idx++) {

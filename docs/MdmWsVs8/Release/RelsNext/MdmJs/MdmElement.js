@@ -256,15 +256,15 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
         if ("style" in elementTarget) {
             if ("display" in elementTarget.style) {
                 if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Style missing", errorWarn, true, false); }
+            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Style missing", errorIsWarning, true, false); }
             //
             if ("visibility" in elementTarget.style) {
                 if (elementStyleVisibilityPassed.length) { elementTarget.style.visibility = elementStyleVisibilityPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Visibility missing", errorWarn, true, false); }
+            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Visibility missing", errorIsWarning, true, false); }
             //
             if ("clear" in elementTarget.style) {
                 if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Clear missing", errorWarn, true, false); }
+            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Clear missing", errorIsWarning, true, false); }
         }
     }
     elementLayoutFirstPassed = false;
@@ -484,7 +484,7 @@ function ElementBreakSetOld(elementPassed, elementIdPassed, elementLayoutFirstPa
                 MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
                     'Element Break Set, Style missing',
                     'ElementBreakSet', 7742, elementTarget, elementPassed,
-                    errorWarn, errorDoDisplayTag, errorDoNotAlert);
+                    errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
             }
             // set Visibilty.
             if (elementStyleVisibilityPassed.length) {
@@ -494,7 +494,7 @@ function ElementBreakSetOld(elementPassed, elementIdPassed, elementLayoutFirstPa
                     MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
                         'Element Break Set, Visibility missing',
                         'ElementBreakSet', 7751, elementTarget, elementPassed,
-                        errorWarn, errorDoDisplayTag, errorDoNotAlert);
+                        errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
                     elementTarget.style.visibility = elementStyleVisibilityPassed;
                 }
             }
@@ -507,7 +507,7 @@ function ElementBreakSetOld(elementPassed, elementIdPassed, elementLayoutFirstPa
                     MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
                         'Element Break Set, Clear missing',
                         'ElementBreakSet', 7760, elementTarget, elementPassed,
-                        errorWarn, errorDoDisplayTag, errorDoNotAlert);
+                        errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
                     elementTarget.style.clear = elsementStyleClearPassed;
                 }
             }

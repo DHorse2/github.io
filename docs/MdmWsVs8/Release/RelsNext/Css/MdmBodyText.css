@@ -193,37 +193,6 @@
     z-index: 4;
 }
 
-.CalloutBox2 {
-    /* Position */
-    /* Size */
-    /* width: 50%; */
-    max-width: 50%;
-    /* Alignment */
-    text-align: left;
-    display: block;
-    /* Background */
-    background-color: #FFFFCC;
-    /* Layering */
-    z-index: 4;
-}
-
-.CalloutBox3 {
-    /* Position */
-    /* Size */
-    /* width: 50%; */
-    /* max-width: 50%; */
-    /* Alignment */
-    /* margin:0.25em 0.25em 0em 0em; */
-    /* padding: 0em 0.25em 0em 0.25em; */
-    /* padding:1.5em */
-    text-align: left;
-    display: block;
-    /* Background */
-    background-color: #FFFFCC;
-    /* Layering */
-    z-index: 4;
-}
-
 .CalloutBoxSmall {
     /* Position */
     /* Size */

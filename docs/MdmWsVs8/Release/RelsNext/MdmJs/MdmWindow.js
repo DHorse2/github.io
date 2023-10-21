@@ -149,7 +149,7 @@ function WindowContainerSizeGetAll() {
             ' Height of left and right menu containers vs the center menu container'
             + ': ',
             'WindowContainerSizeGetAll', 444, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Check height a different way using the array:
@@ -166,7 +166,7 @@ function WindowContainerSizeGetAll() {
             + layoutMenuSizeSideVertMax + ', ' + layoutMenuSizeSideHorzTallest
             + ').',
             'WindowContainerSizeGetAll', 6769, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Height of left and right menu containers vs the center menu container
@@ -186,7 +186,7 @@ function WindowContainerSizeGetAll() {
             ' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
             + '.',
             'WindowContainerSizeGetAll', 6769, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     // Left
     bodyLayoutMenuLeftHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
@@ -197,7 +197,7 @@ function WindowContainerSizeGetAll() {
             ' Height of bodyMainLeft: ' + bodyLayoutMenuLeftHeight
             + '.',
             'WindowContainerSizeGetAll', 6769, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     // Right
     bodyLayoutMenuRightHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
@@ -208,7 +208,7 @@ function WindowContainerSizeGetAll() {
             ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenuRightHeight
             + '.',
             'WindowContainerSizeGetAll', 6769, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     if (bodyMainCenterHeight && tempLayoutBodySizeVertMax < bodyMainCenterHeight) {
@@ -751,7 +751,7 @@ function WindowResizeLayout() {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             'Window Resize Excessive Usage (Possible Error)',
             'WindowResizeLayout', 0, null, null,
-            errorSevere, errorDoNotDisplayTag, errorDoAlert);
+            errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
         layoutResizeCn = 0;
         // layoutMenuSizeHorzMax = 2000;
     }
@@ -773,7 +773,7 @@ function WindowResizeLayout() {
             ' Main Container layoutHeight (body +5em): ' + layoutHeight
             + '.',
             'WindowResizeLayout', 7189, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     body.style.height = (layoutHeight + 50) + 'px';

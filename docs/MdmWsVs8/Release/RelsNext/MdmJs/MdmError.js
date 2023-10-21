@@ -3,12 +3,12 @@
 // ...................................... //
 // var e;
 var errorDidNotOccur = 0;
-var errorComment = 5;
-var errorWarn = 10;
-var errorSevere = 20;
-var errorFatal = 30;
+var errorIsComment = 5;
+var errorIsWarning = 10;
+var errorIsSevere = 20;
+var errorIsFatal = 30;
 //
-var errorDebugLevel = errorSevere;
+var errorDebugLevel = errorIsSevere;
 var errorSeverity = errorDidNotOccur;
 var errorSeverityLevel = errorDidNotOccur;
 var errorSeverityHighest = errorDidNotOccur;
@@ -106,13 +106,13 @@ var eventCurrRootObj;
 // var errorUseDebugOnAll = false; // enter debugger after any message
 //
 // var errorDidNotOccur = 0;
-// var errorComment = 5;
-// var errorWarn = 10;
-// var errorSevere = 20;
-// var errorFatal = 30;
+// var errorIsComment = 5;
+// var errorIsWarning = 10;
+// var errorIsSevere = 20;
+// var errorIsFatal = 30;
 //
 // var errorSeverity = errorDidNotOccur;
-// var errorDebugLevel = errorSevere;
+// var errorDebugLevel = errorIsSevere;
 // Error Message Display
 // ..................................................................................... _//
 // Error message build
@@ -155,32 +155,32 @@ function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messa
 
     messageFinal = ErrorMessageGet() + ': ';
 
-    if (!UseSingleLine && messageFinal.length > 30 || errorSeverityPassed >= errorSevere) {
+    if (!UseSingleLine && messageFinal.length > 30 || errorSeverityPassed >= errorIsSevere) {
         messageFinal += charNewLineTag + charTextIndent;
     }
     //
     localDoUseDebug = false;
     // Error Severity Level
-    if (errorSeverityPassed >= errorFatal) {
+    if (errorSeverityPassed >= errorIsFatal) {
         messageFinal = "FATAL Error " + messageFinal;
-        errorSeverityLevel = errorFatal;
+        errorSeverityLevel = errorIsFatal;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogFatal += messageFinal;
         errorSeverityColor = 'Red';
-    } else if (errorSeverityPassed >= errorSevere) {
+    } else if (errorSeverityPassed >= errorIsSevere) {
         messageFinal = "SEVERE Error " + messageFinal;
-        errorSeverityLevel = errorSevere;
+        errorSeverityLevel = errorIsSevere;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogSevere += messageFinal;
         errorSeverityColor = 'Yellow';
-    } else if (errorSeverityPassed >= errorWarn) {
+    } else if (errorSeverityPassed >= errorIsWarning) {
         messageFinal = "Warning! " + messageFinal;
-        errorSeverityLevel = errorWarn;
+        errorSeverityLevel = errorIsWarning;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
         // errorMessageLogWarn += messageFinal;
         errorSeverityColor = 'Orange';
     } else {
-        // errorComment:
+        // errorIsComment:
         messageFinal = "(Comment) " + messageFinal;
         errorSeverityLevel = errorDidNotOccur;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
@@ -188,7 +188,7 @@ function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messa
         errorSeverityColor = 'Lime';
     }
     //
-    // if (!UseSingleLine && errorSeverityPassed >= errorSevere) {
+    // if (!UseSingleLine && errorSeverityPassed >= errorIsSevere) {
     //     messageFinal += charNewLineTag;
     // }
     //
@@ -319,11 +319,11 @@ function WindowErrorDetail(errorSeverityPassed, eventCurrPassed, messagePassed, 
     MessageLog(eventCurrPassed, DoUseDebug, DoUseSingleLine,
         messageTemp,
         messageUrlPassed, messageLineNumPassed, messageElement, messageElementSource,
-        errorSevere, errorDoDisplayTag, errorDoAlert);
+        errorIsSevere, errorDoDisplayTag, errorDoAlert);
     // MessageLog(eventCurrPassed, DoUseDebug, DoUseSingleLine,
     //     '(' + eventFileName + ':' + messageLineNumPassed + ') ' + messagePassed,
     //     messageUrlPassed, messageLineNumPassed, messageElement, messageElementSource,
-    //     errorSevere, errorDoDisplayTag, errorDoAlert);
+    //     errorIsSevere, errorDoDisplayTag, errorDoAlert);
     //
     if (browserIsIE) {
         // set returnValue to suppress error display in browser
@@ -524,22 +524,22 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
     // Add message to appropriate log
     // Error Type
     switch (errorSeverityPassed) {
-        case errorFatal:
+        case errorIsFatal:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
             // errorMessageLogFatal += messageFinal;
             errorSeverityColor = 'Red';
             break;
-        case errorSevere:
+        case errorIsSevere:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
             // errorMessageLogSevere += messageFinal;
             errorSeverityColor = 'Yellow';
             break;
-        case errorWarn:
+        case errorIsWarning:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
             // errorMessageLogWarn += messageFinal;
             errorSeverityColor = 'Orange';
             break;
-        case errorComment:
+        case errorIsComment:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
             // errorMessageLogComment += messageFinal;
             errorSeverityColor = 'White';
@@ -561,7 +561,7 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
         // Coloured button to inform user
         if (consoleClearToggle) {
             if (errorSeverityColor != 'White') {
-                if (errorSeverityPassed >= errorSevere || errorSeverityPassed >= errorDebugLevel) {
+                if (errorSeverityPassed >= errorIsSevere || errorSeverityPassed >= errorDebugLevel) {
                     consoleClearToggle.style.backgroundColor = errorSeverityColor;
                     consoleClearToggle.style.color = 'Black';
                     consoleClearToggle.style.borderColor = 'White';
@@ -652,31 +652,31 @@ function MessageLogAction(eventCurr, messagePassed,
     errorMessageLogAll += messagePassed;
     // by Error Type
     switch (errorSeverityLevel) {
-        case errorFatal:
+        case errorIsFatal:
             errorMessageLogFatal += messagePassed;
             break;
-        case errorSevere:
+        case errorIsSevere:
             errorMessageLogSevere += messagePassed;
             break;
-        case errorWarn:
+        case errorIsWarning:
             errorMessageLogWarn += messagePassed;
             break;
-        case errorComment:
+        case errorIsComment:
             errorMessageLogComment += messagePassed;
         default:
             errorMessageLogComment += messagePassed;
             break;
     }
     // Action (none)
-    if (errorSeverityPassed >= errorFatal) {
+    if (errorSeverityPassed >= errorIsFatal) {
         // display alert
         // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed >= errorSevere) {
+    } else if (errorSeverityPassed >= errorIsSevere) {
         // display alert
         // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed >= errorWarn) {
+    } else if (errorSeverityPassed >= errorIsWarning) {
         // dipslay in HTML Warnging Message Area
-    } else if (errorSeverityPassed >= errorComment) {
+    } else if (errorSeverityPassed >= errorIsComment) {
         // dipslay in HTML Comment Message Area
     } else if (errorSeverityPassed >= errorDidNotOccur) {
         // dipslay in HTML Message Area
@@ -688,7 +688,7 @@ function MessageLogAction(eventCurr, messagePassed,
 // ..................................................................................... _//
 // Attach the listener for Errors
 // It will fire when an error occurs.
-window.onerror = function (event) { WindowError(event, errorSevere, Arguments[1]); };
+window.onerror = function (event) { WindowError(event, errorIsSevere, Arguments[1]); };
 // window.onerror = (event) => {
 //     WindowError(event);
 // };

@@ -851,7 +851,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
                 'Invalid filter(' + filterIdPassed + ') error! On filter # ' + filterIndex + ' '
                 + charNewLineTag + filterCommandEval,
                 'FilterGet', 3128, null, null,
-                errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
             var bob = 'ted';
             filterIndexCn = 0;
             filterGetExit = true;// Exit on Set Error
@@ -863,7 +863,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
                     + ' set successfully! Random filter # ' + filterIndex + ' '
                     + charNewLineTag + filterCommandEval,
                     'FilterGet', 3139, null, null,
-                    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                    errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
                 //
             }
         }
@@ -1488,7 +1488,7 @@ function TimerStartFilter(playDirection,
                 + ' at ' + Date()
                 + '.',
                 'TimerStartFilter', 4708, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
         //
         // timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
@@ -1504,7 +1504,7 @@ function TimerStartFilter(playDirection,
                 + ', Already running, perform single step'
                 + '.',
                 'TimerStartFilter', 4723, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
         //
         if (timerMethod == timerMethodGroup) {
@@ -1526,7 +1526,7 @@ function TimerStartFilter(playDirection,
             + ', Timer Start command being issued now'
             + '.',
             'TimerStartFilter', 4744, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     TimerStart(timerType, timerGroup, timerId,
@@ -1586,7 +1586,7 @@ function TimerStartMove(playDirection,
                 + ' at ' + Date()
                 + '.',
                 'TimerStartMove', 4807, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
         //
         // timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
@@ -1602,7 +1602,7 @@ function TimerStartMove(playDirection,
                 + ', Already running, perform single step'
                 + '.',
                 'TimerStartMove', 4822, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
         TimerItemDoStepMove(timerType, timerGroup, timerId);
         return;
@@ -1674,7 +1674,7 @@ function TimerStartMove(playDirection,
             + ', Move Left:' + moveDistanceLeft
             + '.',
             'TimerStartMove', 4873, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     TimerStart(timerType, timerGroup, timerId,
@@ -1707,7 +1707,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
             + ', Starting Group'
             + '.',
             'TimerGroupDoStepMove', 5111, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
     // Process elements
@@ -1730,7 +1730,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
             + ') exceeded'
             + '!!!',
             'TimerGroupDoStepFilter', 5134, null, null,
-            errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
         timerDoAbort = true;
     }
     //
@@ -1761,7 +1761,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
                 + ', Stopping Group Timer'
                 + '.',
                 'TimerGroupDoStepFilter', 5164, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
     //
@@ -1775,7 +1775,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
             + ', Leaving process Group'
             + '.',
             'TimerGroupDoStepFilter', 5177, null, null,
-            errorComment, true, false);
+            errorIsComment, true, false);
         //
         if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
             MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
@@ -1784,7 +1784,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
                 + ', Finished Group'
                 + '.',
                 'TimerGroupDoStepFilter', 5185, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
 }
@@ -1859,7 +1859,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
             + ') number of interval steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
             + ') exceeded' + '!!!',
             'TimerItemDoStepFilter', 5251, null, null,
-            errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
 
         tempTimeOrStepsCompleted = true;
     }
@@ -1892,7 +1892,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
                     + ', Interval Stopped'
                     + '.',
                     'TimerItemDoStepFilter', 5284, null, null,
-                    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                    errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             }
             //
             timerStarted -= 1;
@@ -1944,7 +1944,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
                 + ', Stopping Item Timer'
                 + '.',
                 'TimerItemDoStepFilter', 5331, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     } else {
         if (debugTimer && debugTimerDetail && debugTimerTransition) {
@@ -1960,7 +1960,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
                 + ', Exiting Item but no action'
                 + '.',
                 'TimerItemDoStepFilter', 5343, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
     return timerInstanceIsDone;
@@ -1988,7 +1988,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
             + ', Starting Group'
             + '.',
             'TimerGroupDoStepMove', 5371, null, null,
-            errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     // Process elements
     for (timerIdCurr = 1; timerIdCurr < imgMaxByGroup[timerGroup] + 1; timerIdCurr++) {
@@ -2012,7 +2012,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
             + ') exceeded'
             + '!!!',
             'TimerGroupDoStepMove', 5393, null, null,
-            errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
         timerDoAbort = true;
     }
     //
@@ -2039,7 +2039,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
                 + ', Stopping Group Timer'
                 + '.',
                 'TimerGroupDoStepMove', 5419, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
     //
@@ -2053,7 +2053,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
             + ', Leaving process Group'
             + '.',
             'TimerGroupDoStepMove', 5432, null, null,
-            errorComment, true, false);
+            errorIsComment, true, false);
         //
         if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
             MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
@@ -2062,7 +2062,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
                 + ', Finished Group'
                 + '.',
                 'TimerGroupDoStepMove', 5440, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
     }
@@ -2174,7 +2174,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
             + ') exceeded'
             + '!!!',
             'TimerItemDoStepMove', 5515, null, null,
-            errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+            errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
         tempTimeOrStepsCompleted = 5515;
     }
     //
@@ -2192,7 +2192,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     + ') exceeded'
     + '!!!',
     'TimerItemDoStepMove', 5525, null, null,
-    errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+    errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
     tempTimeOrStepsCompleted = 5525;
     }
     */
@@ -2370,7 +2370,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
                     + ', Stopping Item Timer'
                     + '.',
                     'TimerItemDoStepMove', 5711, null, null,
-                    errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                    errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             }
             //
             timerStarted -= 1;
@@ -2407,7 +2407,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
                 + ', Item Interval Timer Stopped'
                 + '.',
                 'TimerItemDoStepMove', 5747, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     } else {
         if (debugTimer && debugTimerDetail && debugTimerMove) {
@@ -2426,7 +2426,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
                 + ', Exiting Item'
                 + '.',
                 'TimerItemDoStepMove', 5754, null, null,
-                errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+                errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
     return timerInstanceIsDone;

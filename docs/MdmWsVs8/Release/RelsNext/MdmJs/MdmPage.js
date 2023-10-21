@@ -203,11 +203,11 @@ function MouseClickImg(menuImage) {
 	//  img0.src = menuImage.name + "lr.gif";
 	//  img0text.src = menuImage.name + "text.txt";
 	if (debugImages) {
-		errorComment = "Getting " + menuImageCn + ": " + menuImage.Name;
-		if (debugDoAlert) { alert(errorComment); }
+		errorIsComment = "Getting " + menuImageCn + ": " + menuImage.Name;
+		if (debugDoAlert) { alert(errorIsComment); }
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-			errorComment, 6555, null, null,
-			errorSevere, errorDoNotDisplayTag, errorDoAlert);
+			errorIsComment, 6555, null, null,
+			errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
 	}
 	imgSelect = menuImageCn;
 	//  document.parentWindow.parent.imgSelect = menuImageCn;

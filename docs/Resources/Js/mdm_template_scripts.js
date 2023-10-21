@@ -130,8 +130,8 @@ function DebugParameterInitLocal()
 	elementObject = document.getElementById('formErrorDebugLevel_errorSevere');
 	if (errorDebugLevel = errorSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorFatal');
-	if (errorDebugLevel = errorFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+	elementObject = document.getElementById('formErrorDebugLevel_errorIsFatal');
+	if (errorDebugLevel = errorIsFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	// default
 	if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorSevere').selected = true; }
 	//
@@ -4734,7 +4734,7 @@ function ConsoleMessageLog(UseDebug, UseSingleLinePassed, errorMsgPassed,
     // Add message to appropriate log
     // Error Type
     switch (errorSeverityPassed) {
-        case errorFatal:
+        case errorIsFatal:
         case errorElementFatal:
             if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
             // errorMessageLogFatal += MessageFinal;
@@ -4845,7 +4845,7 @@ function ConsoleMessageLogAction(errorMsgPassed,
         errorUrlPassed, errorLineNumPassed, errorElementPassed, errorElementSourcePassed,
         errorSeverityPassed, errorDisplayTagPassed, errorDoAlert)
 {
-    if (errorSeverityPassed = errorFatal) {
+    if (errorSeverityPassed = errorIsFatal) {
         // display alert
         // dipslay in HTML Critial Message Area
     } else if (errorSeverityPassed = errorSevere) {
