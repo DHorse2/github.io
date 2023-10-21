@@ -372,6 +372,9 @@ var layoutFontH3 = 1.4;
 var layoutFontH4 = 1.2;
 var layoutFontH5 = 1.0;
 var layoutFontH6 = 1.0;
+var layoutFontP = 1.0;
+var layoutFontCaption = 1.4;
+var layoutFontTitle = 2.0;
 // Just to keep the math simple f10 = 1.0em;
 
 // Columns in pixels
