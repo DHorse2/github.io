@@ -170,10 +170,19 @@ function changeCSSStyleByQuery(sheetId, selector, cssProp, cssValue, isStyle) {
 		} else {
 			for (idx = 0, len = sheetCurrent[cssRules].length; idx < len; idx++) {
 				// if (StyleSheets.title == sheetId) {
-				if (sheetCurrent[cssRules][idx].selectorText == selector) {
+				// var sheetSelectorText = sheetCurrent[cssRules][idx].selectorText;
+				// pos = sheetSelectorText.split(' ').includes(selector);
+				// var pos = sheetSelectorText.indexOf(selector);
+				// for (; pos > -1; pos = sheetSelectorText.indexOf(selector))
+				// if (pos == 0 || pos == sheetSelectorText.length - selector.length
+				// 	|| sheetSelectorText.indexOf(' ' + selector + ' ')) {
+				// if (sheetCurrent[cssRules][idx].selectorText == selector) {
+				if (sheetSelectorText.split(', ').includes(selector)) {
 					sheetCurrent[cssRules][idx].style[cssProp] = cssValue;
 					return;
+					// }
 				}
+				// }
 			}
 		}
 	}

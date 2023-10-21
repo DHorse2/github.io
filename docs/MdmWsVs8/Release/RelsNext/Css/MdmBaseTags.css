@@ -1,5 +1,101 @@
 /* MdmBaseTags */
+
+/* -- Fonts -- */
+/* -- Fonts Size -- */
+.f8 {
+    font-size: 0.8em;
+}
+.f10 {
+    font-size: 1em;
+}
+.f11 {
+    font-size: 1.1em;
+}
+.f12 {
+    font-size: 1.2em;
+}
+.f14 {
+    font-size: 1.4em;
+}
+.f16 {
+    font-size: 1.6em;
+}
+.f18 {
+    font-size: 1.8em;
+}
+.f20 {
+    font-size: 2.0em;
+}
+.f24 {
+    font-size: 2.4em;
+}
+.f28 {
+    font-size: 2.8em;
+}
+.f32 {
+    font-size: 3.2em;
+}
+.f36 {
+    font-size: 3.6em;
+}
+/* -- Headings */
+H1,
+.h1 {
+    font-size: 2.0vw;
+}
+H2,
+.h2 {
+    font-size: 1.8vw;
+}
+H3,
+.h3 {
+    font-size: 1.4vw;
+}
+H4,
+.h4 {
+    font-size: 1.2vw;
+}
+H5,
+.h5 {
+    font-size: 1.0vw;
+}
+H6,
+.h6 {
+    font-size: 1.0vw;
+    font-style: italic;
+}
+
+/* -- Table of Contents */
+/* .Toc1 { } */
+/* .Toc2 { } */
+/* .Toc3 { } */
+/* .Toc4 { } */
+/* .Toc5 { } */
+/* .Toc6 { } */
+
+/* -- Standard Captions -- */
+.Caption {
+    color: Maroon;
+}
+
+.Caption2 {
+    color: Red;
+}
+
+
+/* -- Title -- */
+.Title {
+    color: blue;
+    font-size: 2.4vw;
+}
+
+.Title2 {
+    color: Blue;
+    font-size: 2.0vw
+}
+
 /* -- Fonts Standard-- */
+/* -- HTML Tags -- */
 /* body, blocks */
 /* body,
 /* div,
@@ -35,6 +131,7 @@ tbody,
 /* links */
 a,
 .a,
+
 /* -- Fonts Standard-- */
 .fNormal,
 .fStandard,
@@ -153,7 +250,6 @@ padding-bottom: 0em;
 
 
 /* -- Headings -- */
-
 H1,
 .h1,
 H2,
@@ -180,8 +276,6 @@ H6,
     /* border-bottom: 0.1em solid black; */
 }
 
-
-
 H1,
 .h1,
 H2,
@@ -201,66 +295,6 @@ H6,
     margin: 0em;
     padding: .5em;
     font-weight: bold;
-}
-
-H1,
-.h1 {
-    font-size: 2.0vw;
-}
-
-H2,
-.h2 {
-    font-size: 1.8vw;
-}
-
-H3,
-.h3 {
-    font-size: 1.4vw;
-}
-
-H4,
-.h4 {
-    font-size: 1.2vw;
-}
-
-H5,
-.h5 {
-    font-size: 1.0vw;
-}
-
-H6,
-.h6 {
-    font-size: 1.0vw;
-    font-style: italic;
-}
-
-/* -- Table of Contents */
-/* .Toc1 { } */
-/* .Toc2 { } */
-/* .Toc3 { } */
-/* .Toc4 { } */
-/* .Toc5 { } */
-/* .Toc6 { } */
-
-/* -- Standard Captions -- */
-.Caption {
-    color: Maroon;
-}
-
-.Caption2 {
-    color: Red;
-}
-
-
-/* -- Title -- */
-.Title {
-    color: blue;
-    font-size: 2.4vw;
-}
-
-.Title2 {
-    color: Blue;
-    font-size: 2.0vw
 }
 
 /* -- Layout - Margin  -- */
@@ -406,57 +440,6 @@ H6,
     margin: 0em 0em 0em 0.5em;
     padding: 0em 0em 0em 0.5em;
     text-indent: 0em;
-}
-
-/* -- Fonts -- */
-
-/* -- Fonts Size -- */
-.f8 {
-    font-size: 0.8em;
-}
-
-.f10 {
-    font-size: 1em;
-}
-
-.f11 {
-    font-size: 1.1em;
-}
-
-.f12 {
-    font-size: 1.2em;
-}
-
-.f14 {
-    font-size: 1.4em;
-}
-
-.f16 {
-    font-size: 1.6em;
-}
-
-.f18 {
-    font-size: 1.8em;
-}
-
-.f20 {
-    font-size: 2.0em;
-}
-
-.f24 {
-    font-size: 2.4em;
-}
-
-.f28 {
-    font-size: 2.8em;
-}
-
-.f32 {
-    font-size: 3.2em;
-}
-
-.f36 {
-    font-size: 3.6em;
 }
 
 /* Alignment */

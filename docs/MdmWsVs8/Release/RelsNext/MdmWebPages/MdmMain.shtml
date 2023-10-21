@@ -7,7 +7,7 @@
 	<meta name="Author" content="David G. Horsman">
 	<meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta id="MdmViewport" name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
 	<link id="MdmBaseTagsStyles" rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
 	<link id="MdmColourPalletStyles" rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">

@@ -16,7 +16,7 @@
 .layoutBodyColumnType2 {
     /* Size */
     width: 48%;
-    min-width: 25.0em;
+    /* min-width: 25.0em; */
     max-width: 35.0em;
 }
 
@@ -29,7 +29,7 @@
 .layoutBodyColumnType4 {
     /* Size */
     /* width:39%; */
-    min-width: 25.0em;
+    /* min-width: 25.0em; */
     /* Alignment */
     text-align: center;
 }

@@ -28,8 +28,8 @@ overflow-y:visible;
 /* Position */
 position:absolute;
 /* Size */
-min-width:1000px;
-min-height:650px;
+min-width:100px;
+min-height:150px;
 /* Background */
 background:#e1e2e5;
 /* for IE */

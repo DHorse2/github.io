@@ -58,7 +58,7 @@ function WindowOnload() {
     TimerFunctionSet();
     // Intervals and Duration
     TimerDurationSet();
-	// document.styleSheets[1].disabled=true;
+    // document.styleSheets[1].disabled=true;
 }
 // Document Window Resize
 // Adjustments:
@@ -90,6 +90,7 @@ var layoutDocumentHeight = 0;
 
 // Window Session Load
 function WindowSessionLoad() {
+    const cat = localStorage.getItem("myCat");
     // Load Layout and Images Displayed
     // Get Cookie
     // Apply Cookie to Window
@@ -97,6 +98,7 @@ function WindowSessionLoad() {
 }
 // Window Session Save
 function WindowSessionSave() {
+    localStorage.setItem("myCat", "Tom");
     // Load Layout and Images Displayed
     // Build Oookie
     // Save Cookie
@@ -448,6 +450,47 @@ function WindowClientWidth() {
     // layoutHeight -= 20;
     //
 }
+// Viewport
+function WindowViewportInit() {
+    var width = layoutWindowViewportWidth;
+    var height = layoutWindowViewportHeight;
+
+    //Remove the window from fullscreen (optional), if it s in fullscreen the outerHeight is not accurate
+    browser.manage().window().setSize(new Dimension(width, height));
+
+    var js = window.browser; // (JavascriptExecutor)browser;
+    var windowSize = js.executeScript("return (window.outerWidth - window.innerWidth + " + width + ") + ',' + (window.outerHeight - window.innerHeight + " + height + "); ").toString();
+    //Get the values
+    width = Integer.parseInt(windowSize.split(",")[0]);
+    height = Integer.parseInt(windowSize.split(",")[1]);
+
+    //Set the window
+    WindowViewportSet(width, height);
+    // browser.manage().window().setSize(new Dimension(width, height));
+}
+function quarter() {
+    window.resizeTo(window.screen.availWidth / 2, window.screen.availHeight / 2);
+}
+
+function WindowViewportSet(passedWidth, passedHeight) {
+    // Store the meta element
+    var viewport_meta = document.getElementById('MdmViewport');
+    // Define our viewport meta values
+    var viewports = {
+        default: viewport_meta.getAttribute('content'),
+        landscape: 'width=' + passedWidth + ', height=' + passedHeight
+    };
+    // Change the viewport value based on screen.width
+    // layoutDocumentWidthMax changes on mobile to 768px (Apple)
+    var viewport_set = function () {
+        if (screen.width > layoutDocumentWidthMax)
+            viewport_meta.setAttribute('content', viewports.landscape);
+        else
+            viewport_meta.setAttribute('content', viewports.default);
+    }
+    // Set the correct viewport value on page load
+    viewport_set();
+}
 var layoutBlock, layoutBlockCn;
 var calloutBlock, calloutBlockCn, tmpAdjust;
 // Recalculate Screen Display
@@ -482,7 +525,9 @@ function WindowResizeLayout() {
     // Determine DivBox (Body Content) column and callout sizes
     // Note that fewer text block is detected.
     layoutBlockWidth = LayoutBlockWidthGet(); // todo bug
-
+    if (layoutDocumentWidth < layoutParaWidthMin && layoutIndex == layoutStandard) {
+        layoutIndex = layoutWindowed;
+    }
     // Width over layoutMenuDocWidthWide
     // ...................................... //
     // if (BodyMainCenterCenter.offsetWidth > layoutMenuDocWidthWide) {
@@ -533,7 +578,6 @@ function WindowResizeLayout() {
         layoutIsWide = true;
         //
     } else {
-
         // Narrow Width: under layoutMenuDocWidthWide
         // ...................................... //
         if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {

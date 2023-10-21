@@ -315,7 +315,17 @@ var layoutIsStandard = true;
 
 // (the content pane)
 // ...................................... //
-var layoutDocumentWidthMin = 900; // px
+// Browser viewport
+var layoutWindowViewportDoInit = true;
+// The initial and minimum sizes for the Window (Viewport)
+var layoutWindowViewportWidth = 600;
+var layoutWindowViewportWidthMin = 100;
+var layoutWindowViewportHeight = 800;
+var layoutWindowViewportHeightMin = 100;
+
+var layoutDocumentWidthMin = 900; // px (only for documents)
+var layoutDocumentWidthMax = 10000; // px (when landscape mode kicks in)
+
 // These are all in pixels unless otherwise stated
 // Resize should take this into account.
 // Absolute maximums (for reading)

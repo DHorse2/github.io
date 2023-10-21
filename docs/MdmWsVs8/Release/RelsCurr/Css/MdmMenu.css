@@ -12,7 +12,7 @@ text-align: center;
 #MenuBar {
 /* Position */
 min-height: 30px;
-min-width: 550px;
+min-width: 50px;
 overflow-x:visible;
 text-align: center;
 vertical-align:middle;
