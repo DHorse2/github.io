@@ -242,9 +242,9 @@
 							<!-- ..................................................................................... -->
 							<!-- ..................................................................................... -->
 							<!-- MenuContainerLeft1 (Hide / Show, copy to TopLeft) -->
-							<div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText h5 ">
+							<div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText">
 								<!-- * -->
-								<p id="MenuGroup1Header" class="MenuColumnHeading eB h4 cBlack"
+								<p id="MenuGroup1Header" class="MenuColumnHeading h4 cBlack"
 									onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false);">
 									<span class="fMicro">Click menu headings to see thumbnail menus<br></span>
 									Development Projects
@@ -332,17 +332,17 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<div id="MenuGroup2" class="MenuGroup2 BodyMenuGroupLayout">
 							<!-- * Left Column Content Second Menu ** -->
 							<div id="DivC21" class="MenuColumnClass CalloutContent CalloutBorderFull">
-								<h4 id="C21H1" class="h4">
+								<h5 id="C21H1" class="h5">
 									About this page...
-								</h4>
+								</h5>
 								<p id="C21P1" class="aLeft Indent15 Pad5">
 									There is a large number of text boxes on this page to
 									demonstrate the fluid handling of number of columns and their width.
 								</p>
 							</div>
 							<!-- Menu Group 2 ..................................................................................... -->
-							<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText h5 ">
-								<p id="MenuGroup2Header" class="MenuColumnHeading eB h1 cBlack"
+							<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText">
+								<p id="MenuGroup2Header" class="MenuColumnHeading h4 cBlack"
 									onmousedown="ElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false);">
 									Career
 								</p>
@@ -389,9 +389,9 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- MenuGroup3 -->
 						<div id="MenuGroup3" class="MenuGroup3 BodyMenuGroupLayout">
 							<div id="DivC22" class="MenuColumnClass CalloutContent CalloutBorderFull">
-								<h4 id="C22H1" class="h4">
+								<h5 id="C22H1" class="h5">
 									Its an educational page...
-								</h4>
+								</h5>
 								<p id="C22P1" class="aCenter">
 									It is written for a technical (student) audience and is
 									still under construction. (Vs1.2Beta)
@@ -402,8 +402,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 								</p>
 							</div>
 							<!-- Menu Group 3 ..................................................................................... -->
-							<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText h5 ">
-								<p id="MenuGroup3Header" class="MenuColumnHeading eB h4 cBlack"
+							<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText">
+								<p id="MenuGroup3Header" class="MenuColumnHeading h4 cBlack"
 									onmousedown="ElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false);">
 									Applied Research
 								</p>
@@ -1563,8 +1563,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 								Come inside...
 							</h4>
 							<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
-							<div id="MenuContainerRight1" class="MenuContainer MenuColumnClass fText f10 ">
-								<p id="MenuGroup4Header" class="MenuColumnHeading eB f10 cBlack"
+							<div id="MenuContainerRight1" class="MenuContainer MenuColumnClass fText">
+								<p id="MenuGroup4Header" class="MenuColumnHeading h4 cBlack"
 									onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false);">
 									Software
 									Products
@@ -1639,6 +1639,12 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- MenuGroup5 - BodyViewToggle and BodyConsole -->
 						<div id="MenuGroup5" class="MenuGroup5 BodyMenuGroupLayout">
 							<!-- ** Menu Blocks ** -->
+							<!-- doesn't work -->
+							<!-- <object id="MdmPtViewMenu" class="MenuGroup5 BodyMenuGroupLayout"
+							name="MdmPtViewMenu" type="text/html"
+							data="../TemplatePage/MdmPtViewMenu.shtml"
+							src="../TemplatePage/MdmPtViewMenu.shtml"></object> -->
+							<!-- browserIsOld -->
 							<!--#include virtual="../../PageBuildStage.js"-->
 							<!--#if expr="${PageBuild}=RelsNext" -->
 							<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtViewMenu.shtml"-->
@@ -1648,14 +1654,15 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!--#include virtual="../../TemplatePage/MdmPtViewMenu.shtml"-->
 							<!--#include virtual="/release/RelsNotSetError.htm"-->
 							<!--#endif -->
+							<br>
 						</div> <!-- end of MenuGroup5 -->
 						<!-- ..................................................................................... -->
 						<!-- ..................................................................................... -->
 						<!-- MenuGroup6 -->
 						<div id="MenuGroup6" class="MenuGroup6 BodyMenuGroupLayout">
-							<h4 id="H3BottomRight">
+							<h5 id="H3BottomRight">
 								Hmmm no<br>advertising...
-							</h4>
+							</h5>
 							<div id="MenuContainerRight3" class="MenuContainer MenuColumnClass fText f10 ">
 							</div> <!-- end of MenuContainerRight3 -->
 							<br id="MenuGroup6ColBreak" class="aClearBoth">

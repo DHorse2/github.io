@@ -387,6 +387,9 @@ var layoutFontUl = 1.0;
 // Caption & Title
 var layoutFontCaption = 1.4;
 var layoutFontTitle = 2.0;
+// Layout Classes
+var MenuList = 1.0;
+var MenuListItem = 0.9;
 // Just to keep the math simple f10 = 1.0em;
 
 // Columns in pixels

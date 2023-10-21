@@ -149,8 +149,8 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 	changeCSSStyle('MdmBaseTagsStyles', '.fTiny', 'fontSize', (layoutFontTiny * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.fMicro', 'fontSize', (layoutFontMicro * passedLayoutFontRatio) + fontUnits, true);
 	// Specialized - fCode, fPre (n/a)
-	changeCSSStyle('MdmBaseTagsStyles', '.fCode', 'fontSize', (layoutFontCode * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.fPre', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.MenuList', 'fontSize', (MenuList * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.MenuListItem', 'fontSize', (MenuListItem * passedLayoutFontRatio) + fontUnits, true);
 	// Fonts Sized
 	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
 	// Scan 6-36 to see which fonts are defined/used.
@@ -165,6 +165,10 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 		changeCSSStyle('MdmBaseTagsStyles', '.f' + idx, 'fontSize', (fontCalc) + fontUnits, true);
 		// Title1-2, Caption1-2
 	}
+	// Layout classes
+	changeCSSStyle('MdmBaseTagsStyles', '.MenuList', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.MenuListItem', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
+
 }
 
 // idxSheet is the stylesheet's index based on load order. See document.styleSheets. E.g. 0=reset.css, 1=main.css.

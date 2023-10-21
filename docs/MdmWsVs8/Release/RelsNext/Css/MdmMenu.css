@@ -228,7 +228,7 @@ a.MenuBlockLink:active {
     padding-left: 0em;
     /* Decoration */
     list-style-type: none;
-    font-size: 1em;
+    /* font-size: 1em; */
 }
 
 /* -- Links -- */
@@ -295,25 +295,17 @@ a.MenuBlockLink:active {
 /* -- Generic Menu List  -- */
 /* -------------------------------------------- */
 .MenuList {
+    font-size: 0.9em;
     display: block;
 }
-
-/* */
-.MenuItem {
-    display: block;
-}
-
-/* -- Lists -- */
 .MenuListItem {
-    font-size: 0.9vw;
+    font-size: 0.9em;
     text-align: center;
 }
-
 .MenuListItemLast {
     /* Border */
     border-bottom: .4em solid black;
 }
-
 .MenuListItem a:hover {
     /* Hover verrides font in class */
     background-color: #EEE;
