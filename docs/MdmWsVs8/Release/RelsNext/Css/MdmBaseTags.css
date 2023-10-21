@@ -41,27 +41,27 @@
 /* -- Headings */
 H1,
 .h1 {
-    font-size: 2.0vw;
+    font-size: 4.0em;
 }
 H2,
 .h2 {
-    font-size: 1.8vw;
+    font-size: 3.6em;
 }
 H3,
 .h3 {
-    font-size: 1.4vw;
+    font-size: 2.8em;
 }
 H4,
 .h4 {
-    font-size: 1.2vw;
+    font-size: 2.4em;
 }
 H5,
 .h5 {
-    font-size: 1.0vw;
+    font-size: 2.0em;
 }
 H6,
 .h6 {
-    font-size: 1.0vw;
+    font-size: 2.0em;
     font-style: italic;
 }
 
@@ -86,12 +86,12 @@ H6,
 /* -- Title -- */
 .Title {
     color: blue;
-    font-size: 2.4vw;
+    font-size: 4.8em;
 }
 
 .Title2 {
     color: Blue;
-    font-size: 2.0vw
+    font-size: 4.0em
 }
 
 p,
@@ -141,6 +141,25 @@ padding-bottom: 0em;
 /* -- Links -- */
 
 /* -- Fonts Fancy -- */
+.fPromo {
+    font-size: 1.2em;
+}
+.fBlurb {
+    font-size: 1.2em;
+}
+.fTiny {
+    font-size: 0.8em;
+}
+.fMicro {
+    font-size: .6em;
+}
+.fCode {
+    font-size: 1em;
+}
+.fPre {
+    font-size: 1em;
+}
+
 .fPromo,
 .fBlurb,
 .fTiny,
@@ -148,24 +167,7 @@ padding-bottom: 0em;
     font-family: cursive, Storybook, "MS Sans Serif", "Courier New";
 }
 
-.fPromo {
-    font-size: 1.2em;
-}
-
-.fBlurb {
-    font-size: 1.2em;
-}
-
-.fTiny {
-    font-size: 0.8em;
-}
-
-.fMicro {
-    font-size: .6em;
-}
-
 /* -- Fonts Code -- */
-
 .fCode {
     font-family: "Courier, monospace",
         Monaco,
@@ -176,8 +178,6 @@ padding-bottom: 0em;
         "Lucida Sans Typewriter",
         "DejaVu Sans Mono",
         monospace;
-    font-size: 1em;
-    LINE-HEIGHT: 1.1em;
     list-style: lower-roman;
 }
 
@@ -187,7 +187,6 @@ padding-bottom: 0em;
         Storybook,
         OldCentury,
         cursive;
-    font-size: 1.4em;
     list-style: lower-roman;
 }
 
@@ -195,7 +194,6 @@ padding-bottom: 0em;
     font-family: "Windsor Lt BT";
     list-style: lower-roman;
 }
-
 
 /* -- HTML Tags -- */
 /* body, blocks */
@@ -270,35 +268,8 @@ H6,
     font-family: Diploma, Storybook, cursive;
     text-align: center;
     color: #666699;
-    /* cPd */
-    margin: 0em 0.5em 0em 0em;
-    /* 0em; */
+    margin: 0em 0.0em 0em 0em;
     padding: 0.5em 0.5em 0.25em 0.5em;
-    /*.5em; */
-    font-weight: bold;
-    /* Border */
-    /* border-right: none; */
-    /* border-bottom: 0.1em solid black; */
-}
-
-H1,
-.h1,
-H2,
-.h2,
-H3,
-.h3,
-H4,
-.h4,
-H5,
-.h5,
-H6,
-.h6 {
-    font-family: Diploma, Storybook, cursive;
-    text-align: center;
-    color: #666699;
-    /* cPd */
-    margin: 0em;
-    padding: .5em;
     font-weight: bold;
 }
 
@@ -306,19 +277,15 @@ H6,
 .Margin0 {
     margin: 0em 0em 0em 0em;
 }
-
 .Margin5 {
     margin: .5em .5em .5em 0.5em;
 }
-
 .Margin10 {
     margin: 1em 1em 1em 1em;
 }
-
 .Margin {
     margin: 1.5em 1.5em 1.5em 1.5em;
 }
-
 .Margin25 {
     margin: 2.5em 2.5em 2.5em 2.5em;
 }
@@ -327,39 +294,32 @@ H6,
 .Indent0 {
     text-indent: 0em;
 }
-
 .Indent5 {
     text-indent: 0.5em;
 }
-
 .Indent10 {
     text-indent: 1em;
 }
-
 .Indent {
     text-indent: 1.5em;
 }
-
 .Indent25 {
     text-indent: 2.5em;
 }
 
+/* -- Layout - Pad  -- */
 .Pad0 {
     padding: 0em 0em 0em 0em;
 }
-
 .Pad5 {
     padding: .5em .5em .5em 0.5em;
 }
-
 .Pad10 {
     padding: 1em 1em 1em 1em;
 }
-
 .Pad {
     padding: 1.5em 1.5em 1.5em 1.5em;
 }
-
 .Pad25 {
     padding: 2.5em 2.5em 2.5em 2.5em;
 }
@@ -368,15 +328,12 @@ H6,
 .eB {
     font-weight: 900;
 }
-
 .eBold {
     font-weight: bold;
 }
-
 .eI {
     font-style: italic;
 }
-
 .eU {
     text-decoration: underline;
 }
@@ -385,18 +342,15 @@ H6,
     font-style: italic;
     font-weight: bold;
 }
-
 .eBU {
     font-weight: bold;
     text-decoration: underline;
 }
-
 .eBIU {
     font-style: italic;
     font-weight: bold;
     text-decoration: underline;
 }
-
 .eIU {
     font-style: italic;
     text-decoration: underline;
@@ -411,14 +365,12 @@ H6,
     padding: 0em 0em 0em 0.5em;
     text-indent: -0em;
 }
-
 .lB1 {
     list-style: inside url(../Images/lb1bult.gif);
     margin: 0em 0em 0em 0.5em;
     padding: 0em 0em 0em 0.5em;
     text-indent: 1.0em;
 }
-
 .lB2 {
     list-style: inside url(lb2bult.gif);
     margin: 0em 0em 0em 2.5em;
@@ -432,14 +384,12 @@ H6,
     padding: 0em 0em 0em 0.5em;
     text-indent: 0em;
 }
-
 .lNumbered {
     list-style: decimal inside;
     margin: 0em 0em 0em 0.5em;
     padding: 0em 0em 0em 0.5em;
     text-indent: 0em;
 }
-
 .lRomanLower {
     list-style: lower-roman inside;
     margin: 0em 0em 0em 0.5em;
@@ -451,15 +401,12 @@ H6,
 .aLeft {
     text-align: left;
 }
-
 .aRight {
     text-align: right;
 }
-
 .aCenter {
     text-align: center;
 }
-
 .aJustify {
     text-align: justify;
 }
@@ -467,16 +414,6 @@ H6,
 /* no line wrapping etc */
 .aNoWrap {
     white-space: nowrap;
-}
-
-/* Clear - no float */
-.aClearBoth {
-    clear: both;
-}
-
-/* Clear none */
-.aClearNone {
-    clear: none;
 }
 
 /* -- Borders -- */
@@ -488,7 +425,6 @@ H6,
     border-width: .4em;
     border-color: #DADCE4;
 }
-
 .BorderThick {
     /* Border */
     border-style: outset;
@@ -500,6 +436,15 @@ H6,
 /* -- */
 
 /* -- HACKS AND FIXES -- */
+/* Clear - no float */
+.aClearBoth {
+    clear: both;
+}
+/* Clear none */
+.aClearNone {
+    clear: none;
+}
+
 .FixPara {
     /* Position */
     display: block;
@@ -581,7 +526,7 @@ H6,
 
 /* -- Other Tags -- */
 
-pre {
+pre, .fPre {
     display: block;
     font-family: monospace;
     white-space: pre;

@@ -129,18 +129,29 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 	} else {
 		fontUnits = 'px';
 	}
-	// Classes H1-6,
+	// Classes - Headings H1-6,
 	changeCSSStyle('MdmBaseTagsStyles', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
-	// p
+	// Tags
 	changeCSSStyle('MdmBaseTagsStyles', 'p', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', 'ul', 'fontSize', (layoutFontUl * passedLayoutFontRatio) + fontUnits, true);
+	// span and li inherit.
 	// Caption & Title
 	changeCSSStyle('MdmBaseTagsStyles', '.Caption', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.Title', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
+	// Fancy - fPromo, fBlurb, fTiny, fMicro
+	changeCSSStyle('MdmBaseTagsStyles', '.fPromo', 'fontSize', (layoutFontPromo * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.fBlurb', 'fontSize', (layoutFontBlurb * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.fTiny', 'fontSize', (layoutFontTiny * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.fMicro', 'fontSize', (layoutFontMicro * passedLayoutFontRatio) + fontUnits, true);
+	// Specialized - fCode, fPre (n/a)
+	changeCSSStyle('MdmBaseTagsStyles', '.fCode', 'fontSize', (layoutFontCode * passedLayoutFontRatio) + fontUnits, true);
+	changeCSSStyle('MdmBaseTagsStyles', '.fPre', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
+	// Fonts Sized
 	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
 	// Scan 6-36 to see which fonts are defined/used.
 	for (idx = 6; idx < 37; idx++) {
@@ -232,7 +243,7 @@ function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
 						}
 						for (idx = 0, len = sheetRules.length; idx < len; idx++) {
 							if (sheetRules[idx].selectorText.split(', ').includes(selector)) {
-							// if (sheetRules[idx].selectorText == selector) {
+								// if (sheetRules[idx].selectorText == selector) {
 								sheetRules[idx].style[cssProp] = cssValue;
 								return true; // only the first instance of the style is altered
 							}

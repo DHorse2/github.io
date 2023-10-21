@@ -50,13 +50,16 @@ font-family:
  "Book Antiqua",
  "Bookman Old Style"  
 ;
-font-size: 1em;
 }
 
 p, .p {
 margin-top: 0.5em;
 margin-bottom: 0.5em;
 /* color:#000; */
+font-size: 1em;
+}
+ul, .ul {
+    font-size: 1em;
 }
 
 /* (c)olour: */
@@ -68,15 +71,6 @@ margin-bottom: 0.5em;
 /* (S)econdary Light     cSl    color:#FFFFCC; cSl */
 
 /* a:visited, .a:visited, a:hover, .a:hover { } */
-
-/* p {
-margin-top: 0em;
-padding-top: 0em;
-margin-bottom: 0em;
-padding-bottom: 0em;
-}
-*/
-
 
 .fStandard {
 font-size: 1em;

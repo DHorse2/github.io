@@ -65,6 +65,7 @@
 <!-- ..................................................................................... -->
 <!-- // Main Body Layout Objects: -->
 <!-- // See: "\MdmWebPages\$script_notes.shtml" -->
+
 <body id="BodyBox" class="BodyBox ">
 	<div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
 		<!-- ..................................................................................... -->
@@ -621,19 +622,18 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							class="BodyConsoleStateBox BodyConsoleDetailBox CalloutBorderFull">
 							State<br>
 							<!-- BodyConsoleStateTextBox -->
-							<div id="BodyConsoleStateTextBox"
-								class="BodyConsoleTextBox CalloutBorderFull">State</div>
+							<div id="BodyConsoleStateTextBox" class="BodyConsoleTextBox CalloutBorderFull">State</div>
 							<!-- end of State Inner Console -->
 							<!-- BodyConsoleTestBox * -->
-							<div id="BodyConsoleTestBox"
-								class=" BodyConsoleTextBox CalloutBorderFull">
+							<div id="BodyConsoleTestBox" class=" BodyConsoleTextBox CalloutBorderFull">
 								<button type="button" onclick="ConsoleFormFocusToggle(null)">Test Console</button>
 								<!-- * -->
 								<!-- w3-include-html-file="../TemplatePage/MdmPtConsoleForm.shtml" -->
 								<div id="BodyConsoleTestBoxInclude">
-									<object id="MdmPtConsoleForm" 
-									class="BodyConsoleTestTextBox CalloutBorderFull"
-									name="MdmPtConsoleForm" type="text/html" data="../TemplatePage/MdmPtConsoleForm.shtml" src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
+									<object id="MdmPtConsoleForm" class="BodyConsoleTestTextBox CalloutBorderFull"
+										name="MdmPtConsoleForm" type="text/html"
+										data="../TemplatePage/MdmPtConsoleForm.shtml"
+										src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
 									<!-- <div class="w3-include"
 									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
 									w3-include-mode="Dev"
@@ -674,6 +674,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 			<div id="BodyMainCenterCenter" class="BorderThin BodyParaBox">
 				<div id="DivSection1" class="">
 					<!-- * -->
+					<!-- Body Box -->
 					<div id="DivBox11" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCalloutB11C1" class="BodyParaRight CalloutBox CalloutBorder">
 							<a id="B11C1A1" href="../MdmWebPages/MdmNetAppFrame.shtml"
@@ -717,98 +718,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- <br class="aClearBoth"> -->
 					</div> <!-- end of DivP1a -->
 					<!-- * -->
-					<div id="DivBox12" class="BodyParaLeft layoutBodyColumnType1">
-						<div id="DivCalloutB12C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
-							<a id="B12C1A" href="../MdmWebPages/MdmNetAppFrame.shtml"
-								class="BodyParaGround CPA aCenter">
-								<span id="B12C1AH1" class="h4 CP">
-									If you need more specifics...
-								</span>
-							</a>
-						</div> <!-- end of DivC1b -->
-						<!-- * -->
-						<br>
-						<h3 id="B12H1" class="h4 BodyPara cSd">
-							If you need more details about skills:
-						</h3>
-						<p id="B12P1" class="BodyPara ">
-							<br>
-							<span class="eB">Languages: </span>
-							C#, Javascript, X/HTML/CSS, Silerlight, multivalued object databases.
-							<br>
-						</p>
-						<p id="B12P2" class="BodyPara ">
-							<span class="eB">Applications: </span>
-							Service Billing, Accounting, Inverntory/SOE, Project Accounting, Purchasing, Mangaement
-							Reporting, OLAP, Service Billing, Release Management, Legal, Foods, Importing, Distribution,
-							many others.
-							<br>
-						</p>
-						<p id="B12P3" class="BodyPara ">
-							<span class="eB">Specializations: </span>
-							Service Billing, Mangement Reporting, Broadcasting and Cable Television, Communications and
-							System Links, Protocols and Interfaces, e-commerce, IDE utilities, Data and Code Conversion.
-							<br>
-						</p>
-						<p id="B12P4" class="BodyPara ">
-							<span class="eB">Free Stuff: </span>
-							see the "free stuff" listing on this page.
-							<br>
-						</p>
-						<p id="B12P5" class="BodyPara BodyParaLast ">
-							<span class="eB">Myself: </span>
-							Resumes, skills and accomplishments.
-							<br>
-						</p>
-					</div>
-					<!-- * -->
-					<div id="DivBox13" class="BodyParaLeft layoutBodyColumnType1">
-						<p id="B13P1" class="BodyPara">
-							<span class="eB">SDLC Areas:</span>
-						</p>
-						<ul id="B13L1" class="BodyPara  BodyParaLast BodyList lB1">
-							<li id="B13L1I1" class="BodyListItem">
-								Product Development, Scope and Requirements</li>
-							<li id="B13L1I2" class="BodyListItem">
-								Design and Development and Support (OOD/OOP, RAD, Agile)</li>
-							<li id="B13L1I3" class="BodyListItem">
-								Original User Interface, Class and Database Design.</li>
-							<li id="B13L1I4" class="BodyListItem">
-								OSS and MVVM and Database Frameworks.</li>
-							<li id="B13L1I5" class="BodyListItem">
-								Development/Coding Standards.</li>
-							<li id="B13L1I6" class="BodyListItem">
-								Code Generation, Templates, Scripting, VBS (Automation and efficiency).</li>
-						</ul>
-						<br>
-					</div>
-					<!-- * -->
-					<div id="DivBox14" class="BodyParaLeft layoutBodyColumnType1">
-						<div id="DivCalloutB14C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
-							<h4 id="B14C1H1" class="BodyParaGround CP">
-								that was a long list...
-							</h4>
-						</div> <!-- end of DivC5 -->
-						<p id="B14P1" class="BodyPara">
-							I'm having a long career and so have naturally covered a lot of ground.
-							With that said, my focus is always first and foremost on producing code and designs.
-						</p>
-						<p id="B14P2" class="BodyPara">
-							I have mainly served small developers and small enterprise clients.
-							This resulted in my frequently providing most services found in the SDLC
-							as well as product development roles.
-						</p>
-						<p id="B14P3" class="BodyPara BodyParaLast ">
-							One challenge was to effectively transfer these skills to large organization solutions.
-							This works best by being focused on the role and task at hand in combination with
-							drawing on a much broader than typical background of experience.
-						</p>
-						<br>
-						<br>
-					</div>
-					<!-- end of DivBox14 -->
-					<!-- * -->
-					<!-- * -->
+					<!-- Body Box -->
 					<div id="DivBox15" class="DivBox BodyParaLeft">
 						<!-- -->
 						<!-- Callout Box -->
@@ -962,6 +872,105 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							Students interested in javascript, web page development and animation will find these two
 							groups useful.
 						</p>
+						<!-- -->
+
+					</div>
+					<!-- * -->
+					<!-- Body Box -->
+					<div id="DivBox12" class="BodyParaLeft layoutBodyColumnType1">
+						<div id="DivCalloutB12C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
+							<a id="B12C1A" href="../MdmWebPages/MdmNetAppFrame.shtml"
+								class="BodyParaGround CPA aCenter">
+								<span id="B12C1AH1" class="h4 CP">
+									If you need more specifics...
+								</span>
+							</a>
+						</div> <!-- end of DivC1b -->
+						<!-- * -->
+						<br>
+						<h3 id="B12H1" class="h4 BodyPara cSd">
+							If you need more details about skills:
+						</h3>
+						<p id="B12P1" class="BodyPara ">
+							<br>
+							<span class="eB">Languages: </span>
+							C#, Javascript, X/HTML/CSS, Silerlight, multivalued object databases.
+							<br>
+						</p>
+						<p id="B12P2" class="BodyPara ">
+							<span class="eB">Applications: </span>
+							Service Billing, Accounting, Inverntory/SOE, Project Accounting, Purchasing, Mangaement
+							Reporting, OLAP, Service Billing, Release Management, Legal, Foods, Importing, Distribution,
+							many others.
+							<br>
+						</p>
+						<p id="B12P3" class="BodyPara ">
+							<span class="eB">Specializations: </span>
+							Service Billing, Mangement Reporting, Broadcasting and Cable Television, Communications and
+							System Links, Protocols and Interfaces, e-commerce, IDE utilities, Data and Code Conversion.
+							<br>
+						</p>
+						<p id="B12P4" class="BodyPara ">
+							<span class="eB">Free Stuff: </span>
+							see the "free stuff" listing on this page.
+							<br>
+						</p>
+						<p id="B12P5" class="BodyPara BodyParaLast ">
+							<span class="eB">Myself: </span>
+							Resumes, skills and accomplishments.
+							<br>
+						</p>
+					</div>
+					<!-- * -->
+					<!-- Body Box -->
+					<div id="DivBox13" class="BodyParaLeft layoutBodyColumnType1">
+						<p id="B13P1" class="BodyPara">
+							<span class="eB">SDLC Areas:</span>
+						</p>
+						<ul id="B13L1" class="BodyPara  BodyParaLast BodyList lB1">
+							<li id="B13L1I1" class="BodyListItem">
+								Product Development, Scope and Requirements</li>
+							<li id="B13L1I2" class="BodyListItem">
+								Design and Development and Support (OOD/OOP, RAD, Agile)</li>
+							<li id="B13L1I3" class="BodyListItem">
+								Original User Interface, Class and Database Design.</li>
+							<li id="B13L1I4" class="BodyListItem">
+								OSS and MVVM and Database Frameworks.</li>
+							<li id="B13L1I5" class="BodyListItem">
+								Development/Coding Standards.</li>
+							<li id="B13L1I6" class="BodyListItem">
+								Code Generation, Templates, Scripting, VBS (Automation and efficiency).</li>
+						</ul>
+						<br>
+					</div>
+					<!-- * -->
+					<!-- Body Box -->
+					<div id="DivBox14" class="BodyParaLeft layoutBodyColumnType1">
+						<div id="DivCalloutB14C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
+							<h4 id="B14C1H1" class="BodyParaGround CP">
+								that was a long list...
+							</h4>
+						</div> <!-- end of DivC5 -->
+						<p id="B14P1" class="BodyPara">
+							I'm having a long career and so have naturally covered a lot of ground.
+							With that said, my focus is always first and foremost on producing code and designs.
+						</p>
+						<p id="B14P2" class="BodyPara">
+							I have mainly served small developers and small enterprise clients.
+							This resulted in my frequently providing most services found in the SDLC
+							as well as product development roles.
+						</p>
+						<p id="B14P3" class="BodyPara BodyParaLast ">
+							One challenge was to effectively transfer these skills to large organization solutions.
+							This works best by being focused on the role and task at hand in combination with
+							drawing on a much broader than typical background of experience.
+						</p>
+						<br>
+						<br>
+					</div>
+					<!-- * -->
+					<!-- Body Box -->
+					<div id="DivBox15A" class="DivBox BodyParaLeft">
 						<!-- -->
 						<!-- Callout Box -->
 						<div id="DivCalloutB15C2"
@@ -1219,7 +1228,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- <br class="aClearBoth"> -->
 					</div><!-- end of DivBox15 -->
 					<!-- * -->
-					<!-- * -->
+					<!-- Body Box -->
 					<div id="DivBox1" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout1" class="BodyParaRight CalloutBox CalloutBorder">
 							<a id="B1C1A1" href="../MdmWebPages/MdmNetAppFrame.shtml"
@@ -1263,7 +1272,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						</p>
 						<br>
 					</div> <!-- end of DivBox1 -->
-					<!-- * -->
+					<!-- Body Box -->
 					<!-- * Right -->
 					<div id="DivBox2" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout2" class="BodyParaLeft CalloutBox CalloutBorder">
@@ -1340,7 +1349,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- <br class="aClearBoth"> -->
 					</div> <!-- end of DivBox2 -->
 					<!-- * -->
-					<!-- * -->
+					<!-- Body Box -->
 					<div id="DivBox3" class="BodyParaLeft layoutBodyColumnType1">
 						<!-- When loaded, the onfilterchange event is fired as the filter makes -->
 						<!-- 	its initial settings.  This starts the animation. -->
@@ -1378,7 +1387,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- * -->
 						<!-- <br class="aClearBoth"> -->
 					</div> <!-- end of DivBox3 -->
-					<!-- * -->
+					<!-- Body Box -->
 					<!-- * Right -->
 					<div id="DivBox4" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout4" class="BodyParaLeft CalloutBox CalloutBorder">
@@ -1396,7 +1405,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- <br class="aClearBoth"> -->
 					</div> <!-- end of DivBox4 -->
 					<!-- * -->
-					<!-- * -->
+					<!-- Body Box -->
 					<div id="DivBox5" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout5" class="BodyParaRight CalloutBox CalloutBorder">
 							<h4 id="C5H1" class="BodyParaGround CP">
@@ -1447,6 +1456,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						</p><br>
 					</div> <!-- end of DivBox6 -->
 					<!-- * -->
+					<!-- Body Box -->
 					<div id="DivBox6c" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivCallout6c" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
 							<h4 id="B6cH1" class="BodyParaGround CP">
@@ -1515,9 +1525,9 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 				<!-- * -->
 				<div id="BodyBannerBottom">
 					<!-- ** Blocks ** -->
-					<object id="MdmPtConsoleBannerBottom" 
-					class="BodyBannerBottomBox CalloutBorderFull"
-					name="MdmPtDocBottom" type="text/html" data="../TemplatePage/MdmPtDocBottom.shtml" src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
+					<object id="MdmPtConsoleBannerBottom" class="BodyBannerBottomBox CalloutBorderFull"
+						name="MdmPtDocBottom" type="text/html" data="../TemplatePage/MdmPtDocBottom.shtml"
+						src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
 					<!--#include virtual="../../PageBuildStage.js"-->
 					<!--#if expr="${PageBuild}=RelsNext" -->
 					<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
@@ -1529,7 +1539,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 					<!--#endif -->
 					<br>
 					<!-- * -->
-					</div> <!-- end of BodyBannerBottom -->
+				</div> <!-- end of BodyBannerBottom -->
 				<!-- * -->
 			</div> <!-- end of BodyMainCenterBottom -->
 			<!-- * -->

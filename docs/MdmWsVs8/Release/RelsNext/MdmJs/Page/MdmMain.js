@@ -372,7 +372,19 @@ var layoutFontH3 = 1.4;
 var layoutFontH4 = 1.2;
 var layoutFontH5 = 1.0;
 var layoutFontH6 = 1.0;
+// Fancy
+var layoutFontPromo = 1.2;
+var layoutFontBlurb = 1.2;
+var layoutFontTiny = 0.8;
+var layoutFontMicro = 0.6;
+// Specialized
+var layoutFontCode = 1.0;
+var layoutFontPre = 1.0;
+// Fonts Sized
 var layoutFontP = 1.0;
+var layoutFontUl = 1.0;
+// span and li inherit.
+// Caption & Title
 var layoutFontCaption = 1.4;
 var layoutFontTitle = 2.0;
 // Just to keep the math simple f10 = 1.0em;
