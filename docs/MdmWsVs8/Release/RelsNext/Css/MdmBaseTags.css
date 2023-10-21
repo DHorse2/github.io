@@ -38,30 +38,24 @@
 .f36 {
     font-size: 3.6em;
 }
+
 /* -- Headings */
-H1,
-.h1 {
-    font-size: 4.0em;
-}
-H2,
-.h2 {
-    font-size: 3.6em;
-}
-H3,
-.h3 {
-    font-size: 2.8em;
-}
-H4,
-.h4 {
-    font-size: 2.4em;
-}
-H5,
-.h5 {
+H1, .h1 {
     font-size: 2.0em;
+} H2, .h2 {
+    font-size: 1.8em;
 }
-H6,
-.h6 {
-    font-size: 2.0em;
+H3, .h3 {
+    font-size: 1.6em;
+}
+H4, .h4 {
+    font-size: 1.4em;
+}
+H5, .h5 {
+    font-size: 1.2em;
+}
+H6, .h6 {
+    font-size: 1.2em;
     font-style: italic;
 }
 
@@ -86,22 +80,19 @@ H6,
 /* -- Title -- */
 .Title {
     color: blue;
-    font-size: 4.8em;
+    font-size: 2.4em;
 }
 
 .Title2 {
     color: Blue;
-    font-size: 4.0em
+    font-size: 2.0em
 }
 
-p,
-.p
-{
+p, .p {
     font-size: 1em;
 }
 
-p,
-.p {
+p, .p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     /* color:#000; */
@@ -160,10 +151,11 @@ padding-bottom: 0em;
     font-size: 1em;
 }
 
-.fPromo,
-.fBlurb,
-.fTiny,
-.fMicro {
+/* todo very small, small, x, bigger, very big standards */
+
+/* -- Fonts Standard-- */
+
+.fPromo, .fBlurb, .fTiny, .fMicro {
     font-family: cursive, Storybook, "MS Sans Serif", "Courier New";
 }
 
@@ -198,45 +190,30 @@ padding-bottom: 0em;
 /* -- HTML Tags -- */
 /* body, blocks */
 /* body,
-/* div,
-/* para, span */
-p,
-.p,
-span,
-.span,
+/* div */
+
+/* -- Fonts Standard - para, span, text */
+p, .p,
+span, .span,
 /* font size */
-big,
-.big,
-small,
-.small,
-large,
-.large,
+big, .big,
+small, .small,
+large, .large,
 /* decoration */
-i,
-.i,
-b,
-.b,
+i, .i,
+b, .b,
 strong,
 /* list */
-li,
-.li,
-ol,
-.li,
-ul,
-.ul,
+li, .li,
+ol, .li,
+ul, .ul,
 /* table */
-td,
-.td,
-th,
-.th,
+td, .td,
+th, .th,
 tbody,
 /* links */
-a,
-.a,
-/* -- Fonts Standard-- */
-.fNormal,
-.fStandard,
-.fText {
+a, .a,
+.fNormal, .fStandard, .fText {
     font-family:
         "Courier New",
         "Courier",
@@ -252,19 +229,14 @@ a,
     ;
 }
 
+/* -- Styles -- */
 /* -- Headings -- */
-H1,
-.h1,
-H2,
-.h2,
-H3,
-.h3,
-H4,
-.h4,
-H5,
-.h5,
-H6,
-.h6 {
+H1, .h1,
+H2, .h2,
+H3, .h3,
+H4, .h4,
+H5, .h5,
+H6, .h6 {
     font-family: Diploma, Storybook, cursive;
     text-align: center;
     color: #666699;
