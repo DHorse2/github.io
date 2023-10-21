@@ -225,7 +225,8 @@ function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
 							sheetRules = sheetCurrent.rules;
 						}
 						for (idx = 0, len = sheetRules.length; idx < len; idx++) {
-							if (sheetRules[idx].selectorText == selector) {
+							if (sheetSelectorText.split(', ').includes(selector)) {
+							// if (sheetRules[idx].selectorText == selector) {
 								sheetRules[idx].style[cssProp] = cssValue;
 								return true; // only the first instance of the style is altered
 							}
