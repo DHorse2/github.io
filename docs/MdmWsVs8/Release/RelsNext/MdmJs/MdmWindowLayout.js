@@ -123,21 +123,22 @@ function LayoutFontSizeSmaller() {
 }
 function LayoutFontSizeSet(passedLayoutFontRatio) {
 	var fontUnits, fontCalc;
-	// Classes H1-6,
+	// Units,
 	if (layoutStyleUnits == layoutStyleUnitsEm) {
 		fontUnits = 'em';
 	} else {
 		fontUnits = 'px';
 	}
+	// Classes H1-6,
 	changeCSSStyle('MdmBaseTagsStyles', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
-	//
+	// p
 	changeCSSStyle('MdmBaseTagsStyles', 'p', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
-	//
+	// Caption & Title
 	changeCSSStyle('MdmBaseTagsStyles', '.Caption', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
 	changeCSSStyle('MdmBaseTagsStyles', '.Title', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
 	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
