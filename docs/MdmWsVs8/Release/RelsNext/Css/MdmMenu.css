@@ -295,11 +295,11 @@ a.MenuBlockLink:active {
 /* -- Generic Menu List  -- */
 /* -------------------------------------------- */
 .MenuList {
-    font-size: 0.9em;
+    font-size: 1.1em;
     display: block;
 }
 .MenuListItem {
-    font-size: 0.9em;
+    font-size: 1.0em;
     text-align: center;
 }
 .MenuListItemLast {

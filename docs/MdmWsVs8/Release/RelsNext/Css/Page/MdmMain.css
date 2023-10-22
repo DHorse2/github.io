@@ -12,30 +12,31 @@
 /* Layering */
 /* #DivCalloutB15C1 { } */
 
-#DivCalloutB15C1 .CPP{
-/* Layering */
-display:none;
+#DivCalloutB15C1 .CPP {
+    /* Layering */
+    display: none;
 }
 
-#DivCalloutB15C1:hover .CPP{
-/* Layering */
-display:block;
-max-width:40.0em;
-z-index: 1004;
+#DivCalloutB15C1:hover .CPP {
+    /* Layering */
+    display: block;
+    max-width: 40.0em;
+    z-index: 1004;
 }
 
 #DivCalloutB15C1:hover {
-/* Layering */
-display:block;
-max-width:40.0em;
-z-index: 1004;
+    /* Layering */
+    display: block;
+    width: 90%;
+    max-width: 40.0em;
+    z-index: 1004;
 }
 
-#DivCalloutB15C1ImgSet{
-/* Size */
-overflow-y:scroll;
-/* Layering */
-display:block;
+#DivCalloutB15C1ImgSet {
+    /* Size */
+    overflow-y: scroll;
+    /* Layering */
+    display: block;
 }
 
 /* #DivCalloutB15C1Img1Thumb { } */
@@ -46,30 +47,31 @@ display:block;
 /* Layering */
 /* #DivCalloutB15C2 { } */
 
-#DivCalloutB15C2 .CPP{
-/* Layering */
-display:none;
+#DivCalloutB15C2 .CPP {
+    /* Layering */
+    display: none;
 }
 
-#DivCalloutB15C2:hover .CPP{
-/* Layering */
-display:block;
-max-width:40.0em;
-z-index: 1004;
+#DivCalloutB15C2:hover .CPP {
+    /* Layering */
+    display: block;
+    max-width: 40.0em;
+    z-index: 1004;
 }
 
 #DivCalloutB15C2:hover {
-/* Layering */
-display:block;
-max-width:40.0em;
-z-index: 1004;
+    /* Layering */
+    display: block;
+    width: 90%;
+    max-width: 40.0em;
+    z-index: 1004;
 }
 
-#DivCalloutB15C2ImgSet{
-/* Size */
-overflow-y:scroll;
-/* Layering */
-display:block;
+#DivCalloutB15C2ImgSet {
+    /* Size */
+    overflow-y: scroll;
+    /* Layering */
+    display: block;
 }
 
 /* #DivCalloutB15C2Img1Thumb { } */

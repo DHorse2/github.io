@@ -111,14 +111,14 @@ function LayoutFontSizeReset() {
 }
 // Font Size
 function LayoutFontSizeBigger() {
-	if (layoutFontRatio >= 10) { return; }
-	layoutFontRatio += 0.25;
+	if (layoutFontRatio >= 5) { return; }
+	layoutFontRatio += 0.1;
 	LayoutFontSizeSet(layoutFontRatio);
 }
 // Font Size
 function LayoutFontSizeSmaller() {
-	if (layoutFontRatio < 0.251) { return; }
-	layoutFontRatio -= 0.25;
+	if (layoutFontRatio < 0.21) { return; }
+	layoutFontRatio -= 0.1;
 	LayoutFontSizeSet(layoutFontRatio);
 }
 function LayoutFontSizeSet(passedLayoutFontRatio) {
@@ -173,42 +173,9 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 
 // idxSheet is the stylesheet's index based on load order. See document.styleSheets. E.g. 0=reset.css, 1=main.css.
 var idxSheet = 0;
-// this is for old browsers.
-// var cssRules = (document.querySelectorAll("*")) ? 'rules' : 'cssRules';
-// var cssRules = (document.all) ? 'rules' : 'cssRules';
-
 var sheetName;
 var sheetCurrent;
 var sheetId;
-
-function changeCSSStyleByQuery(sheetId, selector, cssProp, cssValue, isStyle) {
-	sheetName = "../Css/" + sheetId + ".css";
-	sheetCurrent = document.querySelector("id='" + sheetId + "'");
-	if (!sheetCurrent) { sheetCurrent = document.styleSheets[sheetId]; }
-	if (sheetCurrent) {
-		if (!isStyle) {
-			document.styleSheets[idxSheet][cssRules][idx].cssProp = cssValue;
-		} else {
-			for (idx = 0, len = sheetCurrent[cssRules].length; idx < len; idx++) {
-				// if (StyleSheets.title == sheetId) {
-				// var sheetSelectorText = sheetCurrent[cssRules][idx].selectorText;
-				// pos = sheetSelectorText.split(' ').includes(selector);
-				// var pos = sheetSelectorText.indexOf(selector);
-				// for (; pos > -1; pos = sheetSelectorText.indexOf(selector))
-				// if (pos == 0 || pos == sheetSelectorText.length - selector.length
-				// 	|| sheetSelectorText.indexOf(' ' + selector + ' ')) {
-				// if (sheetCurrent[cssRules][idx].selectorText == selector) {
-				if (sheetSelectorText.split(', ').includes(selector)) {
-					sheetCurrent[cssRules][idx].style[cssProp] = cssValue;
-					return;
-					// }
-				}
-				// }
-			}
-		}
-	}
-}
-
 function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
 	// StyleSheets.title (from idxSheet) (removed ===) added Id's
 	var idxSheetStart = 0;

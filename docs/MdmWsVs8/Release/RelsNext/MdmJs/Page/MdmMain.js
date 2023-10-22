@@ -367,11 +367,11 @@ var layoutStyleUnits = layoutStyleUnitsEm;
 // callout.
 var layoutFontRatio = 1.0;
 var layoutFontH1 = 2.0;
-var layoutFontH2 = 1.8;
+var layoutFontH2 = 1.6;
 var layoutFontH3 = 1.4;
 var layoutFontH4 = 1.2;
-var layoutFontH5 = 1.0;
-var layoutFontH6 = 1.0;
+var layoutFontH5 = 1.1;
+var layoutFontH6 = 1.1;
 // Fancy
 var layoutFontPromo = 1.2;
 var layoutFontBlurb = 1.2;
@@ -388,8 +388,8 @@ var layoutFontUl = 1.0;
 var layoutFontCaption = 1.4;
 var layoutFontTitle = 2.0;
 // Layout Classes
-var MenuList = 1.0;
-var MenuListItem = 0.9;
+var MenuList = 1.1;
+var MenuListItem = 1.0;
 // Just to keep the math simple f10 = 1.0em;
 
 // Columns in pixels

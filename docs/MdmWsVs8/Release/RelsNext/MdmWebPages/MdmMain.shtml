@@ -723,7 +723,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- -->
 						<!-- Callout Box -->
 						<div id="DivCalloutB15C1"
-							class="BodyParaLeft CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed">
+							class="BodyParaLeft CalloutBoxSmall Callout CalloutBorder layoutBodyColumnTypeFixed">
 							<!-- -->
 							<!-- Callout Box visible portion and link-->
 							<a id="B15C1A" href="#" class="CalloutContent CPA">
