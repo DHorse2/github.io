@@ -199,6 +199,23 @@
     width: 25%;
 }
 
+/* -- Body Callouts Expansion on Hover -- */
+.CalloutBoxExpand .CPP {
+    display: none;
+}
+.CalloutBoxExpand:hover .CPP {
+    display: block;
+    max-width: 40.0em;
+    z-index: 1004;
+}
+.CalloutBoxExpand:hover {
+    display: block;
+    width: 90%;
+    max-width: 40.0em;
+    z-index: 1004;
+}
+
+/* -- Body Callouts Styles -- */
 .CalloutBoxBg {
     /* Background */
     background-color: #FFFFCC;

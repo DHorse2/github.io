@@ -629,11 +629,41 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 								<button type="button" onclick="ConsoleFormFocusToggle(null)">Test Console</button>
 								<!-- * -->
 								<!-- w3-include-html-file="../TemplatePage/MdmPtConsoleForm.shtml" -->
+								<!-- 
+									<object id="MdmPtConsoleForm"
+										src="../TemplatePage/MdmPtConsoleForm.shtml"> 
+										data="../TemplatePage/MdmPtConsoleForm.shtml">
+										class="BodyConsoleTestTextBox CalloutBorderFull"
+										name="MdmPtConsoleForm"
+										type="text/html"
+									>
+									</object>
+									<iframe id="MdmPtConsoleForm"
+										title=""
+										class="BodyConsoleTestTextBox CalloutBorderFull"
+										name="MdmPtConsoleForm"
+										src="../TemplatePage/MdmPtConsoleForm.shtml"
+										type="text/html"
+									>
+									</iframe>
+									<script id="MdmPtConsoleForm"
+										class="BodyConsoleTestTextBox CalloutBorderFull"
+										name="MdmPtConsoleForm"
+										src="../TemplatePage/MdmPtConsoleForm.shtml"
+										type="text/html"
+									>
+									</script>
+									// ??? href? todo not working Console Form
+								-->
 								<div id="BodyConsoleTestBoxInclude">
-									<object id="MdmPtConsoleForm" class="BodyConsoleTestTextBox CalloutBorderFull"
-										name="MdmPtConsoleForm" type="text/html"
+									<object id="MdmPtConsoleForm"
+										loading="eager"
+										class="BodyConsoleTestTextBox CalloutBorderFull"
+										name="MdmPtConsoleForm"
 										data="../TemplatePage/MdmPtConsoleForm.shtml"
-										src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
+										type="text/html"
+									>
+									</object>
 									<!-- <div class="w3-include"
 									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
 									w3-include-mode="Dev"
@@ -723,7 +753,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- -->
 						<!-- Callout Box -->
 						<div id="DivCalloutB15C1"
-							class="BodyParaLeft CalloutBoxSmall Callout CalloutBorder layoutBodyColumnTypeFixed">
+							class="BodyParaLeft CalloutBoxSmall CalloutBoxExpand CalloutBorder layoutBodyColumnTypeFixed">
 							<!-- -->
 							<!-- Callout Box visible portion and link-->
 							<a id="B15C1A" href="#" class="CalloutContent CPA">
@@ -871,6 +901,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							of configuration and control programmer's variables via a form.
 							Students interested in javascript, web page development and animation will find these two
 							groups useful.
+							<br><br><br><br><br>
 						</p>
 						<!-- -->
 
@@ -974,7 +1005,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- -->
 						<!-- Callout Box -->
 						<div id="DivCalloutB15C2"
-							class="BodyParaLeft CalloutBoxSmall CalloutBorder layoutBodyColumnTypeFixed">
+							class="BodyParaLeft CalloutBoxSmall CalloutBoxExpand CalloutBorder layoutBodyColumnTypeFixed">
 							<a id="B15C2A" href="#" class="CalloutContent CPA">
 								<span class="h4 CPA">
 									Warning!!! <br>Before you <br>grab this client script...<br>

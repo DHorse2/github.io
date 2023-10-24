@@ -7,8 +7,8 @@
 	method="post"
 	action="JavaScript:ConsoleFormElementSync(true);"
 	>
-	<button type="submit" value="Log">
-		To Log
+	<button type="submit" value="Log" onclick="ConsoleFormElementSync(false)">
+		Log
 	</button>
 	<button type="button" onclick="ConsoleFormElementSync(false)">
 		Get

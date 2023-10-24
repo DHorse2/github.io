@@ -136,11 +136,15 @@ ButtonIsOnColor = 'Lime';
 ButtonIsOffColor = 'Red';
 // Message Colors
 errorSeverityColorFatal = 'Red';
-errorSeverityColorSevere = 'Yellow';
-errorSeverityColorWarn = 'Orange';
-errorSeverityColorComment = 'Lime';
+errorSeverityColorFatalBg = 'Gray';
+errorSeverityColorSevere = 'Black';
+errorSeverityColorSevereBg = 'Pink';
+errorSeverityColorWarn = 'Black';
+errorSeverityColorWarnBg = 'Yellow';
+errorSeverityColorComment = 'Black';
+errorSeverityColorCommentBg = 'White';
 errorSeverityColor = errorSeverityColorComment;
-
+errorSeverityColorBg = errorSeverityColorCommentBg;
 // SectionBlock Object Postion
 // ...................................... //
 // The following are here in the event some browsers

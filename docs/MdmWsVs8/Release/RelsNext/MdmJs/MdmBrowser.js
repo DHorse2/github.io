@@ -20,6 +20,7 @@ var browserAnimationIsMozilla;
 var browserEventsIsFf; // FF mouse out
 // Note that differences in object model
 // booleans
+var browserType;
 var browserIsTEST;
 var browserIsIE; // Internet Explorer
 var browserIsCH; // Chrome
@@ -31,6 +32,8 @@ var browserIsLynx; // Lynx text only
 var browserIsEdge; // todo
 var browserIsTor; // todo
 var browserIsOld; // todo
+var browserIsUnknown; // todo
+var browserType;
 
 // SectionBlock Window Browser
 // ...................................... //
@@ -59,13 +62,18 @@ function BrowserVsReset() {
     browserIsEdge = false;
     browserIsTor = false;
     browserIsOld = false;
+    browserIsUnknown = false;
+    // Set the type
+    browserType = "unknown";
+    BrowserVsGet();
 }
 // Browser Type Get
 function BrowserVsGet() {
     //
-    BrowserVsReset();
+    if (browserType != "unknown") { BrowserVsReset(); }
     //
     if ((navigator.userAgent).indexOf('TEST') != -1) { browserIsTEST = true; browserAnimationIsMozilla = true; browserType = 'TEST'; } else {
+        browserType = navigator.toString();
         if ((navigator.userAgent).indexOf('MSIE') != -1) { browserIsIE = true; browserAnimationIsIe = true; browserType = 'MSIE'; } else {
             if ((navigator.userAgent).indexOf('Chrome') != -1) { browserIsCH = true; browserType = 'Chrome'; } else {
                 if ((navigator.userAgent).indexOf('Firefox') != -1) { browserIsFF = true; browserAnimationIsMozilla = true; browserType = 'Firefox'; } else {
@@ -95,15 +103,17 @@ function BrowserVsGet() {
                 break;
             case 'Chrome':
             default:
+                browserType = "Firefox";
+                browserIsUnknown = true;
                 break;
         }
         //
         // for purposes of filter handling
-        if (browserIsTEST || browserIsFF || browserIsSA || browserIsNE || browserIsCH) { browserAnimationIsMozilla = true; }
+        if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE || browserIsCH) { browserAnimationIsMozilla = true; }
         if (browserIsIE) { browserAnimationIsIe = true; }
         //
         // for purposes of mouse event handling
-        if (browserIsTEST || browserIsFF || browserIsSA || browserIsNE) { browserEventsIsFf = true; } else { browserEventsIsFf = false; }
+        if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE) { browserEventsIsFf = true; } else { browserEventsIsFf = false; }
         //
     }
 }

@@ -227,9 +227,17 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 			}
 			// execute test
 			MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
-				'This is a test message for checking the console display...',
+				'This is a test SEVERE error message for checking the console display.',
 				'BodyConsoleToggle', 8225, consoleTestBox, consoleTestBox,
-				errorIsSevere, errorDoDisplayTag, errorDoAlert);
+				errorIsSevere, errorDoDisplayTag, errorDoNotAlert);
+			MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
+				'This is a test Warning! message for checking the console display.',
+				'BodyConsoleToggle', 8225, null, null,
+				errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
+			MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
+				'This is a test comment message for checking the console display.',
+				'BodyConsoleToggle', 8225, null, null,
+				errorIsComment, errorDoDisplayTag, errorDoNotAlert);
 			//
 			checkNoVisibleConsole = true;
 			checkBoxSize = true;
@@ -756,19 +764,23 @@ function ConsoleFormElementSync(fromForm) {
 	// Toggled Variables
 	// ...................................... //
 	consoleStateFormValid = true;
-	elementObject = document.getElementById('formImgLoadUseEventHandler');
+	elementObject = ElementGetRef(consoleStateForm, 'formImgLoadUseEventHandler', 'formImgLoadUseEventHandler');
+	// elementObject = document.getElementById('formImgLoadUseEventHandler');
+	// if (!elementObject && consoleStateForm) { elementObject = consoleStateForm; }
 	// Is the form accessible?
 	if (!elementObject) {
 		ErrorOccured(eventCurr, elementObject, consoleStateForm, "Console Form cannot be accessed or synced", errorIsWarning, false, false);
 		consoleStateFormValid = false; // turn it off
 		return;
 	}
-
 	// ** Javascript Parameter Init Blocks **
+	// Browser
+	browserIsFF = 0;
+	elementObject = document.getElementById('formBrowser');
 	if (fromForm) {
-		if (elementObject.checked) { imgLoadUseEventHandler = true; } else { imgLoadUseEventHandler = false; }
+		if (elementObject.value) { imgLoadUseEventHandler = true; } else { imgLoadUseEventHandler = false; }
 	} else {
-		if (imgLoadUseEventHandler) { elementObject.checked = true; } else { elementObject.checked = false; }
+		if (imgLoadUseEventHandler) { elementObject.value = true; } else { elementObject.checked = false; }
 	}
 	//
 	elementObject = document.getElementById('formImgLoadUseInner');
@@ -931,49 +943,50 @@ function ConsoleFormElementSync(fromForm) {
 	// Browser
 	// ...................................... //
 	if (fromForm) { BrowserVsReset(); }
+	//
 	elementObject = document.getElementById('formBrowser_MSIE');
 	if (fromForm) {
-		if (elementObject.selected) { browserIsIE = true; tempSelected = true; }
+		if (elementObject.selected) { browserType = "MSIE"; browserIsIE = true; tempSelected = true; }
 	} else {
 		if (browserIsIE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
 	elementObject = document.getElementById('formBrowser_Chrome');
 	if (fromForm) {
-		if (elementObject.selected) { browserIsIE = true; tempSelected = true; }
+		if (elementObject.selected) { browserType = "Chrome"; browserIsIE = true; tempSelected = true; }
 	} else {
 		if (browserIsCH) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
 	elementObject = document.getElementById('formBrowser_FireFox');
 	if (fromForm) {
-		if (elementObject.selected) { browserIsFF = true; tempSelected = true; }
+		if (elementObject.selected) { browserType = "Firefox"; browserIsFF = true; tempSelected = true; }
 	} else {
 		if (browserIsFF) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
 	elementObject = document.getElementById('formBrowser_Safari');
 	if (fromForm) {
-		if (elementObject.selected) { browserIsSA = true; tempSelected = true; }
+		if (elementObject.selected) { browserType = "Safari"; browserIsSA = true; tempSelected = true; }
 	} else {
 		if (browserIsSA) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
 	elementObject = document.getElementById('formBrowser_Opera');
 	if (fromForm) {
-		if (elementObject.selected) { brobrowserIsOPwserIsIE = true; tempSelected = true; }
+		if (elementObject.selected) { browserType = "Opera"; browserIsOP = true; tempSelected = true; }
 	} else {
 		if (browserIsOP) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	//
 	elementObject = document.getElementById('formBrowser_Netscape');
 	if (fromForm) {
-		if (elementObject.selected) { browserIsIE = true; tempSelected = true; }
+		if (elementObject.selected) { browserType = "Netscape"; browserIsIE = true; tempSelected = true; }
 	} else {
 		if (browserIsNE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 	}
 	// default
-	if (!tempSelected) { document.getElementById('formBrowser_FireFox').selected = true; }
+	if (!tempSelected) { browserType = "Firefox"; browserIsFF = true; document.getElementById('formBrowser_FireFox').selected = true; }
 	//
 	tempSelected = false;
 
@@ -1201,21 +1214,23 @@ function ConsoleFormInit() {
 
 	// BodyconsoleStateTextBox
 	// consoleStateBox = document.getElementById('BodyConsoleStateTextBox');
+	consoleStateBoxValid = false;
 	if (!consoleStateBox) { consoleStateBox = ElementGetRef(consoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox'); }
 	// if (!consoleStateBox) { consoleStateBox = ElementGetRef(consoleStateBox, 'MdmPtConsoleForm', 'MdmPtConsoleForm'); }
 	if (consoleStateBox) { consoleStateBoxValid = true; }
 
 	// consoleStateForm = document.getElementById('BodyConsoleStateForm');
+	consoleStateFormValid = false;
 	if (!consoleStateForm) { consoleStateForm = ElementGetRef(consoleStateForm, 'MdmPtConsoleForm', 'MdmPtConsoleForm'); }
-	if (!consoleStateForm) { consoleStateForm = ElementGetRef(consoleStateForm, 'BodyConsoleTestBox', 'BodyConsoleTestBox'); }
+	// if (!consoleStateForm) { consoleStateForm = ElementGetRef(consoleStateForm, 'BodyConsoleTestBox', 'BodyConsoleTestBox'); }
 	if (consoleStateForm) {
 		consoleStateFormValid = true;
 		// consoleStateForm.addEventListener("submit", () => { ConsoleFormElementSync(true); });
 		// consoleStateForm.addEventListener("click", (event) => { ConsoleFormFocusToggle(event); })
 		// // consoleStateForm.addEventListener("focusin", (event) => { ConsoleFormFocusIn(event); })
 		// // consoleStateForm.addEventListener("focusout", (event) => { ConsoleFormFocusOut(event); })
-		ConsoleFormElementSync(false);
 	}
+	ConsoleFormElementSync(false);
 }
 // Console Form View
 var consoleFormFocusWidthLast = 0;
@@ -1231,8 +1246,14 @@ function ConsoleFormFocusToggle(event) {
 function ConsoleFormFocusIn(event) {
 	consoleFormFocus = true;
 	ConsoleFormElementSync(false);
-	if (!consoleStateFormValid) { return; }
-	if (!consoleStateBoxValid) { return; }
+	if (!consoleStateFormValid) {
+		ErrorOccured(eventCurr, consoleStateForm, consoleStateBox, "Cannot access Console Form.", errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
+		// return;
+	}
+	if (!consoleStateBoxValid) {
+		ErrorOccured(eventCurr, consoleStateBox, consoleStateBox, "Cannot access Console Form.", errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
+		return;
+	}
 	// update form (settings can be altered by running code)
 	ConsoleFormElementSync(false);
 	consoleFormFocusWidthLast = consoleStateBox.style.width;
@@ -1243,7 +1264,7 @@ function ConsoleFormFocusIn(event) {
 }
 function ConsoleFormFocusOut(event) {
 	consoleFormFocus = false;
-	if (!consoleStateFormValid) { return; }
+	if (!consoleStateBoxValid) { return; }
 	consoleStateBox.style.left = consoleFormFocusLeftLast;
 	consoleStateBox.style.width = consoleFormFocusWidthLast;
 	consoleStateForm.style.height = "";

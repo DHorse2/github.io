@@ -129,9 +129,9 @@ function WindowLoadInit() {
     MdmMenuImageInit();
     ElementObjectCreate();
     ElementObjectContainerCreate();    // Synchorize Confole Settings Form
-    ConsoleFormInit();
     // Resize Window
     WindowResizeLayout();
+    ConsoleFormInit();
 }
 // Diaglogs and Pop-ups
 ////////////////////////////////////////////////
@@ -537,31 +537,57 @@ function WindowResizeLayout() {
         if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
             // Standard Layout
             layoutIsStandard = true;
-            // Left
-            // bodyMainLeft.style.width = '10%';
-            // bodyMainLeft.style.width = '15%';
-            if (bodyMainLeftVisible) {
-                bodyMainLeft.style.width = '12%';
+            if (layoutDocumentWidth > 2.5 * layoutMenuDocWidthWide) {
+                // Wide Layout            // Left
+                if (bodyMainLeftVisible) {
+                    bodyMainLeft.style.width = '5%';
+                } else {
+                    bodyMainLeft.style.width = '0%';
+                    bodyMainCenterLeftAdj = 5;
+                    bodyMainCenterWidthAdj += 5;
+                }
+                // Right
+                // bodyMainRight.style.top = 0%
+                if (bodyMainRightVisible) {
+                    if (layoutUseAbsolute) { bodyMainRight.style.left = '95%'; }
+                    bodyMainRight.style.width = '5%';
+                } else {
+                    if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+                    bodyMainRight.style.width = '0%';
+                    bodyMainCenterWidthAdj += 5;
+                }
+                //
+                // Center
+                // bodyMainCenter.style.top = 0%
+                if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
+                bodyMainCenterWidth = 90;
             } else {
-                bodyMainLeft.style.width = '0%';
-                bodyMainCenterLeftAdj = 12;
-                bodyMainCenterWidthAdj += 12;
+                // Wide Layout            // Left
+                // bodyMainLeft.style.width = '10%';
+                // bodyMainLeft.style.width = '15%';
+                if (bodyMainLeftVisible) {
+                    bodyMainLeft.style.width = '12%';
+                } else {
+                    bodyMainLeft.style.width = '0%';
+                    bodyMainCenterLeftAdj = 12;
+                    bodyMainCenterWidthAdj += 12;
+                }
+                // Right
+                // bodyMainRight.style.top = 0%
+                if (bodyMainRightVisible) {
+                    if (layoutUseAbsolute) { bodyMainRight.style.left = '88%'; }
+                    bodyMainRight.style.width = '12%';
+                } else {
+                    if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+                    bodyMainRight.style.width = '0%';
+                    bodyMainCenterWidthAdj += 12;
+                }
+                //
+                // Center
+                // bodyMainCenter.style.top = 0%
+                if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
+                bodyMainCenterWidth = 76;
             }
-            // Right
-            // bodyMainRight.style.top = 0%
-            if (bodyMainRightVisible) {
-                if (layoutUseAbsolute) { bodyMainRight.style.left = '88%'; }
-                bodyMainRight.style.width = '12%';
-            } else {
-                if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
-                bodyMainRight.style.width = '0%';
-                bodyMainCenterWidthAdj += 12;
-            }
-            //
-            // Center
-            // bodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
-            bodyMainCenterWidth = 76;
             // bodyMainCenter.style.width = (80 + bodyMainCenterWidthAdj) + '%';
             //
         } else {

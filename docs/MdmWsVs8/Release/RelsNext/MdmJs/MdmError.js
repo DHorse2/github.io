@@ -15,10 +15,15 @@ var errorSeverityHighest = errorDidNotOccur;
 var DoDebug = false;
 // Message Colors
 var errorSeverityColorFatal = 'Red';
+var errorSeverityColorFatalBg = 'Black';
 var errorSeverityColorSevere = 'Yellow';
+var errorSeverityColorSevereBg = 'Black';
 var errorSeverityColorWarn = 'Orange';
+var errorSeverityColorWarnBg = 'Gray';
 var errorSeverityColorComment = 'Lime';
+var errorSeverityColorCommentBg = 'White';
 var errorSeverityColor = errorSeverityColorComment;
+var errorSeverityColorBg = errorSeverityColorCommentBg;
 //
 var errorResultOnFail = errorDidNotOccur;
 var errorMessage = "Error handling initializing";
@@ -145,7 +150,8 @@ function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messa
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
     messageFinal = "";
-    errorSeverityColor = 'White';
+    errorSeverityColor = errorSeverityColorComment;
+    errorSeverityColorBg = errorSeverityColorCommentBg;
     errorInnerHTML = "";
     errorSourceInnerHTML = "";
     if (!messagePassed) { messagePassed = ""; }
@@ -164,28 +170,28 @@ function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messa
     if (errorSeverityPassed >= errorIsFatal) {
         messageFinal = "FATAL Error " + messageFinal;
         errorSeverityLevel = errorIsFatal;
+        errorSeverityColor = errorSeverityColorFatal;
+        errorSeverityColorBg = errorSeverityColorFatalBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
-        // errorMessageLogFatal += messageFinal;
-        errorSeverityColor = 'Red';
     } else if (errorSeverityPassed >= errorIsSevere) {
         messageFinal = "SEVERE Error " + messageFinal;
         errorSeverityLevel = errorIsSevere;
+        errorSeverityColor = errorSeverityColorSevere;
+        errorSeverityColorBg = errorSeverityColorSevereBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
-        // errorMessageLogSevere += messageFinal;
-        errorSeverityColor = 'Yellow';
     } else if (errorSeverityPassed >= errorIsWarning) {
         messageFinal = "Warning! " + messageFinal;
         errorSeverityLevel = errorIsWarning;
+        errorSeverityColor = errorSeverityColorWarn;
+        errorSeverityColorBg = errorSeverityColorWarnBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
-        // errorMessageLogWarn += messageFinal;
-        errorSeverityColor = 'Orange';
     } else {
         // errorIsComment:
         messageFinal = "(Comment) " + messageFinal;
         errorSeverityLevel = errorDidNotOccur;
+        errorSeverityColor = errorSeverityColorComment;
+        errorSeverityColorBg = errorSeverityColorCommentBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { localDoUseDebug = true; }
-        // errorMessageLogComment += messageFinal;
-        errorSeverityColor = 'Lime';
     }
     //
     // if (!UseSingleLine && errorSeverityPassed >= errorIsSevere) {
@@ -417,7 +423,8 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     //
     DoDebug = false;
-    errorSeverityColor = 'White';
+    errorSeverityColor = errorSeverityColorComment;
+    errorSeverityColorBg = errorSeverityColorCommentBg;
     if (!elementPassed) { elementPassed = null; }
     if (!elementSourcePassed) { elementSourcePassed = null; }
     if (!messagePassed) { messagePassed = ""; }
@@ -526,18 +533,20 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
     switch (errorSeverityPassed) {
         case errorIsFatal:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
-            // errorMessageLogFatal += messageFinal;
-            errorSeverityColor = 'Red';
-            break;
+            errorSeverityLevel = errorIsFatal;
+            errorSeverityColor = errorSeverityColorFatal;
+            errorSeverityColorBg = errorSeverityColorFatalBg;
+                break;
         case errorIsSevere:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
-            // errorMessageLogSevere += messageFinal;
-            errorSeverityColor = 'Yellow';
-            break;
+            errorSeverityLevel = errorIsSevere;
+            errorSeverityColor = errorSeverityColorSevere;
+            errorSeverityColorBg = errorSeverityColorSevereBg;            break;
         case errorIsWarning:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
-            // errorMessageLogWarn += messageFinal;
-            errorSeverityColor = 'Orange';
+            errorSeverityLevel = errorIsWarning;
+            errorSeverityColor = errorSeverityColorWarn;
+            errorSeverityColorBg = errorSeverityColorWarnBg;
             break;
         case errorIsComment:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
@@ -546,8 +555,9 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
             break;
         default:
             if (errorDebugLevel < 1 + errorSeverityPassed) { DoDebug = true; }
-            // errorMessageLogComment += messageFinal;
-            errorSeverityColor = 'Lime';
+            errorSeverityLevel = errorDidNotOccur;
+            errorSeverityColor = errorSeverityColorComment;
+            errorSeverityColorBg = errorSeverityColorCommentBg;
             break;
     }
     //
@@ -593,7 +603,7 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
     if (consoleErrorTextBox) {
         var tempInnerHTML =  charNewLineTag + tagSpan;
         if (errorSeverityColor != 'White') {
-            tempInnerHTML += ' style="color:' + errorSeverityColor + '; background-color:black"' + gt
+            tempInnerHTML += ' style="color:' + errorSeverityColor + '; background-color:' + errorSeverityColorBg + '"' + gt
         } else {
             tempInnerHTML += gt;
         }
