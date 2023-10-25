@@ -147,6 +147,11 @@ var errorSourceInnerHTMLLog = new String();
 // ...................................... //
 // var errorSeverityLevel;
 function ErrorOccured(eventCurrPassed, elementPassed, elementSourcePassed, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
+    messageTemp = ErrorAnalysis(eventCurrPassed, elementPassed, elementSourcePassed, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+    WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messageTemp, eventFileName, eventFileLine, eventFileColumn);
+}
+
+function ErrorAnalysis(eventCurrPassed, elementPassed, elementSourcePassed, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
     messageFinal = "";
@@ -282,18 +287,18 @@ function WindowError(eventCurrPassed, errorSeverityPassed, errorArguments) {
         }
     }
     EventSet(eventCurrPassed);
-    WindowErrorDetail(errorSeverityPassed, eventCurrPassed, eventMessage, eventFileName, eventFileLine, eventFileColumn);
+    WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, eventMessage, eventFileName, eventFileLine, eventFileColumn);
 }
 
 // Window Error full details
-function WindowErrorDetail(errorSeverityPassed, eventCurrPassed, messagePassed, messageUrlPassed, messageLineNumPassed, messageFileColumn) {
+function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed, messageUrlPassed, messageLineNumPassed, messageFileColumn) {
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
     messageElement = null;
     messageElementSource = null;
     messageUrl = messageUrlPassed;
 
-    messageTemp = ErrorOccured(eventCurrPassed, messageElement, messageElementSource, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+    messageTemp = ErrorAnalysis(eventCurrPassed, messageElement, messageElementSource, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
     // ErrorSet(eventCurrPassed);
 
     // error Object: description Property | message Property | name Property | number Property
@@ -429,7 +434,7 @@ function MessageLog(eventCurr, UseDebug, UseSingleLinePassed, messagePassed,
     if (!elementSourcePassed) { elementSourcePassed = null; }
     if (!messagePassed) { messagePassed = ""; }
     //
-    messageFinal = ErrorOccured(eventCurr, elementPassed, elementSourcePassed, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+    messageFinal = ErrorAnalysis(eventCurr, elementPassed, elementSourcePassed, messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
     //
     if ((messageUrlPassed).length) {
         messageFinal += messageUrlPassed;
@@ -698,7 +703,13 @@ function MessageLogAction(eventCurr, messagePassed,
 // ..................................................................................... _//
 // Attach the listener for Errors
 // It will fire when an error occurs.
-window.onerror = function (event) { WindowError(event, errorIsSevere, Arguments[1]); };
+var localArgs = new Object();
+window.onerror = function (event) {
+    eventStack = new Error().stack;
+    localArgs = Arguments;
+    var tmp = Arguments[1];
+    WindowError(event, errorIsSevere, tmp);
+};
 // window.onerror = (event) => {
 //     WindowError(event);
 // };

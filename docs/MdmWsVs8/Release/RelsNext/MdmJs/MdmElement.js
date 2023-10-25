@@ -299,18 +299,22 @@ function ElementPosGetFromObj(oObjPassed) {
 // ...................................... //
 // ..................................................................................... _//
 function ElementGetFromId(IdPassed) {
+    if (!IdPassed.length) {
+        // error
+        return;
+    }
     if (browserIsTEST) {
         // browserIsTEST
-        if (!elementNamePassed.length) { elementNamePassed = IdPassed; }
         elementObject = window.document.querySelector(elementNamePassed);
         if (!elementObject) { elementObject = document.getElementById(IdPassed); }
     } else if (browserIsIE || browserIsFF) {
         // browserIE or browserIsFF
         // elementObjectResult = window.document.querySelector(IdPassed)
         elementObject = document.getElementById(IdPassed);
+        if (!elementObject) { elementObject = window.document.querySelector(IdPassed); }
     } else {
         // elementObject = document.getElementById(IdPassed);
-        elementObjectResult = window.document.querySelector(IdPassed)
+        elementObject = window.document.querySelector(IdPassed)
     }
     return elementObject;
 }

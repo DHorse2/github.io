@@ -655,7 +655,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									</script>
 									// ??? href? todo not working Console Form
 								-->
-								<div id="BodyConsoleTestBoxInclude">
+								<!-- <div id="BodyConsoleTestBoxInclude"> -->
 									<object id="MdmPtConsoleForm"
 										loading="eager"
 										class="BodyConsoleTestTextBox CalloutBorderFull"
@@ -681,7 +681,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
 									<!--#include virtual="/release/RelsNotSetError.htm"-->
 									<!--#endif -->
-								</div> <!-- end of Test Box Input -->
+								<!-- </div> end of Test Box Input -->
 								<!-- * -->
 								<br id="BrBodyConsoleTest1" class="aClearBoth">
 								<div id="BodyConsoleTestBoxDisplay"

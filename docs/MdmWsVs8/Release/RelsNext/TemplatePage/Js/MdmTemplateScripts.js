@@ -2091,7 +2091,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
 		errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
 		errorLogLine += charNewLineTag + charTextIndex;
 		errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
-		WindowErrorDetail(errorSeverityPassed, errorLogLine, 'TimerItemDoStepFilter', 4257);
+		WindowErrorDisplay(errorSeverityPassed, errorLogLine, 'TimerItemDoStepFilter', 4257);
 	}
 	//
 	timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
@@ -2384,7 +2384,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
 		errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
 		errorLogLine += charNewLineTag + charTextIndex;
 		errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
-		WindowErrorDetail(errorSeverityPassed, errorLogLine, 'TimerItemDoStepFilter', 4258);
+		WindowErrorDisplay(errorSeverityPassed, errorLogLine, 'TimerItemDoStepFilter', 4258);
 	}
 	// ...................................... //
 	// Increment Current Step
@@ -4849,7 +4849,7 @@ function MessageLogAction(MessagePassed,
 window.onerror = WindowError;
 // function() { WindowError(); }
 //
-function WindowErrorDetail(errorSeverityPassed, MessagePassed, messageUrlPassed, MessageLineNumPassed) {
+function WindowErrorDisplay(errorSeverityPassed, MessagePassed, messageUrlPassed, MessageLineNumPassed) {
 	// this may set an event or message... dunno
 	var errorCaller = WindowError.caller;
 	if (errorCaller == null) { errorCaller = 'Unknown'; }

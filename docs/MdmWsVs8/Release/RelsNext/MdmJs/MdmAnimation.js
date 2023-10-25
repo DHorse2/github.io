@@ -1812,7 +1812,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
         errorLogLine += charNewLineTag + charTextIndex;
         errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
         eventCurr = Event;
-        WindowErrorDetail(errorSeverityPassed, eventCurr, errorLogLine, 'TimerItemDoStepFilter', 4257);
+        WindowErrorDisplay(errorSeverityPassed, eventCurr, errorLogLine, 'TimerItemDoStepFilter', 4257);
     }
     //
     timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
@@ -2103,7 +2103,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         errorLogLine += charNewLineTag + charTextIndex;
         errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
         eventCurr = Event;
-        WindowErrorDetail(errorSeverityPassed, eventCurr, errorLogLine, 'TimerItemDoStepFilter', 4258);
+        WindowErrorDisplay(errorSeverityPassed, eventCurr, errorLogLine, 'TimerItemDoStepFilter', 4258);
     }
     // ...................................... //
     // Increment Current Step
