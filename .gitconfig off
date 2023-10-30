@@ -1,0 +1,10 @@
+[remote "origin"]
+    url=https://github.com/DHorse2/github.io.git
+    fetch = +refs/heads/gh-pages:refs/remotes/origin/*
+[core] 
+    packedGitLimit = 8096m 
+    packedGitWindowSize = 8096m 
+[pack] 
+    deltaCacheSize = 8096m 
+    packSizeLimit = 8096m 
+    windowMemory = 8096m
