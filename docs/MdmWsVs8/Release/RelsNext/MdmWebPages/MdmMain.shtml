@@ -624,6 +624,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!-- BodyConsoleStateTextBox -->
 							<div id="BodyConsoleStateTextBox" class="BodyConsoleTextBox CalloutBorderFull">State</div>
 							<!-- end of State Inner Console -->
+
 							<!-- BodyConsoleTestBox * -->
 							<div id="BodyConsoleTestBox" class=" BodyConsoleTextBox CalloutBorderFull">
 								<button type="button" onclick="ConsoleFormFocusToggle(null)">Test Console</button>
@@ -690,6 +691,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 								</div> <!-- end of Test Data Display -->
 							</div> <!-- end of Test Box - Inner Console -->
 							<!-- * -->
+
 						</div> <!-- end of State Box - Console -->
 						<!-- * -->
 					</div> <!-- end of Console -->
