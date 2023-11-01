@@ -75,14 +75,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					eventMouseOverEnabled = false;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is OFF',
-						'BodyConsoleToggle', 8307, null, null,
+						'BodyConsoleToggle', 8307, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					eventMouseOverEnabled = true;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is ON',
-						'BodyConsoleToggle', 8314, null, null,
+						'BodyConsoleToggle', 8314, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 				}
@@ -91,13 +91,13 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				if (!eventMouseOverEnabled) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is OFF',
-						'BodyConsoleToggle', 8317, null, null,
+						'BodyConsoleToggle', 8317, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is ON',
-						'BodyConsoleToggle', 8314, null, null,
+						'BodyConsoleToggle', 8314, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 				}
@@ -177,7 +177,7 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 		case 'ConsoleState':
 			if (DoToggle) {
 				if (consoleBox.style.display != 'block') {
-					if (loadFirstDebugState) { FormElementSync(); }
+					if (loadFirstDebugState) { ConsoleFormElementSync(); }
 					boxStyleSaved = consoleStateBox.style.display;
 					BodyConsoleToggle(true, 'ConsoleAll');
 					consoleStateBox.style.display = boxStyleSaved;
@@ -197,7 +197,7 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				checkBoxSize = true;
 			} else {
 				if (consoleBox.style.display != 'block') {
-					if (loadFirstDebugState) { FormElementSync(); }
+					if (loadFirstDebugState) { ConsoleFormElementSync(); }
 					boxStyleSaved = consoleStateBox.style.display;
 				}
 				if (consoleStateBox.style.display == 'block') {
@@ -232,11 +232,11 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				errorIsSevere, errorDoDisplayTag, errorDoNotAlert);
 			MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 				'This is a test Warning! message for checking the console display.',
-				'BodyConsoleToggle', 8225, null, null,
+				'BodyConsoleToggle', 8225, 0, null, null,
 				errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
 			MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 				'This is a test comment message for checking the console display.',
-				'BodyConsoleToggle', 8225, null, null,
+				'BodyConsoleToggle', 8225, 0, null, null,
 				errorIsComment, errorDoDisplayTag, errorDoNotAlert);
 			//
 			checkNoVisibleConsole = true;
@@ -247,7 +247,7 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 			consoleErrorTextBox.innerHTML = '';
 			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 				'Error and Log Console has been cleared...',
-				'BodyConsoleToggle', 8235, null, null,
+				'BodyConsoleToggle', 8235, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 			consoleClearToggle.style.backgroundColor = '';
@@ -326,14 +326,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 					debugTimerMove = false;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is OFF',
-						'BodyConsoleToggle ConsoleDebugMove', 8313, null, null,
+						'BodyConsoleToggle ConsoleDebugMove', 8313, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					debugTimerMove = true;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is ON',
-						'BodyConsoleToggle ConsoleDebugMove', 8323, null, null,
+						'BodyConsoleToggle ConsoleDebugMove', 8323, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 					checkLogMode = true;
@@ -347,13 +347,13 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				if (!debugTimerMove) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is OFF',
-						'BodyConsoleToggle ConsoleDebugMove', 8333, null, null,
+						'BodyConsoleToggle ConsoleDebugMove', 8333, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move is ON',
-						'BodyConsoleToggle ConsoleDebugMove', 8343, null, null,
+						'BodyConsoleToggle ConsoleDebugMove', 8343, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 					checkLogMode = true;
@@ -363,13 +363,13 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				if (!debugTimerTransition) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move Transition is OFF',
-						'BodyConsoleToggle ConsoleDebugMove', 8353, null, null,
+						'BodyConsoleToggle ConsoleDebugMove', 8353, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Move Transition is ON',
-						'BodyConsoleToggle ConsoleDebugMove', 8363, null, null,
+						'BodyConsoleToggle ConsoleDebugMove', 8363, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 					checkLogMode = true;
@@ -385,14 +385,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				debugTimerTransition = false;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is OFF',
-					'BodyConsoleToggle', 8331, null, null,
+					'BodyConsoleToggle', 8331, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerTransition = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is ON',
-					'BodyConsoleToggle', 8341, null, null,
+					'BodyConsoleToggle', 8341, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -409,14 +409,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				debugTimerDetail = false;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is OFF',
-					'BodyConsoleToggle', 8355, null, null,
+					'BodyConsoleToggle', 8355, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugTimerDetail = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is ON',
-					'BodyConsoleToggle', 8365, null, null,
+					'BodyConsoleToggle', 8365, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -431,14 +431,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				errorUseDebugOnError = false;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is OFF',
-					'BodyConsoleToggle', 8377, null, null,
+					'BodyConsoleToggle', 8377, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnError = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is ON',
-					'BodyConsoleToggle', 8387, null, null,
+					'BodyConsoleToggle', 8387, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -453,14 +453,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				errorUseDebugOnAll = false;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is OFF',
-					'BodyConsoleToggle', 8399, null, null,
+					'BodyConsoleToggle', 8399, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				errorUseDebugOnAll = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is ON',
-					'BodyConsoleToggle', 8406, null, null,
+					'BodyConsoleToggle', 8406, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				if (!errorUseDebugOnError) { BodyConsoleToggle(true, 'ConsoleDebugOnError'); }
 				consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
@@ -477,14 +477,14 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				debugLogEvents = false;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is OFF',
-					'BodyConsoleToggle', 8423, null, null,
+					'BodyConsoleToggle', 8423, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				debugLogEvents = true;
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is ON',
-					'BodyConsoleToggle', 8430, null, null,
+					'BodyConsoleToggle', 8430, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -557,7 +557,10 @@ function BodyConsoleToggle(DoToggle, ConsoleBlockPassed) {
 				if (BodyConsoleBoxButtons) {
 					if (consoleBox.style.display != 'block') {
 						//
-						if (loadFirstDebugState) { FormElementSync(); }
+						if (loadFirstDebugState) {
+							loadFirstDebugState = false;
+							ConsoleFormElementSync();
+						}
 						//
 						// consoleTop.style.display = 'block';
 						//
@@ -757,415 +760,439 @@ function BodyConsoleShow(DoHide, DoDebug) {
 
 // Sycn form element with page internal settings or vice versa (fromForm)
 function ConsoleFormElementSync(fromForm) {
+	script_state = "Form sync: started";
+
 	var tempSelected = false;
 	// if (!consoleStateFormValid) { return; } // It's off or omitted
 	var elementObject = document.createElement('input');
 
-	// Toggled Variables
-	// ...................................... //
-	consoleStateFormValid = true;
-	elementObject = ElementGetRef(consoleStateForm, 'formImgLoadUseEventHandler', 'formImgLoadUseEventHandler');
-	// elementObject = document.getElementById('formImgLoadUseEventHandler');
-	// if (!elementObject && consoleStateForm) { elementObject = consoleStateForm; }
-	// Is the form accessible?
-	if (!elementObject) {
-		ErrorOccured(eventCurr, elementObject, consoleStateForm, "Console Form cannot be accessed or synced", errorIsWarning, false, false);
-		consoleStateFormValid = false; // turn it off
-		return;
-	}
-	// ** Javascript Parameter Init Blocks **
-	// Browser
-	browserIsFF = 0;
-	elementObject = document.getElementById('formBrowser');
-	if (fromForm) {
-		if (elementObject.value) { imgLoadUseEventHandler = true; } else { imgLoadUseEventHandler = false; }
-	} else {
-		if (imgLoadUseEventHandler) { elementObject.value = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formImgLoadUseInner');
-	if (fromForm) {
-		if (elementObject.checked) { imgLoadUseInner = true; } else { imgLoadUseInner = false; }
-	} else {
-		if (imgLoadUseInner) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formImgLoadEventTest');
-	if (fromForm) {
-		if (elementObject.checked) { imgLoadEventTest = true; } else { imgLoadEventTest = false; }
-	} else {
-		if (imgLoadEventTest) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formImgLoadUseDOM');
-	if (fromForm) {
-		if (elementObject.checked) { imgLoadUseDOM = true; } else { imgLoadUseDOM = false; }
-	} else {
-		if (imgLoadUseDOM) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
+	try {
+		// Toggled Variables
+		// ...................................... //
+		script_state = "Form sync: Check form exists";
+		consoleStateFormValid = true;
+		elementObject = ElementGetRef(consoleStateForm, 'formImgLoadUseEventHandler', 'formImgLoadUseEventHandler');
+		// elementObject = document.getElementById('formImgLoadUseEventHandler');
+		// if (!elementObject && consoleStateForm) { elementObject = consoleStateForm; }
+		// Is the form accessible?
+		if (!elementObject) {
+			ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, elementObject, consoleStateForm,
+				"Console Form cannot be accessed or synced", errorIsWarning, false, false);
+			consoleStateFormValid = false; // turn it off
+			return;
+		}
+		// ** Javascript Parameter Init Blocks **
+		// Browser
+		// browserIsFF = false;
+		script_state = "Form sync: Javascript Parameter Init Blocks";
+		elementObject = document.getElementById('formBrowser');
+		if (fromForm) {
+			if (elementObject.value) { imgLoadUseEventHandler = true; } else { imgLoadUseEventHandler = false; }
+		} else {
+			if (imgLoadUseEventHandler) { elementObject.value = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formImgLoadUseInner');
+		if (fromForm) {
+			if (elementObject.checked) { imgLoadUseInner = true; } else { imgLoadUseInner = false; }
+		} else {
+			if (imgLoadUseInner) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formImgLoadEventTest');
+		if (fromForm) {
+			if (elementObject.checked) { imgLoadEventTest = true; } else { imgLoadEventTest = false; }
+		} else {
+			if (imgLoadEventTest) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formImgLoadUseDOM');
+		if (fromForm) {
+			if (elementObject.checked) { imgLoadUseDOM = true; } else { imgLoadUseDOM = false; }
+		} else {
+			if (imgLoadUseDOM) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
 
-	// User Interface Features
-	// ...................................... //
-	// Control image display using mouse hover
-	elementObject = document.getElementById('formEventMouseOverEnabled');
-	if (fromForm) {
-		if (elementObject.checked) { eventMouseOverEnabled = true; } else { eventMouseOverEnabled = false; }
-	} else {
-		if (eventMouseOverEnabled) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
+		// User Interface Features
+		// ...................................... //
 
-	// Animation Control
-	// ...................................... //
-	elementObject = document.getElementById('formMoveIsOn');
-	if (fromForm) {
-		if (elementObject.checked) { moveIsOn = true; } else { moveIsOn = false; }
-	} else {
-		if (moveIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formFilterIsOn');
-	if (fromForm) {
-		if (elementObject.checked) { filterIsOn = true; } else { filterIsOn = false; }
-	} else {
-		if (filterIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formFilterResizeIsOn');
-	if (fromForm) {
-		if (elementObject.checked) { filterResizeIsOn = true; } else { filterResizeIsOn = false; }
-	} else {
-		if (filterResizeIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formTimerUseTime');
-	if (fromForm) {
-		if (elementObject.checked) { timerUseTime = true; } else { timerUseTime = false; }
-	} else {
-		if (timerUseTime) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
+		// Control image display using mouse hover
+		script_state = "Form sync: Using mouse hover";
+		elementObject = document.getElementById('formEventMouseOverEnabled');
+		if (fromForm) {
+			if (elementObject.checked) { eventMouseOverEnabled = true; } else { eventMouseOverEnabled = false; }
+		} else {
+			if (eventMouseOverEnabled) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
 
-	// Timer and Event Logging
-	// ...................................... //
-	elementObject = document.getElementById('formDebugTimer');
-	if (fromForm) {
-		if (elementObject.checked) { debugTimer = true; } else { debugTimer = false; }
-	} else {
-		if (debugTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formDebugTimerMove');
-	if (fromForm) {
-		if (elementObject.checked) { debugTimerMove = true; } else { debugTimerMove = false; }
-	} else {
-		if (debugTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formDebugTimerTransition');
-	if (fromForm) {
-		if (elementObject.checked) { debugTimerTransition = true; } else { debugTimerTransition = false; }
-	} else {
-		if (debugTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formDebugTimerDetail');
-	if (fromForm) {
-		if (elementObject.checked) { debugTimerDetail = true; } else { debugTimerDetail = false; }
-	} else {
-		if (debugTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formDebugLogEvents');
-	if (fromForm) {
-		if (elementObject.checked) { debugLogEvents = true; } else { debugLogEvents = false; }
-	} else {
-		if (debugLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
+		// Animation Control
+		// ...................................... //
+		script_state = "Form sync: Animation Control";
+		elementObject = document.getElementById('formMoveIsOn');
+		if (fromForm) {
+			if (elementObject.checked) { moveIsOn = true; } else { moveIsOn = false; }
+		} else {
+			if (moveIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formFilterIsOn');
+		if (fromForm) {
+			if (elementObject.checked) { filterIsOn = true; } else { filterIsOn = false; }
+		} else {
+			if (filterIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formFilterResizeIsOn');
+		if (fromForm) {
+			if (elementObject.checked) { filterResizeIsOn = true; } else { filterResizeIsOn = false; }
+		} else {
+			if (filterResizeIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formTimerUseTime');
+		if (fromForm) {
+			if (elementObject.checked) { timerUseTime = true; } else { timerUseTime = false; }
+		} else {
+			if (timerUseTime) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
 
-	// Debugger Control
-	// ...................................... //
-	elementObject = document.getElementById('formErrorUseDebugOnError');// enter debugger on errors
-	if (fromForm) {
-		if (elementObject.checked) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
-	} else {
-		if (errorUseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formErrorUseDebugOnAll');// enter debugger after any message
-	if (fromForm) {
-		if (elementObject.checked) { errorUseDebugOnAll = true; } else { errorUseDebugOnAll = false; }
-	} else {
-		if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formDebugIsOn');
-	if (fromForm) {
-		if (elementObject.checked) { debugIsOn = true; } else { debugIsOn = false; }
-	} else {
-		if (debugIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formDebugDoAlert');
-	if (fromForm) {
-		if (elementObject.checked) { debugDoAlert = true; } else { debugDoAlert = false; }
-	} else {
-		if (debugDoAlert) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
+		// Timer and Event Logging
+		// ...................................... //
+		script_state = "Form sync: Timer and Event Logging";
+		elementObject = document.getElementById('formDebugTimer');
+		if (fromForm) {
+			if (elementObject.checked) { debugTimer = true; } else { debugTimer = false; }
+		} else {
+			if (debugTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formDebugTimerMove');
+		if (fromForm) {
+			if (elementObject.checked) { debugTimerMove = true; } else { debugTimerMove = false; }
+		} else {
+			if (debugTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formDebugTimerTransition');
+		if (fromForm) {
+			if (elementObject.checked) { debugTimerTransition = true; } else { debugTimerTransition = false; }
+		} else {
+			if (debugTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formDebugTimerDetail');
+		if (fromForm) {
+			if (elementObject.checked) { debugTimerDetail = true; } else { debugTimerDetail = false; }
+		} else {
+			if (debugTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formDebugLogEvents');
+		if (fromForm) {
+			if (elementObject.checked) { debugLogEvents = true; } else { debugLogEvents = false; }
+		} else {
+			if (debugLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
 
-	// Page Load Optimaization
-	// ...................................... //
-	elementObject = document.getElementById('formJavaLoadDelay');
-	if (fromForm) {
-		if (elementObject.checked) { loadDelayJava = true; } else { loadDelayJava = false; }
-	} else {
-		if (loadDelayJava) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formBodyImageLoadDelay');
-	if (fromForm) {
-		if (elementObject.checked) { loadDelayBodyImage = true; } else { loadDelayBodyImage = false; }
-	} else {
-		if (loadDelayBodyImage) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
-	//
-	elementObject = document.getElementById('formMenuImageLoadDelay');
-	if (fromForm) {
-		if (elementObject.checked) { loadDelayMenuImage = true; } else { loadDelayMenuImage = false; }
-	} else {
-		if (loadDelayMenuImage) { elementObject.checked = true; } else { elementObject.checked = false; }
-	}
+		// Debugger Control
+		// ...................................... //
+		script_state = "Form sync: Debugger Control";
+		elementObject = document.getElementById('formErrorUseDebugOnError');// enter debugger on errors
+		if (fromForm) {
+			if (elementObject.checked) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
+		} else {
+			if (errorUseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formErrorUseDebugOnAll');// enter debugger after any message
+		if (fromForm) {
+			if (elementObject.checked) { errorUseDebugOnAll = true; } else { errorUseDebugOnAll = false; }
+		} else {
+			if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formDebugIsOn');
+		if (fromForm) {
+			if (elementObject.checked) { debugIsOn = true; } else { debugIsOn = false; }
+		} else {
+			if (debugIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formDebugDoAlert');
+		if (fromForm) {
+			if (elementObject.checked) { debugDoAlert = true; } else { debugDoAlert = false; }
+		} else {
+			if (debugDoAlert) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
 
-	// Fields with values
-	// ...................................... //
-	tempSelected = false;
-	elementObject = document.createElement('option');
+		// Page Load Optimaization
+		// ...................................... //
+		script_state = "Form sync: Page Load Optimaization";
+		elementObject = document.getElementById('formJavaLoadDelay');
+		if (fromForm) {
+			if (elementObject.checked) { loadDelayJava = true; } else { loadDelayJava = false; }
+		} else {
+			if (loadDelayJava) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formBodyImageLoadDelay');
+		if (fromForm) {
+			if (elementObject.checked) { loadDelayBodyImage = true; } else { loadDelayBodyImage = false; }
+		} else {
+			if (loadDelayBodyImage) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
+		//
+		elementObject = document.getElementById('formMenuImageLoadDelay');
+		if (fromForm) {
+			if (elementObject.checked) { loadDelayMenuImage = true; } else { loadDelayMenuImage = false; }
+		} else {
+			if (loadDelayMenuImage) { elementObject.checked = true; } else { elementObject.checked = false; }
+		}
 
-	// Browser
-	// ...................................... //
-	if (fromForm) { BrowserVsReset(); }
-	//
-	elementObject = document.getElementById('formBrowser_MSIE');
-	if (fromForm) {
-		if (elementObject.selected) { browserType = "MSIE"; browserIsIE = true; tempSelected = true; }
-	} else {
-		if (browserIsIE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formBrowser_Chrome');
-	if (fromForm) {
-		if (elementObject.selected) { browserType = "Chrome"; browserIsIE = true; tempSelected = true; }
-	} else {
-		if (browserIsCH) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formBrowser_FireFox');
-	if (fromForm) {
-		if (elementObject.selected) { browserType = "Firefox"; browserIsFF = true; tempSelected = true; }
-	} else {
-		if (browserIsFF) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formBrowser_Safari');
-	if (fromForm) {
-		if (elementObject.selected) { browserType = "Safari"; browserIsSA = true; tempSelected = true; }
-	} else {
-		if (browserIsSA) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formBrowser_Opera');
-	if (fromForm) {
-		if (elementObject.selected) { browserType = "Opera"; browserIsOP = true; tempSelected = true; }
-	} else {
-		if (browserIsOP) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formBrowser_Netscape');
-	if (fromForm) {
-		if (elementObject.selected) { browserType = "Netscape"; browserIsIE = true; tempSelected = true; }
-	} else {
-		if (browserIsNE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	// default
-	if (!tempSelected) { browserType = "Firefox"; browserIsFF = true; document.getElementById('formBrowser_FireFox').selected = true; }
-	//
-	tempSelected = false;
+		// Fields with values
+		// ...................................... //
+		tempSelected = false;
+		elementObject = document.createElement('option');
 
-	// Debug Control
-	// ...................................... //
-	tempSelected = false;
-	elementObject = document.getElementById('formErrorDebugLevel_errorDidNotOccur');
-	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorDidNotOccur; tempSelected = true; }
-	} else {
-		if (errorDebugLevel == errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorIsComment');
-	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorIsComment; } else { errorDebugLevel = true; }
-	} else {
-		if (errorDebugLevel == errorIsComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorIsWarning');
-	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorIsWarning; tempSelected = true; }
-	} else {
-		if (errorDebugLevel == errorIsWarning) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorIsSevere');
-	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorIsSevere; tempSelected = true; }
-	} else {
-		if (errorDebugLevel == errorIsSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formErrorDebugLevel_errorIsFatal');
-	if (fromForm) {
-		if (elementObject.selected) { errorDebugLevel = errorIsFatal; tempSelected = true; }
-	} else {
-		if (errorDebugLevel == errorIsFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	// default when not selected/set
-	// ...................................... //
-	if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorIsSevere').selected = true; }
-	//
-	elementObject = document.createElement('input');
+		// Browser
+		// ...................................... //
+		script_state = "Form sync: Browser";
+		if (fromForm) { BrowserVsReset(); }
+		//
+		elementObject = document.getElementById('formBrowser_MSIE');
+		if (fromForm) {
+			if (elementObject.selected) { browserType = "MSIE"; browserIsIE = true; tempSelected = true; }
+		} else {
+			if (browserIsIE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formBrowser_Chrome');
+		if (fromForm) {
+			if (elementObject.selected) { browserType = "Chrome"; browserIsIE = true; tempSelected = true; }
+		} else {
+			if (browserIsCH) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formBrowser_FireFox');
+		if (fromForm) {
+			if (elementObject.selected) { browserType = "Firefox"; browserIsFF = true; tempSelected = true; }
+		} else {
+			if (browserIsFF) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formBrowser_Safari');
+		if (fromForm) {
+			if (elementObject.selected) { browserType = "Safari"; browserIsSA = true; tempSelected = true; }
+		} else {
+			if (browserIsSA) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formBrowser_Opera');
+		if (fromForm) {
+			if (elementObject.selected) { browserType = "Opera"; browserIsOP = true; tempSelected = true; }
+		} else {
+			if (browserIsOP) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formBrowser_Netscape');
+		if (fromForm) {
+			if (elementObject.selected) { browserType = "Netscape"; browserIsIE = true; tempSelected = true; }
+		} else {
+			if (browserIsNE) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		// default
+		if (!tempSelected) { browserType = "Firefox"; browserIsFF = true; document.getElementById('formBrowser_FireFox').selected = true; }
+		//
+		tempSelected = false;
 
-	// Menu Image Size
-	// ...................................... //
-	elementObject = document.getElementById('formOObjImageSizeSmall');
-	if (fromForm) {
-		tmp = parseInt(elementObject.value);
-		if (tmp) { oObjImageSizeSmall = tmp; }
-	} else {
-		elementObject.value = oObjImageSizeSmall;
-	}
-	//
-	ementObject = document.getElementById('formOObjImageSizeLarge');
-	if (fromForm) {
-		tmp = parseInt(elementObject.value);
-		if (tmp) { oObjImageSizeLarge = tmp; }
-	} else {
-		elementObject.value = oObjImageSizeLarge;
-	}
-	//
-	elementObject = document.getElementById('formOObjImageSizeRatio');
-	if (fromForm) {
-		tmp = parseInt(elementObject.value);
-		if (tmp) { oObjImageSizeRatio = tmp; }
-	} else {
-		elementObject.value = oObjImageSizeRatio;
-	}
+		// Debug Control
+		// ...................................... //
+		script_state = "Form sync: Debug Control";
+		tempSelected = false;
+		elementObject = document.getElementById('formErrorDebugLevel_errorDidNotOccur');
+		if (fromForm) {
+			if (elementObject.selected) { errorDebugLevel = errorDidNotOccur; tempSelected = true; }
+		} else {
+			if (errorDebugLevel == errorDidNotOccur) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formErrorDebugLevel_errorIsComment');
+		if (fromForm) {
+			if (elementObject.selected) { errorDebugLevel = errorIsComment; } else { errorDebugLevel = true; }
+		} else {
+			if (errorDebugLevel == errorIsComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formErrorDebugLevel_errorIsWarning');
+		if (fromForm) {
+			if (elementObject.selected) { errorDebugLevel = errorIsWarning; tempSelected = true; }
+		} else {
+			if (errorDebugLevel == errorIsWarning) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formErrorDebugLevel_errorIsSevere');
+		if (fromForm) {
+			if (elementObject.selected) { errorDebugLevel = errorIsSevere; tempSelected = true; }
+		} else {
+			if (errorDebugLevel == errorIsSevere) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formErrorDebugLevel_errorIsFatal');
+		if (fromForm) {
+			if (elementObject.selected) { errorDebugLevel = errorIsFatal; tempSelected = true; }
+		} else {
+			if (errorDebugLevel == errorIsFatal) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		// default when not selected/set
+		// ...................................... //
+		if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorIsSevere').selected = true; }
+		//
+		elementObject = document.createElement('input');
 
-	// Animation Control
-	// ...................................... //
-	// Movement Duration
-	elementObject = document.getElementById('formElementMoveDuration');
-	elementObject.value = elementMoveDuration;
-	//
-	elementObject = document.getElementById('formelMoveStepMax');
-	elementObject.value = elMoveStepMax;
-	//
-	elementObject = document.getElementById('formElementMoveInterval');
-	elementObject.value = elementMoveInterval;
-	//
-	elementObject = document.getElementById('formElementMoveDelay');
-	elementObject.value = elementMoveDelay;
+		// Menu Image Size
+		// ...................................... //
+		script_state = "Form sync: Image Size";
+		elementObject = document.getElementById('formOObjImageSizeSmall');
+		if (fromForm) {
+			tmp = parseInt(elementObject.value);
+			if (tmp) { oObjImageSizeSmall = tmp; }
+		} else {
+			elementObject.value = oObjImageSizeSmall;
+		}
+		//
+		elementObject = document.getElementById('formOObjImageSizeLarge');
+		if (fromForm) {
+			tmp = parseInt(elementObject.value);
+			if (tmp) { oObjImageSizeLarge = tmp; }
+		} else {
+			elementObject.value = oObjImageSizeLarge;
+		}
+		//
+		elementObject = document.getElementById('formOObjImageSizeRatio');
+		if (fromForm) {
+			tmp = parseInt(elementObject.value);
+			if (tmp) { oObjImageSizeRatio = tmp; }
+		} else {
+			elementObject.value = oObjImageSizeRatio;
+		}
 
-	// Filter / Transition Duration
-	// ...................................... //
-	elementObject = document.getElementById('formFilterDuration');
-	elementObject.value = filterDuration;
-	//
-	elementObject = document.getElementById('formFilterStepMax');
-	elementObject.value = filterStepMax;
-	//
-	elementObject = document.getElementById('formFilterInterval');
-	elementObject.value = filterInterval;
-	//
-	elementObject = document.getElementById('formFilterDelay');
-	elementObject.value = filterDelay;
-	//
-	elementObject = document.getElementById('formFilterDurationAdjustment');
-	elementObject.value = filterDurationAdjustment;
-	//
-	elementObject = document.createElement('option');
+		// Animation Control
+		// ...................................... //
+		// Movement Duration
+		script_state = "Form sync: Animation: Movement Duration";
+		elementObject = document.getElementById('formElementMoveDuration');
+		elementObject.value = elementMoveDuration;
+		//
+		elementObject = document.getElementById('formelMoveStepMax');
+		elementObject.value = elMoveStepMax;
+		//
+		elementObject = document.getElementById('formElementMoveInterval');
+		elementObject.value = elementMoveInterval;
+		//
+		elementObject = document.getElementById('formElementMoveDelay');
+		elementObject.value = elementMoveDelay;
 
-	// Timer control by Item or Menu Group
-	// ...................................... //
-	tempSelected = false;
-	elementObject = document.getElementById('formTimerMethod_timerMethodGroup');
-	if (fromForm) {
-		if (elementObject.selected) { timerMethod = timerMethodGroup; tempSelected = true; }
-	} else {
-		if (timerMethod = timerMethodGroup) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formTimerMethod_timerMethodItem');
-	if (fromForm) {
-		if (elementObject.selected) { timerMethod = timerMethodItem; tempSelected = true; }
-	} else {
-		if (timerMethod == timerMethodItem) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	// default
-	if (!tempSelected) { document.getElementById('formTimerMethod_timerMethodGroup').selected = true; }
+		// Filter / Transition Duration
+		// ...................................... //
+		script_state = "Form sync: Animation: Filter Transition Duration";
+		elementObject = document.getElementById('formFilterDuration');
+		elementObject.value = filterDuration;
+		//
+		elementObject = document.getElementById('formFilterStepMax');
+		elementObject.value = filterStepMax;
+		//
+		elementObject = document.getElementById('formFilterInterval');
+		elementObject.value = filterInterval;
+		//
+		elementObject = document.getElementById('formFilterDelay');
+		elementObject.value = filterDelay;
+		//
+		elementObject = document.getElementById('formFilterDurationAdjustment');
+		elementObject.value = filterDurationAdjustment;
+		//
+		elementObject = document.createElement('option');
 
-	// Transitions started by Method call or by altering filter value or visibility
-	// ...................................... //
-	tempSelected = false;
-	elementObject = document.getElementById('formFilterMethod_filterMethodPlay');
-	if (fromForm) {
-		if (elementObject.selected) { filterMethod = timerMethodGroup; tempSelected = true; }
-	} else {
-		if (filterMethod == timerMethodGroup) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formFilterMethod_filterMethodVisible');
-	if (fromForm) {
-		if (elementObject.selected) { filterMethod = filterMethodVisible; tempSelected = true; }
-	} else {
-		if (filterMethod == filterMethodVisible) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	// default
-	if (!tempSelected) { document.getElementById('formFilterMethod_filterMethodPlay').selected = true; }
+		// Timer control by Item or Menu Group
+		// ...................................... //
+		script_state = "Form sync: Animation: Timers by Item or Group";
+		tempSelected = false;
+		elementObject = document.getElementById('formTimerMethod_timerMethodGroup');
+		if (fromForm) {
+			if (elementObject.selected) { timerMethod = timerMethodGroup; tempSelected = true; }
+		} else {
+			if (timerMethod = timerMethodGroup) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formTimerMethod_timerMethodItem');
+		if (fromForm) {
+			if (elementObject.selected) { timerMethod = timerMethodItem; tempSelected = true; }
+		} else {
+			if (timerMethod == timerMethodItem) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		// default
+		if (!tempSelected) { document.getElementById('formTimerMethod_timerMethodGroup').selected = true; }
 
-	// Manner by which images move across the screen
-	// ...................................... //
-	tempSelected = false;
-	elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodDirect');
-	if (fromForm) {
-		if (elementObject.selected) { elementMoveMethod = elementMoveMethodDirect; tempSelected = true; }
-	} else {
-		if (elementMoveMethod == elementMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		// Transitions started by Method call or by altering filter value or visibility
+		// ...................................... //
+		script_state = "Form sync: Animation: Filter Start method";
+		tempSelected = false;
+		elementObject = document.getElementById('formFilterMethod_filterMethodPlay');
+		if (fromForm) {
+			if (elementObject.selected) { filterMethod = timerMethodGroup; tempSelected = true; }
+		} else {
+			if (filterMethod == timerMethodGroup) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formFilterMethod_filterMethodVisible');
+		if (fromForm) {
+			if (elementObject.selected) { filterMethod = filterMethodVisible; tempSelected = true; }
+		} else {
+			if (filterMethod == filterMethodVisible) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		// default
+		if (!tempSelected) { document.getElementById('formFilterMethod_filterMethodPlay').selected = true; }
+
+		// Manner by which images move across the screen
+		// ...................................... //
+		script_state = "Form sync: Element movement";
+		tempSelected = false;
+		elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodDirect');
+		if (fromForm) {
+			if (elementObject.selected) { elementMoveMethod = elementMoveMethodDirect; tempSelected = true; }
+		} else {
+			if (elementMoveMethod == elementMoveMethodDirect) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodSlideDown');
+		if (fromForm) {
+			if (elementObject.selected) { elementMoveMethod = elementMoveMethodSlideDown; tempSelected = true; }
+		} else {
+			if (elementMoveMethod == elementMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodSlideSide');
+		if (fromForm) {
+			if (elementObject.selected) { elementMoveMethod = elementMoveMethodSlideSide; tempSelected = true; }
+		} else {
+			if (elementMoveMethod == elementMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		//
+		elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodRandom');
+		if (fromForm) {
+			if (elementObject.selected) { elementMoveMethod = elementMoveMethodRandom; tempSelected = true; }
+		} else {
+			if (elementMoveMethod == elementMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
+		}
+		// default
+		if (!tempSelected) { document.getElementById('formelementMoveMethod_elementMoveMethodRandom').selected = true; }
+		//
+		script_state = "Form sync: Completed without error";
+	} catch (consoleStateFormErr) {
+		ErrorCaught(consoleStateFormErr, script_state);
+		// script_state = "Form sync: aborted wit an error";
+	} finally {
 	}
-	//
-	elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodSlideDown');
-	if (fromForm) {
-		if (elementObject.selected) { elementMoveMethod = elementMoveMethodSlideDown; tempSelected = true; }
-	} else {
-		if (elementMoveMethod == elementMoveMethodSlideDown) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodSlideSide');
-	if (fromForm) {
-		if (elementObject.selected) { elementMoveMethod = elementMoveMethodSlideSide; tempSelected = true; }
-	} else {
-		if (elementMoveMethod == elementMoveMethodSlideSide) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	//
-	elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodRandom');
-	if (fromForm) {
-		if (elementObject.selected) { elementMoveMethod = elementMoveMethodRandom; tempSelected = true; }
-	} else {
-		if (elementMoveMethod == elementMoveMethodRandom) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
-	}
-	// default
-	if (!tempSelected) { document.getElementById('formelementMoveMethod_elementMoveMethodRandom').selected = true; }
-	//
-	loadFirstDebugState = false;
-	//
 }
 
 // Debug
@@ -1225,6 +1252,7 @@ function ConsoleFormInit() {
 	// if (!consoleStateForm) { consoleStateForm = ElementGetRef(consoleStateForm, 'BodyConsoleTestBox', 'BodyConsoleTestBox'); }
 	if (consoleStateForm) {
 		consoleStateFormValid = true;
+		MdmPtConsoleFormInit(clearElement = false, injectElement = true, consoleStateForm);
 		// consoleStateForm.addEventListener("submit", () => { ConsoleFormElementSync(true); });
 		// consoleStateForm.addEventListener("click", (event) => { ConsoleFormFocusToggle(event); })
 		// // consoleStateForm.addEventListener("focusin", (event) => { ConsoleFormFocusIn(event); })
@@ -1243,15 +1271,16 @@ function ConsoleFormFocusToggle(event) {
 		ConsoleFormFocusOut(event);
 	}
 }
+
 function ConsoleFormFocusIn(event) {
 	consoleFormFocus = true;
 	ConsoleFormElementSync(false);
 	if (!consoleStateFormValid) {
-		ErrorOccured(eventCurr, consoleStateForm, consoleStateBox, "Cannot access Console Form.", errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
+		ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateForm, consoleStateBox, "Cannot access Console Form.", errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
 		// return;
 	}
 	if (!consoleStateBoxValid) {
-		ErrorOccured(eventCurr, consoleStateBox, consoleStateBox, "Cannot access Console Form.", errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
+		ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, "Cannot access Console Form.", errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
 		return;
 	}
 	// update form (settings can be altered by running code)
@@ -1262,6 +1291,7 @@ function ConsoleFormFocusIn(event) {
 	consoleStateBox.style.width = "95%";
 	consoleStateForm.style.height = "600px";
 }
+
 function ConsoleFormFocusOut(event) {
 	consoleFormFocus = false;
 	if (!consoleStateBoxValid) { return; }

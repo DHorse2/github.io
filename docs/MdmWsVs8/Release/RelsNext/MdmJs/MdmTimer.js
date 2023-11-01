@@ -847,7 +847,7 @@ function TimerStart(timerType, timerGroup, timerId,
                             + ', Timer Delayed Start '
                             + (vTimerStart ? 'Ok' : 'Failed')
                             + (vTimerStart ? '.' : '!!!'),
-                            'TimerStart', 4557, null, null,
+                            'MdmTimer:TimerStart', 850, 0, null, null,
                             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
                     }
                 }
@@ -876,7 +876,7 @@ function TimerStart(timerType, timerGroup, timerId,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Timer Running')
                 + ', Already running'
                 + '.',
-                'TimerStart', 4587, null, null,
+                'MdmTimer:TimerStart', 879, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
@@ -918,7 +918,7 @@ function TimerSet(timerType, timerGroup, timerId,
             MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
                 + '.',
-                'TimerSet', 4633, null, null,
+                'MdmTimer:TimerSet', 921, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }
@@ -935,7 +935,7 @@ function TimerSet(timerType, timerGroup, timerId,
                 + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
                 + ', Already running, delayed start not done'
                 + '.',
-                'TimerSet', 4649, null, null,
+                'MdmTimer:TimerSet', 938, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             //
         }

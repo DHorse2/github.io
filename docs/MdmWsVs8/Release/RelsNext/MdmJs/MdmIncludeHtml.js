@@ -179,5 +179,68 @@ function xhttpTransferCanceled(evt) {
   console.log("The transfer has been canceled by the user.");
 }
 
+function MdmIncludeFileAll() {
+  var elArray, eiIndex, element, xhttp;
+  if (loadIncludesDone) { return; }
+  loadIncludesDone = true;
+  //
+  /* Loop through a collection of all HTML elements: */
+  elArray = document.getElementsByClassName("mdm-include")
+  // elArray = document.getElementsByTagName("*");
+  // todo console elArray element tag of interest
+  for (eiIndex = 0; eiIndex < elArray.length; eiIndex++) {
+    element = elArray[eiIndex];
+    element.classList.remove("mdm-include");
+    element.classList.add("mdm-include-processed");
+    /*search for elements with a certain atrribute:*/
+    includeHtmlFile = element.getAttribute("mdm-include-html-file");
+    // File = src???
+    includeValid = false;
+    //
+    if (includeHtmlFile) {
+      includeValid = true;
+      includeMode = element.getAttribute("mdm-include-mode");
+      includeRelease = element.getAttribute("mdm-include-release");
+      includeHtmlAttributes = element.getAttribute("mdm-include-attributes");
+      //
+      if (!includeMode) { includeMode = "Any"; }
+      if (includeMode == "Any" || includeMode == PageMode) {
+        // The Mode is Valid
+      } else {
+        // Invalid Mode
+        includeValid = false;
+      }
+      if (!includeRelease) { includeRelease = "Any"; }
+      if (includeRelease == "Any" || includeRelease == PageBuild) {
+        // Valid Release
+      } else {
+        // Invalid Release
+        includeValid = false;
+        // todo console invalid release skipped
+      }
+      if (includeHtmlAttributes) {
+        // todo console
+        // todo you could evaluate the expressions or do something with attributes
+        // includeValid = false;
+      }
+      // Remove the attributes
+      // not needed because class is used
+      // element.removeAttribute("mdm-include-html-file");
+      // element.removeAttribute("mdm-include-mode");
+      // element.removeAttribute("mdm-include-release");
+      // element.removeAttribute("mdm-include-attributes");
+      if (includeValid) {
+        /* Make an HTTP request using the attribute value as the file name: */
+        // result = makeRequest("GET", includeHtmlFile, false);
+        makeRequest = makeRequestAsync("GET", includeHtmlFile).then(
+          result => element.innerHTML = result,
+          error => alert(error)
+        );
+        // element.innerHTML = result;
+      }
+    }
+  }
+}
+
 if (debugLoadIsOn) { debugger; }
 script_state = "MdmIncludeHTML loaded";

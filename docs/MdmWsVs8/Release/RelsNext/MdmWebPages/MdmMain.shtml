@@ -32,6 +32,7 @@
 	<script id="MdmError" src="../MdmJs/MdmError.js"></script>
 	<script id="MdmDebugConsole" src="../MdmJs/MdmDebugConsole.js"></script>
 	<!-- // 		Initialization -->
+	<script id="MdmPtConsoleFormData" src="../MdmJs/MdmPtConsoleFormData.js"></script>
 	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
 	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
 	<script id="MdmMain" src="../MdmJs/Page/MdmMain.js"></script>
@@ -624,7 +625,6 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!-- BodyConsoleStateTextBox -->
 							<div id="BodyConsoleStateTextBox" class="BodyConsoleTextBox CalloutBorderFull">State</div>
 							<!-- end of State Inner Console -->
-
 							<!-- BodyConsoleTestBox * -->
 							<div id="BodyConsoleTestBox" class=" BodyConsoleTextBox CalloutBorderFull">
 								<button type="button" onclick="ConsoleFormFocusToggle(null)">Test Console</button>
@@ -657,6 +657,17 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									// ??? href? todo not working Console Form
 								-->
 								<!-- <div id="BodyConsoleTestBoxInclude"> -->
+									<!-- <div class="w3-include"
+									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
+									w3-include-mode="Dev"
+									w3-include-release="Any"
+									w3-include-attributes=""
+									></div> -->
+									<div id="MdmPtConsoleForm"
+										class="BodyConsoleTestTextBox CalloutBorderFull"
+										name="MdmPtConsoleForm"
+									></div>
+									<!-- </object>
 									<object id="MdmPtConsoleForm"
 										loading="eager"
 										class="BodyConsoleTestTextBox CalloutBorderFull"
@@ -664,7 +675,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 										data="../TemplatePage/MdmPtConsoleForm.shtml"
 										type="text/html"
 									>
-									</object>
+									</object> -->
 									<!-- <div class="w3-include"
 									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
 									w3-include-mode="Dev"
@@ -691,7 +702,6 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 								</div> <!-- end of Test Data Display -->
 							</div> <!-- end of Test Box - Inner Console -->
 							<!-- * -->
-
 						</div> <!-- end of State Box - Console -->
 						<!-- * -->
 					</div> <!-- end of Console -->

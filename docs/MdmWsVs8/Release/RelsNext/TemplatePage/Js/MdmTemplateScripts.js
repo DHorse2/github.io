@@ -4862,25 +4862,25 @@ function WindowErrorDisplay(errorSeverityPassed, MessagePassed, messageUrlPassed
 	if (!MessageLineNumPassed) { MessageLineNumPassed = -1; }
 	if (!messageUrlPassed) { messageUrlPassed = 'no url available'; }
 	if (!MessagePassed) { MessagePassed = 'NO ERROR MESSAGE AVAILABLE!!!'; }
-	eventEventCurr = (messageElementSource || messageElement || Event);
-	if (e && !eventEventCurr) { eventEventCurr = e; } else {
-		e = eventEventCurr;
+	eventCurr = (messageElementSource || messageElement || Event);
+	if (e && !eventCurr) { eventCurr = e; } else {
+		e = eventCurr;
 	}
-	if (!eventEventCurr) { return; }
+	if (!eventCurr) { return; }
 	// not window.event
 	e = null;
-	eventEventCurr = (messageElementSource || messageElement || Event);
+	eventCurr = (messageElementSource || messageElement || Event);
 	//
-	messageElement = eventEventCurr.target;
-	messageElementSource = eventEventCurr.srcElement;
+	messageElement = eventCurr.target;
+	messageElementSource = eventCurr.srcElement;
 	eventObject = (messageElementSource || messageElement || Event);
 	//
-	EventType = eventEventCurr.type;
+	eventType = eventCurr.type;
 	if (eventObject.id) {
 		if (eventObject.id != null) {
-			eventEventCurrId = eventObject.id;
-		} else { eventEventCurrId = ''; }
-	} else { eventEventCurrId = ''; }
+			eventCurrId = eventObject.id;
+		} else { eventCurrId = ''; }
+	} else { eventCurrId = ''; }
 	//
 	// display error in log
 	MessageLog(DoUseDebug, DoUseSingleLine,

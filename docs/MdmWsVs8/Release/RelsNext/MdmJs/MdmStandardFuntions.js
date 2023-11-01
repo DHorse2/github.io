@@ -126,13 +126,14 @@ var DoNotUseScroll = false; var bTemp = false;
 var iTemp = 0;
 var sTemp = "";
 
-var ErrorSync = 0;
+var errorCurr = null;
+var errorSync = 0;
 var errorFirst = true;
+var eventCurrRootObj;
+
+// depreciated:
 var errorCaller = null;
 var errorCallerName = 'Init...';
-
-var eventFirst = true;
-var eventCurrRootObj;
 
 // Section Menu Image (Standard) Objects
 // ..................................................................................... _//
@@ -330,19 +331,44 @@ function AlertDo() {
 }
 // Errors
 /////////
-function ErrorSet(eventCurrPassed) {
-    ErrorSync++;
-    errorCaller = null;
-    errorCallerName = 'Finding...';
+function ErrorSet(errorObjectPassed) {
+    errorSync++;
     if (errorFirst) {
         errorFirst = false;
         eventError = null;
         // return;
     }
+    if (!(errorObjectPassed instanceof Error)) {
+        errorCurr = new Error(errorObjectPassed);
+    } else { errorCurr = errorObjectPassed; }
+    // depreciated in Dom:
+    errorCaller = null;
+    errorCallerName = 'Finding...';
 
-    EventSet(eventCurrPassed);
+    eventError = errorCurr;
+    // if (!(errorObjectPassed instanceof Error)) {
+    // could be an error, string or event.
+    EventSet(errorCurr);
+    // }
 
-    if (eventCurrPassed) {
+    if ((errorCurr instanceof Error)) {
+        // fileName
+        // lineNumber
+        // columnNumber
+        // message
+        // stack
+        eventType = errorCurr.constructor.name;
+        // use values from exception when present
+        // browserIsFF:
+        if (errorCurr.message && errorCurr.message.length) { eventMessage = errorCurr.message; }
+        if (errorCurr.fileName && errorCurr.fileName.length) { eventFileName = errorCurr.fileName; }
+        if (errorCurr.lineNumber) { eventFileLine = errorCurr.lineNumber; }
+        if (errorCurr.columnNumber) { eventFileColumn = errorCurr.columnNumber; }
+        if (errorCurr.stack) { eventError = errorCurr.stack; }
+        //
+        //
+        // everything below might be deprecited.
+    } else if (errorObjectPassed) {
         if (browserIsFF) {
             errorCaller = eventCurrentTarget;
             if (errorCaller) {
@@ -370,16 +396,16 @@ function ErrorSet(eventCurrPassed) {
             //     Creates an ErrorEvent event with the given parameters.
         } else if (browserIsOld) {
             // has bugs
-            errorCaller = eventCurrPassed.caller;
+            errorCaller = errorObjectPassed.caller;
             errorCallerName = 'Finding...';
             errrorValid = true;
             if (!errorCaller) { errorCaller = Event.caller; }
             if (!errorCaller) { errorCaller = WindowError.caller; }
         } else {
             // modern
-            errorCaller = eventCurrPassed.caller;
+            errorCaller = errorObjectPassed.caller;
             errorCallerName = "";
-            if (eventCurrPassed && eventCurrPassed.type == "error") {
+            if (errorObjectPassed && errorObjectPassed.type == "error") {
                 // do
             } else {
                 // ??? mouse ??? other ???
@@ -450,7 +476,7 @@ function ErrorMessageGet() {
     if (messageFinal.length && !UseSingleLine) {
         messageFinal = "  Details: " + messageFinal;
         if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
-            messageFinal += " ";
+        messageFinal += " ";
     }
     if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
     if (eventMessage) { messageFinal += "" + eventMessage; }
@@ -466,7 +492,7 @@ function EventSet(eventCurrPassed) {
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/Event/target
     //
-    eventCurr = eventCurrPassed;
+    if (!eventCurrPassed) { eventCurr = null; } else { eventCurr = eventCurrPassed; }
     eventIsOld = false;
     // if (eventFirst) {
     eventFirst = false;
@@ -476,8 +502,9 @@ function EventSet(eventCurrPassed) {
         eventMessage = eventCurr.message;
     }
     if (!eventMessage.length) {
-        eventMessage = "no event message";
-    } else { eventMessage = ""; }
+        eventMessage = "";
+        // eventMessage = "no event message";
+    }
     // eventMessage = "First error discarded, " + eventMessage;
     eventCurrentTarget = null; // not used
     eventTimeStamp = null;
@@ -494,9 +521,10 @@ function EventSet(eventCurrPassed) {
         eventCurr = Event;
         eventIsOld = true;
     }
+    e = eventCurr;
     if (eventCurr) {
-            errorCallerName = eventCurr.toString();
-            if (errorCallerName != "function ()") {
+        errorCallerName = eventCurr.toString();
+        if (errorCallerName != "function ()") {
             eventObject = eventCurr;
             eventId = EventIdGetNext();
             if (!eventObject.type) {
@@ -513,22 +541,11 @@ function EventSet(eventCurrPassed) {
                     eventTimeStamp = "undefined";
                 }
                 eventIsBrowser = eventCurr.isTrusted;
-                // ErrorEvent.filename Read only. the name of the script file in which the error occurred.
-                if (eventCurr.filename) { eventFileName = eventCurr.filename; } else {
-                    eventFileName = "undefined";
-                }
-                // ErrorEvent.lineno Read only. the line number of the script file on which the error occurred.
-                if (eventCurr.lineno) { eventFileLine = eventCurr.lineno; } else {
-                    eventFileLine = 0;
-                }
-                // ErrorEvent.colno Read only. the column number of the script file on which the error occurred.
-                if (eventCurr.colno) { eventFileColumn = eventCurr.colno; } else {
-                    eventFileColumn = 0;
-                }
+                if (eventCurr.filename && eventCurr.filename.length) { eventFileName = eventCurr.filename; }
+                if (eventCurr.lineno) { eventFileLine = eventCurr.lineno; }
+                if (eventCurr.colno) { eventFileColumn = eventCurr.colno; }
                 // if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
-
-                // ErrorEvent.error Read only. A JavaScript Object that is concerned by the event.
-                eventError = eventCurr.error;
+                if (eventCurr.error) { eventError = eventCurr.error; }
                 //
             }
             if (eventCurr.bubles) {

@@ -7,21 +7,60 @@
 	<meta name="Author" content="David G. Horsman">
 	<meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
-	<link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
-	<link rel="stylesheet" type="text/css" href="../Css/Page/MdmNetAppFrame.css">
-	<link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
-	<script src="../../PageBuildStage.js"></script>
-	<script src="../MdmJs/MdmParamInit.js"></script>
-	<script src="../MdmJs/MdmParamSet.js"></script>
-	<script src="../MdmJs/MdmPageInit.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
+	<meta id="MdmViewport" name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+	<link id="MdmBaseTagsStyles" rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+	<link id="MdmColourPalletStyles" rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+	<link id="MdmBodyHeaderStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+	<link id="MdmMenuStyles" rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+	<link id="MdmMenuImageStyles" rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
+	<link id="MdmBodyBoxStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+	<link id="MdmBodyTextStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+	<link id="MdmMainStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmMain.css">
+	<link id="ShortcutIcon" rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
+	<link id="ShortcutIconApple" rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
+	<link id="MdmDebugTagHoverStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmDebugTagHover.css">
+	<!-- // Script -->
+	<!-- // 	Load -->
+	<!-- //			Build Version -->
+	<script id="RelsBuildStage" src="../../RelsBuildStage.js"></script>
+	<!-- // 	Core -->
+	<script id="MdmIncludeHtml" src="../MdmJs/MdmIncludeHtml.js"></script>
+	<!-- <script id="MdmDeclarations" src="../MdmJs/MdmDeclarations.js"></script> -->
+	<script id="MdmBrowser" src="../MdmJs/MdmBrowser.js"></script>
+	<script id="MdmStandardFuntions" src="../MdmJs/MdmStandardFuntions.js"></script>
+	<script id="MdmError" src="../MdmJs/MdmError.js"></script>
+	<script id="MdmDebugConsole" src="../MdmJs/MdmDebugConsole.js"></script>
+	<!-- // 		Initialization -->
+	<script id="MdmPtConsoleFormData" src="../MdmJs/MdmPtConsoleFormData.js"></script>
+	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
+	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
+	<script id="MdmMain" src="../MdmJs/Page/MdmMain.js"></script>
+	<script id="MdmMenuInit" src="../MdmJs/MdmMenuInit.js"></script>
+	<script id="MdmMenuImageInit" src="../MdmJs/Page/MdmMenuImageInit.js"></script>
+	<script id="MdmMenuImageElement" src="../MdmJs/Page/MdmMenuImageElement.js"></script>
+	<!-- //		 -->
+	<script id="MdmTimer" src="../MdmJs/MdmTimer.js"></script>
+	<script id="MdmImageZoom" src="../MdmJs/MdmImageZoom.js"></script>
+	<script id="MdmParamSet" src="../MdmJs/MdmParamSet.js"></script>
+	<script id="MdmParamInit" src="../MdmJs/MdmParamInit.js"></script>
+	<script id="MdmDebugTagHover" src="../MdmJs/MdmDebugTagHover.js"></script>
+	<!-- // 			Elements (dom) -->
+	<script id="MdmElement" src="../MdmJs/MdmElement.js"></script>
+	<!-- // 	Components -->
+	<!-- //			Window -->
+	<script id="MdmWindow" src="../MdmJs/MdmWindow.js"></script>
+	<!-- // 			Page -->
+	<script id="MdmPage" src="../MdmJs/MdmPage.js"></script>
+	<script id="MdmWindowLayout" src="../MdmJs/MdmWindowLayout.js"></script>
+	<!-- // 			Menus -->
+	<script id="MdmMenuImageCollection" src="../MdmJs/Page/MdmMenuImageCollection.js"></script>
+	<!-- // 		Animation -->
+	<script id="MdmAnimation" src="../MdmJs/MdmAnimation.js"></script>
+	<script id="MdmElementEvent" src="../MdmJs/MdmElementEvent.js"></script>
+	<script id="MdmPageElement" src="../MdmJs/MdmPageElement.js"></script>
+	<!-- // 	Initialization -->
+	<script id="MdmPageInit" src="../MdmJs/MdmPageInit.js"></script>
 </head>
 
 <body id="MdmNetAppFrame" class="BodyBox">
@@ -702,12 +741,13 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<h4 id="B2C1A1" class="CPA aCenter">
 										MVVM<br>Framework<br>list of<br>methods.
 									</h4>
-									<img id="B1C2Img1Thumb" src="../Images/McontrollerMethodList.jpg" alt="ImportTld Main Page Start"
-										class="CPPImageThumb CPPImageThumbRight CPA">
+									<img id="B1C2Img1Thumb" src="../Images/McontrollerMethodList.jpg"
+										alt="ImportTld Main Page Start" class="CPPImageThumb CPPImageThumbRight CPA">
 									<!-- x -->
 									<!-- <div id="B1C2ImgSet"
 						      							class="CalloutBorder CPP"> -->
-									<img id="B1C2Img1" src="../Images/McontrollerMethodList.jpg" alt="ImportTld Main Page Start"
+									<img id="B1C2Img1" src="../Images/McontrollerMethodList.jpg"
+										alt="ImportTld Main Page Start"
 										class="CPPImage CPP CPPImageLeft CalloutBorder ">
 									<!-- </div> -->
 									<!-- x -->
@@ -765,36 +805,35 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 					<!--** Block 2 **-->
 					<div id="DivBox12" class="BodyParaLeft layoutBodyColumnType1">
 						<div id="DivB2" class="BodyParaBox BorderThin BodyParaBoxBg">
-									<!--*-->
-									<div id="B2C1" class="BodyParaRight CalloutBorder">
-										<a id="B2C1A" href="#" class="CalloutContent CPA">
-											<h4 id="B2C1AH4" class="CPA aCenter">
-												Import / Export <br>Management <br>Page
-											</h4>
-											<img id="B2C1AImg1Thumb" src="../Images/ImportTld Main Page Start.jpg"
-												alt="ImportTld Main Page Start"
-												class="CPPImageThumb CPPImageThumbRight CPA">
-											<img id="B2C1AImg1" src="../Images/ImportTld Main Page Start.jpg"
-												alt="ImportTld Main Page Start"
-												class="CalloutBorder CPPImage CPP CPPImageLeft ">
-										</a>
-									</div>
-									<!--*-->
-									<p id="B2D1P1" class="BodyPara CPT">
-										Advanced conversion features launched by an easy
-										to use interface.<br>
-									</p>
-									<p id="B2D1P2" class="BodyPara CP">
-										The main page includes a progress bar and adjustable
-										levels of progress details. It is a diagnostic utility
-										and featurse a real-time raw data windows, pause to
-										examine and detailed exceptions handling.
-									</p>
-									<p id="B2D1P3" class="BodyPara BodyParaLast CP">
-										<br>
-									</p>
-								<!--*-->
-								<p class="FixClear"></p>
+							<!--*-->
+							<div id="B2C1" class="BodyParaRight CalloutBorder">
+								<a id="B2C1A" href="#" class="CalloutContent CPA">
+									<h4 id="B2C1AH4" class="CPA aCenter">
+										Import / Export <br>Management <br>Page
+									</h4>
+									<img id="B2C1AImg1Thumb" src="../Images/ImportTld Main Page Start.jpg"
+										alt="ImportTld Main Page Start" class="CPPImageThumb CPPImageThumbRight CPA">
+									<img id="B2C1AImg1" src="../Images/ImportTld Main Page Start.jpg"
+										alt="ImportTld Main Page Start"
+										class="CalloutBorder CPPImage CPP CPPImageLeft ">
+								</a>
+							</div>
+							<!--*-->
+							<p id="B2D1P1" class="BodyPara CPT">
+								Advanced conversion features launched by an easy
+								to use interface.<br>
+							</p>
+							<p id="B2D1P2" class="BodyPara CP">
+								The main page includes a progress bar and adjustable
+								levels of progress details. It is a diagnostic utility
+								and featurse a real-time raw data windows, pause to
+								examine and detailed exceptions handling.
+							</p>
+							<p id="B2D1P3" class="BodyPara BodyParaLast CP">
+								<br>
+							</p>
+							<!--*-->
+							<p class="FixClear"></p>
 							<!--*-->
 							<!--** Block 6 **-->
 							<div id="DivB6" class="DivB6 BodyParaBox BorderThin BodyParaBoxBg">
@@ -859,8 +898,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							</div><!--* End of DivB4Box-->
 							<p class="FixClear"></p>
 							<!--*-->
-						<!--*-->
-					</div>
+							<!--*-->
+						</div>
 					</div>
 					<!--*-->
 					<!--** Block 3 **-->
@@ -1129,4 +1168,5 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 	<!-- x ------------------------------------------------------------------------------------- -->
 	<!-- x ------------------------------------------------------------------------------------- -->
 </body> <!-- end of BodyBox -->
+
 </html>

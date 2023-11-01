@@ -4889,18 +4889,18 @@ function fnWindowError(errorMsgPassed, errorUrlPassed, errorLineNumPassed)
     //
     if (window.event) {
         e = null;
-	    eventEventCurr = e || window.event;
+	    eventCurr = e || window.event;
 	    //
-        errorElement = eventEventCurr.target;
-        errorElementSource = eventEventCurr.srcElement;
+        errorElement = eventCurr.target;
+        errorElementSource = eventCurr.srcElement;
 	    eventObject = (errorElementSource || errorElement);
 	    //
-	    EventType = eventEventCurr.type;
+	    eventType = eventCurr.type;
 	    if (eventObject.id) {
 	    if (eventObject.id != null) {
-	        eventEventCurrId = eventObject.id;
-	    } else { eventEventCurrId = ''; }
-	    } else { eventEventCurrId = ''; }
+	        eventCurrId = eventObject.id;
+	    } else { eventCurrId = ''; }
+	    } else { eventCurrId = ''; }
 	}
 	//
     // display error in log

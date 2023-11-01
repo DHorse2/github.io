@@ -38,7 +38,7 @@ function WindowOnload() {
     if (!loadDelayJava) {
         // BodyMenuInit();
         // Initialize and save
-        ElementObjectCreate();
+        // ElementObjectCreate();
         // Choose Standard Layout
         LayoutNext(layoutStandard)
         // LayoutSelectByIndex(layoutStandard);
@@ -47,9 +47,9 @@ function WindowOnload() {
     // Sync Form
     if (!loadDelayDebugState) {
         if (serverIsOn) {
-            FormElementSync();
+            ConsoleFormElementSync(false);
         } else {
-            FormElementSyncLocal();
+            ConsoleFormElementSyncLocal(false);
         }
     }
 
@@ -128,7 +128,7 @@ function WindowLoadInit() {
     BodyMenuInit();
     MdmMenuImageInit();
     ElementObjectCreate();
-    ElementObjectContainerCreate();    // Synchorize Confole Settings Form
+    // ElementObjectContainerCreate();    // Synchorize Confole Settings Form
     // Resize Window
     WindowResizeLayout();
     ConsoleFormInit();
@@ -148,7 +148,7 @@ function WindowContainerSizeGetAll() {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of left and right menu containers vs the center menu container'
             + ': ',
-            'WindowContainerSizeGetAll', 444, null, null,
+            'MdmWindow:WindowContainerSizeGetAll', 151, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -165,7 +165,7 @@ function WindowContainerSizeGetAll() {
             ' Height of bodyLayout: (' + layoutMenuSizeSideHorzMax + ', '
             + layoutMenuSizeSideVertMax + ', ' + layoutMenuSizeSideHorzTallest
             + ').',
-            'WindowContainerSizeGetAll', 6769, null, null,
+            'MdmWindow:WindowContainerSizeGetAll', 168, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -185,7 +185,7 @@ function WindowContainerSizeGetAll() {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
             + '.',
-            'WindowContainerSizeGetAll', 6769, null, null,
+            'MdmWindow:WindowContainerSizeGetAll', 188, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     // Left
@@ -196,7 +196,7 @@ function WindowContainerSizeGetAll() {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of bodyMainLeft: ' + bodyLayoutMenuLeftHeight
             + '.',
-            'WindowContainerSizeGetAll', 6769, null, null,
+            'MdmWindow:WindowContainerSizeGetAll', 199, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     // Right
@@ -207,7 +207,7 @@ function WindowContainerSizeGetAll() {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenuRightHeight
             + '.',
-            'WindowContainerSizeGetAll', 6769, null, null,
+            'MdmWindow:WindowContainerSizeGetAll', 210, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
@@ -776,7 +776,7 @@ function WindowResizeLayout() {
     if (layoutResizeCn > 500) {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             'Window Resize Excessive Usage (Possible Error)',
-            'WindowResizeLayout', 0, null, null,
+            'MdmWindow:WindowResizeLayout', 779, 0, null, null,
             errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
         layoutResizeCn = 0;
         // layoutMenuSizeHorzMax = 2000;
@@ -798,7 +798,7 @@ function WindowResizeLayout() {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             ' Main Container layoutHeight (body +5em): ' + layoutHeight
             + '.',
-            'WindowResizeLayout', 7189, null, null,
+            'MdmWindow:WindowResizeLayout', 801, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //

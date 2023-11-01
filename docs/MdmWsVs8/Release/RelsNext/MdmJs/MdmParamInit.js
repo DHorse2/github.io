@@ -3,7 +3,7 @@
 serverIsOn = true;
 FormElementSyncDone = false;
 //
-function FormElementSync()
+function FormElementSyncOld()
 {
 	// todo console
 	if (FormElementSync) { return; }

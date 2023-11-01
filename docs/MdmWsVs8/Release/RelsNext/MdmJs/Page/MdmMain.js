@@ -27,8 +27,9 @@ var loadFirstMenuImage = true;
 // Testing / Debug State Window
 var loadDelayDebugState = false;
 var loadFirstDebugState = true;
+
 // Local Parameter Initialization specified here.
-function FormElementSyncLocal() { FormElementSync(); } // uses defaults.
+function ConsoleFormElementSyncLocal() { ConsoleFormElementSync(); } // uses defaults.
 
 // SECTION - general SETTINGS (and in Console Form)
 // ...................................... //

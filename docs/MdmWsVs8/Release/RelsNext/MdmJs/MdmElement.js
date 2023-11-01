@@ -256,15 +256,15 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
         if ("style" in elementTarget) {
             if ("display" in elementTarget.style) {
                 if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Style missing", errorIsWarning, true, false); }
+            } else { ErrorOccured("MdmElement:ElementBreakSet", 259, 0, null, elementTarget, elementPassed, "Element Break Set, Style missing", errorIsWarning, true, false); }
             //
             if ("visibility" in elementTarget.style) {
                 if (elementStyleVisibilityPassed.length) { elementTarget.style.visibility = elementStyleVisibilityPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Visibility missing", errorIsWarning, true, false); }
+            } else { ErrorOccured("MdmElement:ElementBreakSet", 263, 0, null, elementTarget, elementPassed, "Element Break Set, Visibility missing", errorIsWarning, true, false); }
             //
             if ("clear" in elementTarget.style) {
                 if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
-            } else { ErrorOccured(eventCurr, elementTarget, elementPassed, "Element Break Set, Clear missing", errorIsWarning, true, false); }
+            } else { ErrorOccured("MdmElement:ElementBreakSet", 267, 0, null, elementTarget, elementPassed, "Element Break Set, Clear missing", errorIsWarning, true, false); }
         }
     }
     elementLayoutFirstPassed = false;
@@ -336,189 +336,6 @@ function ElementCreate(elementPassed, elementLayoutFirstPassed) {
             elementPassed = document.createElement('div');
         }
     }
-    return elementPassed;
-}
-// Layout Menu Area Element Common Fields Set
-function ElementCopyOld(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
-    var elementIdCurr;
-    var elementSourceIdCurr;
-    if (elementSourcePassed.id) {
-        elementSourceIdCurr = elementSourcePassed.id;
-    } else { elementSourceIdCurr = ''; }
-    //
-    elementPassed = ElementCreate(elementPassed, elementLayoutFirstPassed);
-    //
-    //............................................................---//
-    if (elementPassed.id) { elementIdCurr = elementSourcePassed.id; } else { elementIdCurr = ''; }
-    //............................................................---//
-    // Copy Source to Destination Element (Inner HTML, Events)
-    if (elementSourcePassed != null) {
-        if (elementLayoutFirstPassed) {
-            if (elementSourcePassed.innerHTML) {
-                //
-                //............................................................---//
-                // Copy HTML
-                // elementPassed.outerHTML = elementSourcePassed.outerHTML;
-                elementPassed.innerHTML = elementSourcePassed.innerHTML;
-                // elementPassed = elementSourcePassed;
-                // elementPassed = elementSourcePassed.cloneNode(true);
-                //
-                elementLayoutFirstPassed = false;
-                //
-                //............................................................---//
-                // Element Events
-                // ElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
-            }
-        }
-        // if (elementPassed.innerHTML == null || elementPassed.innerHTML.length = 0) {
-        // elementPassed.innerHTML = elementSourcePassed.innerHTML;
-        // }
-        if (!elementPassed.style) {
-            elementPassed.setAttribute('style', '');
-        }
-        elementPassed.style.display = elementStyleDisplayPassed;
-    }
-    return elementPassed;
-}
-// Layout Menu Area Element Common Fields Set
-// ...................................... //
-function ElementEventsCopyOld(elementObject, elementSourceObject, elementObjectId, elementSourceObjectId) {
-    var elementChildObject;
-    var elementSourceChildObject;
-    //
-    if (!elementObjectId.length) { elementObjectId = elementSourceObjectId; }
-    //
-    if (elementObjectId.length && elementSourceObjectId.length) {
-        //
-        if (!elementObject) { return; }
-        // if (!elementObject)  {
-        // elementObject = ElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
-        // if (elementObject.id != elementObjectId) {
-        // elementObject = ElementGetRef(elementChildObject, elementObjectId, elementObjectId); }
-        //
-        if (!elementSourceObject) {
-            elementSourceObject = ElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
-        }
-        if (elementSourceObject.id != elementSourceObjectId) {
-            elementSourceObject = ElementGetRef(elementSourceChildObject, elementSourceObjectId, elementSourceObjectId);
-        }
-    } else {
-        if (!elementObject) { return; }
-        if (!elementSourceObject) { return; }
-        //
-        if (typeof (elementObject) != 'element') { return; }
-        if (typeof (elementSourceObject) != 'element') {
-            elementObject = document.createElement();// X32
-            // return;
-        }
-    }
-    //
-    // Loop through each child node of elementObject
-    // and retrieve the original element from the document.
-    // Copy mouse down, over and out events to elementObject.
-    // Currently, SourceObject is not used.
-    //
-    // if (elementPassed.childNodes.length)
-    for (elmCn = 1; elmCn < 1 + elementObject.childNodes.length; elmCn++) {
-        elementChildObject = elementObject.childNodes[elmCn];
-        if (elementChildObject) {
-            if (elementChildObject.id) {
-                if (elementChildObject.id.length) {
-                    elementSourceChildObject = document.getElementById(elementChildObject.id);
-                    if (elementSourceChildObject) {
-                        if (elementSourceChildObject.onmousedown) {
-                            // elementChildObject.setAttribute('onmousedown', elementSourceChildObject.onmousedown , 0)
-                            elementChildObject.onmousedown = elementSourceChildObject.onmousedown;
-                        }
-                        if (elementSourceChildObject.onmouseover) {
-                            // elementChildObject.setAttribute('onmouseover', elementSourceChildObject.onmouseover , 0)
-                            elementChildObject.onmouseover = elementSourceChildObject.onmouseover;
-                        }
-                        if (elementSourceChildObject.onmouseout) {
-                            // elementChildObject.setAttribute('onmouseout', elementSourceChildObject.onmouseout , 0)
-                            elementChildObject.onmouseout = elementSourceChildObject.onmouseout;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    /* --
-     // if (elementPassed.childNodes.length)
-     for (elmCn = 1;elementSourceObject.childNodes.length;elmCn++){
-    var elementSourceChildObject = elementSourceObject.childNodes[elmCn];
-    elementChildObject = elementObject.getElementById(elementSourceChildObject.id);
-    elementChildObject.Events['onmousedown'] = elementSourceChildObject.Events['onmousedown'];
-    }
-    // }
-    -- */
-    // }
-    return elementObject;
-}
-// Layout Menu Area Element Common Fields Set
-// ...................................... //
-function ElementBreakSetOld(elementPassed, elementIdPassed, elementLayoutFirstPassed, elementStyleDisplayPassed, elementStyleVisibilityPassed, elsementStyleClearPassed) {
-    if (!elementPassed) {
-        elementPassed = ElementGetRef(elementPassed, elementIdPassed, elementIdPassed);
-        // var elementPassed = elementPassed.childNodes[elementIdPassed];
-        // var elementPassed = document.getElementById(elementIdPassed);
-    }
-    //
-    var elementTarget;
-    // Get Break Element from Parent
-    if (browserIsIE) {
-        elementTarget = document.createElement('br');
-    } else {
-        elementTarget = document.createElement('br');
-    }
-    elementTarget = ElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed, DoFindReturn, null);
-    // elementTarget = ElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
-    //
-    // note: Switched from 'in' element operator to If(element.property)
-    // It is more standard and less error prone.
-    // TODO using the 'in' operator here, change to null:
-    //
-    // if (elementPassed.childNodes.length) {
-    if (elementTarget) {
-        if (elementTarget.style) {
-            // set Display property.
-            if ('display' in elementTarget.style) {
-                if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
-            } else if (debugTimerDetail) {
-                MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
-                    'Element Break Set, Style missing',
-                    'ElementBreakSet', 7742, elementTarget, elementPassed,
-                    errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
-            }
-            // set Visibilty.
-            if (elementStyleVisibilityPassed.length) {
-                if (elementTarget.style.visibility) {
-                    elementTarget.style.visibility = elementStyleVisibilityPassed;
-                } else if (debugTimerDetail) {
-                    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
-                        'Element Break Set, Visibility missing',
-                        'ElementBreakSet', 7751, elementTarget, elementPassed,
-                        errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
-                    elementTarget.style.visibility = elementStyleVisibilityPassed;
-                }
-            }
-            // set the Clear attribute.
-            if (elsementStyleClearPassed.length) {
-                // note: the redundant syntax, different logic than above
-                if (elementTarget.style.clear) {
-                    if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
-                } else if (debugTimerDetail) {
-                    MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
-                        'Element Break Set, Clear missing',
-                        'ElementBreakSet', 7760, elementTarget, elementPassed,
-                        errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
-                    elementTarget.style.clear = elsementStyleClearPassed;
-                }
-            }
-        }
-    }
-    elementLayoutFirstPassed = false;
-    // }
     return elementPassed;
 }
 // SectionBlock Element Position & Dimension function (s)

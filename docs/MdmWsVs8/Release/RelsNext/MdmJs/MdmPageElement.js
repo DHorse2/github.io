@@ -51,7 +51,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			TimerLogText(timerType, timerGroup, timerId, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
 			+ '.',
-			'ElementPlay', 3819, null, null,
+			'MdmPageElement:ElementPlay', 54, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	var PlayAbort = false;
@@ -70,7 +70,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
-						'ElementPlay', 3837, null, null,
+						'MdmPageElement:ElementPlay', 73, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
@@ -83,7 +83,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Transition step instead'
 						+ '.',
-						'ElementPlay', 3850, null, null,
+						'MdmPageElement:ElementPlay', 86, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// the next step will be performed and the new play command skipped
@@ -108,7 +108,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed'
 							+ '.',
-							'ElementPlay', 3875, null, null,
+							'MdmPageElement:ElementPlay', 111, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -124,7 +124,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden'
 							+ '.',
-							'ElementPlay', 3891, null, null,
+							'MdmPageElement:ElementPlay', 127, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -152,7 +152,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
-						'ElementPlay', 3919, null, null,
+						'MdmPageElement:ElementPlay', 155, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
@@ -165,7 +165,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Move step instead'
 						+ '.',
-						'ElementPlay', 3932, null, null,
+						'MdmPageElement:ElementPlay', 168, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				//
@@ -189,7 +189,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed...',
-							'ElementPlay', 3956, null, null,
+							'MdmPageElement:ElementPlay', 192, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -204,7 +204,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden...',
-							'ElementPlay', 3971, null, null,
+							'MdmPageElement:ElementPlay', 207, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 					}
 					//
@@ -268,7 +268,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			+ ', Item orgin and destination set'
 			+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
 			+ ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
-			'ElementPlay', 10341, null, null,
+			'MdmPageElement:ElementPlay', 271, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -293,7 +293,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
 				+ '.',
-				'ElementPlay', 4055, null, null,
+				'MdmPageElement:ElementPlay', 296, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -323,7 +323,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
 				+ '.',
-				'ElementPlay', 4085, null, null,
+				'MdmPageElement:ElementPlay', 326, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -342,7 +342,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
 				+ '.',
-				'ElementPlay', 4104, null, null,
+				'MdmPageElement:ElementPlay', 345, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -357,7 +357,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
 				+ '.',
-				'ElementPlay', 4119, null, null,
+				'MdmPageElement:ElementPlay', 360, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -373,7 +373,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
 				+ '.',
-				'ElementPlay', 4135, null, null,
+				'MdmPageElement:ElementPlay', 376, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -412,7 +412,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
 				+ '.',
-				'ElementPlay', 4174, null, null,
+				'MdmPageElement:ElementPlay', 415, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		//
@@ -432,7 +432,7 @@ function ElementPlay(playDirection, IsImageLarge,
 					TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
 					+ '.',
-					'ElementPlay', 4194, null, null,
+					'MdmPageElement:ElementPlay', 425, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 			}
 			//
@@ -465,10 +465,10 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 	// Set succeeded
 	if (debugAnitmation) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-			'GroupToggleRange(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
+			'Range(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
 			+ 'Started: Hide small/large: ' + HideImage + ', ' + HideImageLarge + '. '
 			+ charNewLineTag,
-			'FilterGet', 3139, null, null,
+			'MdmPageElement:ElementGroupToggleRange', 471, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
@@ -521,7 +521,7 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 				oObjIndexCurr++;
 			}
 		}
-	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+	} else { ErrorOccured("MdmPageElement:ElementGroupToggleRange", 524, 0 , null, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 }
 // Menu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
@@ -554,7 +554,7 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 				oObjNext.style.display = 'none';
 			}
 		}
-	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+	} else { ErrorOccured("MdmPageElement", 557, 0,Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 	//
 }
 // Menu Menu Show Item and all Previous (Mouse Over function)
@@ -562,11 +562,11 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	if (debugAnitmation) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-			'ElementGroupShowStack ' + oObjNextImageId.id
+			'Group Show Stack ' + oObjNextImageId.id
 			+ ' (' + oObjGroupIndex + ', ' + oObjGroupImageIndex + ')'
 			+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
 			+ charNewLineTag,
-			'FilterGet', 3139, null, null,
+			'MdmPageElement:ElementGroupShowStack', 569, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		//
 	}
@@ -624,7 +624,7 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		} else {
 			// skipped due to mouse event settings
 		}
-	} else { ErrorOccured(Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+	} else { ErrorOccured("MdmPageElement", 627, 0,Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 }
 // ElementGroupShowRange
 // ...................................... //
@@ -691,7 +691,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 			+ ', Time:' + Date()
 			+ '.',
-			'ElementItemShow', 10141, oObjNext, null,
+			'MdmPageElement:ElementItemShow', 694, 0, oObjNext, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
@@ -1124,7 +1124,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				+ ', Do not hide locked item'
 				+ ', Time:' + Date()
 				+ '.',
-				'ElementItemHide', 9876, oObjNext, null,
+				'MdmPageElement:ElementItemHide', 1127, 0, oObjNext, null,
 				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 		return;
@@ -1137,7 +1137,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 			+ ', Time:' + Date()
 			+ '.',
-			'ElementItemHide', 9889, oObjNext, null,
+			'MdmPageElement:ElementItemHide', 1140, 0, oObjNext, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 	}
 	//
