@@ -53,19 +53,19 @@ function FormElementSyncOld()
 	////////////////////////////////////////////////
 	// Timer and Event Logging
 	elementObject = ElementGetFromId('formDebugTimer');
-	if (debugTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = ElementGetFromId('formDebugTimerMove');
-	if (debugTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = ElementGetFromId('formDebugTimerTransition');
-	if (debugTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = ElementGetFromId('formDebugTimerDetail');
-	if (debugTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = ElementGetFromId('formDebugLogEvents');
-	if (debugLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	////////////////////////////////////////////////
 	// Debugger Control

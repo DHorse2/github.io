@@ -56,51 +56,61 @@ var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
 // Example of naming for corresponding parameters
 // (this is not an actual global parameter)
 var UseLog = DoUseLog;
-// Size at which logs are trimmed
-var consoleLogLengthMax = 40000;
-var consoleLogLengthTrim = 35000;
+// Size at which logs are trimmed - memory management
+consoleErrorLogCnMax = 2000; // total Messages
+var consoleLogLengthMax = 100000; // total bytes
+var consoleLogLengthTrim = 85000;
+consoleEventLogCnMax = 5000; // total events
 // compact format
-var UseSingleLine = DoNotUseSingleLine;
+UseSingleLine = DoNotUseSingleLine;
 
-var errorResultOnFail = errorDidNotOccur;
-var errorMessage = "Page settings initializing";
+errorMessage = "Page settings initializing";
+errorResultOnFail = errorDidNotOccur;
 
 // AREA Debug. This AREA is for controlling javascript debugging.
 // ...................................... //
+// Important fields: PageBuild, PageMode
 var debugIsOn = true; // FLAG ON!!! todo
 var debugDoAlert = false;
-// PageBuild, PageMode, debugLoadIsOn, script_state
+// Load - Steps through loading script files
+debugLoadIsOn = false;
+script_state = "debugLoadIsOn is" + debugLoadIsOn;
 
 // Error debug Handling
 // Use debugger on error. This toggle can be on by default
 var errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
 var errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
 
-var debugAlert = true;
-var debugConsole = true;
-// Log events to console
-var debugLogEvents = true;
-var debugLogEventDuplicates = false;
+var ConsoleLogAlert = true;
+// Log (all) events to events console
 
+// Detailed logging flag (verbose)
+var ConsoleLogDetails = false;
+// Ignores duplicate events. (resize, mouse)
+var ConsoleLogEventDuplicates = false;
 // AREA Debug Areas
-// These are normalized Areas
-// main features and components
-var debugAnitmation = true;
-var debugImages = true;
-var debugMenus = true;
+//      These are normalized Areas
+//      main features and components.
+// Console and error code:
+var ConsoleLogConsole = true;
+// Animation
+var ConsoleLogAnitmation = true;
+// Images
+var ConsoleLogImages = true;
+// Menus
+var ConsoleLogMenus = true;
 // Elements
 // Page
 // Window
+// Events
+var ConsoleLogEvents = true;
 // Layout
-var debugEvents = true;
-var debugLayout = true;
+var ConsoleLogLayout = true;
 // Debug Timers
-var debugTimer = false;
-var debugTimerMove = false;
-var debugTimerTransition = false;
-var debugTimerDetail = false;
-// Load - Steps through loading script files
-debugLoadIsOn = false;
+var ConsoleLogTimer = false;
+var ConsoleLogTimerMove = false;
+var ConsoleLogTimerTransition = false;
+var ConsoleLogTimerDetail = false;
 
 // AREA Error Severity
 // ...................................... //
@@ -108,7 +118,7 @@ errorDidNotOccur = 0;
 errorIsComment = 5;
 errorIsWarning = 10;
 errorIsSevere = 20;
-errorIsFatal = 30;
+erroIsFatal = 30;
 
 // Severity that triggers debugger. Usually severe or warning.
 errorDebugLevel = errorIsSevere;

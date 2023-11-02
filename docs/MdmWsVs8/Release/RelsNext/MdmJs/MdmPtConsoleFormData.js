@@ -8,16 +8,20 @@ function MdmPtConsoleFormInit(clearElement, injectElement, passedElement) {
 	<!-- action="DebugFormUpdate.shtml;"  -->
 	<form id="consoleStateForm"
 		class="BodyParaLeft layoutBodyColumnType1" 
+		onchange="ConsoleFormElementChange(false)"
 		method="post"
 		action="JavaScript:ConsoleFormElementSync(true);"
 		>
-		<button type="submit" value="Log" onclick="ConsoleFormElementSync(false)">
-			Log
+		<button id="FormApply" type="submit" value="Log"
+			onclick="ConsoleFormElementSync(false)">
+			Apply
 		</button>
-		<button type="button" onclick="ConsoleFormElementSync(false)">
+		<button id="FormDataLoad" type="button"
+			onclick="ConsoleFormElementSync(false)">
 			Get
 		</button>
-		<button type="button" onclick="ConsoleFormElementSync(true)">
+		<button id="FormDataApply" type="button"
+			onclick="ConsoleFormElementSync(true)">
 			Set
 		</button>
 		<!-- <input type="submit" value="Send Request"> -->
@@ -187,36 +191,36 @@ function MdmPtConsoleFormInit(clearElement, injectElement, passedElement) {
 				<p>
 					Trace &amp; Log Timer activity: <br>
 				</p>
-				<label for="formDebugTimer">debugTimer </label>
-				<input id="formDebugTimer" type="checkbox" onchange="DebugParameterSet(this, 'debugTimer', 'Toggle');">
+				<label for="formDebugTimer">ConsoleLogTimer </label>
+				<input id="formDebugTimer" type="checkbox" onchange="DebugParameterSet(this, 'ConsoleLogTimer', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Move activity: <br>
 				</p>
-				<label for="formDebugTimerMove">debugTimerMove </label>
+				<label for="formDebugTimerMove">ConsoleLogTimerMove </label>
 				<input id="formDebugTimerMove" type="checkbox"
-					onchange="DebugParameterSet(this, 'debugTimerMove', 'Toggle');">
+					onchange="DebugParameterSet(this, 'ConsoleLogTimerMove', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Filters and Transition activity: <br>
 				</p>
-				<label for="formDebugTimerTransition">debugTimerTransition </label>
+				<label for="formDebugTimerTransition">ConsoleLogTimerTransition </label>
 				<input id="formDebugTimerTransition" type="checkbox"
-					onchange="DebugParameterSet(this, 'debugTimerTransition', 'Toggle');">
+					onchange="DebugParameterSet(this, 'ConsoleLogTimerTransition', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Timer activity for individual images: <br>
 				</p>
-				<label for="formDebugTimerDetail">debugTimerDetail </label>
+				<label for="formDebugTimerDetail">ConsoleLogTimerDetail </label>
 				<input id="formDebugTimerDetail" type="checkbox"
-					onchange="DebugParameterSet(this, 'debugTimerDetail', 'Toggle');">
+					onchange="DebugParameterSet(this, 'ConsoleLogTimerDetail', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Mouse Events: <br>
 				</p>
-				<label for="formDebugLogEvents">debugLogEvents </label>
+				<label for="formDebugLogEvents">ConsoleLogEvents </label>
 				<input id="formDebugLogEvents" type="checkbox"
-					onchange="DebugParameterSet(this, 'debugLogEvents', 'Toggle');">
+					onchange="DebugParameterSet(this, 'ConsoleLogEvents', 'Toggle');">
 			</fieldset>
 			<!-- * end of Logging -->
 			<!-- x ------------------------------------------------------------------------------------- -->

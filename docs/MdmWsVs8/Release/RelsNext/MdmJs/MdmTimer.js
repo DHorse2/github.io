@@ -795,12 +795,12 @@ function TimerStart(timerType, timerGroup, timerId,
     timerIdCurr = timerId;
     var timerIsRunning = false;
     var debugFunctionIsOn = false;
-    if (debugTimer && (
-        (timerMethod == timerMethodItem && debugTimerDetail)
+    if (ConsoleLogTimer && (
+        (timerMethod == timerMethodItem && ConsoleLogTimerDetail)
         || (timerMethod == timerMethodGroup)
     )) {
-        if ((debugTimerTransition && timerType == timerTypeTransition)
-            || (debugTimerMove && timerType == timerTypeMove)) {
+        if ((ConsoleLogTimerTransition && timerType == timerTypeTransition)
+            || (ConsoleLogTimerMove && timerType == timerTypeMove)) {
             debugFunctionIsOn = true;
         }
     }
@@ -840,7 +840,7 @@ function TimerStart(timerType, timerGroup, timerId,
                         if (timerMethod == timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = -1; }
                     }
                     if (debugFunctionIsOn) {
-                        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+                        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                             TimerLogText(timerType, timerGroup, timerId,
                                 (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
                                 timerObj[timerGroup][timerItemKey].playDirection, 'Timer Pending')
@@ -871,7 +871,7 @@ function TimerStart(timerType, timerGroup, timerId,
         }
         //
         if (debugFunctionIsOn) {
-            MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Timer Running')
                 + ', Already running'
@@ -893,12 +893,12 @@ function TimerSet(timerType, timerGroup, timerId,
     var tempFunc = new String();
     tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerId); };// TimerMoveStepDo
     var debugFunctionIsOn = false;
-    if (debugTimer && (
-        (timerMethod = timerMethodItem && debugTimerDetail)
+    if (ConsoleLogTimer && (
+        (timerMethod = timerMethodItem && ConsoleLogTimerDetail)
         || (timerMethod == timerMethodGroup)
     )) {
-        if ((debugTimerTransition && timerType == timerTypeTransition)
-            || (debugTimerMove && timerType == timerTypeMove)) {
+        if ((ConsoleLogTimerTransition && timerType == timerTypeTransition)
+            || (ConsoleLogTimerMove && timerType == timerTypeMove)) {
             debugFunctionIsOn = true;
         }
     }
@@ -915,7 +915,7 @@ function TimerSet(timerType, timerGroup, timerId,
         if (timerMethod == timerMethodGroup) { timerObj[timerGroup][timerRootKey].timerIntervalId = vTimerID; }
         //
         if (debugFunctionIsOn) {
-            MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, timerObj[timerGroup][timerItemKey].playDirection, 'Interval Started')
                 + '.',
                 'MdmTimer:TimerSet', 921, 0, null, null,
@@ -929,7 +929,7 @@ function TimerSet(timerType, timerGroup, timerId,
         }
         //
         if (debugFunctionIsOn) {
-            MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
                     timerObj[timerGroup][timerItemKey].playDirection, 'Interval Running')
                 + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance

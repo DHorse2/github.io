@@ -202,9 +202,9 @@ function MouseClickImg(menuImage) {
 	//  document.frames.item.
 	//  img0.src = menuImage.name + "lr.gif";
 	//  img0text.src = menuImage.name + "text.txt";
-	if (debugImages) {
+	if (ConsoleLogImages) {
 		if (debugDoAlert) { alert(errorIsComment); }
- 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+ 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			"Getting " + menuImageCn + ": " + menuImage.Name,
 			'MdmPage:MouseClickImg', 209, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, errorDoAlert);

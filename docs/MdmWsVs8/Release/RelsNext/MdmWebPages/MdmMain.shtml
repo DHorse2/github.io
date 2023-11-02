@@ -664,7 +664,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									w3-include-attributes=""
 									></div> -->
 									<div id="MdmPtConsoleForm"
-										class="BodyConsoleTestTextBox CalloutBorderFull"
+										class="BodyConsoleTestTextBox CalloutBorderFull f10"
 										name="MdmPtConsoleForm"
 									></div>
 									<!-- </object>

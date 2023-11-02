@@ -162,37 +162,37 @@
 <!--x ------------------------------------------------------------------------------------- -->
 		<fieldset><legend>Logging</legend>
 		Trace & Log Timer activity: <br >
-		<label for="formDebugTimer">debugTimer </label>
+		<label for="formDebugTimer">ConsoleLogTimer </label>
 		<input id="formDebugTimer" type="checkbox"
-			onchange="DebugParameterSet(this, 'debugTimer', 'Toggle')"
+			onchange="DebugParameterSet(this, 'ConsoleLogTimer', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Move activity: <br >
-		<label for="formDebugTimerMove">debugTimerMove </label>
+		<label for="formDebugTimerMove">ConsoleLogTimerMove </label>
 		<input id="formDebugTimerMove" type="checkbox"
-			onchange="DebugParameterSet(this, 'debugTimerMove', 'Toggle')"
+			onchange="DebugParameterSet(this, 'ConsoleLogTimerMove', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Filters and Transition activity: <br >
-		<label for="formDebugTimerTransition">debugTimerTransition </label>
+		<label for="formDebugTimerTransition">ConsoleLogTimerTransition </label>
 		<input id="formDebugTimerTransition" type="checkbox"
-			onchange="DebugParameterSet(this, 'debugTimerTransition', 'Toggle')"
+			onchange="DebugParameterSet(this, 'ConsoleLogTimerTransition', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Timer activity for individual images: <br >
-		<label for="formDebugTimerDetail">debugTimerDetail </label>
+		<label for="formDebugTimerDetail">ConsoleLogTimerDetail </label>
 		<input id="formDebugTimerDetail" type="checkbox"
-			onchange="DebugParameterSet(this, 'debugTimerDetail', 'Toggle')"
+			onchange="DebugParameterSet(this, 'ConsoleLogTimerDetail', 'Toggle')"
 			>
 		<p ></p>
 		<!-- * -->
 		Trace & Log Mouse Events: <br >
-		<label for="formDebugLogEvents">debugLogEvents </label>
+		<label for="formDebugLogEvents">ConsoleLogEvents </label>
 		<input id="formDebugLogEvents" type="checkbox"
-			onchange="DebugParameterSet(this, 'debugLogEvents', 'Toggle')"
+			onchange="DebugParameterSet(this, 'ConsoleLogEvents', 'Toggle')"
 			>
 		<p ></p>
 		</fieldset>

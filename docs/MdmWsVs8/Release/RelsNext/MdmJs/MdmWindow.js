@@ -144,8 +144,8 @@ function WindowPopupOpen() {
 // Document Layout Size of Core Layout Boxes
 function WindowContainerSizeGetAll() {
     //
-    if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+    if (ConsoleLogAlert) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             ' Height of left and right menu containers vs the center menu container'
             + ': ',
             'MdmWindow:WindowContainerSizeGetAll', 151, 0, null, null,
@@ -160,8 +160,8 @@ function WindowContainerSizeGetAll() {
         WindowContainerSizeGetMenu(BodyMainContainer);
     } else { WindowContainerSizeGetMenu(bodyMainCenter); }
     //
-    if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+    if (ConsoleLogAlert) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             ' Height of bodyLayout: (' + layoutMenuSizeSideHorzMax + ', '
             + layoutMenuSizeSideVertMax + ', ' + layoutMenuSizeSideHorzTallest
             + ').',
@@ -181,8 +181,8 @@ function WindowContainerSizeGetAll() {
     bodyMainCenterHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
     // tempLayoutBodySizeVertMax = bodyMainCenterHeight;
     //
-    if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+    if (ConsoleLogAlert) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
             + '.',
             'MdmWindow:WindowContainerSizeGetAll', 188, 0, null, null,
@@ -192,8 +192,8 @@ function WindowContainerSizeGetAll() {
     bodyLayoutMenuLeftHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
     // if (layoutResizeCn == 0) { bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
     //
-    if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+    if (ConsoleLogAlert) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             ' Height of bodyMainLeft: ' + bodyLayoutMenuLeftHeight
             + '.',
             'MdmWindow:WindowContainerSizeGetAll', 199, 0, null, null,
@@ -203,8 +203,8 @@ function WindowContainerSizeGetAll() {
     bodyLayoutMenuRightHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
     // if (layoutResizeCn == 0) { bodyLayoutMenuRightHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
     //
-    if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+    if (ConsoleLogAlert) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             ' Height of BodyMenuLayout2Height: ' + bodyLayoutMenuRightHeight
             + '.',
             'MdmWindow:WindowContainerSizeGetAll', 210, 0, null, null,
@@ -774,7 +774,7 @@ function WindowResizeLayout() {
     //
     layoutResizeCn += 1;
     if (layoutResizeCn > 500) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             'Window Resize Excessive Usage (Possible Error)',
             'MdmWindow:WindowResizeLayout', 779, 0, null, null,
             errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
@@ -794,8 +794,8 @@ function WindowResizeLayout() {
     /* -- */
     //
     //
-    if (debugAlert) {
-        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+    if (ConsoleLogAlert) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             ' Main Container layoutHeight (body +5em): ' + layoutHeight
             + '.',
             'MdmWindow:WindowResizeLayout', 801, 0, null, null,

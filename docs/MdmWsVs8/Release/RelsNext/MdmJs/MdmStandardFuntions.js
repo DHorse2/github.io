@@ -11,6 +11,7 @@ var DoNotUseDebug = false;
 //
 var DoUseSingleLine = true;
 var DoNotUseSingleLine = false;
+var UseSingleLine = DoNotUseSingleLine;
 //
 var DoUseHide = true;
 var DoNotUseHide = false;
@@ -70,6 +71,8 @@ var tagH9End = lt + 'h';
 var tagA = lt + 'a ';
 var tagAEnd = lt + charFSlash + 'a' + gt;
 
+var tagBr = lt + 'br' + gt;
+
 var tagImg = lt + 'im' + 'g ';
 
 var tagScript = lt + 'scrip' + 't ';
@@ -113,10 +116,13 @@ var attributeEventMouseDown = ' onmou' + 'sedown';
 // ...................................... //
 // SectionBlock Console
 var consoleErrorLogCn = 0;
+var consoleErrorLogCnMax = 0;
 var consoleErrorLogScrollCn = 0;
 var consoleEventLogCn = 0;
+var consoleEventLogCnMax = 0;
 var consoleEventLogScrollCn = 0;
 var consoleStateLogCn = 0;
+var consoleStateLogCnMax = 0;
 var consoleStateLogScrollCn = 0;
 
 // Temporary
@@ -338,12 +344,15 @@ function ErrorSet(errorObjectPassed) {
         eventError = null;
         // return;
     }
-    if (!(errorObjectPassed instanceof Error)) {
-        errorCurr = new Error(errorObjectPassed);
-    } else { errorCurr = errorObjectPassed; }
+    errorCurr = errorObjectPassed;
+
+    // if (!(errorObjectPassed instanceof Error)) {
+    //     errorCurr = new Error(errorObjectPassed);
+    // } else { errorCurr = errorObjectPassed; }
     // depreciated in Dom:
     errorCaller = null;
     errorCallerName = 'Finding...';
+    errorMessage = '';
 
     eventError = errorCurr;
     // if (!(errorObjectPassed instanceof Error)) {
@@ -357,10 +366,12 @@ function ErrorSet(errorObjectPassed) {
         // columnNumber
         // message
         // stack
+        // eventType = errorCurr.constructor.name;
         eventType = errorCurr.constructor.name;
+        if (eventType.includes('function')) { eventType = errorCurr.toString(); }
         // use values from exception when present
         // browserIsFF:
-        if (errorCurr.message && errorCurr.message.length) { eventMessage = errorCurr.message; }
+        if (errorCurr.message && errorCurr.message.length) { errorMessage = errorCurr.message; }
         if (errorCurr.fileName && errorCurr.fileName.length) { eventFileName = errorCurr.fileName; }
         if (errorCurr.lineNumber) { eventFileLine = errorCurr.lineNumber; }
         if (errorCurr.columnNumber) { eventFileColumn = errorCurr.columnNumber; }
@@ -379,7 +390,7 @@ function ErrorSet(errorObjectPassed) {
             // The ErrorEvent interface represents events providing information related to errors in scripts or in files.
             // Instance properties
             // Also inherits properties from its parent Event.
-            if (ErrorEvent.message) { eventMessage = ErrorEvent.message; } // Read only
+            if (ErrorEvent.message) { errorMessage = ErrorEvent.message; } // Read only
             // if (arguments) {
             //     eventArguments = arguments;
             // }
@@ -457,30 +468,30 @@ function ErrorNew() {
     }
 }
 
-function ErrorMessageGet() {
-    var messageFinal = "";
-    if (messageUrl) {
-        messageFinal += " Url:" + messageUrl;
-    }
+function ErrorMessageGet(UseSingleLinePassed) {
+    errorMessage = "";
+    // if (messageUrl) {
+    //     errorMessage += " Url:" + messageUrl;
+    // }
     if (eventFileName) {
-        if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
-        messageFinal += " File:" + eventFileName;
-        if (eventFileLine) { messageFinal += " Line:" + eventFileLine; }
-        if (eventFileColumn) { messageFinal += " Column:" + eventFileColumn; }
+        if (!UseSingleLinePassed && errorMessage.length > 30) { errorMessage += charNewLineTag + charTextIndent; }
+        errorMessage += " File:" + eventFileName;
+        if (eventFileLine) { errorMessage += " Line:" + eventFileLine; }
+        if (eventFileColumn) { errorMessage += " Column:" + eventFileColumn; }
     }
     // todo this gets parsed (last /)
     if (eventTimeStamp) {
-        if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
-        messageFinal += " TimeStamp:" + eventTimeStamp;
+        if (!UseSingleLinePassed && errorMessage.length > 30) { errorMessage += charNewLineTag + charTextIndent; }
+        errorMessage += " TimeStamp:" + eventTimeStamp;
     }
-    if (messageFinal.length && !UseSingleLine) {
-        messageFinal = "  Details: " + messageFinal;
-        if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
-        messageFinal += " ";
+    if (errorMessage.length && !UseSingleLinePassed) {
+        errorMessage = "  Message: " + errorMessage;
+        if (eventFileFunction) { errorMessage += " Function:" + eventFileFunction; }
+        errorMessage += " ";
     }
-    if (!UseSingleLine && messageFinal.length > 30) { messageFinal += charNewLineTag + charTextIndent; }
-    if (eventMessage) { messageFinal += "" + eventMessage; }
-    return messageFinal;
+    if (!UseSingleLinePassed && errorMessage.length > 30) { errorMessage += charNewLineTag + charTextIndent; }
+    // if (errorMessage.length) { messageFinal += "" + errorMessage; }
+    return errorMessage;
 }
 
 // Events

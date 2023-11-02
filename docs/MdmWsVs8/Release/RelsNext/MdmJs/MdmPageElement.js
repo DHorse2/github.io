@@ -46,8 +46,8 @@ function ElementPlay(playDirection, IsImageLarge,
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+	if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(timerType, timerGroup, timerId, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
 			+ '.',
@@ -64,8 +64,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + timerTypeTransition;
 			if (playDirection != timerObj[timerGroup][timerItemTransitionKey].playDirection) {
 				// playDirection is different (while running)
-				if (debugTimer && debugTimerDetail && debugTimerTransition) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
@@ -77,8 +77,8 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (debugTimer && debugTimerDetail && debugTimerTransition) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Transition step instead'
@@ -102,8 +102,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerGroup][timerItemTransitionKey].elementIsDisplayed == elementIsDisplayed) {
-					if (debugTimer && debugTimerDetail && debugTimerTransition) {
-						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed'
@@ -118,8 +118,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerGroup][timerItemTransitionKey].elementIsDisplayed == elementIsNotDisplayed) {
-					if (debugTimer && debugTimerDetail && debugTimerTransition) {
-						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden'
@@ -146,8 +146,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + timerTypeMove;
 			if (playDirection != timerObj[timerGroup][timerItemMoveKey].playDirection) {
 				// playDirection is different (while running)
-				if (debugTimer && debugTimerDetail && debugTimerMove) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
@@ -159,8 +159,8 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (debugTimer && debugTimerDetail && debugTimerMove) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Move step instead'
@@ -184,8 +184,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerGroup][timerItemMoveKey].elementIsDisplayed == elementIsDisplayed) {
-					if (debugTimer && debugTimerDetail && debugTimerMove) {
-						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed...',
@@ -199,8 +199,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerGroup][timerItemMoveKey].elementIsDisplayed = elementIsNotDisplayed) {
-					if (debugTimer && debugTimerDetail && debugTimerMove) {
-						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden...',
@@ -262,8 +262,8 @@ function ElementPlay(playDirection, IsImageLarge,
 	// elTopDest = oObjNext.style.posTop;
 	//
 	//
-	if (debugTimer && debugTimerMove) {
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+	if (ConsoleLogTimer && ConsoleLogTimerMove) {
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 			+ ', Item orgin and destination set'
 			+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
@@ -288,8 +288,8 @@ function ElementPlay(playDirection, IsImageLarge,
 	startIndex = 1; endIndex = 18;
 	if (filterIsOn || filterResizeIsOn) {
 		//
-		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
 				+ '.',
@@ -318,8 +318,8 @@ function ElementPlay(playDirection, IsImageLarge,
 	if (filterIsOn) {
 		//
 		// if (filterObj[filterIdPassed].filterDoEnable) {
-		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
 				+ '.',
@@ -337,8 +337,8 @@ function ElementPlay(playDirection, IsImageLarge,
 		// oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
 		//
 		// if (filterObj[filterIdPassed].filterDoApply) {
-		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
 				+ '.',
@@ -352,8 +352,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterIdIndex);
 		// }
 		//
-		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
 				+ '.',
@@ -368,8 +368,8 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterIdIndex);
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
-		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
 				+ '.',
@@ -407,8 +407,8 @@ function ElementPlay(playDirection, IsImageLarge,
 		// Visibility
 		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
 		//
-		if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
 				+ '.',
@@ -427,8 +427,8 @@ function ElementPlay(playDirection, IsImageLarge,
 		// **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
 		if (filterResizeIsOn && !elementIsDisplayed) {
 			//
-			if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
-				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+			if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
 					+ '.',
@@ -463,8 +463,8 @@ function ElementPlay(playDirection, IsImageLarge,
 // ...................................... //
 function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// Set succeeded
-	if (debugAnitmation) {
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+	if (ConsoleLogAnitmation) {
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Range(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
 			+ 'Started: Hide small/large: ' + HideImage + ', ' + HideImageLarge + '. '
 			+ charNewLineTag,
@@ -560,8 +560,8 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (debugAnitmation) {
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+	if (ConsoleLogAnitmation) {
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Group Show Stack ' + oObjNextImageId.id
 			+ ' (' + oObjGroupIndex + ', ' + oObjGroupImageIndex + ')'
 			+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
@@ -571,7 +571,7 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		//
 	}
 	// load and validate event and objects
-	ElementEventFromHtmlCheck(null, debugLogEvents); // todo review
+	ElementEventFromHtmlCheck(null, ConsoleLogEvents); // todo review
 	if (eventCurrId == oObjNextParentId
 		&& !eventMouseOverEnabled
 		&& eventType == 'mouseover'
@@ -655,7 +655,7 @@ function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjN
 // ...................................... //
 function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// look for duplicate mouse over events (bubbling)
-	if (!ElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -674,7 +674,7 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 var LastTouchedId;
 // ...................................... //
 function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, debugLogEvents)) {
+	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, ConsoleLogEvents)) {
 		return;
 	}
 	//
@@ -684,8 +684,8 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
-	if (debugTimer && debugTimerTransition) {
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Show', oObjGroupIndex, oObjGroupImageIndex)
 			+ ', ' + oObjNext.id
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
@@ -1091,7 +1091,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 // ...................................... //
 function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
-	if (!ElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -1109,7 +1109,7 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 // Menu ElementItemHide
 // ...................................... //
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
@@ -1117,8 +1117,8 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
-		if (debugTimer && debugTimerTransition) {
-			MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
 				+ ', Do not hide locked item'
@@ -1130,8 +1130,8 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		return;
 	}
 	//
-	if (debugTimer && debugTimerTransition) {
-		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')

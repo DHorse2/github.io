@@ -38,20 +38,20 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { timerUseTime = false; } else { timerUseTime = true; }
 				break;
 			// Timer and Event Logging
-			case 'debugTimer':
-				if (elementPassed.checked) { debugTimer = false; } else { debugTimer = true; }
+			case 'ConsoleLogTimer':
+				if (elementPassed.checked) { ConsoleLogTimer = false; } else { ConsoleLogTimer = true; }
 				break;
-			case 'debugTimerMove':
-				if (elementPassed.checked) { debugTimerMove = false; } else { debugTimerMove = true; }
+			case 'ConsoleLogTimerMove':
+				if (elementPassed.checked) { ConsoleLogTimerMove = false; } else { ConsoleLogTimerMove = true; }
 				break;
-			case 'debugTimerTransition':
-				if (elementPassed.checked) { debugTimerTransition = false; } else { debugTimerTransition = true; }
+			case 'ConsoleLogTimerTransition':
+				if (elementPassed.checked) { ConsoleLogTimerTransition = false; } else { ConsoleLogTimerTransition = true; }
 				break;
-			case 'debugTimerDetail':
-				if (elementPassed.checked) { debugTimerDetail = false; } else { debugTimerDetail = true; }
+			case 'ConsoleLogTimerDetail':
+				if (elementPassed.checked) { ConsoleLogTimerDetail = false; } else { ConsoleLogTimerDetail = true; }
 				break;
-			case 'debugLogEvents':
-				if (elementPassed.checked) { debugLogEvents = false; } else { debugLogEvents = true; }
+			case 'ConsoleLogEvents':
+				if (elementPassed.checked) { ConsoleLogEvents = false; } else { ConsoleLogEvents = true; }
 				break;
 			// Debugger Control
 			case 'errorUseDebugOnError': // enter debugger on errors

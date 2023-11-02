@@ -56,7 +56,7 @@ function ElementEventMouseOver(elementCurr) {
 	}
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
-	if (debugLogEvents) {
+	if (ConsoleLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 			'Move.. Over occured on content image'
 			+ ' set successfully! Random filter # ' + filterIndex + ' '
@@ -105,7 +105,7 @@ function ElementEventClick(menuImage) {
 	//  img0.src = menuImage.name + 'Larger.gif';
 	//  img0text.src = menuImage.name + 'text.txt';
 	imgSelect = menuImageCn;
-	if (debugLogEvents) {
+	if (ConsoleLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'Move.. Over occured on content image'
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
@@ -136,7 +136,7 @@ function ElementEventMouse(e) {
 	// Objects
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
-	if (debugLogEvents) {
+	if (ConsoleLogEvents) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Mouse Event', 'ElementEventMouse', 7993);
 	}
@@ -199,8 +199,8 @@ function ElementEventMouse(e) {
 			//
 			case 'mouseout':
 				//
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-				if (ElementEventCheckDuplicate(debugLogEvents)) { return; }
+				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
+				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
 				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
@@ -235,8 +235,8 @@ function ElementEventMouse(e) {
 			// ...................................... //
 			case 'mouseover':
 				//
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-				if (ElementEventCheckDuplicate(debugLogEvents)) { return; }
+				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
+				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
 				// ...................................... //
 				if (eventMouseOverEnabled) { return; }
 				switch (IsImageLarge) {
@@ -392,7 +392,7 @@ function ElementEventCheckDuplicate(UseLog) {
 			IsDuplicate = false; break;
 	}
 	//
-	if (UseLog && IsDuplicate && debugLogEventDuplicates) {
+	if (UseLog && IsDuplicate && ConsoleLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Duplicate Event', 'ElementEventCheckDuplicate', 0);
 	}

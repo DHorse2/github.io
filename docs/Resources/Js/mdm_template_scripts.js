@@ -49,19 +49,19 @@ function DebugParameterInitLocal()
 	// ...................................... //
 	// Timer and Event Logging
 	elementObject = document.getElementById('formDebugTimer');
-	if (debugTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugTimerMove');
-	if (debugTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugTimerTransition');
-	if (debugTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugTimerDetail');
-	if (debugTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugLogEvents');
-	if (debugLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (ConsoleLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	// ...................................... //
 	// Debugger Control
@@ -558,7 +558,7 @@ function fnFilterGet(filterPlayAll, startIndex, endIndex,
 			filterGetExit = true;// Exit on Set Error
 		} else {
 		    // Set succeeded
-            if (debugTimer && debugTimerDetail && debugTimerTransition) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 		            'Filter(' + filterIdPassed + ') of ' + filterIndexCn
 		            + ' set successfully! Random filter # ' + filterIndex + ' '
@@ -1556,12 +1556,12 @@ function fnTimerStart(timerType, timerGroup, timerId,
     timerIdCurr = timerId;
     var timerIsRunning = false;
 	var debugFunctionIsOn = false;
-	if (debugTimer && (
-		(timerMethod = timerMethodItem && debugTimerDetail)
+	if (ConsoleLogTimer && (
+		(timerMethod = timerMethodItem && ConsoleLogTimerDetail)
 		|| (timerMethod = timerMethodGroup)
 	) ) {
-		if ( (debugTimerTransition && timerType == timerTypeTransition)
-			|| (debugTimerMove && timerType == timerTypeMove) ) {
+		if ( (ConsoleLogTimerTransition && timerType == timerTypeTransition)
+			|| (ConsoleLogTimerMove && timerType == timerTypeMove) ) {
 			debugFunctionIsOn = true;
 		}
 	}
@@ -1660,12 +1660,12 @@ function fnTimerSet(timerType, timerGroup, timerId,
     tempFunc = function() { timerFunctionPassed(timerType, timerGroup, timerId); };// fnTimerMoveStepDo
     //
 	var debugFunctionIsOn = false;
-	if (debugTimer && (
-		(timerMethod = timerMethodItem && debugTimerDetail)
+	if (ConsoleLogTimer && (
+		(timerMethod = timerMethodItem && ConsoleLogTimerDetail)
 		|| (timerMethod = timerMethodGroup)
 	) ) {
-		if ( (debugTimerTransition && timerType == timerTypeTransition)
-			|| (debugTimerMove && timerType == timerTypeMove) ) {
+		if ( (ConsoleLogTimerTransition && timerType == timerTypeTransition)
+			|| (ConsoleLogTimerMove && timerType == timerTypeMove) ) {
 			debugFunctionIsOn = true;
 		}
 	}
@@ -1755,8 +1755,8 @@ function fnTimerStartFilter(playDirection,
                     oObjNext, oObjNextImage,
 					oObjGroupIndex, oObjGroupImageIndex,
 					filterObjIdPassed, filterIdPassed)
-        if (debugTimer && debugTimerTransition) {
-			// && debugTimerDetail
+        if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+			// && ConsoleLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Item Add')
@@ -1772,8 +1772,8 @@ function fnTimerStartFilter(playDirection,
 		//
     } else if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
 		// Timer exists and is currently busy.
-        if (debugTimer && debugTimerTransition) {
-			// && debugTimerDetail
+        if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+			// && ConsoleLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerRootKey].playDirection, 'Timing DoStep')
@@ -1796,7 +1796,7 @@ function fnTimerStartFilter(playDirection,
     timerObj[timerGroup] [timerItemKey].elMoveStepTop = 0;
     //
     // ...................................... //
-    if (debugTimer && debugTimerTransition) {
+    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Timer Start')
@@ -1855,8 +1855,8 @@ function fnTimerStartMove(playDirection,
             oObjGroupIndex, oObjGroupImageIndex,
             filterObjIdPassed, filterIdPassed);
         //
-        if (debugTimer && debugTimerMove) {
-			// && debugTimerDetail
+        if (ConsoleLogTimer && ConsoleLogTimerMove) {
+			// && ConsoleLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Item Add')
@@ -1872,8 +1872,8 @@ function fnTimerStartMove(playDirection,
 		//
     } else if (timerObj[timerGroup] [timerItemKey].timerIsRunning) {
 		// Timer Already Exists...
-        if (debugTimer && debugTimerMove) {
-			// && debugTimerDetail
+        if (ConsoleLogTimer && ConsoleLogTimerMove) {
+			// && ConsoleLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Timing DoStep')
@@ -1945,7 +1945,7 @@ function fnTimerStartMove(playDirection,
 	timerObj[timerGroup] [timerItemKey].moveOffsetTop = moveOffsetTop;
     //
     // ...................................... //
-    if (debugTimer && debugTimerMove) {
+    if (ConsoleLogTimer && ConsoleLogTimerMove) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
                 + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
@@ -1981,7 +1981,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId)
     //
 	timerObj[timerGroup] [timerRootKey].timerIntervalStep += 1;
 	//
-    if (debugTimer && debugTimerTransition) {
+    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
             + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
@@ -2036,7 +2036,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId)
 		} else { timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsNotDisplayed; }
         //
         //
-        if (debugTimer && debugTimerTransition) {
+        if (ConsoleLogTimer && ConsoleLogTimerTransition) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 					timerObj[timerGroup] [timerRootKey].playDirection, 'Group Stop Timer')
@@ -2048,7 +2048,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerId)
         }
 	}
 	//
-    if (debugTimer && debugTimerTransition) {
+    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 			timerObj[timerGroup] [timerRootKey].playDirection, 'Group Out')
@@ -2167,7 +2167,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId)
       		//
           	window.clearInterval(timerIntervalId);
           	//
-            if (debugTimer && debugTimerDetail && debugTimerTransition) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
@@ -2219,7 +2219,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId)
 		}
 		tempFilterInProgress || tempTimeOrStepsCompleted
         //
-        if (debugTimer && debugTimerDetail && debugTimerTransition) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
@@ -2232,7 +2232,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerId)
                 errorComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
 	} else {
-        if (debugTimer && debugTimerDetail && debugTimerTransition) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'SkipItem')
@@ -2264,7 +2264,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId)
 	//
     timerObj[timerGroup] [timerRootKey].timerIntervalStep += 1;
     //
-    if (debugTimer && debugTimerMove) {
+    if (ConsoleLogTimer && ConsoleLogTimerMove) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 			timerObj[timerGroup] [timerItemKey].playDirection, 'Group In')
@@ -2318,7 +2318,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId)
 		    timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsDisplayed;
 		} else { timerObj[timerGroup] [timerRootKey].elIsDisplayed = elIsNotDisplayed; }
         //
-        if (debugTimer && debugTimerMove) {
+        if (ConsoleLogTimer && ConsoleLogTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 				timerObj[timerGroup] [timerRootKey].playDirection, 'Group Stop Timer')
@@ -2329,7 +2329,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerId)
         }
 	}
 	//
-    if (debugTimer && debugTimerMove) {
+    if (ConsoleLogTimer && ConsoleLogTimerMove) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			fnTimerLogText(timerType, timerGroup, timerId, DoUseRoot,
 			timerObj[timerGroup] [timerRootKey].playDirection, 'Group Out')
@@ -2622,7 +2622,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
         timerTen + 0.1;
     }
     //
-	if (debugTimer && debugTimerDetail && debugTimerMove) {
+	if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 		var tempDetails = ', At: ( step ' + timerObj[timerGroup] [timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
 	}
     //
@@ -2643,7 +2643,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
       		//
           	window.clearInterval(timerIntervalId);
           	//
-            if (debugTimer && debugTimerDetail && debugTimerMove) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
@@ -2680,7 +2680,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
 		    timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsNotDisplayed;
 		}
 		//
-        if (debugTimer && debugTimerDetail && debugTimerMove) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
@@ -2691,7 +2691,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerId)
                 errorComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
 	} else {
-        if (debugTimer && debugTimerDetail && debugTimerMove) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'Item')
@@ -3863,7 +3863,7 @@ window.onload = function() { // function Document Window OnLoad
 function fnWindowContainerHeightGetAll()
 {
 	//
-    if (debugAlert) {
+    if (ConsoleLogAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of left and right menu containers vs the center menu container'
 			+ ': ',
@@ -3880,7 +3880,7 @@ function fnWindowContainerHeightGetAll()
     //
     bodyMainCenterHeight = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
 	//
-    if (debugAlert) {
+    if (ConsoleLogAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
 			+ '.',
@@ -3895,7 +3895,7 @@ function fnWindowContainerHeightGetAll()
 	bodyLayoutMenu1Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
     // if (layoutResizeCn = 0) { bodyLayoutMenu1Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
 	//
-    if (debugAlert) {
+    if (ConsoleLogAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
@@ -3908,7 +3908,7 @@ function fnWindowContainerHeightGetAll()
 		fnWindowContainerHeightGetMenu(bodyMainLeft);
 	} else { fnWindowContainerHeightGetMenu(bodyMainCenterTopLeft); }
 	//
-    if (debugAlert) {
+    if (ConsoleLogAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
@@ -3924,7 +3924,7 @@ function fnWindowContainerHeightGetAll()
 	bodyLayoutMenu2Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
     // if (layoutResizeCn = 0) { bodyLayoutMenu2Height = fnElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
 	//
-    if (debugAlert) {
+    if (ConsoleLogAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
@@ -3937,7 +3937,7 @@ function fnWindowContainerHeightGetAll()
 		fnWindowContainerHeightGetMenu(bodyMainRight);
 	} else { fnWindowContainerHeightGetMenu(bodyMainCenterTopRight); }
 	//
-    if (debugAlert) {
+    if (ConsoleLogAlert) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
@@ -4268,7 +4268,7 @@ function fnWindowResize() {
 		/* -- */
 		//
 		//
-		if (debugAlert) {
+		if (ConsoleLogAlert) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				' Main Container layoutHeight (body +5em): ' + layoutHeight
 				+ '.',
@@ -4729,41 +4729,41 @@ function ConsoleMessageLog(UseDebug, UseSingleLinePassed, errorMsgPassed,
         //
     }
     //
-    var DoDebug = false;
+    var errorDoDebug = false;
 	var errorSeverityColor = 'White';
     // Add message to appropriate log
     // Error Type
     switch (errorSeverityPassed) {
         case errorIsFatal:
         case errorElementFatal:
-            if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
+            if (errorDebugLevel < 1+errorSeverityPassed) { errorDoDebug = true; }
             // errorMessageLogFatal += MessageFinal;
 			errorSeverityColor = 'Red';
             break;
         case errorSevere:
         case errorElementSevere:
-            if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
+            if (errorDebugLevel < 1+errorSeverityPassed) { errorDoDebug = true; }
             // errorMessageLogSevere += MessageFinal;
 			errorSeverityColor = 'Yellow';
             break;
         case errorWarn:
         case errorElementWarn:
-            if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
+            if (errorDebugLevel < 1+errorSeverityPassed) { errorDoDebug = true; }
             // errorMessageLogWarn += MessageFinal;
 			errorSeverityColor = 'Orange';
             break;
         case errorComment:
         case errorElementComment:
         default:
-            if (errorDebugLevel < 1+errorSeverityPassed) { DoDebug = true; }
+            if (errorDebugLevel < 1+errorSeverityPassed) { errorDoDebug = true; }
             // errorMessageLogComment += MessageFinal;
 			errorSeverityColor = 'Lime';
             break;
     }
 	//
-	if (errorUseDebugOnAll) { DoDebug = true; } else {
-		// if (errorUseDebugOnError) { DoDebug = true; } else {
-			if (UseDebug) { DoDebug = true; }
+	if (errorUseDebugOnAll) { errorDoDebug = true; } else {
+		// if (errorUseDebugOnError) { errorDoDebug = true; } else {
+			if (UseDebug) { errorDoDebug = true; }
 		// }
 	}
 	//
@@ -4829,9 +4829,9 @@ function ConsoleMessageLog(UseDebug, UseSingleLinePassed, errorMsgPassed,
     }
 	//
     // Abort & Debug
-    if (DoDebug) {
-        var DoDebugAbort = fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed);
-        if (DoDebugAbort) {
+    if (errorDoDebug) {
+        var errorDoDebugAbort = fnWindowErrorDebug(errorMsgPassed, errorUrlPassed, errorLineNumPassed);
+        if (errorDoDebugAbort) {
             // ABORT
         }
     }
@@ -4976,7 +4976,7 @@ function fnElementEventMouseOver(menuImage)
   }
 var tempTop = menuImage.parentNode.top;
 var tempLeft = menuImage.parentNode.left;
-    if (debugLogEvents)  {
+    if (ConsoleLogEvents)  {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
 		    'Move.. Over occured on content image'
 		    + ' set successfully! Random filter # ' + filterIndex + ' '
@@ -5031,7 +5031,7 @@ function fnElementEventClick(menuImage)
 //  img0.src = menuImage.name + 'lr.gif';
 //  img0text.src = menuImage.name + 'text.txt';
     imgSelect = menuImageCn;
-    if (debugLogEvents)  {
+    if (ConsoleLogEvents)  {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			'Move.. Over occured on content image'
 		    + charNewLineTag + 'Menu Image Name: ' + menuImage.name
@@ -5611,7 +5611,7 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 				// set Display property.
                 if ('display' in elementTarget.style) {
                     if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
-				} else if (debugTimerDetail) {
+				} else if (ConsoleLogTimerDetail) {
                     ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
 							'Element Break Set, Style missing',
                             'fnElementBreakSet', 7742, elementTarget, elementPassed,
@@ -5621,7 +5621,7 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 				if (elementStyleVisibilityPassed.length)  {
 					if (elementTarget.style.visibility) {
 						elementTarget.style.visibility = elementStyleVisibilityPassed;
-					} else if (debugTimerDetail) {
+					} else if (ConsoleLogTimerDetail) {
 						ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
 								'Element Break Set, Visibility missing',
 								'fnElementBreakSet', 7751, elementTarget, elementPassed,
@@ -5634,7 +5634,7 @@ function fnElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPas
 					// note: the redundant syntax, different logic than above
 					if (elementTarget.style.clear) {
 						if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
-					} else if (debugTimerDetail) {
+					} else if (ConsoleLogTimerDetail) {
 						ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
 								'Element Break Set, Clear missing',
 								'fnElementBreakSet', 7760, elementTarget, elementPassed,
@@ -6012,11 +6012,11 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 //
     case 'ConsoleDebug':
         if (consoleDebugMainToggles.style.display != 'block') {
-			debugTimerMove = true;
+			ConsoleLogTimerMove = true;
 			consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-			debugTimerTransition = true;
+			ConsoleLogTimerTransition = true;
 			consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
-			debugTimerDetail = true;
+			ConsoleLogTimerDetail = true;
 			consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 			errorUseDebugOnAll = true;
 			consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
@@ -6024,7 +6024,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 			// errorUseDebugOnError = true;
 			// consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-			debugLogEvents = true;
+			ConsoleLogEvents = true;
 			consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 			//
 			fnBodyConsoleShow(DoNotUseHide, DoUseDebug);
@@ -6034,7 +6034,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			}
 			//
 			if (errorUseDebugOnAll || errorUseDebugOnError) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
-			if (debugTimerMove || debugTimerTransition) { debugTimer = true; } else { debugTimer = false; }
+			if (ConsoleLogTimerMove || ConsoleLogTimerTransition) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
 			//
 			checkLogMode = true;
 			checkLogModeSeeErrors = true;
@@ -6045,11 +6045,11 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			//
         } else {
 		//
-			debugTimerMove = false;
+			ConsoleLogTimerMove = false;
 			consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
-			debugTimerTransition = false;
+			ConsoleLogTimerTransition = false;
 			consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
-			debugTimerDetail = false;
+			ConsoleLogTimerDetail = false;
 			consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			errorUseDebugOnAll = false;
 			consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
@@ -6057,7 +6057,7 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			// errorUseDebugOnError = false;
 			// consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
-			debugLogEvents = false;
+			ConsoleLogEvents = false;
 			consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			//
 			fnBodyConsoleShow(DoUseHide, DoUseDebug);
@@ -6068,15 +6068,15 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
 		//
     case 'ConsoleDebugMove':
-        if (debugTimerMove) {
-            debugTimerMove = false;
+        if (ConsoleLogTimerMove) {
+            ConsoleLogTimerMove = false;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Move is OFF',
                     'fnBodyConsoleToggle', 8307, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
             consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
         } else {
-            debugTimerMove = true;
+            ConsoleLogTimerMove = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Move is ON',
                     'fnBodyConsoleToggle', 8314, null, null,
@@ -6085,22 +6085,22 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			checkLogMode = true;
         }
 		//
-        if (debugTimerMove || debugTimerTransition) { debugTimer = true; } else { debugTimer = false; }
+        if (ConsoleLogTimerMove || ConsoleLogTimerTransition) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
 		//
         checkNoVisibleConsole = true;
         checkBoxSize = true;
         break;
 		//
     case 'ConsoleDebugTransition':
-        if (debugTimerTransition) {
-            debugTimerTransition = false;
+        if (ConsoleLogTimerTransition) {
+            ConsoleLogTimerTransition = false;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is OFF',
                     'fnBodyConsoleToggle', 8331, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
             consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
         } else {
-            debugTimerTransition = true;
+            ConsoleLogTimerTransition = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is ON',
                     'fnBodyConsoleToggle', 8338, null, null,
@@ -6109,22 +6109,22 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			checkLogMode = true;
         }
 		//
-        if (debugTimerMove || debugTimerTransition) { debugTimer = true; } else { debugTimer = false; }
+        if (ConsoleLogTimerMove || ConsoleLogTimerTransition) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
 		//
         checkNoVisibleConsole = true;
         checkBoxSize = true;
         break;
 		//
     case 'ConsoleDebugDetail':
-        if (debugTimerDetail) {
-            debugTimerDetail = false;
+        if (ConsoleLogTimerDetail) {
+            ConsoleLogTimerDetail = false;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is OFF',
                     'fnBodyConsoleToggle', 8355, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
             consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
         } else {
-            debugTimerDetail = true;
+            ConsoleLogTimerDetail = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is ON',
                     'fnBodyConsoleToggle', 8362, null, null,
@@ -6184,15 +6184,15 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
         break;
 		//
     case 'ConsoleDebugEvents':
-        if (debugLogEvents) {
-            debugLogEvents = false;
+        if (ConsoleLogEvents) {
+            ConsoleLogEvents = false;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is OFF',
                     'fnBodyConsoleToggle', 8423, null, null,
                     errorElementComment, errorDoNotDisplayTag, errorDoNotAlert);
             consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
         } else {
-            debugLogEvents = true;
+            ConsoleLogEvents = true;
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is ON',
                     'fnBodyConsoleToggle', 8430, null, null,
@@ -6235,28 +6235,28 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 			&& consoleStateBox.style.display != 'block'
 		) {
 			consoleBox.style.display = 'none';
-			fnBodyConsoleShow(DoHide = true, DoDebug = false);
+			fnBodyConsoleShow(DoHide = true, errorDoDebug = false);
 			checkBoxSize = false;
         } else {
-			fnBodyConsoleShow(DoHide = false, DoDebug = false);
+			fnBodyConsoleShow(DoHide = false, errorDoDebug = false);
 		}
         //
     }
     // Check if any Debugs settings are on or content is visible
     if (checkNoVisibleDebug) {
         if (consoleDebugToggles.style.display != 'block'
-			&& !debugTimerMove
-			&& !debugTimerTransition
-			&& !debugTimerDetail
+			&& !ConsoleLogTimerMove
+			&& !ConsoleLogTimerTransition
+			&& !ConsoleLogTimerDetail
 			&& !errorUseDebugOnError
 			&& !errorUseDebugOnAll
-			&& !debugLogEvents
+			&& !ConsoleLogEvents
 		) {
 			// 			&& !errorUseDebugOnError
-			fnBodyConsoleShow(DoHide = true, DoDebug = true);
+			fnBodyConsoleShow(DoHide = true, errorDoDebug = true);
 			checkBoxSize = false;
         } else {
-			fnBodyConsoleShow(DoHide = false, DoDebug = true);
+			fnBodyConsoleShow(DoHide = false, errorDoDebug = true);
 		}
     }
     //
@@ -6393,14 +6393,14 @@ function fnBodyConsoleToggle(ConsoleBlockPassed)
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Console
-function fnBodyConsoleShow(DoHide, DoDebug)
+function fnBodyConsoleShow(DoHide, errorDoDebug)
 {
         //............................................................---//
         // Body Element Creation
 	  	if (javaLoadFirst) { fnElementObjectCreate(); }
         //............................................................---//
 	//
-	if (DoDebug) {
+	if (errorDoDebug) {
 		// Process Console Box Action
 		if (DoHide) {
 			fnBodyConsoleDebugButtons = false;
@@ -6414,12 +6414,12 @@ function fnBodyConsoleShow(DoHide, DoDebug)
 			consoleDebugTypesToggles.style.display = 'block';
 		}
         if (consoleDebugToggles.style.display != 'block'
-			&& !debugTimerMove
-			&& !debugTimerTransition
-			&& !debugTimerDetail
+			&& !ConsoleLogTimerMove
+			&& !ConsoleLogTimerTransition
+			&& !ConsoleLogTimerDetail
 			&& !errorUseDebugOnError
 			&& !errorUseDebugOnAll
-			&& !debugLogEvents
+			&& !ConsoleLogEvents
 		) {
 			// 			&& !errorUseDebugOnError
 			consoleDebugToggle.style.borderColor = ButtonIsOffColor;
@@ -7205,7 +7205,7 @@ function fnElementEventMouse(e)
     // Objects
     fnElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
-	if (debugLogEvents) {
+	if (ConsoleLogEvents) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Mouse Event', 'fnElementEventMouse', 7993); }
 	//
@@ -7267,8 +7267,8 @@ function fnElementEventMouse(e)
 			//
     	case 'mouseout':
 			//
-			if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-    		if (fnElementEventCheckDuplicate(debugLogEvents)) { return; }
+			if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
+    		if (fnElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
 			// ...................................... //
     		switch(IsImageLarge) {
 			// ...................................... //
@@ -7303,8 +7303,8 @@ function fnElementEventMouse(e)
 		// ...................................... //
     	case 'mouseover':
 			//
-			if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
-    		if (fnElementEventCheckDuplicate(debugLogEvents)) { return; }
+			if (fnTimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
+    		if (fnElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
 			// ...................................... //
 			if (eventMouseOverEnabled) { return; }
     		switch(IsImageLarge) {
@@ -7467,7 +7467,7 @@ function fnElementEventCheckDuplicate(UseLog)
 		default:IsDuplicate = false;break;
 	}
 	//
-	if (UseLog && IsDuplicate && debugLogEventDuplicates) {
+	if (UseLog && IsDuplicate && ConsoleLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Duplicate Event', 'fnElementEventCheckDuplicate', 0); }
 	//
@@ -7569,7 +7569,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     filterPlayIndex = 1;
     HideImage = false;HideImageLarge = false;
     //
-    if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+    if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseEither, playDirection, 'Request')
                 + ', Play command requested'
@@ -7586,7 +7586,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + timerTypeTransition;
 			if (playDirection != timerObj[timerGroup] [timerItemTransitionKey].playDirection) {
 				// playDirection is different (while running)
-				if (debugTimer && debugTimerDetail && debugTimerTransition) {
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
@@ -7599,7 +7599,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				fnTimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (debugTimer && debugTimerDetail && debugTimerTransition) {
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
@@ -7624,7 +7624,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			if ( playDirection = playDirectionForward) {
 				// Forward
 				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsDisplayed)  {
-					if (debugTimer && debugTimerDetail && debugTimerTransition) {
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -7640,7 +7640,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsNotDisplayed)  {
-					if (debugTimer && debugTimerDetail && debugTimerTransition) {
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 								fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 								+ ', Play Reverse command NOT issued'
@@ -7668,7 +7668,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + timerTypeMove;
 			if (playDirection != timerObj[timerGroup] [timerItemMoveKey].playDirection) {
 				// playDirection is different (while running)
-				if (debugTimer && debugTimerDetail && debugTimerMove) {
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
@@ -7681,7 +7681,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				fnTimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (debugTimer && debugTimerDetail && debugTimerMove) {
+				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 							fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
@@ -7706,7 +7706,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			if ( playDirection = playDirectionForward) {
 				// Forward
 				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsDisplayed)  {
-					if (debugTimer && debugTimerDetail && debugTimerMove) {
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 								fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 								+ ', Play Forward command NOT issued'
@@ -7721,7 +7721,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsNotDisplayed)  {
-					if (debugTimer && debugTimerDetail && debugTimerMove) {
+					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 								fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 								+ ', Play Reverse command NOT issued'
@@ -7783,7 +7783,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     // elTopDest = oObjNext.style.posTop;
 	//
 	//
-	if (debugTimer && debugTimerMove) {
+	if (ConsoleLogTimer && ConsoleLogTimerMove) {
 		ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 				+ ', Item orgin and destination set'
@@ -7809,7 +7809,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     startIndex = 1;endIndex = 18;
     if (filterIsOn || filterResizeIsOn) {
         //
-        if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Get')
                     + ', Filter Get command issued'
@@ -7839,7 +7839,7 @@ function fnElementPlay(playDirection, IsImageLarge,
    	if (filterIsOn) {
         //
 		// if (filterObj[filterIdPassed].filterDoEnable) {
-            if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Enable')
 						+ ', Filter Enable command issued'
@@ -7858,7 +7858,7 @@ function fnElementPlay(playDirection, IsImageLarge,
         // oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
     	//
 		// if (filterObj[filterIdPassed].filterDoApply) {
-            if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Apply')
 						+ ', Filter Apply command issued'
@@ -7873,7 +7873,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 					filterObjId, filterId);
 		// }
     	//
-        if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
 					+ ', Filter Start command issued'
@@ -7889,7 +7889,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 					filterObjId, filterId);
         //
 		// if (filterObj[filterIdPassed].filterDoPlay) {
-            if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Play')
                         + ', Filter Vendor Play command issued'
@@ -7928,7 +7928,7 @@ function fnElementPlay(playDirection, IsImageLarge,
         // Visibility
         if (oObjNext.style.display != 'block') { oObjNext.style.display= 'block'; }
         //
-        if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+        if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 					fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
                     + ', Move Start command issued'
@@ -7948,7 +7948,7 @@ function fnElementPlay(playDirection, IsImageLarge,
         // **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
         if (filterResizeIsOn && !elIsDisplayed)  {
             //
-            if (debugTimer && debugTimerDetail && (debugTimerMove || debugTimerTransition)) {
+            if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 						fnTimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Resize')
                         + ', Resize command issued'
@@ -8089,7 +8089,7 @@ function fnElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oO
 function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 {
 	// load and validate event and objects
-	fnElementEventFromHtmlCheck(null, debugLogEvents);
+	fnElementEventFromHtmlCheck(null, ConsoleLogEvents);
 	if (eventCurrId == oObjNextParentId
 		&& !eventMouseOverEnabled
 		&& eventType == 'mouseover'
@@ -8177,7 +8177,7 @@ function fnElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oOb
 function fnElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 {
 	// look for duplicate mouse over events (bubbling)
-	if (!fnElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
+	if (!fnElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
 	//
   	// Objects
     oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
@@ -8198,7 +8198,7 @@ function fnElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId,
 // ...................................... //
 function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 {
-		if (fnTimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, debugLogEvents)) { return; }
+		if (fnTimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, ConsoleLogEvents)) { return; }
 		//
 		if (javaLoadFirst) { fnElementObjectCreate(); }
         if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
@@ -8206,7 +8206,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
         oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
         LastTochedId = oObjNext.id;
 		//
-		if (debugTimer && debugTimerTransition) {
+		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerKeyText('Show', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
@@ -8633,7 +8633,7 @@ menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjHeight;
 function fnElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 {
 	// load and validate event and objects
-	if (!fnElementEventFromHtmlCheck(e, debugLogEvents)) { return; }
+	if (!fnElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
 	//
   	// Objects
     oObjIndex = oObjGroupImageIndex;// fnElementItemIndexSetFromObj(oObjNext);
@@ -8654,7 +8654,7 @@ function fnElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId,
 // ...................................... //
 function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
 {
-	if (fnTimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, debugLogEvents)) { return; }
+	if (fnTimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
 	//
 	if (javaLoadFirst) { fnElementObjectCreate(); }
 	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
@@ -8662,7 +8662,7 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
     // fnElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] [IsImageLarge] == true)  {
-		if (debugTimer && debugTimerTransition) {
+		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 				fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
@@ -8675,7 +8675,7 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		return;
 	}
 	//
-    if (debugTimer && debugTimerTransition) {
+    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
 			fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
