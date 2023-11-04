@@ -1,19 +1,15 @@
-
 <!--** MdmPtConsoleForm - Body Console Form Blocks **-->
 <!-- action="DebugFormUpdate();"  -->
 <!-- action="DebugFormUpdate.shtml;"  -->
-<form id="consoleStateForm"
-	class="BodyParaLeft layoutBodyColumnType1" 
-	method="post"
-	action="JavaScript:ConsoleFormElementSync(true);"
-	>
-	<button type="submit" value="Log" onclick="ConsoleFormElementSync(false)">
-		Log
+<form id="consoleStateForm" class="BodyParaLeft layoutBodyColumnType1" onchange="ConsoleFormElementChange(false)"
+	method="post" action="JavaScript:ConsoleFormElementSync(true);">
+	<button id="FormApply" type="submit" value="Log" onclick="ConsoleFormElementSync(true)">
+		Apply
 	</button>
-	<button type="button" onclick="ConsoleFormElementSync(false)">
+	<button id="FormDataLoad" type="button" onclick="ConsoleFormElementSync(false)">
 		Get
 	</button>
-	<button type="button" onclick="ConsoleFormElementSync(true)">
+	<button id="FormDataApply" type="button" onclick="ConsoleFormElementSync(true)">
 		Set
 	</button>
 	<!-- <input type="submit" value="Send Request"> -->
@@ -167,12 +163,16 @@
 			<label for="formelementMoveMethod">elementMoveMethod </label>
 			<select id="formelementMoveMethod"
 				onchange="DebugParameterSet(this, 'elementMoveMethod', this.options[this.selectedIndex].value);">
-				<option id="formelementMoveMethod_elementMoveMethodDirect" value="elementMoveMethodDirect">elementMoveMethodDirect</option>
-				<option id="formelementMoveMethod_elementMoveMethodSlideDown" value="elementMoveMethodSlideDown">elementMoveMethodSlideDown
+				<option id="formelementMoveMethod_elementMoveMethodDirect" value="elementMoveMethodDirect">
+					elementMoveMethodDirect</option>
+				<option id="formelementMoveMethod_elementMoveMethodSlideDown" value="elementMoveMethodSlideDown">
+					elementMoveMethodSlideDown
 				</option>
-				<option id="formelementMoveMethod_elementMoveMethodSlideSide" value="elementMoveMethodSlideSide">elementMoveMethodSlideSide
+				<option id="formelementMoveMethod_elementMoveMethodSlideSide" value="elementMoveMethodSlideSide">
+					elementMoveMethodSlideSide
 				</option>
-				<option id="formelementMoveMethod_elementMoveMethodRandom" value="elementMoveMethodRandom" selected>elementMoveMethodRandom
+				<option id="formelementMoveMethod_elementMoveMethodRandom" value="elementMoveMethodRandom" selected>
+					elementMoveMethodRandom
 				</option>
 			</select>
 		</fieldset>

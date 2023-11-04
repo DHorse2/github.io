@@ -85,9 +85,9 @@ var errorResultOnFail = errorDidNotOccur;
 // errorLogComment = '';
 // SectionBlock Debug Utilities
 // ...................................... //
-// var debugIsOn = true;
+// var UseDebug = true;
 // var debugDoAlert = true;
-// var debugIsOn = false;
+// var UseDebug = false;
 // var debugDoAlert = false;
 // This flag not implemented in forms or buttons
 // var ConsoleLogAlert = true;
@@ -150,8 +150,10 @@ function ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnP
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     //
     messageTemp = ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
-        eventCurrPassed, elementPassed, elementSourcePassed,
-        messagePassed, errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+        eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
+        elementPassed, elementSourcePassed,
+        messagePassed,
+        errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
     //
     WindowErrorDisplay(errorSeverityPassed, eventCurrPassed,
         messagePassed,
@@ -173,7 +175,8 @@ function ErrorCaught(errorObjectPassed, script_statePassed, errorSeverityPassed)
 }
 
 function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
-    eventCurrPassed, elementPassed, elementSourcePassed,
+    eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
+    elementPassed, elementSourcePassed,
     messagePassed,
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     // if (errorFirst) { return; }
@@ -191,9 +194,9 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
 
     ErrorSet(eventCurrPassed);
 
-    ErrorMessageDetail = ErrorMessageGet(DoNotUseSingleLine);
+    ErrorMessageDetail = ErrorMessageGet(UseSingleLinePassed);
 
-    // if (!UseSingleLine && ErrorMessage.length > 30 || errorSeverityPassed >= errorIsSevere) {
+    // if (!UseSingleLinePassed && ErrorMessage.length > 30 || errorSeverityPassed >= errorIsSevere) {
     //     ErrorMessage += charNewLineTag + charTextIndent;
     // }
     // //
@@ -227,14 +230,18 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
     }
     //
-    ErrorMessage = errorSeverityDescription + messagePassed;
-    var tmpMessage = ErrorMessage;
-    if (!UseSingleLine && tmpMessage.length > 30) {
-        tmpMessage += charNewLineTag + charTextIndent;
-    } else { tmpMessage += ', '; }
-    ErrorMessageDetail = tmpMessage + ErrorMessageDetail;
+    ErrorMessage = errorSeverityDescription + ' ' + messagePassed;
+    // var tmpMessage = ErrorMessage;
+    // if (ErrorMessageDetail.length) {
+    //     if (!UseSingleLinePassed && tmpMessage.length > 30) {
+    //         tmpMessage += charNewLineTag + charTextIndent;
+    //     } else {
+    //         tmpMessage += ', ';
+    //     }
+    // }
+    // ErrorMessageDetail = tmpMessage + ErrorMessageDetail;
     //
-    // if (!UseSingleLine && errorSeverityPassed >= errorIsSevere) {
+    // if (!UseSingleLinePassed && errorSeverityPassed >= errorIsSevere) {
     //     ErrorMessage += charNewLineTag;
     // }
     //
@@ -246,7 +253,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
 
         if (elementPassed) {
             ErrorMessageDetail += '. ';
-            if (!UseSingleLine && ErrorMessageDetail.length > 30) {
+            if (!UseSingleLinePassed) {
                 ErrorMessageDetail += charNewLineTag + charTextIndent;
             }
             ErrorMessageDetail += 'Target tag';
@@ -267,7 +274,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
         //
         if (elementSourcePassed) {
             ErrorMessageDetail += '. ';
-            if (!UseSingleLine && ErrorMessageDetail.length > 30) {
+            if (!UseSingleLinePassed) {
                 ErrorMessageDetail += charNewLineTag + charTextIndent;
             }
             ErrorMessageDetail += "Source tag";
@@ -290,7 +297,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
 
     ErrorMessageDetail += '. ';
     // ErrorMessageDetail += charNewLineTag;
-    // if (!UseSingleLine && ErrorMessageDetail.length > 30 || errorSeverityPassed >= errorIsSevere) {
+    // if (!UseSingleLinePassed && ErrorMessageDetail.length > 30 || errorSeverityPassed >= errorIsSevere) {
     //     ErrorMessageDetail += charNewLineTag + charTextIndent;
     // }
     //
@@ -382,12 +389,12 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
     } else { eventCurrId = ''; }
     //
     // display error in log
-    MessageLog(eventCurrPassed, DoUseDebug, DoUseSingleLine,
+    MessageLog(eventCurrPassed, DoUseDebug, UseSingleLine,
         messagePassed,
         eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
         messageElement, messageElementSource,
         errorSeverityPassed, errorDoDisplayTag, errorDoAlert);
-    // MessageLog(eventCurrPassed, DoUseDebug, DoUseSingleLine,
+    // MessageLog(eventCurrPassed, DoUseDebug, UseSingleLine,
     //     '(' + eventFileName + ':' + eventFileLinePassed + ') ' + messagePassed,
     //     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, messageElement, messageElementSource,
     //     errorIsSevere, errorDoDisplayTag, errorDoAlert);
@@ -434,7 +441,7 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
 // ...................................... //
 // Layout Next
 function DebugStart(debugOptionPassed, debugmessagePassed) {
-    if (!debugIsOn) { return; }
+    if (!UseDebug) { return; }
     if (debugDoAlert) {
         alert('Ready to debug: ' + debugmessagePassed + '(' + debugOptionPassed + ')');
     }
@@ -453,10 +460,11 @@ function DebugStart(debugOptionPassed, debugmessagePassed) {
     }
 }
 // Error Message Log
-function ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+function ConsoleEventLog(eventCurrPassed, eventType, eventObject, eventCurrRootObj,
     eventText, eventFileNamePassed, eventFileLinePassed) {
     consoleEventLogCn += 1;
     // messageUrl = eventUrl;
+    eventCurr = eventCurrPassed;
     eventMessage =
         charNoWrapTagStart
         + '(' + (consoleEventLogCn).toString() + ')'
@@ -493,24 +501,10 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     eventCurr = eventCurrPassed; // maybe null
     messageFinal = '';
     messageDetail = ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
-        eventCurrPassed, elementPassed, elementSourcePassed,
+        eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
+        elementPassed, elementSourcePassed,
         messagePassed,
         errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
-    //
-    // Detailed output:
-    if (ConsoleLogDetails) {
-        messageFinal += ' Details:' + messageDetail;
-        if ((eventFileNamePassed).length) {
-            messageFinal += ' For:' + eventFileNamePassed;
-            if (!UseSingleLinePassed
-                && (messageFinal.length > 30
-                    && eventFileNamePassed.length > 30)
-            ) {
-                messageFinal += charNewLineTag + charTextIndent;
-            }
-        }
-        //
-    }
     //
     // note: the use of " PropertyX in elementPasssed" did not work for validating properties of elementPasssed.
     //
@@ -597,45 +591,24 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         //
     }
 
-    // // Add message to appropriate log
-    // // Error Type
-    // switch (errorSeverityPassed) {
-    //     case errorIsFatal:
-    //         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
-    //         errorSeverityLevel = errorIsFatal;
-    //         errorSeverityColor = errorSeverityColorFatal;
-    //         errorSeverityColorBg = errorSeverityColorFatalBg;
-    //         break;
-    //     case errorIsSevere:
-    //         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
-    //         errorSeverityLevel = errorIsSevere;
-    //         errorSeverityColor = errorSeverityColorSevere;
-    //         errorSeverityColorBg = errorSeverityColorSevereBg; break;
-    //     case errorIsWarning:
-    //         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
-    //         errorSeverityLevel = errorIsWarning;
-    //         errorSeverityColor = errorSeverityColorWarn;
-    //         errorSeverityColorBg = errorSeverityColorWarnBg;
-    //         break;
-    //     case errorIsComment:
-    //         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
-    //         // errorMessageLogComment += messageFinal;
-    //         errorSeverityColor = 'White';
-    //         break;
-    //     default:
-    //         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
-    //         errorSeverityLevel = errorDidNotOccur;
-    //         errorSeverityColor = errorSeverityColorComment;
-    //         errorSeverityColorBg = errorSeverityColorCommentBg;
-    //         break;
-    // }
-    //
     // Set the message
     messageTemp = errorSeverityDescription;
     if (eventCurr && eventType) { messageTemp += ' e(' + eventType + ')'; }
     messageTemp += ' ' + messagePassed;
-    if (errorSeverityPassed >= errorIsWarning) {
-        messageTemp += charNewLineTag + charTextIndent + ' ' + ErrorMessageDetail;
+    if (ConsoleLogDetails || errorSeverityPassed >= errorIsWarning) {
+        // if (!UseSingleLinePassed && messageDetail.length > 30) { messageTemp += charNewLineTag + charTextIndent; }
+        messageTemp += charNewLineTag + charTextIndent;
+        messageTemp += ' Details: ' + messageDetail;
+        if ((eventFileNamePassed).length) {
+            messageTemp += charNewLineTag + charTextIndent;
+            messageTemp += ' For: ' + eventFileNamePassed;
+        }
+        if (eventStack && eventStack.length) {
+            messageTemp += charNewLineTag + charTextIndent;
+            messageTemp += ' Stack: ';
+            messageTemp += charNewLineTag;
+            messageTemp += StringTextNewlineToBr(eventStack);
+        }
     }
     messageFinal = messageTemp + messageFinal;
     //
@@ -836,6 +809,41 @@ window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLin
 //     WindowError(e, arguments);
 // });
 // ..................................................................................... _//
+
+
+// // Add message to appropriate log
+// // Error Type
+// switch (errorSeverityPassed) {
+//     case errorIsFatal:
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         errorSeverityLevel = errorIsFatal;
+//         errorSeverityColor = errorSeverityColorFatal;
+//         errorSeverityColorBg = errorSeverityColorFatalBg;
+//         break;
+//     case errorIsSevere:
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         errorSeverityLevel = errorIsSevere;
+//         errorSeverityColor = errorSeverityColorSevere;
+//         errorSeverityColorBg = errorSeverityColorSevereBg; break;
+//     case errorIsWarning:
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         errorSeverityLevel = errorIsWarning;
+//         errorSeverityColor = errorSeverityColorWarn;
+//         errorSeverityColorBg = errorSeverityColorWarnBg;
+//         break;
+//     case errorIsComment:
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         // errorMessageLogComment += messageFinal;
+//         errorSeverityColor = 'White';
+//         break;
+//     default:
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         errorSeverityLevel = errorDidNotOccur;
+//         errorSeverityColor = errorSeverityColorComment;
+//         errorSeverityColorBg = errorSeverityColorCommentBg;
+//         break;
+// }
+//
 
 script_state = "MdmError functions and events loaded and started";
 if (debugLoadIsOn) { debugger; }

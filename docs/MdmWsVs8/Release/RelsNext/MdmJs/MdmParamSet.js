@@ -61,8 +61,8 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { errorUseDebugOnAll = false; } else { errorUseDebugOnAll = true; }
 				break;
 			//
-			case 'debugIsOn':
-				if (elementPassed.checked) { debugIsOn = false; } else { debugIsOn = true; }
+			case 'UseDebug':
+				if (elementPassed.checked) { UseDebug = false; } else { UseDebug = true; }
 				break;
 			case 'debugDoAlert':
 				if (elementPassed.checked) { debugDoAlert = false; } else { debugDoAlert = true; }

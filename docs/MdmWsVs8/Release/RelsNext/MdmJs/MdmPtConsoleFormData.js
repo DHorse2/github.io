@@ -13,7 +13,7 @@ function MdmPtConsoleFormInit(clearElement, injectElement, passedElement) {
 		action="JavaScript:ConsoleFormElementSync(true);"
 		>
 		<button id="FormApply" type="submit" value="Log"
-			onclick="ConsoleFormElementSync(false)">
+			onclick="ConsoleFormElementSync(true)">
 			Apply
 		</button>
 		<button id="FormDataLoad" type="button"
@@ -325,8 +325,8 @@ function MdmPtConsoleFormInit(clearElement, injectElement, passedElement) {
 				<!-- * -->
 				Allow degguger usage: <br>
 			</p>
-			<label for="formDebugIsOn">debugIsOn </label>
-			<input id="formDebugIsOn" type="checkbox" checked onchange="DebugParameterSet(this, 'debugIsOn', 'Toggle');">
+			<label for="formDebugIsOn">UseDebug </label>
+			<input id="formDebugIsOn" type="checkbox" checked onchange="DebugParameterSet(this, 'UseDebug', 'Toggle');">
 			<p>
 				<!-- * -->
 				Display debug messages in an alert box: <br>

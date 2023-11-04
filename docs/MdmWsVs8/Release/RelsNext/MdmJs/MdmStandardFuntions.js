@@ -8,6 +8,8 @@ var DoNotUseLog = false;
 //
 var DoUseDebug = true;
 var DoNotUseDebug = false;
+var UseDebug = DoNotUseDebug;
+var debugDoAlert = false;
 //
 var DoUseSingleLine = true;
 var DoNotUseSingleLine = false;
@@ -274,6 +276,10 @@ function StringPad(num, places, padString) {
 }
 
 // String Replace
+function StringTextNewlineToBr(textPassed) {
+    return textPassed.replace(/(?:\r\n|\r|\n)/g, '<br>');
+}
+    // String Replace
 function StringTextReplace(textPassed, stringFind, stringReplace) {
     // return textPassed.replace(stringFind, stringReplace);
     var TextNew = '';

@@ -76,7 +76,7 @@ function FormElementSyncOld()
 	if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = ElementGetFromId('formDebugIsOn');
-	if (debugIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseDebug) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = ElementGetFromId('formDebugDoAlert');
 	if (debugDoAlert) { elementObject.checked = true; } else { elementObject.checked = false; }

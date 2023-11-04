@@ -771,11 +771,11 @@ function ConsoleFormElementSync(fromForm) {
 		// ...................................... //
 		script_state = "Form sync: Check form exists";
 		consoleStateFormValid = true;
-		elementObject = ElementGetRef(consoleStateForm, 'formImgLoadUseEventHandler', 'formImgLoadUseEventHandler');
-		// elementObject = document.getElementById('formImgLoadUseEventHandler');
-		// if (!elementObject && consoleStateForm) { elementObject = consoleStateForm; }
+		elementObject = document.getElementById('FormApply');
 		// Is the form accessible?
-		if (!elementObject) {
+		if (elementObject) {
+			elementObject.style.backgroundColor = 'yellow';
+		} else {
 			ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, elementObject, consoleStateForm,
 				"Console Form cannot be accessed or synced", errorIsWarning, false, false);
 			consoleStateFormValid = false; // turn it off
@@ -913,9 +913,9 @@ function ConsoleFormElementSync(fromForm) {
 		//
 		elementObject = document.getElementById('formDebugIsOn');
 		if (fromForm) {
-			if (elementObject.checked) { debugIsOn = true; } else { debugIsOn = false; }
+			if (elementObject.checked) { UseDebug = true; } else { UseDebug = false; }
 		} else {
-			if (debugIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseDebug) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formDebugDoAlert');
@@ -1226,7 +1226,7 @@ var debugStateMessage = "init";
 // console.clear();
 // Start debugging
 function DebugStart(debugOptionPassed, debugMessagePassed) {
-	if (!debugIsOn) { return; }
+	if (!UseDebug) { return; }
 	debugStateMessage = "Ready to debug: " + debugMessagePassed + "(" + debugOptionPassed + ")"
 	console.log(debugStateMessage);
 	if (debugDoAlert) {

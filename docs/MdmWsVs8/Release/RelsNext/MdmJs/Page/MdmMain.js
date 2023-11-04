@@ -70,8 +70,8 @@ errorResultOnFail = errorDidNotOccur;
 // AREA Debug. This AREA is for controlling javascript debugging.
 // ...................................... //
 // Important fields: PageBuild, PageMode
-var debugIsOn = true; // FLAG ON!!! todo
-var debugDoAlert = false;
+UseDebug = DoUseDebug; // FLAG ON!!! todo
+debugDoAlert = false;
 // Load - Steps through loading script files
 debugLoadIsOn = false;
 script_state = "debugLoadIsOn is" + debugLoadIsOn;
