@@ -8,7 +8,7 @@ BrowserVsGet();
 
 // ...................................... //
 var LastId = "";
-var LastTochedId = "";
+var LastTouchedId = "";
 
 // SectionBlock Timers Primary Commands function (s)
 // ...................................... //

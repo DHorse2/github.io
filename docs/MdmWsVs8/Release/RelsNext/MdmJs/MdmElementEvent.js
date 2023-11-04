@@ -12,7 +12,7 @@
 // // SectionBlock Events (Mouse, load, error)
 // // ...................................... //
 // var LastId = '';
-// var LastTochedId = '';
+// var LastTouchedId = '';
 // //
 // var eventParentName = new String();
 // //

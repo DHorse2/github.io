@@ -8146,7 +8146,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
-	LastTochedId = oObjNext.id;
+	LastTouchedId = oObjNext.id;
 	//
 	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,

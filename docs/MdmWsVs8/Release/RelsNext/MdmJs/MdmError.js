@@ -25,13 +25,12 @@ var errorSeverityColorCommentBg = 'White';
 var errorSeverityColor = errorSeverityColorComment;
 var errorSeverityColorBg = errorSeverityColorCommentBg;
 //
-var errorMessage = 'Error handling initializing';
 var errorSeverityDescription = 'No error';
 // var UseSingleLine = DoNotUseSingleLine;
 var errorResultOnFail = errorDidNotOccur;
 //
-consoleErrorLogCn = 0;
-consoleErrorLogScrollCn = 0;
+// consoleErrorLogCn = 0;
+// consoleErrorLogScrollCn = 0;
 
 // Section Mouse Events function (s)
 // ...................................... //
@@ -43,45 +42,40 @@ consoleErrorLogScrollCn = 0;
 //		    ElementEventMouseOut
 //		    ElementEventClick
 
-// SectionBlock Events (Mouse, load, error)
-// ...................................... //
-var LastId = '';
-var LastTochedId = '';
-//
-var eventParentName = new String();
-//
-var eventType = 'init';
-var eventEventObject = null;
-var eventArguments;
-var eventStack = '';
-var eventMessage = new String();
-var eventFileName = '';
-var eventFileLine = 0;
-var eventFileColumn = 0;
-var eventFileFunction = '';
-//
-var eventCurrentTarget = null;
-var eventTimeStamp;
-var eventIsBrowser;
-//
-var errorElement = null;
-var errorElementSource = null;
-
-// SectionBlock Menu Mouse Events
-// ...................................... //
-var eventCn = 0;
-var eventCurr = null;
-var e;
-var eventObject = null;
-var eventCurrId = '';
-var eventType = '';
-//
-var eventLast;
-var eventLastObject;
-var eventLastId = '';
-var eventLastRootId = '';
-//
-var eventCurrRootObj;
+// // SectionBlock Events (Mouse, load, error)
+// // ...................................... //
+// var LastId = '';
+// var LastTouchedId = '';
+// //
+// var eventCn = 0;
+// var eventCurr = null;
+// var e;
+// var eventObject = null;
+// var eventCurrId = '';
+// var eventType = 'init';
+// var eventEventObject = null;
+// var eventArguments;
+// var eventStack = '';
+// var eventMessage = new String();
+// var eventFileName = '';
+// var eventFileLine = 0;
+// var eventFileColumn = 0;
+// var eventFileFunction = '';
+// //
+// var eventCurrentTarget = null;
+// var eventTimeStamp;
+// var eventIsBrowser;
+// //
+// var errorElement = null;
+// var errorElementSource = null;
+// //
+// var eventLast;
+// var eventLastObject;
+// var eventLastId = '';
+// var eventLastRootId = '';
+// //
+// var eventParentName = new String();
+// var eventCurrRootObj;
 
 // Error Settings
 // ...................................... //
@@ -125,13 +119,12 @@ var eventCurrRootObj;
 // ..................................................................................... _//
 // Error message build
 // ...................................... //
-var messageUrl = '';
-var messageTemp = new String();
-var messageElement = null;
-var messageElementSource = null;
-var messageFinal = new String();
-var messageDetail = new String();
-var messageUrl = '';
+// var messageTemp = new String();
+// var messageElement = null;
+// var messageElementSource = null;
+// var messageFinal = new String();
+// var messageDetail = new String();
+// var messageUrl = '';
 var errorInnerHTML = new String();
 var errorSourceInnerHTML = new String();
 //
@@ -165,9 +158,10 @@ function ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnP
         eventFileName, eventFileLine, eventFileColumn);
 }
 
-function ErrorCaught(errorObjectPassed, script_statePassed) {
+function ErrorCaught(errorObjectPassed, script_statePassed, errorSeverityPassed) {
     if (!(errorObjectPassed instanceof Error)) { errorObjectPassed = new Error(errorObjectPassed); }
     errorCurr = errorObjectPassed;
+    errorSeverity = errorSeverityPassed;
     ErrorSet(errorCurr);
     // display this todo
     //
@@ -185,6 +179,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
     errorMessage = '';
+    errorMessageDetail = '';
     errorSeverityDescription = '';
     errorSeverityColor = errorSeverityColorComment;
     errorSeverityColorBg = errorSeverityColorCommentBg;
@@ -192,49 +187,55 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     errorSourceInnerHTML = '';
     if (!messagePassed) { messagePassed = ''; }
     if (!messageUrl) { messageUrl = ''; }
+    ErrorMessage = messagePassed;
 
-    // Get error data and message
     ErrorSet(eventCurrPassed);
 
-    errorMessage = ErrorMessageGet(DoNotUseSingleLine) + ': ';
+    ErrorMessageDetail = ErrorMessageGet(DoNotUseSingleLine);
 
-    // if (!UseSingleLine && errorMessage.length > 30 || errorSeverityPassed >= errorIsSevere) {
-    //     errorMessage += charNewLineTag + charTextIndent;
+    // if (!UseSingleLine && ErrorMessage.length > 30 || errorSeverityPassed >= errorIsSevere) {
+    //     ErrorMessage += charNewLineTag + charTextIndent;
     // }
     // //
     errorDoDebug = false;
     // Error Severity Level
     if (errorSeverityPassed >= errorIsFatal) {
-        errorSeverityDescription = 'FATAL Error';
-        // errorMessage = 'FATAL Error ' + errorMessage;
+        errorSeverityDescription = 'FATAL Error!!!';
+        // ErrorMessage = 'FATAL Error ' + ErrorMessage;
         errorSeverityLevel = errorIsFatal;
         errorSeverityColor = errorSeverityColorFatal;
         errorSeverityColorBg = errorSeverityColorFatalBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
     } else if (errorSeverityPassed >= errorIsSevere) {
-        errorSeverityDescription = 'SEVERE Error' + errorMessage;
+        errorSeverityDescription = 'SEVERE Error!!';
         errorSeverityLevel = errorIsSevere;
         errorSeverityColor = errorSeverityColorSevere;
         errorSeverityColorBg = errorSeverityColorSevereBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
     } else if (errorSeverityPassed >= errorIsWarning) {
-        errorSeverityDescription = 'Warning!' + errorMessage;
+        errorSeverityDescription = 'Warning!';
         errorSeverityLevel = errorIsWarning;
         errorSeverityColor = errorSeverityColorWarn;
         errorSeverityColorBg = errorSeverityColorWarnBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
     } else {
         // errorIsComment:
-        errorSeverityDescription = '(Comment)' + errorMessage;
+        errorSeverityDescription = 'Comment,';
         errorSeverityLevel = errorDidNotOccur;
         errorSeverityColor = errorSeverityColorComment;
         errorSeverityColorBg = errorSeverityColorCommentBg;
         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
     }
-    errorMessage = errorSeverityDescription + ' ' + errorMessage;
+    //
+    ErrorMessage = errorSeverityDescription + messagePassed;
+    var tmpMessage = ErrorMessage;
+    if (!UseSingleLine && tmpMessage.length > 30) {
+        tmpMessage += charNewLineTag + charTextIndent;
+    } else { tmpMessage += ', '; }
+    ErrorMessageDetail = tmpMessage + ErrorMessageDetail;
     //
     // if (!UseSingleLine && errorSeverityPassed >= errorIsSevere) {
-    //     errorMessage += charNewLineTag;
+    //     ErrorMessage += charNewLineTag;
     // }
     //
     if (!errorDoDisplayTagPassed) {
@@ -244,66 +245,66 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
         if (!elementPassed && !elementSourcePassed) { errorDoDebug = true; }
 
         if (elementPassed) {
-            errorMessage += '. ';
-            if (!UseSingleLine && errorMessage.length > 30) {
-                errorMessage += charNewLineTag + charTextIndent;
+            ErrorMessageDetail += '. ';
+            if (!UseSingleLine && ErrorMessageDetail.length > 30) {
+                ErrorMessageDetail += charNewLineTag + charTextIndent;
             }
-            errorMessage += 'Target tag';
+            ErrorMessageDetail += 'Target tag';
             if ("id" in elementPassed) {
-                errorMessage += ' (' + elementPassed.id + ')';
+                ErrorMessageDetail += ' (' + elementPassed.id + ')';
             } else if ("name" in elementPassed) {
-                errorMessage += ' (' + elementPassed.name + ')';
+                ErrorMessageDetail += ' (' + elementPassed.name + ')';
             }
             if ("nodeName" in elementPassed) {
-                errorMessage += ', for tag type (' + elementPassed.nodeName + ')';
+                ErrorMessageDetail += ', for tag type (' + elementPassed.nodeName + ')';
             }
             if ("innerHTML" in elementPassed) {
                 errorInnerHTML += 'Target HTML: ' + elementPassed.innerHTML;
             }
         } else {
-            errorMessage += '. No target tag';
+            ErrorMessageDetail += '. No target tag';
         }
         //
         if (elementSourcePassed) {
-            errorMessage += '. ';
-            if (!UseSingleLine && errorMessage.length > 30) {
-                errorMessage += charNewLineTag + charTextIndent;
+            ErrorMessageDetail += '. ';
+            if (!UseSingleLine && ErrorMessageDetail.length > 30) {
+                ErrorMessageDetail += charNewLineTag + charTextIndent;
             }
-            errorMessage += "Source tag";
+            ErrorMessageDetail += "Source tag";
             if ("id" in elementSourcePassed) {
-                errorMessage += ' (' + elementSourcePassed.id + ')';
+                ErrorMessageDetail += ' (' + elementSourcePassed.id + ')';
             } else if ("name" in elementSourcePassed) {
-                errorMessage += ' (' + elementSourcePassed.name + ')';
+                ErrorMessageDetail += ' (' + elementSourcePassed.name + ')';
             }
             if ("nodeName" in elementSourcePassed) {
-                errorMessage += ', for tag type (' + elementSourcePassed.nodeName + ')';
+                ErrorMessageDetail += ', for tag type (' + elementSourcePassed.nodeName + ')';
             }
             if ("innerHTML" in elementSourcePassed) {
                 errorInnerHTML += 'Target HTML: ' + elementSourcePassed.innerHTML;
             }
         } else {
-            errorMessage += '. No source tag';
+            ErrorMessageDetail += '. No source tag';
         }
         //
     }
 
-    errorMessage += '. ';
-    // errorMessage += charNewLineTag;
-    // if (!UseSingleLine && errorMessage.length > 30 || errorSeverityPassed >= errorIsSevere) {
-    //     errorMessage += charNewLineTag + charTextIndent;
+    ErrorMessageDetail += '. ';
+    // ErrorMessageDetail += charNewLineTag;
+    // if (!UseSingleLine && ErrorMessageDetail.length > 30 || errorSeverityPassed >= errorIsSevere) {
+    //     ErrorMessageDetail += charNewLineTag + charTextIndent;
     // }
     //
     // if (errorUseDebugOnAll || errorDoDebug && DoUseDebug) {
     //     // debugger;
-    //     WindowErrorDebug(eventCurrPassed, errorMessage, eventFileName, eventFileColumn);
+    //     WindowErrorDebug(eventCurrPassed, ErrorMessageDetail, eventFileName, eventFileColumn);
     // }
     // // Debug
     // if (errorDoDebug && DoUseDebug) {
     //     debugger;
-    //     WindowErrorDebug(eventCurrPassed, errorMessage, eventFileName, eventFileColumn);
+    //     WindowErrorDebug(eventCurrPassed, ErrorMessageDetail, eventFileName, eventFileColumn);
     // }
     // //
-    return errorMessage;
+    return ErrorMessageDetail;
 }
 
 // Window Error - an error occurred
@@ -323,6 +324,10 @@ function WindowError(eventMessagePassed, eventFileNamePassed, eventFileLinePasse
     if (eventMessage.length) {
         eventMessage += eventMessagePassed;
     } else { eventMessage = eventMessagePassed; }
+    if (eventMessage.indexOf('function') !== -1) {
+        eventMessage = eventMessage.split('}').pop()
+    }
+
     if (!eventFileName.length) { eventFileName = eventFileNamePassed; }
     if (!eventFileLine.length) { eventFileLine = eventFileLinePassed; }
     if (!eventFileColumn.length) { eventFileColumn = eventFileColumnPassed; }
@@ -627,8 +632,12 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     //
     // Set the message
     messageTemp = errorSeverityDescription;
-    if (eventCurr && eventTimeStamp) { messageTemp += ' e(' + eventType + ')'; }
-    messageFinal = messageTemp + ' ' + messagePassed + messageFinal;
+    if (eventCurr && eventType) { messageTemp += ' e(' + eventType + ')'; }
+    messageTemp += ' ' + messagePassed;
+    if (errorSeverityPassed >= errorIsWarning) {
+        messageTemp += charNewLineTag + charTextIndent + ' ' + ErrorMessageDetail;
+    }
+    messageFinal = messageTemp + messageFinal;
     //
     if (errorUseDebugOnAll) { errorDoDebug = true; } else {
         // if (errorUseDebugOnError) { errorDoDebug = true; } else {
@@ -662,10 +671,11 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     // Current Message / Error Counter
     consoleErrorLogCn += 1;
     consoleErrorLogScrollCn += 1;
-    var tempCount;
-    if (consoleErrorLogCn < 1000) {
-        tempCount = (1000 + consoleErrorLogCn).toString().substring(1, 3);
-    } else { tempCount = (100000 + consoleErrorLogCn).toString().substring(1, 5); }
+    var tempCount, tempPad;
+    // not working
+    // if (consoleErrorLogCn < 1000) { tempPad = 3; } else { tempPad = 5; }
+    // tempCount = StringPad(consoleErrorLogCn, tempPad, '0');
+    tempCount = StringPad(consoleErrorLogCn, (consoleErrorLogCn < 1000) ? 3 : 5, '0');
     //
     // Text display
     // New line

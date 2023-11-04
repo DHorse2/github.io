@@ -41,6 +41,77 @@ var UseOffset = DoUseOffset;
 var UseBase = DoUseBase;
 var UseScroll = DoUseScroll;
 
+var errorCurr = null;
+var errorMessage = 'Error handling initializing';
+var errorMessageDetail = 'initializing';
+var errorSynErrorMessagec = 0;
+var errorFirst = true;
+//
+var messageCurr = '';
+var messageTemp = new String();
+var messageElement = null;
+var messageElementSource = null;
+var messageFinal = new String();
+var messageDetail = new String();
+var messageUrl = '';
+
+
+// Section Console counting for Error, Event and State
+// ...................................... //
+// SectionBlock Console
+var consoleErrorLogCn = 0;
+var consoleErrorLogCnMax = 0;
+var consoleErrorLogScrollCn = 0;
+var consoleEventLogCn = 0;
+var consoleEventLogCnMax = 0;
+var consoleEventLogScrollCn = 0;
+var consoleStateLogCn = 0;
+var consoleStateLogCnMax = 0;
+var consoleStateLogScrollCn = 0;
+
+// depreciated:
+var errorCaller = null;
+var errorCallerName = 'Init...';
+var callerFunc;
+var callerFuncName;
+
+// Section Events (Mouse, load, error)
+// ...................................... //
+var LastId = '';
+var LastTouchedId = '';
+//
+var eventCn = 0;
+var errorSync = 0;
+var eventCurr = null;
+var e;
+var eventId = -1;
+var eventObject = null;
+var eventCurrId = '';
+var eventType = 'init';
+var eventEventObject = null;
+var eventArguments;
+var eventStack = '';
+var eventMessage = new String();
+var eventFileName = '';
+var eventFileLine = 0;
+var eventFileColumn = 0;
+var eventFileFunction = '';
+//
+var eventCurrentTarget = null;
+var eventTimeStamp;
+var eventIsBrowser;
+//
+var errorElement = null;
+var errorElementSource = null;
+//
+var eventLast;
+var eventLastObject;
+var eventLastId = '';
+var eventLastRootId = '';
+//
+var eventParentName = new String();
+var eventCurrRootObj;
+
 // Standard characters
 // ...................................... //
 var lt = String.fromCharCode(60)
@@ -112,34 +183,12 @@ var attributeEventMouseOut = ' onmou' + 'seout';
 var attributeEventMouseOver = ' onmou' + 'seover';
 var attributeEventMouseDown = ' onmou' + 'sedown';
 
-// Section Console counting for Error, Event and State
-// ...................................... //
-// SectionBlock Console
-var consoleErrorLogCn = 0;
-var consoleErrorLogCnMax = 0;
-var consoleErrorLogScrollCn = 0;
-var consoleEventLogCn = 0;
-var consoleEventLogCnMax = 0;
-var consoleEventLogScrollCn = 0;
-var consoleStateLogCn = 0;
-var consoleStateLogCnMax = 0;
-var consoleStateLogScrollCn = 0;
-
 // Temporary
 // ...................................... //
 var DoUseScroll = true;
 var DoNotUseScroll = false; var bTemp = false;
 var iTemp = 0;
 var sTemp = "";
-
-var errorCurr = null;
-var errorSync = 0;
-var errorFirst = true;
-var eventCurrRootObj;
-
-// depreciated:
-var errorCaller = null;
-var errorCallerName = 'Init...';
 
 // Section Menu Image (Standard) Objects
 // ..................................................................................... _//
@@ -216,6 +265,14 @@ function StringGetTokenByPrefix(DoWholeWord, stringPassed, stringPrefix) {
     }
     return '';
 }
+//
+// StringPad from SO:
+// https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
+// const zeroPad = (num, places) => String(num).padStart(places, '0')
+function StringPad(num, places, padString) {
+    return String(num).padStart(places, padString);
+}
+
 // String Replace
 function StringTextReplace(textPassed, stringFind, stringReplace) {
     // return textPassed.replace(stringFind, stringReplace);
@@ -368,14 +425,16 @@ function ErrorSet(errorObjectPassed) {
         // stack
         // eventType = errorCurr.constructor.name;
         eventType = errorCurr.constructor.name;
-        if (eventType.includes('function')) { eventType = errorCurr.toString(); }
+        if (eventType.indexOf('function') !== -1) { eventType = errorCurr.toString(); }
+        if (eventType.indexOf('function') !== -1) { eventType = ""; }
+        // or string.includes('function');
         // use values from exception when present
         // browserIsFF:
-        if (errorCurr.message && errorCurr.message.length) { errorMessage = errorCurr.message; }
+        if (errorCurr.message && errorCurr.message.length) { eventMessage = errorCurr.message; }
         if (errorCurr.fileName && errorCurr.fileName.length) { eventFileName = errorCurr.fileName; }
         if (errorCurr.lineNumber) { eventFileLine = errorCurr.lineNumber; }
         if (errorCurr.columnNumber) { eventFileColumn = errorCurr.columnNumber; }
-        if (errorCurr.stack) { eventError = errorCurr.stack; }
+        if (errorCurr.stack) { eventStack = errorCurr.stack; }
         //
         //
         // everything below might be deprecited.
@@ -469,34 +528,33 @@ function ErrorNew() {
 }
 
 function ErrorMessageGet(UseSingleLinePassed) {
-    errorMessage = "";
+    ErrorMessageDetail = "";
+    if (ConsoleLogDetails && eventMessage.length) {
+        if (!UseSingleLinePassed && ErrorMessageDetail.length > 30) { ErrorMessageDetail += charNewLineTag + charTextIndent; }
+        messageFinal += ' Event: ' + eventMessage;
+    }
     // if (messageUrl) {
-    //     errorMessage += " Url:" + messageUrl;
+    //     ErrorMessageDetail += " Url:" + messageUrl;
     // }
     if (eventFileName) {
-        if (!UseSingleLinePassed && errorMessage.length > 30) { errorMessage += charNewLineTag + charTextIndent; }
-        errorMessage += " File:" + eventFileName;
-        if (eventFileLine) { errorMessage += " Line:" + eventFileLine; }
-        if (eventFileColumn) { errorMessage += " Column:" + eventFileColumn; }
+        if (!UseSingleLinePassed && ErrorMessageDetail.length > 30) { ErrorMessageDetail += charNewLineTag + charTextIndent; }
+        ErrorMessageDetail += ' File: ' + eventFileName;
+        if (eventFileLine) { ErrorMessageDetail += ' Line: ' + eventFileLine; }
+        if (eventFileColumn) { ErrorMessageDetail += ' Column: ' + eventFileColumn; }
     }
     // todo this gets parsed (last /)
     if (eventTimeStamp) {
-        if (!UseSingleLinePassed && errorMessage.length > 30) { errorMessage += charNewLineTag + charTextIndent; }
-        errorMessage += " TimeStamp:" + eventTimeStamp;
+        if (!UseSingleLinePassed && ErrorMessageDetail.length > 30) { ErrorMessageDetail += charNewLineTag + charTextIndent; }
+        ErrorMessageDetail += ' TimeStamp: ' + eventTimeStamp;
     }
-    if (errorMessage.length && !UseSingleLinePassed) {
-        errorMessage = "  Message: " + errorMessage;
-        if (eventFileFunction) { errorMessage += " Function:" + eventFileFunction; }
-        errorMessage += " ";
+    if (eventFileFunction) {
+        ErrorMessageDetail += ' Function: ' + eventFileFunction;
+        ErrorMessageDetail += ' ';
     }
-    if (!UseSingleLinePassed && errorMessage.length > 30) { errorMessage += charNewLineTag + charTextIndent; }
-    // if (errorMessage.length) { messageFinal += "" + errorMessage; }
-    return errorMessage;
+    return ErrorMessageDetail;
 }
-
 // Events
 /////////
-
 function EventSet(eventCurrPassed) {
     // Also inherits properties from its parent Event.
     // https://developer.mozilla.org/en-US/docs/Web/Events
@@ -512,18 +570,21 @@ function EventSet(eventCurrPassed) {
     if (eventCurr && eventCurr.message) {
         eventMessage = eventCurr.message;
     }
-    if (!eventMessage.length) {
+    if (!eventMessage || !eventMessage.length) {
         eventMessage = "";
         // eventMessage = "no event message";
     }
     // eventMessage = "First error discarded, " + eventMessage;
+    // Dom
     eventCurrentTarget = null; // not used
     eventTimeStamp = null;
     eventIsBrowser = false;
+    // Stack
     eventFileName = "";
     eventFileLine = 0;
     eventFileColumn = 0;
     eventError = null;
+    eventStack = null;
     // return;
     // }
 
@@ -533,36 +594,34 @@ function EventSet(eventCurrPassed) {
         eventIsOld = true;
     }
     e = eventCurr;
+    eventId = EventIdGetNext();
     if (eventCurr) {
         errorCallerName = eventCurr.toString();
         if (errorCallerName != "function ()") {
             eventObject = eventCurr;
-            eventId = EventIdGetNext();
-            if (!eventObject.type) {
-                eventMessage = eventId + ':' + errorCallerName;
-            } else {
-                eventType = eventCurr.type;
-                eventTarget = eventCurr.target;
-                // ErrorEvent.message Read only. a human-readable error message describing the problem. Lacking a crossorigin setting reduces error logging.
-                eventMessage = eventCurr.message;
-                if (!eventMessage) { eventMessage = eventId + ':' + errorCallerName; }
-                eventCurrentTarget = eventCurr.currentTarget;
-                // eventTimeStamp = eventCurr.timeStamp;
-                if (eventCurr.timeStamp) { eventTimeStamp = eventCurr.timeStamp; } else {
-                    eventTimeStamp = "undefined";
-                }
-                eventIsBrowser = eventCurr.isTrusted;
-                if (eventCurr.filename && eventCurr.filename.length) { eventFileName = eventCurr.filename; }
-                if (eventCurr.lineno) { eventFileLine = eventCurr.lineno; }
-                if (eventCurr.colno) { eventFileColumn = eventCurr.colno; }
-                // if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
-                if (eventCurr.error) { eventError = eventCurr.error; }
-                //
-            }
-            if (eventCurr.bubles) {
-                eventCurr.stopPropagation();
-            }
-        } else { eventIsOld = true; }
+            eventMessage = eventId + ':' + errorCallerName;
+            if (eventCurr.type) { eventType = eventCurr.type; }
+            // Dom
+            if (eventCurr.target) { eventTarget = eventCurr.target; }
+            // ErrorEvent.message Read only. a human-readable error message describing the problem. Lacking a crossorigin setting reduces error logging.
+            if (eventCurr.message) { eventMessage = eventCurr.message; }
+            if (!eventMessage.length) { eventMessage = eventId + ':' + errorCallerName; }
+            if (eventCurr.currentTarget) eventCurrentTarget = eventCurr.currentTarget;
+        }
+        // eventTimeStamp = eventCurr.timeStamp;
+        if (eventCurr.timeStamp) { eventTimeStamp = eventCurr.timeStamp; }
+        if (eventCurr.isTrusted) { eventIsBrowser = eventCurr.isTrusted; }
+        // Stack info
+        if (eventCurr.filename && eventCurr.filename.length) { eventFileName = eventCurr.filename; }
+        if (eventCurr.lineno) { eventFileLine = eventCurr.lineno; }
+        if (eventCurr.colno) { eventFileColumn = eventCurr.colno; }
+        // if (eventFileFunction) { messageFinal += " Function:" + eventFileFunction; }
+        if (eventCurr.error) { eventError = eventCurr.error; }
+        if (eventCurr.stack) { eventStack = eventCurr.stack; }
+        //
+        if (eventCurr.bubles) {
+            eventCurr.stopPropagation();
+        }
     } else { eventIsOld = true; }
 }
 // Constructor
@@ -582,9 +641,9 @@ function EventCallerFunctionNameFind() {
 
 function EventCallerFunctionNameFind(callerFunc) {
     callerFuncName = (callerFunc.substring(
-        callerFunc.indexOf("function") + 8,
-        callerFunc.indexOf("(")) ||
-        "anoynmous")
+        callerFunc.indexOf('function') + 8,
+        callerFunc.indexOf('(')) ||
+        'anoynmous')
 }
 
 script_state = "Mdm Standard Functions loaded. (cross-cutting)";

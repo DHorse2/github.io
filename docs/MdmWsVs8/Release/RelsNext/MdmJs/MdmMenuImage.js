@@ -554,7 +554,7 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
 }
 // Menu Menu Show Item (Mouse Over function)
 // var LastId = "";
-// var LastTochedId = "";
+// var LastTouchedId = "";
 //
 ////////////////////////////////////////////////
 function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
@@ -562,7 +562,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
     oObjIndex = oObjGroupImageIndex;// MenuIndexSet(oObjGroupIndex, oObjNext);
-    LastTochedId = oObjNext.id;
+    LastTouchedId = oObjNext.id;
     //
     DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
     //

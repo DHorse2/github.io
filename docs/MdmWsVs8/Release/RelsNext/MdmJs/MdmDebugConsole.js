@@ -1200,14 +1200,14 @@ function ConsoleFormElementSync(fromForm) {
 	} catch (consoleStateFormErr) {
 		// Errors:
 		// ...................................... //
-		ErrorCaught(consoleStateFormErr, script_state);
+		ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
 		// script_state = "Form sync: aborted wit an error";
 	} finally {
 		// ...................................... //
 		// try {
 		// } catch (consoleStateFormErr) {
 		// 	script_state = "Form sync: Can't access FormApply button";
-		// 	ErrorCaught(consoleStateFormErr, script_state);
+		// 	ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
 		// 	// script_state = "Form sync: aborted wit an error";
 
 		// }
