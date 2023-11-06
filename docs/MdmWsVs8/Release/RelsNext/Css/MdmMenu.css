@@ -120,9 +120,18 @@
     display: block;
 }
 
-/* ----------------------------------------------------------------------------- */
+/* Body Layout Mangement (View Toggle)
+/* -------------------------------------------- */
+  .BodyViewToggle {
+    width: 5em;
+    margin: 0em;
+    /* Decoration */
+    color: #EEE;
+    /* Background */
+    background-color: #036;
+  }
+  
 /* locations of toggle view */
-
 #BodyViewToggleContainerCenter {
     margin: 0em 0em 0em 1.5em;
     display: none;

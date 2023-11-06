@@ -1811,8 +1811,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
         errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
         errorLogLine += charNewLineTag + charTextIndex;
         errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
-        eventCurr = Event;
-        ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, eventCurr, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, errorDoAlert);
+        ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, errorDoAlert);
     }
     //
     timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
@@ -2101,8 +2100,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
         errorLogLine += charNewLineTag + charTextIndex;
         errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
-        eventCurr = Event;
-        ErrorOccured("MdmAnimation:TimerItemDoStepMove", 1815, 0, eventCurr, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, errorDoAlert);
+        ErrorOccured("MdmAnimation:TimerItemDoStepMove", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, errorDoAlert);
     }
     // ...................................... //
     // Increment Current Step

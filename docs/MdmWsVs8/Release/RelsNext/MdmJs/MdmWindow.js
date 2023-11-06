@@ -1,11 +1,54 @@
 // Window Functions
 ////////////////////////////////////////////////
-// Window Events (Load, Resize)
+// Window Layout - Section, Block, Callout
+var layoutBodyColumnType;
+var layoutBlockWidth
+var layoutBlockDivisor
+var layoutBlockExact;
+var layoutBlock, layoutBlockCn;
+
+var calloutBlock
+var calloutBlockCn;
+var calloutBlockColumnType;
+var calloutBoxWidth = 0;
+var calloutBodyColumnFloat;
+var calloutBlockSize;
+var calloutBlockSmall;
 // Misc:
 var boxClass;
-var layoutBodyColumnType;
-var calloutBlockColumnType;
-var calloutBodyColumnFloat;
+var tmpAdjust;
+
+// Document Window Resize
+// Adjustments:
+// var layoutWidthMargin = 60; // ??? really?
+// var layoutHeightMargin = 50;
+// var layoutMenuSizeMax = 0;
+
+// Client Window Size
+var layoutWidthPrev = 0;
+var layoutHeightPrev = 0;
+// Current Layout Strategy
+// var layoutIsWide = false;
+// var layoutIsStandard = true;
+
+// Document Window Client Width
+var layoutWidth = 0;
+var layoutHeight = 0;
+//
+var layoutClientWidth = 0;
+var layoutClientHeight = 0;
+var layoutAvailWidth = 0;
+var layoutAvailHeight = 0;
+var layoutDocumentWidth = 0;
+var layoutDocumentHeight = 0;
+
+// Menu Size
+var layoutMenuSizeVertMax = 0;
+var layoutMenuSizeHorzMax = 0;
+var layoutMenuSizeSideVertMax = 0;
+var layoutMenuSizeSideHorzMax = 0;
+var layoutMenuSizeSideHorzTallest = 0;
+
 // Window Load
 ////////////////////////////////////////////////
 // // Document Window OnLoad:
@@ -31,27 +74,21 @@ function WindowOnload() {
     // Build Menu Images Div
     if (!loadDelayMenuImage) {
         MdmMenuImageInit();
-        bodyMenuImageContainer = MenuImagesHtmlBuild();
+        // bodyMenuImageContainer =
+        MenuImagesHtmlBuild();
     }
 
     // Docuement Element Initialize & Store Original Menu Columns.
     if (!loadDelayJava) {
         // BodyMenuInit();
-        // Initialize and save
-        // ElementObjectCreate();
         // Choose Standard Layout
-        LayoutNext(layoutStandard)
+        LayoutRefresh(layoutStandard);
+        // LayoutNext(layoutStandard);
         // LayoutSelectByIndex(layoutStandard);
     }
 
     // Sync Form
-    if (!loadDelayDebugState) {
-        if (serverIsOn) {
-            ConsoleFormElementSync(false);
-        } else {
-            ConsoleFormElementSyncLocal(false);
-        }
-    }
+    if (!loadDelayDebugState) { ConsoleStateInit(); }
 
     // Timers
     TimerCreate();
@@ -60,39 +97,13 @@ function WindowOnload() {
     TimerDurationSet();
     // document.styleSheets[1].disabled=true;
 }
-// Document Window Resize
-// Adjustments:
-// var layoutWidthMargin = 60; // ??? really?
-// var layoutHeightMargin = 50;
-// var layoutMenuSizeMax = 0;
-// Client Window Size
-var layoutWidthPrev = 0;
-var layoutHeightPrev = 0;
-// Current Layout Strategy
-// var layoutIsWide = false;
-// var layoutIsStandard = true;
-// //
-// window.onresize = function () { WindowResizeLayout(); }
-
-// Document Window Client Width
-var layoutWidth = 0;
-var layoutHeight = 0;
-//
-var layoutClientWidth = 0;
-var layoutClientHeight = 0;
-var layoutAvailWidth = 0;
-var layoutAvailHeight = 0;
-var layoutDocumentWidth = 0;
-var layoutDocumentHeight = 0;
-
 // Window Session Functions
 ///////////////////////////////////////////////
-
 // Window Session Load
 function WindowSessionLoad() {
     const cat = localStorage.getItem("myCat");
     // Load Layout and Images Displayed
-    // Get Cookie
+    // Load Cookie
     // Apply Cookie to Window
     // Apply Default to Window
 }
@@ -106,13 +117,13 @@ function WindowSessionSave() {
 // Window Cookies Functions
 ///////////////////////////////////////////////
 // Window Cookie Save
-function WindowCookieSave() {
-    // Load Layout and Images Displayed
+function WindowCookieLoad() {
+    // Load Cookie
     //
 }
 // Window Cookie Save
 function WindowCookieSave() {
-    // Load Layout and Images Displayed
+    // Save Cookie
     //
 }
 // Window Cookie Build
@@ -131,7 +142,6 @@ function WindowLoadInit() {
     // ElementObjectContainerCreate();    // Synchorize Confole Settings Form
     // Resize Window
     WindowResizeLayout();
-    ConsoleFormInit();
 }
 // Diaglogs and Pop-ups
 ////////////////////////////////////////////////
@@ -229,71 +239,6 @@ function WindowContainerSizeGetAll() {
     // }
     // layoutHeight = layoutMenuSizeVertMax;
 }
-// Document Layout Size of Core Layout Boxes
-function WindowContainerSizeGetMenuDepreciated(elementPassed) {
-    // Height of left and right menu containers:
-    // Greatest height when layed out side by side
-    layoutBodySizeHorzMax = 0;
-    // Greatest height when layed out vertically
-    layoutBodySizeVertMax = 0;
-    // Note: that HorzMax indicates the maximum height
-    // of the menu groups layed out horizontally side by side.
-    // It is not the width nor the accumulated height (VertMax)
-    //
-    // Note: The implies assumption that the left menu is taller than the right menu
-    // or that the first Left menu group (menuGroup1) is the tallest of the three
-    // Left groups is temporary and is not reliable.
-    //
-    // The Left menu elements are extracted from one of:
-    // 		bodyMainCenterTopLeft
-    //		bodyLayoutMenu1
-    //............................................................---//
-    layoutMenuSizeVertMax = 0
-    layoutMenuSizeHorzMax = 0;
-    for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
-        // var menuGroup1;
-        // var menuGroup2;
-        // var menuGroup3;
-        // Left menuGroup1, 2, 3
-        // Load the Menu Group element
-        // todo not really correct.
-        if (bodyMenuGroup[bodyMenuGroupIndex]) {
-            // todo this fails call:
-            if (!bodyMenuGroup[bodyMenuGroupIndex]) {
-                if (elementPassed) {
-                    bodyMenuGroup[bodyMenuGroupIndex] = ElementGetRefFromElement(null, 'MenuGroup' + bodyMenuGroupIndex, 'MenuGroup' + bodyMenuGroupIndex, elementPassed);
-                    // bodyMenuGroup[bodyMenuGroupIndex] = ElementGetRefFromElement(bodyMenuGroup[bodyMenuGroupIndex], 'MenuGroup' + bodyMenuGroupIndex, 'MenuGroup' + bodyMenuGroupIndex, elementPassed);
-                    // menuGroup1 = ElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
-                    // menuGroup2 = ElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
-                    // menuGroup3 = ElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
-                }
-            }
-            // Get the height
-            bodyMenuGroupHeight[bodyMenuGroupIndex] = ElementHeightMaxGet(true, true, bodyMenuGroup[bodyMenuGroupIndex]);
-            // bodyMenuGroupHeight[1] = ElementHeightMaxGet(true, true, menuGroup1);
-            // bodyMenuGroupHeight[2] = ElementHeightMaxGet(true, true, menuGroup2);
-            // bodyMenuGroupHeight[3] = ElementHeightMaxGet(true, true, menuGroup3);
-            //
-            // You add up the height
-            layoutMenuSizeVertMax += bodyMenuGroupHeight[bodyMenuGroupIndex];
-            // layoutMenuSizeVertMax = bodyMenuGroupHeight[1] + bodyMenuGroupHeight[2] + bodyMenuGroupHeight[3];
-            //
-            // You want to know the widest group
-            // layoutMenuSizeHorzMax = 0;
-            if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[bodyMenuGroupIndex]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[bodyMenuGroupIndex]; }
-            // if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[1]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[1]; }
-            // if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[2]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[2]; }
-            // if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[3]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[3]; }
-            //
-        }
-    }
-}
-
-var layoutMenuSizeVertMax = 0;
-var layoutMenuSizeHorzMax = 0;
-var layoutMenuSizeSideVertMax = 0;
-var layoutMenuSizeSideHorzMax = 0;
-var layoutMenuSizeSideHorzTallest = 0;
 
 // bodyMenuContainer[bodyMenuLeft][1]
 function WindowContainerSizeGetMenu(elementPassed) {
@@ -378,49 +323,7 @@ function WindowContainerSizeGetMenu(elementPassed) {
         }
     }
 }
-// Document Layout Size of Core Layout Boxes
-function WindowContainerSizeGetMenuDepreciated2(elementPassed) {
-    // Height of left and right menu containers:
-    // Greatest height when layed out side by side
-    layoutBodySizeHorzMax = 0;
-    // Greatest height when layed out vertically
-    layoutBodySizeVertMax = 0;
-    // Note: that HorzMax indicates the maximum height
-    // of the menu groups layed out horizontally side by side.
-    // It is not the width nor the accumulated height (VertMax)
-    //
-    // Note: The implies assumption that the left menu is taller than the right menu
-    // or that the first Left menu group (menuGroup1) is the tallest of the three
-    // Left groups is temporary and is not reliable.
-    //
-    // The Left menu elements are extracted from one of:
-    // 		bodyMainCenterTopLeft
-    //		bodyLayoutMenu1
-    //............................................................---//
-    var menuGroup1;
-    var menuGroup2;
-    var menuGroup3;
-    // Left menuGroup1, 2, 3
-    if (!menuGroup1) {
-        if (elementPassed) {
-            menuGroup1 = ElementGetRefFromElement(menuGroup1, 'MenuGroup1', 'MenuGroup1', elementPassed);
-            menuGroup2 = ElementGetRefFromElement(menuGroup2, 'MenuGroup2', 'MenuGroup2', elementPassed);
-            menuGroup3 = ElementGetRefFromElement(menuGroup3, 'MenuGroup3', 'MenuGroup3', elementPassed);
-        }
-    }
-    //
-    bodyMenuGroupHeight[1] = ElementHeightMaxGet(true, true, menuGroup1);
-    bodyMenuGroupHeight[2] = ElementHeightMaxGet(true, true, menuGroup2);
-    bodyMenuGroupHeight[3] = ElementHeightMaxGet(true, true, menuGroup3);
-    //
-    layoutMenuSizeVertMax = bodyMenuGroupHeight[1] + bodyMenuGroupHeight[2] + bodyMenuGroupHeight[3];
-    //
-    layoutMenuSizeHorzMax = 0;
-    if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[1]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[1]; }
-    if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[2]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[2]; }
-    if (layoutMenuSizeHorzMax < bodyMenuGroupHeight[3]) { layoutMenuSizeHorzMax = bodyMenuGroupHeight[3]; }
-    //
-}
+
 // Document Window Client Width
 // ..................................................................................... _//
 function WindowClientWidth() {
@@ -428,7 +331,7 @@ function WindowClientWidth() {
     layoutDocumentWidth = window.document.documentElement.offsetWidth;
     layoutAvailWidth = window.screen.availWidth;
     // layoutClientWidth = window.screen.availWidth - layoutWidthMargin;
-    layoutClientWidth = window.document.offsetWidth - layoutWidthMargin;
+    layoutClientWidth = window.document.documentElement.offsetWidth - layoutWidthMargin;
     // if (layoutClientWidth < 100) { layoutClientWidth = document.body.parentNode.clientWidth - layoutWidthMargin; }
     //
     layoutDocumentHeight = window.document.documentElement.offsetHeight;
@@ -437,14 +340,15 @@ function WindowClientWidth() {
     // if (layoutClientHeight < 100) { layoutClientHeight = document.body.parentNode.clientHeight - layoutHeightMargin; }
     //
     layoutWidth = layoutDocumentWidth;
-    if (layoutWidth < 100) {
-        if (browserIsIE) { layoutWidth = document.body.parentNode.clientWidth; }
-    }
+    // if (layoutWidth < 100) {
+    //     if (browserIsIE) { layoutWidth = document.body.parentNode.clientWidth; }
+    // }
     // layoutWidth -= layoutWidthMargin;
     layoutHeight = layoutDocumentHeight;
-    if (layoutHeight < 100) {
-        if (browserIsIE) { layoutHeight = document.body.parentNode.clientHeight; }
-    }
+    // if (layoutHeight < 100) {
+    //     if (browserIsIE) { layoutHeight = document.body.parentNode.clientHeight; }
+    // }
+    // todo not adjusted properly
     // layoutHeight -= layoutHeightMargin;
     // layoutWidth -= 20;
     // layoutHeight -= 20;
@@ -468,7 +372,7 @@ function WindowViewportInit() {
     WindowViewportSet(width, height);
     // browser.manage().window().setSize(new Dimension(width, height));
 }
-function quarter() {
+function WindowViewQuarter() {
     window.resizeTo(window.screen.availWidth / 2, window.screen.availHeight / 2);
 }
 
@@ -491,344 +395,405 @@ function WindowViewportSet(passedWidth, passedHeight) {
     // Set the correct viewport value on page load
     viewport_set();
 }
-var layoutBlock, layoutBlockCn;
-var calloutBlock, calloutBlockCn, tmpAdjust;
 // Recalculate Screen Display
 // ...................................... //
 function WindowResizeLayout() {
-    var calloutBlockSize, calloutBlockSmall;
-    var layoutBlockWidth, layoutBlockDivisor, layoutBlockExact;
+
     // Recalculate Screen Display
-    var calloutBoxWidth = 0;
+    calloutBoxWidth = 0;
     var bodyMainCenterLeftAdj = 0;
     var bodyMainCenterWidthAdj = 0;
     var bodyMainCenterWidth = 0;
-
-    // Initialization (catches variations in use)
-    if (loadFirstJava) { ElementObjectCreate(); }
-    // Load Containers if missing
-    // ...................................... //
-    if (!bodyMainLeft) { ElementObjectContainerCreate(); }
-
-    // Recalculate Globals for Screen
-    // ...................................... //
-    WindowClientWidth();
-    // Recalculate Positions for Menu Images
-    // ...................................... //
-    if (layoutResizeCn == 0) { WindowContainerSizeGetAll(); }
-
-    // Process DivBox and Callout layout
-    // ...................................... //
-    // Count Display Blocks (s/b DivBox containers)
-    bodyBlockCn = ElementObjectBlockCount();
-
-    // Determine DivBox (Body Content) column and callout sizes
-    // Note that fewer text block is detected.
-    layoutBlockWidth = LayoutBlockWidthGet(); // todo bug
-    if (layoutDocumentWidth < layoutParaWidthMin && layoutIndex == layoutStandard) {
-        layoutIndex = layoutWindowed;
-    }
-    // Width over layoutMenuDocWidthWide
-    // ...................................... //
-    // if (BodyMainCenterCenter.offsetWidth > layoutMenuDocWidthWide) {
-    if (layoutDocumentWidth > layoutMenuDocWidthWide) {
-        // Wide Layout
+    script_state = "WindowResizeLayout: Started";
+    //
+    try {
+        //
+        // Initialization (catches variations in use)
+        if (loadFirstJava) { ElementObjectCreate(); }
+        // Load Containers if missing
         // ...................................... //
-        if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
-            // Standard Layout
-            layoutIsStandard = true;
-            if (layoutDocumentWidth > 2.5 * layoutMenuDocWidthWide) {
-                // Wide Layout            // Left
-                if (bodyMainLeftVisible) {
-                    bodyMainLeft.style.width = '5%';
+        script_state = "WindowResizeLayout: Started";
+        if (!bodyMainLeft) {
+            script_state += ", ElementObjectContainerCreate";
+            ElementObjectContainerCreate();
+        }
+
+        // Recalculate Globals for Screen
+        // ...................................... //
+        script_state += ", WindowClientWidth";
+        WindowClientWidth();
+        // Recalculate Positions for Menu Images
+        // ...................................... //
+        if (layoutResizeCn == 0) {
+            script_state += ", WindowContainerSizeGetAll";
+            WindowContainerSizeGetAll();
+        }
+
+        // Process DivBox and Callout layout
+        // ...................................... //
+        // Count Display Blocks (s/b DivBox containers)
+        script_state += ", ElementObjectBlockCount";
+        bodyBlockCn = ElementObjectBlockCount();
+
+        // Determine DivBox (Body Content) column and callout sizes
+        // Note that fewer text block is detected.
+        script_state += ", LayoutBlockWidthGet";
+        layoutBlockWidth = LayoutBlockWidthGet(); // todo bug
+        if (layoutDocumentWidth / 2.5 < layoutParaWidthMin && layoutIndex == layoutStandard) {
+            script_state += ", LayoutRefresh for narrow window";
+            // layoutIndex = layoutReadingMode;
+            LayoutRefresh(layoutWindowed);
+        }
+        // Width over layoutMenuDocWidthWide
+        // ...................................... //
+        // if (BodyMainCenterCenter.offsetWidth > layoutMenuDocWidthWide) {
+        if (layoutDocumentWidth > layoutMenuDocWidthWide) {
+            // Wide Layout
+            // ...................................... //
+            script_state += ", Wide Layout";
+            if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
+                // Standard Layout
+                layoutIsStandard = true;
+                if (layoutDocumentWidth > 2.5 * layoutMenuDocWidthWide) {
+                    // Very Wide Layout
+                    script_state += " (Huge)";
+                    // Left
+                    if (bodyMainLeftVisible) {
+                        bodyMainLeft.style.width = '5%';
+                        bodyMainLeft.style.display = 'block';
+                    } else {
+                        bodyMainLeft.style.width = '0%';
+                        bodyMainCenterLeftAdj = 5;
+                        bodyMainCenterWidthAdj += 5;
+                        bodyMainLeft.style.display = 'none';
+                    }
+                    // Right
+                    // bodyMainRight.style.top = 0%
+                    if (bodyMainRightVisible) {
+                        if (layoutUseAbsolute) { bodyMainRight.style.left = '95%'; }
+                        bodyMainRight.style.width = '5%';
+                        bodyMainRight.style.display = 'block';
+                    } else {
+                        if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+                        bodyMainRight.style.width = '0%';
+                        bodyMainCenterWidthAdj += 5;
+                        bodyMainRight.style.display = 'none';
+                    }
+                    //
+                    // Center
+                    // bodyMainCenter.style.top = 0%
+                    if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
+                    bodyMainCenterWidth = 90;
                 } else {
-                    bodyMainLeft.style.width = '0%';
-                    bodyMainCenterLeftAdj = 5;
-                    bodyMainCenterWidthAdj += 5;
+                    // Wide Layout            // Left
+                    // bodyMainLeft.style.width = '10%';
+                    // bodyMainLeft.style.width = '15%';
+                    if (bodyMainLeftVisible) {
+                        bodyMainLeft.style.width = '12%';
+                        bodyMainLeft.style.display = 'block';
+                    } else {
+                        bodyMainLeft.style.width = '0%';
+                        bodyMainCenterLeftAdj = 12;
+                        bodyMainCenterWidthAdj += 12;
+                        bodyMainLeft.style.display = 'none';
+                    }
+                    // Right
+                    // bodyMainRight.style.top = 0%
+                    if (bodyMainRightVisible) {
+                        if (layoutUseAbsolute) { bodyMainRight.style.left = '88%'; }
+                        bodyMainRight.style.width = '12%';
+                        bodyMainRight.style.display = 'block';
+                    } else {
+                        if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
+                        bodyMainRight.style.width = '0%';
+                        bodyMainCenterWidthAdj += 12;
+                        bodyMainRight.style.display = 'none';
+                    }
+                    //
+                    // Center
+                    // bodyMainCenter.style.top = 0%
+                    if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
+                    bodyMainCenterWidth = 76;
                 }
-                // Right
-                // bodyMainRight.style.top = 0%
-                if (bodyMainRightVisible) {
-                    if (layoutUseAbsolute) { bodyMainRight.style.left = '95%'; }
-                    bodyMainRight.style.width = '5%';
-                } else {
-                    if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
-                    bodyMainRight.style.width = '0%';
-                    bodyMainCenterWidthAdj += 5;
-                }
+                // bodyMainCenter.style.width = (80 + bodyMainCenterWidthAdj) + '%';
                 //
-                // Center
-                // bodyMainCenter.style.top = 0%
-                if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
-                bodyMainCenterWidth = 90;
             } else {
-                // Wide Layout            // Left
-                // bodyMainLeft.style.width = '10%';
-                // bodyMainLeft.style.width = '15%';
-                if (bodyMainLeftVisible) {
-                    bodyMainLeft.style.width = '12%';
-                } else {
-                    bodyMainLeft.style.width = '0%';
-                    bodyMainCenterLeftAdj = 12;
-                    bodyMainCenterWidthAdj += 12;
-                }
-                // Right
-                // bodyMainRight.style.top = 0%
-                if (bodyMainRightVisible) {
-                    if (layoutUseAbsolute) { bodyMainRight.style.left = '88%'; }
-                    bodyMainRight.style.width = '12%';
-                } else {
-                    if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
-                    bodyMainRight.style.width = '0%';
-                    bodyMainCenterWidthAdj += 12;
-                }
-                //
+                layoutIsStandard = false;
+                script_state += " (no menus)";
+                // Wide Layout Options (no side menus)
                 // Center
                 // bodyMainCenter.style.top = 0%
-                if (layoutUseAbsolute) { bodyMainCenter.style.left = (12 - bodyMainCenterLeftAdj) + '%'; }
-                bodyMainCenterWidth = 76;
+                if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+                // bodyMainCenter.style.left = '0%';
+                bodyMainCenterWidth = 100;
+                // bodyMainCenter.style.width = '100%';
+                bodyMainLeft.style.display = 'none';
+                bodyMainRight.style.display = 'none';
             }
-            // bodyMainCenter.style.width = (80 + bodyMainCenterWidthAdj) + '%';
+            //
+            layoutIsWide = true;
             //
         } else {
-            layoutIsStandard = false;
-            // Wide Layout Options (no side menus)
-            // Center
-            // bodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
-            // bodyMainCenter.style.left = '0%';
-            bodyMainCenterWidth = 100;
-            // bodyMainCenter.style.width = '100%';
-        }
-        //
-        layoutIsWide = true;
-        //
-    } else {
-        // Narrow Width: under layoutMenuDocWidthWide
-        // ...................................... //
-        if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
-            layoutIsStandard = true;
+            // Narrow Width: under layoutMenuDocWidthWide
+            // ...................................... //
+            script_state += ", Narrow Layout";
+            if (layoutIndex == layoutStandard && (bodyMainLeftVisible || bodyMainRightVisible)) {
+                layoutIsStandard = true;
+            } else {
+                layoutIsStandard = false;
+            }
+            // if (layoutIsStandard) {
             // Left
             // bodyMainLeft.style.top = 0%
             // if (layoutUseAbsolute) { bodyMainLeft.style.left = '0%'; }
-            if (bodyMainLeftVisible) {
+            if (bodyMainLeftVisible && layoutIsStandard) {
+                if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; }
                 bodyMainLeft.style.width = '20%';
+                bodyMainLeft.style.display = 'block';
             } else {
                 if (layoutUseAbsolute) { bodyMainLeft.style.width = '0%'; }
                 bodyMainCenterLeftAdj = 20;
                 bodyMainCenterWidthAdj += 20;
+                bodyMainLeft.style.display = 'none';
             }
             //
             // Right
             // bodyMainRight.style.top = 0%
-            if (bodyMainRightVisible) {
+            if (bodyMainRightVisible && layoutIsStandard) {
                 if (layoutUseAbsolute) { bodyMainRight.style.left = '80%'; }
                 bodyMainRight.style.width = '20%';
+                bodyMainRight.style.display = 'block';
             } else {
                 if (layoutUseAbsolute) { bodyMainRight.style.left = '100%'; }
                 bodyMainRight.style.width = '0%';
                 bodyMainCenterWidthAdj += 20;
+                bodyMainRight.style.display = 'none';
             }
             //
             // Center
             // bodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; }
             bodyMainCenterWidth = 60;
             // bodyMainCenter.style.width = (60 + bodyMainCenterWidthAdj) + '%';
             // bodyMainCenter.style.width = '60%';
+            // } else {
+            //     layoutIsStandard = false;
+            //     // Center
+            //     // bodyMainCenter.style.top = 0%
+            //     if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
+            //     bodyMainCenterWidth = 100;
+            //     // bodyMainCenter.style.width = '100%';
+            // }
+            //
+            layoutIsWide = false;
+            layoutIsStandard = true;
+            //
+        }
+
+        // Adjust for margin, padding & border custom styling
+        // ...................................... //
+        script_state += ", Columns";
+        // tmpAdjust = ElementContainerAdjustGet(bodyMainCenterCenter, bodyMainCenter, true, true, true, true);
+        tmpAdjust = 0;
+
+        // Set width of content area BodyMainCenter
+        bodyMainCenter.style.width = (bodyMainCenterWidth + bodyMainCenterWidthAdj - tmpAdjust) + '%';
+        // bodyMainCenter.style.display = 'block';
+
+        // Number of Columns - See MdmMain to adjust these settings.
+        // ...................................... //
+        if (bodyMainCenterCenter.offsetWidth > layoutBlockCol4Min && bodyBlockCn > 3) {
+            // 4 columns - layoutBlockWidthBig
+            layoutBlockDivisor = 4;
+            layoutBlockWidth = (layoutBlockWidthBig);
+            // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthBig - tmpAdjust) + "%";
+            calloutBoxWidth = calloutLayoutBlockWidthBig;
+            //
+        } else if (bodyMainCenterCenter.offsetWidth > layoutBlockCol3Min && bodyBlockCn > 2) {
+            // 3 columns - layoutBlockWidthWide
+            layoutBlockDivisor = 3;
+            layoutBlockWidth = (layoutBlockWidthWide);
+            // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthWide - tmpAdjust) + "%";
+            calloutBoxWidth = calloutLayoutBlockWidthWide;
+        } else if (bodyMainCenterCenter.offsetWidth > layoutBlockCol2Min && bodyBlockCn > 1) {
+            // 2 columns
+            layoutBlockDivisor = 2;
+            layoutBlockWidth = (layoutBlockWidthStandard);
+            // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthStandard - tmpAdjust) + "%";
+            calloutBoxWidth = calloutLayoutBlockWidthStandard;
         } else {
-            layoutIsStandard = false;
-            // Center
-            // bodyMainCenter.style.top = 0%
-            if (layoutUseAbsolute) { bodyMainCenter.style.left = '0%'; }
-            bodyMainCenterWidth = 100;
-            // bodyMainCenter.style.width = '100%';
+            // 1 columns
+            layoutBlockDivisor = 1;
+            layoutBlockWidth = (layoutBlockWidthNarrow);
+            // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthNarrow - tmpAdjust) + "%";
+            calloutBoxWidth = calloutLayoutBlockWidthNarrow;
+        }
+
+        layoutBlockExact = layoutDocumentWidth / layoutBlockDivisor;
+
+        // Search Sections and adjust layout
+        // ...................................... //
+        script_state += " :: Content";
+        layoutSectionCn = 0;
+        while (bodyMainCenterCenter.childNodes[layoutSectionCn]) {
+            // Section
+            // ...................................... //
+            layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
+            if (layoutSection.id) {
+                if ((layoutSection.id).substr(0, 4) == 'DivS') {
+                    script_state += ", " + layoutSection.id;
+                    // Layout Blocks
+                    layoutBlockCn = 0;
+                    while (layoutSection.childNodes[layoutBlockCn]) {
+                        // Block
+                        // ...................................... //
+                        layoutBlock = layoutSection.childNodes[layoutBlockCn];
+                        if (layoutBlock.id) {
+                            if (layoutBlock.id.substr(0, 4) == "DivP" || layoutBlock.id.substr(0, 4) == "DivB" || layoutBlock.id.substr(0, 6) == "DivBox") {
+                                // Process this block
+                                script_state += ", " + layoutBlock.id;
+                                // Adjust for margin, padding & border custom styling
+                                tmpAdjust = ElementContainerAdjustGet(layoutBlock, layoutSection, true, true, true, true);
+                                // Check Classes for fixed column types.
+                                boxClass = layoutBlock.className;
+                                layoutBodyColumnType = StringGetTokenByPrefix(false, boxClass, 'layoutBodyColumnType');
+                                if (layoutBodyColumnType != 'Fixed') {
+                                    layoutBlock.style.width = (layoutBlockWidth - tmpAdjust - 0.25) + "%";
+                                }
+                                // bodyBlockWidth = parseInt(layoutBlock.style.width);
+                                bodyBlockWidthMax = ElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, layoutBlockWidthDefault);
+                                // Callout
+                                calloutBlockCn = 0;
+                                while (layoutBlock.childNodes[calloutBlockCn]) {
+                                    calloutBlock = layoutBlock.childNodes[calloutBlockCn];
+                                    if (calloutBlock) {
+                                        if (calloutBlock.id) {
+                                            if ((calloutBlock.id).substr(0, 4) == 'DivC') {
+                                                // Process this callout block
+                                                script_state += ", " + calloutBlock.id;
+                                                tmpAdjust = ElementContainerAdjustGet(calloutBlock, layoutBlock, true, true, true, true);
+                                                // Get Column Type from Box class
+                                                boxClass = calloutBlock.className;
+                                                calloutBlockColumnType = StringGetTokenByPrefix(false, boxClass, 'layoutBodyColumnType');
+                                                // Set Callout Width and Layout
+                                                if (calloutBlockColumnType != 'layoutBodyColumnTypeFixed') {
+                                                    // calloutBlock.style.width = (calloutBoxWidth  - 0.25) + "%";
+                                                }
+                                                // if (layoutBlock.offsetWidth > layoutParaWidthMin) {
+                                                // if (calloutBlock.style.offsetWidth / layoutBlock.style.offsetWidth < 0.50) {
+                                                // if (layoutBlock.style.offsetWidth - calloutBlock.style.offsetWidth < layoutParaWidthMin) {
+                                                calloutBlockSmall = StringGetTokenByPrefix(true, boxClass, 'CalloutBoxSmall');
+                                                if (calloutBlockSmall != 'CalloutBoxSmall') {
+                                                    calloutBlockSize = layoutBlock.clientWidth / 2;
+                                                } else { calloutBlockSize = layoutBlock.clientWidth / 4; }
+
+                                                if (layoutBlock.clientWidth - calloutBlockSize > layoutParaWidthMin) {
+                                                    if (calloutBlock.style.float == 'none') {
+                                                        calloutBodyColumnFloat = StringGetTokenByPrefix(false, boxClass, 'BodyPara');
+                                                        if (calloutBodyColumnFloat == 'Left') {
+                                                            calloutBlock.style.float = 'left';
+                                                        } else if (calloutBodyColumnFloat == 'Right') {
+                                                            calloutBlock.style.float = 'right';
+                                                        } else {
+                                                            // tolerate missing class
+                                                            calloutBlock.style.float = 'left';
+                                                        }
+                                                    }
+                                                    calloutBlock.style.width = "";
+                                                } else {
+                                                    calloutBlock.style.float = 'none';
+                                                    calloutBlock.style.width = 90 + "%";
+                                                }
+                                            } // DivC
+                                        } // DivC Id
+                                    } // DivC
+                                    calloutBlockCn++;
+                                } // while Block
+                            } // DivB
+                        } // DivB Id
+                        layoutBlockCn++;
+                    } // while Block
+                } // end of DivS
+            } // end of Section Id
+            layoutSectionCn++;
+        } // while sections
+        //
+        //
+        layoutResizeCn += 1;
+        if (layoutResizeCn > 500) {
+            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                'Window Resize Excessive Usage (Possible Error)',
+                'MdmWindow:WindowResizeLayout', 779, 0, null, null,
+                errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
+            layoutResizeCn = 0;
+            // layoutMenuSizeHorzMax = 2000;
         }
         //
-        layoutIsWide = false;
-        layoutIsStandard = true;
+        // Container
+        script_state += " ::, Container";
+        // if (layoutResizeCn == 1) {
         //
-    }
-
-    // Adjust for margin, padding & border custom styling
-    // ...................................... //
-    // tmpAdjust = ElementContainerAdjustGet(bodyMainCenterCenter, bodyMainCenter, true, true, true, true);
-    tmpAdjust = 0;
-
-    // Set width of content area BodyMainCenter
-    bodyMainCenter.style.width = (bodyMainCenterWidth + bodyMainCenterWidthAdj - tmpAdjust) + '%';
-
-    // Number of Columns - See MdmMain to adjust these settings.
-    // ...................................... //
-    if (bodyMainCenterCenter.offsetWidth > layoutBlockCol4Min && bodyBlockCn > 3) {
-        // 4 columns - layoutBlockWidthBig
-        layoutBlockDivisor = 4;
-        layoutBlockWidth = (layoutBlockWidthBig);
-        // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthBig - tmpAdjust) + "%";
-        calloutBoxWidth = calloutLayoutBlockWidthBig;
+        // bodyMainContainer.style.height = '100%';
+        // Height of left, centre and right menu containers
+        /* -- */
+        body.style.height = "";
+        bodyMainContainer.style.height = "";
+        // Sets layoutHeight
+        WindowContainerSizeGetAll();
+        /* -- */
         //
-    } else if (bodyMainCenterCenter.offsetWidth > layoutBlockCol3Min && bodyBlockCn > 2) {
-        // 3 columns - layoutBlockWidthWide
-        layoutBlockDivisor = 3;
-        layoutBlockWidth = (layoutBlockWidthWide);
-        // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthWide - tmpAdjust) + "%";
-        calloutBoxWidth = calloutLayoutBlockWidthWide;
-    } else if (bodyMainCenterCenter.offsetWidth > layoutBlockCol2Min && bodyBlockCn > 1) {
-        // 2 columns
-        layoutBlockDivisor = 2;
-        layoutBlockWidth = (layoutBlockWidthStandard);
-        // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthStandard - tmpAdjust) + "%";
-        calloutBoxWidth = calloutLayoutBlockWidthStandard;
-    } else {
-        // 1 columns
-        layoutBlockDivisor = 1;
-        layoutBlockWidth = (layoutBlockWidthNarrow);
-        // bodyMainCenterCenter.childNodes[1].childNodes[Cn].style.width = (layoutBlockWidthNarrow - tmpAdjust) + "%";
-        calloutBoxWidth = calloutLayoutBlockWidthNarrow;
-    }
-
-    layoutBlockExact = layoutDocumentWidth / layoutBlockDivisor;
-
-    // Search Sections and adjust layout
-    // ...................................... //
-    layoutSectionCn = 0;
-    while (bodyMainCenterCenter.childNodes[layoutSectionCn]) {
-        // Section
+        body.style.height = (layoutHeight + 50) + 'px';
+        bodyMainContainer.style.height = (layoutHeight) + 'px';
+        //
+        // Experiments:
+        // // bodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuSizeHorzMax) + 'px';
+        // // bodyMainCenter.style.height = 'auto';// '100%';// layoutMenuSizeHorzMax + 'px';
+        // // bodyMainContainer.style.height = '100%';// (layoutMenuSizeHorzMax) + 'px';// 'auto';// (layoutMenuSizeHorzMax + 100) + 'px';
+        // body.style.height = '';// (layoutMenuSizeHorzMax + 100) + 'px';
+        //
+        //
+        // bodyMainLeft.style.height = layoutHeight + 'px';;
+        // bodyMainRight.style.height = layoutHeight + 'px';;
+        // bodyLayoutMenu1.style.height = layoutHeight + 'px';;
+        // bodyLayoutMenu2.style.height = layoutHeight + 'px';;
+        //
+        // bodyLayoutMenu1.style.height = '100%';
+        // bodyLayoutMenu2.style.height = '100%';
+        // // BodyMainLeft.style.height = 'auto;
+        // // BodyMainRight.style.height = 'auto';
+        // }
+        //
+        script_state += ". WindowResizeLayout Completed without error for " + layoutIndex;
+    } catch (bodyLayoutErr) {
+        // Errors:
         // ...................................... //
-        layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
-        if (layoutSection.id) {
-            if ((layoutSection.id).substr(0, 4) == 'DivS') {
-                // Layout Blocks
-                layoutBlockCn = 0;
-                while (layoutSection.childNodes[layoutBlockCn]) {
-                    // Block
-                    // ...................................... //
-                    layoutBlock = layoutSection.childNodes[layoutBlockCn];
-                    if (layoutBlock.id) {
-                        if (layoutBlock.id.substr(0, 4) == "DivP" || layoutBlock.id.substr(0, 4) == "DivB" || layoutBlock.id.substr(0, 6) == "DivBox") {
-                            // Process this block
-                            // Adjust for margin, padding & border custom styling
-                            tmpAdjust = ElementContainerAdjustGet(layoutBlock, layoutSection, true, true, true, true);
-                            // Check Classes for fixed column types.
-                            boxClass = layoutBlock.className;
-                            layoutBodyColumnType = StringGetTokenByPrefix(false, boxClass, 'layoutBodyColumnType');
-                            if (layoutBodyColumnType != 'Fixed') {
-                                layoutBlock.style.width = (layoutBlockWidth - tmpAdjust - 0.25) + "%";
-                            }
-                            // bodyBlockWidth = parseInt(layoutBlock.style.width);
-                            bodyBlockWidthMax = ElementWidthMaxGet(DoNotUseScroll, DoUseBase, layoutBlock, layoutBlockWidthDefault);
-                            // Callout
-                            calloutBlockCn = 0;
-                            while (layoutBlock.childNodes[calloutBlockCn]) {
-                                calloutBlock = layoutBlock.childNodes[calloutBlockCn];
-                                if (calloutBlock) {
-                                    if (calloutBlock.id) {
-                                        if ((calloutBlock.id).substr(0, 4) == 'DivC') {
-                                            tmpAdjust = ElementContainerAdjustGet(calloutBlock, layoutBlock, true, true, true, true);
-                                            // Get Column Type from Box class
-                                            boxClass = calloutBlock.className;
-                                            calloutBlockColumnType = StringGetTokenByPrefix(false, boxClass, 'layoutBodyColumnType');
-                                            // Set Callout Width and Layout
-                                            if (calloutBlockColumnType != 'layoutBodyColumnTypeFixed') {
-                                                // calloutBlock.style.width = (calloutBoxWidth  - 0.25) + "%";
-                                            }
-                                            // if (layoutBlock.offsetWidth > layoutParaWidthMin) {
-                                            // if (calloutBlock.style.offsetWidth / layoutBlock.style.offsetWidth < 0.50) {
-                                            // if (layoutBlock.style.offsetWidth - calloutBlock.style.offsetWidth < layoutParaWidthMin) {
-                                            calloutBlockSmall = StringGetTokenByPrefix(true, boxClass, 'CalloutBoxSmall');
-                                            if (calloutBlockSmall != 'CalloutBoxSmall') {
-                                                calloutBlockSize = layoutBlock.clientWidth / 2;
-                                            } else { calloutBlockSize = layoutBlock.clientWidth / 4; }
-
-                                            if (layoutBlock.clientWidth - calloutBlockSize > layoutParaWidthMin) {
-                                                if (calloutBlock.style.float == 'none') {
-                                                    calloutBodyColumnFloat = StringGetTokenByPrefix(false, boxClass, 'BodyPara');
-                                                    if (calloutBodyColumnFloat == 'Left') {
-                                                        calloutBlock.style.float = 'left';
-                                                    } else if (calloutBodyColumnFloat == 'Right') {
-                                                        calloutBlock.style.float = 'right';
-                                                    } else {
-                                                        // tolerate missing class
-                                                        calloutBlock.style.float = 'left';
-                                                    }
-                                                }
-                                                calloutBlock.style.width = "";
-                                            } else {
-                                                calloutBlock.style.float = 'none';
-                                                calloutBlock.style.width = 90 + "%";
-                                            }
-                                        } // DivC
-                                    } // DivC Id
-                                } // DivC
-                                calloutBlockCn++;
-                            } // while Block
-                        } // DivB
-                    } // DivB Id
-                    layoutBlockCn++;
-                } // while Block
-            } // end of DivS
-        } // end of Section Id
-        layoutSectionCn++;
-    } // while sections
-    //
-    //
-    layoutResizeCn += 1;
-    if (layoutResizeCn > 500) {
-        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            'Window Resize Excessive Usage (Possible Error)',
-            'MdmWindow:WindowResizeLayout', 779, 0, null, null,
-            errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
-        layoutResizeCn = 0;
-        // layoutMenuSizeHorzMax = 2000;
+        script_state = "Error in " + script_state;
+        ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
+    } finally {
+        // ...................................... //
+        try {
+            script_state += ". Finishing layout for " + layoutIndex + ".";
+            layoutWidthPrev = layoutWidth;
+            layoutHeightPrev = layoutHeight;
+            layoutResizeDo = false;
+            // ...................................... //
+            // Recalculate Positions for Menu Images
+            //
+            if (ConsoleLogAlert) {
+                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                    script_state +
+                    ' Main Container layoutHeight: ' + layoutHeight
+                    + '.',
+                    'MdmWindow: WindowResizeLayout', 878, 0, null, null,
+                    errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+            }
+            //
+        } catch (bodyLayoutErr) {
+            script_state += " Error finishing layout for " + layoutIndex;;
+            ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
+            script_state += "WindowResizeLayout: Aborted wit an error";
+        }
     }
-    //
-    // if (layoutResizeCn == 1) {
-    //
-    // bodyMainContainer.style.height = '100%';
-    // Height of left, centre and right menu containers
-    /* -- */
-    body.style.height = "";
-    bodyMainContainer.style.height = "";
-    // Sets layoutHeight
-    WindowContainerSizeGetAll();
-    /* -- */
-    //
-    //
-    if (ConsoleLogAlert) {
-        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            ' Main Container layoutHeight (body +5em): ' + layoutHeight
-            + '.',
-            'MdmWindow:WindowResizeLayout', 801, 0, null, null,
-            errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-    }
-    //
-    body.style.height = (layoutHeight + 50) + 'px';
-    bodyMainContainer.style.height = (layoutHeight) + 'px';
-    //
-    // Experiments:
-    // // bodyMainCenterCenter.style.height = '0' + 'px';;// '';// 'auto';// '100%';// '50.0em';// (layoutMenuSizeHorzMax) + 'px';
-    // // bodyMainCenter.style.height = 'auto';// '100%';// layoutMenuSizeHorzMax + 'px';
-    // // bodyMainContainer.style.height = '100%';// (layoutMenuSizeHorzMax) + 'px';// 'auto';// (layoutMenuSizeHorzMax + 100) + 'px';
-    // body.style.height = '';// (layoutMenuSizeHorzMax + 100) + 'px';
-    //
-    //
-    // bodyMainLeft.style.height = layoutHeight + 'px';;
-    // bodyMainRight.style.height = layoutHeight + 'px';;
-    // bodyLayoutMenu1.style.height = layoutHeight + 'px';;
-    // bodyLayoutMenu2.style.height = layoutHeight + 'px';;
-    //
-    // bodyLayoutMenu1.style.height = '100%';
-    // bodyLayoutMenu2.style.height = '100%';
-    // // BodyMainLeft.style.height = 'auto;
-    // // BodyMainRight.style.height = 'auto';
-    // }
-    //
-    layoutWidthPrev = layoutWidth;
-    layoutHeightPrev = layoutHeight;
-    layoutResizeDo = false;
-    // ...................................... //
-    // Recalculate Positions for Menu Images
-    //
+    // return;
 }
 // ..................................................................................... _//
 

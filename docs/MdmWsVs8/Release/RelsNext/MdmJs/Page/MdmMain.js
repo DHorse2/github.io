@@ -29,7 +29,7 @@ var loadDelayDebugState = false;
 var loadFirstDebugState = true;
 
 // Local Parameter Initialization specified here.
-function ConsoleFormElementSyncLocal() { ConsoleFormElementSync(); } // uses defaults.
+function ConsoleFormElementSyncLocal(fromForm) { ConsoleFormElementSync(fromForm); } // uses defaults.
 
 // SECTION - general SETTINGS (and in Console Form)
 // ...................................... //
@@ -53,21 +53,23 @@ var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
 
 // AREA Log usage
 // ...................................... //
-// Example of naming for corresponding parameters
-// (this is not an actual global parameter)
-var UseLog = DoUseLog;
+UseLog = DoUseLog;
 // Size at which logs are trimmed - memory management
 consoleErrorLogCnMax = 2000; // total Messages
-var consoleLogLengthMax = 100000; // total bytes
-var consoleLogLengthTrim = 85000;
+consoleLogLengthMax = 100000; // total bytes
+consoleLogLengthTrim = 85000;
 consoleEventLogCnMax = 5000; // total events
+
+// Detailed logging flag (verbose)
+var ConsoleLogDetails = false;
 // compact format
 UseSingleLine = DoNotUseSingleLine;
 
 errorMessage = "Page settings initializing";
 errorResultOnFail = errorDidNotOccur;
 
-// AREA Debug. This AREA is for controlling javascript debugging.
+// AREA Debug.
+// This AREA is for controlling javascript debugging.
 // ...................................... //
 // Important fields: PageBuild, PageMode
 UseDebug = DoUseDebug; // FLAG ON!!! todo
@@ -78,39 +80,38 @@ script_state = "debugLoadIsOn is" + debugLoadIsOn;
 
 // Error debug Handling
 // Use debugger on error. This toggle can be on by default
-var errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
-var errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
+errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
+// Use debugger on ALL messages.
+errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
 
-var ConsoleLogAlert = true;
-// Log (all) events to events console
+ConsoleLogAlert = true;
+// Log (mouse, other) events to events console
 
-// Detailed logging flag (verbose)
-var ConsoleLogDetails = false;
 // Ignores duplicate events. (resize, mouse)
-var ConsoleLogEventDuplicates = false;
+ConsoleLogEventDuplicates = false;
 // AREA Debug Areas
 //      These are normalized Areas
 //      main features and components.
 // Console and error code:
-var ConsoleLogConsole = true;
+ConsoleLogConsole = true;
 // Animation
-var ConsoleLogAnitmation = true;
+ConsoleLogAnitmation = true;
 // Images
-var ConsoleLogImages = true;
+ConsoleLogImages = true;
 // Menus
-var ConsoleLogMenus = true;
+ConsoleLogMenus = true;
 // Elements
 // Page
 // Window
 // Events
-var ConsoleLogEvents = true;
+ConsoleLogEvents = true;
 // Layout
-var ConsoleLogLayout = true;
+ConsoleLogLayout = true;
 // Debug Timers
-var ConsoleLogTimer = false;
-var ConsoleLogTimerMove = false;
-var ConsoleLogTimerTransition = false;
-var ConsoleLogTimerDetail = false;
+ConsoleLogTimer = false;
+ConsoleLogTimerMove = false;
+ConsoleLogTimerTransition = false;
+ConsoleLogTimerDetail = false;
 
 // AREA Error Severity
 // ...................................... //
@@ -187,7 +188,8 @@ var bodyMenuLeft = 0;
 var bodyMenuRight = 1;
 var bodyMenuGroupUsedLeftCn = 3;
 var bodyMenuGroupUsedRightCn = 3;
-var bodyMenuGroupMax = 8;
+var bodyMenuGroupUsedCn = bodyMenuGroupUsedLeftCn + bodyMenuGroupUsedRightCn;
+var bodyMenuGroupMax = bodyMenuGroupUsedCn;
 var bodyMenuGroupIndex = 0;
 
 var bodyMenuContainer; // = new Array(2);
@@ -203,7 +205,6 @@ var bodyMenuGroupColBreak; // = new Array(bodyMenuGroupUsedCn);
 // Menu Current Image Object By Group (Image Group)
 // set the number of groups and the images per group
 // // Image Group
-var bodyMenuGroupMax = bodyMenuGroupUsedLeftCn + bodyMenuGroupUsedRightCn;
 var imgGroupBoxCount = 20; // depreciated
 var imgGroupCount = bodyMenuGroupMax + 1;
 var imgGroupArraySize = bodyMenuGroupMax + 1;
@@ -214,7 +215,7 @@ var imgGroupImageArraySize = bodyMenuGroupMax + 1;
 // Image State
 // set the following to the number of images
 // then add the correct number of img objects
-var imgUsedCn = 5;
+var imgUsedCn = 5; // ? 6 ?
 var imgMax = 10;
 // Image Layout Adjustables
 var boxFormWidth = 75;
@@ -322,8 +323,53 @@ var UseRoot = DoUseRoot;
 // Column Management
 // Layout Font, Blocks, Columns and Callouts
 // ...................................... //
-// ...................................... //
-// Layout
+// Body Layout Management (Combinations)
+//
+// Optoin Toggles:
+// 	 		 Hidden Banner
+//			 Hidden Menu1
+//			 Hidden Menu2
+//			 Hidden Menu 1 & 2
+//			 Hidden All
+//
+// 1 Standard
+// 	 		 Banner at Top
+//			 Body Center
+//			 Menu1 at Left
+//			 Menu2 at Right
+// 2 Reading Mode Hide
+//			 Body Center
+//			 Hidden Menu1 at Left
+//			 Hidden Menu2 at Right
+// 	 		 Hidden Banner at Bottom
+// 3 Windowed
+//			 Body Center
+//			 Menu1 at Center Top Left
+//			 Menu2 at Center Top Right
+// 	 		 Banner at Center Bottom
+// 4 Reading Mode Show
+//			 Body Center (Top Left)
+//			 All Other at Right
+//			 	 Menu1 at Top Left
+//			 	 Menu2 at Top Right
+// 	 		 	 Banner at Bottom
+//
+// Named Switch Enumerations are used...
+var layoutIndexMax = 4;
+var layoutStandard = 1;
+var layoutReadingMode = 2;
+var layoutWindowed = 3;
+var layoutReadingModeLeft = 4;
+//
+var layoutStandardFirst = true;
+var layoutReadingModeFirst = true;
+var layoutWindowedFirst = true;
+var layoutReadingModeLeftFirst = true;
+//
+var layoutIndex = layoutStandard;
+var layoutRefreshCn = layoutStandard;
+var layoutRefreshCnLast = layoutStandard;
+
 // Current Layout Strategy
 var layoutIsWide = false;
 var layoutIsStandard = true;

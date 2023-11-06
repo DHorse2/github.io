@@ -472,31 +472,6 @@ Right
 /* -- end -- */
 /* ----------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------- */
-/* Body Layout Mangement (View Toggle)
-/* -------------------------------------------- */
-#BodyViewToggleContainerLeft {
-  /* Layout / Visibility */
-  display: block;
-}
-
-#BodyViewToggleContainerCenter {
-  /* Layout / Visibility */
-  display: none;
-}
-
-.BodyViewToggle {
-  width: 5em;
-  margin: 0em;
-  /* Decoration */
-  color: #EEE;
-  /* Background */
-  background-color: #036;
-}
-
-/* padding:1.0em 1em 1em 1em; */
-/* */
-/* ----------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------- */
 /* BodyConsoleTop */
 /* -------------------------------------------- */
 /* */

@@ -32,7 +32,7 @@
 	<script id="MdmError" src="../MdmJs/MdmError.js"></script>
 	<script id="MdmDebugConsole" src="../MdmJs/MdmDebugConsole.js"></script>
 	<!-- // 		Initialization -->
-	<script id="MdmPtConsoleFormData" src="../MdmJs/MdmPtConsoleFormData.js"></script>
+	<script id="MdmDebugConsoleForm" src="../MdmJs/MdmDebugConsoleForm.js"></script>
 	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
 	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
 	<script id="MdmMain" src="../MdmJs/Page/MdmMain.js"></script>
@@ -40,10 +40,10 @@
 	<script id="MdmMenuImageInit" src="../MdmJs/Page/MdmMenuImageInit.js"></script>
 	<script id="MdmMenuImageElement" src="../MdmJs/Page/MdmMenuImageElement.js"></script>
 	<!-- //		 -->
+	<script id="MdmMenuImage" src="../MdmJs/MdmMenuImage.js"></script>
 	<script id="MdmTimer" src="../MdmJs/MdmTimer.js"></script>
 	<script id="MdmImageZoom" src="../MdmJs/MdmImageZoom.js"></script>
-	<script id="MdmParamSet" src="../MdmJs/MdmParamSet.js"></script>
-	<script id="MdmParamInit" src="../MdmJs/MdmParamInit.js"></script>
+	<script id="MdmDebugParamSet" src="../MdmJs/MdmDebugParamSet.js"></script>
 	<script id="MdmDebugTagHover" src="../MdmJs/MdmDebugTagHover.js"></script>
 	<!-- // 			Elements (dom) -->
 	<script id="MdmElement" src="../MdmJs/MdmElement.js"></script>
@@ -80,11 +80,6 @@
 					<!-- Layout Area 1 (Left) of 2 -->
 					<div id="BodyMenuLayout1" class="BodyMenuLayout1 BodyMenuLayout">
 						<!-- * Left Column Content ** -->
-						<!-- Menu Box 1 ..................................................................................... -->
-						<!-- MenuGroup1 -->
-						<!-- 1 -->
-						<div id="MenuGroup1" class="MenuGroup1 BodyMenuGroupLayout">
-							<!-- ..................................................................................... -->
 							<!-- ..................................................................................... -->
 							<div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
 								<!-- ..................................................................................... -->
@@ -235,6 +230,11 @@
 								<br id="BrViewToggleLeft" class="aClearBoth">
 								<!-- ..................................................................................... -->
 							</div> <!-- end of View Toggle Left -->
+							<!-- ..................................................................................... -->
+						<!-- Menu Box 1 ..................................................................................... -->
+						<!-- MenuGroup1 -->
+						<!-- 1 -->
+						<div id="MenuGroup1" class="MenuGroup1 BodyMenuGroupLayout">
 							<!-- ..................................................................................... -->
 							<!-- ..................................................................................... -->
 							<h4 id="TitleTopLeft">

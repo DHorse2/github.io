@@ -132,7 +132,7 @@ var errorSourceInnerHTML = new String();
 var errorMessageLogAll = new String();
 var errorMessageLogFatal = new String();
 var errorMessageLogSevere = new String();
-var errorMessageLogWarn = new String();
+var errorMessageLogWarning = new String();
 var errorMessageLogComment = new String();
 
 var errorMessageLogFinal = new String();
@@ -328,9 +328,10 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
 // function WindowError(eventCurrPassed, argumentsPassed) {
 function WindowError(eventMessagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, errorSeverityPassed) {
     EventSet(eventCurr);
-    if (eventMessage.length) {
-        eventMessage += eventMessagePassed;
-    } else { eventMessage = eventMessagePassed; }
+    eventMessage = eventMessagePassed;
+    // if (eventMessage.length) {
+    //     eventMessage += eventMessagePassed;
+    // } else { eventMessage = eventMessagePassed; }
     if (eventMessage.indexOf('function') !== -1) {
         eventMessage = eventMessage.split('}').pop()
     }
@@ -380,7 +381,7 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
         if (eventCurrPassed.target) { messageElement = eventCurrPassed.target; }
         if (eventCurrPassed.srcElement) { messageElementSource = eventCurrPassed.srcElement; }
     }
-    eventObject = (messageElementSource || messageElement || Event);
+    eventObject = (messageElementSource || messageElement || event);
     //
     if (eventObject && eventObject.id) {
         if (eventObject.id != null) {
@@ -606,8 +607,8 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         if (eventStack && eventStack.length) {
             messageTemp += charNewLineTag + charTextIndent;
             messageTemp += ' Stack: ';
-            messageTemp += charNewLineTag;
-            messageTemp += StringTextNewlineToBr(eventStack);
+            messageTemp += charNewLineTag + charTextIndentSmall;
+            messageTemp += StringTextNewlineReplace(eventStack, charNewLineTag + charTextIndentSmall);
         }
     }
     messageFinal = messageTemp + messageFinal;
@@ -644,11 +645,13 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     // Current Message / Error Counter
     consoleErrorLogCn += 1;
     consoleErrorLogScrollCn += 1;
-    var tempCount, tempPad;
+    var tempErrorCn, tempLine, tempPrefix;
     // not working
-    // if (consoleErrorLogCn < 1000) { tempPad = 3; } else { tempPad = 5; }
-    // tempCount = StringPad(consoleErrorLogCn, tempPad, '0');
-    tempCount = StringPad(consoleErrorLogCn, (consoleErrorLogCn < 1000) ? 3 : 5, '0');
+    tempErrorCn = StringPad(consoleErrorLogCn, (consoleErrorLogCn < 1000) ? 3 : 5, '0');
+    // tempLine = StringPad(eventFileLinePassed, 4, '0'); // not search friendly
+    tempLine = eventFileLinePassed;
+    tempPrefix = '(Err#' + tempErrorCn + ', find&#64;' + tempLine + ')' + ' ';
+    messageFinal = tempPrefix + messageFinal;
     //
     // Text display
     // New line
@@ -656,23 +659,10 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     // Message
     if (consoleErrorTextBox) {
         var tempInnerHTML = charNewLineTag + tagSpan;
-        // if (errorSeverityColor != 'White') {
         tempInnerHTML += ' style="color:' + errorSeverityColor + '; background-color:' + errorSeverityColorBg + '"' + gt;
-        // } else {
-        //     tempInnerHTML += gt;
-        // }
-        tempInnerHTML += '(#' + tempCount
-            + ', &#64;' + eventFileLinePassed + ')' + ' ' + messageFinal
-            + charNewLineTag + tagSpanEnd;
-        // var tempInnerHTML = charNoWrapTag + ' style="color:' + errorSeverityColor + '"' + gt
-        // + '(#' + tempCount
-        // + ', &#64;' + eventFileLinePassed + ')' + ' ' + messageFinal
-        // + charNoWrapTagEnd + consoleErrorTextBox.innerHTML;
-        // var tempInnerHTML = charNoWrapTagStart + '(#' + tempCount
-        // + ', &#64;' + eventFileLinePassed + ')' + ' ' + messageFinal
-        // + charNoWrapTagEnd + consoleErrorTextBox.innerHTML;
+        tempInnerHTML += messageFinal + charNewLineTag + tagSpanEnd;
         consoleErrorTextBox.innerHTML = tempInnerHTML + consoleErrorTextBox.innerHTML;;
-        //
+        // Trim length for memory management
         if ((consoleErrorTextBox.innerHTML).length > consoleLogLengthMax) {
             consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substr(0, consoleLogLengthTrim);
         }
@@ -690,18 +680,47 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         }
     }
     // Logging and Action
-    MessageLogAction(messagePassed,
+    MessageLogAction(eventCurrPassed, tempPrefix + messagePassed, messageFinal,
         eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
         errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
 }
 // Error Message Action
-function MessageLogAction(eventCurrPassed, messagePassed,
+function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     //
+    // Log
+    // Add message to appropriate log
+    if (!messageFinalPassed || !messageFinalPassed.length) { messageFinalPassed = messagePassed; }
+    messageFinalPassed = charNewLineTag + messageFinalPassed;
+    errorMessageLogAll += messageFinalPassed;
+    // Action
+    if (errorSeverityPassed >= errorIsFatal) {
+        // display alert
+        errorDoAlertPassed = true;
+        // dipslay in HTML Critial/Fatal Message Area
+        errorMessageLogFatal += messageFinalPassed;
+    } else if (errorSeverityPassed >= errorIsSevere) {
+        // display alert
+        // dipslay in HTML Severe Message Area
+        errorMessageLogSevere += messageFinalPassed;
+    } else if (errorSeverityPassed >= errorIsWarning) {
+        // dipslay in HTML Warnging Message Area
+        errorMessageLogWarning += messageFinalPassed;
+    } else if (errorSeverityPassed >= errorIsComment) {
+        // dipslay in HTML Comment Message Area
+        errorMessageLogComment += messageFinalPassed;
+    } else if (errorSeverityPassed >= errorDidNotOccur) {
+        // dipslay in HTML Message Area
+        errorMessageLogComment += messageFinalPassed;
+    } else {
+        // dipslay in HTML Severe Area
+        errorMessageLogSevere += messageFinalPassed;
+        // can't happen?
+    }
     // Alert
     if (errorDoAlertPassed || !consoleErrorTextBox) {
-        alert('(' + tempCount + ')' + ' ' + StringTextReplace(messagePassed, charNewLineTag, charNewLine));
+        alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine));
     }
     //
     // Abort & Debug
@@ -711,50 +730,13 @@ function MessageLogAction(eventCurrPassed, messagePassed,
             WindowErrorAbort(); // does nothing.
         }
     }
-    // Log
-    // Add message to appropriate log
-    errorMessageLogAll += messagePassed;
-    // by Error Type
-    switch (errorSeverityLevel) {
-        case errorIsFatal:
-            errorMessageLogFatal += messagePassed;
-            break;
-        case errorIsSevere:
-            errorMessageLogSevere += messagePassed;
-            break;
-        case errorIsWarning:
-            errorMessageLogWarn += messagePassed;
-            break;
-        case errorIsComment:
-            errorMessageLogComment += messagePassed;
-        default:
-            errorMessageLogComment += messagePassed;
-            break;
-    }
-    // Action (none)
-    if (errorSeverityPassed >= errorIsFatal) {
-        // display alert
-        // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed >= errorIsSevere) {
-        // display alert
-        // dipslay in HTML Critial Message Area
-    } else if (errorSeverityPassed >= errorIsWarning) {
-        // dipslay in HTML Warnging Message Area
-    } else if (errorSeverityPassed >= errorIsComment) {
-        // dipslay in HTML Comment Message Area
-    } else if (errorSeverityPassed >= errorDidNotOccur) {
-        // dipslay in HTML Message Area
-    } else {
-        // dipslay in HTML Message Area
-        // can't happen?
-    }
 }
 // ..................................................................................... _//
 // Attach the listener for Errors
 // It will fire when an error occurs.
 var localArgs = new Object();
 window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed) {
-    eventCurr = Event;
+    if (window.event) { eventCurr = window.event; }
     WindowError(eventMessagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, errorIsSevere);
 };
 // window.onerror = (event) => {
@@ -810,7 +792,6 @@ window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLin
 // });
 // ..................................................................................... _//
 
-
 // // Add message to appropriate log
 // // Error Type
 // switch (errorSeverityPassed) {
@@ -844,6 +825,26 @@ window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLin
 //         break;
 // }
 //
+// ..................................................................................... _//
+
+// // by Error Type
+// switch (errorSeverityLevel) {
+//     case errorIsFatal:
+//         errorMessageLogFatal += messageFinalPassed;
+//         break;
+//     case errorIsSevere:
+//         errorMessageLogSevere += messageFinalPassed;
+//         break;
+//     case errorIsWarning:
+//         errorMessageLogWarning += messageFinalPassed;
+//         break;
+//     case errorIsComment:
+//         errorMessageLogComment += messageFinalPassed;
+//     default:
+//         errorMessageLogComment += messageFinalPassed;
+//         break;
+// }
+// ..................................................................................... _//
 
 script_state = "MdmError functions and events loaded and started";
 if (debugLoadIsOn) { debugger; }

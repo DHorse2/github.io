@@ -1,89 +1,68 @@
 //
-// Body Layout Objects First Flags:
-var bodyFirst = true;
-//
-var bodyMainContainerFirst = true;
-//
-var bodyBannerFirst = true;
-var bodyBannerTopFirst = true;
-var bodyBannerBottomFirst = true;
-//
-var bodyMainCenterTopFirst = true;
-var bodyMainCenterTopLeftFirst = true;
-var bodyMainCenterTopRightFirst = true;
-//
-var bodyMainCenterFirst = true;
-//
-var bodyMainLeftFirst = true;
-var bodyMainRightFirst = true;
-//
-var bodyMainLeftOrigFirst = true;
-var bodyMainRightOrigFirst = true;
-//
-var bodyMainLeftCurrFirst = true;
-var bodyMainRightCurrFirst = true;
-//
-var bodyMainLeftCopyFirst = true;
-var bodyMainRightCopyFirst = true;
-//
-var bodyMainRightFarFirst = true;
-//
-var layoutBodyColumnType1First = true;
-//
-////////////////////////////////////////////////
-// Body Layout Objects:
-/*--
-		createElement()	createElement(eTag)	IHTMLElement
---*/
+// SectionBlock Body Layout Element Objects:
+// ...................................... //
 // Body Container
 var body;
+var bodyFirst = true;
 // Body Container
 var bodyMainContainer;
+var bodyMainContainerFirst = true;
 //
 // Banner (Top Menu, Logo and Graphics
 var bodyBanner;
+var bodyBannerFirst = true;
 var bodyBannerTop;
 var bodyBannerBottom;
 //
+var bodyViewToggleContainerFirst = true;
+// View, Console and Debug Toggle Buttons
+var bodyViewToggleContainer;
+var bodyViewToggleContainerFirst = true;
+var bodyViewToggleContainerCenter;
+var bodyViewToggleContainerLeft;
+//
+var consoleMouseOverToggle;
+//
 // Body Center Area
 var bodyMainCenter;
-//
+var bodyMainCenterFirst = true;
 var bodyMainCenterTop;
 var bodyMainCenterTopLeft;
 var bodyMainCenterTopRight;
-//
-var bodyMainCenterTopColBreak;
 var bodyMainCenterCenter;
 var bodyMainCenterBottom;
+var bodyMainCenterTopColBreak;
 //
 // Body Left Area
 var bodyMainLeft;
+var bodyMainLeftFirst = true;
 var bodyMainLeftCopy;
 var bodyMainLeftCurr; // Current
 var bodyMainLeftOrig; // Original
+var bodyLayoutMenu1;
 var bodyMainLeftOuter;
 var bodyMainLeftInner;
 
-var bodyLayoutMenu1;
-// var bodyMenuContainer;
-// var bodyMenuGroup;
-// var bodyMenuGroupSave;
-
-
 // Body Right Area
 var bodyMainRight;
+var bodyMainRightFirst = true;
 var bodyMainRightCopy;
 var bodyMainRightCurr; // Current
 var bodyMainRightOrig; // Original
 var bodyLayoutMenu2;
 var bodyMainRightOuter;
 var bodyMainRightInner;
-
 var bodyMenuContainerRight1;
-// var bodyMenuGroup6Save;
-//
 // Body Far Right Area
 var bodyMainRightFar;
+var bodyMainRightFarFirst = true;
+//
+var layoutBodyColumnType1First = true;
+
+// var bodyMenuContainer;
+// var bodyMenuGroup;
+// var bodyMenuGroupSave;
+
 //
 // Other...
 var elMenuLeft1ColBreak;
@@ -268,24 +247,6 @@ function ElementObjectContainerCreate() {
 }
 
 // Create all Elements used in Layout
-// SectionBlock Body Layout Element Objects:
-// ...................................... //
-// Body Container
-var body;
-// Body Container
-var bodyMainContainer;
-// Banner (Top Menu, Logo and Graphics
-var bodyBanner;
-var bodyBannerTop;
-var bodyBannerBottom;
-
-// View, Console and Debug Toggle Buttons
-var bodyViewToggleContainer;
-var bodyViewToggleContainerCenter;
-var bodyViewToggleContainerLeft;
-
-var consoleMouseOverToggle;
-
 function ElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
 	loadFirstJava = false;
@@ -352,7 +313,7 @@ function ElementObjectCreate() {
 	consoleEventTextBox = ElementGetRef(consoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
 	consoleStateBox = ElementGetRef(consoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
 	consoleStateTextBox = ElementGetRef(consoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
-	// ConsoleFormInit();
+	// ConsoleStateInit();
 	consoleTestBox = ElementGetRef(consoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
 	consoleTestTextBox = ElementGetRef(consoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
 	//
@@ -387,15 +348,16 @@ function ElementObjectCreate() {
 	//............................................................---//
 	// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
 	// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');
-	bodyMainLeftCopy = ElementCopy(bodyMainLeftCopy, bodyMainLeftCopyFirst, bodyMainLeft, 'block');
-	bodyMainLeftCurr = ElementCopy(bodyMainLeftCurr, bodyMainLeftCurrFirst, bodyMainLeft, 'block');
-	bodyMainLeftOrig = ElementCopy(bodyMainLeftOrig, bodyMainLeftOrigFirst, bodyMainLeft, 'block');
+	bodyMainLeftCopy = ElementCopy(bodyMainLeftCopy, bodyMainLeftFirst, bodyMainLeft, 'block');
+	bodyMainLeftCurr = ElementCopy(bodyMainLeftCurr, bodyMainLeftFirst, bodyMainLeft, 'block');
+	bodyMainLeftOrig = ElementCopy(bodyMainLeftOrig, bodyMainLeftFirst, bodyMainLeft, 'block');
 	//
 	// if (false == true) {
 	bodyMainLeftOuter = ElementGetFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMainLeftOuter = ElementGetRef(bodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
 	bodyMainLeftInner = ElementGetFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyMainLeftInner = ElementGetRef(bodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
+	bodyMainLeftFirst = false;
 	//
 	bodyLayoutMenu1 = ElementGetFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy, DoFindReturn, null)
 	// bodyLayoutMenu1 = ElementGetRef(bodyLayoutMenu1,'BodyMenuLayout1','BodyMenuLayout1');
@@ -429,14 +391,15 @@ function ElementObjectCreate() {
 	// Body Right Area Copy
 	//............................................................---//
 	// bodyMainRight = ElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
-	bodyMainRightCopy = ElementCopy(bodyMainRightCopy, bodyMainRightCopyFirst, body, 'block');
-	bodyMainRightCurr = ElementCopy(bodyMainRightCurr, bodyMainRightCurrFirst, bodyMainRight, 'block');
-	bodyMainRightOrig = ElementCopy(bodyMainRightOrig, bodyMainRightOrigFirst, bodyMainRight, 'block');
+	bodyMainRightCopy = ElementCopy(bodyMainRightCopy, bodyMainRightFirst, body, 'block');
+	bodyMainRightCurr = ElementCopy(bodyMainRightCurr, bodyMainRightFirst, bodyMainRight, 'block');
+	bodyMainRightOrig = ElementCopy(bodyMainRightOrig, bodyMainRightFirst, bodyMainRight, 'block');
 	//
 	bodyMainRightOuter = ElementGetFromElement(bodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainRightCopy, DoFindReturn, null)
 	// bodyMainRightOuter = ElementGetRef(bodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
 	bodyMainRightInner = ElementGetFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainRightCopy, DoFindReturn, null)
 	// bodyMainRightInner = ElementGetRef(bodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
+	bodyMainRightFirst = false;
 	//
 	bodyLayoutMenu2 = ElementGetRef(bodyLayoutMenu2, 'BodyMenuLayout2', 'BodyMenuLayout2');
 	//

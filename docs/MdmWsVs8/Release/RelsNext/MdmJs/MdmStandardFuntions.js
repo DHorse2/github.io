@@ -5,6 +5,7 @@
 // i.e. it may refer to debugging or to content button target selection
 var DoUseLog = true;
 var DoNotUseLog = false;
+var UseLog = DoUseLog;
 //
 var DoUseDebug = true;
 var DoNotUseDebug = false;
@@ -25,8 +26,12 @@ var DoFindReturn = 2;
 // ...................................... //
 var errorDoDisplayTag = true;
 var errorDoNotDisplayTag = false;
-var errorDoAlert = true;
+var errorDoAlert = false;
 var errorDoNotAlert = false;
+// enter debugger on errors
+var errorUseDebugOnError = false;
+// Use debugger on ALL messages.
+var errorUseDebugOnAll = false;
 
 // Offsets
 // ...................................... //
@@ -70,6 +75,37 @@ var consoleEventLogScrollCn = 0;
 var consoleStateLogCn = 0;
 var consoleStateLogCnMax = 0;
 var consoleStateLogScrollCn = 0;
+var consoleLogLengthMax = 100000; // total bytes
+var consoleLogLengthTrim = 85000;
+
+var ConsoleLogAlert = true;
+// Log (mouse, other) events to events console
+
+// Ignores duplicate events. (resize, mouse)
+var ConsoleLogEventDuplicates = false;
+// AREA Debug Areas
+//      These are normalized Areas
+//      main features and components.
+// Console and error code:
+var ConsoleLogConsole = true;
+// Animation
+var ConsoleLogAnitmation = true;
+// Images
+var ConsoleLogImages = true;
+// Menus
+var ConsoleLogMenus = true;
+// Elements
+// Page
+// Window
+// Events
+var ConsoleLogEvents = true;
+// Layout
+var ConsoleLogLayout = true;
+// Debug Timers
+var ConsoleLogTimer = false;
+var ConsoleLogTimerMove = false;
+var ConsoleLogTimerTransition = false;
+var ConsoleLogTimerDetail = false;
 
 // depreciated:
 var errorCaller = null;
@@ -126,6 +162,7 @@ var charNewLineTag = lt + 'b' + 'r ' + gt;
 var charNewLineTagOpen = lt + 'b' + 'r ';
 var charNewLineCrLf = String.fromCharCode(11, 13);
 var charTextIndent = '........';
+var charTextIndentSmall = '....';
 //
 // SectionBlock HTML write variables
 // ...................................... //
@@ -268,18 +305,17 @@ function StringGetTokenByPrefix(DoWholeWord, stringPassed, stringPrefix) {
     return '';
 }
 //
-// StringPad from SO:
+// String replace from SO, also StringPad from:
 // https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
 // const zeroPad = (num, places) => String(num).padStart(places, '0')
 function StringPad(num, places, padString) {
     return String(num).padStart(places, padString);
 }
-
 // String Replace
-function StringTextNewlineToBr(textPassed) {
-    return textPassed.replace(/(?:\r\n|\r|\n)/g, '<br>');
+function StringTextNewlineReplace(textPassed, stringReplace) {
+    return textPassed.replace(/(?:\r\n|\r|\n)/g, stringReplace);
 }
-    // String Replace
+// String Replace
 function StringTextReplace(textPassed, stringFind, stringReplace) {
     // return textPassed.replace(stringFind, stringReplace);
     var TextNew = '';
@@ -311,7 +347,7 @@ function FontEmToPx(em) {
 }
 // Transform pixels, em, and percentage value used in layout adjustments.
 // ..................................................................................... _//
-// Source: https://stackoverflow.com/questions/15807021/convert-pixel-to-percentage-using-javascript
+// Source: SO: https://stackoverflow.com/questions/15807021/convert-pixel-to-percentage-using-javascript
 // Math Px To Percentage Window
 //    - totalpx: Total of pixels depending on the width or height, could be 1920.0 or 1080.0, 1280.0 or 720.0, etc...
 // var Totalpx;
@@ -567,12 +603,16 @@ function EventSet(eventCurrPassed) {
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/Event/target
     //
-    if (!eventCurrPassed) { eventCurr = null; } else { eventCurr = eventCurrPassed; }
-    eventIsOld = false;
-    // if (eventFirst) {
+    if (!eventCurrPassed) {
+        if (window.event) { eventCurr = window.event; } else { eventCurr = null; }
+    } else { eventCurr = eventCurrPassed; }
+    e = eventCurr;
     eventFirst = false;
+    eventIsOld = false;
+
+    eventId = EventIdGetNext();
     eventType = null;
-    eventTarget = null;
+    eventMessage = "";
     if (eventCurr && eventCurr.message) {
         eventMessage = eventCurr.message;
     }
@@ -580,9 +620,9 @@ function EventSet(eventCurrPassed) {
         eventMessage = "";
         // eventMessage = "no event message";
     }
-    // eventMessage = "First error discarded, " + eventMessage;
     // Dom
-    eventCurrentTarget = null; // not used
+    eventTarget = null;
+    eventCurrentTarget = null;
     eventTimeStamp = null;
     eventIsBrowser = false;
     // Stack
@@ -591,16 +631,7 @@ function EventSet(eventCurrPassed) {
     eventFileColumn = 0;
     eventError = null;
     eventStack = null;
-    // return;
-    // }
 
-    // if (!errorCallerName) { ErrorSet(); }
-    if (!eventCurr && Event && Event.type) {
-        eventCurr = Event;
-        eventIsOld = true;
-    }
-    e = eventCurr;
-    eventId = EventIdGetNext();
     if (eventCurr) {
         errorCallerName = eventCurr.toString();
         if (errorCallerName != "function ()") {
