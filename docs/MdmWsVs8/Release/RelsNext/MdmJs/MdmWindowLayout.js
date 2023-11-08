@@ -281,45 +281,15 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 		//............................................................---//
 		if (bodyFirst) {
 			script_state = "SelectByIndex: bodyFirst: Initialize elements " + layoutIndex;
-			//............................................................---//
 			//      Body Element Creation
+			//............................................................---//
 			if (loadFirstJava) { ElementObjectCreate(); }
-			//............................................................---//
 			//      Body Main Container (contains Left Center and Right
-			if (!bodyMainContainer) { bodyMainContainer = ElementGetFromId('BodyMainContainer'); }
-			// Body Container
 			//............................................................---//
-			//			    Menu at Left
-			// bodyMainLeftOrig.innerHTML = bodyMainLeft.innerHTML;
-			bodyMainLeftOrig = ElementCopy(bodyMainLeftOrig, bodyMainLeftFirst, bodyMainLeft, 'none');
-			bodyMainLeftFirst = false;
-			//............................................................---//
-			//			    Menu at Right
-			// bodyMainLeftOrig.innerHTML = bodyMainRight.innerHTML;
-			bodyMainRightOrig = ElementCopy(bodyMainRightOrig, bodyMainRightFirst, bodyMainRight, 'none');
-			bodyMainRightFirst = false;
-			//............................................................---//
-			// 	 		 Banner at Center Bottom
-			bodyBanner = ElementGetRefFromElement(bodyBanner, 'BodyBanner', 'BodyBanner', bodyMainCenter);
-			bodyBannerTop = ElementGetRefFromElement(bodyBannerTop, 'BodyBannerTop', 'BodyBannerTop', bodyMainCenter);
-			// bodyBannerTop = ElementCopy(bodyBannerTop, bodyBannerBottomFirst, bodyBanner, 'block');
-			bodyBannerBottom = ElementGetRefFromElement(bodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom', bodyMainCenter);
-			bodyBannerBottom = ElementCopy(bodyBannerBottom, bodyBannerBottomFirst, bodyBanner, 'none');
-			bodyBannerBottomFirst = false;
-			//
-			//............................................................---//
-			// 	 		 View Toggle at Center Top
-			bodyViewToggleContainer = ElementGetRefFromElement(bodyViewToggleContainer, 'bodyViewToggleContainer', 'bodyViewToggleContainer', bodyMainLeft);
-			bodyViewToggleContainerLeft = ElementGetRefFromElement(bodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'ViewToggleContainerLeft', bodyMainLeft);
-			// bodyViewToggleContainerLeft = ElementCopy(bodyViewToggleContainerLeft, bodyViewToggleContainerFirst, bodyViewToggleContainer, 'block');
-			bodyViewToggleContainerCenter = ElementGetRefFromElement(bodyViewToggleContainerCenter, 'ViewToggleContainerCenter', 'ViewToggleContainerCenter', bodyMainCenterBottom);
-			bodyViewToggleContainerCenter = ElementCopy(bodyViewToggleContainerCenter, bodyViewToggleContainerFirst, bodyViewToggleContainer, 'none');
-			bodyBannerBottomFirst = false;
-			//
-			//............................................................---//
-			//  BodyMain Center Center ColBreak
-			bodyMainCenterTopLeft = ElementBreakSet(bodyMainCenterCenter, 'BodyMainCenterCenterColBreak', elementLayoutFirstPhatomData = true, 'block', 'visible', 'both')
-			//
+			if (!bodyMainContainer) {
+				// error
+				bodyMainContainer = ElementGetFromId('BodyMainContainer');
+			}
 		}
 		//
 		//............................................................---//
@@ -328,9 +298,9 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			// 1 Standard
 			///////////////////////////////////////////////
 			case layoutStandard:
-				//............................................................---//
 				// Enclose Box
-				if (BodyMainCenterTopClass.length) {
+				//............................................................---//
+			if (BodyMainCenterTopClass.length) {
 					bodyMainCenterTop.className = BodyMainCenterTopClass;
 				}
 				//............................................................---//

@@ -33,6 +33,8 @@ var browserIsEdge; // todo
 var browserIsTor; // todo
 var browserIsOld; // todo
 var browserIsUnknown; // todo
+
+var browserUserAgent;
 var browserType;
 
 // SectionBlock Window Browser
@@ -40,6 +42,7 @@ var browserType;
 // Browser Type Reset () {
 function BrowserVsReset() {
     // Browser Type
+    browserUserAgent = '';
     browserType = '';
     browserVs = 0;
     browserVsMajor = 0;
@@ -71,52 +74,60 @@ function BrowserVsReset() {
 function BrowserVsGet() {
     //
     if (browserType != "unknown") { BrowserVsReset(); }
+    browserUserAgent = navigator.userAgent;
+    browserType = browserUserAgent;
+    // browserType = navigator.toString();
     //
-    if ((navigator.userAgent).indexOf('TEST') != -1) { browserIsTEST = true; browserAnimationIsMozilla = true; browserType = 'TEST'; } else {
-        browserType = navigator.toString();
-        if ((navigator.userAgent).indexOf('MSIE') != -1) { browserIsIE = true; browserAnimationIsIe = true; browserType = 'MSIE'; } else {
-            if ((navigator.userAgent).indexOf('Chrome') != -1) { browserIsCH = true; browserType = 'Chrome'; } else {
-                if ((navigator.userAgent).indexOf('Firefox') != -1) { browserIsFF = true; browserAnimationIsMozilla = true; browserType = 'Firefox'; } else {
-                    if ((navigator.userAgent).indexOf('Safari') != -1) { browserIsSA = true; browserType = 'Safari'; } else {
-                        if ((navigator.userAgent).indexOf('Opera') != -1) { browserIsOP = true; browserType = 'Opera'; } else {
-                            if ((navigator.userAgent).indexOf('Netscape') != -1) { browserIsNE = true; browserType = 'Netscape'; }
-                        }
-                    }
-                }
-            }
-        }
-        //
-        switch (browserType) {
-            case 'MSIE':
-                // browserType = window.navigator.appName;
-                browserVs = window.navigator.appVersion;
-                browserVsMajor = window.navigator.appVersion;
-                browserVsMinor = window.navigator.appMinorVersion;
-                break;
-            case 'Firefox':
-                break;
-            case 'Safari':
-                break;
-            case 'Opera':
-                break;
-            case 'Netscape':
-                break;
-            case 'Chrome':
-            default:
-                browserType = "Firefox";
-                browserIsUnknown = true;
-                break;
-        }
-        //
-        // for purposes of filter handling
-        if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE || browserIsCH) { browserAnimationIsMozilla = true; }
-        if (browserIsIE) { browserAnimationIsIe = true; }
-        //
-        // for purposes of mouse event handling
-        if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE) { browserEventsIsFf = true; } else { browserEventsIsFf = false; }
-        //
+    if ((browserUserAgent).indexOf('TEST') != -1) {
+        browserIsTEST = true; browserType = 'TEST';
+    } else if ((browserUserAgent).indexOf('MSIE') != -1) {
+        browserIsIE = true; browserType = 'MSIE';
+    } else if ((browserUserAgent).indexOf('Chrome') != -1) {
+        browserIsCH = true; browserType = 'Chrome';
+    } else if ((browserUserAgent).indexOf('Firefox') != -1) {
+        browserIsFF = true; browserType = 'Firefox';
+    } else if ((browserUserAgent).indexOf('Safari') != -1) {
+        browserIsSA = true; browserType = 'Safari';
+    } else if ((browserUserAgent).indexOf('Opera') != -1) {
+        browserIsOP = true; browserType = 'Opera';
+    } else if ((browserUserAgent).indexOf('Netscape') != -1) {
+        browserIsNE = true; browserType = 'Netscape';
+    } else {
+        browserIsFF = true; browserAnimationIsMozilla = true; browserType = 'Firefox';
     }
 }
+//
+switch (browserType) {
+    case 'MSIE':
+        // browserType = window.navigator.appName;
+        browserVs = window.navigator.appVersion;
+        browserVsMajor = window.navigator.appVersion;
+        browserVsMinor = window.navigator.appMinorVersion;
+        browserAnimationIsIe = true;
+        break;
+    case 'Firefox':
+        browserIsFF = true; browserType = 'Firefox';
+        break;
+    case 'Safari':
+        break;
+    case 'Opera':
+        break;
+    case 'Netscape':
+        break;
+    case 'Chrome':
+    default:
+        browserType = "Firefox";
+        browserIsUnknown = true;
+        browserAnimationIsMozilla = true;         break;
+}
+//
+// for purposes of filter handling
+if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE || browserIsCH) { browserAnimationIsMozilla = true; }
+if (browserIsIE) { browserAnimationIsIe = true; }
+//
+// for purposes of mouse event handling
+if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE) { browserEventsIsFf = true; } else { browserEventsIsFf = false; }
+
 // Browser Type Get2
 function BrowserGetFromWindow() {
     // IE

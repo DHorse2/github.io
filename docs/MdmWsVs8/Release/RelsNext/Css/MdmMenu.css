@@ -46,13 +46,15 @@
     padding: 0em;
 }
 
-.ViewToggleBlockContainerOuterTop:hover {
+/* .ViewToggleBlockContainerOuter:hover { */
     /* Size */
     /* Border */
-    background-color: black;
+    /* background-color: orange; */
+    /* background-color: white; */
+    /* background-color: black; */
     /* border-left: .3em solid black; */
     /* border-right: .4em solid black; */
-}
+/* } */
 
 .ViewToggleBlockContainerOuterTop:hover {
     /* Size */
@@ -62,15 +64,17 @@
     /* border-right: .4em solid white; */
 }
 
-.ViewToggleBlockContainerOuterTopZero:hover {
+.ViewToggleBlockContainerOuterTopZeroOld:hover {
     /* Size */
     height: 100%;
-    width: 100%;
+    /* width: 50%; */
+    /* width: 100%; */
     /* Alignment */
-    float: left;
-    text-align: center;
-    /* Border */
+    /* float: left; */
+    /* text-align: center; */
     background-color: green;
+    /* Border */
+    border: .5em outset green;
     /* border-left: .3em solid black; */
     /* border-right: .4em solid black; */
 }

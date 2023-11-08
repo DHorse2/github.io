@@ -33,7 +33,7 @@ function MenuImagesHtmlBuild() {
     filterIndexPassed = filterTypeCheckerBoard;
     // + ', ' + filterTypeCheckerBoard + ')
     //
-    bodyImageContainer = ElementGetRef(bodyMenuImageContainer, "BodyMenuImageContainer", "BodyImageContainer");
+    bodyImageContainer = ElementGetRef(BodyImageContainer, "BodyImageContainer", "BodyImageContainer");
     //
     imgHtml = "";
     // imgHtml += lt + 'div id="BodyImageContainer"' + gt;
@@ -405,6 +405,15 @@ function MenuImagesHtmlBuild() {
     // bodyImageContainer = ElementGetRef(bodyImageContainer, "BodyImageContainer", "BodyImageContainer");
     //
     bodyImageContainer.innerHTML = imgHtml;
+    if (!imgLoadUseEventHandler && !imgLoadEventTest) {
+        bodyImageContainer.onmouseover = null;
+        bodyImageContainer.onmouseout = null;
+        bodyImageContainer.onmousedown = null;
+    } else {
+        bodyImageContainer.addEventListener("mouseover", (e) => { ElementEventMouse(e); });
+        bodyImageContainer.addEventListener("mousedown", (e) => { ElementEventMouse(e); });
+        bodyImageContainer.addEventListener("mouseout", (e) => { ElementEventMouse(e); });
+    }
     //
     loadFirstMenuImage = false;
     //

@@ -10,17 +10,41 @@ var UseLog = DoUseLog;
 var DoUseDebug = true;
 var DoNotUseDebug = false;
 var UseDebug = DoNotUseDebug;
+
+// Display messages using alerts.
+var errorDoAlert = true;
+var errorDoNotAlert = false;
+var ConsoleLogAlert = errorDoAlert;
+
+// enter debugger on errors
+var errorUseDebugOnError = false;
+// Use debugger on ALL messages.
+var errorUseDebugOnAll = false;
+
+// for current event processing
+// depends on the message type/state
+var errorUseDebug = false;
 var debugDoAlert = false;
-//
+
+// Formatting
+// ...................................... //
+// Sort ordering
+var DoUseAscendingDate = 1;
+var DoUseDecendingDate = 2;
+var DoUseTypeByDate = 3;
+var DoUseFileNameByLine = 4;
+// Most UIX views of data are in this order.
+// Social media, logs, database info, and so on.
+var UseLogOrder = DoUseAscendingDate;
+
+// Line formatting
 var DoUseSingleLine = true;
 var DoNotUseSingleLine = false;
 var UseSingleLine = DoNotUseSingleLine;
-//
-var DoUseHide = true;
-var DoNotUseHide = false;
-//
-var DoFindSet = 1
-var DoFindReturn = 2;
+// Scrolling
+var DoUseScroll = true;
+var DoNotUseScroll = false;
+var UseScroll = DoUseScroll;
 
 // Error Options
 // ...................................... //
@@ -28,10 +52,13 @@ var errorDoDisplayTag = true;
 var errorDoNotDisplayTag = false;
 var errorDoAlert = false;
 var errorDoNotAlert = false;
-// enter debugger on errors
-var errorUseDebugOnError = false;
-// Use debugger on ALL messages.
-var errorUseDebugOnAll = false;
+
+// Other settings
+var DoUseHide = true;
+var DoNotUseHide = false;
+//
+var DoFindSet = 1
+var DoFindReturn = 2;
 
 // Offsets
 // ...................................... //
@@ -46,8 +73,54 @@ var DoNotUseScroll = false;
 
 var UseOffset = DoUseOffset;
 var UseBase = DoUseBase;
-var UseScroll = DoUseScroll;
 
+// Control overloading javascript
+var filterBusy = false;
+var timerBusy = false;
+var resizeBusy = false;
+
+// Animation Transition Control:
+// ...................................... //
+// (See TimerDurationSet for default filter values)
+var filterDurationOverride = false;
+var filterDuration = 0;
+var filterStepMin = 0;
+var filterStepMax = 0;
+var filterInterval = 0;
+var filterDelay = 0;
+
+// Filter Settings for Animation
+// ...................................... //
+// Usually filterDuration is the same as
+// elementDuration plus an adjustment.
+// a non-zero value indicates this
+// feature is on. Usually this adjustment
+// is one additional second.
+// indicates use default:
+var filterDurationAdjustment = -0.001;
+
+// Methodology to Invoke Animation:
+// execute the play method:
+var filterMethodPlay = 1;
+// change style visibility (onchange):
+var filterMethodVisible = 2;
+var filterMethod = filterMethodPlay;
+
+// SectionBlock Human readable arguments and comparisons todo
+// ...................................... //
+// State Friendly Names
+var IsAtEnd = 1;
+var IsNotAtEnd = 0;
+var AtEnd = IsAtEnd;
+
+// Indicate actions is on Group (Root) or Item
+var DoNotUseRoot = 0; // Item only
+var DoUseRoot = 1; // Root only
+var DoUseBoth = 2; // Both
+var DoNotUseEither = 3; // Both
+var UseRoot = DoUseRoot;
+
+// ...................................... //
 var errorCurr = null;
 var errorMessage = 'Error handling initializing';
 var errorMessageDetail = 'initializing';
@@ -78,29 +151,29 @@ var consoleStateLogScrollCn = 0;
 var consoleLogLengthMax = 100000; // total bytes
 var consoleLogLengthTrim = 85000;
 
-var ConsoleLogAlert = true;
-// Log (mouse, other) events to events console
-
 // Ignores duplicate events. (resize, mouse)
 var ConsoleLogEventDuplicates = false;
 // AREA Debug Areas
 //      These are normalized Areas
 //      main features and components.
 // Console and error code:
-var ConsoleLogConsole = true;
+var ConsoleLogConsole = false;
 // Animation
-var ConsoleLogAnitmation = true;
+var ConsoleLogAnitmation = false;
 // Images
-var ConsoleLogImages = true;
+var ConsoleLogImages = false;
 // Menus
-var ConsoleLogMenus = true;
+var ConsoleLogMenus = false;
 // Elements
+ConsoleLogElements = false;
 // Page
+ConsoleLogPage = false;
 // Window
+ConsoleLogWindow = false;
 // Events
-var ConsoleLogEvents = true;
+ConsoleLogEvents = false;
 // Layout
-var ConsoleLogLayout = true;
+ConsoleLogLayout = false;
 // Debug Timers
 var ConsoleLogTimer = false;
 var ConsoleLogTimerMove = false;
@@ -224,8 +297,7 @@ var attributeEventMouseDown = ' onmou' + 'sedown';
 
 // Temporary
 // ...................................... //
-var DoUseScroll = true;
-var DoNotUseScroll = false; var bTemp = false;
+var bTemp = false;
 var iTemp = 0;
 var sTemp = "";
 
@@ -656,7 +728,7 @@ function EventSet(eventCurrPassed) {
         if (eventCurr.error) { eventError = eventCurr.error; }
         if (eventCurr.stack) { eventStack = eventCurr.stack; }
         //
-        if (eventCurr.bubles) {
+        if (eventCurr.bubbles) {
             eventCurr.stopPropagation();
         }
     } else { eventIsOld = true; }

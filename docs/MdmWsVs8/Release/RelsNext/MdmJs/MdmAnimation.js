@@ -30,7 +30,6 @@ var menuImageBorderWidth = 6;
 // ...................................... //
 // SectionBlock Group and Item Image Array Initialization
 // ...................................... //
-//
 // Current Image and Position
 // Current Image Index By Group
 // var imgCnByGroup = new Array(imgGroupArraySize);
@@ -40,90 +39,42 @@ var menuImageBorderWidth = 6;
 // var oObjectRowMax = new Array(imgGroupArraySize);
 // // Image Display (Visible) Locked Array
 // var menuImageLocked = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-// //
 // // First Image
+// ...................................... //
 // // First Image Offset By Group, By Top, Left
 // var menuImageOffsetFirstAll = new Array(imgGroupArraySize); // By Top, Left (2)
 // // These are layout postion patterns to be applied
 // menuImageOffsetLeftAll = new Array(imgGroupImageArraySize);
 // menuImageOffsetTopAll = new Array(imgGroupImageArraySize);
-// //
 // // Image Position
+// ...................................... //
 // // Position of Parent Image (Parent of First only stored at this time)
 // var menuImagePositionLeft = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 // var menuImagePositionTop = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 // var menuImagePositionWidth = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 // var menuImagePositionHeight = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-//
 // Animation Timer by Group by Image
 // Not currently in use
 // var menuImageTimerCn = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-// ...................................... //
 // Image Postioning Offsets - Large
+// ...................................... //
 // var menuImageOffsetLeftLarge = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 // var menuImageOffsetTopLarge = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-//
-// ...................................... //
 // Image Postioning Offsets - Small
+// ...................................... //
 // These are layout postion patterns to be applied
 // var menuImageOffsetLeftAll = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 // var menuImageOffsetTopAll = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-//
-// ...................................... //
-// Add Second Dimention (imgGroupImageArraySize)
-// for (oObjGroupIndex = 0; oObjGroupIndex < 1 + imgGroupArraySize; oObjGroupIndex++) {
-//     //
-//     // ...................................... //
-//     // First Image Offset By Group, By Top, Left
-//     menuImageOffsetFirstAll[oObjGroupIndex] = new Array(2); // By Top, Left (2)
-//     //
-//     // ...................................... //
-//     // Image Object Array
-//     menuImage[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     // Image Display (Visible) Locked Array
-//     menuImageLocked[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     // Image Position
-//     // Position of Parent Image (Parent of First only stored at this time)
-//     menuImagePositionLeft[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     menuImagePositionTop[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     menuImagePositionWidth[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     menuImagePositionHeight[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     // Animation Timer by Group by Image
-//     menuImageTimerCn[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     // Small and Large Images
-//     for (imgGroupImageIndex = 0; imgGroupImageIndex < 1 + imgGroupImageArraySize; imgGroupImageIndex++) {
-//         // Image Display (Visible) Locked Array
-//         menuImageLocked[oObjGroupIndex][imgGroupImageIndex] = new Array(2);
-//         // Image Position
-//         // Position of Parent Image (Parent of First only stored at this time)
-//         menuImagePositionLeft[oObjGroupIndex][imgGroupImageIndex] = new Array(2);
-//         menuImagePositionTop[oObjGroupIndex][imgGroupImageIndex] = new Array(2);
-//         menuImagePositionWidth[oObjGroupIndex][imgGroupImageIndex] = new Array(2);
-//         menuImagePositionHeight[oObjGroupIndex][imgGroupImageIndex] = new Array(2);
-//         // Animation Timer by Group by Image
-//         menuImageTimerCn[oObjGroupIndex][imgGroupImageIndex] = new Array(2);
-//     }
-//     // ...................................... //
-//     // Image Postioning Offsets
-//     // These are layout postion patterns to be applied
-//     menuImageOffsetLeftAll[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     menuImageOffsetTopAll[oObjGroupIndex] = new Array(imgGroupImageArraySize);
-//     //
-// }
-// oObjGroupIndex = 1;
-//
-// // ...................................... //
 // // SectionBlock Heading Image Group
 // // ...................................... //
+// oObjGroupIndex = 1;
 // var headingGroupPointer = imgGroupArraySize;
 // var headingGroupMax = 1;
 // var headingGroupCnStart = imgGroupArraySize;
 // var headingGroupCnEnd = imgGroupArraySize;
 // var headingGroupCnCurr = imgGroupArraySize;
 // imgMaxByGroup[headingGroupCnCurr] = imgGroupBoxCount;
-//
-// ..................................................................................... _//
-// ...................................... //
+
 // SectionBlock Element Movement
 // ...................................... //
 //
@@ -179,12 +130,11 @@ var moveOffsetMax = 25;
 // ...................................... //
 // Basic Options:
 // var moveIsOn = true; // Object Move From Origin to Destination
-// //
 // var filterIsOn = true; // Transition
 // var filterResizeIsOn = true; // Growing image
 // var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 // Animated Images
-////////////////////////////////////////////////
+// ...................................... //
 // Image State
 // set the following to the number of images
 // then add the correct number of img objects
@@ -285,6 +235,11 @@ var playDirectionNotPassed = null;
 
 // Filter Management
 // ...................................... //
+// Enable Filter prior to Play
+var filterValid = false;
+var filterIndexCn = 0;
+var filterSelected = new Array(5);
+//
 // Filter State
 var filterFirst = true;
 var filterRandom = "";
@@ -419,10 +374,55 @@ var filterStepMax = elMoveStepMax;
 var filterDuration = elementMoveDuration;
 var filterInterval = elementMoveInterval;
 //
-var filterMotion = 'out';
-var filterOrientation = 'vertical';
+// Motion Control
+// ...................................... //
+var filterMotionIn = new String('in');
+var filterMotionOut = new String('out');
+var filterMotionDirectionUp = new String('up');
+var filterMotionDirectionDown = new String('down');
+var filterOrientationVertical = new String('vertical');
+var filterOrientationHorizontal = new String('horizontal');
+var filterMotionDirectionLeftDown = new String('leftdown');
+var filterMotionDirectionLeftUp = new String('leftup');
+var filterMotionDirectionRightDown = new String('rightdown');
+var filterMotionDirectionRightUp = new String('rightup');
+var filterMotionDirectionForward = new String('forward');
+var filterMotionDirectionReverse = new String('reverse');
+var filterSizingMethodAuto = new String('auto expand');
+var filterStretchStylePush = new String('PUSH');
+// ...................................... //
+
+var filterMotion = filterMotionIn;
+var filterOrientation = filterOrientationVertical;
+var filterMotionDirection = filterMotionDirectionRightDown;
 //
-var filterMotionDirection = 'rightdown';
+var filterMotionDirectionSourceAngle = 0;
+//
+var filterGridSizeX = 25;
+var filterGridSizeY = 25;
+//
+var filterSquaresX = 25;
+var filterSquaresY = 25;
+//
+var filterMaxSquare = 25; // pixels
+//
+var filterStretchStyle = filterStretchStylePush; // PUSH, HIDE, SPIN
+//
+var filterSpokes = 20;
+//
+var filterWipeStyleHorzLeft = 0; // Horz Left to Right
+var filterWipeStyleVertTop = 1;
+var filterWipeStyle = filterWipeStyleHorzLeft;
+//
+var filterPixelRadius = 3;
+var filterSizingMethod = filterSizingMethodAuto;
+var filterStrength = 25;
+var filterTransition = 6;
+//
+var filterMotion = filterMotionOut;
+var filterOrientation = filterOrientationVertical;
+//
+var filterMotionDirection = filterMotionDirectionRightDown;
 //
 var filterGridSizeX = 25;
 var filterGridSizeY = 25;
@@ -449,7 +449,7 @@ var filterRealFlag = false;
 var newFilter = null;
 //
 var filterTagName = "";
-//
+
 ////////////////////////////////////////////////
 // Filter Properties
 ////////////////////////////////////////////////
@@ -459,15 +459,15 @@ var filterIndexPassed = 1;
 var filterIndex = 0;
 //
 var filterBands = 10;
-var filterDirection = "down";
+var filterDirection = filterMotionDirectionDown;
 var filterDirectionDegrees = 310;
 var filterDuration = 1;
 var filterEnabled = true;
-var filterMotion = "out";
+var filterMotion = filterMotionOut;
 var filterMotionDirection
-var filterOrientation = "vertical";
+var filterOrientation = filterOrientationVertical;
 var filterPixelRadius = 3;
-var filterSizingMethod = "auto expand";
+var filterSizingMethod = filterSizingMethodAuto;
 var filterStrength = 13;
 var filterTransition = 6;
 // Transition
@@ -779,12 +779,12 @@ function FilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
 // ..................................................................................... _//
 // Filter Enable
 // ...................................... //
-// Enable Filter prior to Play
-//
-var filterValid = false;
-var filterIndexCn = 0;
-var filterSelected = new Array(5);
-//
+// // Enable Filter prior to Play
+// //
+// var filterValid = false;
+// var filterIndexCn = 0;
+// var filterSelected = new Array(5);
+// //
 function FilterGet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
@@ -1698,7 +1698,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
     //
     timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
     //
-    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+    if (ConsoleLogTimer || ConsoleLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
             + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -2479,7 +2479,7 @@ function TimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
         }
     }
     //
-    if (UseLog && timerMoveBusy) {
+    if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
         ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
             'Timer Busy: ' + timerItemKey, 'ElementEventCheckDuplicate', 0);
     }

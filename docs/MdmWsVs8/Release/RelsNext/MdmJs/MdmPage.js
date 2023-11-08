@@ -262,6 +262,7 @@ function ElementObjectCreate() {
 	bodyBanner = ElementGetRef(bodyBanner, 'BodyBanner', 'BodyBanner');
 	bodyBannerTop = ElementGetRef(bodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
 	bodyBannerBottom = ElementGetRef(bodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
+	bodyBannerBottomFirst = false;
 	//
 	//............................................................---//
 	// Body View Toggle and Message Area Containers

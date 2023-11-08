@@ -94,6 +94,11 @@ function ElementGetRefFromElementId(elementObject, elementObjectId, elementObjec
 function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
     var elementIdCurr;
     var elementSourceIdCurr;
+    if (elementSourcePassed) {
+        elementPassed = elementSourcePassed;
+        elementPassed.style.display = elementStyleDisplayPassed;
+        return elementPassed;
+    }
     if ("id" in elementSourcePassed) {
         elementSourceIdCurr = elementSourcePassed.id;
     } else { elementSourceIdCurr = ""; }
@@ -102,19 +107,44 @@ function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePasse
     if (!elementPassed) {
         if ("id" in elementSourcePassed) {
             elementIdCurr = elementSourcePassed.id;
-        } else { elementIdCurr = ""; }
+        } else {
+            if ("name" in elementSourcePassed) {
+                elementIdCurr = elementSourcePassed.name;
+            } else {
+                elementIdCurr = "";
+            }
+        }
         //
-        if (browserIsTEST) { elementPassed = document.createElement(elementIdCurr); }
-        if (browserIsIE) { elementPassed = document.createElement(); }
-        if (browserIsFF) { elementPassed = document.createElement(elementIdCurr); } // X32
-        // elementPassed = null;
+        elementPassed = document.createElement("div");
+        // if (browserIsTEST) {
+        //     elementPassed = document.createElement(elementIdCurr);
+        // } else if (browserIsIE) {
+        //     elementPassed = document.createElement();
+        //     // elementPassed['id'] = elementIdCurr;
+        // } else {
+        //     elementPassed = document.createElement(elementIdCurr);
+        // } // X32
+        // // elementPassed = null;
     } else {
         if ("id" in elementPassed) {
             elementIdCurr = elementPassed.id;
-        } else { elementIdCurr = ""; }
+        } else {
+            if ("name" in elementPassed) {
+                elementIdCurr = elementPassed.name;
+            } else {
+                elementIdCurr = "";
+            }
+        }
     }
     // Copy Source to Destination Element (Inner HTML, Events)
     if (elementPassed != null && elementSourcePassed != null) {
+        // if ("id" in elementSourcePassed) {
+        //     elementPassed.id = elementSourcePassed.id;
+        // }
+        if ("name" in elementSourcePassed) {
+            elementPassed.name = elementSourcePassed.name;
+        }
+        //
         if (elementLayoutFirstPassed) {
             if ("innerHTML" in elementPassed && "innerHTML" in elementSourcePassed) {
                 // Copy HTML
@@ -303,18 +333,20 @@ function ElementGetFromId(IdPassed) {
         // error
         return;
     }
-    if (browserIsTEST) {
-        // browserIsTEST
-        elementObject = window.document.querySelector(elementNamePassed);
-        if (!elementObject) { elementObject = document.getElementById(IdPassed); }
-    } else if (browserIsIE || browserIsFF) {
+    if (browserIsIE || browserIsEdge || browserIsFF || browserIsCH || browserIsSA) {
         // browserIE or browserIsFF
         // elementObjectResult = window.document.querySelector(IdPassed)
         elementObject = document.getElementById(IdPassed);
+        // what version?
         if (!elementObject) { elementObject = window.document.querySelector(IdPassed); }
+    } else if (browserIsTEST) {
+        // browserIsTEST
+        elementObject = window.document.querySelector(IdPassed);
+        if (!elementObject) { elementObject = document.getElementById(IdPassed); }
     } else {
         // elementObject = document.getElementById(IdPassed);
         elementObject = window.document.querySelector(IdPassed)
+        if (!elementObject) { elementObject = document.getElementById(IdPassed); }
     }
     return elementObject;
 }

@@ -44,7 +44,7 @@ var filterResizeIsOn = true; // Growing image
 var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 
 // Mouse Hover activation of image display
-var eventMouseOverEnabled = false;
+var eventMouseOverEnabled = true;
 // Type of Image Group Page Generation
 var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
@@ -71,25 +71,39 @@ errorResultOnFail = errorDidNotOccur;
 // AREA Debug.
 // This AREA is for controlling javascript debugging.
 // ...................................... //
+// STANDARD VARIABLES
+// ...................................... //
+// UseDebug means differenct things depending on context
+// i.e. it may refer to debugging or to content button target selection
 // Important fields: PageBuild, PageMode
-UseDebug = DoUseDebug; // FLAG ON!!! todo
-debugDoAlert = false;
 // Load - Steps through loading script files
+// Error debug Handling
 debugLoadIsOn = false;
 script_state = "debugLoadIsOn is" + debugLoadIsOn;
+//
+UseLog = DoUseLog;
+UseDebug = DoUseDebug;
 
-// Error debug Handling
-// Use debugger on error. This toggle can be on by default
-errorUseDebugOnError = true; // FLAG ON!!! todo // enter debugger on errors
+// Display messages using alerts.
+ConsoleLogAlert = errorDoAlert;
+
+// Enter debugger on errors
+errorUseDebugOnError = false;
 // Use debugger on ALL messages.
-errorUseDebugOnAll = false; // FLAG OFF!!! todo // enter debugger after any message
+errorUseDebugOnAll = false;
 
-ConsoleLogAlert = true;
-// Log (mouse, other) events to events console
+// for current event processing
+errorUseDebug = false;
+debugDoAlert = false;
 
+// Format messages on a SingleLine
+UseSingleLine = DoNotUseSingleLine;
+UseScroll = DoUseScroll;
 // Ignores duplicate events. (resize, mouse)
 ConsoleLogEventDuplicates = false;
+
 // AREA Debug Areas
+// ...................................... //
 //      These are normalized Areas
 //      main features and components.
 // Console and error code:
@@ -101,16 +115,19 @@ ConsoleLogImages = true;
 // Menus
 ConsoleLogMenus = true;
 // Elements
+ConsoleLogElements = true;
 // Page
+ConsoleLogPage = true;
 // Window
+ConsoleLogWindow = true;
 // Events
 ConsoleLogEvents = true;
 // Layout
 ConsoleLogLayout = true;
 // Debug Timers
-ConsoleLogTimer = false;
-ConsoleLogTimerMove = false;
-ConsoleLogTimerTransition = false;
+ConsoleLogTimer = true;
+ConsoleLogTimerMove = true;
+ConsoleLogTimerTransition = true;
 ConsoleLogTimerDetail = false;
 
 // AREA Error Severity
@@ -133,7 +150,6 @@ errorSeverityLevel = errorDidNotOccur;
 // ...................................... //
 // DoFindSet = 1
 // DoFindReturn = 2;
-
 // Error Options
 // ...................................... //
 // errorDoDisplayTag = true; // or override
@@ -282,43 +298,23 @@ var playDirection = playDirectionForward;
 // Animation Transition Control:
 // ...................................... //
 // (See TimerDurationSet for default filter values)
-// var filterDurationOverride = false;
-var filterDuration = 0;
-var filterStepMin = 0;
-var filterStepMax = 0;
-var filterInterval = 0;
-var filterDelay = 0;
+filterDurationOverride = false;
+filterDuration = 0;
+filterStepMin = 0;
+filterStepMax = 0;
+filterInterval = 0;
+filterDelay = 0;
 
-// Usually filterDuration is the same as
-// elementDuration plus an adjustment.
-// a non-zero value indicates this
-// feature is on. Usually this adjustment
-// is one additional second.
-// indicates use default:
-var filterDurationAdjustment = -0.001;
-// Methodology to Invoke Animation:
-// execute the play method:
-var filterMethodPlay = 1;
-// change style visibility (onchange):
-var filterMethodVisible = 2;
-// Methodology to Invoke Animation:
-var filterMethodPlay = 1; // execute the play method
-var filterMethodVisible = 2; // change style visibility (onchange)
-var filterMethod = filterMethodPlay;
-
-// SectionBlock Human readable arguments and comparisons todo
+// Filter Settings for Animation
 // ...................................... //
-// State Friendly Names
-var IsAtEnd = 1;
-var IsNotAtEnd = 0;
-var AtEnd = IsAtEnd;
-
+filterDurationAdjustment = -0.001;
+// Methodology to Invoke Animation:
+filterMethod = filterMethodPlay;
 // Indicate actions is on Group (Root) or Item
-var DoNotUseRoot = 0; // Item only
-var DoUseRoot = 1; // Root only
-var DoUseBoth = 2; // Both
-var DoNotUseEither = 3; // Both
-var UseRoot = DoUseRoot;
+UseRoot = DoUseRoot;
+
+// State Friendly Names
+AtEnd = IsAtEnd;
 
 // Column Management
 // Layout Font, Blocks, Columns and Callouts
@@ -375,8 +371,9 @@ var layoutIsWide = false;
 var layoutIsStandard = true;
 
 // (the content pane)
-// ...................................... //
+
 // Browser viewport
+// ...................................... //
 var layoutWindowViewportDoInit = true;
 // The initial and minimum sizes for the Window (Viewport)
 var layoutWindowViewportWidth = 600;
@@ -387,6 +384,8 @@ var layoutWindowViewportHeightMin = 100;
 var layoutDocumentWidthMin = 900; // px (only for documents)
 var layoutDocumentWidthMax = 10000; // px (when landscape mode kicks in)
 
+// Document and Paragraph min/max
+// ...................................... //
 // These are all in pixels unless otherwise stated
 // Resize should take this into account.
 // Absolute maximums (for reading)
@@ -399,8 +398,8 @@ var layoutParaWidthMin = 200;
 
 // Columns across page
 // ...................................... //
-var layoutBodyColumnMax = 4; // todo s/b 4 (works)
-var layoutBodyColumnType1 = true;
+var layoutBodyColumnMax = 4; // (the curr maximum)
+var layoutBodyColumnType1 = true; // what is this?
 
 // Left and Right (Menu usage) are optional
 var bodyMainLeftVisible = true;

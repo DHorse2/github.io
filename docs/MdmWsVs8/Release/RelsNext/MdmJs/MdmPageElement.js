@@ -684,7 +684,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (ConsoleLogTimer || ConsoleLogTimerTransition) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Show', oObjGroupIndex, oObjGroupImageIndex)
 			+ ', ' + oObjNext.id

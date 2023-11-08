@@ -19,7 +19,7 @@
 	<link id="MdmMainStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmMain.css">
 	<link id="ShortcutIcon" rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
 	<link id="ShortcutIconApple" rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
-	<link id="MdmDebugTagHoverStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmDebugTagHover.css">
+	<link id="MdmDebugTagHoverStyles" rel="stylesheet" type="text/css" href="../Css/MdmDebugTagHover.css">
 	<!-- // Script -->
 	<!-- // 	Load -->
 	<!-- //			Build Version -->
@@ -80,86 +80,78 @@
 					<!-- Layout Area 1 (Left) of 2 -->
 					<div id="BodyMenuLayout1" class="BodyMenuLayout1 BodyMenuLayout">
 						<!-- * Left Column Content ** -->
+						<!-- ..................................................................................... -->
+						<div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
 							<!-- ..................................................................................... -->
-							<div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
-								<!-- ..................................................................................... -->
-								<div id="ViewToggleBar" class="ViewToggleBar">
-									<!-- View -->
-									<div id="BodyConsoleViewButton"
-										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-										<div id="BodyLayoutToggle"
-											class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin "
-											onmousedown="LayoutNext(0);">
-											View
-										</div>
+							<div id="ViewToggleBar" class="ViewToggleBar">
+								<!-- View -->
+								<div id="BodyConsoleViewButton"
+									class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+									<div id="BodyLayoutToggle"
+										class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin "
+										onmousedown="LayoutNext(0);">
+										View
 									</div>
-									<!-- ..................................................................................... -->
-									<!-- Font -->
-									<div id="BodyConsoleFontSmallerButton"
+								</div>
+								<!-- ..................................................................................... -->
+								<!-- Font -->
+								<div id="BodyConsoleFontButtons" class="ViewToggleBlockContainerOuterTopZero">
+									<div id="BodyConsoleFontToggles"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+										<!-- <div id="BodyConsoleFontSize" class="ViewToggleBlockContainer"> -->
 										<div id="BodyLayoutFontSmaller"
-											class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin "
+											class="BodyConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
 											onmousedown="LayoutFontSizeSmaller();">
 											-
 										</div>
-									</div>
-									<div id="BodyConsoleFontResetButton"
-										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyLayoutFontReset"
-											class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin "
+											class="BodyConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
 											onmousedown="LayoutFontSizeReset();">
 											F
 										</div>
-									</div>
-									<div id="BodyConsoleFontBiggerButton"
-										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyLayoutFontBigger"
-											class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin "
+											class="BodyConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
 											onmousedown="LayoutFontSizeBigger();">
 											+
 										</div>
+										<!-- </div> -->
 									</div>
-									<!-- ..................................................................................... -->
-									<!-- Move -->
-									<div id="BodyConsoleMouseOverButton"
+								</div>
+								<!-- ..................................................................................... -->
+								<!-- Move -->
+								<div id="BodyConsoleMouseOverButton"
+									class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+									<div id="BodyConsoleMouseOverToggle"
+										class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
+										onmousedown="BodyConsoleToggle(true, 'ConsoleMouseOver');">
+										MoOv
+									</div>
+								</div> <!-- end of BodyConsoleMouseOverButton -->
+								<!-- ..................................................................................... -->
+								<!-- Console -->
+								<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
+									<div id="BodyConsoleBoxToggles"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-										<div id="BodyConsoleMouseOverToggle"
-											class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(true, 'ConsoleMouseOver');">
-											MoOv
+										<div id="BodyConsoleToggle"
+											class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin"
+											onmousedown="BodyConsoleToggle(true, 'ConsoleAll');">
+											C
 										</div>
-									</div> <!-- end of BodyConsoleMouseOverButton -->
-									<!-- ..................................................................................... -->
-									<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
-										<div id="BodyConsoleBoxToggles"
-											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleBoxButton" class="ViewToggleBlockContainer">
-												<div id="BodyConsoleToggle"
-													class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin"
-													onmousedown="BodyConsoleToggle(true, 'ConsoleAll');">
-													C
-												</div>
-											</div> <!-- end of BodyConsoleBoxButton -->
-											<!-- * -->
-											<div id="BodyConsoleLogToggles" class="ViewToggleBlockContainer">
-												<div id="BodyConsoleErrorToggle"
-													class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleError');">
-													e
-												</div>
-												<div id="BodyConsoleEventToggle"
-													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleEvent');">
-													v
-												</div>
-												<div id="BodyConsoleStateToggle"
-													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleState');">
-													s
-												</div>
-											</div> <!-- end of BodyConsoleLogToggles -->
-										</div> <!-- end of BodyConsoleBoxToggles -->
-										<!-- * -->
+										<div id="BodyConsoleErrorToggle"
+											class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
+											onmousedown="BodyConsoleToggle(true, 'ConsoleError');">
+											e
+										</div>
+										<div id="BodyConsoleEventToggle"
+											class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+											onmousedown="BodyConsoleToggle(true, 'ConsoleEvent');">
+											v
+										</div>
+										<div id="BodyConsoleStateToggle"
+											class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+											onmousedown="BodyConsoleToggle(true, 'ConsoleState');">
+											s
+										</div>
 										<div id="BodyConsoleAuxillaryToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleTestToggle"
@@ -173,33 +165,29 @@
 												c
 											</div>
 										</div> <!-- end of BodyConsoleAuxillaryToggles -->
-									</div> <!-- end of BodyConsoleBoxButtons -->
-									<!-- ..................................................................................... -->
-									<div id="BodyConsoleDebugButtons" class=" ViewToggleBlockContainerOuterTopZero">
-										<!-- Note: No Hide for buttons -->
-										<div id="BodyConsoleDebugToggles"
-											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleDebugButton" class="ViewToggleBlockContainer">
-												<div id="BodyConsoleDebugToggle"
-													class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleDebug');">
-													D
-												</div>
-											</div> <!-- end of BodyConsoleDebugButton -->
-											<!-- * -->
-											<div id="BodyConsoleDebugMainToggles" class="ViewToggleBlockContainer">
-												<div id="BodyConsoleDebugOnErrorToggle"
-													class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleDebugOnError');">
-													o
-												</div>
-												<div id="BodyConsoleDebugAllToggle"
-													class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-													onmousedown="BodyConsoleToggle(true, 'ConsoleDebugAll');">
-													a
-												</div>
-											</div> <!-- end of BodyConsoleDebugMainToggles -->
-										</div> <!-- end of BodyConsoleDebugToggles -->
+									</div> <!-- end of BodyConsoleBoxToggles -->
+								</div> <!-- end of BodyConsoleBoxButtons -->
+								<!-- ..................................................................................... -->
+								<!-- Debug -->
+								<div id="BodyConsoleDebugButtons" class=" ViewToggleBlockContainerOuterTopZero">
+									<!-- Note: No Hide for buttons -->
+									<div id="BodyConsoleDebugMainToggles"
+										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+										<div id="BodyConsoleDebugToggle"
+											class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
+											onmousedown="BodyConsoleToggle(true, 'ConsoleDebug');">
+											D
+										</div>
+										<div id="BodyConsoleDebugOnErrorToggle"
+											class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
+											onmousedown="BodyConsoleToggle(true, 'ConsoleDebugOnError');">
+											o
+										</div>
+										<div id="BodyConsoleDebugAllToggle"
+											class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+											onmousedown="BodyConsoleToggle(true, 'ConsoleDebugAll');">
+											a
+										</div>
 										<!-- * -->
 										<div id="BodyConsoleDebugTypesToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
@@ -224,13 +212,14 @@
 												v
 											</div>
 										</div> <!-- end of BodyConsoleDebugTypesToggles -->
-									</div> <!-- end of BodyConsoleDebugButtons -->
-									<!-- ..................................................................................... -->
-								</div> <!-- end of View Toggle Left -->
-								<br id="BrViewToggleLeft" class="aClearBoth">
+									</div> <!-- end of BodyConsoleDebugMainToggles -->
+								</div> <!-- end of BodyConsoleDebugButtons -->
 								<!-- ..................................................................................... -->
 							</div> <!-- end of View Toggle Left -->
+							<br id="BrViewToggleLeft" class="aClearBoth">
 							<!-- ..................................................................................... -->
+						</div> <!-- end of View Toggle Left -->
+						<!-- ..................................................................................... -->
 						<!-- Menu Box 1 ..................................................................................... -->
 						<!-- MenuGroup1 -->
 						<!-- 1 -->
@@ -657,17 +646,15 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									// ??? href? todo not working Console Form
 								-->
 								<!-- <div id="BodyConsoleTestBoxInclude"> -->
-									<!-- <div class="w3-include"
+								<!-- <div class="w3-include"
 									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
 									w3-include-mode="Dev"
 									w3-include-release="Any"
 									w3-include-attributes=""
 									></div> -->
-									<div id="MdmPtConsoleForm"
-										class="BodyConsoleTestTextBox CalloutBorderFull f10"
-										name="MdmPtConsoleForm"
-									></div>
-									<!-- </object>
+								<div id="MdmPtConsoleForm" class="BodyConsoleTestTextBox CalloutBorderFull f10"
+									name="MdmPtConsoleForm"></div>
+								<!-- </object>
 									<object id="MdmPtConsoleForm"
 										loading="eager"
 										class="BodyConsoleTestTextBox CalloutBorderFull"
@@ -676,23 +663,23 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 										type="text/html"
 									>
 									</object> -->
-									<!-- <div class="w3-include"
+								<!-- <div class="w3-include"
 									w3-include-html-file="file:///G:/m/d/Code/mdGitHub/io/github.io/docs/MdmWsVs8/Release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"
 									w3-include-mode="Dev"
 									w3-include-release="Any"
 									w3-include-attributes=""
 									></div> -->
-									<!-- ** Console Blocks ** -->
-									<!-- different UI for Current and Next Releases Console -->
-									<!--#include virtual="../../PageBuildStage.js"-->
-									<!--#if expr="${PageBuild}=RelsNext" -->
-									<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"-->
-									<!--#elif expr="${PageBuild}=RelsCurr" -->
-									<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtConsoleForm.shtml"-->
-									<!--#else -->
-									<!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
-									<!--#include virtual="/release/RelsNotSetError.htm"-->
-									<!--#endif -->
+								<!-- ** Console Blocks ** -->
+								<!-- different UI for Current and Next Releases Console -->
+								<!--#include virtual="../../PageBuildStage.js"-->
+								<!--#if expr="${PageBuild}=RelsNext" -->
+								<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"-->
+								<!--#elif expr="${PageBuild}=RelsCurr" -->
+								<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtConsoleForm.shtml"-->
+								<!--#else -->
+								<!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
+								<!--#include virtual="/release/RelsNotSetError.htm"-->
+								<!--#endif -->
 								<!-- </div> end of Test Box Input -->
 								<!-- * -->
 								<br id="BrBodyConsoleTest1" class="aClearBoth">
@@ -775,78 +762,102 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!-- -->
 							<!-- Callout Content Expansion -->
 							<ul id="DivCalloutB15C1L1" class="BodyPara BodyParaLast BodyList lNumbered CPP">
-								<li id="DivCalloutB15C1L1I1" class="BodyListItem lNumbered ">
-									<span class="eB">View:</span>
+								<li id="DivCalloutB15C1L1IView" class="BodyListItem lNumbered ">
+									<span class="eB">(V)iew:</span>
+									Hide the menus or move them.
 									There are four different layouts that the user can use for the page.
 									The view button switches between them with each click.
+									It cycles the menu view showing to the side, hidden, top, bottom.
 								</li>
-								<li id="DivCalloutB15C1L1I3" class="BodyListItem lNumbered ">
-									<span class="eB">Mouse Over:</span>
-									When Mouse Over is turned on pointing the mouse at any menu choice
-									will cause the thumbnail picture to be displayed for that menu item.
+								<li id="DivCalloutB15C1L1IMouseOver" class="BodyListItem lNumbered ">
+									<span class="eB">(M)ouse Over:</span>
+									Toggles image Animation.
+									When Mouse Over is turned on pointing the mouse at any menu
+									choice will cause the thumbnail picture to be displayed for that menu item.
 								</li>
-								<li id="DivCalloutB15C1L1I4" class="BodyListItem lNumbered ">
-									<span class="eB">Debug:</span>
-									You can turn all of the debug features on or off using this button.
-									<!-- -->
-									<ul id="DivCalloutB15C1L2" class="BodyList lB0 ">
-										<li id="DivCalloutB15C1L2I1" class="BodyListItem lB0 ">
-											<span class="eB">On Error:</span>
-											Any error will cause the browser to enter the debugger.
-										</li>
-										<li id="DivCalloutB15C1L2I2" class="BodyListItem lB0 ">
-											<span class="eB">On All:</span>
-											Any message will cause the browser to enter the debugger.
-										</li>
-										<li id="DivCalloutB15C1L2I3" class="BodyListItem lB0 ">
-											<span class="eB">Move:</span>
-											Generates trace and debug messages for any animated move.
-										</li>
-										<li id="DivCalloutB15C1L2I4" class="BodyListItem lB0 ">
-											<span class="eB">Transitions and Filters:</span>
-											Generates trace and debug messages for the transition effects.
-										</li>
-										<li id="DivCalloutB15C1L2I5" class="BodyListItem lB0 ">
-											<span class="eB">Details:</span>
-											Performs detailed rather than summary tracing.
-											Typically detaile mode applies to menu items where as summary mode refers
-											to the group of menu items.
-										</li>
-										<li id="DivCalloutB15C1L2I6" class="BodyListItem lB0 ">
-											<span class="eB">eVents:</span>
-											Generates trace and debug messages for mouse events.
-										</li>
-									</ul><!-- * End of DivCalloutB15C1L2-->
-									<!-- -->
-								</li>
-								<li id="DivCalloutB15C1L1I5" class="BodyListItem lNumbered ">
-									<span class="eB">Console:</span>
-									You can hide or show the console using this button.
+								<li id="DivCalloutB15C1L1IFonts" class="BodyListItem lNumbered ">
+									<span class="eB">Font Size:</span>
+									Adjust the font size.
 									<!-- -->
 									<ul id="DivCalloutB15C1L3" class="BodyList lB0 ">
 										<li id="DivCalloutB15C1L3I1" class="BodyListItem lB0 ">
-											<span class="eB">Error window:</span>
-											Shows or hides the Error Messages Window.
+											<span class="eB">(-):</span>
+											Smaller.
 										</li>
 										<li id="DivCalloutB15C1L3I2" class="BodyListItem lB0 ">
-											<span class="eB">eVent window:</span>
-											Shows or hides the Mouse Event Messages Window.
+											<span class="eB">(F)ont reset:</span>
+											Reset to the default font size.
 										</li>
 										<li id="DivCalloutB15C1L3I3" class="BodyListItem lB0 ">
-											<span class="eB">State window:</span>
+											<span class="eB">(+):</span>
+											Larger.
+										</li>
+									</ul><!-- * End of DivCalloutB15C1L3-->
+									<!-- -->
+								</li>
+								<li id="DivCalloutB15C1L1IConsole" class="BodyListItem lNumbered ">
+									<span class="eB">(C)onsole:</span>
+									You can hide or show the console using this button.
+									<!-- -->
+									<ul id="DivCalloutB15C1L4" class="BodyList lB0 ">
+										<li id="DivCalloutB15C1L4I1" class="BodyListItem lB0 ">
+											<span class="eB">(e)rror window:</span>
+											Shows or hides the Error/Logging Messages Window.
+										</li>
+										<li id="DivCalloutB15C1L4I2" class="BodyListItem lB0 ">
+											<span class="eB">E(v)ent window:</span>
+											Shows or hides the Mouse Event Messages Window.
+										</li>
+										<li id="DivCalloutB15C1L4I3" class="BodyListItem lB0 ">
+											<span class="eB">(s)tate window:</span>
 											Shows or hides the State Management Window.
 											This window also includes the form that allows changes to the various
 											internal program controls and features.
 										</li>
-										<li id="DivCalloutB15C1L3I4" class="BodyListItem lB0 ">
-											<span class="eB">Test the console:</span>
-											This button sends a test message to the console.
+										<li id="DivCalloutB15C1L4I4" class="BodyListItem lB0 ">
+											<span class="eB">(T)est the console:</span>
+											Test the debug console message, error and type handling.
+											This button sends test output to the console.
 										</li>
-										<li id="DivCalloutB15C1L3I5" class="BodyListItem lB0 ">
-											<span class="eB">Clear the console:</span>
+										<li id="DivCalloutB15C1L4I5" class="BodyListItem lB0 ">
+											<span class="eB">(c)lear the console:</span>
 											Clicking this button clears the messages from the display console.
 										</li>
-									</ul><!-- * End of DivCalloutB15C1L3-->
+									</ul><!-- * End of DivCalloutB15C1L4-->
+									<!-- -->
+								</li>
+								<li id="DivCalloutB15C1L1IDebug" class="BodyListItem lNumbered ">
+									<span class="eB">(D)ebug:</span>
+									You can turn all of the debug features on or off using this button.
+									<!-- -->
+									<ul id="DivCalloutB15C1L2" class="BodyList lB0 ">
+										<li id="DivCalloutB15C1L2I1" class="BodyListItem lB0 ">
+											<span class="eB">(o)n Error:</span>
+											Enter the debuger after any ERROR.
+										</li>
+										<li id="DivCalloutB15C1L2I2" class="BodyListItem lB0 ">
+											<span class="eB">On (a)ll:</span>
+											Enter the debuger after any MESSAGE.
+										</li>
+										<li id="DivCalloutB15C1L2I3" class="BodyListItem lB0 ">
+											<span class="eB">(m)ovement:</span>
+											Generates trace and debug messages for any animated move.
+										</li>
+										<li id="DivCalloutB15C1L2I4" class="BodyListItem lB0 ">
+											<span class="eB">(t)ransitions and Filters:</span>
+											Generates trace and debug messages for the transition effects.
+										</li>
+										<li id="DivCalloutB15C1L2I5" class="BodyListItem lB0 ">
+											<span class="eB">(d)etails:</span>
+											Outputs detailed verbose messages rather than summary tracing.
+											Typically detaile mode applies to menu items where as summary mode refers
+											to the group of menu items.
+										</li>
+										<li id="DivCalloutB15C1L2I6" class="BodyListItem lB0 ">
+											<span class="eB">E(v)ents:</span>
+											Generates trace and debug messages for (mouse) events.
+										</li>
+									</ul><!-- * End of DivCalloutB15C1L2-->
 									<!-- -->
 								</li>
 							</ul><!-- * End of DivCalloutB15C1L1-->
@@ -854,32 +865,28 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<h4 id="DivCalloutB15C1H1" class="h4 CPP">
 								Whats missing:
 							</h4>
-							<ul id="DivCalloutB15C1L4" class="BodyList lB0 CPP">
-								<li id="DivCalloutB15C1L4I1" class="BodyListItem lB0 ">
+							<ul id="DivCalloutB15C1L5" class="BodyList lB0 CPP">
+								<li id="DivCalloutB15C1L5I1" class="BodyListItem lB0 ">
 									<span class="eB">Large image zoom:</span>
 									(Refers to the larger image that appears when you click a thumbnail.)<br>
 									Planned to zoom in and out with the frame sized fixed.
 								</li>
-								<li id="DivCalloutB15C1L4I2" class="BodyListItem lB0 ">
+								<li id="DivCalloutB15C1L5I2" class="BodyListItem lB0 ">
 									<span class="eB">Large image full screen:</span>
 									This would either fill the window with the image or do so and switch to full screen
 									mode.
 								</li>
-								<li id="DivCalloutB15C1L4I3" class="BodyListItem lB0 ">
+								<li id="DivCalloutB15C1L5I3" class="BodyListItem lB0 ">
 									<span class="eB">Hide Thumnails:</span>
 									This would hide or show all thumbnail and large images but would otherwise not
 									change them.
 								</li>
-								<li id="DivCalloutB15C1L4I4" class="BodyListItem lB0 ">
-									<span class="eB">Font Size Adjust:</span>
-									An adjustment control for fonts.
-								</li>
-								<li id="DivCalloutB15C1L4I5" class="BodyListItem lB0 ">
+								<li id="DivCalloutB15C1L5I5" class="BodyListItem lB0 ">
 									<span class="eB">Clear all images:</span>
 									Clicking this button clears all large and thumbnail images
 									currently being displayed.<br>
 								</li>
-								<li id="DivCalloutB15C1L4I6" class="BodyListItem lB0 ">
+								<li id="DivCalloutB15C1L5I6" class="BodyListItem lB0 ">
 									<span class="eB">Recalculate and display all images:</span>
 									This is a button but mainly a function called that recalculates
 									the position all large and thumbnail images currently displayed.<br>
@@ -887,7 +894,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									errors.<br>
 									It requires at least the retention of previous state to be efficient.
 								</li>
-							</ul><!-- * End of DivCalloutB15C1L4-->
+							</ul><!-- * End of DivCalloutB15C1L5-->
 							<!-- -->
 							<!-- -->
 						</div>
@@ -1253,11 +1260,14 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							</li>
 							<li id="B15P5L4I3" class="BodyListItem lB0 ">
 								Additionally, it provides over 10,000 lines of javascript, HTML and style sheets for
-								educational purposes.
+								educational purposes. It is entirely POJ; particularly exploring what can be done within
+								that limitation.
 							</li>
 							<li id="B15P5L4I4" class="BodyListItem lB0 ">
 								Also, it provided further research for my document, web and coding standards.
-								(Particularly, verbose coding techniques and web POSH strategies.)
+								Particularly, verbose coding techniques and web strategies leveraging client side
+								resourses.
+								This is a proto-type set of templates; currently hand-coded but intended for a web UI.
 							</li>
 							<li id="B15P5L4I5" class="BodyListItem lB0 ">
 								Further, it provided a moderately complex and adjustable application suitable for
@@ -1567,17 +1577,17 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 				<!-- * -->
 				<!-- * -->
 				<div id="BodyBannerBottom">
-					<!-- ** Blocks ** -->
+					<!-- ** Blocks todo ** -->
 					<object id="MdmPtConsoleBannerBottom" class="BodyBannerBottomBox CalloutBorderFull"
 						name="MdmPtDocBottom" type="text/html" data="../TemplatePage/MdmPtDocBottom.shtml"
-						src="../TemplatePage/MdmPtConsoleForm.shtml"></object>
+						src="../TemplatePage/MdmPtDocBottom.shtml"></object>
 					<!--#include virtual="../../PageBuildStage.js"-->
 					<!--#if expr="${PageBuild}=RelsNext" -->
-					<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+					<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtDocBottom.shtml"-->
 					<!--#elif expr="${PageBuild}=RelsCurr" -->
-					<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+					<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtDocBottom.shtml"-->
 					<!--#else -->
-					<!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+					<!--#include virtual="../../TemplatePage/MdmPtDocBottom.shtml"-->
 					<!--#include virtual="/release/RelsNotSetError.htm"-->
 					<!--#endif -->
 					<br>
@@ -1731,7 +1741,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 	</div>
 	<!-- end of BodyImageContainer -->
 	<!-- Section BodyMenuImageContainer -->
-	<div id="BodyImageMenuContainer" class="BodyImageContainer">
+	<div id="BodyMenuImageContainer" class="BodyImageContainer">
 		<!-- onmousedown="ElementEventMouse(event);"  -->
 		<!-- onmouseover="ElementEventMouse(event);"  -->
 		<!-- onmouseout="ElementEventMouse(event);" -->

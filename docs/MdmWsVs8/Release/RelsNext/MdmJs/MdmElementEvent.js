@@ -136,7 +136,7 @@ function ElementEventMouse(e) {
 	// Objects
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
-	if (ConsoleLogEvents) {
+    if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Mouse Event', 'ElementEventMouse', 7993);
 	}
@@ -312,8 +312,9 @@ function ElementEventCurrRootObjSet() {
 					// i.e. 'BodyImageContainer'
 					// 'Body*' images behave differently
 					//  or  'BodyImageContainer'
-					if ((eventCurrRootObj.parentNode.id).substr(0, 4) = 'Body') {
-						loopContinue = false;
+					if (eventCurrRootObj.parentNode.id.toString().substr(0, 4) = 'Body') {
+					// if ((eventCurrRootObj.parentNode.id).substr(0, 4) = 'Body') {
+							loopContinue = false;
 					} else {
 						eventCurrRootObj = eventCurrRootObj.parentNode;
 						tmpMax--;
@@ -392,7 +393,8 @@ function ElementEventCheckDuplicate(UseLog) {
 			IsDuplicate = false; break;
 	}
 	//
-	if (UseLog && IsDuplicate && ConsoleLogEventDuplicates) {
+    if (UseLog && (ConsoleLogEvents || timerMoveBusy)
+		&& IsDuplicate && ConsoleLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Duplicate Event', 'ElementEventCheckDuplicate', 0);
 	}

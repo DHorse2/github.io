@@ -12,7 +12,7 @@ var errorDebugLevel = errorIsSevere;
 var errorSeverity = errorDidNotOccur;
 var errorSeverityLevel = errorDidNotOccur;
 var errorSeverityHighest = errorDidNotOccur;
-var errorDoDebug = false;
+
 // Message Colors
 var errorSeverityColorFatal = 'Red';
 var errorSeverityColorFatalBg = 'Black';
@@ -181,6 +181,8 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
+    errorUseDebug = UseDebugPassed;
+
     errorMessage = '';
     errorMessageDetail = '';
     errorSeverityDescription = '';
@@ -195,12 +197,10 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     ErrorSet(eventCurrPassed);
 
     ErrorMessageDetail = ErrorMessageGet(UseSingleLinePassed);
-
     // if (!UseSingleLinePassed && ErrorMessage.length > 30 || errorSeverityPassed >= errorIsSevere) {
     //     ErrorMessage += charNewLineTag + charTextIndent;
     // }
-    // //
-    errorDoDebug = false;
+    //
     // Error Severity Level
     if (errorSeverityPassed >= errorIsFatal) {
         errorSeverityDescription = 'FATAL Error!!!';
@@ -208,26 +208,26 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
         errorSeverityLevel = errorIsFatal;
         errorSeverityColor = errorSeverityColorFatal;
         errorSeverityColorBg = errorSeverityColorFatalBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+        if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
     } else if (errorSeverityPassed >= errorIsSevere) {
         errorSeverityDescription = 'SEVERE Error!!';
         errorSeverityLevel = errorIsSevere;
         errorSeverityColor = errorSeverityColorSevere;
         errorSeverityColorBg = errorSeverityColorSevereBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+        if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
     } else if (errorSeverityPassed >= errorIsWarning) {
         errorSeverityDescription = 'Warning!';
         errorSeverityLevel = errorIsWarning;
         errorSeverityColor = errorSeverityColorWarn;
         errorSeverityColorBg = errorSeverityColorWarnBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+        if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
     } else {
         // errorIsComment:
         errorSeverityDescription = 'Comment,';
         errorSeverityLevel = errorDidNotOccur;
         errorSeverityColor = errorSeverityColorComment;
         errorSeverityColorBg = errorSeverityColorCommentBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+        if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
     }
     //
     ErrorMessage = errorSeverityDescription + ' ' + messagePassed;
@@ -249,7 +249,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
         // don't know what to do here...
     } else {
         //
-        if (!elementPassed && !elementSourcePassed) { errorDoDebug = true; }
+        if (!elementPassed && !elementSourcePassed) { errorUseDebug = DoUseDebug; }
 
         if (elementPassed) {
             ErrorMessageDetail += '. ';
@@ -301,7 +301,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     //     ErrorMessageDetail += charNewLineTag + charTextIndent;
     // }
     //
-    // if (errorUseDebugOnAll || errorDoDebug && DoUseDebug) {
+    // if (errorUseDebugOnAll || errorUseDebug && DoUseDebug) {
     //     // debugger;
     //     WindowErrorDebug(eventCurrPassed, ErrorMessageDetail, eventFileName, eventFileColumn);
     // }
@@ -368,12 +368,12 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
     // error Object: description Property | message Property | name Property | number Property
     // event Object: returnValue srcElement type
     //
-    errorDoDebug = false;
+    errorUseDebug = DoNotUseDebug;
     // if (!eventFileLinePassed) { eventFileLinePassed = -1; }
     if (!eventFileNamePassed) { eventFileNamePassed = 'no url available'; }
     if (!messagePassed) {
         messagePassed = 'NO ERROR MESSAGE AVAILABLE!!!';
-        errorDoDebug = true;
+       DoUseDebug;
     }
     //
     if (eventCurrPassed) {
@@ -492,7 +492,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     //
-    errorDoDebug = false;
+    errorUseDebug = DoNotUseDebug;
     errorSeverityColor = errorSeverityColorComment;
     errorSeverityColorBg = errorSeverityColorCommentBg;
     // if (!elementPassed) { elementPassed = null; }
@@ -613,9 +613,9 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     }
     messageFinal = messageTemp + messageFinal;
     //
-    if (errorUseDebugOnAll) { errorDoDebug = true; } else {
-        // if (errorUseDebugOnError) { errorDoDebug = true; } else {
-        if (UseDebugPassed) { errorDoDebug = true; }
+    if (errorUseDebugOnAll) { errorUseDebug = DoUseDebug; } else {
+        // if (errorUseDebugOnError) { errorUseDebug = DoUseDebug; } else {
+        if (UseDebugPassed) { errorUseDebug = DoUseDebug; }
         // }
     }
     //
@@ -719,12 +719,12 @@ function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
         // can't happen?
     }
     // Alert
-    if (errorDoAlertPassed || !consoleErrorTextBox) {
+    if (errorDoAlertPassed || debugDoAlert || !consoleErrorTextBox) {
         alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine));
     }
     //
     // Abort & Debug
-    if (errorDoDebug) {
+    if (errorUseDebug) {
         var errorDoDebugAbort = WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed);
         if (errorDoDebugAbort) {
             WindowErrorAbort(); // does nothing.
@@ -796,29 +796,29 @@ window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLin
 // // Error Type
 // switch (errorSeverityPassed) {
 //     case errorIsFatal:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorIsFatal;
 //         errorSeverityColor = errorSeverityColorFatal;
 //         errorSeverityColorBg = errorSeverityColorFatalBg;
 //         break;
 //     case errorIsSevere:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorIsSevere;
 //         errorSeverityColor = errorSeverityColorSevere;
 //         errorSeverityColorBg = errorSeverityColorSevereBg; break;
 //     case errorIsWarning:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorIsWarning;
 //         errorSeverityColor = errorSeverityColorWarn;
 //         errorSeverityColorBg = errorSeverityColorWarnBg;
 //         break;
 //     case errorIsComment:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
 //         // errorMessageLogComment += messageFinal;
 //         errorSeverityColor = 'White';
 //         break;
 //     default:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorDidNotOccur;
 //         errorSeverityColor = errorSeverityColorComment;
 //         errorSeverityColorBg = errorSeverityColorCommentBg;

@@ -4706,41 +4706,41 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 		//
 	}
 	//
-	var errorDoDebug = false;
+	var DoNotUseDebug;
 	var errorSeverityColor = 'White';
 	// Add message to appropriate log
 	// Error Type
 	switch (errorSeverityPassed) {
 		case errorIsFatal:
 		case errorIsFatal:
-			if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+			if (errorDebugLevel < 1 + errorSeverityPassed) {DoUseDebug; }
 			// errorMessageLogFatal += messageFinal;
 			errorSeverityColor = 'Red';
 			break;
 		case errorSevere:
 		case messageElementSevere:
-			if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+			if (errorDebugLevel < 1 + errorSeverityPassed) {DoUseDebug; }
 			// errorMessageLogSevere += messageFinal;
 			errorSeverityColor = 'Yellow';
 			break;
 		case errorWarn:
 		case errorWarn:
-			if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+			if (errorDebugLevel < 1 + errorSeverityPassed) {DoUseDebug; }
 			// errorMessageLogWarn += messageFinal;
 			errorSeverityColor = 'Orange';
 			break;
 		case errorComment:
 		case messageElementComment:
 		default:
-			if (errorDebugLevel < 1 + errorSeverityPassed) { errorDoDebug = true; }
+			if (errorDebugLevel < 1 + errorSeverityPassed) {DoUseDebug; }
 			// errorMessageLogComment += messageFinal;
 			errorSeverityColor = 'Lime';
 			break;
 	}
 	//
-	if (errorUseDebugOnAll) { errorDoDebug = true; } else {
-		// if (errorUseDebugOnError) { errorDoDebug = true; } else {
-		if (UseDebug) { errorDoDebug = true; }
+	if (errorUseDebugOnAll) {errorUseDebug = DoUseDebug; } else {
+		// if (errorUseDebugOnError) {errorUseDebug = DoUseDebug; } else {
+		if (UseDebug) {errorUseDebug = DoUseDebug; }
 		// }
 	}
 	//
@@ -6197,10 +6197,10 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			&& consoleStateBox.style.display != 'block'
 		) {
 			consoleBox.style.display = 'none';
-			BodyConsoleShow(DoHide = true, errorDoDebug = false);
+			BodyConsoleShow(DoUseHide, DoNotUseDebug);
 			checkBoxSize = false;
 		} else {
-			BodyConsoleShow(DoHide = false, errorDoDebug = false);
+			BodyConsoleShow(DoNotUseHide, DoNotUseDebug);
 		}
 		//
 	}
@@ -6215,10 +6215,10 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			&& !ConsoleLogEvents
 		) {
 			// 			&& !errorUseDebugOnError
-			BodyConsoleShow(DoHide = true, errorDoDebug = true);
+			BodyConsoleShow(DoUseHide,DoUseDebug);
 			checkBoxSize = false;
 		} else {
-			BodyConsoleShow(DoHide = false, errorDoDebug = true);
+			BodyConsoleShow(DoNotUseHide,DoUseDebug);
 		}
 	}
 	//
