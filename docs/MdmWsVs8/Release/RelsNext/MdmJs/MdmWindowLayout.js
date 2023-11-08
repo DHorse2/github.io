@@ -121,6 +121,24 @@ function LayoutFontSizeSmaller() {
 	layoutFontRatio -= 0.1;
 	LayoutFontSizeSet(layoutFontRatio);
 }
+// TagHover disable
+var TagHoverIsOn = false;
+function LayoutFontCssTagHoverToggle() {
+	TagHoverIsOn = !TagHoverIsOn;
+	if (TagHoverIsOn) {
+		LayoutFontCssTagHoverEnable();
+	} else {
+		LayoutFontCssTagHoverDisable();
+	}
+}
+function LayoutFontCssTagHoverEnable() {
+	LayoutFontCssChange('MdmDebugTagHoverStyles', '~ENABLE', '', 0, false);
+}
+// TagHover enable
+function LayoutFontCssTagHoverDisable() {
+	LayoutFontCssChange('MdmDebugTagHoverStyles', '~DISABLE', '', 0, false);
+}
+
 function LayoutFontSizeSet(passedLayoutFontRatio) {
 	var fontUnits, fontCalc;
 	// Units,
@@ -130,27 +148,27 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 		fontUnits = 'px';
 	}
 	// Classes - Headings H1-6,
-	changeCSSStyle('MdmBaseTagsStyles', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h1', 'fontSize', (layoutFontH1 * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h2', 'fontSize', (layoutFontH2 * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h3', 'fontSize', (layoutFontH3 * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h4', 'fontSize', (layoutFontH4 * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h5', 'fontSize', (layoutFontH5 * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h6', 'fontSize', (layoutFontH6 * passedLayoutFontRatio) + fontUnits, true);
 	// Tags
-	changeCSSStyle('MdmBaseTagsStyles', 'p', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', 'ul', 'fontSize', (layoutFontUl * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', 'p', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', 'ul', 'fontSize', (layoutFontUl * passedLayoutFontRatio) + fontUnits, true);
 	// span and li inherit.
 	// Caption & Title
-	changeCSSStyle('MdmBaseTagsStyles', '.Caption', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.Title', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.Caption', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.Title', 'fontSize', (layoutFontP * passedLayoutFontRatio) + fontUnits, true);
 	// Fancy - fPromo, fBlurb, fTiny, fMicro
-	changeCSSStyle('MdmBaseTagsStyles', '.fPromo', 'fontSize', (layoutFontPromo * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.fBlurb', 'fontSize', (layoutFontBlurb * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.fTiny', 'fontSize', (layoutFontTiny * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.fMicro', 'fontSize', (layoutFontMicro * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.fPromo', 'fontSize', (layoutFontPromo * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.fBlurb', 'fontSize', (layoutFontBlurb * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.fTiny', 'fontSize', (layoutFontTiny * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.fMicro', 'fontSize', (layoutFontMicro * passedLayoutFontRatio) + fontUnits, true);
 	// Specialized - fCode, fPre (n/a)
-	changeCSSStyle('MdmBaseTagsStyles', '.MenuList', 'fontSize', (MenuList * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.MenuListItem', 'fontSize', (MenuListItem * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.MenuList', 'fontSize', (MenuList * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.MenuListItem', 'fontSize', (MenuListItem * passedLayoutFontRatio) + fontUnits, true);
 	// Fonts Sized
 	// f8, 10, 12, 14, 16, 18, 20, 24, 28, 36,
 	// Scan 6-36 to see which fonts are defined/used.
@@ -162,12 +180,12 @@ function LayoutFontSizeSet(passedLayoutFontRatio) {
 		} else {
 			fontUnits = 'px';
 		}
-		changeCSSStyle('MdmBaseTagsStyles', '.f' + idx, 'fontSize', (fontCalc) + fontUnits, true);
+		LayoutFontCssChange('MdmBaseTagsStyles', '.f' + idx, 'fontSize', (fontCalc) + fontUnits, true);
 		// Title1-2, Caption1-2
 	}
 	// Layout classes
-	changeCSSStyle('MdmBaseTagsStyles', '.MenuList', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
-	changeCSSStyle('MdmBaseTagsStyles', '.MenuListItem', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.MenuList', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
+	LayoutFontCssChange('MdmBaseTagsStyles', '.MenuListItem', 'fontSize', (layoutFontPre * passedLayoutFontRatio) + fontUnits, true);
 
 }
 
@@ -176,7 +194,7 @@ var idxSheet = 0;
 var sheetName;
 var sheetCurrent;
 var sheetId;
-function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
+function LayoutFontCssChange(passedSheetId, selector, cssProp, cssValue, isStyle) {
 	// StyleSheets.title (from idxSheet) (removed ===) added Id's
 	var idxSheetStart = 0;
 	var sheetRules;
@@ -187,7 +205,7 @@ function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
 		idxSheetStart = sheetIdxNumeric;
 	}
 	// Seach through the sytle sheets
-	for (idxSheet = idxSheetStart, lenSheet = document.styleSheets.length; idxSheet < lenSheet; idx++) {
+	for (idxSheet = idxSheetStart, lenSheet = document.styleSheets.length; idxSheet < lenSheet; idxSheet++) {
 		if (document.styleSheets[idxSheet] && document.styleSheets[idxSheet].ownerNode) {
 			sheetCurrent = document.styleSheets[idxSheet];
 			if (sheetCurrent.ownerNode.id && sheetCurrent.ownerNode.id.length) {
@@ -199,10 +217,16 @@ function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
 			}
 			if (!sheetId) { sheetId = ""; }
 
-			if (sheetCurrent.ownerNode.id == sheetId) {
+			if (sheetId == passedSheetId) {
 				// Found the sheet id
 				if (!isStyle) {
-					sheetCurrent[cssProp] = cssValue;
+					if (selector == '~DISABLE') {
+						sheetCurrent.disabled = true;
+					} else if (selector == '~ENABLE') {
+						sheetCurrent.disabled = false;
+					} else {
+						sheetCurrent[cssProp] = cssValue;
+					}
 					// sheetCurrent.ownerNode[cssProp] = cssValue;
 					return true;
 				} else {
@@ -240,12 +264,12 @@ function changeCSSStyle(passedSheetId, selector, cssProp, cssValue, isStyle) {
 
 
 
-function changeCSSStyleTest() {
-	changeCSSStyle('MdmBaseTagsStyles', '.h1', 'color', 'red', true);
-	changeCSSStyle('MdmBaseTagsStyles', 'p.f12', 'fontSize', '24px', true);
-	changeCSSStyle('0', 'h5', 'color', 'purple', true);
+function LayoutFontCssChangeTest() {
+	LayoutFontCssChange('MdmBaseTagsStyles', '.h1', 'color', 'red', true);
+	LayoutFontCssChange('MdmBaseTagsStyles', 'p.f12', 'fontSize', '24px', true);
+	LayoutFontCssChange('0', 'h5', 'color', 'purple', true);
 	document.styleSheets.item(1).disabled = false;
-	changeCSSStyle('MdmBaseTagsStyles', 'disabled', 'disabled', true, false);
+	LayoutFontCssChange('MdmBaseTagsStyles', 'disabled', 'disabled', true, false);
 }
 
 // Body Layout Selection
@@ -300,7 +324,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			case layoutStandard:
 				// Enclose Box
 				//............................................................---//
-			if (BodyMainCenterTopClass.length) {
+				if (BodyMainCenterTopClass.length) {
 					bodyMainCenterTop.className = BodyMainCenterTopClass;
 				}
 				//............................................................---//

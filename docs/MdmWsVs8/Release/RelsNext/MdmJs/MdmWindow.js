@@ -96,6 +96,7 @@ function WindowOnload() {
     // Intervals and Duration
     TimerDurationSet();
     // document.styleSheets[1].disabled=true;
+    LayoutFontCssTagHoverDisable();
 }
 // Window Session Functions
 ///////////////////////////////////////////////

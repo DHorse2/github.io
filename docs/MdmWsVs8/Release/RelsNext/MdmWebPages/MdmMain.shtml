@@ -206,6 +206,11 @@
 												onmousedown="BodyConsoleToggle(true, 'ConsoleDebugDetail');">
 												d
 											</div>
+											<div id="BodyConsoleDebugHoverToggle"
+												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+												onmousedown="LayoutFontCssTagHoverToggle();">
+												h
+											</div>
 											<div id="BodyConsoleDebugEventsToggle"
 												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
 												onmousedown="BodyConsoleToggle(true, 'ConsoleDebugEvents');">
