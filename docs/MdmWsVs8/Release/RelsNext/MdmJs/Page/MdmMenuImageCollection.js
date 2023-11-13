@@ -1,4 +1,8 @@
 function MenuObjectSetAll(oObjGroupCn, oObjCn) {
+    script_state = "MdmMenuImageCollection:MenuObjectSetAll";
+    if (oObjGroupCn) { script_state += ':' + oObjGroupCn}
+    if (oObjCn) { script_state += ':' + oObjCn}
+
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     ////////////////////////////////////////////////
@@ -254,6 +258,10 @@ function MenuObjectSetAll(oObjGroupCn, oObjCn) {
 // function MenuObjectTextSet(oObjGroupCn, oObjCn)
 ////////////////////////////////////////////////
 function MenuObjectTextSet(oObjGroupCn, oObjCn) {
+    script_state = "MdmMenuImageCollection:MenuObjectTextSet";
+    if (oObjGroupCn) { script_state += ':' + oObjGroupCn}
+    if (oObjCn) { script_state += ':' + oObjCn}
+
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     switch (oObjGroupIndex) {
@@ -324,6 +332,10 @@ function MenuObjectTextSet(oObjGroupCn, oObjCn) {
 // function MenuObjectNameSet(oObjGroupCn, oObjCn)
 ////////////////////////////////////////////////
 function MenuObjectNameSet(oObjGroupCn, oObjCn) {
+    script_state = "MdmMenuImageCollection:MenuObjectNameSet";
+    if (oObjGroupCn) { script_state += ':' + oObjGroupCn}
+    if (oObjCn) { script_state += ':' + oObjCn}
+
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
     ////////////////////////////////////////////////
@@ -392,9 +404,46 @@ function MenuObjectNameSet(oObjGroupCn, oObjCn) {
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// MenuIndexSet
+// MenuIndexGroupSet
 ////////////////////////////////////////////////
-function MenuIndexSet(oObjGroupIndex, oObjPassed) {
+function MenuIndexSetByElement(oObjPassed) {
+    script_state = "MdmMenuImageCollection:MenuIndexSetByElement";
+    // if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
+    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id}
+
+    var elementObject;
+    if (oObjPassed && oObjPassed.id) {
+        MenuIndexGroupSetByName(oObjPassed);
+    }
+    return true;
+}
+//
+// ------------------------------------------------------------------------------------- _//
+// MenuIndexGet
+////////////////////////////////////////////////
+function MenuIndexGroupGetByName(oObjNextIdPassed) {
+    script_state = "MdmMenuImageCollection:MenuIndexGroupGetByName";
+    // if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
+    if (oObjNextIdPassed && oObjNextIdPassed.length) { script_state += ':' + oObjNextIdPassed}
+
+    var temp, tempfunc, tempResult;
+    try {
+    temp = oObjNextIdPassed;
+    tempResult = null;
+    tempfunc = eval('tempResult = ' + temp + '; return tempResult');
+    } catch (e) {
+        return null;
+    }
+    return tempResult;
+}
+//
+// ------------------------------------------------------------------------------------- _//
+// MenuIndexGroupSet
+////////////////////////////////////////////////
+function MenuIndexGroupSet(oObjGroupIndex, oObjPassed) {
+    script_state = "MdmMenuImageCollection:MenuIndexGroupSet";
+    if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
+    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id}
     switch (oObjGroupIndex) {
         ////////////////////////////////////////////////
         // Non Groups
@@ -423,7 +472,7 @@ function MenuIndexSet(oObjGroupIndex, oObjPassed) {
             case MdmWebDevl: return 7;
             default: return 1;
         }
-            return;
+            return -1;
         ////////////////////////////////////////////////
         // Group 2
         case 2: switch (oObjPassed) {
@@ -439,7 +488,7 @@ function MenuIndexSet(oObjGroupIndex, oObjPassed) {
             case MdmDghAccoml: return 4;
             default: return 1;
         }
-            return;
+            return -1;
         ////////////////////////////////////////////////
         // Group 3
         case 3: switch (oObjPassed) {
@@ -453,7 +502,7 @@ function MenuIndexSet(oObjGroupIndex, oObjPassed) {
             case MdmMvvmProjl: return 3;
             default: return 1;
         }
-            return;
+            return -1;
         ////////////////////////////////////////////////
         // Group 4
         case 4:
@@ -479,15 +528,19 @@ function MenuIndexSet(oObjGroupIndex, oObjPassed) {
                 case MdmBlankl: return 8;
                 default: return 1;
             }
-            return;
+            return -1;
     }
-    //
+    return -1;
 }
 //
 // ------------------------------------------------------------------------------------- _//
-// MenuIndexSetByName
+// MenuIndexGroupSetByName
 ////////////////////////////////////////////////
-function MenuIndexSetByName(oObjPassed) {
+function MenuIndexGroupSetByName(oObjPassed) {
+    script_state = "MdmMenuImageCollection:MenuIndexGroupSetByName";
+    // if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
+    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id}
+
     for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
         //    alert(imgCn + "--" + imgUsedCn + "--" + imgMax);
         //    alert(oObjPassed.name);

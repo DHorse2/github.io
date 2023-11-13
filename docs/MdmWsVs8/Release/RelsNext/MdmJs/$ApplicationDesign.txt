@@ -47,8 +47,8 @@
 // 		MenuObjectSetAll
 //		MenuObjectTextSet
 //		MenuObjectNameSet
-//		MenuIndexSet
-//		MenuIndexSetByName
+//		MenuIndexGroupSet
+//		MenuIndexGroupSetByName
 ////////////////////////////////////////////////
 // LAYOUT MANAGEMENT
 // 		LayoutCheck

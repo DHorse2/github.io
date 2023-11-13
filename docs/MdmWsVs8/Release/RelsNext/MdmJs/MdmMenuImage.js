@@ -448,7 +448,7 @@ function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObj
     //
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     var oObjNextIndex = oObjIndex = oObjGroupImageIndex;
-    // MenuIndexSet(oObjNextGroupIndex, oObjNext);
+    // MenuIndexGroupSet(oObjNextGroupIndex, oObjNext);
     // oObj = MenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
     //
     if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex] == true) { return; }
@@ -504,7 +504,7 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
 ////////////////////////////////////////////////
 function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-    oObjIndex = oObjGroupImageIndex;// MenuIndexSet(oObjGroupIndex, oObjNext);
+    oObjIndex = oObjGroupImageIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     if (oObjNext.style.display = "none") {
         MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
     } else {
@@ -527,7 +527,7 @@ function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oO
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
     startObjoObjIndex = startIndex;
-    endObjoObjIndex = oObjGroupImageIndex;// MenuIndexSet(oObjGroupIndex, oObjNext);
+    endObjoObjIndex = oObjGroupImageIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     var oObjIndex = startObjoObjIndex;
     while (oObjIndex < 1 + endObjoObjIndex) {
         //
@@ -548,7 +548,7 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
     oObjNext.style.zIndex = imgZindex;
     //
     startoObjIndex = 1;
-    endoObjIndex = MenuIndexSet(oObjGroupIndex, oObjNext);
+    endoObjIndex = MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     oObjIndex = startoObjIndex;
     while (oObjIndex < 1 + endoObjIndex) {
         // Objects
@@ -570,7 +570,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     //
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
-    oObjIndex = oObjGroupImageIndex;// MenuIndexSet(oObjGroupIndex, oObjNext);
+    oObjIndex = oObjGroupImageIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     LastTouchedId = oObjNext.id;
     //
     DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX

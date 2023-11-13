@@ -3,12 +3,14 @@
 ConsoleFormInitDone = false;
 var ConsoleStateFormData;
 function ConsoleFormInit(clearElement, injectElement, passedElement) {
+	script_state = "MdmDebugConsoleForm:ConsoleFormInit";
+	// class="BodyParaLeft layoutBodyColumnType1" 
 	ConsoleStateFormData = `<!--** MdmPtConsoleForm - Body Console Form Blocks **-->
 
 	<!-- action="DebugFormUpdate();"  -->
 	<!-- action="DebugFormUpdate.shtml;"  -->
 	<form id="consoleStateForm"
-		class="BodyParaLeft layoutBodyColumnType1" 
+		class="BodyPara layoutBodyColumnType1" 
 		onchange="ConsoleFormElementChange(false)"
 		method="post"
 		action="JavaScript:ConsoleFormElementSync(true);"
@@ -391,7 +393,7 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 
 // Sycn form element with page internal settings or vice versa (fromForm)
 function ConsoleFormElementSync(fromForm) {
-	script_state = "Form sync: Started";
+	script_state = "MdmDebugConsoleForm:ConsoleFormInit";
 
 	var tempSelected = false;
 	// if (!consoleStateFormValid) { return; } // It's off or omitted
@@ -400,7 +402,7 @@ function ConsoleFormElementSync(fromForm) {
 	try {
 		// Toggled Variables
 		// ...................................... //
-		script_state = "Form sync: Check form exists";
+		script_state += ": Check form exists";
 		consoleStateFormValid = true;
 		elementObject = document.getElementById('FormApply');
 		// Is the form accessible?
@@ -415,7 +417,7 @@ function ConsoleFormElementSync(fromForm) {
 		// ** Javascript Parameter Init Blocks **
 		// Browser
 		// browserIsFF = false;
-		script_state = "Form sync: Javascript Parameter Init Blocks";
+		script_state += ", Javascript Parameter Init Blocks";
 		elementObject = document.getElementById('formBrowser');
 		if (fromForm) {
 			if (elementObject.value) { imgLoadUseEventHandler = true; } else { imgLoadUseEventHandler = false; }
@@ -448,7 +450,7 @@ function ConsoleFormElementSync(fromForm) {
 		// ...................................... //
 
 		// Control image display using mouse hover
-		script_state = "Form sync: Using mouse hover";
+		script_state += ", Using mouse hover";
 		elementObject = document.getElementById('formEventMouseOverEnabled');
 		if (fromForm) {
 			if (elementObject.checked) { eventMouseOverEnabled = true; } else { eventMouseOverEnabled = false; }
@@ -458,7 +460,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Animation Control
 		// ...................................... //
-		script_state = "Form sync: Animation Control";
+		script_state += ", Animation Control";
 		elementObject = document.getElementById('formMoveIsOn');
 		if (fromForm) {
 			if (elementObject.checked) { moveIsOn = true; } else { moveIsOn = false; }
@@ -489,7 +491,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Timer and Event Logging
 		// ...................................... //
-		script_state = "Form sync: Timer and Event Logging";
+		script_state += ", Timer and Event Logging";
 		elementObject = document.getElementById('formDebugTimer');
 		if (fromForm) {
 			if (elementObject.checked) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
@@ -527,7 +529,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Debugger Control
 		// ...................................... //
-		script_state = "Form sync: Debugger Control";
+		script_state += ", Debugger Control";
 		elementObject = document.getElementById('formErrorUseDebugOnError');// enter debugger on errors
 		if (fromForm) {
 			if (elementObject.checked) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
@@ -559,7 +561,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Page Load Optimaization
 		// ...................................... //
-		script_state = "Form sync: Page Load Optimaization";
+		script_state += ", Page Load Optimaization";
 		elementObject = document.getElementById('formJavaLoadDelay');
 		if (fromForm) {
 			if (elementObject.checked) { loadDelayJava = true; } else { loadDelayJava = false; }
@@ -588,7 +590,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Browser
 		// ...................................... //
-		script_state = "Form sync: Browser";
+		script_state += ", Browser";
 		if (fromForm) { BrowserVsReset(); }
 		//
 		elementObject = document.getElementById('formBrowser_MSIE');
@@ -639,7 +641,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Debug Control
 		// ...................................... //
-		script_state = "Form sync: Debug Control";
+		script_state += ", Debug Control";
 		tempSelected = false;
 		elementObject = document.getElementById('formErrorDebugLevel_errorDidNotOccur');
 		if (fromForm) {
@@ -650,7 +652,7 @@ function ConsoleFormElementSync(fromForm) {
 		//
 		elementObject = document.getElementById('formErrorDebugLevel_errorIsComment');
 		if (fromForm) {
-			if (elementObject.selected) { errorDebugLevel = errorIsComment; } else { errorDebugLevel = true; }
+			if (elementObject.selected) { errorDebugLevel = errorIsComment; tempSelected = true; }
 		} else {
 			if (errorDebugLevel == errorIsComment) { tempSelected = elementObject.selected = true; } else { elementObject.selected = false; }
 		}
@@ -677,13 +679,16 @@ function ConsoleFormElementSync(fromForm) {
 		}
 		// default when not selected/set
 		// ...................................... //
-		if (!tempSelected) { document.getElementById('formErrorDebugLevel_errorIsSevere').selected = true; }
+		if (!tempSelected) {
+			document.getElementById('formErrorDebugLevel_errorIsSevere').selected = true;
+			errorDebugLevel = errorIsSevere;
+		}
 		//
 		elementObject = document.createElement('input');
 
 		// Menu Image Size
 		// ...................................... //
-		script_state = "Form sync: Image Size";
+		script_state += ", Image Size";
 		elementObject = document.getElementById('formOObjImageSizeSmall');
 		if (fromForm) {
 			tmp = parseInt(elementObject.value);
@@ -711,7 +716,7 @@ function ConsoleFormElementSync(fromForm) {
 		// Animation Control
 		// ...................................... //
 		// Movement Duration
-		script_state = "Form sync: Animation: Movement Duration";
+		script_state += ", Animation: Movement Duration";
 		elementObject = document.getElementById('formElementMoveDuration');
 		elementObject.value = elementMoveDuration;
 		//
@@ -726,7 +731,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Filter / Transition Duration
 		// ...................................... //
-		script_state = "Form sync: Animation: Filter Transition Duration";
+		script_state += ", Animation: Filter Transition Duration";
 		elementObject = document.getElementById('formFilterDuration');
 		elementObject.value = filterDuration;
 		//
@@ -746,7 +751,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Timer control by Item or Menu Group
 		// ...................................... //
-		script_state = "Form sync: Animation: Timers by Item or Group";
+		script_state += ", Animation: Timers by Item or Group";
 		tempSelected = false;
 		elementObject = document.getElementById('formTimerMethod_timerMethodGroup');
 		if (fromForm) {
@@ -766,7 +771,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Transitions started by Method call or by altering filter value or visibility
 		// ...................................... //
-		script_state = "Form sync: Animation: Filter Start method";
+		script_state += ", Animation: Filter Start method";
 		tempSelected = false;
 		elementObject = document.getElementById('formFilterMethod_filterMethodPlay');
 		if (fromForm) {
@@ -786,7 +791,7 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Manner by which images move across the screen
 		// ...................................... //
-		script_state = "Form sync: Element movement";
+		script_state += ", Element movement";
 		tempSelected = false;
 		elementObject = document.getElementById('formelementMoveMethod_elementMoveMethodDirect');
 		if (fromForm) {
@@ -820,14 +825,14 @@ function ConsoleFormElementSync(fromForm) {
 
 		// Reset FormApply button state
 		// ...................................... //
-		script_state = "Form sync: Reset FormApply button state";
+		script_state += ", Reset FormApply button state";
 		elementObject = document.getElementById('FormApply');
 		if (elementObject) {
 			elementObject.style.backgroundColor = 'white';
 		}
 
 		consoleFormChanged = false;
-		script_state = "Form sync: Completed without error";
+		script_state = "Completed without error";
 
 	} catch (consoleStateFormErr) {
 		// Errors:

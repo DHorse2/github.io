@@ -205,6 +205,8 @@ function LayoutFontCssChange(passedSheetId, selector, cssProp, cssValue, isStyle
 		idxSheetStart = sheetIdxNumeric;
 	}
 	// Seach through the sytle sheets
+	// using an index rather than object/key
+	// NOTE: Security errors occur when using local (file:///) testing.
 	for (idxSheet = idxSheetStart, lenSheet = document.styleSheets.length; idxSheet < lenSheet; idxSheet++) {
 		if (document.styleSheets[idxSheet] && document.styleSheets[idxSheet].ownerNode) {
 			sheetCurrent = document.styleSheets[idxSheet];

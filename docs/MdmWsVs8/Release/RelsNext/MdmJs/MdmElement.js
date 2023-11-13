@@ -256,7 +256,7 @@ function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, 
     }
     /*--
      // if (elementPassed.childNodes.length)
-     for (elmCn = 1;elementSourceObject.childNodes.length;elmCn++){
+     for (elmCn = 1; elementSourceObject.childNodes.length;elmCn++){
     var elementSourceChildObject = elementSourceObject.childNodes[elmCn];
     elementChildObject = elementObject.getElementById(elementSourceChildObject.id);
     elementChildObject.Events["onmousedown"] = elementSourceChildObject.Events["onmousedown"];

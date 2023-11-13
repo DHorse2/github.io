@@ -36,19 +36,20 @@ function ElementPlay(playDirection, IsImageLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	//
 	var timerType = timerTypeMove;
-	var timerGroup = oObjGroupIndex;
-	var timerId = oObjGroupImageIndex;
-	var timerItemKey = timerId + timerType;
-	var timerItemMoveKey = timerId + timerTypeMove;
-	var timerItemTransitionKey = timerId + timerTypeTransition;
-	var timerRootKey = timerRootId + timerType;
+    var timerGroup = oObjGroupIndex;
+    var timerGroupItem = oObjGroupImageIndex;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
 	//
+	var timerItemMoveKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeMove;
+	var timerItemTransitionKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeTransition;
+    //
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+	if (ConsoleLogTimer || ConsoleLogTimerDetail || (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			TimerLogText(timerType, timerGroup, timerId, DoNotUseEither, playDirection, 'Request')
+			TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
 			+ '.',
 			'MdmPageElement:ElementPlay', 54, 0, null, null,
@@ -56,17 +57,17 @@ function ElementPlay(playDirection, IsImageLarge,
 	}
 	var PlayAbort = false;
 	//
-	// Bug for testing: var timerId = oObjNext.id;
+	// Bug for testing: var timerGroupItem = oObjNext.id;
 	// Checking Transition
 	if (!timerObj) { TimerCreate(); }
-	if (timerObj[timerGroup][timerItemTransitionKey]) {
-		if (timerObj[timerGroup][timerItemTransitionKey].timerIsRunning) {
-			timerRootKey = timerRootId + timerTypeTransition;
-			if (playDirection != timerObj[timerGroup][timerItemTransitionKey].playDirection) {
+	if (timerObj[timerItemKey]) {
+		if (timerObj[timerItemKey].timerIsRunning) {
+			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeTransition;
+			if (playDirection != timerObj[timerItemKey].playDirection) {
 				// playDirection is different (while running)
 				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
@@ -74,12 +75,12 @@ function ElementPlay(playDirection, IsImageLarge,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
-				TimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
+				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
 				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Transition step instead'
 						+ '.',
@@ -88,9 +89,9 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 				// the next step will be performed and the new play command skipped
 				if (timerMethod == timerMethodGroup) {
-					TimerGroupDoStepFilter(timerTypeTransition, timerGroup, timerId);
+					TimerGroupDoStepFilter(timerTypeTransition, timerGroup, timerGroupItem);
 				} else {
-					TimerItemDoStepFilter(timerTypeTransition, timerGroup, timerId);
+					TimerItemDoStepFilter(timerTypeTransition, timerGroup, timerGroupItem);
 				}
 				//
 				PlayAbort = true;// skip issuing play command
@@ -101,10 +102,10 @@ function ElementPlay(playDirection, IsImageLarge,
 			// Check if displayed or not...
 			if (playDirection == playDirectionForward) {
 				// Forward
-				if (timerObj[timerGroup][timerItemTransitionKey].elementIsDisplayed == elementIsDisplayed) {
+				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
 					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed'
 							+ '.',
@@ -117,10 +118,10 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerGroup][timerItemTransitionKey].elementIsDisplayed == elementIsNotDisplayed) {
+				if (timerObj[timerItemKey].elementIsDisplayed == elementIsNotDisplayed) {
 					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden'
 							+ '.',
@@ -141,14 +142,14 @@ function ElementPlay(playDirection, IsImageLarge,
 	//		or no action.
 	//
 	// Checking Move
-	if (timerObj[timerGroup][timerItemMoveKey]) {
-		if (timerObj[timerGroup][timerItemMoveKey].timerIsRunning) {
-			timerRootKey = timerRootId + timerTypeMove;
-			if (playDirection != timerObj[timerGroup][timerItemMoveKey].playDirection) {
+	if (timerObj[timerItemKey]) {
+		if (timerObj[timerItemKey].timerIsRunning) {
+			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeMove;
+			if (playDirection != timerObj[timerItemKey].playDirection) {
 				// playDirection is different (while running)
 				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
@@ -156,12 +157,12 @@ function ElementPlay(playDirection, IsImageLarge,
 						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
 				}
 				// Item will be deactivate and the play command issued
-				TimerItemDeactivate(timerTypeTransition, timerGroup, timerId, DoNotUseRoot);
+				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
 				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
 						+ ', Already running, performing a Move step instead'
 						+ '.',
@@ -170,9 +171,9 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 				//
 				if (timerMethod == timerMethodGroup) {
-					TimerGroupDoStepMove(timerTypeMove, timerGroup, timerId);
+					TimerGroupDoStepMove(timerTypeMove, timerGroup, timerGroupItem);
 				} else {
-					TimerItemDoStepMove(timerTypeMove, timerGroup, timerId);
+					TimerItemDoStepMove(timerTypeMove, timerGroup, timerGroupItem);
 				}
 				//
 				PlayAbort = true;// skip issuing play command
@@ -183,10 +184,10 @@ function ElementPlay(playDirection, IsImageLarge,
 			// Check if displayed or not...
 			if (playDirection == playDirectionForward) {
 				// Forward
-				if (timerObj[timerGroup][timerItemMoveKey].elementIsDisplayed == elementIsDisplayed) {
+				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
 					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed...',
 							'MdmPageElement:ElementPlay', 192, 0, null, null,
@@ -198,10 +199,10 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerGroup][timerItemMoveKey].elementIsDisplayed = elementIsNotDisplayed) {
+				if (timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed) {
 					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden...',
 							'MdmPageElement:ElementPlay', 207, 0, null, null,
@@ -264,7 +265,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	//
 	if (ConsoleLogTimer && ConsoleLogTimerMove) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
+			TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 			+ ', Item orgin and destination set'
 			+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
 			+ ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
@@ -290,7 +291,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Get')
+				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
 				+ '.',
 				'MdmPageElement:ElementPlay', 296, 0, null, null,
@@ -320,7 +321,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// if (filterObj[filterIdPassed].filterDoEnable) {
 		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Enable')
+				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
 				+ '.',
 				'MdmPageElement:ElementPlay', 326, 0, null, null,
@@ -339,7 +340,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// if (filterObj[filterIdPassed].filterDoApply) {
 		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Apply')
+				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
 				+ '.',
 				'MdmPageElement:ElementPlay', 345, 0, null, null,
@@ -354,7 +355,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
+				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
 				+ '.',
 				'MdmPageElement:ElementPlay', 360, 0, null, null,
@@ -370,7 +371,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// if (filterObj[filterIdPassed].filterDoPlay) {
 		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Play')
+				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
 				+ '.',
 				'MdmPageElement:ElementPlay', 376, 0, null, null,
@@ -409,7 +410,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Start')
+				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
 				+ '.',
 				'MdmPageElement:ElementPlay', 415, 0, null, null,
@@ -429,7 +430,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			//
 			if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-					TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, playDirection, 'Resize')
+					TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
 					+ '.',
 					'MdmPageElement:ElementPlay', 425, 0, null, null,

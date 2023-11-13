@@ -33,6 +33,10 @@ function ConsoleFormElementSyncLocal(fromForm) { ConsoleFormElementSync(fromForm
 
 // SECTION - general SETTINGS (and in Console Form)
 // ...................................... //
+eventMouseOverEnabled = false;
+consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
+consoleErrorBox.style.display = 'block';
+consoleErrorToggle.style.borderColor = ButtonIsOffColor;
 
 // Block Animation Control AREA
 // ...................................... //
@@ -88,13 +92,16 @@ UseDebug = DoUseDebug;
 ConsoleLogAlert = errorDoAlert;
 
 // Enter debugger on errors
-errorUseDebugOnError = false;
+errorUseDebugOnError = true;
 // Use debugger on ALL messages.
 errorUseDebugOnAll = false;
 
 // for current event processing
 errorUseDebug = false;
 debugDoAlert = false;
+
+UseLogOrder = DoUseAscendingDate;
+UseLogScroll = true;
 
 // Format messages on a SingleLine
 UseSingleLine = DoNotUseSingleLine;
@@ -125,10 +132,10 @@ ConsoleLogEvents = true;
 // Layout
 ConsoleLogLayout = true;
 // Debug Timers
+ConsoleLogTimerDetail = false;
 ConsoleLogTimer = true;
 ConsoleLogTimerMove = true;
 ConsoleLogTimerTransition = true;
-ConsoleLogTimerDetail = false;
 
 // AREA Error Severity
 // ...................................... //
@@ -266,6 +273,13 @@ var elementMoveMethodRandom = 0; // Use random choice on each Group move
 // Setting it to '0' causes a random setting on each display
 var elementMoveMethod = elementMoveMethodRandom; // Use random
 
+// SectionBlock Timers
+// ...................................... //
+// Timers by Group or Item
+var timerMethodItem = 1; // one timer per Menu Group Image
+var timerMethodGroup = 2; // one timer per Menu Group of images
+var timerMethod = timerMethodItem;
+//
 // Timer Movement
 var timerDuration = elementMoveDuration;
 var timerInterval = elementMoveInterval;

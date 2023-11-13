@@ -161,6 +161,8 @@ function MouseOutImg(menuImage) {
 // Mouse Click
 ////////////////////////////////////////////////
 function MouseClickImg(menuImage) {
+	menuImageGroup = 0;
+	menuImageItem = 0;
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
 	if (menuImageCn > imgUsedCn) {
 		return;
@@ -182,12 +184,11 @@ function MouseClickImg(menuImage) {
 	//  img0.src = menuImage.name + "lr.gif";
 	//  img0text.src = menuImage.name + "text.txt";
 	if (ConsoleLogImages) {
-		if (debugDoAlert) { alert(errorIsComment); }
  		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			"Getting " + menuImageCn + ": " + menuImage.Name,
 			'MdmPage:MouseClickImg', 209, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, errorDoAlert);
-	}
+			errorIsComment, errorDoNotDisplayTag, debugDoAlert);
+		}
 	imgSelect = menuImageCn;
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
 	//  alert(document.parentWindow.parent);
@@ -210,10 +211,10 @@ function ElementObjectBlockCount() {
 		// Section
 		layoutBlockCn = 0;
 		if (layoutSection.id) {
-			if ((layoutSection.id).substr(0, 4) == 'DivS') {
+			if ((layoutSection.id).substring(0, 4) == 'DivS') {
 				while (bodyMainCenterCenter.childNodes[layoutSectionCn].childNodes[layoutBlockCn]) {
 					if (layoutSection.childNodes[layoutBlockCn].id) {
-						if ((layoutSection.childNodes[layoutBlockCn].id).substr(0, 4) == 'DivB') {
+						if ((layoutSection.childNodes[layoutBlockCn].id).substring(0, 4) == 'DivB') {
 							bodyBlockCn += 1;
 						} // DivB
 					}

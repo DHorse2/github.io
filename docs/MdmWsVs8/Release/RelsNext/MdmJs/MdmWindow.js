@@ -66,6 +66,15 @@ function WindowOnload() {
         IncludeHtmlFileAll();
     }
 
+    // Docuement Element Initialize & Store Original Menu Columns.
+    if (!loadDelayJava) {
+        // BodyMenuInit();
+        // Choose Standard Layout
+        LayoutRefresh(layoutStandard);
+        // LayoutNext(layoutStandard);
+        // LayoutSelectByIndex(layoutStandard);
+    }
+
     // Build Body Images Div - depreciated
     // if (!loadDelayBodyImage) {
     //     bodyImageContainer = BodyImagesHtmlBuild();
@@ -76,15 +85,6 @@ function WindowOnload() {
         MdmMenuImageInit();
         // bodyMenuImageContainer =
         MenuImagesHtmlBuild();
-    }
-
-    // Docuement Element Initialize & Store Original Menu Columns.
-    if (!loadDelayJava) {
-        // BodyMenuInit();
-        // Choose Standard Layout
-        LayoutRefresh(layoutStandard);
-        // LayoutNext(layoutStandard);
-        // LayoutSelectByIndex(layoutStandard);
     }
 
     // Sync Form
@@ -640,7 +640,7 @@ function WindowResizeLayout() {
             // ...................................... //
             layoutSection = bodyMainCenterCenter.childNodes[layoutSectionCn];
             if (layoutSection.id) {
-                if ((layoutSection.id).substr(0, 4) == 'DivS') {
+                if ((layoutSection.id).substring(0, 4) == 'DivS') {
                     script_state += ", " + layoutSection.id;
                     // Layout Blocks
                     layoutBlockCn = 0;
@@ -649,7 +649,7 @@ function WindowResizeLayout() {
                         // ...................................... //
                         layoutBlock = layoutSection.childNodes[layoutBlockCn];
                         if (layoutBlock.id) {
-                            if (layoutBlock.id.substr(0, 4) == "DivP" || layoutBlock.id.substr(0, 4) == "DivB" || layoutBlock.id.substr(0, 6) == "DivBox") {
+                            if (layoutBlock.id.substring(0, 4) == "DivP" || layoutBlock.id.substring(0, 4) == "DivB" || layoutBlock.id.substring(0, 6) == "DivBox") {
                                 // Process this block
                                 script_state += ", " + layoutBlock.id;
                                 // Adjust for margin, padding & border custom styling
@@ -668,7 +668,7 @@ function WindowResizeLayout() {
                                     calloutBlock = layoutBlock.childNodes[calloutBlockCn];
                                     if (calloutBlock) {
                                         if (calloutBlock.id) {
-                                            if ((calloutBlock.id).substr(0, 4) == 'DivC') {
+                                            if ((calloutBlock.id).substring(0, 4) == 'DivC') {
                                                 // Process this callout block
                                                 script_state += ", " + calloutBlock.id;
                                                 tmpAdjust = ElementContainerAdjustGet(calloutBlock, layoutBlock, true, true, true, true);

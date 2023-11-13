@@ -136,11 +136,9 @@ function ElementEventMouse(e) {
 	// Objects
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
-    if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
-		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Mouse Event', 'ElementEventMouse', 7993);
-	}
-	//
+	var eventTextColor = 'black';
+	var eventTextColorBg = 'white';
+
 	// ...................................... //
 	if (!oObjNotFound) {
 		//
@@ -170,6 +168,7 @@ function ElementEventMouse(e) {
 			// ...................................... //
 			case 'mousedown':
 				//
+				eventTextColorBg = 'light green';
 				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
@@ -198,6 +197,8 @@ function ElementEventMouse(e) {
 				break;
 			//
 			case 'mouseout':
+				//
+				eventTextColorBg = 'light blue';
 				//
 				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
@@ -234,6 +235,8 @@ function ElementEventMouse(e) {
 			//
 			// ...................................... //
 			case 'mouseover':
+				//
+				eventTextColorBg = 'light orange';
 				//
 				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
@@ -294,7 +297,12 @@ function ElementEventMouse(e) {
 			//
 		}
 	}
-	//
+
+	if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
+		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
+			'Mouse Event', eventTextColor, eventTextColorBg,
+			'ElementEventMouse', 141);
+	}
 }
 // ElementEventCurrRootObjSet todo
 // ...................................... //
@@ -311,9 +319,9 @@ function ElementEventCurrRootObjSet() {
 				if (eventCurrRootObj.parentNode.id) {
 					// i.e. 'BodyImageContainer'
 					// 'Body*' images behave differently
-					//  or  'BodyImageContainer'
-					if (eventCurrRootObj.parentNode.id.toString().substr(0, 4) = 'Body') {
-					// if ((eventCurrRootObj.parentNode.id).substr(0, 4) = 'Body') {
+					//  or  'BodyImageContainer', 'BodyMenuLayout1'.
+					if (eventCurrRootObj.parentNode.id.substring(0, 4) == 'Body') {
+					// if ((eventCurrRootObj.parentNode.id).substring(0, 4) = 'Body') {
 							loopContinue = false;
 					} else {
 						eventCurrRootObj = eventCurrRootObj.parentNode;
@@ -361,7 +369,13 @@ function ElementEventCheckDuplicate(UseLog) {
 	if (!eventCurrRootObj.id) { return false; }
 	var IsDuplicate = false;
 	var DoStoreLast = true;
+	var eventTextColor = 'black';
+	var eventTextColorBg = 'white';
 	switch (eventType) {
+		// ...................................... //
+		case 'mousedown':
+			eventTextColorBg = 'light green';
+			break;
 		// ...................................... //
 		case 'mouseover':
 			// ignoring mouseover events on the containing box
@@ -371,6 +385,7 @@ function ElementEventCheckDuplicate(UseLog) {
 				IsDuplicate = true;
 				DoStoreLast = false;// do not store last mouseover on box
 			}
+			eventTextColorBg = 'light blue';
 			break;
 		// ...................................... //
 		case 'mouseout':
@@ -388,6 +403,7 @@ function ElementEventCheckDuplicate(UseLog) {
 					&& eventLastRootId == eventCurrRootObj.id
 				)) { IsDuplicate = false; } else { IsDuplicate = true; }
 			}
+			eventTextColorBg = 'light orange';
 			break;
 		default:
 			IsDuplicate = false; break;
@@ -396,7 +412,8 @@ function ElementEventCheckDuplicate(UseLog) {
     if (UseLog && (ConsoleLogEvents || timerMoveBusy)
 		&& IsDuplicate && ConsoleLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Duplicate Event', 'ElementEventCheckDuplicate', 0);
+			'Duplicate Event', eventTextColor, eventTextColorBg,
+			'ElementEventCheckDuplicate', 0);
 	}
 	//
 	if (DoStoreLast) { ElementEventLastSet(eventCurr); }

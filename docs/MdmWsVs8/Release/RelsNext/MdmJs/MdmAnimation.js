@@ -141,7 +141,9 @@ var moveOffsetMax = 25;
 // var imgUsedCn = 5;
 var imgCn = 0;
 // var imgMax = 10;
-var menuImageCn = 0;
+var menuImageCn = 0; // depreciated
+var menuImageGroup = 0;
+var menuImageItem = 0;
 // Name
 var imageNameNew = "";
 // Image Focus
@@ -517,16 +519,16 @@ var filterIndexEffectMax = 59;
 
 // Timers
 ////////////////////////////////////////////////
-// var timerId = "";
-// var timerIdCurr = "";
-// var timerIdPrev = "";
+// var timerGroupItem = "";
+// var timerGroupItemCurr = "";
+// var timerGroupItemPrev = "";
 // //
 // var timerObj = new Array(timerGroupIndexMax);
 //
 ///////////////////////////////////////////////
 // var timerFunction = "TimerMoveStepDo";
 //
-// var vTimerID;
+// var vtimerGroupItem;
 // var vTimerStart;
 // var vTimerStop;
 //
@@ -571,6 +573,7 @@ var filterObj = null;
 // ...................................... //
 function FilterControlCreate(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupImageIndex, filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterControlCreate:" + filterObjIdPassed;
     // filterId is this program's index number
     //
     if (!filterObj) { filterObj = new Array(30); } // todo
@@ -603,6 +606,7 @@ function FilterControlCreate(filterPlayAll, startIndex, endIndex,
 // FilterStore Filter Store / Restore
 // ...................................... //
 function FilterStore(oObjPassed, filterIndexPassed) {
+    script_state = "MdmAnimation:FilterStore:" + filterIndexPassed;
     // this can't be right
     // oldFilter = oObjPassed.onfilterchange;
     // oObjPassed.onfilterchange = null;
@@ -611,6 +615,7 @@ function FilterStore(oObjPassed, filterIndexPassed) {
 // FilterRestore
 // ...................................... //
 function FilterRestore(oObjPassed, filterIndexPassed) {
+    script_state = "MdmAnimation:FilterRestore:" + filterIndexPassed;
     if (oldFilter != null) {
         // ???? oObjPassed.onfilterchange = oldFilter;
         oObjPassed.filters[0].item = oldFilter;
@@ -618,9 +623,9 @@ function FilterRestore(oObjPassed, filterIndexPassed) {
 }
 // SectionBlock Filter Support function (s):
 // ...................................... //
-// ..................................................................................... _//
 // FilterResetThenAnimate
 function FilterResetThenAnimate(oObjPassed, filterIndexPassed) {
+    script_state = "MdmAnimation:FilterResetThenAnimate:" + filterIndexPassed;
     switch (filterIndexPassed) {
         // Non Groups
         case filterClassMatrix:
@@ -646,6 +651,7 @@ function FilterResetThenAnimate(oObjPassed, filterIndexPassed) {
 // Animate Object
 // ...................................... //
 function FilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
+    script_state = "MdmAnimation:FilterAnimate:" + filterIndexPassed;
     switch (filterIndexPassed) {
         // Matrix
         case filterClassMatrix:
@@ -661,6 +667,7 @@ function FilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
 // StyleBackground
 // ...................................... //
 function FilterBackgroundToggle(oObjPassed, filterIndexPassed) {
+    script_state = "MdmAnimation:FilterBackgroundToggle:" + filterIndexPassed;
     if (filterStyleBackgroundToggle) {
         filterStyleBackgroundToggle = 0;
         oObjPassed.style.backgroundColor = 'gold';
@@ -676,6 +683,7 @@ function FilterBackgroundToggle(oObjPassed, filterIndexPassed) {
 //  Slide Style Toggle
 // ...................................... //
 function SlideStyleToggle(oObjPassed, filterIndexPassed) {
+    script_state = "MdmAnimation:SlideStyleToggle:" + filterIndexPassed;
     // Use the array index to update and display  the slideStyle used.
     var iStyleIndex = filterSlideStyleIndexCount % 3; // MOD function avoids resetting the counter.
     oObjPassed.filters[0].slideStyle = arrSlideStyles[filterSlideStyleIndexCount];
@@ -691,6 +699,7 @@ function SlideStyleToggle(oObjPassed, filterIndexPassed) {
 // FilterSpin
 // ...................................... //
 function FilterSpin(oObjPassed, filterIndexPassed) {
+    script_state = "MdmAnimation:FilterSpin:" + filterIndexPassed;
     switch (filterIndexPassed) {
         // Non Groups
         case filterClassMatrix:
@@ -730,6 +739,7 @@ function FilterSpin(oObjPassed, filterIndexPassed) {
 // ...................................... //
 //oObj input requires that a matrix filter be applied.
 function FilterSetRotation(oObjPassed, filterIndexPassed, deg) {
+    script_state = "MdmAnimation:FilterSetRotation:" + filterIndexPassed;
     rad = deg * deg2radians;
     costheta = Math.cos(rad);
     sintheta = Math.sin(rad);
@@ -745,6 +755,7 @@ function FilterSetRotation(oObjPassed, filterIndexPassed, deg) {
 // oObj input requires that a matrix filter be applied.
 // flMultiplier input defines the amount by which the oObj is resized.
 function FilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
+    script_state = "MdmAnimation:FilterResize:" + filterIndexPassed;
     if (!browserAnimationIsIe) { return; }
     // oObj.filters['DXImageTransform.Microsoft.Matrix']
     switch (filterIndexPassed) {
@@ -789,6 +800,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterGet:" + filterIdPassed;
     filterGetExit = false;// Set failure
     var filterIndexCn = 0;// Filter being set
     var filterCommandEval = new String();// Filter Set Command
@@ -857,7 +869,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
             filterGetExit = true;// Exit on Set Error
         } else {
             // Set succeeded
-            if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+            if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     'Filter(' + filterIdPassed + ') of ' + filterIndexCn
                     + ' set successfully! Random filter # ' + filterIndex + ' '
@@ -870,13 +882,14 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
     }
     filterCommand = filterCommandEval;
 }
-// Filter Enable
+// Filter Set
 // ...................................... //
 // Enable Filter prior to Play
 //
 function FilterSet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
     filterCommand) {
+    script_state = "MdmAnimation:FilterSet:" + filterIdPassed;
     // Evaluate the filter commands and apply elements.
     if (browserAnimationIsIe) {
         if (filterCommand.length) {
@@ -894,6 +907,7 @@ function FilterEnable(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterEnable:" + filterIdPassed;
     if (browserAnimationIsIe) {
         if (filterResizeIsOn && filterIsOn) {
             // 0
@@ -923,6 +937,7 @@ function FilterApply(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterApply:" + filterIdPassed;
     if (browserAnimationIsIe) {
         if (filterResizeIsOn && filterIsOn) {
             // 0
@@ -955,6 +970,7 @@ function FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterPlay:" + filterIdPassed;
     //
     if (!filterDuration) { filterDuration = elementMoveDuration; }
     //
@@ -1004,6 +1020,7 @@ function FilterStop(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterStop:" + filterIdPassed;
     if (filterMethod == filterMethodPlay) {
         if (filterResizeIsOn && filterIsOn) {
             if (browserAnimationIsIe) {
@@ -1048,11 +1065,13 @@ function FilterStop(filterPlayAll, startIndex, endIndex,
 // Filter Timing Get By Index
 // ...................................... //
 function FilterTimingGetByIndex() {
+    script_state = "MdmAnimation:FilterTimingGetByIndex";
     return;
 }
 // Filter Timing Get Random
 // ...................................... //
 function FilterTimingGetRandom() {
+    script_state = "MdmAnimation:FilterTimingGetRandom";
     return;
 }
 // SectionBlock Filter Get / Set function (s)
@@ -1070,6 +1089,7 @@ function FilterGetByIndex(
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterGetByIndex:" + filterObjIdPassed;
     // get interger
     filterKey = '';
     filterKeyPrefix = 'progid:';
@@ -1414,6 +1434,7 @@ function FilterGetByIndex(
 // Filter Get By Tag
 // ...................................... //
 function FilterGetByTagName(filterTagNamePassed) {
+    script_state = "MdmAnimation:FilterGetByTagName:" + filterTagNamePassed;
     //
     filterTagName = 'div';
     return null;
@@ -1423,6 +1444,7 @@ function FilterGetByTagName(filterTagNamePassed) {
 function FilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
     filterDataCommand, filterCompletion,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:FilterGetRandom:" + filterObjIdPassed;
     filterRandom = '';
     if (filterRangeLowPassed < filterRangeLow) { filterRangeLowPassed = filterRangeLow; }
     if (filterRangeLowPassed > filterRangeHigh) { filterRangeLowPassed = filterRangeHigh; }
@@ -1437,7 +1459,6 @@ function FilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
         filterObjIdPassed, filterIdPassed);
     return filterRandom;
 }
-//
 // SectionBlock Timer Task Related (Filter / Move) Commands function (s)
 // ...................................... //
 // TimerStartFilter
@@ -1448,42 +1469,43 @@ function TimerStartFilter(playDirection,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:TimerStartFilter:" + filterObjIdPassed;
     //
     var timerType = timerTypeTransition;
     var timerGroup = oObjGroupIndex;
-    var timerId = oObjGroupImageIndex;
-    var timerItemKey = timerId + timerType;
-    var timerRootKey = timerRootId + timerType;
+    var timerGroupItem = oObjGroupImageIndex;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     // numeric index used as id, not using a collections
     // new String(oObjNext.id + timerType);
     var timerReset = false;
     // Get
-    if (!timerObj[timerGroup]) { timerReset = true; } else {
-        if (!timerObj[timerGroup][timerItemKey]) { timerReset = true; } else {
+    if (!timerObj) { timerReset = true; } else {
+        if (!timerObj[timerItemKey]) { timerReset = true; } else {
             //
             if (playDirection == playDirectionForward) {
-                if (timerObj[timerGroup][timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
+                if (timerObj[timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
             } else {
-                if (timerObj[timerGroup][timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
+                if (timerObj[timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
             }
-            if (timerObj[timerGroup][timerItemKey].timerIsRunning) { timerReset = false; }
+            if (timerObj[timerItemKey].timerIsRunning) { timerReset = false; }
         }
     }
     // Constructor
     if (timerReset) {
-        TimerInitialize(timerType, timerGroup, timerId,
+        TimerInitialize(timerType, timerGroup, timerGroupItem,
             playDirection,
             timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
             filterPlayAll, startIndex, endIndex,
             oObjNext, oObjNextImage,
             oObjGroupIndex, oObjGroupImageIndex,
             filterObjIdPassed, filterIdPassed)
-        if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+        if (ConsoleLogTimer || ConsoleLogTimerTransition) {
             // && ConsoleLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'Item Add')
-                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Item Add')
+                + ', Items:' + timerObj[timerRootKey].timerInstance
                 + ', Item added to group'
                 + ' at ' + Date()
                 + '.',
@@ -1491,16 +1513,16 @@ function TimerStartFilter(playDirection,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
         //
-        // timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
+        // timerObj [timerItemKey].elementIsDisplayed = elementIsDisplayed;
         //
-    } else if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+    } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer exists and is currently busy.
-        if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+        if (ConsoleLogTimer || ConsoleLogTimerTransition) {
             // && ConsoleLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerRootKey].playDirection, 'Timing DoStep')
-                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerRootKey].playDirection, 'Timing DoStep')
+                + ', Items:' + timerObj[timerRootKey].timerInstance
                 + ', Already running, perform single step'
                 + '.',
                 'MdmAnimation:TimerStartFilter', 1506, 0, null, null,
@@ -1508,28 +1530,30 @@ function TimerStartFilter(playDirection,
         }
         //
         if (timerMethod == timerMethodGroup) {
-            timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+            timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+        } else {
+            timerObj[timerItemKey].timerIntervalId = timerItemKey;
         }
         //
-        TimerItemDoStepFilter(timerType, timerGroup, timerId);
+        TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem);
         return;
     }
     // Create new timers
-    timerObj[timerGroup][timerItemKey].elMoveStepLeft = 0;
-    timerObj[timerGroup][timerItemKey].elMoveStepTop = 0;
+    timerObj[timerItemKey].elMoveStepLeft = 0;
+    timerObj[timerItemKey].elMoveStepTop = 0;
     //
     // ...................................... //
-    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+    if (ConsoleLogTimer || ConsoleLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                timerObj[timerGroup][timerItemKey].playDirection, 'Timer Start')
+            TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                timerObj[timerItemKey].playDirection, 'Timer Start')
             + ', Timer Start command being issued now'
             + '.',
             'MdmAnimation:TimerStartFilter', 1528, 0, null, null,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
-    TimerStart(timerType, timerGroup, timerId,
+    TimerStart(timerType, timerGroup, timerGroupItem,
         timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
         timerDelay);
     //
@@ -1544,31 +1568,29 @@ function TimerStartMove(playDirection,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupImageIndex,
     filterObjIdPassed, filterIdPassed) {
+    script_state = "MdmAnimation:TimerStartMove:" + filterObjIdPassed;
     //
-    var timerType = timerTypeMove;// Type
-    var timerGroup = oObjGroupIndex;// Group
-    var timerId = oObjGroupImageIndex;// Id (numeric index used as id, not using a collections)
-    // Element Id and Type Key
-    var timerItemKey = timerId + timerType;
-    var timerRootKey = timerRootId + timerType;
+    var timerType = timerTypeMove;
+    var timerGroup = oObjGroupIndex;
+    var timerGroupItem = oObjGroupImageIndex;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var timerReset = false;
     //
-    if (!timerObj[timerGroup]) { timerReset = true; } else {
-        if (!timerObj[timerGroup][timerItemKey]) { timerReset = true; } else {
-            timerReset = false;
-            //
-            if (playDirection == playDirectionForward) {
-                if (timerObj[timerGroup][timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
-            } else {
-                if (timerObj[timerGroup][timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
-            }
-            if (timerObj[timerGroup][timerItemKey].timerIsRunning) { timerReset = false; }
+    if (!timerObj[timerItemKey]) { timerReset = true; } else {
+        timerReset = false;
+        //
+        if (playDirection == playDirectionForward) {
+            if (timerObj[timerItemKey].elementIsDisplayed != elementIsDisplayed) { timerReset = true; }
+        } else {
+            if (timerObj[timerItemKey].elementIsDisplayed != elementIsNotDisplayed) { timerReset = true; }
         }
+        if (timerObj[timerItemKey].timerIsRunning) { timerReset = false; }
     }
     //
     if (timerReset) {
         //
-        TimerInitialize(timerType, timerGroup, timerId,
+        TimerInitialize(timerType, timerGroup, timerGroupItem,
             playDirection,
             timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
             filterPlayAll, startIndex, endIndex,
@@ -1576,12 +1598,12 @@ function TimerStartMove(playDirection,
             oObjGroupIndex, oObjGroupImageIndex,
             filterObjIdPassed, filterIdPassed);
         //
-        if (ConsoleLogTimer && ConsoleLogTimerMove) {
+        if (ConsoleLogTimer || ConsoleLogTimerMove) {
             // && ConsoleLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'Item Add')
-                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Item Add')
+                + ', Items:' + timerObj[timerRootKey].timerInstance
                 + ', Item added to group'
                 + ' at ' + Date()
                 + '.',
@@ -1589,22 +1611,22 @@ function TimerStartMove(playDirection,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
         //
-        // timerObj[timerGroup] [timerItemKey].elementIsDisplayed = elementIsDisplayed;
+        // timerObj [timerItemKey].elementIsDisplayed = elementIsDisplayed;
         //
-    } else if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+    } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer Already Exists...
-        if (ConsoleLogTimer && ConsoleLogTimerMove) {
-            // && ConsoleLogTimerDetail
+        if (ConsoleLogTimer || ConsoleLogTimerMove) {
+            // || ConsoleLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'Timing DoStep')
-                + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Timing DoStep')
+                + ', Items:' + timerObj[timerRootKey].timerInstance
                 + ', Already running, perform single step'
                 + '.',
                 'MdmAnimation:TimerStartMove', 1604, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
-        TimerItemDoStepMove(timerType, timerGroup, timerId);
+        TimerItemDoStepMove(timerType, timerGroup, timerGroupItem);
         return;
     }
     // Set Style Left for menu image box
@@ -1618,10 +1640,10 @@ function TimerStartMove(playDirection,
     //
     // Distance
     moveDistanceLeft = Math.abs(elLeftDest - elLeftOrig);
-    timerObj[timerGroup][timerItemKey].moveDistanceLeft = moveDistanceLeft;
+    timerObj[timerItemKey].moveDistanceLeft = moveDistanceLeft;
     //
     moveDistanceTop = Math.abs(elTopDest - elTopOrig);
-    timerObj[timerGroup][timerItemKey].moveDistanceTop = moveDistanceTop;
+    timerObj[timerItemKey].moveDistanceTop = moveDistanceTop;
     //
     moveDistance = Math.sqrt(Math.pow(moveDistanceTop, 2) + Math.pow(moveDistanceLeft, 2));
     //
@@ -1659,14 +1681,14 @@ function TimerStartMove(playDirection,
         // if (moveOffsetTop < moveOffsetMin) { moveOffsetTop = moveOffsetMin; }
         // if (moveOffsetTop > moveOffsetMax) { moveOffsetTop = moveOffsetMax; }
     }
-    timerObj[timerGroup][timerItemKey].moveOffsetLeft = moveOffsetLeft;
-    timerObj[timerGroup][timerItemKey].moveOffsetTop = moveOffsetTop;
+    timerObj[timerItemKey].moveOffsetLeft = moveOffsetLeft;
+    timerObj[timerItemKey].moveOffsetTop = moveOffsetTop;
     //
     // ...................................... //
-    if (ConsoleLogTimer && ConsoleLogTimerMove) {
+    if (ConsoleLogTimer || ConsoleLogTimerMove) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Timer Start')
-            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+            TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
+            + ', Items:' + timerObj[timerRootKey].timerInstance
             + ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
             + ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )'
             + ', Offset: ( ' + moveOffsetTop + ', ' + moveOffsetLeft + ' )'
@@ -1677,7 +1699,7 @@ function TimerStartMove(playDirection,
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     //
-    TimerStart(timerType, timerGroup, timerId,
+    TimerStart(timerType, timerGroup, timerGroupItem,
         timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
         timerDelay);
     //
@@ -1687,22 +1709,28 @@ function TimerStartMove(playDirection,
 //
 // ..................................................................................... _//
 // ...................................... //
-function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
-    var timerItemKey = timerId + timerType;
-    var timerRootKey = timerRootId + timerType;
-    var timerIdCurr;
-    var timerIdCnMax = timerObj[timerGroup].length;
+function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItemPassed) {
+    //
+    var timerType = timerTypePassed;
+    var timerGroup = timerGroupPassed;
+    var timerGroupItem = timerGroupItemPassed;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+    script_state = "MdmAnimation:TimerGroupDoStepFilter:" + timerItemKey;
+    //
+    var timerGroupItemCurr;
+    var timerGroupItemCnMax = timerObj.length;
     var timerIsActive = false;
     var timerDoAbort = false;
     var timerInstanceIsDone = false;
     //
-    timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
+    timerObj[timerRootKey].timerIntervalStep += 1;
     //
     if (ConsoleLogTimer || ConsoleLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group In')
-            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
-            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
+            + ', Items:' + timerObj[timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerRootKey].timerStepCurr
             + ', Time:' + Date()
             + ', Starting Group'
             + '.',
@@ -1711,22 +1739,26 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
     }
     //
     // Process elements
-    for (timerIdCurr = 1; timerIdCurr < (1 + imgMaxByGroup[timerGroup]); timerIdCurr++) {
-        //
-        timerItemKey = timerIdCurr + timerType;
-        if (timerObj[timerGroup][timerItemKey]) {
-            if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
-                timerInstanceIsDone = TimerItemDoStepFilter(timerType, timerGroup, timerIdCurr);
+    timerGroupItemCurr = 0;
+    for (let timerItemKey in timerObj) {
+        timerGroupItemCurr++;
+        if (timerObj[timerItemKey]) {
+            if (timerItemKey.substring(0, 5) == 'Group'
+                && timerObj[timerItemKey].timerGroup == timerGroup
+                // && timerObj[timerItemKey].timerGroupItem == timerGroupItem
+                && timerObj[timerItemKey].timerIsRunning
+            ) {
+                timerInstanceIsDone = TimerItemDoStepFilter(timerObj[timerItemKey].timerType, timerObj[timerItemKey].timerGroup, timerObj[timerItemKey].timerGroupItem);
                 if (!timerInstanceIsDone) { timerIsActive = true; }
             }
         }
     }
     //
-    if (timerObj[timerGroup][timerRootKey].timerStepCurr > timerObj[timerGroup][timerRootKey].timerStepMax) {
+    if (timerObj[timerRootKey].timerStepCurr > timerObj[timerRootKey].timerStepMax) {
         MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot, null, 'Group Step Max')
-            + ', Transition Group Timer Maximum (' + timerObj[timerGroup][timerRootKey].timerStepMax
-            + ') number of interval steps (' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group Step Max')
+            + ', Transition Group Timer Maximum (' + timerObj[timerRootKey].timerStepMax
+            + ') number of interval steps (' + timerObj[timerRootKey].timerStepCurr
             + ') exceeded'
             + '!!!',
             'MdmAnimation:TimerGroupDoStepFilter', 1732, 0, null, null,
@@ -1734,53 +1766,53 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
         timerDoAbort = true;
     }
     //
-    if (timerDoAbort || (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1)) {
+    if (timerDoAbort
+        || (!timerIsActive
+            && (timerObj[timerRootKey].timerIsRunning || timerObj[timerRootKey].timerInstance < 1))
+        ) {
         // Turn Off Timer
-        var timerIntervalId;
-        timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
-        //
-        window.clearInterval(timerIntervalId);
-        //
+        var timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+        if (timerIntervalId) { window.clearInterval(timerIntervalId); }
         timerStarted -= 1;
-        timerObj[timerGroup][timerRootKey].timerIntervalIdPrev = timerIntervalId;
-        timerObj[timerGroup][timerRootKey].timerIntervalId = 0;
+        timerObj[timerRootKey].timerIntervalIdPrev = timerIntervalId;
+        timerObj[timerRootKey].timerIntervalId = 0;
+        timerObj[timerRootKey].timerInstance = 0;
+        timerObj[timerRootKey].timerDateEnd = new Date();
+        timerObj[timerRootKey].timerIsRunning = false;
         //
-        timerObj[timerGroup][timerRootKey].timerDateEnd = new Date();
-        timerObj[timerGroup][timerRootKey].timerIsRunning = false;
-        //
-        if (timerObj[timerGroup][timerRootKey].playDirection = playDirectionForward) {
-            timerObj[timerGroup][timerRootKey].elementIsDisplayed = elementIsDisplayed;
-        } else { timerObj[timerGroup][timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
+        if (timerObj[timerRootKey].playDirection = playDirectionForward) {
+            timerObj[timerRootKey].elementIsDisplayed = elementIsDisplayed;
+        } else { timerObj[timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
         //
         //
-        if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+        if (ConsoleLogTimer || ConsoleLogTimerTransition) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                    timerObj[timerGroup][timerRootKey].playDirection, 'Group Stop Timer')
+                TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                    timerObj[timerRootKey].playDirection, 'Group Stop Timer')
                 + ', Interval Stopped'
-                + ', Stopping Group Timer'
+                + ', Stopping Group Filter Timer'
                 + '.',
                 'MdmAnimation:TimerGroupDoStepFilter', 1763, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
     //
-    if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+    if (ConsoleLogTimer || ConsoleLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                timerObj[timerGroup][timerRootKey].playDirection, 'Group Out')
-            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
-            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                timerObj[timerRootKey].playDirection, 'Group Out')
+            + ', Items:' + timerObj[timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerRootKey].timerStepCurr
             + ', Time:' + Date()
             + ', Leaving process Group'
             + '.',
             'MdmAnimation:TimerGroupDoStepFilter', 1777, 0, null, null,
             errorIsComment, true, false);
         //
-        if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
+        if (!timerIsActive && (!timerObj[timerRootKey].timerIsRunning || timerObj[timerRootKey].timerInstance < 1)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                    timerObj[timerGroup][timerRootKey].playDirection, 'Group End')
+                TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                    timerObj[timerRootKey].playDirection, 'Group End')
                 + ', Finished Group'
                 + '.',
                 'MdmAnimation:TimerGroupDoStepFilter', 1786, 0, null, null,
@@ -1791,10 +1823,15 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerId) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
-    var timerItemKey = timerId + timerType
-    var timerRootKey = timerRootId + timerType;
+function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItemPassed) {
     //
+    var timerType = timerTypePassed;
+    var timerGroup = timerGroupPassed;
+    var timerGroupItem = timerGroupItemPassed;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+    script_state = "MdmAnimation:TimerItemDoStepFilter:" + timerItemKey;
+
     var tempFilterInProgress = true;
     var tempTimeOrStepsCompleted = false;
     //
@@ -1803,41 +1840,41 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
     //
     var errorLogLine;
     //
-    timerObj[timerGroup][timerRootKey].timerStepCurr += 1;
+    timerObj[timerRootKey].timerStepCurr += 1;
     //
-    if (!timerObj[timerGroup][timerItemKey]) {
+    if (!timerObj[timerItemKey]) {
         errorLogLine = 'Invalid Timer Object Error!';
         errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
+        errorLogLine += TimerKeyText(timerType, timerGroup, timerGroupItem);
         errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
+        errorLogLine += TimerRootKeyText(timerType, timerGroup, timerGroupItem);
         ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, errorDoAlert);
     }
     //
-    timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
-    timerObj[timerGroup][timerItemKey].timerIntervalStep += 1;
+    timerObj[timerItemKey].timerStepCurr += 1;
+    timerObj[timerItemKey].timerIntervalStep += 1;
     //
-    if (timerObj[timerGroup][timerItemKey].timerStepCurr = 1) {
+    if (timerObj[timerItemKey].timerStepCurr = 1) {
         tempMoveInProgress = false;// ******* what? *******
     }
     //
-    if (timerObj[timerGroup][timerItemKey].timerIntervalId = -1) {
-        timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
-    }
+    // if (timerObj[timerItemKey].timerIntervalId = -1) {
+    //     timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+    // }
     //
     // ...................................... //
     // Set Completion for Step Based or Time Based execution
     if (timerUseTime) {
         //
-        timerDateElps = TimerGetElapsed(timerType, timerGroup, timerId);
-        timerCompletion = timerTimeCompletion = timerDateElps / (timerObj[timerGroup][timerItemKey].timerDuration * 1000);
+        timerDateElps = TimerGetElapsed(timerType, timerGroup, timerGroupItem);
+        timerCompletion = timerTimeCompletion = timerDateElps / (timerObj[timerItemKey].timerDuration * 1000);
         if (timerCompletion > 1) { tempTimeOrStepsCompleted = true; }
         //
     } else {
-        timerCompletion = timerStepCompletion = timerObj[timerGroup][timerItemKey].timerStepCurr
-            / timerObj[timerGroup][timerItemKey].timerStepMin;
+        timerCompletion = timerStepCompletion = timerObj[timerItemKey].timerStepCurr
+            / timerObj[timerItemKey].timerStepMin;
         //
-        if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMin) {
+        if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMin) {
             tempTimeOrStepsCompleted = true;
         }
     }
@@ -1846,15 +1883,15 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
     var tempPosLeft;
     //
     // Stop if maximum # of steps exceeded
-    if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMax) {
+    if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMax) {
         MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                timerObj[timerGroup][timerItemKey].playDirection, 'StepStopItem')
-            + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
-            + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+            TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                timerObj[timerItemKey].playDirection, 'StepStopItem')
+            + ', At: ( t' + timerObj[timerItemKey].oObj.style.top
+            + ', l' + timerObj[timerItemKey].oObj.style.left
             + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5343 ' + ')'
-            + ', Transition Maximum (' + timerObj[timerGroup][timerItemKey].timerStepMax
-            + ') number of interval steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
+            + ', Transition Maximum (' + timerObj[timerItemKey].timerStepMax
+            + ') number of interval steps (' + timerObj[timerItemKey].timerStepCurr
             + ') exceeded' + '!!!',
             'MdmAnimation:TimerItemDoStepFilter', 1860, 0, null, null,
             errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
@@ -1869,75 +1906,74 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
         // Arrived at destinatioin
         timerInstanceIsDone = true;
         // One timer per Item or Element (per Timer Type)
-        timerObj[timerGroup][timerRootKey].timerInstance -= 1;
+        timerObj[timerRootKey].timerInstance -= 1;
         if (timerMethod == timerMethodGroup) {
             // Group Timer
-            timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+            timerIntervalId = timerObj[timerRootKey].timerIntervalId;
         } else if (timerMethod == timerMethodItem) {
             // Item Timer
             // Turn Off Timer
-            timerIntervalId = timerObj[timerGroup][timerItemKey].timerIntervalId;
+            timerIntervalId = timerObj[timerItemKey].timerIntervalId;
+            if (timerIntervalId) { window.clearInterval(timerIntervalId); }
             //
-            window.clearInterval(timerIntervalId);
-            //
-            if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+            if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                    TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                        timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
-                    + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
-                    + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+                    TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                        timerObj[timerItemKey].playDirection, 'Stop')
+                    + ', At: ( t' + timerObj[timerItemKey].oObj.style.top
+                    + ', l' + timerObj[timerItemKey].oObj.style.left
                     + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5344 ' + ')'
-                    + ', Interval Stopped'
+                    + ', Interval ' + timerIntervalId + ' Stopped'
                     + '.',
                     'MdmAnimation:TimerItemDoStepFilter', 1893, 0, null, null,
                     errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             }
             //
             timerStarted -= 1;
-            timerObj[timerGroup][timerItemKey].timerIntervalIdPrev = timerIntervalId;
-            timerObj[timerGroup][timerItemKey].timerIntervalId = 0;
+            timerObj[timerItemKey].timerIntervalIdPrev = timerIntervalId;
+            timerObj[timerItemKey].timerIntervalId = 0;
             //
         }
-        if (filterResizeIsOn && !timerObj[timerGroup][timerItemKey].elementIsDisplayed) {
+        if (filterResizeIsOn && !timerObj[timerItemKey].elementIsDisplayed) {
             var temp;
             if (playDirection == playDirectionForward) { temp = 1; } else { temp = 0.05; }
-            FilterResize(timerObj[timerGroup][timerItemKey].oObj, filterClassMatrix, temp);
+            FilterResize(timerObj[timerItemKey].oObj, filterClassMatrix, temp);
         }
         // if (filterObj[filterObjIdPassed].filterSet[0].filterDoStop) {
         // (filterPlayAll, startIndex, endIndex,
         // oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed);
         FilterStop(
-            timerObj[timerGroup][timerItemKey].filterPlayAll,
-            timerObj[timerGroup][timerItemKey].startIndex,
-            timerObj[timerGroup][timerItemKey].endIndex,
-            timerObj[timerGroup][timerItemKey].oObj,
-            timerObj[timerGroup][timerItemKey].oObjImage,
+            timerObj[timerItemKey].filterPlayAll,
+            timerObj[timerItemKey].startIndex,
+            timerObj[timerItemKey].endIndex,
+            timerObj[timerItemKey].oObj,
+            timerObj[timerItemKey].oObjImage,
             timerGroup,
-            timerId,
-            timerObj[timerGroup][timerItemKey].filterObjId,
-            timerObj[timerGroup][timerItemKey].filterId
+            timerGroupItem,
+            timerObj[timerItemKey].filterObjId,
+            timerObj[timerItemKey].filterId
         );
         // }
         //
-        timerObj[timerGroup][timerItemKey].timerDateEnd = new Date();
-        timerObj[timerGroup][timerItemKey].timerIsRunning = false;
+        timerObj[timerItemKey].timerDateEnd = new Date();
+        timerObj[timerItemKey].timerIsRunning = false;
         //
-        if (timerObj[timerGroup][timerItemKey].playDirection = playDirectionForward) {
-            timerObj[timerGroup][timerItemKey].elementIsDisplayed = elementIsDisplayed;
+        if (timerObj[timerItemKey].playDirection = playDirectionForward) {
+            timerObj[timerItemKey].elementIsDisplayed = elementIsDisplayed;
         } else {
             if (elementMoveDuration < filterDuration) {
-                timerObj[timerGroup][timerItemKey].oObj.style.display = 'none';
+                timerObj[timerItemKey].oObj.style.display = 'none';
             }
-            timerObj[timerGroup][timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
+            timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
         }
         tempFilterInProgress || tempTimeOrStepsCompleted
         //
-        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
-                + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
-                + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+                TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Stop')
+                + ', At: ( t' + timerObj[timerItemKey].oObj.style.top
+                + ', l' + timerObj[timerItemKey].oObj.style.left
                 + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5331 ' + ').',
                 + ', Stopping Item Timer'
                 + '.',
@@ -1945,15 +1981,15 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     } else {
-        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'SkipItem')
-                + ', At: ( t' + timerObj[timerGroup][timerItemKey].oObj.style.top
-                + ', l' + timerObj[timerGroup][timerItemKey].oObj.style.left
+                TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'SkipItem')
+                + ', At: ( t' + timerObj[timerItemKey].oObj.style.top
+                + ', l' + timerObj[timerItemKey].oObj.style.left
                 + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempFilterInProgress + ' : l5345 ' + ')'
-                + ', Elapsed:' + timerObj[timerGroup][timerItemKey].timerElapsed / 1000
-                + ', Step:' + timerObj[timerGroup][timerItemKey].timerStepCurr
+                + ', Elapsed:' + timerObj[timerItemKey].timerElapsed / 1000
+                + ', Step:' + timerObj[timerItemKey].timerStepCurr
                 + ', Time:' + Date()
                 + ', Exiting Item but no action'
                 + '.',
@@ -1963,25 +1999,29 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerId) {
     }
     return timerInstanceIsDone;
 }
-//
-// ..................................................................................... _//
+
 // ...................................... //
-function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
-    var timerItemKey = timerId + timerType;
-    var timerRootKey = timerRootId + timerType;
-    var timerIdCurr;
-    var timerIdCnMax = timerObj[timerGroup].length;
+function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemPassed) {
+    var timerType = timerTypePassed;
+    var timerGroup = timerGroupPassed;
+    var timerGroupItem = timerGroupItemPassed;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+    script_state = "MdmAnimation:TimerGroupDoStepMove:" + timerItemKey;
+
+    var timerGroupItemCurr;
+    var timerGroupItemCnMax = timerObj.length;
     var timerIsActive = false; timerDoAbort = false;
     var timerInstanceIsDone = false;
     //
-    timerObj[timerGroup][timerRootKey].timerIntervalStep += 1;
+    timerObj[timerRootKey].timerIntervalStep += 1;
     //
-    if (ConsoleLogTimer && ConsoleLogTimerMove) {
+    if (ConsoleLogTimer || ConsoleLogTimerMove) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                timerObj[timerGroup][timerItemKey].playDirection, 'Group In')
-            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
-            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                timerObj[timerRootKey].playDirection, 'Group In')
+            + ', Items:' + timerObj[timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerRootKey].timerStepCurr
             + ', Time:' + Date()
             + ', Starting Group'
             + '.',
@@ -1989,24 +2029,29 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
             errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
     }
     // Process elements
-    for (timerIdCurr = 1; timerIdCurr < imgMaxByGroup[timerGroup] + 1; timerIdCurr++) {
-        //
-        timerIsActive = false;
-        timerItemKey = timerIdCurr + timerType;
-        if (timerObj[timerGroup][timerItemKey]) {
-            if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
-                timerInstanceIsDone = TimerItemDoStepMove(timerType, timerGroup, timerIdCurr);
+    timerIsActive = false;
+    timerGroupItemCurr = 0;
+    for (let timerItemKey in timerObj) {
+        timerGroupItemCurr++;
+        if (timerObj[timerItemKey]) {
+            if (timerItemKey.substring(0, 5) == 'Group'
+                && timerObj[timerItemKey].timerGroup == timerGroup
+                // && timerObj[timerItemKey].timerGroupItem == timerGroupItem
+                && timerObj[timerItemKey].timerIsRunning
+            ) {
+
+                timerInstanceIsDone = TimerItemDoStepMove(timerObj[timerItemKey].timerType, timerObj[timerItemKey].timerGroup, timerObj[timerItemKey].timerGroupItem);
                 if (!timerInstanceIsDone) { timerIsActive = true; }
             }
         }
     }
     //
-    if (timerObj[timerGroup][timerRootKey].timerStepCurr > timerObj[timerGroup][timerRootKey].timerStepMax) {
+    if (timerObj[timerRootKey].timerStepCurr > timerObj[timerRootKey].timerStepMax) {
         MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                timerObj[timerGroup][timerRootKey].playDirection, 'Group Step Max')
-            + 'Move.. Group Timer Maximum (' + timerObj[timerGroup][timerRootKey].timerStepMax
-            + ') number of interval steps (' + timerObj[timerGroup][timerRootKey].timerStepCurr
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                timerObj[timerRootKey].playDirection, 'Group Step Max')
+            + 'Move.. Group Timer Maximum (' + timerObj[timerRootKey].timerStepMax
+            + ') number of interval steps (' + timerObj[timerRootKey].timerStepCurr
             + ') exceeded'
             + '!!!',
             'MdmAnimation:TimerGroupDoStepMove', 2013, 0, null, null,
@@ -2014,49 +2059,54 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
         timerDoAbort = true;
     }
     //
-    if (timerDoAbort || (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1)) {
+    if (timerDoAbort
+        || (!timerIsActive &&
+            (timerObj[timerRootKey].timerIsRunning
+                || timerObj[timerRootKey].timerInstance < 1
+            )
+        )
+    ) {
         // Turn Off Timer
-        var timerIntervalId;
-        timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
-        window.clearInterval(timerIntervalId);
+        var timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+        if (timerIntervalId) { window.clearInterval(timerIntervalId); }
         timerStarted -= 1;
-        timerObj[timerGroup][timerRootKey].timerIntervalIdPrev = timerIntervalId;
-        timerObj[timerGroup][timerRootKey].timerIntervalId = 0;
+        timerObj[timerRootKey].timerIntervalIdPrev = timerIntervalId;
+        timerObj[timerRootKey].timerIntervalId = 0;
+        timerObj[timerRootKey].timerInstance = 0;
+        timerObj[timerRootKey].timerDateEnd = new Date();
+        timerObj[timerRootKey].timerIsRunning = false;
         //
-        timerObj[timerGroup][timerRootKey].timerDateEnd = new Date();
-        timerObj[timerGroup][timerRootKey].timerIsRunning = false;
+        if (timerObj[timerRootKey].playDirection = playDirectionForward) {
+            timerObj[timerRootKey].elementIsDisplayed = elementIsDisplayed;
+        } else { timerObj[timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
         //
-        if (timerObj[timerGroup][timerRootKey].playDirection = playDirectionForward) {
-            timerObj[timerGroup][timerRootKey].elementIsDisplayed = elementIsDisplayed;
-        } else { timerObj[timerGroup][timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
-        //
-        if (ConsoleLogTimer && ConsoleLogTimerMove) {
+        if (ConsoleLogTimer || ConsoleLogTimerMove) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                    timerObj[timerGroup][timerRootKey].playDirection, 'Group Stop Timer')
-                + ', Stopping Group Timer'
+                TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                    timerObj[timerRootKey].playDirection, 'Group Stop Timer')
+                + ', Stopping Group Move Timer'
                 + '.',
                 'MdmAnimation:TimerGroupDoStepMove', 2040, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     }
     //
-    if (ConsoleLogTimer && ConsoleLogTimerMove) {
-        (eventCurr, DoNotUseDebug, DoUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                timerObj[timerGroup][timerRootKey].playDirection, 'Group Out')
-            + ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
-            + ', Step:' + timerObj[timerGroup][timerRootKey].timerStepCurr
+    if (ConsoleLogTimer || ConsoleLogTimerMove) {
+        MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                timerObj[timerRootKey].playDirection, 'Group Out')
+            + ', Items:' + timerObj[timerRootKey].timerInstance
+            + ', Step:' + timerObj[timerRootKey].timerStepCurr
             + ', Time:' + Date()
             + ', Leaving process Group'
             + '.',
             'MdmAnimation:TimerGroupDoStepMove', 2054, 0, null, null,
             errorIsComment, true, false);
         //
-        if (!timerIsActive && timerObj[timerGroup][timerRootKey].timerInstance < 1) {
+        if (!timerIsActive && timerObj[timerRootKey].timerInstance < 1) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoUseRoot,
-                    timerObj[timerGroup][timerRootKey].playDirection, 'End')
+                TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                    timerObj[timerRootKey].playDirection, 'End')
                 + ', Finished Group'
                 + '.',
                 'MdmAnimation:TimerGroupDoStepMove', 2063, 0, null, null,
@@ -2065,15 +2115,15 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerId) {
         }
     }
 }
-//
-// ..................................................................................... _//
+
 // ...................................... //
-function TimerItemDoStepMove(timerType, timerGroup, timerId) {
-    // ...................................... //
+function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
+
     // Set Id's
-    var timerItemKey = timerId + timerType;
-    var timerRootKey = timerRootId + timerType;
-    // ...................................... //
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+     script_state = "MdmAnimation:TimerItemDoStepMove:" + timerItemKey;
+   // ...................................... //
     // initialize completion variables
     var tempMoveInProgress = false;
     var tempTimeOrStepsCompleted = 0;
@@ -2082,52 +2132,52 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     // ...................................... //
     // initialize positions, direction and methodology variables
     var tempPosTop = -1; var tempPosLeft = -1;
-    var playDirection = timerObj[timerGroup][timerItemKey].playDirection;
-    var elementMoveMethod = timerObj[timerGroup][timerItemKey].elementMoveMethod;
+    var playDirection = timerObj[timerItemKey].playDirection;
+    var elementMoveMethod = timerObj[timerItemKey].elementMoveMethod;
     var DoMove = false;
     var IsRising = false; var IsRisingFactor = 1;
     var isRightward = false; var isRightwardFactor = -1;
     // ...................................... //
     // Set Timer for new menu image box
-    if (timerObj[timerGroup][timerItemKey].timerIntervalId = -1) {
-        timerObj[timerGroup][timerItemKey].timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
-    }
+    // if (timerObj[timerItemKey].timerIntervalId = -1) {
+    //     timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+    // }
     // ...................................... //
     // Validate Object
-    if (!timerObj[timerGroup][timerItemKey]) {
+    if (!timerObj[timerItemKey]) {
         var errorLogLine = 'Invalid Timer Object Error!';
         errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += TimerKeyText(timerType, timerGroup, timerId);
+        errorLogLine += TimerKeyText(timerType, timerGroup, timerGroupItem);
         errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += TimerRootKeyText(timerType, timerGroup, timerId);
+        errorLogLine += TimerRootKeyText(timerType, timerGroup, timerGroupItem);
         ErrorOccured("MdmAnimation:TimerItemDoStepMove", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, errorDoAlert);
     }
     // ...................................... //
     // Increment Current Step
-    timerObj[timerGroup][timerRootKey].timerStepCurr += 1;
-    timerObj[timerGroup][timerItemKey].timerStepCurr += 1;
+    timerObj[timerRootKey].timerStepCurr += 1;
+    timerObj[timerItemKey].timerStepCurr += 1;
     //
-    timerObj[timerGroup][timerItemKey].timerIntervalStep += 1;
+    timerObj[timerItemKey].timerIntervalStep += 1;
     //
-    timerObj[timerGroup][timerItemKey].elMoveStepTop += 1;
+    timerObj[timerItemKey].elMoveStepTop += 1;
     // ...................................... //
     // Set Style and Position for new menu image box
-    if (timerObj[timerGroup][timerItemKey].timerStepCurr == 1) {
+    if (timerObj[timerItemKey].timerStepCurr == 1) {
         // Start box in initial position
         if (playDirection == playDirectionReverse) {
             timerCompletionTemp = 1.0;
             // leave the object at its current position (the destination)
-            // timerObj[timerGroup] [timerItemKey].oObj.style.top = timerObj[timerGroup] [timerItemKey].elTopDest + 'px';
-            // timerObj[timerGroup] [timerItemKey].oObj.style.left = timerObj[timerGroup] [timerItemKey].elLeftDest + 'px';
+            // timerObj [timerItemKey].oObj.style.top = timerObj [timerItemKey].elTopDest + 'px';
+            // timerObj [timerItemKey].oObj.style.left = timerObj [timerItemKey].elLeftDest + 'px';
         } else {
             timerCompletionTemp = 0.05;
-            timerObj[timerGroup][timerItemKey].oObj.style.top = timerObj[timerGroup][timerItemKey].elTopOrig + 'px';
-            timerObj[timerGroup][timerItemKey].oObj.style.left = timerObj[timerGroup][timerItemKey].elLeftOrig + 'px';
+            timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopOrig + 'px';
+            timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftOrig + 'px';
         }
         // Resize new object
-        if (filterResizeIsOn && !timerObj[timerGroup][timerItemKey].elementIsDisplayed) {
+        if (filterResizeIsOn && !timerObj[timerItemKey].elementIsDisplayed) {
             FilterResize(
-                timerObj[timerGroup][timerItemKey].oObj,
+                timerObj[timerItemKey].oObj,
                 filterClassMatrix,
                 timerCompletionTemp);
         }
@@ -2137,12 +2187,12 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     // Set Completion based on methodology (Step based or Time Duration based execution)
     if (timerUseTime) {
         // (Elapsed) Time based
-        timerObj[timerGroup][timerItemKey].timerDateElps = TimerGetElapsed(timerType, timerGroup, timerId);
-        timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerDateElps / (timerObj[timerGroup][timerItemKey].timerDuration * 1000);
+        timerObj[timerItemKey].timerDateElps = TimerGetElapsed(timerType, timerGroup, timerGroupItem);
+        timerCompletionTemp = timerObj[timerItemKey].timerDateElps / (timerObj[timerItemKey].timerDuration * 1000);
     } else {
         // Step based
-        timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerStepCurr / timerObj[timerGroup][timerItemKey].timerStepMin;
-        if (timerObj[timerGroup][timerItemKey].timerStepCurr > timerObj[timerGroup][timerItemKey].timerStepMin) {
+        timerCompletionTemp = timerObj[timerItemKey].timerStepCurr / timerObj[timerItemKey].timerStepMin;
+        if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMin) {
             tempTimeOrStepsCompleted = 5497; timerCompletionTemp = 1;
         }
     }
@@ -2150,10 +2200,9 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     if (timerCompletionTemp >= 1) { tempTimeOrStepsCompleted = 5492; timerCompletionTemp = 1; }
     // ...................................... //
     // Set Completion values
-    timerCompletionCurr =
-        timerObj[timerGroup][timerItemKey].timerCompletion = timerCompletionTemp;
-    if (timerUseTime) { timerObj[timerGroup][timerItemKey].timerTimeCompletion = timerCompletionTemp; }
-    if (!timerUseTime) { timerObj[timerGroup][timerItemKey].timerStepCompletion = timerCompletionTemp; }
+    timerCompletionCurr = timerObj[timerItemKey].timerCompletion = timerCompletionTemp;
+    if (timerUseTime) { timerObj[timerItemKey].timerTimeCompletion = timerCompletionTemp; }
+    if (!timerUseTime) { timerObj[timerItemKey].timerStepCompletion = timerCompletionTemp; }
     //
     if (playDirection == playDirectionReverse) { timerCompletionCurr = 1 - timerCompletionTemp; }
     //
@@ -2161,13 +2210,13 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     // StepStopItem
     // Stop if maximum # of steps exceeded
     // increment vertical step
-    if (timerObj[timerGroup][timerItemKey].elMoveStepTop > timerObj[timerGroup][timerItemKey].timerStepMax) {
+    if (timerObj[timerItemKey].elMoveStepTop > timerObj[timerItemKey].timerStepMax) {
         MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-            TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                timerObj[timerGroup][timerItemKey].playDirection, 'StepStopItem')
+            TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                timerObj[timerItemKey].playDirection, 'StepStopItem')
             + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
-            + '.  Move.. Maximum (' + timerObj[timerGroup][timerItemKey].timerStepMax
-            + ') number of interval vertical steps (' + timerObj[timerGroup][timerItemKey].timerStepCurr
+            + '.  Move.. Maximum (' + timerObj[timerItemKey].timerStepMax
+            + ') number of interval vertical steps (' + timerObj[timerItemKey].timerStepCurr
             + ') exceeded'
             + '!!!',
             'MdmAnimation:TimerItemDoStepMove', 2175, 0, null, null,
@@ -2176,16 +2225,16 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     }
     //
     // increment horizontal step
-    timerObj[timerGroup][timerItemKey].elMoveStepLeft += 1;
+    timerObj[timerItemKey].elMoveStepLeft += 1;
     //
     /*
-    if ( timerObj[timerGroup] [timerItemKey].elMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
+    if ( timerObj [timerItemKey].elMoveStepLeft > timerObj [timerItemKey].timerStepMax) {
     MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-    TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-    timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
+    TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+    timerObj [timerItemKey].playDirection, 'StepStopItem')
     + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
-    + '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
-    + ') number of interval horizontal steps (' + timerObj[timerGroup] [timerItemKey].timerStepCurr
+    + '.  Move.. Maximum (' + timerObj [timerItemKey].timerStepMax
+    + ') number of interval horizontal steps (' + timerObj [timerItemKey].timerStepCurr
     + ') exceeded'
     + '!!!',
     'MdmAnimation:TimerItemDoStepMove', 2193, 0, null, null,
@@ -2199,15 +2248,15 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         DoMove = true;
         // ...................................... //
         // Determine if Box is Rising or Dropping
-        if (timerObj[timerGroup][timerItemKey].elTopOrig
-            > timerObj[timerGroup][timerItemKey].elTopDest) { IsRising = true; IsRisingFactor = -1; }
+        if (timerObj[timerItemKey].elTopOrig
+            > timerObj[timerItemKey].elTopDest) { IsRising = true; IsRisingFactor = -1; }
         //
         /*
         // ...................................... //
         // Decide if move needed
         // Rising
-        // was timerObj[timerGroup] [timerItemKey].oObj.style.top
-        if (parseInt(timerObj[timerGroup] [timerItemKey].elTopOrig ) < timerObj[timerGroup] [timerItemKey].elTopDest) {
+        // was timerObj [timerItemKey].oObj.style.top
+        if (parseInt(timerObj [timerItemKey].elTopOrig ) < timerObj [timerItemKey].elTopDest) {
         if (IsRising)  {
         // if ( playDirection == playDirectionForward) { DoMove = true; }
         // if ( playDirection == playDirectionReverse) { DoMove = true; }
@@ -2216,8 +2265,8 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         }
         //
         // Dropping
-        // was timerObj[timerGroup] [timerItemKey].oObj.style.top
-        if (parseInt(timerObj[timerGroup] [timerItemKey].elTopOrig ) > timerObj[timerGroup] [timerItemKey].elTopDest) {
+        // was timerObj [timerItemKey].oObj.style.top
+        if (parseInt(timerObj [timerItemKey].elTopOrig ) > timerObj [timerItemKey].elTopDest) {
         if (!IsRising)  {
         // if ( playDirection == playDirectionForward) { DoMove = true; }
         // if ( playDirection == playDirectionReverse) { DoMove = true; }
@@ -2233,11 +2282,11 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
             //
             if (elementMoveMethod == elementMoveMethodSlideDown && timerCompletionCurr > 0.5) {
                 // SlideDown
-                tempPosTop = parseInt(timerObj[timerGroup][timerItemKey].oObj.style.top);
+                tempPosTop = parseInt(timerObj[timerItemKey].oObj.style.top);
                 // don't change top during second half of SlideDown
             } else if (elementMoveMethod == elementMoveMethodSlideSide && timerCompletionCurr < 0.5) {
                 // Slide Side
-                tempPosTop = parseInt(timerObj[timerGroup][timerItemKey].oObj.style.top);
+                tempPosTop = parseInt(timerObj[timerItemKey].oObj.style.top);
                 // don't change top during first half of SlideSide
             } else {
                 //
@@ -2254,11 +2303,11 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
                     timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
                 }
                 // calculate top position for Forward and Reverse
-                tempPosTop = timerObj[timerGroup][timerItemKey].elTopOrig
-                    + (IsRisingFactor * timerCompletionTemp * timerObj[timerGroup][timerItemKey].moveDistanceTop);
+                tempPosTop = timerObj[timerItemKey].elTopOrig
+                    + (IsRisingFactor * timerCompletionTemp * timerObj[timerItemKey].moveDistanceTop);
                 //
                 // tempPosTop = parseInt(tempPosTop);
-                timerObj[timerGroup][timerItemKey].oObj.style.top = tempPosTop + 'px';
+                timerObj[timerItemKey].oObj.style.top = tempPosTop + 'px';
                 //
             } // end of Down, Side, or Diagonal movement
             //
@@ -2273,41 +2322,41 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         if (DoMove) {
             // ...................................... //
             // Determine if Box is moving Leftward
-            if (timerObj[timerGroup][timerItemKey].elLeftOrig
-                < timerObj[timerGroup][timerItemKey].elLeftDest) { isRightward = true; isRightwardFactor = 1; }
+            if (timerObj[timerItemKey].elLeftOrig
+                < timerObj[timerItemKey].elLeftDest) { isRightward = true; isRightwardFactor = 1; }
             //
             // Slide Down
-            if (!timerObj[timerGroup][timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
+            if (!timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
                 && timerCompletionCurr < 0.5) {
                 // horizontal movement does not start until half way
-                // tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig;
-                // tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
+                // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
+                // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
                 // Slide Side
-            } else if (timerObj[timerGroup][timerItemKey].elementMoveMethod = elementMoveMethodSlideSide
+            } else if (timerObj[timerItemKey].elementMoveMethod = elementMoveMethodSlideSide
                 && timerCompletionCurr > 0.5) {
                 // horizontal movement stops after half way
-                // tempPosLeft = timerObj[timerGroup] [timerItemKey].elLeftOrig;
-                // tempPosLeft = parseInt(timerObj[timerGroup] [timerItemKey].oObj.style.left);
+                // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
+                // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
             } else {
                 // Slide Diagonally
                 // always change left during Direct (diagonal) move
                 timerCompletionTemp = timerCompletionCurr;
                 // Slide Down
                 // horizontal movement is at doubled speed.
-                if (timerObj[timerGroup][timerItemKey].elementMoveMethod = elementMoveMethodSlideDown) {
+                if (timerObj[timerItemKey].elementMoveMethod = elementMoveMethodSlideDown) {
                     timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
                 }
                 // Slide Side
                 // horizontal movement is at doubled speed.
-                if (timerObj[timerGroup][timerItemKey].elementMoveMethod = elementMoveMethodSlideSide) {
+                if (timerObj[timerItemKey].elementMoveMethod = elementMoveMethodSlideSide) {
                     timerCompletionTemp = 2 * timerCompletionCurr;
                 }
                 //
-                tempPosLeft = timerObj[timerGroup][timerItemKey].elLeftOrig
-                    + (isRightwardFactor * timerCompletionTemp * timerObj[timerGroup][timerItemKey].moveDistanceLeft);
+                tempPosLeft = timerObj[timerItemKey].elLeftOrig
+                    + (isRightwardFactor * timerCompletionTemp * timerObj[timerItemKey].moveDistanceLeft);
                 //
                 // tempPosLeft = parseInt(tempPosLeft);
-                timerObj[timerGroup][timerItemKey].oObj.style.left = tempPosLeft + 'px';
+                timerObj[timerItemKey].oObj.style.left = tempPosLeft + 'px';
                 //
             } // end of Down, Side, or Diagonal movement
             //
@@ -2317,16 +2366,16 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         //
         // Resize
         if (filterResizeIsOn && tempMoveInProgress
-            && !timerObj[timerGroup][timerItemKey].elementIsDisplayed) {
+            && !timerObj[timerItemKey].elementIsDisplayed) {
             //
-            timerCompletionTemp = timerObj[timerGroup][timerItemKey].timerCompletion;
+            timerCompletionTemp = timerObj[timerItemKey].timerCompletion;
             //
             if (playDirection == playDirectionReverse) {
                 timerCompletionTemp = 1 - timerCompletionTemp;
             }
             //
             FilterResize(
-                timerObj[timerGroup][timerItemKey].oObj,
+                timerObj[timerItemKey].oObj,
                 filterClassMatrix,
                 timerCompletionTemp);
         }
@@ -2334,12 +2383,12 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
         //
     }
     //
-    if (timerObj[timerGroup][timerItemKey].timerCompletion > timerTen) {
+    if (timerObj[timerItemKey].timerCompletion > timerTen) {
         timerTen + 0.1;
     }
     //
     if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
-        var tempDetails = ', At: ( step ' + timerObj[timerGroup][timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
+        var tempDetails = ', At: ( step ' + timerObj[timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
     }
     //
     // ...................................... //
@@ -2348,21 +2397,17 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
     if (!tempMoveInProgress || tempTimeOrStepsCompleted) {
         // Arrived at destinatioin
         timerInstanceIsDone = true;
-        timerObj[timerGroup][timerRootKey].timerInstance -= 1;
+        timerObj[timerRootKey].timerInstance -= 1;
         if (timerMethod == timerMethodGroup) {
             // Group Timer
-            timerIntervalId = timerObj[timerGroup][timerRootKey].timerIntervalId;
+            timerIntervalId = timerObj[timerRootKey].timerIntervalId;
         } else if (timerMethod == timerMethodItem) {
             // Item Timer
             // Turn Off Timer
-            timerIntervalId = timerObj[timerGroup][timerItemKey].timerIntervalId;
-            //
-            window.clearInterval(timerIntervalId);
-            //
-            if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+            if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerMove) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                    TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                        timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
+                    TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                        timerObj[timerItemKey].playDirection, 'Stop')
                     + tempDetails
                     + ', Stopping Item Timer'
                     + '.',
@@ -2370,36 +2415,39 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
                     errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
             }
             //
+            timerIntervalId = timerObj[timerItemKey].timerIntervalId;
+            if (timerIntervalId) { window.clearInterval(timerIntervalId); }
+            //
+            timerObj[timerItemKey].timerIntervalIdPrev = timerIntervalId;
+            timerObj[timerItemKey].timerIntervalId = 0;
             timerStarted -= 1;
-            timerObj[timerGroup][timerItemKey].timerIntervalIdPrev = timerIntervalId;
-            timerObj[timerGroup][timerItemKey].timerIntervalId = 0;
             //
         }
+        //
+        timerObj[timerItemKey].timerDateEnd = new Date();
+        timerObj[timerItemKey].timerIsRunning = false;
         // Leave box in final position
         if (playDirection == playDirectionForward) {
-            timerObj[timerGroup][timerItemKey].oObj.style.top = timerObj[timerGroup][timerItemKey].elTopDest + 'px';
-            timerObj[timerGroup][timerItemKey].oObj.style.left = timerObj[timerGroup][timerItemKey].elLeftDest + 'px';
+            timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopDest + 'px';
+            timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftDest + 'px';
         } else {
-            timerObj[timerGroup][timerItemKey].oObj.style.top = timerObj[timerGroup][timerItemKey].elTopOrig + 'px';
-            timerObj[timerGroup][timerItemKey].oObj.style.left = timerObj[timerGroup][timerItemKey].elLeftOrig + 'px';
+            timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopOrig + 'px';
+            timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftOrig + 'px';
         }
-        //
-        timerObj[timerGroup][timerItemKey].timerDateEnd = new Date();
-        timerObj[timerGroup][timerItemKey].timerIsRunning = false;
         //
         if (playDirection == playDirectionForward) {
-            timerObj[timerGroup][timerItemKey].elementIsDisplayed = elementIsDisplayed;
+            timerObj[timerItemKey].elementIsDisplayed = elementIsDisplayed;
         } else {
             if (elementMoveDuration >= filterDuration) {
-                timerObj[timerGroup][timerItemKey].oObj.style.display = 'none';
+                timerObj[timerItemKey].oObj.style.display = 'none';
             }
-            timerObj[timerGroup][timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
+            timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
         }
         //
-        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerMove) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'Stop')
+                TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Stop')
                 + tempDetails
                 + ', Item Interval Timer Stopped'
                 + '.',
@@ -2407,19 +2455,19 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     } else {
-        if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerMove) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerType, timerGroup, timerId, DoNotUseRoot,
-                    timerObj[timerGroup][timerItemKey].playDirection, 'Item')
+                TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Item')
                 + tempDetails
-                + ', Elapsed:' + timerObj[timerGroup][timerItemKey].timerElapsed / 1000
-                + ', Step:' + timerObj[timerGroup][timerItemKey].timerStepCurr
+                + ', Elapsed:' + timerObj[timerItemKey].timerElapsed / 1000
+                + ', Step:' + timerObj[timerItemKey].timerStepCurr
                 + ', Time:' + Date()
                 + ', Move:' + moveDistanceLeft
                 + ', Rising:' + IsRisingFactor
                 + ', Compl:' + timerCompletionTemp
-                + ', Move Top:' + timerObj[timerGroup][timerItemKey].moveDistanceTop
-                + ', Move Left:' + timerObj[timerGroup][timerItemKey].moveDistanceLeft
+                + ', Move Top:' + timerObj[timerItemKey].moveDistanceTop
+                + ', Move Left:' + timerObj[timerItemKey].moveDistanceLeft
                 + ', Exiting Item'
                 + '.',
                 'MdmAnimation:TimerItemDoStepMove', 2427, 0, null, null,
@@ -2436,13 +2484,14 @@ function TimerItemDoStepMove(timerType, timerGroup, timerId) {
 // ...................................... //
 // Included a setTimeout in BODY onload to delay start of text movement.
 // oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
-function TimerGetElapsed(timerType, timerGroup, timerId) {
-    var timerItemKey = timerId + timerType;
+function TimerGetElapsed(timerType, timerGroup, timerGroupItem) {
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    script_state = "MdmAnimation:TimerGetElapsed:" + timerItemKey;
     timerDateCurr = new Date();
     // timerDateElps  = timerDateStart - timerDateCurr;
-    var timerDateStartMin = timerObj[timerGroup][timerItemKey].timerDateStart.getMinutes();
-    var timerDateStartSec = timerObj[timerGroup][timerItemKey].timerDateStart.getSeconds();
-    var timerDateStartMil = timerObj[timerGroup][timerItemKey].timerDateStart.getMilliseconds();
+    var timerDateStartMin = timerObj[timerItemKey].timerDateStart.getMinutes();
+    var timerDateStartSec = timerObj[timerItemKey].timerDateStart.getSeconds();
+    var timerDateStartMil = timerObj[timerItemKey].timerDateStart.getMilliseconds();
     //
     var timerDateCurrMin = timerDateCurr.getMinutes();
     var timerDateCurrSec = timerDateCurr.getSeconds();
@@ -2460,20 +2509,26 @@ function TimerGetElapsed(timerType, timerGroup, timerId) {
         timerDateCurrMil - timerDateStartMil
         + ((timerDateStartMil > timerDateCurrMil) * 1000);
     //
-    timerObj[timerGroup][timerItemKey].timerElapsed =
+    timerObj[timerItemKey].timerElapsed =
         (((timerDateElpsMin * 60) + timerDateElpsSec) * 1000) + timerDateElpsMil;
     //
-    return timerObj[timerGroup][timerItemKey].timerElapsed;
+    return timerObj[timerItemKey].timerElapsed;
     //
 }
 //
 // ...................................... //
-function TimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
-    var timerItemKey = timerId + timerType;
+function TimerStartMoveBusy(timerTypePassed, timerGroupPassed, timerGroupItemPassed, UseLog) {
+    var timerType = timerTypePassed;
+    var timerGroup = timerGroupPassed;
+    var timerGroupItem = timerGroupItemPassed;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+    script_state = "MdmAnimation:TimerStartMoveBusy:" + timerItemKey;
+
     var timerMoveBusy = false;
-    if (timerObj[timerGroup]) {
-        if (timerObj[timerGroup][timerItemKey]) {
-            if (timerObj[timerGroup][timerItemKey].timerIsRunning) {
+    if (timerObj) {
+        if (timerObj[timerItemKey]) {
+            if (timerObj[timerItemKey].timerIsRunning) {
                 timerMoveBusy = true;
             }
         }
@@ -2481,7 +2536,8 @@ function TimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
     //
     if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
         ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-            'Timer Busy: ' + timerItemKey, 'ElementEventCheckDuplicate', 0);
+            'Timer Busy: ' + timerItemKey, 'black', 'light yellow',
+            'ElementEventCheckDuplicate', 2529);
     }
     //
 }
@@ -2489,9 +2545,16 @@ function TimerStartMoveBusy(timerType, timerGroup, timerId, UseLog) {
 // ...................................... //
 // This test incrementally repositions an element.
 // It loops through a set number of times.
-function TimerMoveTest(timerType, timerGroup, timerId) {
-    var timerItemKey = timerId + timerType;
-    var timerRootKey = timerRootId + timerType;
+function TimerMoveTest(timerTypePassed, timerGroupPassed, timerGroupItemPassed) {
+    script_state = "MdmAnimation:TimerMoveTest";
+    var timerType = timerTypePassed;
+    var timerGroup = timerGroupPassed;
+    var timerGroupItem = timerGroupItemPassed;
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+    //
+    var divMove;
+    var divToggle;
     //
     for (i = 0; i < 10; i++) {
         iHorizontal += 1;
@@ -2503,7 +2566,8 @@ function TimerMoveTest(timerType, timerGroup, timerId) {
     //  after a set number of loops.
     iInterval++;
     if (iInterval > 25) {
-        window.clearInterval(vTimerID);
+        vtimerGroupItem = timerObj[timerItemKey].timerIntervalId;
+        if (vtimerGroupItem) { window.clearInterval(vtimerGroupItem); }
         divToggle.style.visibility = 'visible';
     }
 }

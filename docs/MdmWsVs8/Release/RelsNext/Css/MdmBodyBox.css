@@ -132,7 +132,7 @@ Right
   width: auto;
   /* Layout / Visibility */
   display: block;
-  padding-top: 1.0em;
+  /* padding-top: 1.0em; */
 }
 
 /* BodyMainCenterTopLeft */
@@ -150,8 +150,8 @@ Right
   /* Layout / Visibility */
   float: left;
   display: none;
-  margin: 0em 0em 0em 0em;
-  padding: 0em 0em 0em 0em;
+  /* margin: 0em 0em 0em 0em; */
+  /* padding: 0em 0em 0em 0em; */
 }
 
 /* BodyMainCenterTopRight */
@@ -168,8 +168,8 @@ Right
   overflow: hidden;
   /* Layout / Visibility */
   display: none;
-  margin: 0em 0em 0em 0em;
-  padding: 0em 0em 0em 0em;
+  /* margin: 0em 0em 0em 0em; */
+  /* padding: 0em 0em 0em 0em; */
   /* Layering */
   z-index: 3;
 }

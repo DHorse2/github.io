@@ -12,20 +12,17 @@
     margin: 0em;
     margin-top: 0.5em;
 }
-
 .layoutBodyColumnType2 {
     /* Size */
     width: 48%;
     /* min-width: 25.0em; */
     max-width: 35.0em;
 }
-
 .layoutBodyColumnType3 {
     /* Size */
     width: 39%;
     /* min-width:25.0em; */
 }
-
 .layoutBodyColumnType4 {
     /* Size */
     /* width:39%; */
@@ -33,9 +30,6 @@
     /* Alignment */
     text-align: center;
 }
-
-/* .layoutBodyColumnTypeFixed {  } */
-
 /* -- Body Paragraph BOX Content -- */
 /* -------------------------------------------- */
 .DivBox {
@@ -43,7 +37,6 @@
     position: relative;
     height: 100%;
 }
-
 .BodyParaBox {
     /* Position */
     position: relative;
@@ -54,12 +47,10 @@
     border-color: Gray;
     margin: 1em;
 }
-
 /* padding:0.5em 0.5em 0.5em 0.5em; */
 /* Alignment */
 /* float:none; */
-
-.BodyParaBox1 {
+BodyParaBox1 {
     /* Position */
     position: relative;
     /* Size */
@@ -70,7 +61,6 @@
     /* Border */
     border-color: Gray;
 }
-
 /* -- Body Paragraph Content -- */
 /* -------------------------------------------- */
 /* default */
@@ -88,12 +78,10 @@
     /* border-bottom: none; */
     border-right: 0.1em solid black;
 }
-
 .BodyParaIndent {
     /* padding:2em; */
     padding-left: 1em;
 }
-
 .BodyParaGround {
     /* Alignment */
     padding: 0.5em 0.5em 0.25em 0.5em;
@@ -101,13 +89,11 @@
     /* Background */
     background: #F5FEFF;
 }
-
 .BodyParaLast {
     /* Border */
     border-right: 0.1em solid black;
     border-bottom: 0.1em solid black;
 }
-
 /* -- Floats -- */
 /* -------------------------------------------- */
 .BodyParaLeft {
@@ -134,7 +120,6 @@
     /* border-bottom: none; */
     border-right: 0.1em solid black;
 }
-
 .BodyParaRight {
     /* Position */
     position: relative;
@@ -147,13 +132,11 @@
     text-align: left;
     border-right: 0.1em solid black;
 }
-
 /* -- Background -- */
 .BodyParaBoxBg {
     /* Background */
     background: url(../Images/TransparentWhiteBg75.png);
 }
-
 /* -- Body Callouts Container -- */
 /* -------------------------------------------- */
 .BodyList {
@@ -161,7 +144,6 @@
     /* margin:0.25em 0.25em 0em 0em; */
     padding: 0.5em 0.25em 0em 0.25em;
 }
-
 .BodyListItem {
     margin-top: 0em;
     margin-bottom: 0em;
@@ -170,7 +152,6 @@
     text-indent: -0em;
     text-align: left;
 }
-
 /* -- Body Callouts Container -- */
 /* -------------------------------------------- */
 /* CPA - Callout Link Anchor (shows) */

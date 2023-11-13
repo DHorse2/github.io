@@ -60,8 +60,8 @@
 // 		MenuObjectSetAll
 //		MenuObjectTextSet
 //		MenuObjectNameSet
-//		MenuIndexSet
-//		MenuIndexSetByName
+//		MenuIndexGroupSet
+//		MenuIndexGroupSetByName
 ////////////////////////////////////////////////
 // LAYOUT MANAGEMENT
 // 		LayoutCheck
@@ -1331,5 +1331,5 @@ function MenuImgShowIndex
 // MenuObjectSetAll
 // function MenuObjectTextSet(oObjGroupCn, oObjCn)
 // function MenuObjectNameSet(oObjGroupCn, oObjCn)
-// MenuIndexSet
-// MenuIndexSetByName
+// MenuIndexGroupSet
+// MenuIndexGroupSetByName

@@ -11,6 +11,12 @@ var DoUseDebug = true;
 var DoNotUseDebug = false;
 var UseDebug = DoNotUseDebug;
 
+var DoSetValue = true;
+var DoNotSetValue = false;
+
+var DoUseToggle = true;
+var DoNotUseToggle = false;
+
 // Display messages using alerts.
 var errorDoAlert = true;
 var errorDoNotAlert = false;
@@ -36,6 +42,8 @@ var DoUseFileNameByLine = 4;
 // Most UIX views of data are in this order.
 // Social media, logs, database info, and so on.
 var UseLogOrder = DoUseAscendingDate;
+var UseLogScrollError = true;
+var UseLogScrollEvent = true;
 
 // Line formatting
 var DoUseSingleLine = true;
@@ -230,7 +238,7 @@ var gt = String.fromCharCode(62)
 
 var charFSlash = '/';
 var charBSlash = '\\';
-var charNewLine = charFSlash + 'n';
+var charNewLine = charBSlash + 'n';
 var charNewLineTag = lt + 'b' + 'r ' + gt;
 var charNewLineTagOpen = lt + 'b' + 'r ';
 var charNewLineCrLf = String.fromCharCode(11, 13);
@@ -239,34 +247,38 @@ var charTextIndentSmall = '....';
 //
 // SectionBlock HTML write variables
 // ...................................... //
-var tagDiv = lt + 'di' + 'v ';
-var tagDivEnd = lt + charFSlash + 'di' + 'v' + gt;
+var tagOpen = lt;
+var tagClose = gt;
+var tagCloseSlashed = charFSlash + tagClose
 
-var tagP = lt + 'p ';
-var tagPEnd = lt + charFSlash + 'p' + gt;
+var tagDiv = tagOpen + 'di' + 'v ';
+var tagDivEnd = tagOpen + charFSlash + 'di' + 'v' + tagClose;
 
-var tagSpan = lt + 'spa' + 'n ';
-var tagSpanEnd = lt + charFSlash + 'spa' + 'n' + gt;
+var tagP = tagOpen + 'p ';
+var tagPEnd = tagOpen + charFSlash + 'p' + tagClose;
 
-var tagH9 = lt + 'h';
-var tagH9End = lt + 'h';
+var tagSpan = tagOpen + 'spa' + 'n ';
+var tagSpanEnd = tagOpen + charFSlash + 'spa' + 'n' + tagClose;
 
-var tagA = lt + 'a ';
-var tagAEnd = lt + charFSlash + 'a' + gt;
+var tagH9 = tagOpen + 'h';
+var tagH9End = tagOpen + 'h';
 
-var tagBr = lt + 'br' + gt;
+var tagA = tagOpen + 'a ';
+var tagAEnd = tagOpen + charFSlash + 'a' + tagClose;
 
-var tagImg = lt + 'im' + 'g ';
+var tagBr = tagOpen + 'br' + tagClose;
 
-var tagScript = lt + 'scrip' + 't ';
-var tagScriptEnd = lt + charFSlash + 'scrip' + 't' + gt;
+var tagImg = tagOpen + 'im' + 'g ';
+
+var tagScript = tagOpen + 'scrip' + 't ';
+var tagScriptEnd = tagOpen + charFSlash + 'scrip' + 't' + tagClose;
 //
-var charNoWrapTag = lt + 'pr' + 'e';
-var charNoWrapTagStart = lt + 'pr' + 'e' + gt;
-var charNoWrapTagEnd = lt + charFSlash + 'pr' + 'e' + gt;
+var charNoWrapTag = tagOpen + 'pr' + 'e';
+var charNoWrapTagStart = tagOpen + 'pr' + 'e' + tagClose;
+var charNoWrapTagEnd = tagOpen + charFSlash + 'pr' + 'e' + tagClose;
 //
-var tagEndContentNone = ' ' + gt;
-var tagEndContentStart = gt;
+var tagEndContentNone = ' ' + tagClose;
+var tagEndContentStart = tagClose;
 //
 var quoteOpen = '"';
 var quoteClose = '"';
@@ -274,6 +286,7 @@ var quoteClose = '"';
 var quoteInnerOpen = "'";
 var quoteInnerClose = "'";
 //
+// attributeSelf = 'a' + 'ttribue=';
 var attributeId = ' i' + 'd=';
 var attributeClass = ' cl' + 'ass=';
 var attributeName = ' na' + 'me=';
@@ -294,6 +307,8 @@ var attributeAlt = ' al' + 't=';
 var attributeEventMouseOut = ' onmou' + 'seout';
 var attributeEventMouseOver = ' onmou' + 'seover';
 var attributeEventMouseDown = ' onmou' + 'sedown';
+// focus, focusin, focusout
+// blur
 
 // Temporary
 // ...................................... //
@@ -365,11 +380,11 @@ function StringGetTokenByPrefix(DoWholeWord, stringPassed, stringPrefix) {
     var itemCn = 0
     var item = stringPassed.split(' ');
     while (itemCn + 1 < 1 + item.length) {
-        if (item[itemCn].substr(0, stringPrefix.length) == stringPrefix) {
+        if (item[itemCn].substring(0, stringPrefix.length) == stringPrefix) {
             if (DoWholeWord) {
                 return item[itemCn];
             } else {
-                return item[itemCn].substr(stringPrefix.length);
+                return item[itemCn].substring(stringPrefix.length);
             }
         }
         itemCn++;
@@ -385,6 +400,7 @@ function StringPad(num, places, padString) {
 }
 // String Replace
 function StringTextNewlineReplace(textPassed, stringReplace) {
+    textPassed = textPassed.replace(/\\/g,'\\');
     return textPassed.replace(/(?:\r\n|\r|\n)/g, stringReplace);
 }
 // String Replace
@@ -395,8 +411,8 @@ function StringTextReplace(textPassed, stringFind, stringReplace) {
     do {
         TextPos = textPassed.indexOf(stringFind);
         if (TextPos >= 0) {
-            TextNew += textPassed.substr(0, TextPos) + stringReplace;
-            textPassed = textPassed.substr(TextPos + stringFind.length);
+            TextNew += textPassed.substring(0, TextPos) + stringReplace;
+            textPassed = textPassed.substring(TextPos + stringFind.length);
         }
     } while (TextPos >= 0)
     TextNew += textPassed;
