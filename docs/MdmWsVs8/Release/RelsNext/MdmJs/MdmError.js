@@ -440,7 +440,7 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
             debugger;
         }
         var SysTimeStarted = new Date().getTime();
-        if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools 
+        if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
             // document.getElementById('test').innerHTML = 'on';
             // maybe not all options:
             if (errorUseDebug || errorUseDebugOnError || errorUseDebugOnAll) {

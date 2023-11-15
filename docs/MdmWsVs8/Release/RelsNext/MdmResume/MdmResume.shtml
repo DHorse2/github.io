@@ -823,7 +823,7 @@ Test Data
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x Section BodyImageContainer -->
-<div id="BodyImageContainer" >
+<div id="BodyMenuImageContainer" >
     <!-- onmousedown="ElementEventMouse(event);"  -->
     <!-- onmouseover="ElementEventMouse(event);"  -->
     <!-- onmouseout="ElementEventMouse(event);" -->

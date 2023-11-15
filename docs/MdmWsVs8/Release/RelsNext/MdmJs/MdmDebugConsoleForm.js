@@ -4,7 +4,7 @@ ConsoleFormInitDone = false;
 var ConsoleStateFormData;
 function ConsoleFormInit(clearElement, injectElement, passedElement) {
 	script_state = "MdmDebugConsoleForm:ConsoleFormInit";
-	// class="BodyParaLeft layoutBodyColumnType1" 
+	// class="BodyParaLeft layoutBodyColumnType1"
 	ConsoleStateFormData = `<!--** MdmPtConsoleForm - Body Console Form Blocks **-->
 
 	<!-- action="DebugFormUpdate();"  -->

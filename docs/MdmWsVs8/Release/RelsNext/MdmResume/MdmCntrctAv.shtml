@@ -888,8 +888,8 @@ Test Data
 </div> <!-- end of BodyImageContainer -->
 <!-- x ------------------------------------------------------------------------------------- -->
 <!-- x ------------------------------------------------------------------------------------- -->
-<!-- x Section BodyImageContainer -->
-<div id="BodyImageContainer" >
+<!-- x Section BodyMenuImageContainer -->
+<div id="BodyMenuImageContainer" >
     <!-- onmousedown="ElementEventMouse(event);"  -->
     <!-- onmouseover="ElementEventMouse(event);"  -->
     <!-- onmouseout="ElementEventMouse(event);" -->

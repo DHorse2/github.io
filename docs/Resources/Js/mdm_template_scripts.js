@@ -2805,7 +2805,7 @@ function fnTimerMoveTest(timerType, timerGroup, timerGroupItem)
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerLogText(null, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction)
+function fnTimerLogText(temp, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction)
  {
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
