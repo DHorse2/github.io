@@ -768,12 +768,12 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
     timerGroupItemCurr = timerGroupItem;
     var timerIsRunning = false;
     var debugFunctionIsOn = false;
-    if (ConsoleLogTimer && (
-        (timerMethod == timerMethodItem && ConsoleLogTimerDetail)
+    if (UseLogTimer && (
+        (timerMethod == timerMethodItem && UseLogTimerDetail)
         || (timerMethod == timerMethodGroup)
     )) {
-        if (ConsoleLogTimerTransition && timerType == timerTypeTransition) { debugFunctionIsOn = true; }
-        if (ConsoleLogTimerMove && timerType == timerTypeMove) { debugFunctionIsOn = true; }
+        if (UseLogTimerTransition && timerType == timerTypeTransition) { debugFunctionIsOn = true; }
+        if (UseLogTimerMove && timerType == timerTypeMove) { debugFunctionIsOn = true; }
     }
     //
     if (timerObj[timerItemKey].timerIsRunning) { timerIsRunning = true; } else {
@@ -868,12 +868,12 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
         timerFunctionPassed(timerType, timerGroup, timerGroupItem);
     };// TimerMoveStepDo
     var debugFunctionIsOn = false;
-    if (ConsoleLogTimer && (
-        (timerMethod == timerMethodItem && ConsoleLogTimerDetail)
+    if (UseLogTimer && (
+        (timerMethod == timerMethodItem && UseLogTimerDetail)
         || (timerMethod == timerMethodGroup)
     )) {
-        if ((ConsoleLogTimerTransition && timerType == timerTypeTransition)
-            || (ConsoleLogTimerMove && timerType == timerTypeMove)) {
+        if ((UseLogTimerTransition && timerType == timerTypeTransition)
+            || (UseLogTimerMove && timerType == timerTypeMove)) {
             debugFunctionIsOn = true;
         }
     }

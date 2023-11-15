@@ -68,9 +68,9 @@
 		<p>
 			Mouse Hover activation of image display:<br>
 		</p>
-		<label for="formEventMouseOverEnabled">eventMouseOverEnabled </label>
+		<label for="formEventMouseOverEnabled">UseLogEventMouseOver </label>
 		<input id="formEventMouseOverEnabled" type="checkbox"
-			onchange="DebugParameterSet(this, 'eventMouseOverEnabled', 'Toggle');">
+			onchange="DebugParameterSet(this, 'UseLogEventMouseOver', 'Toggle');">
 	</fieldset>
 	<!-- * -->
 	<!-- x ------------------------------------------------------------------------------------- -->
@@ -183,36 +183,36 @@
 			<p>
 				Trace &amp; Log Timer activity: <br>
 			</p>
-			<label for="formDebugTimer">ConsoleLogTimer </label>
-			<input id="formDebugTimer" type="checkbox" onchange="DebugParameterSet(this, 'ConsoleLogTimer', 'Toggle');">
+			<label for="formDebugTimer">UseLogTimer </label>
+			<input id="formDebugTimer" type="checkbox" onchange="DebugParameterSet(this, 'UseLogTimer', 'Toggle');">
 			<p>
 				<!-- * -->
 				Trace &amp; Log Move activity: <br>
 			</p>
-			<label for="formDebugTimerMove">ConsoleLogTimerMove </label>
+			<label for="formDebugTimerMove">UseLogTimerMove </label>
 			<input id="formDebugTimerMove" type="checkbox"
-				onchange="DebugParameterSet(this, 'ConsoleLogTimerMove', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseLogTimerMove', 'Toggle');">
 			<p>
 				<!-- * -->
 				Trace &amp; Log Filters and Transition activity: <br>
 			</p>
-			<label for="formDebugTimerTransition">ConsoleLogTimerTransition </label>
+			<label for="formDebugTimerTransition">UseLogTimerTransition </label>
 			<input id="formDebugTimerTransition" type="checkbox"
-				onchange="DebugParameterSet(this, 'ConsoleLogTimerTransition', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseLogTimerTransition', 'Toggle');">
 			<p>
 				<!-- * -->
 				Trace &amp; Log Timer activity for individual images: <br>
 			</p>
-			<label for="formDebugTimerDetail">ConsoleLogTimerDetail </label>
+			<label for="formDebugTimerDetail">UseLogTimerDetail </label>
 			<input id="formDebugTimerDetail" type="checkbox"
-				onchange="DebugParameterSet(this, 'ConsoleLogTimerDetail', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseLogTimerDetail', 'Toggle');">
 			<p>
 				<!-- * -->
 				Trace &amp; Log Mouse Events: <br>
 			</p>
-			<label for="formDebugLogEvents">ConsoleLogEvents </label>
+			<label for="formDebugLogEvents">UseLogEvents </label>
 			<input id="formDebugLogEvents" type="checkbox"
-				onchange="DebugParameterSet(this, 'ConsoleLogEvents', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseLogEvents', 'Toggle');">
 		</fieldset>
 		<!-- * end of Logging -->
 		<!-- x ------------------------------------------------------------------------------------- -->
@@ -304,15 +304,15 @@
 		<p>
 			Enter the debugger when errors occur: <br>
 		</p>
-		<label for="formErrorUseDebugOnError">errorUseDebugOnError </label>
+		<label for="formErrorUseDebugOnError">UseDebugOnError </label>
 		<input id="formErrorUseDebugOnError" type="checkbox"
-			onchange="DebugParameterSet(this, 'errorUseDebugOnError', 'Toggle');">
+			onchange="DebugParameterSet(this, 'UseDebugOnError', 'Toggle');">
 		<p>
 			<!-- * -->
 			Enter the debugger after each Log entry: <br>
 		</p>
-		<label for="formErrorUseDebugOnAll">errorUseDebugOnAll </label>
-		<input id="formErrorUseDebugOnAll" type="checkbox" onchange="DebugSetToggleerrorUseDebugOnAll(null, 'Toggle')">
+		<label for="formErrorUseDebugOnAll">UseDebugOnAll </label>
+		<input id="formErrorUseDebugOnAll" type="checkbox" onchange="DebugSetToggleUseDebugOnAll(null, 'Toggle')">
 		<p>
 			<!-- * -->
 			Allow degguger usage: <br>

@@ -47,7 +47,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	if (ConsoleLogTimer || ConsoleLogTimerDetail || (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+	if (UseLogTimer || UseLogTimerDetail || (UseLogTimerMove || UseLogTimerTransition)) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
@@ -65,7 +65,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeTransition;
 			if (playDirection != timerObj[timerItemKey].playDirection) {
 				// playDirection is different (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -78,7 +78,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -103,7 +103,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -119,7 +119,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsNotDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
@@ -147,7 +147,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeMove;
 			if (playDirection != timerObj[timerItemKey].playDirection) {
 				// playDirection is different (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -160,7 +160,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -185,7 +185,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -200,7 +200,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
@@ -263,7 +263,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	// elTopDest = oObjNext.style.posTop;
 	//
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerMove) {
+	if (UseLogTimer && UseLogTimerMove) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 			+ ', Item orgin and destination set'
@@ -289,7 +289,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	startIndex = 1; endIndex = 18;
 	if (filterIsOn || filterResizeIsOn) {
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
@@ -319,7 +319,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	if (filterIsOn) {
 		//
 		// if (filterObj[filterIdPassed].filterDoEnable) {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
@@ -338,7 +338,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
 		//
 		// if (filterObj[filterIdPassed].filterDoApply) {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
@@ -353,7 +353,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterIdIndex);
 		// }
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
@@ -369,7 +369,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterIdIndex);
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
@@ -408,7 +408,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// Visibility
 		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
@@ -428,7 +428,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
 		if (filterResizeIsOn && !elementIsDisplayed) {
 			//
-			if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
@@ -464,7 +464,7 @@ function ElementPlay(playDirection, IsImageLarge,
 // ...................................... //
 function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// Set succeeded
-	if (ConsoleLogAnitmation) {
+	if (UseLogAnitmation) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Range(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
 			+ 'Started: Hide small/large: ' + HideImage + ', ' + HideImageLarge + '. '
@@ -561,7 +561,7 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (ConsoleLogAnitmation) {
+	if (UseLogAnitmation) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Group Show Stack ' + oObjNextImageId.id
 			+ ' (' + oObjGroupIndex + ', ' + oObjGroupImageIndex + ')'
@@ -572,9 +572,9 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		//
 	}
 	// load and validate event and objects
-	ElementEventFromHtmlCheck(null, ConsoleLogEvents); // todo review
+	ElementEventFromHtmlCheck(null, UseLogEvents); // todo review
 	if (eventCurrId == oObjNextParentId
-		&& !eventMouseOverEnabled
+		&& !UseLogEventMouseOver
 		&& eventType == 'mouseover'
 	) {
 		return;
@@ -601,8 +601,8 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 	//
 	if (oObjNextValid && oObjNext) {
 		// Handle and cascade event
-		if ((eventType == 'mouseover' && eventMouseOverEnabled)
-			|| (oObjNext.style.display == 'block' && !eventMouseOverEnabled)
+		if ((eventType == 'mouseover' && UseLogEventMouseOver)
+			|| (oObjNext.style.display == 'block' && !UseLogEventMouseOver)
 		) {
 			//
 			imgZindex += 1;
@@ -656,7 +656,7 @@ function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjN
 // ...................................... //
 function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// look for duplicate mouse over events (bubbling)
-	if (!ElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -675,7 +675,7 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 var LastTouchedId;
 // ...................................... //
 function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, ConsoleLogEvents)) {
+	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, UseLogEvents)) {
 		return;
 	}
 	//
@@ -685,7 +685,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
-	if (ConsoleLogTimer || ConsoleLogTimerTransition) {
+	if (UseLogTimer || UseLogTimerTransition) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Show', oObjGroupIndex, oObjGroupImageIndex)
 			+ ', ' + oObjNext.id
@@ -1092,7 +1092,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 // ...................................... //
 function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
-	if (!ElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -1110,7 +1110,7 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 // Menu ElementItemHide
 // ...................................... //
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
+	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
@@ -1118,7 +1118,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
-		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+		if (UseLogTimer && UseLogTimerTransition) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
@@ -1131,7 +1131,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		return;
 	}
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (UseLogTimer && UseLogTimerTransition) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id

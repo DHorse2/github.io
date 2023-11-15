@@ -20,16 +20,23 @@ var DoNotUseToggle = false;
 // Display messages using alerts.
 var errorDoAlert = true;
 var errorDoNotAlert = false;
-var ConsoleLogAlert = errorDoAlert;
+var UseLogAlert = errorDoAlert;
 
-// enter debugger on errors
-var errorUseDebugOnError = false;
+var consoleBoxButton = false;
+var consoleErrorBoxButton = false;
+var consoleEventBoxButton = false;
+var consoleStateBoxButton = false;
+var consoleTestBoxButton = false;
+var consoleClearButton = false;
+var UseLogDebugButton = false;
+var UseLogDetailsAll = false;
+var UseDebugOnError = false;
 // Use debugger on ALL messages.
-var errorUseDebugOnAll = false;
+var UseDebugOnAll = false;
 
 // for current event processing
 // depends on the message type/state
-var errorUseDebug = false;
+var UseDebug = false;
 var debugDoAlert = false;
 
 // Formatting
@@ -82,21 +89,6 @@ var DoNotUseScroll = false;
 var UseOffset = DoUseOffset;
 var UseBase = DoUseBase;
 
-// Control overloading javascript
-var filterBusy = false;
-var timerBusy = false;
-var resizeBusy = false;
-
-// Animation Transition Control:
-// ...................................... //
-// (See TimerDurationSet for default filter values)
-var filterDurationOverride = false;
-var filterDuration = 0;
-var filterStepMin = 0;
-var filterStepMax = 0;
-var filterInterval = 0;
-var filterDelay = 0;
-
 // Filter Settings for Animation
 // ...................................... //
 // Usually filterDuration is the same as
@@ -128,6 +120,59 @@ var DoUseBoth = 2; // Both
 var DoNotUseEither = 3; // Both
 var UseRoot = DoUseRoot;
 
+// Ignores duplicate events. (resize, mouse)
+var UseLogEventDuplicates = false;
+// AREA Debug Areas
+//      These are normalized Areas
+//      main features and components.
+// Console and error code:
+var UseLogConsole = false;
+// Animation
+var UseLogAnitmation = false;
+// Images
+var UseLogImages = false;
+// Menus
+var UseLogMenus = false;
+// Elements
+var UseLogElements = false;
+// Page
+var UseLogPage = false;
+// Window
+var UseLogWindow = false;
+// Events
+var UseLogEvents = false;
+// Layout
+var UseLogLayout = false;
+// Debug Timers
+var UseLogTimer = false;
+var UseLogTimerMove = false;
+var UseLogTimerTransition = false;
+var UseLogTimerDetail = false;
+// Hover
+var UseLogHover = true;
+
+// depreciated:
+// ...................................... //
+var errorCaller = null;
+var errorCallerName = 'Init...';
+var callerFunc;
+var callerFuncName;
+
+// Section Console counting for Error, Event and State
+// ...................................... //
+// SectionBlock Console
+var consoleErrorLogCn = 0;
+var consoleErrorLogCnMax = 0;
+var consoleErrorLogScrollCn = 0;
+var consoleEventLogCn = 0;
+var consoleEventLogCnMax = 0;
+var consoleEventLogScrollCn = 0;
+var consoleStateLogCn = 0;
+var consoleStateLogCnMax = 0;
+var consoleStateLogScrollCn = 0;
+var UseLogLengthMax = 100000; // total bytes
+var UseLogLengthTrim = 85000;
+
 // ...................................... //
 var errorCurr = null;
 var errorMessage = 'Error handling initializing';
@@ -143,56 +188,20 @@ var messageFinal = new String();
 var messageDetail = new String();
 var messageUrl = '';
 
-
-// Section Console counting for Error, Event and State
+// Animation Transition Control:
 // ...................................... //
-// SectionBlock Console
-var consoleErrorLogCn = 0;
-var consoleErrorLogCnMax = 0;
-var consoleErrorLogScrollCn = 0;
-var consoleEventLogCn = 0;
-var consoleEventLogCnMax = 0;
-var consoleEventLogScrollCn = 0;
-var consoleStateLogCn = 0;
-var consoleStateLogCnMax = 0;
-var consoleStateLogScrollCn = 0;
-var consoleLogLengthMax = 100000; // total bytes
-var consoleLogLengthTrim = 85000;
+// Control overloading javascript
+var filterBusy = false;
+var timerBusy = false;
+var resizeBusy = false;
 
-// Ignores duplicate events. (resize, mouse)
-var ConsoleLogEventDuplicates = false;
-// AREA Debug Areas
-//      These are normalized Areas
-//      main features and components.
-// Console and error code:
-var ConsoleLogConsole = false;
-// Animation
-var ConsoleLogAnitmation = false;
-// Images
-var ConsoleLogImages = false;
-// Menus
-var ConsoleLogMenus = false;
-// Elements
-ConsoleLogElements = false;
-// Page
-ConsoleLogPage = false;
-// Window
-ConsoleLogWindow = false;
-// Events
-ConsoleLogEvents = false;
-// Layout
-ConsoleLogLayout = false;
-// Debug Timers
-var ConsoleLogTimer = false;
-var ConsoleLogTimerMove = false;
-var ConsoleLogTimerTransition = false;
-var ConsoleLogTimerDetail = false;
-
-// depreciated:
-var errorCaller = null;
-var errorCallerName = 'Init...';
-var callerFunc;
-var callerFuncName;
+// (See TimerDurationSet for default filter values)
+var filterDurationOverride = false;
+var filterDuration = 0;
+var filterStepMin = 0;
+var filterStepMax = 0;
+var filterInterval = 0;
+var filterDelay = 0;
 
 // Section Events (Mouse, load, error)
 // ...................................... //
@@ -659,7 +668,7 @@ function ErrorNew() {
 
 function ErrorMessageGet(UseSingleLinePassed) {
     ErrorMessageDetail = "";
-    if (ConsoleLogDetails && eventMessage.length) {
+    if (UseLogDetails && eventMessage.length) {
         if (!UseSingleLinePassed && ErrorMessageDetail.length > 30) { ErrorMessageDetail += charNewLineTag + charTextIndent; }
         messageFinal += ' Event: ' + eventMessage;
     }

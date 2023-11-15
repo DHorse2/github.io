@@ -56,7 +56,7 @@ function ElementEventMouseOver(elementCurr) {
 	}
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
-	if (ConsoleLogEvents) {
+	if (UseLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 			'Move.. Over occured on content image'
 			+ ' set successfully! Random filter # ' + filterIndex + ' '
@@ -105,7 +105,7 @@ function ElementEventClick(menuImage) {
 	//  img0.src = menuImage.name + 'Larger.gif';
 	//  img0text.src = menuImage.name + 'text.txt';
 	imgSelect = menuImageCn;
-	if (ConsoleLogEvents) {
+	if (UseLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'Move.. Over occured on content image'
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
@@ -200,8 +200,8 @@ function ElementEventMouse(e) {
 				//
 				eventTextColorBg = 'light blue';
 				//
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
-				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
+				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
@@ -238,10 +238,10 @@ function ElementEventMouse(e) {
 				//
 				eventTextColorBg = 'light orange';
 				//
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
-				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
+				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				// ...................................... //
-				if (eventMouseOverEnabled) { return; }
+				if (UseLogEventMouseOver) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -298,7 +298,7 @@ function ElementEventMouse(e) {
 		}
 	}
 
-	if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
+	if (UseLog && (UseLogEvents || timerMoveBusy)) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Mouse Event', eventTextColor, eventTextColorBg,
 			'ElementEventMouse', 141);
@@ -409,8 +409,8 @@ function ElementEventCheckDuplicate(UseLog) {
 			IsDuplicate = false; break;
 	}
 	//
-    if (UseLog && (ConsoleLogEvents || timerMoveBusy)
-		&& IsDuplicate && ConsoleLogEventDuplicates) {
+    if (UseLog && (UseLogEvents || timerMoveBusy)
+		&& IsDuplicate && UseLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Duplicate Event', eventTextColor, eventTextColorBg,
 			'ElementEventCheckDuplicate', 0);

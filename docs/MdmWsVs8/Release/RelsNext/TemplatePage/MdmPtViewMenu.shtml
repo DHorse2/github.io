@@ -19,35 +19,35 @@
             <!-- ConsoleAll -->
             <li class="MenuListItem">
                 <span id="MenuConsoleToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleAll')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleAll')">
                     Console for Events, Errors and Messages (C)
                 </span>
             </li>
             <!-- ConsoleError -->
             <li class="MenuListItem">
                 <span id="MenuConsoleErrorToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleError')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleError')">
                     View Errors and Log (e)
                 </span>
             </li>
             <!-- ConsoleEvent -->
             <li class="MenuListItem">
                 <span id="MenuConsoleEventToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleEvent')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleEvent')">
                     View Events (v)
                 </span>
             </li>
             <!-- ConsoleState -->
             <li class="MenuListItem MenuListItemLast">
                 <span id="MenuConsoleStateToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleState')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleState')">
                     View Messages and Test Area (s)
                 </span>
             </li>
             <!-- ConsoleClear -->
             <li class="MenuListItem MenuListItemLast">
                 <span id="MenuConsoleClearToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleClear')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleClear')">
                     CLear Errors and Log (c)
                 </span>
             </li>
@@ -55,49 +55,49 @@
             <!-- ConsoleDebug -->
             <li class="MenuListItem">
                 <span id="MenuConsoleDebugToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebug')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebug')">
                     Toggle Debug Button's Visibility (D)
                 </span>
             </li>
             <!-- ConsoleDebugMove -->
             <li class="MenuListItem">
                 <span id="MenuConsoleDebugMoveToggleLink" class="MenuListItem "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebugMove')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebugMove')">
                     Toggle Debug Movement (m)
                 </span>
             </li>
             <!-- ConsoleDebugTransition -->
             <li class="MenuListItem">
                 <span id="MenuConsoleDebugTransitionToggleLink" class="MenuListItem  "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebugTransition')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebugTransition')">
                     Toggle Debug Transitions (t)
                 </span>
             </li>
             <!-- ConsoleDebugDetail -->
             <li class="MenuListItem MenuListItemLast">
                 <span id="MenuConsoleDebugDetailToggleLink" class="MenuListItem  "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebugDetail')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebugDetail')">
                     Toggle Debug Details (d)
                 </span>
             </li>
             <!-- ConsoleDebugOnError -->
             <li class="MenuListItem MenuListItemLast">
                 <span id="MenuConsoleDebugOnErrorToggleLink" class="MenuListItem  "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebugOnError')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebugOnError')">
                     Toggle Debug Stop on OnError Messages (o)
                 </span>
             </li>
             <!-- ConsoleDebugAll -->
             <li class="MenuListItem MenuListItemLast">
                 <span id="MenuConsoleDebugAllToggleLink" class="MenuListItem  "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebugAll')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebugAll')">
                     Toggle Debug Stop on All Messages (a)
                 </span>
             </li>
             <!-- ConsoleDebugEvents -->
             <li class="MenuListItem MenuListItemLast">
                 <span id="MenuConsoleDebugEventsToggleLink" class="MenuListItem  "
-                    onmousedown="BodyConsoleToggle(true, 'ConsoleDebugEvents')">
+                    onmousedown="ConsoleToggle(true, 'ConsoleDebugEvents')">
                     Toggle Log (Mouse) Event Messages (v)
                 </span>
             </li>

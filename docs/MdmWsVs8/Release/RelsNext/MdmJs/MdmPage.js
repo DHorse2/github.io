@@ -22,6 +22,7 @@ var bodyViewToggleContainerCenter;
 var bodyViewToggleContainerLeft;
 //
 var consoleMouseOverToggle;
+var consoleMainToggle;
 //
 // Body Center Area
 var bodyMainCenter;
@@ -183,7 +184,7 @@ function MouseClickImg(menuImage) {
 	//  document.frames.item.
 	//  img0.src = menuImage.name + "lr.gif";
 	//  img0text.src = menuImage.name + "text.txt";
-	if (ConsoleLogImages) {
+	if (UseLogImages) {
  		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			"Getting " + menuImageCn + ": " + menuImage.Name,
 			'MdmPage:MouseClickImg', 209, 0, null, null,
@@ -257,6 +258,11 @@ function ElementObjectCreate() {
 	//............................................................---//
 	ElementObjectContainerCreate();
 	//
+    if (!loadDelayMenuImage) {
+        MdmMenuImageInit();
+        // bodyMenuImageContainer =
+        MenuImagesHtmlBuild();
+    }
 	//............................................................---//
 	// Banner References (Top Menu, Logo and Graphics)
 	//............................................................---//
@@ -279,32 +285,36 @@ function ElementObjectCreate() {
 	// Body Console Toggle and Message Area
 	//............................................................---//
 	// Toggle Buttons
+	// Console
+	consoleBox = ElementGetRef(consoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
+	//
 	consoleBoxButtons = ElementGetRef(consoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
-	consoleBoxToggles = ElementGetRef(consoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
-	consoleLogToggles = ElementGetRef(consoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
+	//
+	consoleToggles = ElementGetRef(consoleToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
+	UseLogToggles = ElementGetRef(UseLogToggles, 'BodyUseLogToggles', 'BodyUseLogToggles');
 	consoleAuxillaryToggles = ElementGetRef(consoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
-	//
-	consoleToggle = ElementGetRef(consoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
-	//
+	// Console Toggle
+	consoleToggle  = ElementGetRef(consoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
 	consoleErrorToggle = ElementGetRef(consoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
 	consoleEventToggle = ElementGetRef(consoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
 	consoleStateToggle = ElementGetRef(consoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
 	consoleTestToggle = ElementGetRef(consoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
 	consoleClearToggle = ElementGetRef(consoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
-	//
+	// Debug
 	consoleDebugButtons = ElementGetRef(consoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
+	//
 	consoleDebugToggles = ElementGetRef(consoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
 	consoleDebugMainToggles = ElementGetRef(consoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
 	consoleDebugTypesToggles = ElementGetRef(consoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
 	//
-	consoleDebugToggle = ElementGetRef(consoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
-	//
+	consoleDebugToggle  = ElementGetRef(consoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
 	consoleDebugMoveToggle = ElementGetRef(consoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
 	consoleDebugTransitionToggle = ElementGetRef(consoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
 	consoleDebugDetailToggle = ElementGetRef(consoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
 	consoleDebugAllToggle = ElementGetRef(consoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
 	consoleDebugOnErrorToggle = ElementGetRef(consoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
 	consoleDebugEventsToggle = ElementGetRef(consoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
+	consoleDebugHoverToggle = ElementGetRef(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle', 'BodyConsoleDebugHoverToggle');
 	//
 	// Body Console Toggle and Message Area
 	consoleContainer = ElementGetRef(consoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
@@ -325,10 +335,10 @@ function ElementObjectCreate() {
 	if (consoleStateBox.style.display == '') { consoleStateBox.style.display = 'block'; }
 	if (consoleTestBox.style.display == '') { consoleTestBox.style.display = 'block'; }
 	//
-	BodyConsoleShow(DoNotUseHide, DoNotUseDebug); // todo
-	// if (consoleBoxToggles.style.display = '') { consoleBoxToggles.style.display = 'block'; }
-	// BodyConsoleShow(DoNotUseHide, DoUseDebug);
-	// if (consoleDebugToggles.style.display = '') { consoleDebugToggles.style.display = 'block'; }
+	ConsoleShow(DoNotUseHide, DoNotUseDebug); // todo
+	// if (consoleToggle.style.display = '') { consoleToggle.style.display = 'block'; }
+	// ConsoleShow(DoNotUseHide, DoUseDebug);
+	// if (consoleDebugToggle.style.display = '') { consoleDebugToggle.style.display = 'block'; }
 	//
 	//............................................................---//
 	// Body Center Area References

@@ -30,7 +30,7 @@ function FormElementSyncLocal(fromForm) {
 	// User Interface Features
 	// Control image display using mouse hover
 	elementObject = document.getElementById('formEventMouseOverEnabled');
-	if (eventMouseOverEnabled) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogEventMouseOver) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	// ...................................... //
 	// Animation Control
@@ -49,27 +49,27 @@ function FormElementSyncLocal(fromForm) {
 	// ...................................... //
 	// Timer and Event Logging
 	elementObject = document.getElementById('formDebugTimer');
-	if (ConsoleLogTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugTimerMove');
-	if (ConsoleLogTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugTimerTransition');
-	if (ConsoleLogTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugTimerDetail');
-	if (ConsoleLogTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugLogEvents');
-	if (ConsoleLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	// ...................................... //
 	// Debugger Control
 	elementObject = document.getElementById('formErrorUseDebugOnError');// enter debugger on errors
-	if (errorUseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formErrorUseDebugOnAll');// enter debugger after any message
-	if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formDebugIsOn');
 	if (debugIsOn) { elementObject.checked = true; } else { elementObject.checked = false; }
@@ -551,7 +551,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
 			filterGetExit = true;// Exit on Set Error
 		} else {
 			// Set succeeded
-			if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+			if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Filter(' + filterIdPassed + ') of ' + filterIndexCn
 					+ ' set successfully! Random filter # ' + filterIndex + ' '
@@ -1558,12 +1558,12 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
 	timerGroupItemCurr = timerGroupItem;
 	var timerIsRunning = false;
 	var debugFunctionIsOn = false;
-	if (ConsoleLogTimer && (
-		(timerMethod = timerMethodItem && ConsoleLogTimerDetail)
+	if (UseLogTimer && (
+		(timerMethod = timerMethodItem && UseLogTimerDetail)
 		|| (timerMethod = timerMethodGroup)
 	)) {
-		if ((ConsoleLogTimerTransition && timerType == timerTypeTransition)
-			|| (ConsoleLogTimerMove && timerType == timerTypeMove)) {
+		if ((UseLogTimerTransition && timerType == timerTypeTransition)
+			|| (UseLogTimerMove && timerType == timerTypeMove)) {
 			debugFunctionIsOn = true;
 		}
 	}
@@ -1664,12 +1664,12 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
 	tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerGroupItem); };// TimerMoveStepDo
 	//
 	var debugFunctionIsOn = false;
-	if (ConsoleLogTimer && (
-		(timerMethod = timerMethodItem && ConsoleLogTimerDetail)
+	if (UseLogTimer && (
+		(timerMethod = timerMethodItem && UseLogTimerDetail)
 		|| (timerMethod = timerMethodGroup)
 	)) {
-		if ((ConsoleLogTimerTransition && timerType == timerTypeTransition)
-			|| (ConsoleLogTimerMove && timerType == timerTypeMove)) {
+		if ((UseLogTimerTransition && timerType == timerTypeTransition)
+			|| (UseLogTimerMove && timerType == timerTypeMove)) {
 			debugFunctionIsOn = true;
 		}
 	}
@@ -1759,8 +1759,8 @@ function TimerStartFilter(playDirection,
 			oObjNext, oObjNextImage,
 			oObjGroupIndex, oObjGroupImageIndex,
 			filterObjIdPassed, filterIdPassed)
-		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
-			// && ConsoleLogTimerDetail
+		if (UseLogTimer && UseLogTimerTransition) {
+			// && UseLogTimerDetail
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'Item Add')
@@ -1776,8 +1776,8 @@ function TimerStartFilter(playDirection,
 		//
 	} else if (timerObj[timerItemKey].timerIsRunning) {
 		// Timer exists and is currently busy.
-		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
-			// && ConsoleLogTimerDetail
+		if (UseLogTimer && UseLogTimerTransition) {
+			// && UseLogTimerDetail
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerRootKey].playDirection, 'Timing DoStep')
@@ -1800,7 +1800,7 @@ function TimerStartFilter(playDirection,
 	timerObj[timerItemKey].elMoveStepTop = 0;
 	//
 	// ...................................... //
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (UseLogTimer && UseLogTimerTransition) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerItemKey].playDirection, 'Timer Start')
@@ -1858,8 +1858,8 @@ function TimerStartMove(playDirection,
 			oObjGroupIndex, oObjGroupImageIndex,
 			filterObjIdPassed, filterIdPassed);
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerMove) {
-			// && ConsoleLogTimerDetail
+		if (UseLogTimer && UseLogTimerMove) {
+			// && UseLogTimerDetail
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'Item Add')
@@ -1875,8 +1875,8 @@ function TimerStartMove(playDirection,
 		//
 	} else if (timerObj[timerItemKey].timerIsRunning) {
 		// Timer Already Exists...
-		if (ConsoleLogTimer && ConsoleLogTimerMove) {
-			// && ConsoleLogTimerDetail
+		if (UseLogTimer && UseLogTimerMove) {
+			// && UseLogTimerDetail
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'Timing DoStep')
@@ -1948,7 +1948,7 @@ function TimerStartMove(playDirection,
 	timerObj[timerItemKey].moveOffsetTop = moveOffsetTop;
 	//
 	// ...................................... //
-	if (ConsoleLogTimer && ConsoleLogTimerMove) {
+	if (UseLogTimer && UseLogTimerMove) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
 			+ ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1983,7 +1983,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 	//
 	timerObj[timerRootKey].timerIntervalStep += 1;
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (UseLogTimer && UseLogTimerTransition) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
 			+ ', Items:' + timerObj[timerRootKey].timerInstance
@@ -2038,7 +2038,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 		} else { timerObj[timerRootKey].elIsDisplayed = elIsNotDisplayed; }
 		//
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+		if (UseLogTimer && UseLogTimerTransition) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 					timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -2050,7 +2050,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 		}
 	}
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (UseLogTimer && UseLogTimerTransition) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerRootKey].playDirection, 'Group Out')
@@ -2169,7 +2169,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 			//
 			window.clearInterval(timerIntervalId);
 			//
-			if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+			if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 						timerObj[timerItemKey].playDirection, 'Stop')
@@ -2221,7 +2221,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 		}
 		tempFilterInProgress || tempTimeOrStepsCompleted
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+		if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'Stop')
@@ -2234,7 +2234,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	} else {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+		if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'SkipItem')
@@ -2265,7 +2265,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 	//
 	timerObj[timerRootKey].timerIntervalStep += 1;
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerMove) {
+	if (UseLogTimer && UseLogTimerMove) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerItemKey].playDirection, 'Group In')
@@ -2319,7 +2319,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 			timerObj[timerRootKey].elIsDisplayed = elIsDisplayed;
 		} else { timerObj[timerRootKey].elIsDisplayed = elIsNotDisplayed; }
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerMove) {
+		if (UseLogTimer && UseLogTimerMove) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 					timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -2330,7 +2330,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 		}
 	}
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerMove) {
+	if (UseLogTimer && UseLogTimerMove) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerRootKey].playDirection, 'Group Out')
@@ -2626,7 +2626,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 		timerTen + 0.1;
 	}
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+	if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 		var tempDetails = ', At: ( step ' + timerObj[timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
 	}
 	//
@@ -2647,7 +2647,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 			//
 			window.clearInterval(timerIntervalId);
 			//
-			if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+			if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 						timerObj[timerItemKey].playDirection, 'Stop')
@@ -2684,7 +2684,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 			timerObj[timerItemKey].elIsDisplayed = elIsNotDisplayed;
 		}
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+		if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'Stop')
@@ -2695,7 +2695,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
 		}
 	} else {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+		if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerItemKey].playDirection, 'Item')
@@ -3853,7 +3853,7 @@ window.onload = function () { // function Document Window OnLoad
 // Document Layout Size of Core Layout Boxes
 function WindowContainerSizeGetAll() {
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of left and right menu containers vs the center menu container'
 			+ ': ',
@@ -3870,7 +3870,7 @@ function WindowContainerSizeGetAll() {
 	//
 	bodyMainCenterHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
 			+ '.',
@@ -3885,7 +3885,7 @@ function WindowContainerSizeGetAll() {
 	bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
 	// if (layoutResizeCn == 0) { bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
@@ -3898,7 +3898,7 @@ function WindowContainerSizeGetAll() {
 		WindowContainerSizeGetMenu(bodyMainLeft);
 	} else { WindowContainerSizeGetMenu(bodyMainCenterTopLeft); }
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
@@ -3914,7 +3914,7 @@ function WindowContainerSizeGetAll() {
 	bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
 	// if (layoutResizeCn = 0) { bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
@@ -3927,7 +3927,7 @@ function WindowContainerSizeGetAll() {
 		WindowContainerSizeGetMenu(bodyMainRight);
 	} else { WindowContainerSizeGetMenu(bodyMainCenterTopRight); }
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
@@ -4257,7 +4257,7 @@ function WindowResizeLayout() {
 	/* -- */
 	//
 	//
-	if (ConsoleLogAlert) {
+	if (UseLogAlert) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Main Container layoutHeight (body +5em): ' + layoutHeight
 			+ '.',
@@ -4580,11 +4580,11 @@ function ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 	//
 	consoleEventTextBox.innerHTML = eventMessage + consoleEventTextBox.innerHTML;
 	//
-	if ((consoleEventTextBox.innerHTML).length > consoleLogLengthMax) {
-		consoleEventTextBox.innerHTML = (consoleEventTextBox.innerHTML).substring(0, consoleLogLengthTrim);
+	if ((consoleEventTextBox.innerHTML).length > UseLogLengthMax) {
+		consoleEventTextBox.innerHTML = (consoleEventTextBox.innerHTML).substring(0, UseLogLengthTrim);
 	}
 	//
-	if (errorUseDebugOnAll) {
+	if (UseDebugOnAll) {
 		WindowErrorDebug(eventMessage, eventUrl, eventLine);
 	}
 	//
@@ -4743,9 +4743,9 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 			break;
 	}
 	//
-	if (errorUseDebugOnAll) {errorUseDebug = DoUseDebug; } else {
-		// if (errorUseDebugOnError) {errorUseDebug = DoUseDebug; } else {
-		if (UseDebug) {errorUseDebug = DoUseDebug; }
+	if (UseDebugOnAll) {UseDebug = DoUseDebug; } else {
+		// if (UseDebugOnError) {UseDebug = DoUseDebug; } else {
+		if (UseDebug) {UseDebug = DoUseDebug; }
 		// }
 	}
 	//
@@ -4791,8 +4791,8 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 		+ charNoWrapTagEnd + consoleErrorTextBox.innerHTML;
 	consoleErrorTextBox.innerHTML = tempInnerHTML;
 	//
-	if ((consoleErrorTextBox.innerHTML).length > consoleLogLengthMax) {
-		consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(0, consoleLogLengthTrim);
+	if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
+		consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(0, UseLogLengthTrim);
 	}
 	//
 	// Scroll to top when not in focus
@@ -4908,12 +4908,12 @@ function WindowErrorDebug(MessagePassed, messageUrlPassed, MessageLineNumPassed)
 	//
 	// if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
 	//
-	if (errorUseDebugOnError || errorUseDebugOnAll) {
+	if (UseDebugOnError || UseDebugOnAll) {
 		if (consoleBox.style.display != 'block') {
-			BodyConsoleToggle(true, 'ConsoleAll');
-			BodyConsoleToggle(true, 'ConsoleEvent');
-			BodyConsoleToggle(true, 'ConsoleState');
-		} else if (consoleErrorBox.style.display != 'block') { BodyConsoleToggle(true, 'ConsoleError'); }
+			ConsoleToggle(true, 'ConsoleAll');
+			ConsoleToggle(true, 'ConsoleEvent');
+			ConsoleToggle(true, 'ConsoleState');
+		} else if (consoleErrorBox.style.display != 'block') { ConsoleToggle(true, 'ConsoleError'); }
 		//
 		if (browserIsIE) {
 			debugger;
@@ -4958,7 +4958,7 @@ function ElementEventMouseOver(menuImage) {
 	}
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
-	if (ConsoleLogEvents) {
+	if (UseLogEvents) {
 		MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 			'Move.. Over occured on content image'
 			+ ' set successfully! Random filter # ' + filterIndex + ' '
@@ -5011,7 +5011,7 @@ function ElementEventClick(menuImage) {
 	//  img0.src = menuImage.name + 'Larger.gif';
 	//  img0text.src = menuImage.name + 'text.txt';
 	imgSelect = menuImageCn;
-	if (ConsoleLogEvents) {
+	if (UseLogEvents) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			'Move.. Over occured on content image'
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
@@ -5121,11 +5121,11 @@ function ElementObjectCreate() {
 	//............................................................---//
 	// Toggle Buttons
 	consoleBoxButtons = ElementGetRef(consoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
-	consoleBoxToggles = ElementGetRef(consoleBoxToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
-	consoleLogToggles = ElementGetRef(consoleLogToggles, 'BodyConsoleLogToggles', 'BodyConsoleLogToggles');
+	consoleToggles = ElementGetRef(consoleToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
+	UseLogToggles = ElementGetRef(UseLogToggles, 'BodyUseLogToggles', 'BodyUseLogToggles');
 	consoleAuxillaryToggles = ElementGetRef(consoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
 	//
-	consoleToggle = ElementGetRef(consoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
+	consoleToggle = ElementGetRef(consoleToggle, 'ConsoleToggle', 'ConsoleToggle');
 	//
 	consoleErrorToggle = ElementGetRef(consoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
 	consoleEventToggle = ElementGetRef(consoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
@@ -5165,9 +5165,9 @@ function ElementObjectCreate() {
 	if (consoleStateBox.style.display == '') { consoleStateBox.style.display = 'block'; }
 	if (consoleTestBox.style.display == '') { consoleTestBox.style.display = 'block'; }
 	//
-	BodyConsoleShow(DoNotUseHide, DoNotUseDebug);
-	// if (consoleBoxToggles.style.display == '') { consoleBoxToggles.style.display = 'block'; }
-	BodyConsoleShow(DoNotUseHide, DoUseDebug);
+	ConsoleShow(DoNotUseHide, DoNotUseDebug);
+	// if (consoleToggles.style.display == '') { consoleToggles.style.display = 'block'; }
+	ConsoleShow(DoNotUseHide, DoUseDebug);
 	// if (consoleDebugToggles.style.display == '') { consoleDebugToggles.style.display = 'block'; }
 	//
 	//............................................................---//
@@ -5586,7 +5586,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 			// set Display property.
 			if ('display' in elementTarget.style) {
 				if (elementStyleDisplayPassed.length) { elementTarget.style.display = elementStyleDisplayPassed; }
-			} else if (ConsoleLogTimerDetail) {
+			} else if (UseLogTimerDetail) {
 				MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 					'Element Break Set, Style missing',
 					'ElementBreakSet', 7742, elementTarget, elementPassed,
@@ -5596,7 +5596,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 			if (elementStyleVisibilityPassed.length) {
 				if (elementTarget.style.visibility) {
 					elementTarget.style.visibility = elementStyleVisibilityPassed;
-				} else if (ConsoleLogTimerDetail) {
+				} else if (UseLogTimerDetail) {
 					MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 						'Element Break Set, Visibility missing',
 						'ElementBreakSet', 7751, elementTarget, elementPassed,
@@ -5609,7 +5609,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 				// note: the redundant syntax, different logic than above
 				if (elementTarget.style.clear) {
 					if (elsementStyleClearPassed.length) { elementTarget.style.clear = elsementStyleClearPassed; }
-				} else if (ConsoleLogTimerDetail) {
+				} else if (UseLogTimerDetail) {
 					MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 						'Element Break Set, Clear missing',
 						'ElementBreakSet', 7760, elementTarget, elementPassed,
@@ -5847,7 +5847,7 @@ function ElementLayoutHeightNote(DoScroll, DoBase, elementPassed, layoutBlockWid
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Console
-function BodyConsoleToggle(true, ConsoleBlockPassed) {
+function ConsoleToggle(true, ConsoleBlockPassed) {
 	var checkBoxSize = false;
 	var checkNoVisibleDebug = false;
 	var checkNoVisibleConsole = false;
@@ -5859,18 +5859,18 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 	switch (ConsoleBlockPassed) {
 		//
 		case 'ConsoleMouseOver':
-			if (eventMouseOverEnabled) {
-				eventMouseOverEnabled = false;
+			if (UseLogEventMouseOver) {
+				UseLogEventMouseOver = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Mouse Over Menus is OFF',
-					'BodyConsoleToggle', 8307, null, null,
+					'ConsoleToggle', 8307, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				eventMouseOverEnabled = true;
+				UseLogEventMouseOver = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Mouse Over Menus is ON',
-					'BodyConsoleToggle', 8314, null, null,
+					'ConsoleToggle', 8314, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 			}
@@ -5880,7 +5880,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 		case 'ConsoleError':
 			if (consoleBox.style.display != 'block') {
 				boxStyleSaved = consoleErrorBox.style.display;
-				BodyConsoleToggle(true, 'ConsoleAll');
+				ConsoleToggle(true, 'ConsoleAll');
 				consoleErrorBox.style.display = boxStyleSaved;
 			} else {
 				if (consoleErrorBox.style.display != 'block') {
@@ -5899,7 +5899,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 		case 'ConsoleEvent':
 			if (consoleBox.style.display != 'block') {
 				boxStyleSaved = consoleEventBox.style.display;
-				BodyConsoleToggle(true, 'ConsoleAll');
+				ConsoleToggle(true, 'ConsoleAll');
 				consoleEventBox.style.display = boxStyleSaved;
 			} else {
 				if (consoleEventBox.style.display != 'block') {
@@ -5921,7 +5921,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			if (consoleBox.style.display != 'block') {
 				if (loadFirstDebugState) { FormElementSync(); }
 				boxStyleSaved = consoleStateBox.style.display;
-				BodyConsoleToggle(true, 'ConsoleAll');
+				ConsoleToggle(true, 'ConsoleAll');
 				consoleStateBox.style.display = boxStyleSaved;
 			} else {
 				if (consoleStateBox.style.display != 'block') {
@@ -5942,7 +5942,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 		case 'ConsoleTest':
 			if (consoleBox.style.display != 'block') {
 				boxStyleSaved = consoleTestBox.style.display;
-				BodyConsoleToggle(true, 'ConsoleAll');
+				ConsoleToggle(true, 'ConsoleAll');
 				consoleTestBox.style.display = boxStyleSaved;
 			}
 			//
@@ -5954,7 +5954,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			// execute test
 			MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 				'This is a test message for checking the console display...',
-				'BodyConsoleToggle', 8225, consoleTestBox, consoleTestBox,
+				'ConsoleToggle', 8225, consoleTestBox, consoleTestBox,
 				errorSevere, errorDoDisplayTag, errorDoAlert);
 			//
 			checkNoVisibleConsole = true;
@@ -5965,7 +5965,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			consoleErrorTextBox.innerHTML = '';
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				'Error and Log Console has been cleared...',
-				'BodyConsoleToggle', 8235, null, null,
+				'ConsoleToggle', 8235, null, null,
 				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 			//
 			consoleClearToggle.style.backgroundColor = '';
@@ -5979,29 +5979,29 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 		//
 		case 'ConsoleDebug':
 			if (consoleDebugMainToggles.style.display != 'block') {
-				ConsoleLogTimerMove = true;
+				UseLogTimerMove = true;
 				consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-				ConsoleLogTimerTransition = true;
+				UseLogTimerTransition = true;
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
-				ConsoleLogTimerDetail = true;
+				UseLogTimerDetail = true;
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
-				errorUseDebugOnAll = true;
+				UseDebugOnAll = true;
 				consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
-				errorUseDebugOnError = true;
+				UseDebugOnError = true;
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
-				// errorUseDebugOnError = true;
+				// UseDebugOnError = true;
 				// consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-				ConsoleLogEvents = true;
+				UseLogEvents = true;
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				//
-				BodyConsoleShow(DoNotUseHide, DoUseDebug);
+				ConsoleShow(DoNotUseHide, DoUseDebug);
 				//
 				if (consoleBox.style.display != 'block') {
-					BodyConsoleToggle(true, 'ConsoleAll');
+					ConsoleToggle(true, 'ConsoleAll');
 				}
 				//
-				if (errorUseDebugOnAll || errorUseDebugOnError) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
-				if (ConsoleLogTimerMove || ConsoleLogTimerTransition) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
+				if (UseDebugOnAll || UseDebugOnError) { UseDebugOnError = true; } else { UseDebugOnError = false; }
+				if (UseLogTimerMove || UseLogTimerTransition) { UseLogTimer = true; } else { UseLogTimer = false; }
 				//
 				checkLogMode = true;
 				checkLogModeSeeErrors = true;
@@ -6012,22 +6012,22 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 				//
 			} else {
 				//
-				ConsoleLogTimerMove = false;
+				UseLogTimerMove = false;
 				consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
-				ConsoleLogTimerTransition = false;
+				UseLogTimerTransition = false;
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
-				ConsoleLogTimerDetail = false;
+				UseLogTimerDetail = false;
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
-				errorUseDebugOnAll = false;
+				UseDebugOnAll = false;
 				consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
-				errorUseDebugOnError = false;
+				UseDebugOnError = false;
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
-				// errorUseDebugOnError = false;
+				// UseDebugOnError = false;
 				// consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
-				ConsoleLogEvents = false;
+				UseLogEvents = false;
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 				//
-				BodyConsoleShow(DoUseHide, DoUseDebug);
+				ConsoleShow(DoUseHide, DoUseDebug);
 				// consoleDebugToggles.style.display = 'none';
 				consoleDebugToggle.style.borderColor = ButtonIsOffColor;
 				BodyConsoleDebugButtons = false;
@@ -6035,66 +6035,66 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			break;
 		//
 		case 'ConsoleDebugMove':
-			if (ConsoleLogTimerMove) {
-				ConsoleLogTimerMove = false;
+			if (UseLogTimerMove) {
+				UseLogTimerMove = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Move is OFF',
-					'BodyConsoleToggle', 8307, null, null,
+					'ConsoleToggle', 8307, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				ConsoleLogTimerMove = true;
+				UseLogTimerMove = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Move is ON',
-					'BodyConsoleToggle', 8314, null, null,
+					'ConsoleToggle', 8314, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
 			//
-			if (ConsoleLogTimerMove || ConsoleLogTimerTransition) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
+			if (UseLogTimerMove || UseLogTimerTransition) { UseLogTimer = true; } else { UseLogTimer = false; }
 			//
 			checkNoVisibleConsole = true;
 			checkBoxSize = true;
 			break;
 		//
 		case 'ConsoleDebugTransition':
-			if (ConsoleLogTimerTransition) {
-				ConsoleLogTimerTransition = false;
+			if (UseLogTimerTransition) {
+				UseLogTimerTransition = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is OFF',
-					'BodyConsoleToggle', 8331, null, null,
+					'ConsoleToggle', 8331, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				ConsoleLogTimerTransition = true;
+				UseLogTimerTransition = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is ON',
-					'BodyConsoleToggle', 8338, null, null,
+					'ConsoleToggle', 8338, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
 			//
-			if (ConsoleLogTimerMove || ConsoleLogTimerTransition) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
+			if (UseLogTimerMove || UseLogTimerTransition) { UseLogTimer = true; } else { UseLogTimer = false; }
 			//
 			checkNoVisibleConsole = true;
 			checkBoxSize = true;
 			break;
 		//
 		case 'ConsoleDebugDetail':
-			if (ConsoleLogTimerDetail) {
-				ConsoleLogTimerDetail = false;
+			if (UseLogTimerDetail) {
+				UseLogTimerDetail = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is OFF',
-					'BodyConsoleToggle', 8355, null, null,
+					'ConsoleToggle', 8355, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				ConsoleLogTimerDetail = true;
+				UseLogTimerDetail = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is ON',
-					'BodyConsoleToggle', 8362, null, null,
+					'ConsoleToggle', 8362, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6105,18 +6105,18 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			break;
 		//
 		case 'ConsoleDebugOnError':
-			if (errorUseDebugOnError) {
-				errorUseDebugOnError = false;
+			if (UseDebugOnError) {
+				UseDebugOnError = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is OFF',
-					'BodyConsoleToggle', 8377, null, null,
+					'ConsoleToggle', 8377, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				errorUseDebugOnError = true;
+				UseDebugOnError = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is ON',
-					'BodyConsoleToggle', 8384, null, null,
+					'ConsoleToggle', 8384, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6127,20 +6127,20 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			break;
 		//
 		case 'ConsoleDebugAll':
-			if (errorUseDebugOnAll) {
-				errorUseDebugOnAll = false;
+			if (UseDebugOnAll) {
+				UseDebugOnAll = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is OFF',
-					'BodyConsoleToggle', 8399, null, null,
+					'ConsoleToggle', 8399, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				errorUseDebugOnAll = true;
+				UseDebugOnAll = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is ON',
-					'BodyConsoleToggle', 8406, null, null,
+					'ConsoleToggle', 8406, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
-				if (!errorUseDebugOnError) { BodyConsoleToggle(true, 'ConsoleDebugOnError'); }
+				if (!UseDebugOnError) { ConsoleToggle(true, 'ConsoleDebugOnError'); }
 				consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -6151,18 +6151,18 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			break;
 		//
 		case 'ConsoleDebugEvents':
-			if (ConsoleLogEvents) {
-				ConsoleLogEvents = false;
+			if (UseLogEvents) {
+				UseLogEvents = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is OFF',
-					'BodyConsoleToggle', 8423, null, null,
+					'ConsoleToggle', 8423, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				ConsoleLogEvents = true;
+				UseLogEvents = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is ON',
-					'BodyConsoleToggle', 8430, null, null,
+					'ConsoleToggle', 8430, null, null,
 					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6183,16 +6183,16 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 	//
 	if (checkLogMode) {
 		if (checkLogModeSeeErrors) {
-			if (consoleErrorBox.style.display != 'block') { BodyConsoleToggle(true, 'ConsoleError'); }
+			if (consoleErrorBox.style.display != 'block') { ConsoleToggle(true, 'ConsoleError'); }
 		} else {
-			// if (consoleErrorBox.style.display == 'block') { BodyConsoleToggle(true, 'ConsoleError'); }
+			// if (consoleErrorBox.style.display == 'block') { ConsoleToggle(true, 'ConsoleError'); }
 		}
 		if (checkLogModeSeeEvents) {
-			if (consoleEventBox.style.display != 'block') { BodyConsoleToggle(true, 'ConsoleEvent'); }
+			if (consoleEventBox.style.display != 'block') { ConsoleToggle(true, 'ConsoleEvent'); }
 		} else {
-			// if (consoleEventBox.style.display == 'block') { BodyConsoleToggle(true, 'ConsoleEvent'); }
+			// if (consoleEventBox.style.display == 'block') { ConsoleToggle(true, 'ConsoleEvent'); }
 		}
-		if (consoleStateBox.style.display == 'block') { BodyConsoleToggle(true, 'ConsoleState'); }
+		if (consoleStateBox.style.display == 'block') { ConsoleToggle(true, 'ConsoleState'); }
 	}
 	//
 	// Check if any Console Box settings are on or content is visible
@@ -6202,28 +6202,28 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 			&& consoleStateBox.style.display != 'block'
 		) {
 			consoleBox.style.display = 'none';
-			BodyConsoleShow(DoUseHide, DoNotUseDebug);
+			ConsoleShow(DoUseHide, DoNotUseDebug);
 			checkBoxSize = false;
 		} else {
-			BodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+			ConsoleShow(DoNotUseHide, DoNotUseDebug);
 		}
 		//
 	}
 	// Check if any Debugs settings are on or content is visible
 	if (checkNoVisibleDebug) {
 		if (consoleDebugToggles.style.display != 'block'
-			&& !ConsoleLogTimerMove
-			&& !ConsoleLogTimerTransition
-			&& !ConsoleLogTimerDetail
-			&& !errorUseDebugOnError
-			&& !errorUseDebugOnAll
-			&& !ConsoleLogEvents
+			&& !UseLogTimerMove
+			&& !UseLogTimerTransition
+			&& !UseLogTimerDetail
+			&& !UseDebugOnError
+			&& !UseDebugOnAll
+			&& !UseLogEvents
 		) {
-			// 			&& !errorUseDebugOnError
-			BodyConsoleShow(DoUseHide,DoUseDebug);
+			// 			&& !UseDebugOnError
+			ConsoleShow(DoUseHide,DoUseDebug);
 			checkBoxSize = false;
 		} else {
-			BodyConsoleShow(DoNotUseHide,DoUseDebug);
+			ConsoleShow(DoNotUseHide,DoUseDebug);
 		}
 	}
 	//
@@ -6240,7 +6240,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 					//
 					consoleBox.style.display = 'block';
 					//
-					BodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+					ConsoleShow(DoNotUseHide, DoNotUseDebug);
 					//
 					if (consoleErrorBox.style.display != 'block'
 						&& consoleEventBox.style.display != 'block'
@@ -6274,7 +6274,7 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 					//
 					consoleBox.style.display = 'none';
 					//
-					BodyConsoleShow(DoUseHide, DoNotUseDebug);
+					ConsoleShow(DoUseHide, DoNotUseDebug);
 					//
 				}
 				//
@@ -6283,84 +6283,84 @@ function BodyConsoleToggle(true, ConsoleBlockPassed) {
 				//
 				consoleBox.style.display = 'block';
 				//
-				BodyConsoleShow(DoNotUseHide, DoNotUseDebug);
+				ConsoleShow(DoNotUseHide, DoNotUseDebug);
 			}
 		default:
 			break;
 	}
 	//
-	if (consoleStateBox.style.display == 'block') {
-		// State visible
-		if (consoleErrorBox.style.display != 'block') {
-			// State visible, no Error visible
-			if (consoleEventBox.style.display != 'block') {
-				// State visible, no Error & Event visible
-				consoleStateBox.style.left = '2%';
-				consoleStateBox.style.width = '97%';
-			} else {
-				// State & Event, no Error visible
-				consoleEventBox.style.left = '2%';
-				consoleEventBox.style.width = '31%';
-				//
-				consoleStateBox.style.left = '35%';
-				consoleStateBox.style.width = '66%';
-			}
-		} else {
-			// State & Error visible
-			if (consoleEventBox.style.display != 'block') {
-				// State & Error visible, no Event visible
-				consoleErrorBox.style.left = '2%';
-				consoleErrorBox.style.width = '66%';
-				//
-				consoleStateBox.style.left = '68%';
-				consoleStateBox.style.width = '31%';
-				//
-			} else {
-				// State, Error & Event visible
-				consoleErrorBox.style.left = '2%';
-				consoleErrorBox.style.width = '31%';
-				//
-				consoleEventBox.style.left = '35%';
-				consoleEventBox.style.width = '31%';
-				//
-				consoleStateBox.style.left = '68%';
-				consoleStateBox.style.width = '31%';
-			}
-		}
-	} else {
-		// State not visible
-		if (consoleErrorBox.style.display != 'block') {
-			// no State & Error visible
-			if (consoleEventBox.style.display != 'block') {
-				// nothing visible, no State, Error & Event visible
-			} else {
-				// Event visible, no State & Error visible
-				consoleEventBox.style.left = '2%';
-				consoleEventBox.style.width = '97%';
-			}
-		} else {
-			// Error visible, no State visible
-			if (consoleEventBox.style.display != 'block') {
-				// Error visible, no State & Event visible
-				consoleErrorBox.style.left = '2%';
-				consoleErrorBox.style.width = '97%';
-			} else {
-				// Error & Event visible, no State visible
-				consoleErrorBox.style.left = '2%';
-				consoleErrorBox.style.width = '46%';
-				//
-				consoleEventBox.style.left = '52%';
-				consoleEventBox.style.width = '46%';
-				//
-			}
-		}
-	}
+	// if (consoleStateBox.style.display == 'block') {
+	// 	// State visible
+	// 	if (consoleErrorBox.style.display != 'block') {
+	// 		// State visible, no Error visible
+	// 		if (consoleEventBox.style.display != 'block') {
+	// 			// State visible, no Error & Event visible
+	// 			consoleStateBox.style.left = '2%';
+	// 			consoleStateBox.style.width = '97%';
+	// 		} else {
+	// 			// State & Event, no Error visible
+	// 			consoleEventBox.style.left = '2%';
+	// 			consoleEventBox.style.width = '31%';
+	// 			//
+	// 			consoleStateBox.style.left = '35%';
+	// 			consoleStateBox.style.width = '66%';
+	// 		}
+	// 	} else {
+	// 		// State & Error visible
+	// 		if (consoleEventBox.style.display != 'block') {
+	// 			// State & Error visible, no Event visible
+	// 			consoleErrorBox.style.left = '2%';
+	// 			consoleErrorBox.style.width = '66%';
+	// 			//
+	// 			consoleStateBox.style.left = '68%';
+	// 			consoleStateBox.style.width = '31%';
+	// 			//
+	// 		} else {
+	// 			// State, Error & Event visible
+	// 			consoleErrorBox.style.left = '2%';
+	// 			consoleErrorBox.style.width = '31%';
+	// 			//
+	// 			consoleEventBox.style.left = '35%';
+	// 			consoleEventBox.style.width = '31%';
+	// 			//
+	// 			consoleStateBox.style.left = '68%';
+	// 			consoleStateBox.style.width = '31%';
+	// 		}
+	// 	}
+	// } else {
+	// 	// State not visible
+	// 	if (consoleErrorBox.style.display != 'block') {
+	// 		// no State & Error visible
+	// 		if (consoleEventBox.style.display != 'block') {
+	// 			// nothing visible, no State, Error & Event visible
+	// 		} else {
+	// 			// Event visible, no State & Error visible
+	// 			consoleEventBox.style.left = '2%';
+	// 			consoleEventBox.style.width = '97%';
+	// 		}
+	// 	} else {
+	// 		// Error visible, no State visible
+	// 		if (consoleEventBox.style.display != 'block') {
+	// 			// Error visible, no State & Event visible
+	// 			consoleErrorBox.style.left = '2%';
+	// 			consoleErrorBox.style.width = '97%';
+	// 		} else {
+	// 			// Error & Event visible, no State visible
+	// 			consoleErrorBox.style.left = '2%';
+	// 			consoleErrorBox.style.width = '46%';
+	// 			//
+	// 			consoleEventBox.style.left = '52%';
+	// 			consoleEventBox.style.width = '46%';
+	// 			//
+	// 		}
+	// 	}
+	// }
 }
 //
 // ..................................................................................... _//
 // ...................................... //
 // Body ViewToggle - Console
-function BodyConsoleShow(DoHide, errorDoDebug) {
+function ConsoleShow(DoHide, errorDoDebug) {
 	//............................................................---//
 	// Body Element Creation
 	if (loadFirstJava) { ElementObjectCreate(); }
@@ -6380,14 +6380,14 @@ function BodyConsoleShow(DoHide, errorDoDebug) {
 			consoleDebugTypesToggles.style.display = 'block';
 		}
 		if (consoleDebugToggles.style.display != 'block'
-			&& !ConsoleLogTimerMove
-			&& !ConsoleLogTimerTransition
-			&& !ConsoleLogTimerDetail
-			&& !errorUseDebugOnError
-			&& !errorUseDebugOnAll
-			&& !ConsoleLogEvents
+			&& !UseLogTimerMove
+			&& !UseLogTimerTransition
+			&& !UseLogTimerDetail
+			&& !UseDebugOnError
+			&& !UseDebugOnAll
+			&& !UseLogEvents
 		) {
-			// 			&& !errorUseDebugOnError
+			// 			&& !UseDebugOnError
 			consoleDebugToggle.style.borderColor = ButtonIsOffColor;
 		} else {
 			consoleDebugToggle.style.borderColor = ButtonIsOnColor;
@@ -6397,11 +6397,11 @@ function BodyConsoleShow(DoHide, errorDoDebug) {
 		// Process Console Box Action
 		if (DoHide) {
 			BodyConsoleBoxButtons = false;
-			consoleLogToggles.style.display = 'none';
+			UseLogToggles.style.display = 'none';
 			consoleAuxillaryToggles.style.display = 'none';
 		} else {
 			BodyConsoleBoxButtons = true;
-			consoleLogToggles.style.display = 'block';
+			UseLogToggles.style.display = 'block';
 			consoleAuxillaryToggles.style.display = 'block';
 		}
 		if (consoleBox.style.display != 'block'
@@ -7166,7 +7166,7 @@ function ElementEventMouse(e) {
 	// Objects
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	//
-	if (ConsoleLogEvents) {
+	if (UseLogEvents) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Mouse Event', 'ElementEventMouse', 7993);
 	}
@@ -7229,8 +7229,8 @@ function ElementEventMouse(e) {
 			//
 			case 'mouseout':
 				//
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
-				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
+				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
@@ -7265,10 +7265,10 @@ function ElementEventMouse(e) {
 			// ...................................... //
 			case 'mouseover':
 				//
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
-				if (ElementEventCheckDuplicate(ConsoleLogEvents)) { return; }
+				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				// ...................................... //
-				if (eventMouseOverEnabled) { return; }
+				if (UseLogEventMouseOver) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -7425,7 +7425,7 @@ function ElementEventCheckDuplicate(UseLog) {
 		default: IsDuplicate = false; break;
 	}
 	//
-	if (UseLog && IsDuplicate && ConsoleLogEventDuplicates) {
+	if (UseLog && IsDuplicate && UseLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Duplicate Event', 'ElementEventCheckDuplicate', 0);
 	}
@@ -7522,7 +7522,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+	if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
@@ -7539,7 +7539,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + timerTypeTransition;
 			if (playDirection != timerObj[timerGroup][timerItemTransitionKey].playDirection) {
 				// playDirection is different (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					MessageLog(DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerRootKey].timerInstance
@@ -7552,7 +7552,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					MessageLog(DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerRootKey].timerInstance
@@ -7577,7 +7577,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerGroup][timerItemTransitionKey].elIsDisplayed = elIsDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -7593,7 +7593,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerGroup][timerItemTransitionKey].elIsDisplayed = elIsNotDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerTransition) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
@@ -7621,7 +7621,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeMove;
 			if (playDirection != timerObj[timerGroup][timerItemMoveKey].playDirection) {
 				// playDirection is different (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					MessageLog(DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerRootKey].timerInstance
@@ -7634,7 +7634,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					MessageLog(DoNotUseDebug, DoUseSingleLine,
 						TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerRootKey].timerInstance
@@ -7659,7 +7659,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerGroup][timerItemMoveKey].elIsDisplayed = elIsDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -7674,7 +7674,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerGroup][timerItemMoveKey].elIsDisplayed = elIsNotDisplayed) {
-					if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
@@ -7737,7 +7737,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	// elTopDest = oObjNext.style.posTop;
 	//
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerMove) {
+	if (UseLogTimer && UseLogTimerMove) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 			+ ', Item orgin and destination set'
@@ -7763,7 +7763,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	startIndex = 1; endIndex = 18;
 	if (filterIsOn || filterResizeIsOn) {
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
@@ -7793,7 +7793,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	if (filterIsOn) {
 		//
 		// if (filterObj[filterIdPassed].filterDoEnable) {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
@@ -7812,7 +7812,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
 		//
 		// if (filterObj[filterIdPassed].filterDoApply) {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
@@ -7827,7 +7827,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterId);
 		// }
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
@@ -7843,7 +7843,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterId);
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
@@ -7882,7 +7882,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// Visibility
 		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
 		//
-		if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+		if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
@@ -7902,7 +7902,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
 		if (filterResizeIsOn && !elIsDisplayed) {
 			//
-			if (ConsoleLogTimer && ConsoleLogTimerDetail && (ConsoleLogTimerMove || ConsoleLogTimerTransition)) {
+			if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
@@ -8040,9 +8040,9 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 // ...................................... //
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
-	ElementEventFromHtmlCheck(null, ConsoleLogEvents);
+	ElementEventFromHtmlCheck(null, UseLogEvents);
 	if (eventCurrId == oObjNextParentId
-		&& !eventMouseOverEnabled
+		&& !UseLogEventMouseOver
 		&& eventType == 'mouseover'
 	) {
 		return;
@@ -8061,8 +8061,8 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	if (eventType != 'mouseover' || eventMouseOverEnabled
-		|| (oObjNext.style.display = 'block' && !eventMouseOverEnabled)
+	if (eventType != 'mouseover' || UseLogEventMouseOver
+		|| (oObjNext.style.display = 'block' && !UseLogEventMouseOver)
 	) {
 		//
 		imgZindex += 1;
@@ -8125,7 +8125,7 @@ function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjN
 // ...................................... //
 function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// look for duplicate mouse over events (bubbling)
-	if (!ElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -8145,7 +8145,7 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 // Menu Menu Show Item (Mouse Over function)
 // ...................................... //
 function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, ConsoleLogEvents)) { return; }
+	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, UseLogEvents)) { return; }
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
@@ -8153,7 +8153,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (UseLogTimer && UseLogTimerTransition) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Show', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
@@ -8581,7 +8581,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 // ...................................... //
 function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
-	if (!ElementEventFromHtmlCheck(e, ConsoleLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -8601,7 +8601,7 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 // Menu ElementItemHide
 // ...................................... //
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, ConsoleLogEvents)) { return; }
+	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
@@ -8609,7 +8609,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
-		if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+		if (UseLogTimer && UseLogTimerTransition) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
@@ -8622,7 +8622,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		return;
 	}
 	//
-	if (ConsoleLogTimer && ConsoleLogTimerTransition) {
+	if (UseLogTimer && UseLogTimerTransition) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			TimerKeyText('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id

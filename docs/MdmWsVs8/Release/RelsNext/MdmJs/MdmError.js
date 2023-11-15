@@ -90,22 +90,22 @@ var errorResultOnFail = errorDidNotOccur;
 // var UseDebug = false;
 // var debugDoAlert = false;
 // This flag not implemented in forms or buttons
-// var ConsoleLogAlert = true;
+// var UseLogAlert = true;
 //
-// var ConsoleLogTimer = false;
-// var ConsoleLogTimerMove = false;
-// var ConsoleLogTimerTransition = false;
-// var ConsoleLogTimerDetail = false;
+// var UseLogTimer = false;
+// var UseLogTimerMove = false;
+// var UseLogTimerTransition = false;
+// var UseLogTimerDetail = false;
 // Log (mouse) events to console
 // ...................................... //
-// var ConsoleLogEvents = false;
-// var ConsoleLogEventDuplicates = false;
+// var UseLogEvents = false;
+// var UseLogEventDuplicates = false;
 // Use debugger on error:
 // ...................................... //
 // this (debug on error) is the only toggle on by default
-// var errorUseDebugOnError = false; // enter debugger on errors
+// var UseDebugOnError = false; // enter debugger on errors
 //
-// var errorUseDebugOnAll = false; // enter debugger after any message
+// var UseDebugOnAll = false; // enter debugger after any message
 //
 // var errorDidNotOccur = 0;
 // var errorIsComment = 5;
@@ -181,7 +181,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
-    errorUseDebug = UseDebugPassed;
+    UseDebug = UseDebugPassed;
 
     errorMessage = '';
     errorMessageDetail = '';
@@ -208,26 +208,26 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
         errorSeverityLevel = errorIsFatal;
         errorSeverityColor = errorSeverityColorFatal;
         errorSeverityColorBg = errorSeverityColorFatalBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed || errorUseDebugOnError) { errorUseDebug = DoUseDebug; }
+        if (errorDebugLevel < 1 + errorSeverityPassed || UseDebugOnError) { UseDebug = DoUseDebug; }
     } else if (errorSeverityPassed >= errorIsSevere) {
         errorSeverityDescription = 'SEVERE Error!!';
         errorSeverityLevel = errorIsSevere;
         errorSeverityColor = errorSeverityColorSevere;
         errorSeverityColorBg = errorSeverityColorSevereBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed || errorUseDebugOnError) { errorUseDebug = DoUseDebug; }
+        if (errorDebugLevel < 1 + errorSeverityPassed || UseDebugOnError) { UseDebug = DoUseDebug; }
     } else if (errorSeverityPassed >= errorIsWarning) {
         errorSeverityDescription = 'Warning!';
         errorSeverityLevel = errorIsWarning;
         errorSeverityColor = errorSeverityColorWarn;
         errorSeverityColorBg = errorSeverityColorWarnBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+        if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
     } else {
         // errorIsComment:
         errorSeverityDescription = 'Comment,';
         errorSeverityLevel = errorDidNotOccur;
         errorSeverityColor = errorSeverityColorComment;
         errorSeverityColorBg = errorSeverityColorCommentBg;
-        if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+        if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
     }
     //
     ErrorMessage = errorSeverityDescription + ' ' + messagePassed;
@@ -303,7 +303,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     //     ErrorMessageDetail += charNewLineTag + charTextIndent;
     // }
     //
-    // if (errorUseDebug || errorUseDebugOnError || errorUseDebugOnAll) {
+    // if (UseDebug || UseDebugOnError || UseDebugOnAll) {
     // debugger;
     //     WindowErrorDebug(eventCurrPassed, ErrorMessageDetail, eventFileName, eventFileColumn);
     // }
@@ -425,13 +425,14 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
     //
     // if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
     //
-    if (errorUseDebug || errorUseDebugOnError || errorUseDebugOnAll) {
-        if (consoleBox.style.display != 'block') {
-            BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-            BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent');
-            BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState');
+    if (UseDebug || UseDebugOnError || UseDebugOnAll) {
+        if (!consoleBoxButton) {
+            ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleAll');
+            ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleError');
+            ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleEvent');
+            // ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleState');
         }
-        if (consoleErrorBox.style.display != 'block') { BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError'); }
+        // if (consoleErrorBoxButton) { ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleError'); }
         //
         SysTimeStoped = new Date().getTime();
         if (browserIsIE) {
@@ -443,7 +444,7 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
         if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
             // document.getElementById('test').innerHTML = 'on';
             // maybe not all options:
-            if (errorUseDebug || errorUseDebugOnError || errorUseDebugOnAll) {
+            if (UseDebug || UseDebugOnError || UseDebugOnAll) {
                 // (ignore spontaneous requests.)
                 if (!errorDoNotDisplayNoDebugMsg) {
                     alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine)
@@ -474,7 +475,6 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
 // ...................................... //
 // SectionBlock Application Debug & Error function (s)
 // ...................................... //
-// Layout Next
 function DebugStart(debugOptionPassed, debugmessagePassed) {
     if (!UseDebug) { return; }
     if (debugDoAlert) {
@@ -509,14 +509,14 @@ function ConsoleEventLog(eventCurrPassed, eventType, eventObject, eventCurrRootO
     eventMessage = charNoWrapTagStart + eventMessage + charNoWrapTagEnd;
     //
     MessageLogAdd(consoleEventTextBox,
-        consoleLogLengthMax, consoleLogLengthTrim, consoleEventLogScrollCn,
+        UseLogLengthMax, UseLogLengthTrim, consoleEventLogScrollCn,
         eventMessage,
         tagSpan, tagSpanEnd,
         eventTextColor, eventTextColorBg,
         false, UseLogOrder, UseLogScroll
     );
     //
-    if (errorUseDebug || errorUseDebugOnAll) {
+    if (UseDebug || UseDebugOnAll) {
         WindowErrorDebug(eventCurr, eventMessage, eventFileNamePassed, eventFileLinePassed, 0);
     }
     //
@@ -585,7 +585,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
     errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
     //
-    errorUseDebug = DoNotUseDebug;
+    UseDebug = DoNotUseDebug;
     errorSeverityColor = errorSeverityColorComment;
     errorSeverityColorBg = errorSeverityColorCommentBg;
     // if (!elementPassed) { elementPassed = null; }
@@ -689,7 +689,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     messageTemp = errorSeverityDescription;
     if (eventCurr && eventType) { messageTemp += ' e(' + eventType + ')'; }
     messageTemp += ' ' + messagePassed;
-    if (ConsoleLogDetails || errorSeverityPassed >= errorIsWarning) {
+    if (UseLogDetails || errorSeverityPassed >= errorIsWarning) {
         // if (!UseSingleLinePassed && messageDetail.length > 30) { messageTemp += charNewLineTag + charTextIndent; }
         messageTemp += charNewLineTag + charTextIndent;
         messageTemp += ' Details: ' + messageDetail;
@@ -706,9 +706,9 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     }
     messageFinal = messageTemp + messageFinal;
     //
-    if (errorUseDebugOnAll) { errorUseDebug = DoUseDebug; } else {
-        // if (errorUseDebugOnError) { errorUseDebug = DoUseDebug; } else {
-        if (UseDebugPassed) { errorUseDebug = DoUseDebug; }
+    if (UseDebugOnAll) { UseDebug = DoUseDebug; } else {
+        // if (UseDebugOnError) { UseDebug = DoUseDebug; } else {
+        if (UseDebugPassed) { UseDebug = DoUseDebug; }
         // }
     }
     //
@@ -758,8 +758,8 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         if (UseLogOrder = DoUseAscendingDate) {
             consoleErrorTextBox.innerHTML += tempInnerHTML;
             // Trim length for memory management
-            if ((consoleErrorTextBox.innerHTML).length > consoleLogLengthMax) {
-                consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(consoleLogLengthMax - consoleLogLengthTrim);
+            if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
+                consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(UseLogLengthMax - UseLogLengthTrim);
             }
             if (UseLogScrollError) {
                 // Scroll to bottom when not in view
@@ -777,8 +777,8 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         } else {
             consoleErrorTextBox.innerHTML = tempInnerHTML + consoleErrorTextBox.innerHTML;;
             // Trim length for memory management
-            if ((consoleErrorTextBox.innerHTML).length > consoleLogLengthMax) {
-                consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(0, consoleLogLengthTrim);
+            if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
+                consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(0, UseLogLengthTrim);
             }
             if (UseLogScrollError) {
                 // Scroll to top when not in view
@@ -803,7 +803,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
 // Error Message Action
 function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
-    errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed, errorUseDebugPassed) {
+    errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed, UseDebugPassed) {
     //
     // Log
     // Add message to appropriate log
@@ -840,7 +840,7 @@ function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
     }
     //
     // Abort & Debug
-    if (errorUseDebug) {
+    if (UseDebug) {
         var errorDoDebugAbort = WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed);
         if (errorDoDebugAbort) {
             WindowErrorAbort(); // does nothing.
@@ -912,29 +912,29 @@ window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLin
 // // Error Type
 // switch (errorSeverityPassed) {
 //     case errorIsFatal:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorIsFatal;
 //         errorSeverityColor = errorSeverityColorFatal;
 //         errorSeverityColorBg = errorSeverityColorFatalBg;
 //         break;
 //     case errorIsSevere:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorIsSevere;
 //         errorSeverityColor = errorSeverityColorSevere;
 //         errorSeverityColorBg = errorSeverityColorSevereBg; break;
 //     case errorIsWarning:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorIsWarning;
 //         errorSeverityColor = errorSeverityColorWarn;
 //         errorSeverityColorBg = errorSeverityColorWarnBg;
 //         break;
 //     case errorIsComment:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
 //         // errorMessageLogComment += messageFinal;
 //         errorSeverityColor = 'White';
 //         break;
 //     default:
-//         if (errorDebugLevel < 1 + errorSeverityPassed) { errorUseDebug = DoUseDebug; }
+//         if (errorDebugLevel < 1 + errorSeverityPassed) { UseDebug = DoUseDebug; }
 //         errorSeverityLevel = errorDidNotOccur;
 //         errorSeverityColor = errorSeverityColorComment;
 //         errorSeverityColorBg = errorSeverityColorCommentBg;

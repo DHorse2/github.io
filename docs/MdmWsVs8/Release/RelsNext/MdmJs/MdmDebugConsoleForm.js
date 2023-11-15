@@ -80,9 +80,9 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 			<p>
 				Mouse Hover activation of image display:<br>
 			</p>
-			<label for="formEventMouseOverEnabled">eventMouseOverEnabled </label>
+			<label for="formEventMouseOverEnabled">UseLogEventMouseOver </label>
 			<input id="formEventMouseOverEnabled" type="checkbox"
-				onchange="DebugParameterSet(this, 'eventMouseOverEnabled', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseLogEventMouseOver', 'Toggle');">
 		</fieldset>
 		<!-- * -->
 		<!-- x ------------------------------------------------------------------------------------- -->
@@ -191,36 +191,36 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 				<p>
 					Trace &amp; Log Timer activity: <br>
 				</p>
-				<label for="formDebugTimer">ConsoleLogTimer </label>
-				<input id="formDebugTimer" type="checkbox" onchange="DebugParameterSet(this, 'ConsoleLogTimer', 'Toggle');">
+				<label for="formDebugTimer">UseLogTimer </label>
+				<input id="formDebugTimer" type="checkbox" onchange="DebugParameterSet(this, 'UseLogTimer', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Move activity: <br>
 				</p>
-				<label for="formDebugTimerMove">ConsoleLogTimerMove </label>
+				<label for="formDebugTimerMove">UseLogTimerMove </label>
 				<input id="formDebugTimerMove" type="checkbox"
-					onchange="DebugParameterSet(this, 'ConsoleLogTimerMove', 'Toggle');">
+					onchange="DebugParameterSet(this, 'UseLogTimerMove', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Filters and Transition activity: <br>
 				</p>
-				<label for="formDebugTimerTransition">ConsoleLogTimerTransition </label>
+				<label for="formDebugTimerTransition">UseLogTimerTransition </label>
 				<input id="formDebugTimerTransition" type="checkbox"
-					onchange="DebugParameterSet(this, 'ConsoleLogTimerTransition', 'Toggle');">
+					onchange="DebugParameterSet(this, 'UseLogTimerTransition', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Timer activity for individual images: <br>
 				</p>
-				<label for="formDebugTimerDetail">ConsoleLogTimerDetail </label>
+				<label for="formDebugTimerDetail">UseLogTimerDetail </label>
 				<input id="formDebugTimerDetail" type="checkbox"
-					onchange="DebugParameterSet(this, 'ConsoleLogTimerDetail', 'Toggle');">
+					onchange="DebugParameterSet(this, 'UseLogTimerDetail', 'Toggle');">
 				<p>
 					<!-- * -->
 					Trace &amp; Log Mouse Events: <br>
 				</p>
-				<label for="formDebugLogEvents">ConsoleLogEvents </label>
+				<label for="formDebugLogEvents">UseLogEvents </label>
 				<input id="formDebugLogEvents" type="checkbox"
-					onchange="DebugParameterSet(this, 'ConsoleLogEvents', 'Toggle');">
+					onchange="DebugParameterSet(this, 'UseLogEvents', 'Toggle');">
 			</fieldset>
 			<!-- * end of Logging -->
 			<!-- x ------------------------------------------------------------------------------------- -->
@@ -312,15 +312,15 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 			<p>
 				Enter the debugger when errors occur: <br>
 			</p>
-			<label for="formErrorUseDebugOnError">errorUseDebugOnError </label>
+			<label for="formErrorUseDebugOnError">UseDebugOnError </label>
 			<input id="formErrorUseDebugOnError" type="checkbox"
-				onchange="DebugParameterSet(this, 'errorUseDebugOnError', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseDebugOnError', 'Toggle');">
 			<p>
 				<!-- * -->
 				Enter the debugger after each Log entry: <br>
 			</p>
-			<label for="formErrorUseDebugOnAll">errorUseDebugOnAll </label>
-			<input id="formErrorUseDebugOnAll" type="checkbox" onchange="DebugSetToggleerrorUseDebugOnAll(null, 'Toggle')">
+			<label for="formErrorUseDebugOnAll">UseDebugOnAll </label>
+			<input id="formErrorUseDebugOnAll" type="checkbox" onchange="DebugSetToggleUseDebugOnAll(null, 'Toggle')">
 			<p>
 				<!-- * -->
 				Allow degguger usage: <br>
@@ -453,9 +453,9 @@ function ConsoleFormElementSync(fromForm) {
 		script_state += ", Using mouse hover";
 		elementObject = document.getElementById('formEventMouseOverEnabled');
 		if (fromForm) {
-			if (elementObject.checked) { eventMouseOverEnabled = true; } else { eventMouseOverEnabled = false; }
+			if (elementObject.checked) { UseLogEventMouseOver = true; } else { UseLogEventMouseOver = false; }
 		} else {
-			if (eventMouseOverEnabled) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogEventMouseOver) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 
 		// Animation Control
@@ -494,37 +494,37 @@ function ConsoleFormElementSync(fromForm) {
 		script_state += ", Timer and Event Logging";
 		elementObject = document.getElementById('formDebugTimer');
 		if (fromForm) {
-			if (elementObject.checked) { ConsoleLogTimer = true; } else { ConsoleLogTimer = false; }
+			if (elementObject.checked) { UseLogTimer = true; } else { UseLogTimer = false; }
 		} else {
-			if (ConsoleLogTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogTimer) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formDebugTimerMove');
 		if (fromForm) {
-			if (elementObject.checked) { ConsoleLogTimerMove = true; } else { ConsoleLogTimerMove = false; }
+			if (elementObject.checked) { UseLogTimerMove = true; } else { UseLogTimerMove = false; }
 		} else {
-			if (ConsoleLogTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogTimerMove) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formDebugTimerTransition');
 		if (fromForm) {
-			if (elementObject.checked) { ConsoleLogTimerTransition = true; } else { ConsoleLogTimerTransition = false; }
+			if (elementObject.checked) { UseLogTimerTransition = true; } else { UseLogTimerTransition = false; }
 		} else {
-			if (ConsoleLogTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogTimerTransition) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formDebugTimerDetail');
 		if (fromForm) {
-			if (elementObject.checked) { ConsoleLogTimerDetail = true; } else { ConsoleLogTimerDetail = false; }
+			if (elementObject.checked) { UseLogTimerDetail = true; } else { UseLogTimerDetail = false; }
 		} else {
-			if (ConsoleLogTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogTimerDetail) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formDebugLogEvents');
 		if (fromForm) {
-			if (elementObject.checked) { ConsoleLogEvents = true; } else { ConsoleLogEvents = false; }
+			if (elementObject.checked) { UseLogEvents = true; } else { UseLogEvents = false; }
 		} else {
-			if (ConsoleLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogEvents) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 
 		// Debugger Control
@@ -532,16 +532,16 @@ function ConsoleFormElementSync(fromForm) {
 		script_state += ", Debugger Control";
 		elementObject = document.getElementById('formErrorUseDebugOnError');// enter debugger on errors
 		if (fromForm) {
-			if (elementObject.checked) { errorUseDebugOnError = true; } else { errorUseDebugOnError = false; }
+			if (elementObject.checked) { UseDebugOnError = true; } else { UseDebugOnError = false; }
 		} else {
-			if (errorUseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseDebugOnError) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formErrorUseDebugOnAll');// enter debugger after any message
 		if (fromForm) {
-			if (elementObject.checked) { errorUseDebugOnAll = true; } else { errorUseDebugOnAll = false; }
+			if (elementObject.checked) { UseDebugOnAll = true; } else { UseDebugOnAll = false; }
 		} else {
-			if (errorUseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseDebugOnAll) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formDebugIsOn');
@@ -842,7 +842,7 @@ function ConsoleFormElementSync(fromForm) {
 	} finally {
 		// ...................................... //
 		// try {
-		if (ConsoleLogAlert) {
+		if (UseLogAlert) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				script_state + ' Console Form synchonized.',
 				'MdmDebugConsole: ConsoleFormElementSync', 1211, 0, null, null,

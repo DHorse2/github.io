@@ -33,10 +33,91 @@ function ConsoleFormElementSyncLocal(fromForm) { ConsoleFormElementSync(fromForm
 
 // SECTION - general SETTINGS (and in Console Form)
 // ...................................... //
-eventMouseOverEnabled = false;
-consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
-consoleErrorBox.style.display = 'block';
-consoleErrorToggle.style.borderColor = ButtonIsOffColor;
+
+// ...................................... //
+// ...................................... //
+// case 'ConsoleMouseOver':
+UseLogEventMouseOver = true;
+// consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
+// ...................................... //
+// case 'FONTS'
+// Smaller
+// Reset
+// Larger
+// ...................................... //
+// ...................................... //
+// case 'ConsoleAll':
+consoleBoxButton = false;
+// consoleBox.style.display = 'block';
+// consoleToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleError':
+consoleErrorBoxButton = false;
+// consoleErrorBox.style.display = 'block';
+// consoleErrorToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleEvent':
+consoleEventBoxButton = false;
+// consoleEventBox.style.display = 'block';
+// consoleEventToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleState':
+consoleStateBoxButton = false;
+// consoleStateBox.style.display = 'block';
+// consoleStateToggle.style.borderColor = ButtonIsOnColor;
+
+// ...................................... //
+// case 'ConsoleTest':
+consoleTestBoxButton = false;
+// consoleTestBox.style.display = 'block';
+// consoleTestToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleClear':
+consoleClearButton = false;
+// consoleClearToggle.style.backgroundColor = '';
+
+// ...................................... //
+// case 'ConsoleDebug':
+UseLogDebugButton = false;
+// consoleDebugMainToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleDebugDetailAll':
+UseLogDetailsAll = false;
+// consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+
+// ...................................... //
+// case 'ConsoleDebugOnError':
+UseDebugOnError = false;
+// consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleDebugAll':
+UseDebugOnAll = false;
+// consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+
+// ...................................... //
+// case 'ConsoleDebugMove':
+UseLogTimerMove = false;
+// consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleDebugTransition':
+UseLogTimerTransition = false;
+// consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleDebugDetail':
+UseLogTimerDetail = false;
+// consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
+
+// case 'ConsoleDebugEvents':
+UseLogEvents = false;
+// consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+
+// ...................................... //
+// case 'ConsoleDebugHover':
+UseLogHover = false;
+// consoleDebugHoverToggle.style.borderColor = ButtonIsOnColor;
+
+// ...................................... //
+// ...................................... //
 
 // Block Animation Control AREA
 // ...................................... //
@@ -48,7 +129,7 @@ var filterResizeIsOn = true; // Growing image
 var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 
 // Mouse Hover activation of image display
-var eventMouseOverEnabled = true;
+// var UseLogEventMouseOver = true;
 // Type of Image Group Page Generation
 var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
@@ -60,12 +141,12 @@ var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
 UseLog = DoUseLog;
 // Size at which logs are trimmed - memory management
 consoleErrorLogCnMax = 2000; // total Messages
-consoleLogLengthMax = 100000; // total bytes
-consoleLogLengthTrim = 85000;
+UseLogLengthMax = 100000; // total bytes
+UseLogLengthTrim = 85000;
 consoleEventLogCnMax = 5000; // total events
 
 // Detailed logging flag (verbose)
-var ConsoleLogDetails = false;
+var UseLogDetails = false;
 // compact format
 UseSingleLine = DoNotUseSingleLine;
 
@@ -89,15 +170,15 @@ UseLog = DoUseLog;
 UseDebug = DoUseDebug;
 
 // Display messages using alerts.
-ConsoleLogAlert = errorDoAlert;
+UseLogAlert = errorDoAlert;
 
 // Enter debugger on errors
-errorUseDebugOnError = true;
+UseDebugOnError = true;
 // Use debugger on ALL messages.
-errorUseDebugOnAll = false;
+UseDebugOnAll = false;
 
 // for current event processing
-errorUseDebug = false;
+UseDebug = false;
 debugDoAlert = false;
 
 UseLogOrder = DoUseAscendingDate;
@@ -107,35 +188,35 @@ UseLogScroll = true;
 UseSingleLine = DoNotUseSingleLine;
 UseScroll = DoUseScroll;
 // Ignores duplicate events. (resize, mouse)
-ConsoleLogEventDuplicates = false;
+UseLogEventDuplicates = false;
 
 // AREA Debug Areas
 // ...................................... //
 //      These are normalized Areas
 //      main features and components.
 // Console and error code:
-ConsoleLogConsole = true;
+UseLogConsole = true;
 // Animation
-ConsoleLogAnitmation = true;
+UseLogAnitmation = true;
 // Images
-ConsoleLogImages = true;
+UseLogImages = true;
 // Menus
-ConsoleLogMenus = true;
+UseLogMenus = true;
 // Elements
-ConsoleLogElements = true;
+UseLogElements = true;
 // Page
-ConsoleLogPage = true;
+UseLogPage = true;
 // Window
-ConsoleLogWindow = true;
+UseLogWindow = true;
 // Events
-ConsoleLogEvents = true;
+UseLogEvents = true;
 // Layout
-ConsoleLogLayout = true;
+UseLogLayout = true;
 // Debug Timers
-ConsoleLogTimerDetail = false;
-ConsoleLogTimer = true;
-ConsoleLogTimerMove = true;
-ConsoleLogTimerTransition = true;
+UseLogTimerDetail = false;
+UseLogTimer = true;
+UseLogTimerMove = true;
+UseLogTimerTransition = true;
 
 // AREA Error Severity
 // ...................................... //

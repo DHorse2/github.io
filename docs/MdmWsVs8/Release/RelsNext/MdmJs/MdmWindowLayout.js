@@ -899,7 +899,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			layoutResizeDo = true;
 			WindowResizeLayout();
 			bodyFirst = false;
-			if (ConsoleLogAlert) {
+			if (UseLogAlert) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					script_state + '.',
 					'MdmWindowLayout: SelectByIndex', 899, 0, null, null,

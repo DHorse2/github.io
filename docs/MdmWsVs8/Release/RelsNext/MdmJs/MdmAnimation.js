@@ -869,7 +869,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
             filterGetExit = true;// Exit on Set Error
         } else {
             // Set succeeded
-            if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
+            if (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     'Filter(' + filterIdPassed + ') of ' + filterIndexCn
                     + ' set successfully! Random filter # ' + filterIndex + ' '
@@ -1500,8 +1500,8 @@ function TimerStartFilter(playDirection,
             oObjNext, oObjNextImage,
             oObjGroupIndex, oObjGroupImageIndex,
             filterObjIdPassed, filterIdPassed)
-        if (ConsoleLogTimer || ConsoleLogTimerTransition) {
-            // && ConsoleLogTimerDetail
+        if (UseLogTimer || UseLogTimerTransition) {
+            // && UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item Add')
@@ -1517,8 +1517,8 @@ function TimerStartFilter(playDirection,
         //
     } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer exists and is currently busy.
-        if (ConsoleLogTimer || ConsoleLogTimerTransition) {
-            // && ConsoleLogTimerDetail
+        if (UseLogTimer || UseLogTimerTransition) {
+            // && UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerRootKey].playDirection, 'Timing DoStep')
@@ -1543,7 +1543,7 @@ function TimerStartFilter(playDirection,
     timerObj[timerItemKey].elMoveStepTop = 0;
     //
     // ...................................... //
-    if (ConsoleLogTimer || ConsoleLogTimerTransition) {
+    if (UseLogTimer || UseLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                 timerObj[timerItemKey].playDirection, 'Timer Start')
@@ -1598,8 +1598,8 @@ function TimerStartMove(playDirection,
             oObjGroupIndex, oObjGroupImageIndex,
             filterObjIdPassed, filterIdPassed);
         //
-        if (ConsoleLogTimer || ConsoleLogTimerMove) {
-            // && ConsoleLogTimerDetail
+        if (UseLogTimer || UseLogTimerMove) {
+            // && UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item Add')
@@ -1615,8 +1615,8 @@ function TimerStartMove(playDirection,
         //
     } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer Already Exists...
-        if (ConsoleLogTimer || ConsoleLogTimerMove) {
-            // || ConsoleLogTimerDetail
+        if (UseLogTimer || UseLogTimerMove) {
+            // || UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Timing DoStep')
@@ -1685,7 +1685,7 @@ function TimerStartMove(playDirection,
     timerObj[timerItemKey].moveOffsetTop = moveOffsetTop;
     //
     // ...................................... //
-    if (ConsoleLogTimer || ConsoleLogTimerMove) {
+    if (UseLogTimer || UseLogTimerMove) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
             + ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1726,7 +1726,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
     //
     timerObj[timerRootKey].timerIntervalStep += 1;
     //
-    if (ConsoleLogTimer || ConsoleLogTimerTransition) {
+    if (UseLogTimer || UseLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
             + ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1785,7 +1785,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
         } else { timerObj[timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
         //
         //
-        if (ConsoleLogTimer || ConsoleLogTimerTransition) {
+        if (UseLogTimer || UseLogTimerTransition) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                     timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -1797,7 +1797,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
         }
     }
     //
-    if (ConsoleLogTimer || ConsoleLogTimerTransition) {
+    if (UseLogTimer || UseLogTimerTransition) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group Out')
@@ -1916,7 +1916,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
             timerIntervalId = timerObj[timerItemKey].timerIntervalId;
             if (timerIntervalId) { window.clearInterval(timerIntervalId); }
             //
-            if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
+            if (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                         timerObj[timerItemKey].playDirection, 'Stop')
@@ -1968,7 +1968,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
         }
         tempFilterInProgress || tempTimeOrStepsCompleted
         //
-        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
+        if (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Stop')
@@ -1981,7 +1981,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     } else {
-        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerTransition) {
+        if (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'SkipItem')
@@ -2016,7 +2016,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
     //
     timerObj[timerRootKey].timerIntervalStep += 1;
     //
-    if (ConsoleLogTimer || ConsoleLogTimerMove) {
+    if (UseLogTimer || UseLogTimerMove) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group In')
@@ -2080,7 +2080,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
             timerObj[timerRootKey].elementIsDisplayed = elementIsDisplayed;
         } else { timerObj[timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
         //
-        if (ConsoleLogTimer || ConsoleLogTimerMove) {
+        if (UseLogTimer || UseLogTimerMove) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                     timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -2091,7 +2091,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
         }
     }
     //
-    if (ConsoleLogTimer || ConsoleLogTimerMove) {
+    if (UseLogTimer || UseLogTimerMove) {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group Out')
@@ -2387,7 +2387,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         timerTen + 0.1;
     }
     //
-    if (ConsoleLogTimer && ConsoleLogTimerDetail && ConsoleLogTimerMove) {
+    if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
         var tempDetails = ', At: ( step ' + timerObj[timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
     }
     //
@@ -2404,7 +2404,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         } else if (timerMethod == timerMethodItem) {
             // Item Timer
             // Turn Off Timer
-            if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerMove) {
+            if (UseLogTimer || UseLogTimerDetail || UseLogTimerMove) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                         timerObj[timerItemKey].playDirection, 'Stop')
@@ -2444,7 +2444,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
             timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
         }
         //
-        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerMove) {
+        if (UseLogTimer || UseLogTimerDetail || UseLogTimerMove) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Stop')
@@ -2455,7 +2455,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
                 errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
         }
     } else {
-        if (ConsoleLogTimer || ConsoleLogTimerDetail || ConsoleLogTimerMove) {
+        if (UseLogTimer || UseLogTimerDetail || UseLogTimerMove) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item')
@@ -2534,7 +2534,7 @@ function TimerStartMoveBusy(timerTypePassed, timerGroupPassed, timerGroupItemPas
         }
     }
     //
-    if (UseLog && (ConsoleLogEvents || timerMoveBusy)) {
+    if (UseLog && (UseLogEvents || timerMoveBusy)) {
         ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
             'Timer Busy: ' + timerItemKey, 'black', 'light yellow',
             'ElementEventCheckDuplicate', 2529);

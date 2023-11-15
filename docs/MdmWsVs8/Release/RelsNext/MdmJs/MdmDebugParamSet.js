@@ -20,9 +20,9 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { imgLoadUseDOM = false; } else { imgLoadUseDOM = true; }
 				break;
 			// User Interface Features
-			case 'eventMouseOverEnabled':
+			case 'UseLogEventMouseOver':
 				// Control image display using mouse hover
-				if (elementPassed.checked) { eventMouseOverEnabled = false; } else { eventMouseOverEnabled = true; }
+				if (elementPassed.checked) { UseLogEventMouseOver = false; } else { UseLogEventMouseOver = true; }
 				break;
 			// Animation Control
 			case 'moveIsOn':
@@ -38,27 +38,27 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { timerUseTime = false; } else { timerUseTime = true; }
 				break;
 			// Timer and Event Logging
-			case 'ConsoleLogTimer':
-				if (elementPassed.checked) { ConsoleLogTimer = false; } else { ConsoleLogTimer = true; }
+			case 'UseLogTimer':
+				if (elementPassed.checked) { UseLogTimer = false; } else { UseLogTimer = true; }
 				break;
-			case 'ConsoleLogTimerMove':
-				if (elementPassed.checked) { ConsoleLogTimerMove = false; } else { ConsoleLogTimerMove = true; }
+			case 'UseLogTimerMove':
+				if (elementPassed.checked) { UseLogTimerMove = false; } else { UseLogTimerMove = true; }
 				break;
-			case 'ConsoleLogTimerTransition':
-				if (elementPassed.checked) { ConsoleLogTimerTransition = false; } else { ConsoleLogTimerTransition = true; }
+			case 'UseLogTimerTransition':
+				if (elementPassed.checked) { UseLogTimerTransition = false; } else { UseLogTimerTransition = true; }
 				break;
-			case 'ConsoleLogTimerDetail':
-				if (elementPassed.checked) { ConsoleLogTimerDetail = false; } else { ConsoleLogTimerDetail = true; }
+			case 'UseLogTimerDetail':
+				if (elementPassed.checked) { UseLogTimerDetail = false; } else { UseLogTimerDetail = true; }
 				break;
-			case 'ConsoleLogEvents':
-				if (elementPassed.checked) { ConsoleLogEvents = false; } else { ConsoleLogEvents = true; }
+			case 'UseLogEvents':
+				if (elementPassed.checked) { UseLogEvents = false; } else { UseLogEvents = true; }
 				break;
 			// Debugger Control
-			case 'errorUseDebugOnError': // enter debugger on errors
-				if (elementPassed.checked) { errorUseDebugOnError = false; } else { errorUseDebugOnError = true; }
+			case 'UseDebugOnError': // enter debugger on errors
+				if (elementPassed.checked) { UseDebugOnError = false; } else { UseDebugOnError = true; }
 				break;
-			case 'errorUseDebugOnAll': // enter debugger after any message
-				if (elementPassed.checked) { errorUseDebugOnAll = false; } else { errorUseDebugOnAll = true; }
+			case 'UseDebugOnAll': // enter debugger after any message
+				if (elementPassed.checked) { UseDebugOnAll = false; } else { UseDebugOnAll = true; }
 				break;
 			//
 			case 'UseDebug':

@@ -100,17 +100,17 @@
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<!-- <div id="BodyConsoleFontSize" class="ViewToggleBlockContainer"> -->
 										<div id="BodyLayoutFontSmaller"
-											class="BodyConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
+											class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
 											onmousedown="LayoutFontSizeSmaller();">
 											-
 										</div>
 										<div id="BodyLayoutFontReset"
-											class="BodyConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
+											class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
 											onmousedown="LayoutFontSizeReset();">
 											F
 										</div>
 										<div id="BodyLayoutFontBigger"
-											class="BodyConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
+											class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
 											onmousedown="LayoutFontSizeBigger();">
 											+
 										</div>
@@ -122,8 +122,8 @@
 								<div id="BodyConsoleMouseOverButton"
 									class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 									<div id="BodyConsoleMouseOverToggle"
-										class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
-										onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver');">
+										class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
+										onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver');">
 										MoOv
 									</div>
 								</div> <!-- end of BodyConsoleMouseOverButton -->
@@ -133,35 +133,35 @@
 									<div id="BodyConsoleBoxToggles"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyConsoleToggle"
-											class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin"
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');">
+											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin"
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');">
 											C
 										</div>
 										<div id="BodyConsoleErrorToggle"
-											class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError');">
+											class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError');">
 											e
 										</div>
 										<div id="BodyConsoleEventToggle"
-											class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent');">
+											class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent');">
 											v
 										</div>
 										<div id="BodyConsoleStateToggle"
-											class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState');">
+											class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState');">
 											s
 										</div>
 										<div id="BodyConsoleAuxillaryToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleTestToggle"
-												class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
-												onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest');">
+												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin"
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest');">
 												T
 											</div>
 											<div id="BodyConsoleClearToggle"
-												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-												onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear');">
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear');">
 												c
 											</div>
 										</div> <!-- end of BodyConsoleAuxillaryToggles -->
@@ -174,47 +174,47 @@
 									<div id="BodyConsoleDebugMainToggles"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyConsoleDebugToggle"
-											class="BodyConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug');">
+											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin "
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug');">
 											D
 										</div>
 										<div id="BodyConsoleDebugOnErrorToggle"
-											class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError');">
+											class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError');">
 											o
 										</div>
 										<div id="BodyConsoleDebugAllToggle"
-											class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-											onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll');">
+											class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll');">
 											a
 										</div>
 										<!-- * -->
 										<div id="BodyConsoleDebugTypesToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleDebugMoveToggle"
-												class="BodyConsoleLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
-												onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove');">
+												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin "
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove');">
 												m
 											</div>
 											<div id="BodyConsoleDebugTransitionToggle"
-												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-												onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition');">
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition');">
 												t
 											</div>
 											<div id="BodyConsoleDebugDetailToggle"
-												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-												onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail');">
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail');">
 												d
 											</div>
+											<div id="BodyConsoleDebugEventsToggle"
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents');">
+												v
+											</div>
 											<div id="BodyConsoleDebugHoverToggle"
-												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
 												onmousedown="LayoutFontCssTagHoverToggle();">
 												h
-											</div>
-											<div id="BodyConsoleDebugEventsToggle"
-												class="BodyConsoleLog ViewToggleButton MenuListItem BorderThin "
-												onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents');">
-												v
 											</div>
 										</div> <!-- end of BodyConsoleDebugTypesToggles -->
 									</div> <!-- end of BodyConsoleDebugMainToggles -->
@@ -479,8 +479,8 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						</div>
 						<!-- ..................................................................................... -->
 						<div id="BodyConsoleMouseOverButtonCopy" class="ViewToggleBlockContainer">
-							<div id="BodyConsoleMouseOverToggleCopy" class="BodyConsoleToggle ViewToggleButton
-						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver');">
+							<div id="BodyConsoleMouseOverToggleCopy" class="ConsoleToggle ViewToggleButton
+						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver');">
 								MoOv
 							</div>
 						</div> <!-- end of BodyConsoleMouseOverButton -->
@@ -489,39 +489,39 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!-- Note: No Hide for buttons -->
 							<div id="BodyConsoleDebugTogglesCopy" class="ViewToggleBlockContainerOuter">
 								<div id="BodyConsoleDebugButtonCopy" class="ViewToggleBlockContainer">
-									<div id="BodyConsoleDebugToggleCopy" class="BodyConsoleToggle ViewToggleButton
-							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug');">
+									<div id="BodyConsoleDebugToggleCopy" class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug');">
 										D
 									</div>
 								</div> <!-- end of BodyConsoleDebugButton -->
 								<!-- * -->
 								<div id="BodyConsoleDebugMainTogglesCopy" class="ViewToggleBlockContainer">
-									<div id="BodyConsoleDebugOnErrorToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 ViewToggleBlock MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError');">
+									<div id="BodyConsoleDebugOnErrorToggleCopy" class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError');">
 										o
 									</div>
-									<div id="BodyConsoleDebugAllToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll');">
+									<div id="BodyConsoleDebugAllToggleCopy" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll');">
 										a
 									</div>
 								</div> <!-- end of BodyConsoleDebugMainToggles -->
 							</div> <!-- end of BodyConsoleDebugToggles -->
 							<!-- * -->
 							<div id="BodyConsoleDebugTypesTogglesCopy" class="ViewToggleBlockContainer">
-								<div id="BodyConsoleDebugMoveToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 ViewToggleBlock MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove');">
+								<div id="BodyConsoleDebugMoveToggleCopy" class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove');">
 									m
 								</div>
-								<div id="BodyConsoleDebugTransitionToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition');">
+								<div id="BodyConsoleDebugTransitionToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition');">
 									t
 								</div>
-								<div id="BodyConsoleDebugDetailToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail');">
+								<div id="BodyConsoleDebugDetailToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail');">
 									d
 								</div>
-								<div id="BodyConsoleDebugEventsToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents');">
+								<div id="BodyConsoleDebugEventsToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents');">
 									v
 								</div>
 							</div> <!-- end of BodyConsoleDebugTypesToggles -->
@@ -530,35 +530,35 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<div id="BodyConsoleBoxButtonsCopy" class="">
 							<div id="BodyConsoleBoxTogglesCopy" class="ViewToggleBlockContainerOuter">
 								<div id="BodyConsoleBoxButtonCopy" class="ViewToggleBlockContainer">
-									<div id="BodyConsoleToggleCopy" class="BodyConsoleToggle ViewToggleButton
-							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');">
+									<div id="ConsoleToggleCopy" class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');">
 										C
 									</div>
 								</div> <!-- end of BodyConsoleBoxButton -->
 								<!-- * -->
-								<div id="BodyConsoleLogTogglesCopy" class="ViewToggleBlockContainer">
-									<div id="BodyConsoleErrorToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 ViewToggleBlock MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError');">
+								<div id="BodyUseLogTogglesCopy" class="ViewToggleBlockContainer">
+									<div id="BodyConsoleErrorToggleCopy" class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError');">
 										e
 									</div>
-									<div id="BodyConsoleEventToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent');">
+									<div id="BodyConsoleEventToggleCopy" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent');">
 										v
 									</div>
-									<div id="BodyConsoleStateToggleCopy" class="BodyConsoleLog ViewToggleButton
-							 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState');">
+									<div id="BodyConsoleStateToggleCopy" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState');">
 										s
 									</div>
-								</div> <!-- end of BodyConsoleLogToggles -->
+								</div> <!-- end of BodyUseLogToggles -->
 							</div> <!-- end of BodyConsoleBoxToggles -->
 							<!-- * -->
 							<div id="BodyConsoleAuxillaryTogglesCopy" class="ViewToggleBlockContainer">
-								<div id="BodyConsoleTestToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 ViewToggleBlock MenuListItem BorderThin" onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest');">
+								<div id="BodyConsoleTestToggleCopy" class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin" onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest');">
 									T
 								</div>
-								<div id="BodyConsoleClearToggleCopy" class="BodyConsoleLog ViewToggleButton
-						 MenuListItem BorderThin " onmousedown="BodyConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear');">
+								<div id="BodyConsoleClearToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear');">
 									c
 								</div>
 							</div> <!-- end of BodyConsoleAuxillaryToggles -->
