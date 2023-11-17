@@ -30,7 +30,7 @@ function FormElementSyncLocal(fromForm) {
 	// User Interface Features
 	// Control image display using mouse hover
 	elementObject = document.getElementById('formEventMouseOverEnabled');
-	if (UseLogEventMouseOver) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (UseLogAnimation) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	// ...................................... //
 	// Animation Control
@@ -545,7 +545,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
 				'Invalid filter(' + filterIdPassed + ') error! On filter # ' + filterIndex + ' '
 				+ charNewLineTag + filterCommandEval,
 				'FilterGet', 3128, null, null,
-				errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
+				errorWarn, errorDoNotDisplayTag, DoNotUseAlert);
 			var bob = 'ted';
 			filterIndexCn = 0;
 			filterGetExit = true;// Exit on Set Error
@@ -557,7 +557,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
 					+ ' set successfully! Random filter # ' + filterIndex + ' '
 					+ charNewLineTag + filterCommandEval,
 					'FilterGet', 3139, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 				//
 			}
 		}
@@ -1613,7 +1613,7 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
 							+ (vTimerStart ? 'Ok' : 'Failed')
 							+ (vTimerStart ? '.' : '!!!'),
 							'TimerStart', 4557, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 						//
 					}
 					//
@@ -1644,7 +1644,7 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
 				+ ', Already running'
 				+ '.',
 				'TimerStart', 4587, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 			//
 		}
 	}
@@ -1690,7 +1690,7 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
 				TimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, timerObj[timerItemKey].playDirection, 'Interval Started')
 				+ '.',
 				'TimerSet', 4633, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 			//
 		}
 	} else {
@@ -1707,7 +1707,7 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
 				+ ', Already running, delayed start not done'
 				+ '.',
 				'TimerSet', 4649, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 			//
 		}
 	}
@@ -1769,7 +1769,7 @@ function TimerStartFilter(playDirection,
 				+ ' at ' + Date()
 				+ '.',
 				'TimerStartFilter', 4708, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		// timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
@@ -1785,7 +1785,7 @@ function TimerStartFilter(playDirection,
 				+ ', Already running, perform single step'
 				+ '.',
 				'TimerStartFilter', 4723, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		if (timerMethod == timerMethodGroup) {
@@ -1807,7 +1807,7 @@ function TimerStartFilter(playDirection,
 			+ ', Timer Start command being issued now'
 			+ '.',
 			'TimerStartFilter', 4744, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	TimerStart(timerType, timerGroup, timerGroupItem,
@@ -1868,7 +1868,7 @@ function TimerStartMove(playDirection,
 				+ ' at ' + Date()
 				+ '.',
 				'TimerStartMove', 4807, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		// timerObj[timerGroup] [timerItemKey].elIsDisplayed = elIsDisplayed;
@@ -1884,7 +1884,7 @@ function TimerStartMove(playDirection,
 				+ ', Already running, perform single step'
 				+ '.',
 				'TimerStartMove', 4822, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		TimerItemDoStepMove(timerType, timerGroup, timerGroupItem);
 		return;
@@ -1959,7 +1959,7 @@ function TimerStartMove(playDirection,
 			+ ', Move Left:' + moveDistanceLeft
 			+ '.',
 			'TimerStartMove', 4873, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	TimerStart(timerType, timerGroup, timerGroupItem,
@@ -1992,7 +1992,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 			+ ', Starting Group'
 			+ '.',
 			'TimerGroupDoStepMove', 5111, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	// Process elements
@@ -2015,7 +2015,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 			+ ') exceeded'
 			+ '!!!',
 			'TimerGroupDoStepFilter', 5134, null, null,
-			errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+			errorSevere, errorDoNotDisplayTag, DoNotUseAlert);
 		timerDoAbort = true;
 	}
 	//
@@ -2046,7 +2046,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 				+ ', Stopping Group Timer'
 				+ '.',
 				'TimerGroupDoStepFilter', 5164, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	}
 	//
@@ -2069,7 +2069,7 @@ function TimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem) {
 				+ ', Finished Group'
 				+ '.',
 				'TimerGroupDoStepFilter', 5185, null, null,
-				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+				messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	}
 }
@@ -2142,7 +2142,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 			+ ') number of interval steps (' + timerObj[timerItemKey].timerStepCurr
 			+ ') exceeded' + '!!!',
 			'TimerItemDoStepFilter', 5251, null, null,
-			errorWarn, errorDoNotDisplayTag, errorDoNotAlert);
+			errorWarn, errorDoNotDisplayTag, DoNotUseAlert);
 		tempTimeOrStepsCompleted = true;
 	}
 	//
@@ -2179,7 +2179,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 					+ ', Interval Stopped'
 					+ '.',
 					'TimerItemDoStepFilter', 5284, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 			}
 			//
 			timerStarted -= 1;
@@ -2231,7 +2231,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 				+ ', Stopping Item Timer'
 				+ '.',
 				'TimerItemDoStepFilter', 5331, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	} else {
 		if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
@@ -2247,7 +2247,7 @@ function TimerItemDoStepFilter(timerType, timerGroup, timerGroupItem) {
 				+ ', Exiting Item but no action'
 				+ '.',
 				'TimerItemDoStepFilter', 5343, null, null,
-				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+				messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	}
 	return timerInstanceIsDone;
@@ -2275,7 +2275,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 			+ ', Starting Group'
 			+ '.',
 			'TimerGroupDoStepMove', 5371, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	// Process elements
 	for (timerGroupItemCurr = 1; timerGroupItemCurr < 1 + imgMaxByGroup[timerGroup]; timerGroupItemCurr++) {
@@ -2299,7 +2299,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 			+ ') exceeded'
 			+ '!!!',
 			'TimerGroupDoStepMove', 5393, null, null,
-			errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+			errorSevere, errorDoNotDisplayTag, DoNotUseAlert);
 		timerDoAbort = true;
 	}
 	//
@@ -2326,7 +2326,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 				+ ', Stopping Group Timer'
 				+ '.',
 				'TimerGroupDoStepMove', 5419, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	}
 	//
@@ -2349,7 +2349,7 @@ function TimerGroupDoStepMove(timerType, timerGroup, timerGroupItem) {
 				+ ', Finished Group'
 				+ '.',
 				'TimerGroupDoStepMove', 5440, null, null,
-				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+				messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 			//
 		}
 	}
@@ -2460,7 +2460,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 			+ ') exceeded'
 			+ '!!!',
 			'TimerItemDoStepMove', 5515, null, null,
-			errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+			errorSevere, errorDoNotDisplayTag, DoNotUseAlert);
 		tempTimeOrStepsCompleted = 5515;
 	}
 	//
@@ -2478,7 +2478,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 				+ ') exceeded'
 				+ '!!!',
 				'TimerItemDoStepMove', 5525, null, null,
-				errorSevere, errorDoNotDisplayTag, errorDoNotAlert);
+				errorSevere, errorDoNotDisplayTag, DoNotUseAlert);
 		tempTimeOrStepsCompleted = 5525;
 	}
 	*/
@@ -2655,7 +2655,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 					+ ', Stopping Item Timer'
 					+ '.',
 					'TimerItemDoStepMove', 5711, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 			}
 			//
 			timerStarted -= 1;
@@ -2692,7 +2692,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 				+ ', Item Interval Timer Stopped'
 				+ '.',
 				'TimerItemDoStepMove', 5747, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	} else {
 		if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
@@ -2711,7 +2711,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 				+ ', Exiting Item'
 				+ '.',
 				'TimerItemDoStepMove', 5754, null, null,
-				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+				messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 	}
 	return timerInstanceIsDone;
@@ -2807,7 +2807,7 @@ function TimerMoveTest(timerType, timerGroup, timerGroupItem) {
 //
 // ..................................................................................... _//
 // ...................................... //
-function TimerLogText(null, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
+function TimerLogText(oObjNextPassed, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
 	var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
 	var DoUseWord = true;
@@ -3853,12 +3853,12 @@ window.onload = function () { // function Document Window OnLoad
 // Document Layout Size of Core Layout Boxes
 function WindowContainerSizeGetAll() {
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of left and right menu containers vs the center menu container'
 			+ ': ',
 			'WindowContainerSizeGetAll', 6769, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	// Height of left and right menu containers vs the center menu container
@@ -3870,12 +3870,12 @@ function WindowContainerSizeGetAll() {
 	//
 	bodyMainCenterHeight = ElementHeightMaxGet(UseScroll, UseBase, bodyMainCenter);
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMainCenterHeight: ' + bodyMainCenterHeight
 			+ '.',
 			'WindowContainerSizeGetAll', 6769, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	tempLayoutBodyHeightVertMax += bodyMainCenterHeight;
@@ -3885,12 +3885,12 @@ function WindowContainerSizeGetAll() {
 	bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft);
 	// if (layoutResizeCn == 0) { bodyLayoutMenu1Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainLeft); }
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
 			'WindowContainerSizeGetAll', 6769, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	// Check the accumaltion of Left1, Left2, Left3
@@ -3898,12 +3898,12 @@ function WindowContainerSizeGetAll() {
 		WindowContainerSizeGetMenu(bodyMainLeft);
 	} else { WindowContainerSizeGetMenu(bodyMainCenterTopLeft); }
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of bodyLayoutMenu1Height: ' + bodyLayoutMenu1Height
 			+ '.',
 			'WindowContainerSizeGetAll', 6769, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	tempLayoutBodyHeightVertMax += bodyLayoutMenu1Height;
@@ -3914,12 +3914,12 @@ function WindowContainerSizeGetAll() {
 	bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight);
 	// if (layoutResizeCn = 0) { bodyLayoutMenu2Height = ElementHeightMaxGet(UseScroll, UseBase, bodyMainRight); }
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
 			'WindowContainerSizeGetAll', 6769, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	// Check the accumaltion of Right1, Right2, Right3
@@ -3927,12 +3927,12 @@ function WindowContainerSizeGetAll() {
 		WindowContainerSizeGetMenu(bodyMainRight);
 	} else { WindowContainerSizeGetMenu(bodyMainCenterTopRight); }
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Height of BodyMenuLayout2Height: ' + bodyLayoutMenu2Height
 			+ '.',
 			'WindowContainerSizeGetAll', 6769, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	tempLayoutBodyHeightVertMax += bodyLayoutMenu2Height;
@@ -4242,7 +4242,7 @@ function WindowResizeLayout() {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			'Window Resize Excessive Usage (Possible Error)',
 			'WindowResizeLayout', 0, null, null,
-			errorSevere, errorDoNotDisplayTag, errorDoAlert);
+			errorSevere, errorDoNotDisplayTag, DoUseAlert);
 		layoutResizeCn = 0;
 		// layoutMenuSizeHorzMax = 2000;
 	}
@@ -4257,12 +4257,12 @@ function WindowResizeLayout() {
 	/* -- */
 	//
 	//
-	if (UseLogAlert) {
+	if (UseLog) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			' Main Container layoutHeight (body +5em): ' + layoutHeight
 			+ '.',
 			'WindowResizeLayout', 7189, null, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	body.style.height = (layoutHeight + 50) + 'px';
@@ -4593,7 +4593,7 @@ function ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 // ..................................................................................... _//
 function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 	messageUrlPassed, MessageLineNumPassed, elementPassed, elementSourcePassed,
-	errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
+	errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed) {
 	if (!elementPassed) { elementPassed = null; }
 	if (!elementSourcePassed) { elementSourcePassed = null; }
 	//
@@ -4770,7 +4770,7 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 	//
 	MessageLogAction(MessagePassed,
 		messageUrlPassed, MessageLineNumPassed, elementPassed, elementSourcePassed,
-		errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+		errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed);
 	//
 	// REFRESH browser display
 	//
@@ -4807,7 +4807,7 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 	}
 	//
 	// Alert
-	if (errorDoAlertPassed) {
+	if (DoUseAlertPassed) {
 		alert('(' + tempCount + ')' + ' ' + TextReplace(messageFinal, charNewLineTag, charNewLine));
 	}
 	//
@@ -4826,7 +4826,7 @@ function MessageLog(UseDebug, UseSingleLinePassed, MessagePassed,
 // ...................................... //
 function MessageLogAction(MessagePassed,
 	messageUrlPassed, MessageLineNumPassed, messageElementPassed, messageElementSourcePassed,
-	errorSeverityPassed, errorDisplayTagPassed, errorDoAlert) {
+	errorSeverityPassed, errorDisplayTagPassed, DoUseAlert) {
 	if (errorSeverityPassed == errorIsFatal) {
 		// display alert
 		// dipslay in HTML Critial Message Area
@@ -4891,7 +4891,7 @@ function WindowErrorDisplay(errorSeverityPassed, MessagePassed, messageUrlPassed
 	MessageLog(DoUseDebug, DoUseSingleLine,
 		'(' + MessageLineNumPassed + ') ' + MessagePassed,
 		messageUrlPassed, MessageLineNumPassed, messageElement, messageElementSource,
-		errorSevere, errorDoDisplayTag, errorDoAlert);
+		errorSevere, errorDoDisplayTag, DoUseAlert);
 	//
 	if (browserIsIE) {
 		// set returnValue to suppress error display in browser
@@ -4965,7 +4965,7 @@ function ElementEventMouseOver(menuImage) {
 			+ charNewLineTag + 'top: ' + tempTop
 			+ charNewLineTag + 'Left: ' + tempLeft,
 			'ElementEventMouseOver', 7140, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		//
 	}
 }
@@ -5017,7 +5017,7 @@ function ElementEventClick(menuImage) {
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
 			+ charNewLineTag + 'Image number selected: ' + menuImageCn,
 			'ElementEventClick', 7196, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		//
 	}
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
@@ -5590,7 +5590,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 				MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 					'Element Break Set, Style missing',
 					'ElementBreakSet', 7742, elementTarget, elementPassed,
-					errorWarn, errorDoDisplayTag, errorDoNotAlert);
+					errorWarn, errorDoDisplayTag, DoNotUseAlert);
 			}
 			// set Visibilty.
 			if (elementStyleVisibilityPassed.length) {
@@ -5600,7 +5600,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 					MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 						'Element Break Set, Visibility missing',
 						'ElementBreakSet', 7751, elementTarget, elementPassed,
-						errorWarn, errorDoDisplayTag, errorDoNotAlert);
+						errorWarn, errorDoDisplayTag, DoNotUseAlert);
 					elementTarget.style.visibility = elementStyleVisibilityPassed;
 				}
 			}
@@ -5613,7 +5613,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 					MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 						'Element Break Set, Clear missing',
 						'ElementBreakSet', 7760, elementTarget, elementPassed,
-						errorWarn, errorDoDisplayTag, errorDoNotAlert);
+						errorWarn, errorDoDisplayTag, DoNotUseAlert);
 					elementTarget.style.clear = elsementStyleClearPassed;
 				}
 			}
@@ -5859,19 +5859,19 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 	switch (ConsoleBlockPassed) {
 		//
 		case 'ConsoleMouseOver':
-			if (UseLogEventMouseOver) {
-				UseLogEventMouseOver = false;
+			if (UseLogAnimation) {
+				UseLogAnimation = false;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Mouse Over Menus is OFF',
 					'ConsoleToggle', 8307, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
 			} else {
-				UseLogEventMouseOver = true;
+				UseLogAnimation = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Mouse Over Menus is ON',
 					'ConsoleToggle', 8314, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
 			}
 			//
@@ -5955,7 +5955,7 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 			MessageLog(DoNotUseDebug, DoNotUseSingleLine,
 				'This is a test message for checking the console display...',
 				'ConsoleToggle', 8225, consoleTestBox, consoleTestBox,
-				errorSevere, errorDoDisplayTag, errorDoAlert);
+				errorSevere, errorDoDisplayTag, DoUseAlert);
 			//
 			checkNoVisibleConsole = true;
 			checkBoxSize = true;
@@ -5966,7 +5966,7 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				'Error and Log Console has been cleared...',
 				'ConsoleToggle', 8235, null, null,
-				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+				messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 			//
 			consoleClearToggle.style.backgroundColor = '';
 			consoleClearToggle.style.color = '';
@@ -6040,14 +6040,14 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Move is OFF',
 					'ConsoleToggle', 8307, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				UseLogTimerMove = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Move is ON',
 					'ConsoleToggle', 8314, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -6064,14 +6064,14 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is OFF',
 					'ConsoleToggle', 8331, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				UseLogTimerTransition = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Transition is ON',
 					'ConsoleToggle', 8338, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -6088,14 +6088,14 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is OFF',
 					'ConsoleToggle', 8355, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				UseLogTimerDetail = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug Detail is ON',
 					'ConsoleToggle', 8362, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -6110,14 +6110,14 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is OFF',
 					'ConsoleToggle', 8377, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				UseDebugOnError = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug On Error in debugger is ON',
 					'ConsoleToggle', 8384, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -6132,14 +6132,14 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is OFF',
 					'ConsoleToggle', 8399, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				UseDebugOnAll = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug All messages in debugger is ON',
 					'ConsoleToggle', 8406, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				if (!UseDebugOnError) { ConsoleToggle(true, 'ConsoleDebugOnError'); }
 				consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
@@ -6156,14 +6156,14 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is OFF',
 					'ConsoleToggle', 8423, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
 			} else {
 				UseLogEvents = true;
 				MessageLog(DoNotUseDebug, DoUseSingleLine,
 					'Debug (Mouse) Events is ON',
 					'ConsoleToggle', 8430, null, null,
-					messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+					messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 				consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
 				checkLogMode = true;
 			}
@@ -7153,7 +7153,7 @@ function ElementEventMouse(e) {
 		MessageLog(DoNotUseDebug, DoUseSingleLine,
 			'You have conflicting event handling options...',
 			'ElementEventMouse', 9555, null, null,
-			errorSevere, errorDoNotDisplayTag, errorDoAlert);
+			errorSevere, errorDoNotDisplayTag, DoUseAlert);
 	}
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
@@ -7268,7 +7268,7 @@ function ElementEventMouse(e) {
 				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				// ...................................... //
-				if (UseLogEventMouseOver) { return; }
+				if (UseLogAnimation) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -7528,7 +7528,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			+ ', Play command requested'
 			+ '.',
 			'ElementPlay', 3819, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	var PlayAbort = false;
 	//
@@ -7546,7 +7546,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, deactivating'
 						+ '.',
 						'ElementPlay', 3837, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				// Item will be deactivate and the play command issued
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
@@ -7559,7 +7559,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, performing a Transition step instead'
 						+ '.',
 						'ElementPlay', 3850, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				// the next step will be performed and the new play command skipped
 				if (timerMethod == timerMethodGroup) {
@@ -7584,7 +7584,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Item is already displayed'
 							+ '.',
 							'ElementPlay', 3875, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -7600,7 +7600,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Item is already hidden'
 							+ '.',
 							'ElementPlay', 3891, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -7628,7 +7628,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, deactivating'
 						+ '.',
 						'ElementPlay', 3919, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				// Item will be deactivate and the play command issued
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
@@ -7641,7 +7641,7 @@ function ElementPlay(playDirection, IsImageLarge,
 						+ ', Already running, performing a Move step instead'
 						+ '.',
 						'ElementPlay', 39, null, null,
-						errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				//
 				if (timerMethod == timerMethodGroup) {
@@ -7665,7 +7665,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed...',
 							'ElementPlay', 3956, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -7680,7 +7680,7 @@ function ElementPlay(playDirection, IsImageLarge,
 							+ ', Play Reverse command NOT issued'
 							+ ', Item is already hidden...',
 							'ElementPlay', 3971, null, null,
-							errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
@@ -7744,7 +7744,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
 			+ ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
 			'ElementPlay', 10341, null, null,
-			errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	// DURATION
@@ -7769,7 +7769,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Get command issued'
 				+ '.',
 				'ElementPlay', 4055, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		FilterGet(filterPlayAll, startIndex, endIndex,
@@ -7799,7 +7799,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Enable command issued'
 				+ '.',
 				'ElementPlay', 4085, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		FilterEnable(filterPlayAll, startIndex, endIndex,
@@ -7818,7 +7818,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Apply command issued'
 				+ '.',
 				'ElementPlay', 4104, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		FilterApply(filterPlayAll, startIndex, endIndex,
@@ -7833,7 +7833,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Start command issued'
 				+ '.',
 				'ElementPlay', 4119, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		TimerStartFilter(playDirection, timerMethod, TimerGroupDoStepFilter, TimerItemDoStepFilter,
@@ -7849,7 +7849,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Filter Vendor Play command issued'
 				+ '.',
 				'ElementPlay', 4135, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
@@ -7888,7 +7888,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				+ ', Move Start command issued'
 				+ '.',
 				'ElementPlay', 4174, null, null,
-				errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		TimerStartMove(playDirection, timerMethod, TimerGroupDoStepMove, TimerItemDoStepMove,
@@ -7908,7 +7908,7 @@ function ElementPlay(playDirection, IsImageLarge,
 					+ ', Resize command issued'
 					+ '.',
 					'ElementPlay', 4194, null, null,
-					errorComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorComment, errorDoNotDisplayTag, DoNotUseAlert);
 			}
 			//
 			FilterResize(oObjNext, filterClassMatrix, 0.05);
@@ -8042,7 +8042,7 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 	// load and validate event and objects
 	ElementEventFromHtmlCheck(null, UseLogEvents);
 	if (eventCurrId == oObjNextParentId
-		&& !UseLogEventMouseOver
+		&& !UseLogAnimation
 		&& eventType == 'mouseover'
 	) {
 		return;
@@ -8061,8 +8061,8 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	if (eventType != 'mouseover' || UseLogEventMouseOver
-		|| (oObjNext.style.display = 'block' && !UseLogEventMouseOver)
+	if (eventType != 'mouseover' || UseLogAnimation
+		|| (oObjNext.style.display = 'block' && !UseLogAnimation)
 	) {
 		//
 		imgZindex += 1;
@@ -8161,7 +8161,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			+ ', Time:' + Date()
 			+ '.',
 			'ElementItemShow', 10141, oObjNext, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	WindowClientWidth();
@@ -8617,7 +8617,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				+ ', Time:' + Date()
 				+ '.',
 				'ElementItemHide', 9876, oObjNext, null,
-				messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+				messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		return;
 	}
@@ -8630,7 +8630,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			+ ', Time:' + Date()
 			+ '.',
 			'ElementItemHide', 9889, oObjNext, null,
-			messageElementComment, errorDoNotDisplayTag, errorDoNotAlert);
+			messageElementComment, errorDoNotDisplayTag, DoNotUseAlert);
 	}
 	//
 	if (moveIsOn || filterIsOn) {

@@ -699,10 +699,10 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         // Set Top
         // View Option Adjustments
         // Windowed Layout Format
-        if (layoutIndex = layoutWindowed) {
+        if (layoutIndex == layoutWindowed) {
             layoutCascadeDown = true;
             oObjNextOffsetTop = 30;
-            // if (oObjIndex = 1) { oObjNextOffsetTop = 50 + menuImageRootPosition[oObjGroupIndex] [indexTop];
+            // if (oObjIndex == 1) { oObjNextOffsetTop = 50 + menuImageRootPosition[oObjGroupIndex] [indexTop];
             // } else {  oObjNextOffsetLeft = 50; }
             // if (layoutIndex = layoutWindowed) { oObjNextOffsetTop = Math.abs(oObjNextOffsetTop); }
             // Set Top

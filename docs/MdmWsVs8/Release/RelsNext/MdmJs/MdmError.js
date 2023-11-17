@@ -11,8 +11,15 @@ var errorIsFatal = 30;
 var errorDebugLevel = errorIsSevere;
 var errorSeverity = errorDidNotOccur;
 var errorSeverityLevel = errorDidNotOccur;
-var errorSeverityHighest = errorDidNotOccur;
 
+// Button colors
+var consoleViewToggleBackgroud = 'White';
+var consoleViewToggleColor = 'Black';
+// button borders
+var buttonIsOnColor = 'Green';
+var buttonIsOffColor = 'Red';
+var buttonIsNormalColor = 'White';
+//
 // Message Colors
 var errorSeverityColorFatal = 'Red';
 var errorSeverityColorFatalBg = 'Black';
@@ -22,8 +29,12 @@ var errorSeverityColorWarn = 'Orange';
 var errorSeverityColorWarnBg = 'Gray';
 var errorSeverityColorComment = 'Lime';
 var errorSeverityColorCommentBg = 'White';
+
 var errorSeverityColor = errorSeverityColorComment;
 var errorSeverityColorBg = errorSeverityColorCommentBg;
+
+var errorSeverityHighest = errorDidNotOccur;
+var errorSeverityColorHighestBg = consoleViewToggleBackgroud;
 //
 var errorSeverityDescription = 'No error';
 // var UseSingleLine = DoNotUseSingleLine;
@@ -86,11 +97,11 @@ var errorResultOnFail = errorDidNotOccur;
 // SectionBlock Debug Utilities
 // ...................................... //
 // var UseDebug = true;
-// var debugDoAlert = true;
+// var UseAlert = true;
 // var UseDebug = false;
-// var debugDoAlert = false;
+// var UseAlert = false;
 // This flag not implemented in forms or buttons
-// var UseLogAlert = true;
+// var UseLog = true;
 //
 // var UseLogTimer = false;
 // var UseLogTimerMove = false;
@@ -147,13 +158,13 @@ var errorSourceInnerHTMLLog = new String();
 function ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
     eventCurrPassed, elementPassed, elementSourcePassed,
     messagePassed,
-    errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
+    errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed) {
     //
     messageTemp = ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
         eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
         elementPassed, elementSourcePassed,
         messagePassed,
-        errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+        errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed);
     //
     WindowErrorDisplay(errorSeverityPassed, eventCurrPassed,
         messagePassed,
@@ -167,7 +178,7 @@ function ErrorCaught(errorObjectPassed, script_statePassed, errorSeverityPassed)
     ErrorSet(errorCurr);
     // display this todo
     //
-    // ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
+    // ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, DoNotUseAlert);
     //
     WindowErrorDisplay(errorSeverity, eventCurr,
         script_statePassed,
@@ -178,7 +189,7 @@ function ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumn
     eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
     elementPassed, elementSourcePassed,
     messagePassed,
-    errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
+    errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed) {
     // if (errorFirst) { return; }
     // this may set an event or message... dunno
     UseDebug = UseDebugPassed;
@@ -366,7 +377,7 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
     // messageTemp = ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
     //     eventCurrPassed, messageElement, messageElementSource,
     //     messagePassed,
-    //     errorSeverityPassed, errorDoDisplayTag, errorDoNotAlert);
+    //     errorSeverityPassed, errorDoDisplayTag, DoNotUseAlert);
     // ErrorSet(eventCurr);
 
     // error Object: description Property | message Property | name Property | number Property
@@ -396,11 +407,11 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
         messagePassed,
         eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
         messageElement, messageElementSource,
-        errorSeverityPassed, errorDoDisplayTag, errorDoAlert);
+        errorSeverityPassed, errorDoDisplayTag, DoUseAlert);
     // MessageLog(eventCurrPassed, DoUseDebug, UseSingleLine,
     //     '(' + eventFileName + ':' + eventFileLinePassed + ') ' + messagePassed,
     //     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, messageElement, messageElementSource,
-    //     errorIsSevere, errorDoDisplayTag, errorDoAlert);
+    //     errorIsSevere, errorDoDisplayTag, DoUseAlert);
     //
     if (browserIsIE) {
         // set returnValue to suppress error display in browser
@@ -434,39 +445,40 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
         }
         // if (consoleErrorBoxButton) { ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleError'); }
         //
-        SysTimeStoped = new Date().getTime();
-        if (browserIsIE) {
-            debugger;
-        } else {
-            debugger;
-        }
-        var SysTimeStarted = new Date().getTime();
-        if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
-            // document.getElementById('test').innerHTML = 'on';
-            // maybe not all options:
-            if (UseDebug || UseDebugOnError || UseDebugOnAll) {
-                // (ignore spontaneous requests.)
-                if (!errorDoNotDisplayNoDebugMsg) {
-                    alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine)
-                        // alert(StringTextReplace(messagePassed + charNewLineTag, charNewLineTag, charNewLine)
-                        // + charNewLine
-                        + '   ' + charTextIndent
-                        + ' You are not currently in the debugger.'
-                        + ' Your setting suggest you need to be.'
-                        + ' Enter F12 to enter it now.');
-                    // errorDoNotDisplayNoDebugMsg = true;
-                }
-                if (browserIsIE) {
-                    debugger;
-                } else {
-                    debugger;
-                }
+        if (ConsoleStateDebugOn()) {
+            SysTimeStoped = new Date().getTime();
+            if (browserIsIE) {
+                debugger;
             } else {
-                // can't enter debbuger error.
+                debugger;
+            }
+            var SysTimeStarted = new Date().getTime();
+            if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
+                // document.getElementById('test').innerHTML = 'on';
+                // maybe not all options:
+                if (ConsoleStateDebugOn()) {
+                    // (ignore spontaneous requests.)
+                    if (!errorDoNotDisplayNoDebugMsg) {
+                        alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine)
+                            // alert(StringTextReplace(messagePassed + charNewLineTag, charNewLineTag, charNewLine)
+                            // + charNewLine
+                            + '   ' + charTextIndent
+                            + ' You are not currently in the debugger.'
+                            + ' Your setting suggest you need to be.'
+                            + ' Enter F12 to enter it now.');
+                        // errorDoNotDisplayNoDebugMsg = true;
+                    }
+                    if (browserIsIE) {
+                        debugger;
+                    } else {
+                        debugger;
+                    }
+                } else {
+                    // can't enter debbuger error.
+                }
             }
         }
     }
-    // }
     // return true to indicate an abort...
     return false;
 }
@@ -477,7 +489,7 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
 // ...................................... //
 function DebugStart(debugOptionPassed, debugmessagePassed) {
     if (!UseDebug) { return; }
-    if (debugDoAlert) {
+    if (UseAlert) {
         alert('Ready to debug: ' + debugmessagePassed + '(' + debugOptionPassed + ')');
     }
     if (browserIsTEST) {
@@ -583,7 +595,7 @@ function MessageLogAdd(MessageTextBoxPassed,
 // Error Message Display
 function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messagePassed,
     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
-    errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed) {
+    errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed) {
     //
     UseDebug = DoNotUseDebug;
     errorSeverityColor = errorSeverityColorComment;
@@ -598,7 +610,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
         elementPassed, elementSourcePassed,
         messagePassed,
-        errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+        errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed);
     //
     // note: the use of " PropertyX in elementPasssed" did not work for validating properties of elementPasssed.
     //
@@ -713,22 +725,10 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     }
     //
     if (errorSeverityHighest < errorSeverityPassed) {
-        // Coloured button to inform user
-        if (consoleClearToggle) {
-            if (errorSeverityColor != 'White') {
-                if (errorSeverityPassed >= errorIsSevere || errorSeverityPassed >= errorDebugLevel) {
-                    consoleClearToggle.style.backgroundColor = errorSeverityColor;
-                    consoleClearToggle.style.color = 'Black';
-                    consoleClearToggle.style.borderColor = 'White';
-                } else {
-                    consoleClearToggle.style.borderColor = errorSeverityColor;
-                }
-            } else {
-                consoleClearToggle.style.borderColor = ButtonIsOnColor;
-            }
-        }
-        //
         errorSeverityHighest = errorSeverityPassed;
+        errorSeverityColorHighestBg = errorSeverityColorBg;
+        // Coloured button to inform user
+        if (consoleToggle && consoleErrorToggle) { ConsoleToggleButtonSet(); }
     }
     //
     // messageFinal += charNewLineTag + charTextIndent;
@@ -755,7 +755,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         tempInnerHTML += ' style="color:' + errorSeverityColor + '; background-color:' + errorSeverityColorBg + '"' + gt;
         tempInnerHTML += messageFinal + charNewLineTag + tagSpanEnd;
         //
-        if (UseLogOrder = DoUseAscendingDate) {
+        if (UseLogOrder == DoUseAscendingDate) {
             consoleErrorTextBox.innerHTML += tempInnerHTML;
             // Trim length for memory management
             if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
@@ -798,12 +798,12 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     // Logging and Action
     MessageLogAction(eventCurrPassed, tempPrefix + messagePassed, messageFinal,
         eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
-        errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed);
+        errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed);
 }
 // Error Message Action
 function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
     eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, elementPassed, elementSourcePassed,
-    errorSeverityPassed, errorDoDisplayTagPassed, errorDoAlertPassed, UseDebugPassed) {
+    errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed, UseDebugPassed) {
     //
     // Log
     // Add message to appropriate log
@@ -813,7 +813,7 @@ function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
     // Action
     if (errorSeverityPassed >= errorIsFatal) {
         // display alert
-        errorDoAlertPassed = true;
+        DoUseAlertPassed = true;
         // dipslay in HTML Critial/Fatal Message Area
         errorMessageLogFatal += messageFinalPassed;
     } else if (errorSeverityPassed >= errorIsSevere) {
@@ -835,7 +835,7 @@ function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
         // can't happen?
     }
     // Alert
-    if (errorDoAlertPassed || debugDoAlert || !consoleErrorTextBox) {
+    if (DoUseAlertPassed || UseAlert || !consoleErrorTextBox) {
         alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine));
     }
     //

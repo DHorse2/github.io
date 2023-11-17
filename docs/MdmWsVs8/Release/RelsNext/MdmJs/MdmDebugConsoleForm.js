@@ -80,9 +80,9 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 			<p>
 				Mouse Hover activation of image display:<br>
 			</p>
-			<label for="formEventMouseOverEnabled">UseLogEventMouseOver </label>
+			<label for="formEventMouseOverEnabled">UseLogAnimation </label>
 			<input id="formEventMouseOverEnabled" type="checkbox"
-				onchange="DebugParameterSet(this, 'UseLogEventMouseOver', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseLogAnimation', 'Toggle');">
 		</fieldset>
 		<!-- * -->
 		<!-- x ------------------------------------------------------------------------------------- -->
@@ -331,8 +331,8 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 				<!-- * -->
 				Display debug messages in an alert box: <br>
 			</p>
-			<label for="formDebugDoAlert">debugDoAlert </label>
-			<input id="formDebugDoAlert" type="checkbox" onchange="DebugParameterSet(this, 'debugDoAlert', 'Toggle');">
+			<label for="formUseAlert">UseAlert </label>
+			<input id="formUseAlert" type="checkbox" onchange="DebugParameterSet(this, 'UseAlert', 'Toggle');">
 			<p>
 				<!-- * -->
 				Error Severity that causes the debugger to be invoked: <br>
@@ -453,9 +453,9 @@ function ConsoleFormElementSync(fromForm) {
 		script_state += ", Using mouse hover";
 		elementObject = document.getElementById('formEventMouseOverEnabled');
 		if (fromForm) {
-			if (elementObject.checked) { UseLogEventMouseOver = true; } else { UseLogEventMouseOver = false; }
+			if (elementObject.checked) { UseLogAnimation = true; } else { UseLogAnimation = false; }
 		} else {
-			if (UseLogEventMouseOver) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseLogAnimation) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 
 		// Animation Control
@@ -551,11 +551,11 @@ function ConsoleFormElementSync(fromForm) {
 			if (UseDebug) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
-		elementObject = document.getElementById('formDebugDoAlert');
+		elementObject = document.getElementById('formUseAlert');
 		if (fromForm) {
-			if (elementObject.checked) { debugDoAlert = true; } else { debugDoAlert = false; }
+			if (elementObject.checked) { UseAlert = true; } else { UseAlert = false; }
 		} else {
-			if (debugDoAlert) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseAlert) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 
@@ -842,11 +842,11 @@ function ConsoleFormElementSync(fromForm) {
 	} finally {
 		// ...................................... //
 		// try {
-		if (UseLogAlert) {
+			if (UseLog || UseDebug) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				script_state + ' Console Form synchonized.',
 				'MdmDebugConsole: ConsoleFormElementSync', 1211, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		// } catch (consoleStateFormErr) {

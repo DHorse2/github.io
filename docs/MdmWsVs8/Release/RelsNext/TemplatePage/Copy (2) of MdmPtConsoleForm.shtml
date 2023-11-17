@@ -54,9 +54,9 @@
 <!--x ------------------------------------------------------------------------------------- -->
 		<fieldset><legend>User Interface Features</legend>
 		Mouse Hover activation of image display:<br >
-		<label for="formEventMouseOverEnabled">UseLogEventMouseOver </label>
+		<label for="formEventMouseOverEnabled">UseLogAnimation </label>
 		<input id="formEventMouseOverEnabled" type="checkbox"
-			onchange="DebugParameterSet(this, 'UseLogEventMouseOver', 'Toggle')"
+			onchange="DebugParameterSet(this, 'UseLogAnimation', 'Toggle')"
 			>
 		<p ></p>
 		</fieldset>

@@ -73,80 +73,71 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 	var checkLogModeSeeEvents = false;
 	var checkLogModeSeeErrors = false;
 	var consoleToggleResult = null;
-	var boxStyleSaved = '';
 	//
 	script_state = 'Toggle is ' + DoTogglePassed + ' for ' + ConsoleBlockPassed + '.';
 	try {
 		// Body Element Creation
 		if (loadFirstJava) { ElementObjectCreate(); }
 		//
-		// ..................................................................................... _//
+		// ...................................... //
 		switch (ConsoleBlockPassed) {
-			// ..................................................................................... _//
-			// ..................................................................................... _//
+			// ...................................... //
+			// ...................................... //
 			case 'ConsoleMouseOver':
 				script_state += "ConsoleToggle:ConsoleMouseOver:" + DoTogglePassed;
-				if (DoTogglePassed) { UseLogEventMouseOver = !UseLogEventMouseOver; }
-				if (DoSetValuePassed) { UseLogEventMouseOver = elementValuePassed }
-				if (UseLogEventMouseOver) {
+				if (DoTogglePassed) { UseLogAnimation = !UseLogAnimation; }
+				if (DoSetValuePassed) { UseLogAnimation = elementValuePassed }
+				if (!UseLogAnimation) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is OFF',
 						'ConsoleToggle', 8307, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleMouseOverToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Mouse Over Menus is ON',
 						'ConsoleToggle', 8314, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
-				//
-				consoleToggleResult = UseLogEventMouseOver;
+				consoleToggleResult = UseLogAnimation;
 				break;
-			// ..................................................................................... _//
-			// ..................................................................................... _//
+			// ...................................... //
+			// FONTS
+			// ...................................... //
+			// ...................................... //
 			case 'ConsoleAll':
 				script_state = "ConsoleToggle:ConsoleAll:" + DoTogglePassed;
 				if (DoTogglePassed) { consoleBoxButton = !consoleBoxButton; }
 				if (DoSetValuePassed) { consoleBoxButton = elementValuePassed }
-				if (consoleBoxButton) {
-					consoleBox.style.display = 'block';
-					// boxStyleSaved = consoleBox.style.display;
-					// ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-					// consoleBox.style.display = boxStyleSaved;
+				if (!consoleBoxButton) {
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'Consoles showing is OFF',
+						'ConsoleToggle', 8377, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
-					consoleBox.style.display = 'none';
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'Consoles showing is ON',
+						'ConsoleToggle', 8387, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
 				consoleToggleResult = consoleBoxButton;
 				break;
-			// ..................................................................................... _//
+			// ...................................... //
 			case 'ConsoleError':
 				script_state = "ConsoleToggle:ConsoleError:" + DoTogglePassed;
 				if (DoTogglePassed) { consoleErrorBoxButton = !consoleErrorBoxButton; }
 				if (DoSetValuePassed) { consoleErrorBoxButton = elementValuePassed }
-				if (consoleErrorBoxButton) {
-					// boxStyleSaved = consoleErrorBox.style.display;
-					// ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-					// consoleErrorBox.style.display = boxStyleSaved;
+				if (!consoleErrorBoxButton) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Console buttons showing is OFF',
+						'Message Log showing is OFF',
 						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Console buttons showing is ON',
+						'Message Log showing is ON',
 						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					// if (consoleErrorBox.style.display != 'block') {
-					// 	consoleErrorBox.style.display = 'block';
-					// 	consoleErrorToggle.style.borderColor = ButtonIsOnColor;
-					// } else {
-					// 	consoleErrorBox.style.display = 'none';
-					// 	consoleErrorToggle.style.borderColor = ButtonIsOffColor;
-					// }
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
@@ -157,20 +148,16 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleEvent:" + DoTogglePassed;
 				if (DoTogglePassed) { consoleEventBoxButton = !consoleEventBoxButton; }
 				if (DoSetValuePassed) { consoleEventBoxButton = elementValuePassed }
-				if (consoleEventBoxButton) {
-					// boxStyleSaved = consoleEventBox.style.display;
-					// ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-					// consoleEventBox.style.display = boxStyleSaved;
+				if (!consoleEventBoxButton) {
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'Event Log showing is OFF',
+						'ConsoleToggle', 8377, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
-					// if (consoleEventBox.style.display != 'block') {
-					// 	consoleEventBox.style.display = 'block';
-					// 	consoleEventToggle.style.borderColor = ButtonIsOnColor;
-					// 	consoleErrorBox.style.width = '33%';
-					// } else {
-					// 	consoleEventBox.style.display = 'none';
-					// 	consoleEventToggle.style.borderColor = ButtonIsOffColor;
-					// 	consoleErrorBox.style.width = '66%';
-					// }
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'Event Log showing is ON',
+						'ConsoleToggle', 8387, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
@@ -181,59 +168,53 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleState:" + DoTogglePassed;
 				if (DoTogglePassed) { consoleStateBoxButton = !consoleStateBoxButton; }
 				if (DoSetValuePassed) { consoleStateBoxButton = elementValuePassed }
+				if (loadFirstDebugState) { ConsoleFormElementSyncLocal(false); }
 				if (!consoleStateBoxButton) {
-					if (loadFirstDebugState) { ConsoleFormElementSyncLocal(false); }
-					// boxStyleSaved = consoleStateBox.style.display;
-					// ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-					// consoleStateBox.style.display = boxStyleSaved;
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'State console showing is OFF',
+						'ConsoleToggle', 8377, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
-					// if (consoleStateBox.style.display != 'block') {
-					// 	consoleStateBox.style.display = 'block';
-					// 	consoleStateTextBox.style.display = 'block';
-					// 	consoleStateToggle.style.borderColor = ButtonIsOnColor;
-					// } else {
-					// 	consoleStateBox.style.display = 'none';
-					// 	consoleStateTextBox.style.display = 'none';
-					// 	consoleStateToggle.style.borderColor = ButtonIsOffColor;
-					// }
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'State console showing is ON',
+						'ConsoleToggle', 8387, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
 				consoleToggleResult = consoleStateBoxButton;
 				break;
-			// ..................................................................................... _//
+			// ...................................... //
 			case 'ConsoleTest':
 				script_state = "ConsoleToggle:ConsoleTest:" + DoTogglePassed;
 				errorMessage = '';
 				try {
 					consoleToggleResult = false;
 					if (consoleBox.style.display != 'block') {
-						// boxStyleSaved = consoleTestBox.style.display;
-						// ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-						// consoleTestBox.style.display = boxStyleSaved;
+						consoleTestBox.style.display = 'block';
 					}
 					//
 					if (consoleTestBox.style.display != 'block') {
 						consoleTestBox.style.display = 'block';
 						consoleTestTextBox.style.display = 'block';
-						consoleTestToggle.style.borderColor = ButtonIsOnColor;
+						consoleTestToggle.style.borderColor = buttonIsOnColor;
 					}
 					// execute test
 					errorMessage = 'This is a test SEVERE error message for checking the console display.';
 					MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 						errorMessage,
-						script_state, 8225, consoleTestBox, consoleTestBox,
-						errorIsSevere, errorDoDisplayTag, errorDoNotAlert);
+						script_state, 8225, 0, consoleTestBox, consoleTestBox,
+						errorIsSevere, errorDoDisplayTag, DoNotUseAlert);
 					errorMessage = 'This is a test Warning! message for checking the console display.';
 					MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 						errorMessage,
 						script_state, 8225, 0, null, null,
-						errorIsWarning, errorDoDisplayTag, errorDoNotAlert);
+						errorIsWarning, errorDoDisplayTag, DoNotUseAlert);
 					errorMessage = 'This is a test comment message for checking the console display.';
 					MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 						errorMessage,
 						script_state, 8225, 0, null, null,
-						errorIsComment, errorDoDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoDisplayTag, DoNotUseAlert);
 					//
 					ConsoleStateTest();
 					//
@@ -250,11 +231,11 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				} finally {
 					// ...................................... //
 					// try {
-					if (UseLogAlert) {
+					if (UseLog) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							'State Test completed.',
 							script_state, 1211, 0, null, null,
-							errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
 					//
 					// } catch (consoleStateFormErr) {
@@ -274,12 +255,10 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 					errorMessage,
 					'ConsoleToggle', 8235, 0, null, null,
-					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				//
-				consoleClearToggle.style.backgroundColor = '';
-				consoleClearToggle.style.color = '';
-				consoleClearToggle.style.borderColor = '';
-				errorSeverityHighest = 0;
+				errorSeverityHighest = errorDidNotOccur;
+				errorSeverityColorHighestBg = consoleViewToggleBackgroud;
 				// consoleErrorLogCn = 0;
 				// consoleErrorLogScrollCn = 0;
 				//
@@ -287,118 +266,83 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				checkBoxSize = true;
 				consoleToggleResult = true;
 				break;
-			// ..................................................................................... _//
-			// ..................................................................................... _//
+			// ...................................... //
+			// ...................................... //
+			case 'ConsoleDebugDetailAll':
+				script_state = "ConsoleToggle:ConsoleDebugDetailAll:" + DoTogglePassed;
+				// if (DoSetValuePassed) { xxx = elementValuePassed }
+				if (consoleDebugButton) {
+					UseDebugOnError = true;
+					UseDebugOnAll = true;
+					UseLogTimerMove = true;
+					UseLogTimerTransition = true;
+					UseLogTimerDetail = true;
+					UseLogEvents = true;
+					consoleToggleResult = true;
+				} else {
+					UseDebugOnError = false;
+					UseDebugOnAll = false;
+					UseLogTimerMove = false;
+					UseLogTimerTransition = false;
+					UseLogTimerDetail = false;
+					UseLogEvents = false;
+					consoleToggleResult = false;
+				}
+				checkLogMode = true;
+				checkLogModeSeeErrors = true;
+				checkLogModeSeeEvents = true;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
+				checkNoVisibleDebug = true;
+				break;
+			// ...................................... //
+			// ...................................... //
 			case 'ConsoleDebug':
 				script_state = "ConsoleToggle:ConsoleDebug:" + DoTogglePassed;
-				if (DoTogglePassed) { UseLogDebugButton = !UseLogDebugButton; }
-				if (DoSetValuePassed) { UseLogDebugButton = elementValuePassed }
-				if (UseLogDebugButton) {
+				if (DoTogglePassed) { consoleDebugButton = !consoleDebugButton; }
+				if (DoSetValuePassed) { consoleDebugButton = elementValuePassed }
+				if (consoleDebugButton) {
 					// UseDebugOnAll = true;
 					// UseDebugOnError = true;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug buttons showing is OFF',
 						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					// UseDebugOnAll = false;
 					// UseDebugOnError = false;
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug buttons showing is ON',
 						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				checkLogMode = true;
 				checkLogModeSeeEvents = false;
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
-				consoleToggleResult = UseLogDebugButton;
+				consoleToggleResult = consoleDebugButton;
 				break;
-			// ..................................................................................... _//
-			// ..................................................................................... _//
-			case 'ConsoleDebugDetailAll':
-				script_state = "ConsoleToggle:ConsoleDebugDetailAll:" + DoTogglePassed;
-				// if (DoSetValuePassed) { xxx = elementValuePassed }
-				if ((consoleDebugMainToggle.style.display != 'block' && DoTogglePassed)
-					(consoleDebugMainToggle.style.display == 'block' && !DoTogglePassed)) {
-					UseLogTimerMove = true;
-					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-					UseLogTimerTransition = true;
-					consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
-					UseLogTimerDetail = true;
-					consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
-					UseDebugOnAll = true;
-					consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
-					UseDebugOnError = true;
-					consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
-					// UseDebugOnError = true;
-					// consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-					UseLogEvents = true;
-					consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
-					//
-					ConsoleShow(DoNotUseHide, DoUseDebug);
-					//
-					if (consoleBox.style.display != 'block') {
-						ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');
-					}
-					//
-					if (UseDebugOnAll || UseDebugOnError) { UseDebugOnError = true; } else { UseDebugOnError = false; }
-					if (UseLogTimerMove || UseLogTimerTransition) { UseLogTimer = true; } else { UseLogTimer = false; }
-					//
-					checkLogMode = true;
-					checkLogModeSeeErrors = true;
-					checkLogModeSeeEvents = true;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
-					checkNoVisibleDebug = true;
-					consoleToggleResult = true;
-					//
-				} else {
-					//
-					UseLogTimerMove = false;
-					// consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
-					UseLogTimerTransition = false;
-					// consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
-					UseLogTimerDetail = false;
-					// consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
-					UseDebugOnAll = false;
-					// consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
-					UseDebugOnError = false;
-					// consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
-					// UseLogTimerMove = false;
-					// consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
-					UseLogEvents = false;
-					// consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
-					//
-					ConsoleShow(DoUseHide, DoUseDebug);
-					// // consoleDebugToggle.style.display = 'none';
-					// consoleDebugToggle.style.borderColor = ButtonIsOffColor;
-					BodyConsoleDebugButtons = false;
-					consoleToggleResult = false;
-				}
-				break;
+			// ...................................... //
 			//
 			case 'ConsoleDebugOnError':
 				script_state = "ConsoleToggle:ConsoleDebugOnError:" + DoTogglePassed;
 				if (DoTogglePassed) { UseDebugOnError = !UseDebugOnError; }
 				if (DoSetValuePassed) { UseDebugOnError = elementValuePassed }
-				if (UseDebugOnError) {
+				if (!UseDebugOnError) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug On Error in debugger is OFF',
 						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug On Error in debugger is ON',
 						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
-					checkLogMode = true;
-					checkLogModeSeeEvents = false;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
+				checkLogMode = true;
+				checkLogModeSeeEvents = false;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
 				consoleToggleResult = UseDebugOnError;
 				break;
 			//
@@ -406,24 +350,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleDebugAll:" + DoTogglePassed;
 				if (DoTogglePassed) { UseDebugOnAll = !UseDebugOnAll; }
 				if (DoSetValuePassed) { UseDebugOnAll = elementValuePassed }
-				if (UseDebugOnAll) {
+				if (!UseDebugOnAll) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug All messages in debugger is OFF',
+						'Debug All messages (in the debugger) is OFF',
 						'ConsoleToggle', 8399, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug All messages in debugger is ON',
+						'Debug All messages (in the debugger) is ON',
 						'ConsoleToggle', 8406, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					// if (!UseDebugOnError) { ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError'); }
-					consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
-					checkLogMode = true;
-					checkLogModeSeeEvents = false;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
+				checkLogMode = true;
+				checkLogModeSeeEvents = false;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
 				consoleToggleResult = UseDebugOnAll;
 				break;
 			//
@@ -432,63 +373,59 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleDebugMove:" + DoTogglePassed;
 				if (DoTogglePassed) { UseLogTimerMove = !UseLogTimerMove; }
 				if (DoSetValuePassed) { UseLogTimerMove = elementValuePassed }
-				if (UseLogTimerMove) {
+				if (!UseLogTimerMove) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Move is OFF',
+						'Debug Animation Movement is OFF',
 						'ConsoleToggle ConsoleDebugMove', 8313, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					if (!UseLogTimerMove && !UseLogTimerTransition && UseLogTimer) {
 						// ConsoleToggle(DoSetValue, false, DoNotUseToggle, 'UseLogTimer');
 						UseLogTimer = false;
 					}
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Move is ON',
+						'Debug Animation Movement is ON',
 						'ConsoleToggle ConsoleDebugMove', 8323, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
-					checkLogMode = true;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					if (UseLogTimerMove || UseLogTimerTransition && !UseLogTimer) {
 						// ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'UseLogTimer');
 						UseLogTimer = true;
 					}
 				}
+				checkLogMode = true;
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
-				consoleToggleResult = (UseLogTimerMove || UseLogTimerTransition);
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
+				consoleToggleResult = UseLogTimerMove;
 				break;
 			//
 			case 'ConsoleDebugTransition':
 				script_state = "ConsoleToggle:ConsoleDebugTransition:" + DoTogglePassed;
 				if (DoTogglePassed) { UseLogTimerTransition = !UseLogTimerTransition; }
 				if (DoSetValuePassed) { UseLogTimerTransition = elementValuePassed }
-				if (UseLogTimerTransition) {
+				if (!UseLogTimerTransition) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Transition is OFF',
+						'Debug Animation Transition is OFF',
 						'ConsoleToggle', 8331, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					if (!UseLogTimerMove && !UseLogTimerTransition && UseLogTimer) {
 						// ConsoleToggle(DoSetValue, false, DoNotUseToggle, 'UseLogTimer');
 						UseLogTimer = false;
 					}
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Transition is ON',
+						'Debug Animation Transition is ON',
 						'ConsoleToggle', 8341, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
-					checkLogMode = true;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					if (UseLogTimerMove || UseLogTimerTransition && !UseLogTimer) {
 						// ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'UseLogTimer');
 						UseLogTimer = true;
 					}
 				}
+				checkLogMode = true;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
 				consoleToggleResult = UseLogTimerTransition;
 				break;
 			//
@@ -496,22 +433,20 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleDebugDetail:" + DoTogglePassed;
 				if (DoTogglePassed) { UseLogTimerDetail = !UseLogTimerDetail; }
 				if (DoSetValuePassed) { UseLogTimerDetail = elementValuePassed }
-				if (UseLogTimerDetail) {
+				if (!UseLogTimerDetail) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Detail is OFF',
 						'ConsoleToggle', 8355, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug Detail is ON',
 						'ConsoleToggle', 8365, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
-					checkLogMode = true;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
+				checkLogMode = true;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
 				consoleToggleResult = UseLogTimerDetail;
 				break;
 			//
@@ -519,28 +454,50 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleDebugEvents:" + DoTogglePassed;
 				if (DoTogglePassed) { UseLogEvents = !UseLogEvents; }
 				if (DoSetValuePassed) { UseLogEvents = elementValuePassed }
-				if (UseLogEvents) {
+				if (!UseLogEvents) {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug (Mouse) Events is OFF',
 						'ConsoleToggle', 8423, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				} else {
 					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 						'Debug (Mouse) Events is ON',
 						'ConsoleToggle', 8430, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
-					consoleDebugEventsToggle.style.borderColor = ButtonIsOnColor;
-					checkLogMode = true;
-					checkLogModeSeeEvents = true;
-					checkNoVisibleConsole = true;
-					checkBoxSize = true;
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					// Open events panel?
 				}
+				checkLogMode = true;
+				checkLogModeSeeEvents = true;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
 				consoleToggleResult = UseLogEvents;
 				break;
 			//
 			case 'ConsoleDebugHover':
 				script_state = "ConsoleToggle:ConsoleDebugHover:" + DoTogglePassed;
+				if (DoTogglePassed) {
+					UseLogHover = !UseLogHover;
+					// LayoutFontCssTagHoverToggle();
+				}
+				if (DoSetValuePassed) { UseLogHover = elementValuePassed }
+				if (!UseLogHover) {
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'Debug Hover highlighting is OFF',
+						'ConsoleToggle', 8423, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					LayoutFontCssTagHoverDisable();
+				} else {
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						'Debug Hover highlighting is ON',
+						'ConsoleToggle', 8430, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					LayoutFontCssTagHoverEnable();
+				}
+				checkLogMode = true;
+				checkLogModeSeeEvents = true;
+				checkNoVisibleConsole = true;
+				checkBoxSize = true;
+				consoleToggleResult = UseLogHover;
 				break;
 			//
 			default:
@@ -576,14 +533,14 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 	} finally {
 		// ...................................... //
 		// try {
-		if (UseLogAlert) {
+		if (UseLog) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				'Setting:' + ConsoleBlockPassed + ' Toggle:' + DoTogglePassed
 				+ ' State:' + script_state
 				+ ' Resulting in ' + consoleToggleResult
 				+ ' Console Toggle done.',
 				'MdmDebugConsole: ConsoleToggle', 593, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 		}
 		//
 		ConsoleToggleButtonSet();
@@ -617,7 +574,6 @@ function ConsoleShowEach(DoTogglePassed, ConsoleBlockPassed, consoleToggleResult
 			&& !UseDebugOnAll
 			&& !UseLogEvents
 		) {
-			// 			&& !UseDebugOnError
 			ConsoleShow(DoUseHide, DoUseDebug);
 			checkBoxSize = false;
 		} else {
@@ -658,17 +614,17 @@ function ConsoleShowEach(DoTogglePassed, ConsoleBlockPassed, consoleToggleResult
 							consoleClearToggle.style.display = 'block';
 						}
 						//
-						if (consoleErrorBox.style.display = 'block') {
-							consoleErrorToggle.style.borderColor = ButtonIsOnColor;
-						} else { consoleErrorToggle.style.borderColor = ButtonIsOffColor; }
+						if (consoleErrorBox.style.display == 'block') {
+							consoleErrorToggle.style.borderColor = buttonIsOnColor;
+						} else { consoleErrorToggle.style.borderColor = buttonIsOffColor; }
 						//
-						if (consoleEventBox.style.display = 'block') {
-							consoleEventToggle.style.borderColor = ButtonIsOnColor;
-						} else { consoleEventToggle.style.borderColor = ButtonIsOffColor; }
+						if (consoleEventBox.style.display == 'block') {
+							consoleEventToggle.style.borderColor = buttonIsOnColor;
+						} else { consoleEventToggle.style.borderColor = buttonIsOffColor; }
 						//
-						if (consoleStateBox.style.display = 'block') {
-							consoleStateToggle.style.borderColor = ButtonIsOnColor;
-						} else { consoleStateToggle.style.borderColor = ButtonIsOffColor; }
+						if (consoleStateBox.style.display == 'block') {
+							consoleStateToggle.style.borderColor = buttonIsOnColor;
+						} else { consoleStateToggle.style.borderColor = buttonIsOffColor; }
 						//
 						// Toggle Test 2 - Display Not Window Visible
 					} else if (consoleBox.style.display == 'block') {
@@ -688,37 +644,37 @@ function ConsoleShowEach(DoTogglePassed, ConsoleBlockPassed, consoleToggleResult
 					ConsoleShow(DoNotUseHide, DoNotUseDebug);
 				}
 			} else {
-				// if (consoleErrorBox.style.display = 'block') {
-				// 	consoleErrorToggle.style.borderColor = ButtonIsOnColor;
-				// } else { consoleErrorToggle.style.borderColor = ButtonIsOffColor; }
+				// if (consoleErrorBox.style.display == 'block') {
+				// 	consoleErrorToggle.style.borderColor = buttonIsOnColor;
+				// } else { consoleErrorToggle.style.borderColor = buttonIsOffColor; }
 				// //
-				// if (consoleEventBox.style.display = 'block') {
-				// 	consoleEventToggle.style.borderColor = ButtonIsOnColor;
-				// } else { consoleEventToggle.style.borderColor = ButtonIsOffColor; }
+				// if (consoleEventBox.style.display == 'block') {
+				// 	consoleEventToggle.style.borderColor = buttonIsOnColor;
+				// } else { consoleEventToggle.style.borderColor = buttonIsOffColor; }
 				// //
-				// if (consoleStateBox.style.display = 'block') {
-				// 	consoleStateToggle.style.borderColor = ButtonIsOnColor;
-				// } else { consoleStateToggle.style.borderColor = ButtonIsOffColor; }
-				// consoleTestToggle.style.borderColor = ButtonIsOffColor;
-				// consoleClearToggle.style.borderColor = ButtonIsOffColor;
+				// if (consoleStateBox.style.display == 'block') {
+				// 	consoleStateToggle.style.borderColor = buttonIsOnColor;
+				// } else { consoleStateToggle.style.borderColor = buttonIsOffColor; }
+				// consoleTestToggle.style.borderColor = buttonIsOffColor;
+				// consoleClearToggle.style.borderColor = buttonIsOffColor;
 			}
 		default:
 			break;
 	}
 	//
-	if (consoleErrorBox.style.display = 'block') {
-		consoleErrorToggle.style.borderColor = ButtonIsOnColor;
-	} else { consoleErrorToggle.style.borderColor = ButtonIsOffColor; }
+	if (consoleErrorBox.style.display == 'block') {
+		consoleErrorToggle.style.borderColor = buttonIsOnColor;
+	} else { consoleErrorToggle.style.borderColor = buttonIsOffColor; }
 	//
-	if (consoleEventBox.style.display = 'block') {
-		consoleEventToggle.style.borderColor = ButtonIsOnColor;
-	} else { consoleEventToggle.style.borderColor = ButtonIsOffColor; }
+	if (consoleEventBox.style.display == 'block') {
+		consoleEventToggle.style.borderColor = buttonIsOnColor;
+	} else { consoleEventToggle.style.borderColor = buttonIsOffColor; }
 	//
-	if (consoleStateBox.style.display = 'block') {
-		consoleStateToggle.style.borderColor = ButtonIsOnColor;
-	} else { consoleStateToggle.style.borderColor = ButtonIsOffColor; }
-	consoleTestToggle.style.borderColor = ButtonIsOnColor;
-	consoleClearToggle.style.borderColor = ButtonIsOnColor;
+	if (consoleStateBox.style.display == 'block') {
+		consoleStateToggle.style.borderColor = buttonIsOnColor;
+	} else { consoleStateToggle.style.borderColor = buttonIsOffColor; }
+	consoleTestToggle.style.borderColor = buttonIsOnColor;
+	consoleClearToggle.style.borderColor = buttonIsOnColor;
 	//
 	if (consoleStateBox.style.display == 'block') {
 		// State visible
@@ -823,10 +779,9 @@ function ConsoleShow(DoHide, errorDoDebug) {
 			&& !UseDebugOnAll
 			&& !UseLogEvents
 		) {
-			// 			&& !UseDebugOnError
-			consoleDebugToggle.style.borderColor = ButtonIsOffColor;
+			consoleDebugToggle.style.borderColor = buttonIsOffColor;
 		} else {
-			consoleDebugToggle.style.borderColor = ButtonIsOnColor;
+			consoleDebugToggle.style.borderColor = buttonIsOnColor;
 		}
 	} else {
 		//
@@ -854,14 +809,30 @@ function ConsoleShow(DoHide, errorDoDebug) {
 				&& consoleEventBox.style.display != 'block'
 				&& consoleStateBox.style.display != 'block'
 			*/
-			consoleToggle.style.borderColor = ButtonIsOffColor;
+			consoleToggle.style.borderColor = buttonIsOffColor;
 		} else {
-			consoleToggle.style.borderColor = ButtonIsOnColor;
+			consoleToggle.style.borderColor = buttonIsOnColor;
 		}
 		//
 	}
 }
 
+function ConsoleStateLogOn() {
+	// UseLog &&
+	return (consoleErrorBoxButton
+		|| consoleEventBoxButton
+		|| consoleStateBoxButton);
+}
+
+function ConsoleStateDebugOn() {
+	// UseDebug &&
+	return (UseLogTimerMove
+		|| UseLogTimerTransition
+		|| UseLogTimerDetail
+		|| UseDebugOnError
+		|| UseDebugOnAll
+		|| UseLogEvents);
+}
 
 // Console Form ElementSync
 function ConsoleStateInit() {
@@ -937,11 +908,11 @@ function ConsoleFormElementChange(event) {
 	// consoleFormFocus = true;
 	// ConsoleFormElementSync(false);
 	// if (!consoleStateFormValid) {
-	// 	ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateForm, consoleStateBox, 'Cannot access Console Form.', errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
+	// 	ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateForm, consoleStateBox, 'Cannot access Console Form.', errorIsWarning, errorDoNotDisplayTag, DoNotUseAlert);
 	// 	// return;
 	// }
 	// if (!consoleStateBoxValid) {
-	// 	ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
+	// 	ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, DoNotUseAlert);
 	// 	return;
 	// }
 	// // update form (settings can be altered by running code)
@@ -956,11 +927,11 @@ function ConsoleFormFocusIn(event) {
 	consoleFormFocus = true;
 	ConsoleFormElementSync(false);
 	if (!consoleStateFormValid) {
-		ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateForm, consoleStateBox, 'Cannot access Console Form.', errorIsWarning, errorDoNotDisplayTag, errorDoNotAlert);
+		ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateForm, consoleStateBox, 'Cannot access Console Form.', errorIsWarning, errorDoNotDisplayTag, DoNotUseAlert);
 		// return;
 	}
 	if (!consoleStateBoxValid) {
-		ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, errorDoNotAlert);
+		ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, DoNotUseAlert);
 		return;
 	}
 	// update form (settings can be altered by running code)
@@ -992,10 +963,12 @@ function ConsoleToggleButtonSet() {
 	// ...................................... //
 	// ...................................... //
 	// case 'ConsoleMouseOver':
-	if (UseLogEventMouseOver) {
-		consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
-		consoleEventBoxButton = true;
+	if (UseLogAnimation) {
+		consoleMouseOverToggle.style.borderColor = buttonIsOnColor;
+	} else {
+		consoleMouseOverToggle.style.borderColor = buttonIsOffColor;
 	}
+	// ...................................... //
 	// ...................................... //
 	// case 'FONTS'
 	// Smaller
@@ -1003,27 +976,39 @@ function ConsoleToggleButtonSet() {
 	// Larger
 	// ...................................... //
 	// ...................................... //
-	// case 'ConsoleError':
-	if (UseLogDebugButton) {
+	// case 'ConsoleAll':
+	// if (consoleBoxButton) {
+	// 	consoleBox.style.display = 'block';
+	// } else {
+	// 	consoleBox.style.display = 'none';
+	// }
+
+	// case 'ConsoleDebug':
+	if (consoleDebugButton) {
 		// consoleBox.style.display = 'block';
-		consoleDebugMainToggles.style.borderColor = ButtonIsOnColor;
+		consoleDebugMainToggles.style.borderColor = buttonIsNormalColor;
 		// Show buttons
+		consoleDebugOnErrorToggle.style.display = 'block';
+		consoleDebugAllToggle.style.display = 'block';
 		consoleDebugMoveToggle.style.display = 'block';
 		consoleDebugTransitionToggle.style.display = 'block';
 		consoleDebugDetailToggle.style.display = 'block';
-		consoleDebugAllToggle.style.display = 'block';
-		consoleDebugOnErrorToggle.style.display = 'block';
 		consoleDebugEventsToggle.style.display = 'block';
 		consoleDebugHoverToggle.style.display = 'block';
 	} else {
 		// consoleBox.style.display = 'none';
-		consoleDebugMainToggles.style.borderColor = ButtonIsOffColor;
+		if (UseDebugOnError || UseDebugOnAll || UseLogTimerMove
+			|| UseLogTimerTransition || UseLogTimerDetail || UseLogEvents) {
+			consoleDebugMainToggles.style.borderColor = buttonIsOnColor;
+		} else {
+			consoleDebugMainToggles.style.borderColor = buttonIsNormalColor;
+		}
 		// Hide buttons
+		consoleDebugOnErrorToggle.style.display = 'none';
+		consoleDebugAllToggle.style.display = 'none';
 		consoleDebugMoveToggle.style.display = 'none';
 		consoleDebugTransitionToggle.style.display = 'none';
 		consoleDebugDetailToggle.style.display = 'none';
-		consoleDebugAllToggle.style.display = 'none';
-		consoleDebugOnErrorToggle.style.display = 'none';
 		consoleDebugEventsToggle.style.display = 'none';
 		consoleDebugHoverToggle.style.display = 'none';
 	}
@@ -1031,8 +1016,19 @@ function ConsoleToggleButtonSet() {
 	// ...................................... //
 	// case 'ConsoleAll':
 	if (consoleBoxButton) {
-		consoleBox.style.display = 'block';
-		consoleToggle.style.borderColor = ButtonIsOnColor;
+		if (consoleErrorBoxButton || consoleEventBoxButton || consoleStateBoxButton) {
+			consoleBox.style.display = 'block';
+		} else { consoleBox.style.display = 'none'; }
+		consoleToggle.style.color = consoleViewToggleColor;
+		consoleToggle.style.background = consoleViewToggleBackgroud;
+		consoleToggle.style.borderColor = buttonIsNormalColor;
+		if (errorSeverityHighest > errorIsComment) {
+			consoleErrorToggle.style.color = 'black';
+			consoleErrorToggle.style.background = errorSeverityColorHighestBg;
+		} else {
+			consoleErrorToggle.style.color = consoleViewToggleColor;
+			consoleErrorToggle.style.background = consoleViewToggleBackgroud;
+		}
 		// Show buttons
 		consoleErrorToggle.style.display = 'block';
 		consoleEventToggle.style.display = 'block';
@@ -1041,7 +1037,20 @@ function ConsoleToggleButtonSet() {
 		consoleClearToggle.style.display = 'block';
 	} else {
 		consoleBox.style.display = 'none';
-		consoleToggle.style.borderColor = ButtonIsOffColor;
+		consoleToggle.style.borderColor = buttonIsNormalColor;
+		if (errorSeverityHighest > errorIsComment) {
+			consoleToggle.style.color = 'black';
+			consoleToggle.style.background = errorSeverityColorHighestBg;
+			// consoleToggle.style.borderColor = buttonIsNormalColor;
+			consoleErrorToggle.style.color = 'black';
+			consoleErrorToggle.style.background = errorSeverityColorHighestBg;
+		} else {
+			consoleToggle.style.color = consoleViewToggleColor;
+			consoleToggle.style.background = consoleViewToggleBackgroud;
+			// consoleToggle.style.borderColor = buttonIsNormalColor;
+			consoleErrorToggle.style.color = consoleViewToggleColor;
+			consoleErrorToggle.style.background = consoleViewToggleBackgroud;
+		}
 		// Hide buttons
 		consoleErrorToggle.style.display = 'none';
 		consoleEventToggle.style.display = 'none';
@@ -1050,98 +1059,102 @@ function ConsoleToggleButtonSet() {
 		consoleClearToggle.style.display = 'none';
 	}
 
+	// case 'ConsoleError':
 	if (consoleErrorBoxButton) {
 		consoleErrorBox.style.display = 'block';
-		consoleErrorToggle.style.borderColor = ButtonIsOnColor;
+		consoleErrorToggle.style.borderColor = buttonIsOnColor;
 	} else {
 		consoleErrorBox.style.display = 'none';
-		consoleErrorToggle.style.borderColor = ButtonIsOffColor;
+		consoleErrorToggle.style.borderColor = buttonIsNormalColor;
 	}
 
 	// case 'ConsoleEvent':
 	if (consoleEventBoxButton) {
 		consoleEventBox.style.display = 'block';
-		consoleEventToggle.style.borderColor = ButtonIsOnColor;
+		consoleEventToggle.style.borderColor = buttonIsOnColor;
 	} else {
 		consoleEventBox.style.display = 'none';
-		consoleEventToggle.style.borderColor = ButtonIsOffColor;
+		consoleEventToggle.style.borderColor = buttonIsNormalColor;
 	}
 
 	// case 'ConsoleState':
 	if (consoleStateBoxButton) {
 		consoleStateBox.style.display = 'block';
-		consoleStateToggle.style.borderColor = ButtonIsOnColor;
+		consoleStateToggle.style.borderColor = buttonIsOnColor;
 	} else {
 		consoleStateBox.style.display = 'none';
-		consoleStateToggle.style.borderColor = ButtonIsOffColor;
+		consoleStateToggle.style.borderColor = buttonIsNormalColor;
 	}
 
 	// ...................................... //
 	// case 'ConsoleTest':
 	if (consoleTestBoxButton) {
-		consoleStateBox.style.display = 'block';
-		consoleStateToggle.style.borderColor = ButtonIsOnColor;
+		consoleTestToggle.style.borderColor = buttonIsNormalColor;
 	} else {
-		consoleStateBox.style.display = 'none';
-		consoleStateToggle.style.borderColor = ButtonIsOffColor;
+		consoleTestToggle.style.borderColor = buttonIsNormalColor;
 	}
 
 	// case 'ConsoleClear':
 	if (consoleClearButton) {
-		consoleClearToggle.style.backgroundColor = '';
+		consoleClearToggle.style.borderColor = buttonIsNormalColor;
 	} else {
-		consoleClearToggle.style.backgroundColor = '';
+		consoleClearToggle.style.borderColor = buttonIsNormalColor;
 	}
 	// ...................................... //
 	// ...................................... //
+	// case 'ConsoleDebug':
+	// if (consoleDebugButton) {
+	// } else {
+	// }
+
 	// case 'ConsoleDebugOnError':
 	if (UseDebugOnError) {
-		consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
+		consoleDebugOnErrorToggle.style.borderColor = buttonIsOnColor;
 	} else {
-		consoleDebugOnErrorToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugOnErrorToggle.style.borderColor = buttonIsOffColor;
 	}
 
 	// case 'ConsoleDebugAll':
-	if (UseDebugOnAll = false) {
-		consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+	if (UseDebugOnAll) {
+		consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 	} else {
-		consoleDebugAllToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugAllToggle.style.borderColor = buttonIsOffColor;
 	}
 
 	// ...................................... //
 	// case 'ConsoleDebugMove':
 	if (UseLogTimerMove) {
-		consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
+		consoleDebugMoveToggle.style.borderColor = buttonIsOnColor;
 	} else {
-		consoleDebugMoveToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugMoveToggle.style.borderColor = buttonIsOffColor;
 	}
 
 	// case 'ConsoleDebugTransition':
 	if (UseLogTimerTransition) {
-		consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
+		consoleDebugTransitionToggle.style.borderColor = buttonIsOnColor;
 	} else {
-		consoleDebugTransitionToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugTransitionToggle.style.borderColor = buttonIsOffColor;
 	}
 
 	// case 'ConsoleDebugDetail':
 	if (UseLogTimerDetail) {
-		consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
+		consoleDebugDetailToggle.style.borderColor = buttonIsOnColor;
 	} else {
-		consoleDebugDetailToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugDetailToggle.style.borderColor = buttonIsOffColor;
 	}
 
 	// case 'ConsoleDebugEvents':
 	if (UseLogEvents) {
-		consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugEventsToggle.style.borderColor = buttonIsOffColor;
 	} else {
-		consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugEventsToggle.style.borderColor = buttonIsOffColor;
 	}
 
 	// case 'ConsoleDebugHover':
 	if (UseLogHover) {
-		consoleDebugHoverToggle.style.borderColor = ButtonIsOnColor;
+		consoleDebugHoverToggle.style.borderColor = buttonIsOnColor;
 	} else {
-		consoleDebugHoverToggle.style.borderColor = ButtonIsOffColor;
+		consoleDebugHoverToggle.style.borderColor = buttonIsOffColor;
 	}
 	// ...................................... //
 	// ...................................... //
@@ -1160,7 +1173,7 @@ function ConsoleToggleButtonSet() {
 				consoleStateBox.style.left = '68%';
 				consoleStateBox.style.width = '31%';
 			} else {
-				// State, No Event, Error
+				// State, Error, No Event
 				consoleErrorBox.style.left = '2%';
 				consoleErrorBox.style.width = '66%';
 				//
@@ -1203,11 +1216,11 @@ function ConsoleToggleButtonSet() {
 			// No State, No Error
 			if (consoleEventBoxButton) {
 				// No State, No Error, Event
-				consoleErrorBox.style.left = '2%';
-				consoleErrorBox.style.width = '97%';
+				consoleEventBox.style.left = '2%';
+				consoleEventBox.style.width = '97%';
 			} else {
 				// No State, No Error & No Event
-				// nothing visible
+				// nothing visible, show Error
 				consoleErrorBox.style.left = '2%';
 				consoleErrorBox.style.width = '97%';
 				//

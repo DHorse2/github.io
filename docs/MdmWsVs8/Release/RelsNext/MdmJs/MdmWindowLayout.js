@@ -121,15 +121,15 @@ function LayoutFontSizeSmaller() {
 	layoutFontRatio -= 0.1;
 	LayoutFontSizeSet(layoutFontRatio);
 }
-// TagHover disable
-var TagHoverIsOn = false;
+// TagHover toggle
 function LayoutFontCssTagHoverToggle() {
-	TagHoverIsOn = !TagHoverIsOn;
-	if (TagHoverIsOn) {
+	var UseLogHover = !UseLogHover;
+	if (UseLogHover) {
 		LayoutFontCssTagHoverEnable();
 	} else {
 		LayoutFontCssTagHoverDisable();
 	}
+	return UseLogHover;
 }
 function LayoutFontCssTagHoverEnable() {
 	LayoutFontCssChange('MdmDebugTagHoverStyles', '~ENABLE', '', 0, false);
@@ -899,11 +899,11 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			layoutResizeDo = true;
 			WindowResizeLayout();
 			bodyFirst = false;
-			if (UseLogAlert) {
+			if (UseLog) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					script_state + '.',
 					'MdmWindowLayout: SelectByIndex', 899, 0, null, null,
-					errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 			}
 		} catch (bodyLayoutErr) {
 			script_state = "Error in " + script_state;

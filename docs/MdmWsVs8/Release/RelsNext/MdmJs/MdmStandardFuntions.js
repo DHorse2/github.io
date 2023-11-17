@@ -5,11 +5,9 @@
 // i.e. it may refer to debugging or to content button target selection
 var DoUseLog = true;
 var DoNotUseLog = false;
-var UseLog = DoUseLog;
 //
 var DoUseDebug = true;
 var DoNotUseDebug = false;
-var UseDebug = DoNotUseDebug;
 
 var DoSetValue = true;
 var DoNotSetValue = false;
@@ -18,26 +16,43 @@ var DoUseToggle = true;
 var DoNotUseToggle = false;
 
 // Display messages using alerts.
-var errorDoAlert = true;
-var errorDoNotAlert = false;
-var UseLogAlert = errorDoAlert;
+var DoUseAlert = true;
+var DoNotUseAlert = false;
 
+// Debugging and Console
+// ...................................... //
+var UseDebug = DoNotUseDebug;
+var UseLog = DoUseLog;
+var UseAlert = DoUseAlert;
+
+// Console buttons and variables
+// ...................................... //
+// View
+// Fonts
+// Animation
+var UseLogAnimation = false;
+// Console Button
 var consoleBoxButton = false;
 var consoleErrorBoxButton = false;
 var consoleEventBoxButton = false;
 var consoleStateBoxButton = false;
 var consoleTestBoxButton = false;
 var consoleClearButton = false;
-var UseLogDebugButton = false;
-var UseLogDetailsAll = false;
+// Debug Button
+var consoleDebugButton = false;
 var UseDebugOnError = false;
-// Use debugger on ALL messages.
 var UseDebugOnAll = false;
-
-// for current event processing
-// depends on the message type/state
-var UseDebug = false;
-var debugDoAlert = false;
+// Debug Timers
+var UseLogTimerMove = false;
+var UseLogTimerTransition = false;
+var UseLogTimer = false;
+var UseLogTimerDetail = false;
+// Events
+var UseLogEvents = false;
+// Hover
+var UseLogHover = false;
+// hidden functions
+var UseLogDetailsAll = false;
 
 // Formatting
 // ...................................... //
@@ -49,6 +64,7 @@ var DoUseFileNameByLine = 4;
 // Most UIX views of data are in this order.
 // Social media, logs, database info, and so on.
 var UseLogOrder = DoUseAscendingDate;
+// todo a button on each view to toggle it
 var UseLogScrollError = true;
 var UseLogScrollEvent = true;
 
@@ -65,8 +81,8 @@ var UseScroll = DoUseScroll;
 // ...................................... //
 var errorDoDisplayTag = true;
 var errorDoNotDisplayTag = false;
-var errorDoAlert = false;
-var errorDoNotAlert = false;
+var DoUseAlert = false;
+var DoNotUseAlert = false;
 
 // Other settings
 var DoUseHide = true;
@@ -139,17 +155,8 @@ var UseLogElements = false;
 var UseLogPage = false;
 // Window
 var UseLogWindow = false;
-// Events
-var UseLogEvents = false;
 // Layout
 var UseLogLayout = false;
-// Debug Timers
-var UseLogTimer = false;
-var UseLogTimerMove = false;
-var UseLogTimerTransition = false;
-var UseLogTimerDetail = false;
-// Hover
-var UseLogHover = true;
 
 // depreciated:
 // ...................................... //

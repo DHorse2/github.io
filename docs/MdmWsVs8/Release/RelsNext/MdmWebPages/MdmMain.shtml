@@ -213,12 +213,13 @@
 											</div>
 											<div id="BodyConsoleDebugHoverToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin "
-												onmousedown="LayoutFontCssTagHoverToggle();">
+												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugHover');">
 												h
 											</div>
 										</div> <!-- end of BodyConsoleDebugTypesToggles -->
 									</div> <!-- end of BodyConsoleDebugMainToggles -->
 								</div> <!-- end of BodyConsoleDebugButtons -->
+								<!-- ..... onmousedown="LayoutFontCssTagHoverToggle();" .... -->
 								<!-- ..................................................................................... -->
 							</div> <!-- end of View Toggle Left -->
 							<br id="BrViewToggleLeft" class="aClearBoth">

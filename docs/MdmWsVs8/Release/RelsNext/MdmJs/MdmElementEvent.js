@@ -56,14 +56,15 @@ function ElementEventMouseOver(elementCurr) {
 	}
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
-	if (UseLogEvents) {
+	if ((UseLog || UseDebug)
+		&& UseLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 			'Move.. Over occured on content image'
 			+ ' set successfully! Random filter # ' + filterIndex + ' '
 			+ charNewLineTag + 'top: ' + tempTop
 			+ charNewLineTag + 'Left: ' + tempLeft,
 			'MdmElementEvent:ElementEventMouseOver', 65, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 		//
 	}
 }
@@ -105,13 +106,14 @@ function ElementEventClick(menuImage) {
 	//  img0.src = menuImage.name + 'Larger.gif';
 	//  img0text.src = menuImage.name + 'text.txt';
 	imgSelect = menuImageCn;
-	if (UseLogEvents) {
+	if ((UseLog || UseDebug)
+		&& UseLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'Move.. Over occured on content image'
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
 			+ charNewLineTag + 'Image number selected: ' + menuImageCn,
 			'MdmElementEvent:ElementEventClick', 113, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, errorDoNotAlert);
+			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 		//
 	}
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
@@ -124,7 +126,7 @@ function ElementEventMouse(e) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'You have conflicting event handling options...',
 			'MdmElementEvent:ElementEventMouse', 126, 0, null, null,
-			errorIsSevere, errorDoNotDisplayTag, errorDoAlert);
+			errorIsSevere, errorDoNotDisplayTag, DoUseAlert);
 	}
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
@@ -241,7 +243,7 @@ function ElementEventMouse(e) {
 				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				// ...................................... //
-				if (UseLogEventMouseOver) { return; }
+				if (UseLogAnimation) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -321,8 +323,8 @@ function ElementEventCurrRootObjSet() {
 					// 'Body*' images behave differently
 					//  or  'BodyImageContainer', 'BodyMenuLayout1'.
 					if (eventCurrRootObj.parentNode.id.substring(0, 4) == 'Body') {
-					// if ((eventCurrRootObj.parentNode.id).substring(0, 4) = 'Body') {
-							loopContinue = false;
+						// if ((eventCurrRootObj.parentNode.id).substring(0, 4) = 'Body') {
+						loopContinue = false;
 					} else {
 						eventCurrRootObj = eventCurrRootObj.parentNode;
 						tmpMax--;
@@ -381,7 +383,7 @@ function ElementEventCheckDuplicate(UseLog) {
 			// ignoring mouseover events on the containing box
 			// allows the capture of two successive mouseout events,
 			// one on a child element and then one on the container
-			if (eventCurrId = eventCurrRootObj.id) {
+			if (eventCurrId == eventCurrRootObj.id) {
 				IsDuplicate = true;
 				DoStoreLast = false;// do not store last mouseover on box
 			}
@@ -396,7 +398,7 @@ function ElementEventCheckDuplicate(UseLog) {
 					&& eventLastRootId == eventCurrRootObj.id
 					&& eventLastId != eventCurrId
 				)) { IsDuplicate = false; } else { IsDuplicate = true; }
-				// && eventLast.type = eventType
+				// && eventLast.type == eventType
 			} else {
 				if ((
 					eventCurrId == eventCurrRootObj.id
@@ -409,7 +411,7 @@ function ElementEventCheckDuplicate(UseLog) {
 			IsDuplicate = false; break;
 	}
 	//
-    if (UseLog && (UseLogEvents || timerMoveBusy)
+	if (UseLog && (UseLogEvents || timerMoveBusy)
 		&& IsDuplicate && UseLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Duplicate Event', eventTextColor, eventTextColorBg,

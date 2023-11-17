@@ -9,6 +9,17 @@ serverIsOn = false;
 PageBuild = "RelsNext";
 PageMode = "Dev";
 
+// ...................................... //
+// STANDARD VARIABLES
+// ...................................... //
+// UseDebug means differenct things depending on context
+// i.e. it may refer to debugging or to content button target selection
+// Important fields: PageBuild, PageMode
+// Load - Steps through loading script files
+// Error debug Handling
+debugLoadIsOn = false;
+script_state = "debugLoadIsOn is" + debugLoadIsOn;
+
 // Page Loading / Optimization SECTION
 // ...................................... //
 // Include based file loads:
@@ -33,12 +44,16 @@ function ConsoleFormElementSyncLocal(fromForm) { ConsoleFormElementSync(fromForm
 
 // SECTION - general SETTINGS (and in Console Form)
 // ...................................... //
+// Debugging and Console
+// ...................................... //
+UseDebug = DoUseDebug;
+UseLog = DoUseLog;
+UseAlert = DoUseAlert;
 
 // ...................................... //
-// ...................................... //
 // case 'ConsoleMouseOver':
-UseLogEventMouseOver = true;
-// consoleMouseOverToggle.style.borderColor = ButtonIsOnColor;
+UseLogAnimation = true;
+// consoleMouseOverToggle.style.borderColor = buttonIsOnColor;
 // ...................................... //
 // case 'FONTS'
 // Smaller
@@ -49,28 +64,28 @@ UseLogEventMouseOver = true;
 // case 'ConsoleAll':
 consoleBoxButton = false;
 // consoleBox.style.display = 'block';
-// consoleToggle.style.borderColor = ButtonIsOnColor;
+// consoleToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleError':
 consoleErrorBoxButton = false;
 // consoleErrorBox.style.display = 'block';
-// consoleErrorToggle.style.borderColor = ButtonIsOnColor;
+// consoleErrorToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleEvent':
 consoleEventBoxButton = false;
 // consoleEventBox.style.display = 'block';
-// consoleEventToggle.style.borderColor = ButtonIsOnColor;
+// consoleEventToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleState':
 consoleStateBoxButton = false;
 // consoleStateBox.style.display = 'block';
-// consoleStateToggle.style.borderColor = ButtonIsOnColor;
+// consoleStateToggle.style.borderColor = buttonIsOnColor;
 
 // ...................................... //
 // case 'ConsoleTest':
 consoleTestBoxButton = false;
 // consoleTestBox.style.display = 'block';
-// consoleTestToggle.style.borderColor = ButtonIsOnColor;
+// consoleTestToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleClear':
 consoleClearButton = false;
@@ -78,43 +93,49 @@ consoleClearButton = false;
 
 // ...................................... //
 // case 'ConsoleDebug':
-UseLogDebugButton = false;
-// consoleDebugMainToggle.style.borderColor = ButtonIsOnColor;
+consoleDebugButton = false;
+// consoleDebugMainToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleDebugDetailAll':
 UseLogDetailsAll = false;
-// consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+// consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
 // ...................................... //
 // case 'ConsoleDebugOnError':
 UseDebugOnError = false;
-// consoleDebugOnErrorToggle.style.borderColor = ButtonIsOnColor;
+// consoleDebugOnErrorToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleDebugAll':
 UseDebugOnAll = false;
-// consoleDebugAllToggle.style.borderColor = ButtonIsOnColor;
+// consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
+// Animation
 // ...................................... //
+UseLogTimer = false;
+
 // case 'ConsoleDebugMove':
 UseLogTimerMove = false;
-// consoleDebugMoveToggle.style.borderColor = ButtonIsOnColor;
+
+// consoleDebugMoveToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleDebugTransition':
 UseLogTimerTransition = false;
-// consoleDebugTransitionToggle.style.borderColor = ButtonIsOnColor;
+// consoleDebugTransitionToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleDebugDetail':
 UseLogTimerDetail = false;
-// consoleDebugDetailToggle.style.borderColor = ButtonIsOnColor;
+// consoleDebugDetailToggle.style.borderColor = buttonIsOnColor;
 
+// Events
+// ...................................... //
 // case 'ConsoleDebugEvents':
 UseLogEvents = false;
-// consoleDebugEventsToggle.style.borderColor = ButtonIsOffColor;
+// consoleDebugEventsToggle.style.borderColor = buttonIsOffColor;
 
 // ...................................... //
 // case 'ConsoleDebugHover':
 UseLogHover = false;
-// consoleDebugHoverToggle.style.borderColor = ButtonIsOnColor;
+// consoleDebugHoverToggle.style.borderColor = buttonIsOnColor;
 
 // ...................................... //
 // ...................................... //
@@ -129,7 +150,7 @@ var filterResizeIsOn = true; // Growing image
 var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 
 // Mouse Hover activation of image display
-// var UseLogEventMouseOver = true;
+// var UseLogAnimation = true;
 // Type of Image Group Page Generation
 var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
@@ -138,7 +159,7 @@ var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
 
 // AREA Log usage
 // ...................................... //
-UseLog = DoUseLog;
+// UseLog = DoUseLog;
 // Size at which logs are trimmed - memory management
 consoleErrorLogCnMax = 2000; // total Messages
 UseLogLengthMax = 100000; // total bytes
@@ -147,40 +168,8 @@ consoleEventLogCnMax = 5000; // total events
 
 // Detailed logging flag (verbose)
 var UseLogDetails = false;
-// compact format
-UseSingleLine = DoNotUseSingleLine;
 
-errorMessage = "Page settings initializing";
-errorResultOnFail = errorDidNotOccur;
-
-// AREA Debug.
-// This AREA is for controlling javascript debugging.
-// ...................................... //
-// STANDARD VARIABLES
-// ...................................... //
-// UseDebug means differenct things depending on context
-// i.e. it may refer to debugging or to content button target selection
-// Important fields: PageBuild, PageMode
-// Load - Steps through loading script files
-// Error debug Handling
-debugLoadIsOn = false;
-script_state = "debugLoadIsOn is" + debugLoadIsOn;
-//
-UseLog = DoUseLog;
-UseDebug = DoUseDebug;
-
-// Display messages using alerts.
-UseLogAlert = errorDoAlert;
-
-// Enter debugger on errors
-UseDebugOnError = true;
-// Use debugger on ALL messages.
-UseDebugOnAll = false;
-
-// for current event processing
-UseDebug = false;
-debugDoAlert = false;
-
+// Formatting
 UseLogOrder = DoUseAscendingDate;
 UseLogScroll = true;
 
@@ -190,6 +179,11 @@ UseScroll = DoUseScroll;
 // Ignores duplicate events. (resize, mouse)
 UseLogEventDuplicates = false;
 
+errorMessage = "Page settings initializing";
+errorResultOnFail = errorDidNotOccur;
+
+// AREA Debug.
+// This AREA is for controlling javascript debugging.
 // AREA Debug Areas
 // ...................................... //
 //      These are normalized Areas
@@ -208,15 +202,8 @@ UseLogElements = true;
 UseLogPage = true;
 // Window
 UseLogWindow = true;
-// Events
-UseLogEvents = true;
 // Layout
 UseLogLayout = true;
-// Debug Timers
-UseLogTimerDetail = false;
-UseLogTimer = true;
-UseLogTimerMove = true;
-UseLogTimerTransition = true;
 
 // AREA Error Severity
 // ...................................... //
@@ -242,25 +229,36 @@ errorSeverityLevel = errorDidNotOccur;
 // ...................................... //
 // errorDoDisplayTag = true; // or override
 // errorDoNotDisplayTag = false; // same...
-// errorDoAlert = true;
-// errorDoNotAlert = false;
+// DoUseAlert = true;
+// DoNotUseAlert = false;
 
 // Console (debug) SECTION
 // ...................................... //
 // colour
-ButtonIsOnColor = 'Lime';
-ButtonIsOffColor = 'Red';
+// Button colors
+consoleViewToggleBackgroud = '#036';
+consoleViewToggleColor = 'White';
+// button borders
+buttonIsOnColor = 'Lime';
+buttonIsOffColor = 'Red';
+buttonIsNormalColor = 'White';
 // Message Colors
-errorSeverityColorFatal = 'Red';
-errorSeverityColorFatalBg = 'Gray';
+errorSeverityColorFatal = 'Black';
+errorSeverityColorFatalBg = 'Red';
+
 errorSeverityColorSevere = 'Black';
 errorSeverityColorSevereBg = 'Pink';
+
 errorSeverityColorWarn = 'Black';
 errorSeverityColorWarnBg = 'Yellow';
-errorSeverityColorComment = 'Black';
+
+errorSeverityColorComment = 'Gray';
 errorSeverityColorCommentBg = 'White';
+
 errorSeverityColor = errorSeverityColorComment;
 errorSeverityColorBg = errorSeverityColorCommentBg;
+errorSeverityColorHighestBg = consoleViewToggleBackgroud;
+
 // SectionBlock Object Postion
 // ...................................... //
 // The following are here in the event some browsers

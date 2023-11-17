@@ -143,7 +143,7 @@ function MouseOverImg(menuImage) {
 	}
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
-	if (debugDoAlert) { alert("top: " + tempTop); }
+	if (UseAlert) { alert("top: " + tempTop); }
 }
 // Mouse Out
 ////////////////////////////////////////////////
@@ -184,11 +184,12 @@ function MouseClickImg(menuImage) {
 	//  document.frames.item.
 	//  img0.src = menuImage.name + "lr.gif";
 	//  img0text.src = menuImage.name + "text.txt";
-	if (UseLogImages) {
+	if ((UseLog || UseDebug)
+		&& UseLogEvents) {
  		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			"Getting " + menuImageCn + ": " + menuImage.Name,
 			'MdmPage:MouseClickImg', 209, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, debugDoAlert);
+			errorIsComment, errorDoNotDisplayTag, UseAlert);
 		}
 	imgSelect = menuImageCn;
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
@@ -338,7 +339,7 @@ function ElementObjectCreate() {
 	ConsoleShow(DoNotUseHide, DoNotUseDebug); // todo
 	// if (consoleToggle.style.display = '') { consoleToggle.style.display = 'block'; }
 	// ConsoleShow(DoNotUseHide, DoUseDebug);
-	// if (consoleDebugToggle.style.display = '') { consoleDebugToggle.style.display = 'block'; }
+	// if (consoleDebugToggle.style.display == '') { consoleDebugToggle.style.display = 'block'; }
 	//
 	//............................................................---//
 	// Body Center Area References

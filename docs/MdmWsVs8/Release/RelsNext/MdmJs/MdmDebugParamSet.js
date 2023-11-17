@@ -20,9 +20,9 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { imgLoadUseDOM = false; } else { imgLoadUseDOM = true; }
 				break;
 			// User Interface Features
-			case 'UseLogEventMouseOver':
+			case 'UseLogAnimation':
 				// Control image display using mouse hover
-				if (elementPassed.checked) { UseLogEventMouseOver = false; } else { UseLogEventMouseOver = true; }
+				if (elementPassed.checked) { UseLogAnimation = false; } else { UseLogAnimation = true; }
 				break;
 			// Animation Control
 			case 'moveIsOn':
@@ -64,8 +64,8 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 			case 'UseDebug':
 				if (elementPassed.checked) { UseDebug = false; } else { UseDebug = true; }
 				break;
-			case 'debugDoAlert':
-				if (elementPassed.checked) { debugDoAlert = false; } else { debugDoAlert = true; }
+			case 'UseAlert':
+				if (elementPassed.checked) { UseAlert = false; } else { UseAlert = true; }
 				break;
 			// Page Load Optimaization
 			case 'loadDelayJava':
