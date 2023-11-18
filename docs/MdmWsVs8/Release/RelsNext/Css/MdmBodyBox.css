@@ -357,7 +357,7 @@ Right
   height: 100%;
   /* Alignment */
   float: left;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* Layering */
   z-index: 20;
   /* Background */
@@ -375,7 +375,7 @@ Right
   /* Alignment */
   float: right;
   margin-right: 0em;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* Layering */
   z-index: 21;
   /* Background */
@@ -427,7 +427,7 @@ Right
   height: 100%;
   /* Alignment */
   margin-right: 0em;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* Layering */
   z-index: 20;
   /* Background */
@@ -444,7 +444,7 @@ Right
   height: 100%;
   /* Alignment */
   margin-right: 0em;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* Layering */
   z-index: 21;
   /* Background */

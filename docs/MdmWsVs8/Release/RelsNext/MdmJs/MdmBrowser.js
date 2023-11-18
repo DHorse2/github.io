@@ -21,7 +21,14 @@ var browserEventsIsFf; // FF mouse out
 // Note that differences in object model
 // booleans
 var browserType;
+
+var browserIsMobile = false;
+var browserIsTouch = false;
+
 var browserIsTEST;
+var browserIsOld; // todo
+var browserIsUnknown; // todo
+
 var browserIsIE; // Internet Explorer
 var browserIsCH; // Chrome
 var browserIsFF; // FireFox
@@ -31,8 +38,6 @@ var browserIsNE; // Netschape??
 var browserIsLynx; // Lynx text only
 var browserIsEdge; // todo
 var browserIsTor; // todo
-var browserIsOld; // todo
-var browserIsUnknown; // todo
 
 var browserUserAgent;
 var browserType;
@@ -48,13 +53,14 @@ function BrowserVsReset() {
     browserVsMajor = 0;
     browserVsMinor = 0;
     browserLayoutCompatable = false;
-    //
-    browserAnimationIsIe = false;
-    browserAnimationIsMozilla = false;
-    //
-    browserEventsIsFf = false;
     // booleans
+    browserIsMobile = false;
+    browserIsTouch = false;
+
     browserIsTEST = false;
+    browserIsOld = false;
+    browserIsUnknown = false;
+
     browserIsIE = false;
     browserIsCH = false;
     browserIsFF = false;
@@ -64,11 +70,80 @@ function BrowserVsReset() {
     browserIsLynx = false;
     browserIsEdge = false;
     browserIsTor = false;
-    browserIsOld = false;
-    browserIsUnknown = false;
+
+    browserAnimationIsIe = false;
+    browserAnimationIsMozilla = false;
+    //
+    browserEventsIsFf = false;
+    //
     // Set the type
     browserType = "unknown";
     BrowserVsGet();
+}
+// Mobile browser
+function BrowserCheckMobile() {
+    // mobile
+    // source: https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
+    const toMatch = [
+        /Mobile/i,
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    //
+    return toMatch.some((toMatchItem) => {
+        browserIsMobile = navigator.userAgent.match(toMatchItem);
+        return browserIsMobile;
+    });
+}
+const BrowserCheckMobileType = {
+    //     How to use
+    //      if( isMobile.any() ) alert('Mobile');
+    //     To check to see if the user is on a specific mobile device:
+    //      if( isMobile.iOS() ) alert('iOS');
+    Android: function () {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Mobile: function () {
+        return navigator.userAgent.match(/Mobile/i);
+    },
+    Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    WebOS: function () {
+        return navigator.userAgent.match(/WebOS/i);
+    },
+    Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i) || navigator.userAgent.match(/Windows Phone/i);
+    },
+    any: function () {
+        return (isMobile.Android()
+            || isMobile.BlackBerry()
+            || isMobile.iOS()
+            || isMobile.Mobile()
+            || isMobile.Opera()
+            || isMobile.WebOS()
+            || isMobile.Windows()
+        );
+    }
+};
+// Touch screens
+function BrowserCheckTouch() {
+    // Touch
+    browserIsTouch = (('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0));
+    return browserIsTouch;
 }
 // Browser Type Get
 function BrowserVsGet() {
@@ -77,10 +152,14 @@ function BrowserVsGet() {
     browserUserAgent = navigator.userAgent;
     browserType = browserUserAgent;
     // browserType = navigator.toString();
+    BrowserCheckMobile();
+    BrowserCheckTouch();
     //
     if ((browserUserAgent).indexOf('TEST') != -1) {
         browserIsTEST = true; browserType = 'TEST';
     } else if ((browserUserAgent).indexOf('MSIE') != -1) {
+        browserIsIE = true; browserType = 'MSIE';
+    } else if ((browserUserAgent).indexOf('Edge') != -1) {
         browserIsIE = true; browserType = 'MSIE';
     } else if ((browserUserAgent).indexOf('Chrome') != -1) {
         browserIsCH = true; browserType = 'Chrome';
@@ -95,39 +174,38 @@ function BrowserVsGet() {
     } else {
         browserIsFF = true; browserAnimationIsMozilla = true; browserType = 'Firefox';
     }
+    //
+    switch (browserType) {
+        case 'MSIE':
+            // browserType = window.navigator.appName;
+            browserVs = window.navigator.appVersion;
+            browserVsMajor = window.navigator.appVersion;
+            browserVsMinor = window.navigator.appMinorVersion;
+            browserAnimationIsIe = true;
+            break;
+        case 'Firefox':
+            browserIsFF = true; browserType = 'Firefox';
+            break;
+        case 'Safari':
+            break;
+        case 'Opera':
+            break;
+        case 'Netscape':
+            break;
+        case 'Chrome':
+        default:
+            browserType = "Firefox";
+            browserIsUnknown = true;
+            browserAnimationIsMozilla = true; break;
+    }
+    //
+    // for purposes of filter handling
+    if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE || browserIsCH) { browserAnimationIsMozilla = true; }
+    if (browserIsIE) { browserAnimationIsIe = true; }
+    //
+    // for purposes of mouse event handling
+    if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE) { browserEventsIsFf = true; } else { browserEventsIsFf = false; }
 }
-//
-switch (browserType) {
-    case 'MSIE':
-        // browserType = window.navigator.appName;
-        browserVs = window.navigator.appVersion;
-        browserVsMajor = window.navigator.appVersion;
-        browserVsMinor = window.navigator.appMinorVersion;
-        browserAnimationIsIe = true;
-        break;
-    case 'Firefox':
-        browserIsFF = true; browserType = 'Firefox';
-        break;
-    case 'Safari':
-        break;
-    case 'Opera':
-        break;
-    case 'Netscape':
-        break;
-    case 'Chrome':
-    default:
-        browserType = "Firefox";
-        browserIsUnknown = true;
-        browserAnimationIsMozilla = true;         break;
-}
-//
-// for purposes of filter handling
-if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE || browserIsCH) { browserAnimationIsMozilla = true; }
-if (browserIsIE) { browserAnimationIsIe = true; }
-//
-// for purposes of mouse event handling
-if (browserIsTEST || browserIsUnknown || browserIsFF || browserIsSA || browserIsNE) { browserEventsIsFf = true; } else { browserEventsIsFf = false; }
-
 // Browser Type Get2
 function BrowserGetFromWindow() {
     // IE

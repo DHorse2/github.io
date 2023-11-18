@@ -186,11 +186,11 @@ function MouseClickImg(menuImage) {
 	//  img0text.src = menuImage.name + "text.txt";
 	if ((UseLog || UseDebug)
 		&& UseLogEvents) {
- 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			"Getting " + menuImageCn + ": " + menuImage.Name,
 			'MdmPage:MouseClickImg', 209, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, UseAlert);
-		}
+	}
 	imgSelect = menuImageCn;
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
 	//  alert(document.parentWindow.parent);
@@ -254,200 +254,225 @@ function ElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
 	loadFirstJava = false;
 	// bodyFirst = false;
+	script_state = "ElementObjectCreate in progress.";
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
-	ElementObjectContainerCreate();
-	//
-    if (!loadDelayMenuImage) {
-        MdmMenuImageInit();
-        // bodyMenuImageContainer =
-        MenuImagesHtmlBuild();
-    }
-	//............................................................---//
-	// Banner References (Top Menu, Logo and Graphics)
-	//............................................................---//
-	bodyBanner = ElementGetRef(bodyBanner, 'BodyBanner', 'BodyBanner');
-	bodyBannerTop = ElementGetRef(bodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
-	bodyBannerBottom = ElementGetRef(bodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
-	bodyBannerBottomFirst = false;
-	//
-	//............................................................---//
-	// Body View Toggle and Message Area Containers
-	//............................................................---//
-	// bodyViewToggle View Toggle and Message Area
-	bodyViewToggleContainer = ElementGetRef(bodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
-	bodyViewToggleContainerCenter = ElementGetRef(bodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
-	bodyViewToggleContainerLeft = ElementGetRef(bodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
-	//
-	consoleMouseOverToggle = ElementGetRef(consoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
-	//
-	//............................................................---//
-	// Body Console Toggle and Message Area
-	//............................................................---//
-	// Toggle Buttons
-	// Console
-	consoleBox = ElementGetRef(consoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
-	//
-	consoleBoxButtons = ElementGetRef(consoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
-	//
-	consoleToggles = ElementGetRef(consoleToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
-	UseLogToggles = ElementGetRef(UseLogToggles, 'BodyUseLogToggles', 'BodyUseLogToggles');
-	consoleAuxillaryToggles = ElementGetRef(consoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
-	// Console Toggle
-	consoleToggle  = ElementGetRef(consoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
-	consoleErrorToggle = ElementGetRef(consoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
-	consoleEventToggle = ElementGetRef(consoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
-	consoleStateToggle = ElementGetRef(consoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
-	consoleTestToggle = ElementGetRef(consoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
-	consoleClearToggle = ElementGetRef(consoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
-	// Debug
-	consoleDebugButtons = ElementGetRef(consoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
-	//
-	consoleDebugToggles = ElementGetRef(consoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
-	consoleDebugMainToggles = ElementGetRef(consoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
-	consoleDebugTypesToggles = ElementGetRef(consoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
-	//
-	consoleDebugToggle  = ElementGetRef(consoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
-	consoleDebugMoveToggle = ElementGetRef(consoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
-	consoleDebugTransitionToggle = ElementGetRef(consoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
-	consoleDebugDetailToggle = ElementGetRef(consoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
-	consoleDebugAllToggle = ElementGetRef(consoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
-	consoleDebugOnErrorToggle = ElementGetRef(consoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
-	consoleDebugEventsToggle = ElementGetRef(consoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
-	consoleDebugHoverToggle = ElementGetRef(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle', 'BodyConsoleDebugHoverToggle');
-	//
-	// Body Console Toggle and Message Area
-	consoleContainer = ElementGetRef(consoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
-	consoleBox = ElementGetRef(consoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
-	consoleErrorBox = ElementGetRef(consoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
-	consoleErrorTextBox = ElementGetRef(consoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
-	consoleEventBox = ElementGetRef(consoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
-	consoleEventTextBox = ElementGetRef(consoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
-	consoleStateBox = ElementGetRef(consoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
-	consoleStateTextBox = ElementGetRef(consoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
-	// ConsoleStateInit();
-	consoleTestBox = ElementGetRef(consoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
-	consoleTestTextBox = ElementGetRef(consoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
-	//
-	if (consoleBox.style.display == '') { consoleBox.style.display = 'none' }
-	if (consoleErrorBox.style.display == '') { consoleErrorBox.style.display = 'block'; }
-	if (consoleEventBox.style.display == '') { consoleEventBox.style.display = 'block'; }
-	if (consoleStateBox.style.display == '') { consoleStateBox.style.display = 'block'; }
-	if (consoleTestBox.style.display == '') { consoleTestBox.style.display = 'block'; }
-	//
-	ConsoleShow(DoNotUseHide, DoNotUseDebug); // todo
-	// if (consoleToggle.style.display = '') { consoleToggle.style.display = 'block'; }
-	// ConsoleShow(DoNotUseHide, DoUseDebug);
-	// if (consoleDebugToggle.style.display == '') { consoleDebugToggle.style.display = 'block'; }
-	//
-	//............................................................---//
-	// Body Center Area References
-	//............................................................---//
-	// bodyMainCenter = ElementGetRef(bodyMainCenter,'BodyMainCenter','BodyMainCenter');
-	//
-	bodyMainCenterTop = ElementGetRef(bodyMainCenterTop, 'BodyMainCenterTop', 'BodyMainCenterTop');
-	bodyMainCenterTopLeft = ElementGetRef(bodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
-	bodyMainCenterTopRight = ElementGetRef(bodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
-	//
-	bodyMainCenterTopColBreak = ElementGetRef(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
-	//
-	// bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
-	//
-	bodyMainCenterBottom = ElementGetRef(bodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
-	//
-	//............................................................---//
-	// Body Left Area Copy
-	//............................................................---//
-	// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
-	// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');
-	bodyMainLeftCopy = ElementCopy(bodyMainLeftCopy, bodyMainLeftFirst, bodyMainLeft, 'block');
-	bodyMainLeftCurr = ElementCopy(bodyMainLeftCurr, bodyMainLeftFirst, bodyMainLeft, 'block');
-	bodyMainLeftOrig = ElementCopy(bodyMainLeftOrig, bodyMainLeftFirst, bodyMainLeft, 'block');
-	//
-	// if (false == true) {
-	bodyMainLeftOuter = ElementGetFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMainLeftOuter = ElementGetRef(bodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
-	bodyMainLeftInner = ElementGetFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMainLeftInner = ElementGetRef(bodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
-	bodyMainLeftFirst = false;
-	//
-	bodyLayoutMenu1 = ElementGetFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyLayoutMenu1 = ElementGetRef(bodyLayoutMenu1,'BodyMenuLayout1','BodyMenuLayout1');
+	try {
+		ElementObjectContainerCreate();
+		//
+		if (!loadDelayMenuImage) {
+			MdmMenuImageInit();
+			// bodyMenuImageContainer =
+			MenuImagesHtmlBuild();
+		}
+		//............................................................---//
+		// Banner References (Top Menu, Logo and Graphics)
+		//............................................................---//
+		bodyBanner = ElementGetRef(bodyBanner, 'BodyBanner', 'BodyBanner');
+		bodyBannerTop = ElementGetRef(bodyBannerTop, 'BodyBannerTop', 'BodyBannerTop');
+		bodyBannerBottom = ElementGetRef(bodyBannerBottom, 'BodyBannerBottom', 'BodyBannerBottom');
+		bodyBannerBottomFirst = false;
+		//
+		//............................................................---//
+		// Body View Toggle and Message Area Containers
+		//............................................................---//
+		// bodyViewToggle View Toggle and Message Area
+		bodyViewToggleContainer = ElementGetRef(bodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+		bodyViewToggleContainerCenter = ElementGetRef(bodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
+		bodyViewToggleContainerLeft = ElementGetRef(bodyViewToggleContainerLeft, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
+		//
+		consoleMouseOverToggle = ElementGetRef(consoleMouseOverToggle, 'BodyConsoleMouseOverToggle', 'BodyConsoleMouseOverToggle');
+		//
+		//............................................................---//
+		// Body Console Toggle and Message Area
+		//............................................................---//
+		// Toggle Buttons
+		// Console
+		consoleBox = ElementGetRef(consoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
+		//
+		consoleBoxButtons = ElementGetRef(consoleBoxButtons, 'BodyConsoleBoxButtons', 'BodyConsoleBoxButtons');
+		//
+		consoleToggles = ElementGetRef(consoleToggles, 'BodyConsoleBoxToggles', 'BodyConsoleBoxToggles');
+		UseLogToggles = ElementGetRef(UseLogToggles, 'BodyUseLogToggles', 'BodyUseLogToggles');
+		consoleAuxillaryToggles = ElementGetRef(consoleAuxillaryToggles, 'BodyConsoleAuxillaryToggles', 'BodyConsoleAuxillaryToggles');
+		// Console Toggle
+		consoleToggle = ElementGetRef(consoleToggle, 'BodyConsoleToggle', 'BodyConsoleToggle');
+		consoleErrorToggle = ElementGetRef(consoleErrorToggle, 'BodyConsoleErrorToggle', 'BodyConsoleErrorToggle');
+		consoleEventToggle = ElementGetRef(consoleEventToggle, 'BodyConsoleEventToggle', 'BodyConsoleEventToggle');
+		consoleStateToggle = ElementGetRef(consoleStateToggle, 'BodyConsoleStateToggle', 'BodyConsoleStateToggle');
+		consoleTestToggle = ElementGetRef(consoleTestToggle, 'BodyConsoleTestToggle', 'BodyConsoleTestToggle');
+		consoleClearToggle = ElementGetRef(consoleClearToggle, 'BodyConsoleClearToggle', 'BodyConsoleClearToggle');
+		// Debug
+		consoleDebugButtons = ElementGetRef(consoleDebugButtons, 'BodyConsoleDebugButtons', 'BodyConsoleDebugButtons');
+		//
+		consoleDebugToggles = ElementGetRef(consoleDebugToggles, 'BodyConsoleDebugToggles', 'BodyConsoleDebugToggles');
+		consoleDebugMainToggles = ElementGetRef(consoleDebugMainToggles, 'BodyConsoleDebugMainToggles', 'BodyConsoleDebugMainToggles');
+		consoleDebugTypesToggles = ElementGetRef(consoleDebugTypesToggles, 'BodyConsoleDebugTypesToggles', 'BodyConsoleDebugTypesToggles');
+		//
+		consoleDebugToggle = ElementGetRef(consoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
+		consoleDebugMoveToggle = ElementGetRef(consoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
+		consoleDebugTransitionToggle = ElementGetRef(consoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
+		consoleDebugDetailToggle = ElementGetRef(consoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
+		consoleDebugAllToggle = ElementGetRef(consoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
+		consoleDebugOnErrorToggle = ElementGetRef(consoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
+		consoleDebugEventsToggle = ElementGetRef(consoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
+		consoleDebugHoverToggle = ElementGetRef(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle', 'BodyConsoleDebugHoverToggle');
+		//
+		// Body Console Toggle and Message Area
+		consoleContainer = ElementGetRef(consoleContainer, 'BodyConsoleContainer', 'BodyConsoleContainer');
+		consoleBox = ElementGetRef(consoleBox, 'BodyConsoleBox', 'BodyConsoleBox');
+		consoleErrorBox = ElementGetRef(consoleErrorBox, 'BodyConsoleErrorBox', 'BodyConsoleErrorBox');
+		consoleErrorTextBox = ElementGetRef(consoleErrorTextBox, 'BodyConsoleErrorTextBox', 'BodyConsoleErrorTextBox');
+		consoleEventBox = ElementGetRef(consoleEventBox, 'BodyConsoleEventBox', 'BodyConsoleEventBox');
+		consoleEventTextBox = ElementGetRef(consoleEventTextBox, 'BodyConsoleEventTextBox', 'BodyConsoleEventTextBox');
+		consoleStateBox = ElementGetRef(consoleStateBox, 'BodyConsoleStateBox', 'BodyConsoleStateBox');
+		consoleStateTextBox = ElementGetRef(consoleStateTextBox, 'BodyConsoleStateTextBox', 'BodyConsoleStateTextBox');
+		// ConsoleStateInit();
+		consoleTestBox = ElementGetRef(consoleTestBox, 'BodyConsoleTestBox', 'BodyConsoleTestBox');
+		consoleTestTextBox = ElementGetRef(consoleTestTextBox, 'BodyConsoleTestTextBox', 'BodyConsoleTestTextBox');
+		//
+		if (consoleBox.style.display == '') { consoleBox.style.display = 'none' }
+		if (consoleErrorBox.style.display == '') { consoleErrorBox.style.display = 'block'; }
+		if (consoleEventBox.style.display == '') { consoleEventBox.style.display = 'block'; }
+		if (consoleStateBox.style.display == '') { consoleStateBox.style.display = 'block'; }
+		if (consoleTestBox.style.display == '') { consoleTestBox.style.display = 'block'; }
+		//
+		ConsoleShow(DoNotUseHide, DoNotUseDebug); // todo
+		// if (consoleToggle.style.display = '') { consoleToggle.style.display = 'block'; }
+		// ConsoleShow(DoNotUseHide, DoUseDebug);
+		// if (consoleDebugToggle.style.display == '') { consoleDebugToggle.style.display = 'block'; }
+		//
+		//............................................................---//
+		// Body Center Area References
+		//............................................................---//
+		// bodyMainCenter = ElementGetRef(bodyMainCenter,'BodyMainCenter','BodyMainCenter');
+		//
+		bodyMainCenterTop = ElementGetRef(bodyMainCenterTop, 'BodyMainCenterTop', 'BodyMainCenterTop');
+		bodyMainCenterTopLeft = ElementGetRef(bodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
+		bodyMainCenterTopRight = ElementGetRef(bodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
+		//
+		bodyMainCenterTopColBreak = ElementGetRef(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
+		//
+		// bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
+		//
+		bodyMainCenterBottom = ElementGetRef(bodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
+		//
+		//............................................................---//
+		// Body Left Area Copy
+		//............................................................---//
+		// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
+		// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');
+		bodyMainLeftCopy = ElementCopy(bodyMainLeftCopy, bodyMainLeftFirst, bodyMainLeft, 'block');
+		bodyMainLeftCurr = ElementCopy(bodyMainLeftCurr, bodyMainLeftFirst, bodyMainLeft, 'block');
+		bodyMainLeftOrig = ElementCopy(bodyMainLeftOrig, bodyMainLeftFirst, bodyMainLeft, 'block');
+		//
+		// if (false == true) {
+		bodyMainLeftOuter = ElementGetFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMainLeftOuter = ElementGetRef(bodyMainLeftOuter,'BodyMainLeftOuter','BodyMainLeftOuter');
+		bodyMainLeftInner = ElementGetFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMainLeftInner = ElementGetRef(bodyMainLeftInner,'BodyMainLeftInner','BodyMainLeftInner');
+		bodyMainLeftFirst = false;
+		//
+		bodyLayoutMenu1 = ElementGetFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyLayoutMenu1 = ElementGetRef(bodyLayoutMenu1,'BodyMenuLayout1','BodyMenuLayout1');
 
-	// for (bodyMenuGroupIndex=0; bodyMenuGroupIndex =< bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
-	// 	//
-	// }
-	// Left 1 todo can this be abstracted? or additional script in Page?
-	bodyMenuContainer[bodyMenuLeft][1] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMenuContainer[bodyMenuLeft][1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][1],'MenuContainerLeft1','MenuContainerLeft1');
-	bodyMenuGroup[1] = ElementGetFromElement(bodyMenuGroup[1], 'MenuGroup1', 'MenuGroup1', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMenuGroup1 = ElementGetRef(bodyMenuGroup1,'MenuGroup1','MenuGroup1');
-	// bodyMenuGroup1 = ElementGetRefFromElement(bodyMenuGroup1, bodyMenuGroup1.id, bodyMenuGroup1.name, bodyMainLeft)
-	// var bodyMenuGroupSave[1] = ElementGetRef(bodyMenuGroupSave[1],'MenuGroup1Save','MenuGroup1Save');
-	// Left 2
-	bodyMenuContainer[bodyMenuLeft][2] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
-	// bodyMenuContainer[bodyMenuLeft][2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][2],'MenuContainerLeft2','MenuContainerLeft2');
-	bodyMenuGroup[2] = ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMenuGroup[2] = ElementGetRef(bodyMenuGroup[2],'MenuGroup2','MenuGroup2');
-	// var bodyMenuGroup[2]Save = ElementGetRef(bodyMenuGroup[2]Save,'MenuGroup2Save','MenuGroup2Save');
-	// Left 3
-	bodyMenuContainer[bodyMenuLeft][3] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMenuContainer[bodyMenuLeft][3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][3],'MenuContainerLeft3','MenuContainerLeft3');
-	bodyMenuGroup[3] = ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainLeftCopy, DoFindReturn, null)
-	// bodyMenuGroup[3] = ElementGetRef(bodyMenuGroup[3],'MenuGroup3','MenuGroup3');
-	// var bodyMenuGroup[3]Save = ElementGetRef(bodyMenuGroup[3]Save,'MenuGroup3Save','MenuGroup3Save');
-	// }
-	// Left N - you can have up Max on either side.
-	// Here it's 3 Left & 1 Right
-	//............................................................---//
-	// Body Right Area Copy
-	//............................................................---//
-	// bodyMainRight = ElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
-	bodyMainRightCopy = ElementCopy(bodyMainRightCopy, bodyMainRightFirst, body, 'block');
-	bodyMainRightCurr = ElementCopy(bodyMainRightCurr, bodyMainRightFirst, bodyMainRight, 'block');
-	bodyMainRightOrig = ElementCopy(bodyMainRightOrig, bodyMainRightFirst, bodyMainRight, 'block');
-	//
-	bodyMainRightOuter = ElementGetFromElement(bodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainRightCopy, DoFindReturn, null)
-	// bodyMainRightOuter = ElementGetRef(bodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
-	bodyMainRightInner = ElementGetFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainRightCopy, DoFindReturn, null)
-	// bodyMainRightInner = ElementGetRef(bodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
-	bodyMainRightFirst = false;
-	//
-	bodyLayoutMenu2 = ElementGetRef(bodyLayoutMenu2, 'BodyMenuLayout2', 'BodyMenuLayout2');
-	//
-	// Right (4)
-	bodyMenuContainer[bodyMenuRight][1] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][1], 'MenuContainerRight1', 'MenuContainerRight1', bodyMainRightCopy);
-	bodyMenuGroup[4] = ElementGetFromElement(bodyMenuGroup[4], 'MenuGroup4', 'MenuGroup4', bodyMainRightCopy);
-	// var bodyMenuGroup4Save = ElementGetRef(bodyMenuGroup4Save,'MenuGroup4Save','MenuGroup4Save');
-	// Right (5)
-	bodyMenuContainer[bodyMenuRight][2] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][2], 'MenuContainerRight2', 'MenuContainerRight2', bodyMainRightCopy);
-	bodyMenuGroup[5] = ElementGetFromElement(bodyMenuGroup[5], 'MenuGroup5', 'MenuGroup5', bodyMainRightCopy);
-	// var bodyMenuGroup5Save = ElementGetRef(bodyMenuGroup5Save,'MenuGroup5Save','MenuGroup5Save');
-	// Right (6)
-	bodyMenuContainer[bodyMenuRight][3] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][3], 'MenuContainerRight3', 'MenuContainerRight3', bodyMainRightCopy);
-	bodyMenuGroup[6] = ElementGetFromElement(bodyMenuGroup[6], 'MenuGroup6', 'MenuGroup6', bodyMainRightCopy);
-	// var bodyMenuGroup6Save = ElementGetRef(bodyMenuGroup6Save,'MenuGroup6Save','MenuGroup6Save');
-	//
-	//............................................................---//
-	// Body Far Right Area
-	//............................................................---//
-	bodyMainRightFar = ElementGetRef(bodyMainRightFar, 'BodyMainRightFar', 'BodyMainRightFar');
-	//
-	//............................................................---//
-	// Other...
-	//............................................................---//
-	// bodyMainCenterTopColBreak
-	bodyMainCenterTopColBreak = ElementGetRef(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
-	//
-	// bodyMenuGroupColBreak[1] = ElementGetRef(bodyMenuGroupColBreak[1], 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
-	// bodyMenuGroupColBreak[2] = ElementGetRef(bodyMenuGroupColBreak[2], 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
-	// bodyMenuGroupColBreak[3] = ElementGetRef(bodyMenuGroupColBreak[3], 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
-	// bodyMenuGroupColBreak[4] = ElementGetRef(bodyMenuGroupColBreak[4], 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
-	// bodyMenuGroupColBreak[5] = ElementGetRef(bodyMenuGroupColBreak[5], 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
-	// bodyMenuGroupColBreak[6] = ElementGetRef(bodyMenuGroupColBreak[6], 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
-	//
-	//............................................................---//
+		// for (bodyMenuGroupIndex=0; bodyMenuGroupIndex =< bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
+		// 	//
+		// }
+		// Left 1 todo can this be abstracted? or additional script in Page?
+		bodyMenuContainer[bodyMenuLeft][1] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuContainer[bodyMenuLeft][1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][1],'MenuContainerLeft1','MenuContainerLeft1');
+		bodyMenuGroup[1] = ElementGetFromElement(bodyMenuGroup[1], 'MenuGroup1', 'MenuGroup1', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuGroup1 = ElementGetRef(bodyMenuGroup1,'MenuGroup1','MenuGroup1');
+		// bodyMenuGroup1 = ElementGetRefFromElement(bodyMenuGroup1, bodyMenuGroup1.id, bodyMenuGroup1.name, bodyMainLeft)
+		// var bodyMenuGroupSave[1] = ElementGetRef(bodyMenuGroupSave[1],'MenuGroup1Save','MenuGroup1Save');
+		// Left 2
+		bodyMenuContainer[bodyMenuLeft][2] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
+		// bodyMenuContainer[bodyMenuLeft][2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][2],'MenuContainerLeft2','MenuContainerLeft2');
+		bodyMenuGroup[2] = ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuGroup[2] = ElementGetRef(bodyMenuGroup[2],'MenuGroup2','MenuGroup2');
+		// var bodyMenuGroup[2]Save = ElementGetRef(bodyMenuGroup[2]Save,'MenuGroup2Save','MenuGroup2Save');
+		// Left 3
+		bodyMenuContainer[bodyMenuLeft][3] = ElementGetFromElement(bodyMenuContainer[bodyMenuLeft][3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuContainer[bodyMenuLeft][3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][3],'MenuContainerLeft3','MenuContainerLeft3');
+		bodyMenuGroup[3] = ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuGroup[3] = ElementGetRef(bodyMenuGroup[3],'MenuGroup3','MenuGroup3');
+		// var bodyMenuGroup[3]Save = ElementGetRef(bodyMenuGroup[3]Save,'MenuGroup3Save','MenuGroup3Save');
+		// }
+		// Left N - you can have up Max on either side.
+		// Here it's 3 Left & 1 Right
+		//............................................................---//
+		// Body Right Area Copy
+		//............................................................---//
+		// bodyMainRight = ElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
+		bodyMainRightCopy = ElementCopy(bodyMainRightCopy, bodyMainRightFirst, body, 'block');
+		bodyMainRightCurr = ElementCopy(bodyMainRightCurr, bodyMainRightFirst, bodyMainRight, 'block');
+		bodyMainRightOrig = ElementCopy(bodyMainRightOrig, bodyMainRightFirst, bodyMainRight, 'block');
+		//
+		bodyMainRightOuter = ElementGetFromElement(bodyMainRightOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainRightCopy, DoFindReturn, null)
+		// bodyMainRightOuter = ElementGetRef(bodyMainRightOuter,'BodyMainRightOuter','BodyMainRightOuter');
+		bodyMainRightInner = ElementGetFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainRightCopy, DoFindReturn, null)
+		// bodyMainRightInner = ElementGetRef(bodyMainRightInner,'BodyMainRightInner','BodyMainRightInner');
+		bodyMainRightFirst = false;
+		//
+		bodyLayoutMenu2 = ElementGetRef(bodyLayoutMenu2, 'BodyMenuLayout2', 'BodyMenuLayout2');
+		//
+		// Right (4)
+		bodyMenuContainer[bodyMenuRight][1] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][1], 'MenuContainerRight1', 'MenuContainerRight1', bodyMainRightCopy);
+		bodyMenuGroup[4] = ElementGetFromElement(bodyMenuGroup[4], 'MenuGroup4', 'MenuGroup4', bodyMainRightCopy);
+		// var bodyMenuGroup4Save = ElementGetRef(bodyMenuGroup4Save,'MenuGroup4Save','MenuGroup4Save');
+		// Right (5)
+		bodyMenuContainer[bodyMenuRight][2] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][2], 'MenuContainerRight2', 'MenuContainerRight2', bodyMainRightCopy);
+		bodyMenuGroup[5] = ElementGetFromElement(bodyMenuGroup[5], 'MenuGroup5', 'MenuGroup5', bodyMainRightCopy);
+		// var bodyMenuGroup5Save = ElementGetRef(bodyMenuGroup5Save,'MenuGroup5Save','MenuGroup5Save');
+		// Right (6)
+		bodyMenuContainer[bodyMenuRight][3] = ElementGetFromElement(bodyMenuContainer[bodyMenuRight][3], 'MenuContainerRight3', 'MenuContainerRight3', bodyMainRightCopy);
+		bodyMenuGroup[6] = ElementGetFromElement(bodyMenuGroup[6], 'MenuGroup6', 'MenuGroup6', bodyMainRightCopy);
+		// var bodyMenuGroup6Save = ElementGetRef(bodyMenuGroup6Save,'MenuGroup6Save','MenuGroup6Save');
+		//
+		//............................................................---//
+		// Body Far Right Area
+		//............................................................---//
+		bodyMainRightFar = ElementGetRef(bodyMainRightFar, 'BodyMainRightFar', 'BodyMainRightFar');
+		//
+		//............................................................---//
+		// Other...
+		//............................................................---//
+		// bodyMainCenterTopColBreak
+		bodyMainCenterTopColBreak = ElementGetRef(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
+		//
+		// bodyMenuGroupColBreak[1] = ElementGetRef(bodyMenuGroupColBreak[1], 'MenuGroup1ColBreak', 'MenuGroup1ColBreak');
+		// bodyMenuGroupColBreak[2] = ElementGetRef(bodyMenuGroupColBreak[2], 'MenuGroup2ColBreak', 'MenuGroup2ColBreak');
+		// bodyMenuGroupColBreak[3] = ElementGetRef(bodyMenuGroupColBreak[3], 'MenuGroup3ColBreak', 'MenuGroup3ColBreak');
+		// bodyMenuGroupColBreak[4] = ElementGetRef(bodyMenuGroupColBreak[4], 'MenuGroup4ColBreak', 'MenuGroup4ColBreak');
+		// bodyMenuGroupColBreak[5] = ElementGetRef(bodyMenuGroupColBreak[5], 'MenuGroup5ColBreak', 'MenuGroup5ColBreak');
+		// bodyMenuGroupColBreak[6] = ElementGetRef(bodyMenuGroupColBreak[6], 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
+		//
+		//............................................................---//
+		script_state = "ElementObjectCreate completed.";
+
+	} catch (elementObjectCreateErr) {
+		// Errors:
+		// ...................................... //
+		ErrorCaught(elementObjectCreateErr, script_state, errorIsSevere);
+		// script_state = "Form sync: aborted with an error";
+	} finally {
+		// ...................................... //
+		try {
+		if (UseLog) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+				'Form Element Object creation completed.',
+				script_state, 1211, 0, null, null,
+				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+		}
+		//
+		} catch (elementObjectCreateErr) {
+			script_state = "Logging is offline";
+			ErrorCaught(elementObjectCreateErr, script_state, errorIsSevere);
+			script_state = "'Form Element Object creation aborted with an error";
+		}
+	}
 	//............................................................---//
 	//
 	// document.recalc();

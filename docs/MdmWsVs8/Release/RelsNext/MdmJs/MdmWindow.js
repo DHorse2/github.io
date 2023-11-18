@@ -791,7 +791,7 @@ function WindowResizeLayout() {
         } catch (bodyLayoutErr) {
             script_state += " Error finishing layout for " + layoutIndex;;
             ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
-            script_state += "WindowResizeLayout: Aborted wit an error";
+            script_state += "WindowResizeLayout: Aborted with an error";
         }
     }
     // return;

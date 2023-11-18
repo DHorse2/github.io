@@ -109,8 +109,14 @@ UseDebugOnError = false;
 UseDebugOnAll = false;
 // consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
+// Page
+UseLogPage = true;
+// Window
+UseLogWindow = true;
+
 // Animation
 // ...................................... //
+UseLogAnitmation = true;
 UseLogTimer = false;
 
 // case 'ConsoleDebugMove':
@@ -190,18 +196,12 @@ errorResultOnFail = errorDidNotOccur;
 //      main features and components.
 // Console and error code:
 UseLogConsole = true;
-// Animation
-UseLogAnitmation = true;
 // Images
 UseLogImages = true;
 // Menus
 UseLogMenus = true;
 // Elements
 UseLogElements = true;
-// Page
-UseLogPage = true;
-// Window
-UseLogWindow = true;
 // Layout
 UseLogLayout = true;
 

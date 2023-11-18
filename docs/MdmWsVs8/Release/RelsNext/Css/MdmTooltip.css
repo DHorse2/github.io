@@ -1,0 +1,114 @@
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltipText {
+    visibility: hidden;
+    /* overflow: visible; */
+    max-width: 400%;
+    /* width: 120px; */
+    color: black;
+    background-color: #fff;
+    text-align: center;
+    padding: 0px 25px 0px 25px;
+    /* padding: 5px 0; */
+    border: 3px solid black;
+    /* border-bottom: 1px dotted black; */
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltipText {
+    visibility: visible;
+    z-index: 1000;
+}
+
+/* <div class="tooltip">Hover over me */
+/* <span class="tooltipText">Tooltip text</span> */
+/* </div>  */
+
+.tooltipTop {
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltipTop .tooltipText::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.tooltipBottom {
+    /* width: 120px; */
+    top: 100%;
+    left:0%;
+    /* left: 50%; */
+    /* margin-left: -20px; */
+    /* margin-left: -60px; */
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltipBottom .tooltipText::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -15px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltipLeft {
+    width: 120px;
+    top: -5px;
+    right: 105%;
+}
+
+.tooltipLeft .tooltipText::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.tooltipRight {
+    width: 120px;
+    top: 25px;
+    left: 110%;
+}
+
+.tooltipRight .tooltipText::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}

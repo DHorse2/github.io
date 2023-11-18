@@ -227,7 +227,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 					// Errors:
 					// ...................................... //
 					ErrorCaught(consoleStateTestErr, script_state + ' ' + errorMessage, errorIsSevere);
-					// script_state = "Form sync: aborted wit an error";
+					// script_state = "Form sync: aborted with an error";
 				} finally {
 					// ...................................... //
 					// try {
@@ -241,7 +241,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 					// } catch (consoleStateFormErr) {
 					// 	script_state = "Form sync: Can't access FormApply button";
 					// 	ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
-					// 	// script_state = "Form sync: aborted wit an error";
+					// 	// script_state = "Form sync: aborted with an error";
 
 					// }
 				}
@@ -529,7 +529,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 		// ...................................... //
 		'Resulting in ' + consoleToggleResult;
 		ErrorCaught(consoleToggleErr, script_state + ' Resulting in ' + consoleToggleResult, errorIsSevere);
-		// script_state = "Form sync: aborted wit an error";
+		// script_state = "Form sync: aborted with an error";
 	} finally {
 		// ...................................... //
 		// try {

@@ -838,7 +838,7 @@ function ConsoleFormElementSync(fromForm) {
 		// Errors:
 		// ...................................... //
 		ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
-		// script_state = "Form sync: aborted wit an error";
+		// script_state = "Form sync: aborted with an error";
 	} finally {
 		// ...................................... //
 		// try {
@@ -852,7 +852,7 @@ function ConsoleFormElementSync(fromForm) {
 		// } catch (consoleStateFormErr) {
 		// 	script_state = "Form sync: Can't access FormApply button";
 		// 	ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
-		// 	// script_state = "Form sync: aborted wit an error";
+		// 	// script_state = "Form sync: aborted with an error";
 
 		// }
 	}

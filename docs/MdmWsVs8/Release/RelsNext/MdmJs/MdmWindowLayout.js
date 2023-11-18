@@ -321,7 +321,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 		//............................................................---//
 		script_state = "SelectByIndex: Apply layout " + layoutIndexPassed;
 		switch (layoutIndexPassed) {
-			// 1 Standard
+			// 1 Standard (left & right menus showing)
 			///////////////////////////////////////////////
 			case layoutStandard:
 				// Enclose Box
@@ -416,7 +416,8 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				layoutStandardFirst = false;
 				//
 				break;
-			// 2 Reading Mode Hide
+
+			// 2 Reading Mode Hide (menus hidden)
 			///////////////////////////////////////////////
 			case layoutReadingMode:
 				//............................................................---//
@@ -472,7 +473,8 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				layoutReadingModeFirst = false;
 				//
 				break;
-			// 3 Windowed
+
+			// 3 Windowed (menus at top)
 			///////////////////////////////////////////////
 			case layoutWindowed:
 				//
@@ -498,11 +500,13 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 					// Process Left Column
 					//
 					// bodyMainLeft.innerHTML = bodyMainLeftOrig.innerHTML
-					bodyMainLeftCopy = ElementCopy(bodyMainLeft, bodyMainLeftFirst, bodyMainLeftOrig, 'block');
+					bodyMainLeftCopy = ElementCopy(bodyMainLeftCopy, bodyMainLeftFirst, bodyMainLeftOrig, 'block');
+					// bodyMainLeftCopy = ElementCopy(bodyMainLeft, bodyMainLeftFirst, bodyMainLeftOrig, 'block');
 					bodyMainLeftFirst = false;
 					//
 					// bodyMainRight.innerHTML = bodyMainLeftOrig.innerHTML
-					bodyMainRightCopy = ElementCopy(bodyMainRight, bodyMainRightFirst, bodyMainRightOrig, 'block');
+					bodyMainRightCopy = ElementCopy(bodyMainRightCopy, bodyMainRightFirst, bodyMainRightOrig, 'block');
+					// bodyMainRightCopy = ElementCopy(bodyMainRight, bodyMainRightFirst, bodyMainRightOrig, 'block');
 					bodyMainRightFirst = false;
 					// end of layoutWindowFirst
 				}
@@ -772,6 +776,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//
 				layoutWindowedFirst = false;
 				break;
+
 			// 4 Reading Mode Show
 			///////////////////////////////////////////////
 			case layoutReadingModeLeft:
@@ -820,6 +825,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//
 				layoutReadingModeLeftFirst = false;
 				break;
+
 			// case 999:
 			///////////////////////////////////////////////
 			case 999:
@@ -879,6 +885,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//
 				layoutReadingModeLeftFirst = false;
 				break;
+
 			// DEFAULT
 			///////////////////////////////////////////////
 			default:
@@ -908,7 +915,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 		} catch (bodyLayoutErr) {
 			script_state = "Error in " + script_state;
 			ErrorCaught(consoleStateFormErr, script_state, errorIsSevere);
-			script_state = "SelectByIndex: Aborted wit an error";
+			script_state = "SelectByIndex: Aborted with an error";
 		}
 	}
 	// return;
