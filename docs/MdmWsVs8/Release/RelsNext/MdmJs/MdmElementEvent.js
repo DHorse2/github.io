@@ -309,7 +309,6 @@ function ElementEventMouse(e) {
 // ElementEventCurrRootObjSet todo
 // ...................................... //
 function ElementEventCurrRootObjSet() {
-
 	eventCurrRootObj = eventObject;
 	// currently the parent is limited to navigate upward three nodes. todo
 	// and must be below the Body container level
@@ -426,8 +425,9 @@ function ElementEventCheckDuplicate(UseLog) {
 function ElementEventFromHtmlCheck(e, UseLog) {
 	// load and validate event and objects
 	// if (!imgLoadUseEventHandler) {
-	eventCurr = e || window.event;
+	eventCurr = null;
 	ElementEventCurrSet(eventCurr);
+	// set eventCurrRootObj
 	ElementEventCurrRootObjSet();
 	// look for duplicate mouse over events (bubbling)
 	if (ElementEventCheckDuplicate(UseLog)) { return false; } else { return true; }

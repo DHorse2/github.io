@@ -3,41 +3,41 @@
 // SectionBlock Element Item Play function (s)
 // Menu Image Play First
 function ElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
 	ElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-		oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+		oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // ElementPlayNext
 // ...................................... //
 function ElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
 	ElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-		oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+		oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // ElementPlayAgain
 // ...................................... //
 function ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
 	ElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-		oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+		oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // ElementPlay
 function ElementPlay(playDirection, IsImageLarge,
 	oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-	oObjImageSizePassed, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	//
 	var timerType = timerTypeMove;
     var timerGroup = oObjGroupIndex;
-    var timerGroupItem = oObjGroupImageIndex;
+    var timerGroupItem = oObjGroupItemIndex;
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
 	//
@@ -234,7 +234,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		layoutCascadeDown = true;
 	} else { layoutCascadeDown = false; }
 	//
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	//
 	// POSITION
 	// elLeftOrig, elTopOrig, elLeftDest, elTopDest,
@@ -330,7 +330,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		FilterEnable(filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupImageIndex,
+			oObjGroupIndex, oObjGroupItemIndex,
 			filterObjId, filterIdIndex);
 		// }
 		//
@@ -349,7 +349,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		FilterApply(filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupImageIndex,
+			oObjGroupIndex, oObjGroupItemIndex,
 			filterObjId, filterIdIndex);
 		// }
 		//
@@ -365,7 +365,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		TimerStartFilter(playDirection, timerMethod, TimerGroupDoStepFilter, TimerItemDoStepFilter,
 			filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupImageIndex,
+			oObjGroupIndex, oObjGroupItemIndex,
 			filterObjId, filterIdIndex);
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
@@ -380,7 +380,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupImageIndex,
+			oObjGroupIndex, oObjGroupItemIndex,
 			filterObjId, filterIdIndex);
 		// }
 	}
@@ -420,7 +420,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		TimerStartMove(playDirection, timerMethod, TimerGroupDoStepMove, TimerItemDoStepMove,
 			filterPlayAll, startIndex, endIndex,
 			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupImageIndex,
+			oObjGroupIndex, oObjGroupItemIndex,
 			filterObjId, filterIdIndex);
 		//
 	} else if (filterIsOn || filterResizeIsOn) {
@@ -462,7 +462,7 @@ function ElementPlay(playDirection, IsImageLarge,
 // ...................................... //
 // ElementGroupToggleRange
 // ...................................... //
-function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	// Set succeeded
 	if (UseLogAnitmation) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
@@ -477,7 +477,7 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
@@ -526,12 +526,12 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 }
 // Menu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
-function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
@@ -543,15 +543,15 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 	if (oObjNext) {
 		//
 		if (oObjNext.style.display == 'none') {
-			ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], IgnoreLock);
+			ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], IgnoreLock);
 			oObjNext.style.display = 'block';
 		} else {
 			if (IsImageLarge) {
 				// Is this wrong?
-				ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], true);
+				ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], true);
 			} else {
-				ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, true, IgnoreLock);
-				// ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], IgnoreLock);
+				ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, true, IgnoreLock);
+				// ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], IgnoreLock);
 				oObjNext.style.display = 'none';
 			}
 		}
@@ -560,33 +560,38 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 }
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
-function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	if (UseLogAnitmation) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Group Show Stack ' + oObjNextImageId.id
-			+ ' (' + oObjGroupIndex + ', ' + oObjGroupImageIndex + ')'
+			+ ' (' + oObjGroupIndex + ', ' + oObjGroupItemIndex + ')'
 			+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
 			+ charNewLineTag,
 			'MdmPageElement:ElementGroupShowStack', 569, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 		//
 	}
+	if (loadFirstJava) { ElementObjectCreate(); }
+	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	//
 	// load and validate event and objects
-	ElementEventFromHtmlCheck(null, UseLogEvents); // todo review
+	// set eventCurr, eventCurrRootObj
+	ElementEventFromHtmlCheck(null, UseLogEvents);
+	//
+	// Don't process the event on the parent elements.
 	if (eventCurrId == oObjNextParentId
-		&& !UseLogAnimation
 		&& eventType == 'mouseover'
+		&& !UseLogAnimation
 	) {
 		return;
 	}
 	//
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
-	ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupImageIndex);
-	//
+	oObjIndex = oObjGroupItemIndex;
+	// ElementItemIndexSetFromObj(oObjNext);
+	// set oObjValid, oObjId, oObjParentId
+	ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
+	// sets eventCurrRootObj, eventObject, eventCurr, eventType, eventCurrId
 	oObjNextValid = oObjValid;
 	if (IsImageLarge) {
 		oObjNext = oObjLarge;
@@ -601,8 +606,10 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 	//
 	if (oObjNextValid && oObjNext) {
 		// Handle and cascade event
-		if ((eventType == 'mouseover' && UseLogAnimation)
-			|| (oObjNext.style.display == 'block' && !UseLogAnimation)
+		if (((eventType == 'mousedown' || eventType == 'mouseover')
+			&& UseLogAnimation)
+			|| (oObjNext.style.display == 'block'
+			&& !UseLogAnimation)
 		) {
 			//
 			imgZindex += 1;
@@ -629,14 +636,14 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 }
 // ElementGroupShowRange
 // ...................................... //
-function ElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementGroupShowRangeToDo(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	// ...................................... //
 	// Build Menu Images Div
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
 	var startObjoObjIndex = startIndex;
-	var endObjoObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	var endObjoObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	var oObjIndexCurr = startObjoObjIndex;
 	while (oObjIndexCurr < 1 + endObjoObjIndex) {
 		//
@@ -647,19 +654,19 @@ function ElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextParen
 // ...................................... //
 // Show using index #
 // ...................................... //
-function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-	ElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+	ElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // Menu Menu Show Item (Mouse Over function)
 // ...................................... //
-function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	// look for duplicate mouse over events (bubbling)
 	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
@@ -668,26 +675,27 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+	ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 	//
 }
 // Menu Menu Show Item (Mouse Over function)
 var LastTouchedId;
 // ...................................... //
-function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
-	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupImageIndex, UseLogEvents)) {
+function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) {
 		return;
 	}
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
-	if ((UseLog || UseDebug) && (UseLogTimer || UseLogTimerTransition)) {
+	if ((UseLog || UseDebug) && (UseLogAnitmation || UseLogTimer || UseLogTimerTransition)) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			TimerKeyText('Show', oObjGroupIndex, oObjGroupImageIndex)
+			'Group Show Item '
+			+ TimerKeyText('Show', oObjGroupIndex, oObjGroupItemIndex)
 			+ ', ' + oObjNext.id
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 			+ ', Time:' + Date()
@@ -700,7 +708,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	//
 	// if (IsImageLarge) {
 	// Objects
-	// ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupImageIndex);
+	// ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
 	// Style Visibility
 	// oObjLarge.style.display= 'block';
 	// oObjImageLarge.style.display= 'block';
@@ -728,7 +736,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// ...................................... //
 		// Position Control
 		// Save the Left position (of the first image in the group)
-		if (oObjGroupImageIndex == 1) {
+		if (oObjGroupItemIndex == 1) {
 			// Store Parent Postion (note only first is stored at this time)
 			menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjLeft;
 			menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjTop;
@@ -747,9 +755,9 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Cascase Row and Column
 		var cascadeRow = 1;
 		var cascadeColumn = 1;
-		cascadeColumn = (oObjGroupImageIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
-		cascadeRow = Math.floor((oObjGroupImageIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
-		// (oObjGroupImageIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
+		cascadeColumn = (oObjGroupItemIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
+		cascadeRow = Math.floor((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
+		// (oObjGroupItemIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
 		// ...................................... //
 		// Cascase Direction (Down or Up)
 		var layoutCascadeDown = true;
@@ -771,15 +779,15 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			oObjNextOffsetTop = menuImageOffsetTopLarge[oObjGroupIndex];
 			oObjNextOffsetTop += menuImageOffsetTopLarge[indexGroup];
 			if (!layoutCascadeDown) { oObjNextOffsetTop = -oObjNextOffsetTop; }
-			oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupImageIndex][IsSmall];
+			oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
 			//
-			// oObjNextTop += menuImagePositionHeight[oObjGroupIndex] [oObjGroupImageIndex] [IsSmall];
+			// oObjNextTop += menuImagePositionHeight[oObjGroupIndex] [oObjGroupItemIndex] [IsSmall];
 			//
 			oObjNextTop += oObjNextOffsetTop;
 		} else {
 			// Small Image
 			oObjNextOffsetTop = menuImageOffsetTopAll[oObjGroupIndex][indexGroup];
-			oObjNextOffsetTop += menuImageOffsetTopAll[oObjGroupIndex][oObjGroupImageIndex];
+			oObjNextOffsetTop += menuImageOffsetTopAll[oObjGroupIndex][oObjGroupItemIndex];
 			// ...................................... //
 			// Set Top
 			// View Option Adjustments
@@ -788,16 +796,16 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				oObjNextOffsetTop = 30;
 				// Set Top
 				oObjNextOffsetTop += bodyMainCenterTop.offsetHeight;
-				oObjNextTop = ((oObjGroupImageIndex - 1) * 50) + oObjNextOffsetTop;
+				oObjNextTop = ((oObjGroupItemIndex - 1) * 50) + oObjNextOffsetTop;
 				if (IsImageLarge) { oObjNextTop += 100; }
 			} else {
 				//  Standard Side Menu Layout Format
 				// Set Top
-				if (oObjGroupImageIndex == 1) {
+				if (oObjGroupItemIndex == 1) {
 					oObjNextTop = oObjTop;
 				} else {
 					// oObjNextTop = oObjTop;
-					oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupImageIndex - 1][IsImageLarge];
+					oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge];
 				}
 				oObjNextTop += oObjNextOffsetTop;
 				if (IsImageLarge) {
@@ -879,25 +887,25 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			oObjNextOffsetLeft += menuImageOffsetLeftLarge[indexGroup];
 			if (!layoutCascadeRight) { oObjNextOffsetLeft = -oObjNextOffsetLeft; }
 			//
-			oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupImageIndex][IsSmall];
+			oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
 			//
 			if (layoutCascadeRight) {
-				oObjNextLeft += menuImagePositionWidth[oObjGroupIndex][oObjGroupImageIndex][IsSmall];
+				oObjNextLeft += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
 			} else {
 				oObjNextLeft -= layoutBlockWidthDefault;
-				// menuImagePositionWidth[oObjGroupIndex] [oObjGroupImageIndex] [IsImageLarge];
+				// menuImagePositionWidth[oObjGroupIndex] [oObjGroupItemIndex] [IsImageLarge];
 			}
 			//
 			oObjNextLeft += oObjNextOffsetLeft;
 		} else {
 			oObjNextOffsetLeft = menuImageOffsetLeftAll[oObjGroupIndex][indexGroup];// Group Default Offset
-			oObjNextOffsetLeft += menuImageOffsetLeftAll[oObjGroupIndex][oObjGroupImageIndex];// Item specific default
+			oObjNextOffsetLeft += menuImageOffsetLeftAll[oObjGroupIndex][oObjGroupItemIndex];// Item specific default
 			//
 			// ...................................... //
 			// View First Image Adjustments
 			var menuImageOffsetFirst = menuImageOffsetFirstAll[oObjGroupIndex][indexLeft];
 			// Windowed Layout Format
-			if ((oObjGroupImageIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirst = 0; }
+			if ((oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirst = 0; }
 			if (layoutIndex == layoutWindowed) {
 				// oObjNextOffsetLeft = oObjNextOffsetLeft * 25 / Math.abs(oObjNextOffsetLeft);
 				menuImageOffsetFirst = 0;
@@ -915,7 +923,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				// ...................................... //
 				// Left Column (Left)
 				// One First Column of Row
-				if ((oObjGroupImageIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
+				if ((oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
 					// indicates both First and First of Next Row
 					if (layoutIndex == layoutWindowed) {
 						oObjNextOffsetLeft = 0;
@@ -931,7 +939,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 					}
 				} else {
 					// Cascade Next Left Column By Top and Left Offsets
-					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupImageIndex - 1][IsImageLarge]
+					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge]
 						+ oObjNextOffsetLeft;// Right Edge of Parent
 					// oObjNextLeft = (oObjLeft)
 				}
@@ -940,7 +948,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				// ...................................... //
 				// Right Column
 				// Cascade Maximum exceeded (Right)
-				if ((oObjGroupImageIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
+				if ((oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
 					if (layoutIndex == layoutWindowed) {
 						oObjNextLeft = ((oObjGroupIndex - 1) / 6 * layoutWidth);
 					} else {
@@ -953,7 +961,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				} else {
 					// (oObjLeft)
 					if (layoutIndex == layoutWindowed) { menuImageOffsetFirst = 0; }
-					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupImageIndex - 1][IsImageLarge]
+					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge]
 						+ oObjNextOffsetLeft;// Right Edge of Parent
 				}
 			} // end of Cascade Right or Left
@@ -1071,31 +1079,31 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Z Index
 		imgZindex += 1;
 		if (IsImageLarge) {
-			oObjNext.style.zIndex = imgZindex + oObjGroupImageIndex;
-			oObjNextParent.style.zIndex = imgZindex + oObjGroupImageIndex;
+			oObjNext.style.zIndex = imgZindex + oObjGroupItemIndex;
+			oObjNextParent.style.zIndex = imgZindex + oObjGroupItemIndex;
 			if (oObjNextParent.style.display != 'block') {
 				oObjNextParent.style.display = 'block';
 			}
 		} else {
-			oObjNext.style.zIndex = imgZindex + oObjGroupImageIndex;
-			if (oObjNextLarge.style.display = 'block') { oObjNextLarge.style.zIndex = imgZindex + oObjGroupImageIndex; }
+			oObjNext.style.zIndex = imgZindex + oObjGroupItemIndex;
+			if (oObjNextLarge.style.display = 'block') { oObjNextLarge.style.zIndex = imgZindex + oObjGroupItemIndex; }
 		}
 	}
 	// Dispaly Lock vs MouseOut Disappear
 	// ...................................... //
-	// if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjGroupImageIndex] [IsImageLarge] = oObjLocked; }
-	if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjGroupImageIndex][IsImageLarge] = oObjLocked; }
+	// if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjGroupItemIndex] [IsImageLarge] = oObjLocked; }
+	if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjLocked; }
 }
 // SectionBlock (Menu) Hide function (s)
 // ...................................... //
 // ElementItemHideId
 // ...................................... //
-function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
 	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
 	//
 	// Objects
-	oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNext);
+	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
@@ -1104,17 +1112,17 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+	ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 	//
 }
 // Menu ElementItemHide
 // ...................................... //
-function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-	var oObjNextIndex = oObjIndex = oObjGroupImageIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
+	var oObjNextIndex = oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
 	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {

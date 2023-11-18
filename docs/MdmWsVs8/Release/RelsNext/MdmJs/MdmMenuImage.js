@@ -442,12 +442,12 @@ function MenuImagesHtmlBuild() {
 // ------------------------------------------------------------------------------------- _//
 // Menu Mouse Out function
 ////////////////////////////////////////////////
-function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     //  alert(oObj.name);
     //	oObj.class= "MenuThumbHide";
     //
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-    var oObjNextIndex = oObjIndex = oObjGroupImageIndex;
+    var oObjNextIndex = oObjIndex = oObjGroupItemIndex;
     // MenuIndexGroupSet(oObjNextGroupIndex, oObjNext);
     // oObj = MenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
     //
@@ -468,7 +468,7 @@ function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObj
 ////////////////////////////////////////////////
 // Menu Mouse Out function
 ////////////////////////////////////////////////
-function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     startObjoObjIndex = startIndex;
     endObjoObjIndex = endIndex;
@@ -476,7 +476,7 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
     if (oObjNext.style.display = "none") {
         oObjLocked = true;
         IgnoreLock = false;
-        MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+        MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
     } else {
         oObjLocked = false;
         IgnoreLock = true;
@@ -487,12 +487,12 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
             oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
             if (HideImage) {
                 if (oObj.style.display = "block") {
-                    MenuImgHide(IsImageLarge, oObjParent, oObjImage, oObj, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+                    MenuImgHide(IsImageLarge, oObjParent, oObjImage, oObj, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
                 }
             }
             if (HideImageLarge) {
                 if (oObjImageLarge.style.display = "block") {
-                    MenuImgHide(IsImageLarge, oObj, oObjImageLarge, oObjLarge, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+                    MenuImgHide(IsImageLarge, oObj, oObjImageLarge, oObjLarge, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
                 }
             }
             //
@@ -502,17 +502,17 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
 }
 // Menu Toggle Menu Show Item (Mouse Down function)
 ////////////////////////////////////////////////
-function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-    oObjIndex = oObjGroupImageIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    oObjIndex = oObjGroupItemIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     if (oObjNext.style.display = "none") {
-        MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
+        MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
     } else {
         if (IsImageLarge) {
             // Is this wrong?
-            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
+            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
         } else {
-            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupImageIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
+            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
         }
     }
 }
@@ -521,13 +521,13 @@ function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
 // ------------------------------------------------------------------------------------- _//
 // Menu Mouse Over function
 ////////////////////////////////////////////////
-function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     ////////////////////////////////////////////////
     // Build Menu Images Div
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
     startObjoObjIndex = startIndex;
-    endObjoObjIndex = oObjGroupImageIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    endObjoObjIndex = oObjGroupItemIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     var oObjIndex = startObjoObjIndex;
     while (oObjIndex < 1 + endObjoObjIndex) {
         //
@@ -536,13 +536,13 @@ function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oO
 }
 // Menu Mouse Over function
 ////////////////////////////////////////////////
-function MenuImgShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-    MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock);
+    MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // Menu Menu Show Item and all Previous (Mouse Over function)
 ////////////////////////////////////////////////
-function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     imgZindex += 1;
     oObjNext.style.zIndex = imgZindex;
@@ -566,11 +566,11 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
 // var LastTouchedId = "";
 //
 ////////////////////////////////////////////////
-function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock) {
+function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     //
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
-    oObjIndex = oObjGroupImageIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    oObjIndex = oObjGroupItemIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     LastTouchedId = oObjNext.id;
     //
     DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX

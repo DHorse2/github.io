@@ -542,7 +542,7 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed
 ) {
     script_state = "MdmTimer:TimerInitialize";

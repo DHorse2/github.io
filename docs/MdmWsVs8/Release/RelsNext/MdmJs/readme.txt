@@ -1307,16 +1307,16 @@ bodyFirst = false;
 ////////////////////////////////////////////////
 // Menu Mouse Out function
 ////////////////////////////////////////////////
-function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
 ////////////////////////////////////////////////
 // Menu Toggle Show
 ////////////////////////////////////////////////
 // Menu Mouse Out function
 ////////////////////////////////////////////////
-function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
 // Menu Toggle Menu Show Item (Mouse Down function)
 ////////////////////////////////////////////////
-function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupImageIndex, oObjLocked, IgnoreLock)
+function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
 ////////////////////////////////////////////////
 // Menu Show
 ////////////////////////////////////////////////

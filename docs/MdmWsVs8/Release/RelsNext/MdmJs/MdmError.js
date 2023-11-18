@@ -429,6 +429,7 @@ var SysTimeStarted;
 var SysTimeStopedOkMin = 100;
 var SysTimeTick;
 var errorDoNotDisplayNoDebugMsg = false;
+var consoleBoxExpandOnce = true;
 // - start debugging
 function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed) {
     messageUrl = eventFileNamePassed;
@@ -437,10 +438,11 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
     // if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
     //
     if (UseDebug || UseDebugOnError || UseDebugOnAll) {
-        if (!consoleBoxButton) {
+        if (!consoleBoxButton && consoleBoxExpandOnce) {
+            consoleBoxExpandOnce = false;
             ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleAll');
             ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleError');
-            ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleEvent');
+            // ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleEvent');
             // ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleState');
         }
         // if (consoleErrorBoxButton) { ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'ConsoleError'); }

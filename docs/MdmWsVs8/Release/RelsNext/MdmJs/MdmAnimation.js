@@ -572,7 +572,7 @@ var filterObj = null;
 // General (Common) functions & properties:
 // ...................................... //
 function FilterControlCreate(filterPlayAll, startIndex, endIndex,
-    oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupImageIndex, filterObjIdPassed, filterIdPassed) {
+    oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupItemIndex, filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterControlCreate:" + filterObjIdPassed;
     // filterId is this program's index number
     //
@@ -582,7 +582,7 @@ function FilterControlCreate(filterPlayAll, startIndex, endIndex,
         filterObj[filterObjIdPassed] = new Object();
         filterObj[filterObjIdPassed].oObj = oObjNext;
         filterObj[filterObjIdPassed].oObjGroupIndex = oObjGroupIndex;
-        filterObj[filterObjIdPassed].oObjIndex = oObjGroupImageIndex;
+        filterObj[filterObjIdPassed].oObjIndex = oObjGroupItemIndex;
     }
     //
     if (!filterObj[filterObjIdPassed].filterSet) {
@@ -798,7 +798,7 @@ function FilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
 // //
 function FilterGet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterGet:" + filterIdPassed;
     filterGetExit = false;// Set failure
@@ -830,7 +830,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
             var filterClassMatrix = 3;
             filterMatrix = FilterGetByIndex(filterClassMatrix, filterClassStatic, filterTypeMatrix, filterDataCommand, filterCompletionIsZero,
                 oObjNext, oObjNextImage,
-                oObjGroupIndex, oObjGroupImageIndex,
+                oObjGroupIndex, oObjGroupItemIndex,
                 filterObjIdPassed, filterIdPassed);
             //
             filterCommandEval += filterMatrix + ';';
@@ -842,7 +842,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
         newFilter = FilterGetByIndex(filterClassSingle, filterClassStatic,
             filterIndex, filterDataCommand, filterCompletionIsZero,
             oObjNext, oObjNextImage,
-            oObjGroupIndex, oObjGroupImageIndex,
+            oObjGroupIndex, oObjGroupItemIndex,
             filterObjIdPassed, filterIdPassed);
         //
         filterCommandEval += newFilter + ';';
@@ -910,7 +910,7 @@ function FilterSet(filterPlayAll, startIndex, endIndex,
 //
 function FilterEnable(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterEnable:" + filterIdPassed;
     if (browserAnimationIsIe) {
@@ -940,7 +940,7 @@ function FilterEnable(filterPlayAll, startIndex, endIndex,
 //
 function FilterApply(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterApply:" + filterIdPassed;
     if (browserAnimationIsIe) {
@@ -973,7 +973,7 @@ function FilterApply(filterPlayAll, startIndex, endIndex,
 // ...................................... //
 function FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterPlay:" + filterIdPassed;
     //
@@ -1023,7 +1023,7 @@ function FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
 //
 function FilterStop(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterStop:" + filterIdPassed;
     if (filterMethod == filterMethodPlay) {
@@ -1092,7 +1092,7 @@ function FilterGetByIndex(
     filterClassCardinalityPassed, filterClassFixityPassed,
     filterIndexPassed, filterDataRequested, filterCompletionPassed,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:FilterGetByIndex:" + filterObjIdPassed;
     // get interger
@@ -1107,7 +1107,7 @@ function FilterGetByIndex(
         FilterControlCreate(
             true, 0, 30,
             oObjNext, oObjNextImage,
-            oObjGroupIndex, oObjGroupImageIndex,
+            oObjGroupIndex, oObjGroupItemIndex,
             filterObjIdPassed, filterIdPassed);
     }
     if (filterDataRequested != filterDataCommand) { filterCompletionRatio = filterCompletionPassed; }
@@ -1472,13 +1472,13 @@ function TimerStartFilter(playDirection,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:TimerStartFilter:" + filterObjIdPassed;
     //
     var timerType = timerTypeTransition;
     var timerGroup = oObjGroupIndex;
-    var timerGroupItem = oObjGroupImageIndex;
+    var timerGroupItem = oObjGroupItemIndex;
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     // numeric index used as id, not using a collections
@@ -1503,7 +1503,7 @@ function TimerStartFilter(playDirection,
             timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
             filterPlayAll, startIndex, endIndex,
             oObjNext, oObjNextImage,
-            oObjGroupIndex, oObjGroupImageIndex,
+            oObjGroupIndex, oObjGroupItemIndex,
             filterObjIdPassed, filterIdPassed)
         if ((UseLog || UseDebug)
             && (UseLogTimer || UseLogTimerTransition)) {
@@ -1574,13 +1574,13 @@ function TimerStartMove(playDirection,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
-    oObjGroupIndex, oObjGroupImageIndex,
+    oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
     script_state = "MdmAnimation:TimerStartMove:" + filterObjIdPassed;
     //
     var timerType = timerTypeMove;
     var timerGroup = oObjGroupIndex;
-    var timerGroupItem = oObjGroupImageIndex;
+    var timerGroupItem = oObjGroupItemIndex;
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var timerReset = false;
@@ -1603,7 +1603,7 @@ function TimerStartMove(playDirection,
             timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
             filterPlayAll, startIndex, endIndex,
             oObjNext, oObjNextImage,
-            oObjGroupIndex, oObjGroupImageIndex,
+            oObjGroupIndex, oObjGroupItemIndex,
             filterObjIdPassed, filterIdPassed);
         //
         if ((UseLog || UseDebug)
