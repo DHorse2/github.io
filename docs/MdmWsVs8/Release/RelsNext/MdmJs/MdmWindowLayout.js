@@ -2,7 +2,6 @@
 // Layout Block, Callout and Document (BodyMainCenter) Width
 //
 ///////////////////////////////////////////////
-// ------------------------------------------------------------------------------------- _//
 // Global Layout Variables
 ////////////////////////////////////////////////
 // Variables
@@ -54,42 +53,20 @@ var layoutWindowed = 3;
 var layoutReadingModeLeft = 4;
 
 var layoutIndex = layoutStandard;
-var layoutIndexMax = 4;
-var layoutRefreshCn = layoutStandard;
-var layoutRefreshCnLast = layoutStandard;
+var layoutIndexMax = 3;
+var layoutIndexCurr = layoutStandard;
+var layoutIndexCurrLast = layoutStandard;
 
-var layoutStandardFirst = true;
-var layoutReadingModeFirst = true;
-var layoutWindowedFirst = true;
-var layoutReadingModeLeftFirst = true;
+// var layoutStandardFirst = true;
+// var layoutReadingModeFirst = true;
+// var layoutWindowedFirst = true;
+// var layoutReadingModeLeftFirst = true;
+// var layoutTopFirst = true;
 //
 
 // Layout
-// ------------------------------------------------------------------------------------- _//
-// Layout Next
-function LayoutNext(layoutIndexPassed) {
-	if (layoutIndexPassed > 0) {
-		layoutRefreshCn = layoutIndexPassed;
-	} else {
-		layoutRefreshCn += 1;
-	}
-	// todo maybe limit the number?
-	if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
-	LayoutRefresh(layoutRefreshCn);
-}
-// Check Layout
-function LayoutCheck(layoutPrefered) {
-	return;
-}
-// Layout Refresh
-function LayoutRefresh(layoutIndexPassed) {
-	if (layoutIndexPassed != layoutRefreshCnLast) {
-		// Choose Standard Layout
-		layoutIndex = layoutIndexPassed;
-		LayoutSelectByIndex(layoutIndex);
-		layoutRefreshCnLast = layoutRefreshCn;
-	}
-}
+///////////////////////////////////////////////
+
 // Section Layout Management function (s)
 // Body Layout Font Size
 // Zoom
@@ -261,11 +238,7 @@ function LayoutFontCssChange(passedSheetId, selector, cssProp, cssValue, isStyle
 // 			return;
 // 		}
 // 	}
-
 // }
-
-
-
 function LayoutFontCssChangeTest() {
 	LayoutFontCssChange('MdmBaseTagsStyles', '.h1', 'color', 'red', true);
 	LayoutFontCssChange('MdmBaseTagsStyles', 'p.f12', 'fontSize', '24px', true);
@@ -273,8 +246,8 @@ function LayoutFontCssChangeTest() {
 	document.styleSheets.item(1).disabled = false;
 	LayoutFontCssChange('MdmBaseTagsStyles', 'disabled', 'disabled', true, false);
 }
-
 // Body Layout Selection
+// Forces the layout calculations.
 function LayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// Layouts:
@@ -298,10 +271,27 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 	var elementLayoutFirstPhatomData;
 	var boxHeight;
 	//
-	// layoutWidth -= 20;
-	// layoutHeight -= 20;
-	//
 	try {
+
+		if (layoutTopFirst) {
+			bodyViewToggleContainerCenter = ElementGetRef(bodyViewToggleContainerCenter, 'BodyViewToggleContainerCenter', 'BodyViewToggleContainerCenter');
+			bodyViewToggleContainerCenter = ElementCopy(false, "", bodyViewToggleContainerCenter, true, bodyViewToggleContainer, 'block');
+			LayoutBuildTop();
+			// LayoutBuildTop(bodyMainCenterTopLeft, bodyMainCenterTopRight);
+			layoutTopFirst = false;
+		}
+		if (layoutIndexPassed != layoutStandard) {
+			ElementObjectToggleCreate(false, "", bodyViewToggleContainerCenter);
+			bodyViewToggleContainerCenter.style.display = 'block';
+			BodyViewToggleContainerLeft.style.display = 'none';
+		} else {
+			ElementObjectToggleCreate(false, "", BodyViewToggleContainerLeft);
+			bodyViewToggleContainerCenter.style.display = 'none';
+			BodyViewToggleContainerLeft.style.display = 'block';
+		}
+		//
+		// layoutWidth -= 20;
+		// layoutHeight -= 20;
 		//............................................................---//
 		// Load Element for first pass
 		//............................................................---//
@@ -326,8 +316,8 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			case layoutStandard:
 				// Enclose Box
 				//............................................................---//
-				if (BodyMainCenterTopClass.length) {
-					bodyMainCenterTop.className = BodyMainCenterTopClass;
+				if (bodyMainCenterTopClass.length) {
+					bodyMainCenterTop.className = bodyMainCenterTopClass;
 				}
 				//............................................................---//
 				// Final adjustments to Center Top
@@ -341,23 +331,20 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyBannerTop.style.display = 'block';
 				boxHeight += bodyBannerTop.scrollHeight;
 				//
-				bodyTitleTopLeft = ElementGetRefFromElement(bodyTitleTopLeft, 'TitleTopLeft', 'TitleTopLeft', bodyMainCenterTop);
-				boxHeight += bodyTitleTopLeft.scrollHeight;
-				//
-				bodyMainCenterTopColBreak = ElementGetRefFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
-				boxHeight += bodyMainCenterTopColBreak.scrollHeight;
+				// bodyMainCenterTopColBreak = ElementGetFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
+				// boxHeight += bodyMainCenterTopColBreak.scrollHeight;
 				//
 				// BodyViewToggle + Banner + Left/Right
 				// bodyMainCenterTop.style.height = boxHeight;
-				bodyMainCenterTop.style.height = 'auto';
+				// bodyMainCenterTop.style.height = 'auto';
 				//............................................................---//
 				//			 Menu1 at Left
-				bodyMainLeft.style.width = '20%';
+				// bodyMainLeft.style.width = '20%';
 				// bodyMainLeft.style.height = 'auto';
 				//............................................................---//
 				//			 Body Center 'BodyMainCenter'
-				if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; } // 0.20 * layoutWidth + 3;
-				bodyMainCenter.style.width = '60%';//0.60 * layoutWidth - 6;
+				// if (layoutUseAbsolute) { bodyMainCenter.style.left = '20%'; } // 0.20 * layoutWidth + 3;
+				// bodyMainCenter.style.width = '60%';//0.60 * layoutWidth - 6;
 				// bodyMainCenter.style.height = '100%';
 				// bodyMainCenter.style.height = '100%';
 				//
@@ -395,7 +382,6 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyBannerTop.style.display = 'block';
 				//
 				// bodyViewToggle View Toggle and Message Area
-				// bodyViewToggleContainer.style.display = 'none';
 				bodyViewToggleContainerLeft.style.display = 'block';
 				bodyViewToggleContainerCenter.style.display = 'none';
 				//
@@ -406,7 +392,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMainRight.style.display = 'block';
 				//
 				// bodyMainRightFar.style.display = 'none';
-				bodyMainCenterTop.style.display = 'block';
+				// bodyMainCenterTop.style.display = 'none';
 				bodyMainCenterTopLeft.style.display = 'none';
 				bodyMainCenterTopRight.style.display = 'none';
 				bodyMainCenterCenter.style.display = 'block';
@@ -430,15 +416,12 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//............................................................---//
 				//			 Hidden Menu1 at Left
 				// Center Top Left Area Columns
-				//............................................................---//
 				//			 Hidden Menu2 at Right
 				// Center Top Right Area Columns
 				//............................................................---//
-				// Area Displays
-				//............................................................---//
 				// Hidden Banner at Bottom
 				if (!layoutReadingModeFirst) {
-					bodyBannerBottom = ElementCopy(bodyBannerBottom, bodyBannerBottomFirst, bodyBanner, 'block');
+					bodyBannerBottom = ElementCopy(false, "", bodyBannerBottom, bodyBannerBottomFirst, bodyBanner, 'block');
 					bodyBannerBottomFirst = false;
 				}
 				//
@@ -448,7 +431,6 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//
 				//............................................................---//
 				// bodyViewToggle View Toggle and Message Area
-				// bodyViewToggleContainer.style.display = 'none';
 				bodyViewToggleContainerLeft.style.display = 'none';
 				bodyViewToggleContainerCenter.style.display = 'block';
 				//
@@ -461,7 +443,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// bodyMainRightFar.style.display = 'none';
 				//
 				// Center Top
-				bodyMainCenterTop.style.display = 'block';
+				// bodyMainCenterTop.style.display = 'block';
 				bodyMainCenterTopLeft.style.display = 'none';
 				bodyMainCenterTopRight.style.display = 'none';
 				// Center Center
@@ -477,271 +459,62 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			// 3 Windowed (menus at top)
 			///////////////////////////////////////////////
 			case layoutWindowed:
-				//
 				//............................................................---//
-				//			 Menu1 at Center Top Left
-				if (layoutWindowedFirst) {
-					//
-					var TopLeftWidth = 0;
-					var TopLeftWidthInner = 0;
-					// BodyMenuLayout
-					//............................................................---//
-					// bodyLayoutMenu1 BodyMenuLayout
-					if (false == true) {
-						if (!elbodyLayoutMenu1 && bodyMainCenterTopLeft) {
-							bodyLayoutMenu1 = ElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainCenterTopLeft);
-						}
-						//
-						TopLeftWidth = bodyLayoutMenu1.style.posWidth;
-						if (TopLeftWidth = 0) { TopLeftWidth = layoutWidth / 2; }
-						TopLeftWidthInner = TopLeftWidth;
-					}
-					//
-					// Process Left Column
-					//
-					// bodyMainLeft.innerHTML = bodyMainLeftOrig.innerHTML
-					bodyMainLeftCopy = ElementCopy(bodyMainLeftCopy, bodyMainLeftFirst, bodyMainLeftOrig, 'block');
-					// bodyMainLeftCopy = ElementCopy(bodyMainLeft, bodyMainLeftFirst, bodyMainLeftOrig, 'block');
-					bodyMainLeftFirst = false;
-					//
-					// bodyMainRight.innerHTML = bodyMainLeftOrig.innerHTML
-					bodyMainRightCopy = ElementCopy(bodyMainRightCopy, bodyMainRightFirst, bodyMainRightOrig, 'block');
-					// bodyMainRightCopy = ElementCopy(bodyMainRight, bodyMainRightFirst, bodyMainRightOrig, 'block');
-					bodyMainRightFirst = false;
-					// end of layoutWindowFirst
-				}
-				//
+				// Left Menu Container
 				//............................................................---//
-				// Left Menu Column
 				// Center Top Left Area Columns
-				//
-				//............................................................---//
-				// Enclose Box
-				if (!BodyMainCenterTopClass.length) { BodyMainCenterTopClass = bodyMainCenterTop.className; }
-				bodyMainCenterTop.className = bodyMainCenterTop.className + ' CalloutBoxBg CalloutBorderFull';
-				bodyMainCenterTop.width = '100%';
-				//
-				// if (true == true) {
 				if (layoutWindowedFirst) {
-					//............................................................---//
+					// Enclose Box
+					if (!bodyMainCenterTopClass.length) {
+						bodyMainCenterTopClass = bodyMainCenterTop.className;
+						bodyMainCenterTop.className = bodyMainCenterTopClass + ' CalloutBoxBg CalloutBorderFull';
+					}
+					bodyMainCenterTop.width = '98%';
 					// Set Center Top Left Element
 					// MainCenterTopLeft is a Reference pointer into the page
 					// that has MainLeft HTML copied into it.
-					bodyMainCenterTopLeft = ElementGetRef(bodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
-					bodyMainCenterTopLeft = ElementCopy(bodyMainCenterTopLeft, bodyMainCenterFirst, bodyMainLeftOrig, 'block');
-					bodyMainCenterFirst = false;
-					//............................................................---//
-					// Enclose Box
-					bodyMainCenterTopLeft.className = bodyMainCenterTopLeft.className + ' CalloutBorderFull';
-					//............................................................---//
-					// Left Menu Container
-					//............................................................---//
-					// Left Body Column (BodyMainLeft)
-					//............................................................---//
-					// bodyLayoutMenu1 BodyMenuLayout
-					bodyLayoutMenu1 = ElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainCenterTopLeft);
-					//............................................................---//
-					// Width of Layout area (previous?)
-					//............................................................---//
-					// Left Outer and Inner Decorative Divs
-					bodyMainLeftOuter = ElementGetRefFromElement(bodyMainLeftOuter, 'BodyMainLeftOuter', 'BodyMainLeftOuter', bodyMainCenterTopLeft);
-					bodyMainLeftOuter.style.paddingLeft = '3%';
-					bodyMainLeftOuter.style.width = '97%';
-					//
-					bodyMainLeftInner = ElementGetRefFromElement(bodyMainLeftInner, 'BodyMainLeftInner', 'BodyMainLeftInner', bodyMainCenterTopLeft);
-					bodyMainLeftInner.style.paddingRight = '3%';
-					bodyMainLeftInner.style.width = '97%';
-					bodyMainLeftInner.style.paddingTop = '1.0em';
-					//............................................................---//
-					//
-					// ElementGetFromElement(bodyMenuGroup1, 'MenuGroup1', 'MenuGroup1',
-					// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup1)
-					// ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2',
-					// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[2])
-					// ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3',
-					// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[3])
-					//
-					//............................................................---//
-					// Left bodyMenuGroup1, 2, 3
-					bodyMenuGroup[1] = ElementGetRefFromElement(bodyMenuGroup[1], 'MenuGroup1', 'MenuGroup1', bodyMainCenterTopLeft);
-					bodyMenuGroup[2] = ElementGetRefFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainCenterTopLeft);
-					bodyMenuGroup[3] = ElementGetRefFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainCenterTopLeft);
-					//
-					WindowContainerSizeGetMenu(bodyMainCenterTopLeft);
-					//
-					//............................................................---//
-					// bodyMenuGroup1
-					bodyMenuGroup[1].style.position = 'absolute';
-					bodyMenuGroup[1].style.top = ' 0em';
-					bodyMenuGroup[1].style.left = '3%';
-					bodyMenuGroup[1].style.maxWidth = '30%';
-					// bodyMenuGroup[1].style.styleFloat = 'left';
-					//
-					//............................................................---//
-					// bodyMenuGroup[2]
-					bodyMenuGroup[2].style.position = 'absolute';
-					bodyMenuGroup[2].style.top = '1.0em';
-					bodyMenuGroup[2].style.left = '35%';
-					bodyMenuGroup[2].style.maxWidth = '30%';
-					// bodyMenuGroup[2].style.marginLeft = '3%';
-					// bodyMenuGroup[2].style.styleFloat = 'left';
-					//............................................................---//
-					// bodyMenuGroup[3]
-					bodyMenuGroup[3].style.position = 'absolute';
-					bodyMenuGroup[3].style.top = '1.0em';
-					bodyMenuGroup[3].style.left = '67%';
-					bodyMenuGroup[3].style.maxWidth = '30%';
-					// bodyMenuGroup[3].style.marginLeft = '3%';
-					// bodyMenuGroup[3].style.styleFloat = 'left';
-					//............................................................---//
-					//
-					// ElementGetFromElement(bodyMenuGroup[1], 'MenuGroup1', 'MenuGroup1',
-					// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[1])
-					// ElementGetFromElement(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2',
-					// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[2])
-					// ElementGetFromElement(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3',
-					// 		bodyMainCenterTopLeft, DoFindSet, bodyMenuGroup[3])
-					//
-					//............................................................---//
-					// elDivC21 Callout Paragraph Contents
-					// if (true == false) {
-					// 	var elDivC21 = ElementGetRefFromElement(elDivC21, 'DivC21', 'DivC21', bodyMainCenterTopLeft);
-					// 	if (elDivC21) { elDivC21.style.display = 'none'; }
+					// if (!bodyMainCenterTopLeft) {
+					// 	bodyMainCenterTopLeft = ElementGetRef(bodyMainCenterTopLeft, 'BodyMainCenterTopLeft', 'BodyMainCenterTopLeft');
+					// 	// bodyMainCenterTopLeft = ElementCopy(false, "", bodyMainCenterTopLeft, bodyMainCenterFirst, bodyMainLeftOrig, 'block');
+					// } else {
+					// 	bodyMainCenterTopLeft.innerHTML = '';
 					// }
-					//............................................................---//
-					// elDivC22 Callout Paragraph Contents
-					var elDivC22 = ElementGetRefFromElement(elDivC22, 'DivC22', 'DivC22', bodyMainCenterTopLeft);
-					if (elDivC22) { elDivC22.style.display = 'none'; }
-					//............................................................---//
-					// Left Body Text Alignment Breaks
-					bodyMainCenterTopLeft = ElementBreakSet(bodyMainCenterTopLeft, 'MenuGroup1ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
-					bodyMainCenterTopLeft = ElementBreakSet(bodyMainCenterTopLeft, 'MenuGroup2ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
-					bodyMainCenterTopLeft = ElementBreakSet(bodyMainCenterTopLeft, 'MenuGroup3ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
-					// end of layoutWindowFirst
+					bodyMainCenterFirst = false;
 				}
-				//
-				//............................................................---//
-				//			 Menu2 at Center Top Right
 				// Right Menu Column
 				// Center Top Right Area Columns
-				// if (true == true) {
 				if (layoutWindowedFirst) {
 					// Right Body Text Alignment Breaks
 					// Set (Copy To) Top Left Element
 					bodyMainCenterTopRight = ElementGetRef(bodyMainCenterTopRight, 'BodyMainCenterTopRight', 'BodyMainCenterTopRight');
-					bodyMainCenterTopRight = ElementCopy(bodyMainCenterTopRight, bodyMainCenterFirst, bodyMainRightOrig, 'block');
+					// bodyMainCenterTopRight = ElementCopy(false, "", bodyMainCenterTopRight, bodyMainCenterFirst, bodyMainRightOrig, 'block');
 					//............................................................---//
 					// Enclose Box
 					bodyMainCenterTopRight.className = bodyMainCenterTopRight.className + ' CalloutBorderFull';
-					//............................................................---//
-					// bodyLayoutMenu2 BodyMenuLayout
-					bodyLayoutMenu2 = ElementGetRefFromElement(bodyLayoutMenu2, 'BodyMenuLayout2', 'BodyMenuLayout2', bodyMainCenterTopRight);
-					//............................................................---//
-					// Right Outer and Inner Decorative Divs
-					bodyMainRightOuter = ElementGetRefFromElement(bodyMainLeftOuter, 'BodyMainRightOuter', 'BodyMainRightOuter', bodyMainCenterTopRight);
-					bodyMainLeftOuter.style.paddingLeft = '3%';
-					bodyMainLeftOuter.style.width = '97%';
-					//
-					bodyMainRightInner = ElementGetRefFromElement(bodyMainRightInner, 'BodyMainRightInner', 'BodyMainRightInner', bodyMainCenterTopRight);
-					bodyMainRightInner.style.paddingRight = '3%';
-					bodyMainRightInner.style.width = '97%';
-					bodyMainRightInner.style.paddingTop = '1.0em';
-					//............................................................---//
-					var elementHeight = 0;
-					layoutMenuSizeHorzMax = 0;
-					// Right bodyMenuGroup 4(1), 5(2), 6(3)
-					bodyMenuGroup[4] = ElementGetRefFromElement(bodyMenuGroup[4], 'MenuGroup4', 'MenuGroup4', bodyMainCenterTopRight);
-					bodyMenuGroup[5] = ElementGetRefFromElement(bodyMenuGroup[5], 'MenuGroup5', 'MenuGroup5', bodyMainCenterTopRight);
-					bodyMenuGroup[6] = ElementGetRefFromElement(bodyMenuGroup[6], 'MenuGroup6', 'MenuGroup6', bodyMainCenterTopRight);
-					//............................................................---//
-					// bodyMenuGroup4
-					bodyMenuGroup[4].style.position = 'absolute';
-					bodyMenuGroup[4].style.top = '1.0em';
-					bodyMenuGroup[4].style.left = '3%';
-					bodyMenuGroup[4].style.maxWidth = '30%';
-					// bodyMenuGroup[4].style.styleFloat = 'left';
-					elementHeight = ElementHeightMaxGet(true, true, bodyMenuGroup[4]);
-					if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
-					//............................................................---//
-					// bodyMenuGroup5
-					bodyMenuGroup[5].style.position = 'absolute';
-					bodyMenuGroup[5].style.top = '1.0em';
-					bodyMenuGroup[5].style.left = '35%';
-					bodyMenuGroup[5].style.maxWidth = '30%';
-					// bodyMenuGroup[5].style.marginLeft = '3%';
-					// bodyMenuGroup[5].style.styleFloat = 'left';
-					elementHeight = ElementHeightMaxGet(true, true, bodyMenuGroup[5]);
-					if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
-					//............................................................---//
-					// bodyMenuGroup[3]
-					bodyMenuGroup[6].style.position = 'absolute';
-					bodyMenuGroup[6].style.top = '1.0em';
-					bodyMenuGroup[6].style.left = '67%';
-					bodyMenuGroup[6].style.maxWidth = '30%';
-					// bodyMenuGroup[6].style.marginLeft = '3%';
-					// bodyMenuGroup[6].style.styleFloat = 'left';
-					elementHeight = ElementHeightMaxGet(true, true, bodyMenuGroup[6]);
-					if (layoutMenuSizeHorzMax < elementHeight) { layoutMenuSizeHorzMax = elementHeight; }
-					//............................................................---//
-					// Column and Float Breaks and Clear
-					bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, 'MenuGroup4ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
-					bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, 'MenuGroup5ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
-					bodyMainCenterTopRight = ElementBreakSet(bodyMainCenterTopRight, 'MenuGroup6ColBreak', elementLayoutFirstPhatomData = true, 'none', 'hidden', 'none')
-					// end of layoutWindowFirst
 				}
 				//............................................................---//
 				// Final adjustments to Center Top
-				// BodyViewToggle + Banner + Left/Right
-				boxHeight = 0;
+				// // BodyViewToggle + Banner + Left/Right
+				// boxHeight = 0;
+				// boxHeight += ElementHeightMaxGet(true, true, bodyViewToggleContainer);
+				// // Banner Should be zero, don't use..,
+				// boxHeight += ElementHeightMaxGet(true, true, bodyBannerTop);
+				// // consoleBox
+				// boxHeight += ElementHeightMaxGet(true, true, consoleBox);
+				// boxHeight += 50; // Adjust
+				// bodyMainCenterTop.style.height = boxHeight + 'px';
 				//
-				// bodyViewToggle View Toggle and Message Area
-				bodyViewToggleContainerCenter.style.display = 'none';
-				//
-				boxHeight += ElementHeightMaxGet(true, true, bodyViewToggleContainer);
-				// Banner Should be zero, don't use..,
-				boxHeight += ElementHeightMaxGet(true, true, bodyBannerTop);
-				//
-				// Height of left and right menu containers
-				// WindowContainerSizeGetAll();
-				//
-				// if (bodyLayoutMenu2Height > bodyLayoutMenu1Height)  {
-				// bodyLayoutMenu1.style.height = bodyLayoutMenu2Height + 'px';
-				// } else {
-				// bodyLayoutMenu2.style.height = bodyLayoutMenu1Height + 'px';
-				// }
 				// Set Left and Right Container Heights
-				// bodyMainCenterTopLeft.style.height = (ElementHeightMaxGet(true, true, bodyLayoutMenu1) + 20) + 'px';
-				// bodyMainCenterTopRight.style.height = (ElementHeightMaxGet(true, true, bodyLayoutMenu2) + 20) + 'px';
-				//
-				if (layoutMenuSizeHorzMax < 50) {
-					// ERROR HERE //
-					//
-					var X; var Y;
-					X = ElementHeightMaxGet(true, true, bodyMenuGroup1);
-					X += boxHeight;
-					Y = ElementHeightMaxGet(true, true, bodyMenuGroup4);
-					if (X > Y) { layoutMenuSizeHorzMax = X; } else { layoutMenuSizeHorzMax = Y; }
-					//
-					X = ElementHeightMaxGet(true, true, bodyMainCenterTopLeft);
-					Y = ElementHeightMaxGet(true, true, bodyMainCenterTopRight);
-					if (X > Y) { boxHeight = X; } else { boxHeight = Y; }
-					// boxHeight += ElementHeightMaxGet(true, true, BodyViewToggleContainerCenter);
-					// boxHeight += ElementHeightMaxGet(true, true, bodyMainCenterTopColBreak);
-				}
-				// Set Left and Right Container Heights
-				bodyMainCenterTopLeft.style.height = (layoutMenuSizeHorzMax + 50) + 'px';
-				// bodyMainCenterTopLeft.style.height = '100%';
-				// bodyMainCenterTopLeft.style.height = 'auto';
-				bodyMainCenterTopRight.style.height = (layoutMenuSizeHorzMax + 50) + 'px';
-				// bodyMainCenterTopRight.style.height = '100%';
-				//
-				bodyMainCenterTopColBreak = ElementGetRefFromElement(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak', bodyMainCenterTop);
-				//
-				bodyMainCenterTop.style.height = (layoutMenuSizeHorzMax + 75) + 'px';// boxHeight
-				// bodyMainCenterTop.style.height = '100%';
-				//
-				//............................................................---//
-				bodyMainCenterCenter.style.top = (layoutMenuSizeHorzMax + 100) + 'px';// adjust by boxHeight
+				// bodyMainCenterTopLeft.style.height = boxHeight + 'px';
+				// bodyMainCenterTopRight.style.height = boxHeight + 'px';
+				// bodyMainCenterTop.style.height = boxHeight + 'px';// boxHeight
+				// bodyMainCenterCenter.style.top = boxHeight + 'px';//
+
+				// bodyMainCenterTop.style.height = layoutMenuSizeSideHorzTallest + 'px';
+				// bodyMainCenterTopLeft.style.height = layoutMenuSizeSideHorzTallest + 'px';
+				// bodyMainCenterTopRight.style.height = layoutMenuSizeSideHorzTallest + 'px';
+				// bodyMainCenterTop.style.height = layoutMenuSizeSideHorzTallest + 'px';// boxHeight
+				// bodyMainCenterCenter.style.top = layoutMenuSizeSideHorzTallest + 'px';// 
 				//
 				//
 				//............................................................---//
@@ -767,7 +540,8 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMainCenter.style.display = 'block';
 				bodyMainRight.style.display = 'none';// none
 				// bodyMainRightFar.style.display = 'none';
-				bodyMainCenterTop.style.display = 'block';
+
+				// bodyMainCenterTop.style.display = 'block';
 				bodyMainCenterTopLeft.style.display = 'block';
 				bodyMainCenterTopRight.style.display = 'block';
 				bodyMainCenterCenter.style.display = 'block';
@@ -777,7 +551,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				layoutWindowedFirst = false;
 				break;
 
-			// 4 Reading Mode Show
+			// 4 Reading Mode Show todo review. todo review modile.
 			///////////////////////////////////////////////
 			case layoutReadingModeLeft:
 				//............................................................---//
@@ -805,6 +579,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// 	 		 	 Banner at Bottom
 				// xx
 				// bodyViewToggle View Toggle and Message Area
+				bodyViewToggleContainerLeft.style.display = 'none';
 				bodyViewToggleContainerCenter.style.display = 'block';
 				//
 				//............................................................---//
@@ -861,7 +636,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				bodyMenuGroupColBreak[6] = ElementGetRef(bodyMenuGroupColBreak[6], 'MenuGroup6ColBreak', 'MenuGroup6ColBreak');
 				bodyMenuGroupColBreak[6].style.display = 'none';
 				//
-				bodyMainCenterTopRight = ElementCopy(bodyMainCenterTopRight, bodyMainCenterFirst, bodyMainRight, 'none');
+				bodyMainCenterTopRight = ElementCopy(false, "", bodyMainCenterTopRight, bodyMainCenterFirst, bodyMainRight, 'none');
 				bodyMainCenterFirst = false;
 				//
 				//............................................................---//
@@ -930,6 +705,37 @@ function LayoutBlockWidthGet() {
 		layoutBlockWidth = layoutBlockWidthStandard;
 	} else {
 		layoutBlockWidth = layoutBlockWidthNarrow;
+	}
+}
+
+// Layout Next
+///////////////////////////////////////////////
+function LayoutSelectNext(layoutIndexPassed) {
+	// LayoutSelectNext will validate the resulting layout.
+	//
+	if (layoutIndexPassed > 0) {
+		layoutIndexCurr = layoutIndexPassed;
+	} else {
+		layoutIndexCurr += 1;
+	}
+	// todo maybe limit the number?
+	if (layoutIndexCurr > layoutIndexMax) { layoutIndexCurr = 1; }
+	LayoutRefresh(layoutIndexCurr);
+}
+
+// Check Layout
+function LayoutCheck(layoutPrefered) {
+	return;
+}
+
+// Layout Refresh
+function LayoutRefresh(layoutIndexPassed) {
+	// Keeps the passed layout. Detects duplicate requests.
+	if (layoutIndexPassed != layoutIndexCurrLast) {
+		// Choose Standard Layout
+		layoutIndex = layoutIndexPassed;
+		LayoutSelectByIndex(layoutIndex);
+		layoutIndexCurrLast = layoutIndexCurr;
 	}
 }
 

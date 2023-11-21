@@ -53,7 +53,7 @@
 // LAYOUT MANAGEMENT
 // 		LayoutCheck
 //		LayoutRefresh
-//		LayoutNext
+//		LayoutSelectNext
 //		LayoutSelectByIndex
 //      LayoutFontSize
 ////////////////////////////////////////////////
@@ -203,8 +203,8 @@ var layoutReadingModeLeftFirst = true;
 //
 var layoutIndex = layoutStandard;
 var layoutIndexMax = 4;
-var layoutRefreshCn = layoutStandard;
-var layoutRefreshCnLast = layoutStandard;
+var layoutIndexCurr = layoutStandard;
+var layoutIndexCurrLast = layoutStandard;
 //
 ////////////////////////////////////////////////
 // Layout User Interface Toggles:

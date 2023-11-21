@@ -6446,12 +6446,12 @@ function LayoutFontSize(zoomCommandPassed) {
 // Body ViewToggle - Layout Next
 function LayoutNext(layoutIndexPassed) {
 	if (layoutIndexPassed > 0) {
-		layoutRefreshCn = layoutIndexPassed;
+		layoutIndexCurr = layoutIndexPassed;
 	} else {
-		layoutRefreshCn += 1;
+		layoutIndexCurr += 1;
 	}
-	if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
-	LayoutRefresh(layoutRefreshCn);
+	if (layoutIndexCurr > layoutIndexMax) { layoutIndexCurr = 1; }
+	LayoutRefresh(layoutIndexCurr);
 }
 //
 // ..................................................................................... _//
@@ -6465,11 +6465,11 @@ function LayoutCheck(layoutPrefered) {
 // ...................................... //
 // Layout Refresh
 function LayoutRefresh(layoutIndexPassed) {
-	if (layoutIndexPassed != layoutRefreshCnLast) {
+	if (layoutIndexPassed != layoutIndexCurrLast) {
 		// Choose Standard Layout
 		layoutIndex = layoutIndexPassed;
 		LayoutSelectByIndex(layoutIndex);
-		layoutRefreshCnLast = layoutRefreshCn;
+		layoutIndexCurrLast = layoutIndexCurr;
 	}
 }
 //

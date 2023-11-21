@@ -54,7 +54,7 @@
                 <div id="BodyLayoutToggle"
             	     class="BodyLayoutToggle ViewToggleButton
 					 MenuListItem  BorderThin "
-                     onmousedown="LayoutNext(0)"
+                     onmousedown="LayoutSelectNext(0)"
             	     >
                     View
                 </div>
@@ -470,7 +470,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
                 <div id="BodyLayoutToggleCopy"
             	     class="BodyLayoutToggle ViewToggleButton
 					 MenuListItem  BorderThin "
-                     onmousedown="LayoutNext(0)"
+                     onmousedown="LayoutSelectNext(0)"
             	     >
                     View
                 </div>

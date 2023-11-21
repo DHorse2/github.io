@@ -6482,12 +6482,12 @@ function fnLayoutFontSize(zoomCommandPassed)
         function fnLayoutNext(layoutIndexPassed)
         {
 			if (layoutIndexPassed > 0) {
-				layoutRefreshCn = layoutIndexPassed;
+				layoutIndexCurr = layoutIndexPassed;
 			} else {
-				layoutRefreshCn += 1;
+				layoutIndexCurr += 1;
 			}
-			if (layoutRefreshCn > layoutIndexMax) { layoutRefreshCn = 1; }
-			fnLayoutRefresh(layoutRefreshCn);
+			if (layoutIndexCurr > layoutIndexMax) { layoutIndexCurr = 1; }
+			fnLayoutRefresh(layoutIndexCurr);
         }
         //
         // ..................................................................................... _//
@@ -6503,11 +6503,11 @@ function fnLayoutCheck(layoutPrefered)
         // Layout Refresh
 function fnLayoutRefresh(layoutIndexPassed)
 {
-			if (layoutIndexPassed != layoutRefreshCnLast) {
+			if (layoutIndexPassed != layoutIndexCurrLast) {
 				// Choose Standard Layout
 				layoutIndex = layoutIndexPassed;
 				fnLayoutSelectByIndex(layoutIndex);
-				layoutRefreshCnLast = layoutRefreshCn;
+				layoutIndexCurrLast = layoutIndexCurr;
 			}
         }
         //

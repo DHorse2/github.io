@@ -682,7 +682,7 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 var LastTouchedId;
 // ...................................... //
 function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-	script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Start";
+	script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Start";
 	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) {
 		return;
 	}
@@ -690,7 +690,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
-	script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Client";
+	script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Client";
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
@@ -715,7 +715,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// oObjLarge.style.display= 'block';
 	// oObjImageLarge.style.display= 'block';
 	// }
-	script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Calculate";
+	script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Calculate";
 	if (oObjNext.style.display != 'block') {
 		//
 		// Width and Height
@@ -778,7 +778,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Top Position
 		// ...................................... //
 		// Offset
-		script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Offset";
+		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Offset";
 		if (IsImageLarge) {
 			oObjNextOffsetTop = menuImageOffsetTopLarge[oObjGroupIndex];
 			oObjNextOffsetTop += menuImageOffsetTopLarge[indexGroup];
@@ -826,7 +826,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Menu Thumb Link Postioning (Top or Bottom)
 		// ...................................... //
 		// Large Image Handling
-		script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Cascade";
+		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Cascade";
 		if (!IsImageLarge) {
 			// Small Image
 			// Link Text Position Up or Down
@@ -988,7 +988,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		//
 		ElementPosGet(UseScroll, UseBase, bodyMainCenterCenter, 0, 0);
 
-		script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Positions";
+		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Positions";
 		bodyLeftEdge = oObjLeft;
 		bodyRightEdge = oObjLeft + oObjWidth;
 		// bodyLeftEdge = ElementLeftMaxGet(DoNotUseScroll, UseBase, bodyMainCenterCenter);
@@ -1032,7 +1032,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		oObjNext.style.zIndex = imgZindex + oObjIndex;
 		// Filter Apply Command
 		// ...................................... //
-		script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Play";
+		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Play";
 		if (moveIsOn || filterIsOn) {
 			playDirection = playDirectionForward;
 			// playDirection = playDirectionReverse;
@@ -1084,7 +1084,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	} else {
 		// ...................................... //
 		// Z Index
-		script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":????";
+		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":????";
 		imgZindex += 1;
 		if (IsImageLarge) {
 			oObjNext.style.zIndex = imgZindex + oObjGroupItemIndex;
@@ -1101,7 +1101,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// ...................................... //
 	// if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjGroupItemIndex] [IsImageLarge] = oObjLocked; }
 	if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjLocked; }
-	script_state = "MdmPageElement:ElementItemShow:" + timerItemKey + ":Done";
+	script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Done";
 }
 // SectionBlock (Menu) Hide function (s)
 // ...................................... //

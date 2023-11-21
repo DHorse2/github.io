@@ -18,21 +18,35 @@ function ElementGetRef(elementObject, elementObjectId, elementObjectName) {
     }
     return elementObject;
 }
+
 function ElementGetFromElement(
+    elementPassed, elementIdPassed, elementNamePassed,
+    elementSourcePassed
+) {
+    return ElementGetFromElementExt(
+        elementPassed, elementIdPassed, elementNamePassed,
+        elementSourcePassed,
+        DoFindReturn, null);
+}
+
+function ElementGetFromElementExt(
     elementPassed, elementIdPassed, elementNamePassed,
     elementSourcePassed,
     DoFindSetPassed, elementValuePassed
 ) {
-    // Dest = ElementGetRefFromElement(Dest, 'DestId', 'DestName', Source);
+    // Dest = ElementGetFromElement(Dest, 'DestId', 'DestName', Source);
     //
     var elementChildObject;
     var elementTempFirst = true;
     elementFound = false;
     //
-    elementPassed = ElementCreate(elementPassed, elementTempFirst);
+    // elementPassed = ElementCreate(elementPassed, elementTempFirst);
     //
     // Loop through each child node of elementObject
     // and retrieve the original element from the document.
+    //
+    elementChildObject = elementSourcePassed.querySelector('#' + elementIdPassed);
+    if (elementChildObject) { return elementChildObject; }
     //
     for (var elmCn = 0; elmCn < 1 + elementSourcePassed.childNodes.length; elmCn++) {
         elementChildObject = elementSourcePassed.childNodes[elmCn];
@@ -43,7 +57,6 @@ function ElementGetFromElement(
                         //
                         if (DoFindSetPassed == DoFindSet) {
                             // set the source element to the passed one.
-                            // this doesn't make sense. todo
                             if (elementFound) {
                                 elementSourcePassed.childNodes[elmCn] = elementPassed;
                             } else {
@@ -51,7 +64,8 @@ function ElementGetFromElement(
                                 elementFound = true;
                             }
                             // pass the matching element found in the source
-                            return elementSourcePassed.childNodes[elmCn];
+                            // return elementSourcePassed.childNodes[elmCn];
+                            return elementChildObject;
                         }
                         if (!elementFound) {
                             elementPassed = elementChildObject;
@@ -65,7 +79,7 @@ function ElementGetFromElement(
                 //
                 if (elementChildObject.childNodes) {
                     if (elementChildObject.childNodes.length) {
-                        elementPassed = ElementGetFromElement(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, DoFindSetPassed, elementValuePassed);
+                        elementPassed = ElementGetFromElementExt(elementPassed, elementIdPassed, elementNamePassed, elementChildObject, DoFindSetPassed, elementValuePassed);
                         if (elementFound) { return elementPassed; }
                     }
                 }
@@ -74,13 +88,13 @@ function ElementGetFromElement(
     } // end of for
     //
     elementFound = false;
-    return;
+    return null;
 }
 // Layout Menu Area Element Common Fields Set
-function ElementGetRefFromElementId(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
+function ElementGetFromElementId(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
     // DOES THIS NEED TO BE COPIES.
     // As written it results in pointers into the Source Document
-    // Dest = ElementGetRefFromElement(Dest, "DestId", "DestName", Source);
+    // Dest = ElementGetFromElement(Dest, "DestId", "DestName", Source);
     var elementObjectResult;
     if (!elementObjectName.length && elementObjectId.length) { elementObjectName = elementObjectId; }
     elementObjectResult = ElementGetFromId(elementObjectName)
@@ -91,29 +105,29 @@ function ElementGetRefFromElementId(elementObject, elementObjectId, elementObjec
     }
 } // ------------------------------------------------------------------------------------- _//
 // Layout Menu Area Element Common Fields Set
-function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
+function ElementCopy(UsePrefixPassed, prefixPassed, elementPassed, elementLayoutFirstPassed, elementSourcePassed, elementStyleDisplayPassed) {
     var elementIdCurr;
     var elementSourceIdCurr;
-    if (elementSourcePassed) {
-        elementPassed = elementSourcePassed;
-        elementPassed.style.display = elementStyleDisplayPassed;
-        return elementPassed;
-    }
+    // if (elementSourcePassed) {
+    //     elementPassed = elementSourcePassed;
+    //     elementPassed.style.display = elementStyleDisplayPassed;
+    //     return elementPassed;
+    // }
     if ("id" in elementSourcePassed) {
         elementSourceIdCurr = elementSourcePassed.id;
     } else { elementSourceIdCurr = ""; }
     //
     //---------------------------------------------------------------//
     if (!elementPassed) {
-        if ("id" in elementSourcePassed) {
-            elementIdCurr = elementSourcePassed.id;
-        } else {
-            if ("name" in elementSourcePassed) {
-                elementIdCurr = elementSourcePassed.name;
+        if (elementSourcePassed) {
+            if ("id" in elementSourcePassed) {
+                elementIdCurr = elementSourcePassed.id;
             } else {
-                elementIdCurr = "";
+                if ("name" in elementSourcePassed) {
+                    elementIdCurr = elementSourcePassed.name;
+                } else { elementIdCurr = ""; }
             }
-        }
+        } else { elementIdCurr = ""; }
         //
         elementPassed = document.createElement("div");
         // if (browserIsTEST) {
@@ -144,14 +158,21 @@ function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePasse
         if ("name" in elementSourcePassed) {
             elementPassed.name = elementSourcePassed.name;
         }
-        //
+        if (elementSourcePassed.style) {
+            elementPassed.style = elementSourcePassed.style;
+        }
+        // fix
+        elementLayoutFirstPassed = true;
         if (elementLayoutFirstPassed) {
             if ("innerHTML" in elementPassed && "innerHTML" in elementSourcePassed) {
                 // Copy HTML
-                // elementPassed.outerHTML = elementSourcePassed.outerHTML;
+                // elementPassed.appendChild(elementSourcePassed.clone());
+                // elementPassed.appendChild(elementSourcePassed.cloneNode(true));
+
                 elementPassed.innerHTML = elementSourcePassed.innerHTML;
-                // elementPassed = elementSourcePassed;
-                // elementPassed = elementSourcePassed.cloneNode(true);
+                // // elementPassed.outerHTML = elementSourcePassed.outerHTML;
+                // // elementPassed = elementSourcePassed;
+                // // elementPassed = elementSourcePassed.cloneNode(true);
                 //
                 elementLayoutFirstPassed = false;
                 // Element Events
@@ -163,12 +184,20 @@ function ElementCopy(elementPassed, elementLayoutFirstPassed, elementSourcePasse
         // }
         elementPassed.style.display = elementStyleDisplayPassed;
     }
+
+    if (UsePrefixPassed && prefixPassed && prefixPassed.lenth) {
+        for (elementCurr in elementPassed) {
+            if (elementCurr.id && elementCurr.id.length) {
+                elementCurr.id = elementCurr.id + prefixPassed;
+            }
+        }
+    }
     return elementPassed;
 } // ------------------------------------------------------------------------------------- _//
 // Layout Menu Area Element Common Fields Set
 ////////////////////////////////////////////////
 function ElementFindInElement(elementObject, elementObjectId, elementObjectName, elementSourcePassed) {
-    // Dest = ElementGetRefFromElement(Dest, "DestId", "DestName", Source);
+    // Dest = ElementGetFromElement(Dest, "DestId", "DestName", Source);
     //
     var elementChildObject;
     //
@@ -228,10 +257,12 @@ function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, 
     // and retrieve the original element from the document.
     // Copy mouse down, over and out events to elementObject.
     // Currently, SourceObject is not used.
-    //
+    var elementItems = elementObject.getElementsByTagName('div');
+    for (var item = 0; elementItems[item]; item++) {
     // if (elementPassed.childNodes.length)
-    for (elmCn = 1; elmCn < 1 + elementObject.childNodes.length; elmCn++) {
-        elementChildObject = elementObject.childNodes[elmCn];
+    // for (elmCn = 1; elmCn < 1 + elementObject.childNodes.length; elmCn++) {
+        // elementChildObject = elementObject.childNodes[elmCn];
+        elementChildObject = elementItems[item];
         if (elementChildObject) {
             if ("id" in elementChildObject) {
                 if (elementChildObject.id.length) {
@@ -239,31 +270,28 @@ function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, 
                     if (elementSourceChildObject) {
                         if (elementSourceChildObject.onmousedown) {
                             // elementChildObject.setAttribute("onmousedown", elementSourceChildObject.onmousedown , 0)
+                            // .type, .handler?
                             elementChildObject.onmousedown = elementSourceChildObject.onmousedown;
+                            // elementChildObject.addEventListener("onmousedown", elementSourceChildObject.onmousedown.handler);
+                            // elementChildObject.addEventListener("onmousedown", elementSourceChildObject.onmousedown);
                         }
                         if (elementSourceChildObject.onmouseover) {
                             // elementChildObject.setAttribute("onmouseover", elementSourceChildObject.onmouseover , 0)
                             elementChildObject.onmouseover = elementSourceChildObject.onmouseover;
+                            // elementChildObject.addEventListener("onmouseover", elementSourceChildObject.onmouseover.handler);
+                            // elementChildObject.addEventListener("onmouseover", elementSourceChildObject.onmouseover);
                         }
                         if (elementSourceChildObject.onmouseout) {
                             // elementChildObject.setAttribute("onmouseout", elementSourceChildObject.onmouseout , 0)
                             elementChildObject.onmouseout = elementSourceChildObject.onmouseout;
+                            // elementChildObject.addEventListener("onmouseout", elementSourceChildObject.onmouseout.handler);
+                            // elementChildObject.addEventListener("onmouseout", elementSourceChildObject.onmouseout);
                         }
                     }
                 }
             }
         }
     }
-    /*--
-     // if (elementPassed.childNodes.length)
-     for (elmCn = 1; elementSourceObject.childNodes.length;elmCn++){
-    var elementSourceChildObject = elementSourceObject.childNodes[elmCn];
-    elementChildObject = elementObject.getElementById(elementSourceChildObject.id);
-    elementChildObject.Events["onmousedown"] = elementSourceChildObject.Events["onmousedown"];
-    }
-    // }
-    --*/
-    // }
     return elementObject;
 }
 // Layout Menu Area Element Common Fields Set
@@ -279,7 +307,7 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
     if (elementPassed && elementIdPassed.tagName) {
         elementTarget = document.createElement(elementPassed.tagName);
     } else { elementTarget = document.createElement("div"); }
-    elementTarget = ElementGetRefFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
+    elementTarget = ElementGetFromElement(elementTarget, elementIdPassed, elementIdPassed, elementPassed);
     //
     // if (elementPassed.childNodes.length) {
     if (elementTarget) {

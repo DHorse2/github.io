@@ -90,7 +90,7 @@
 									<div id="BodyConsoleViewButton"
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyLayoutToggle" class="BodyLayoutToggle ViewToggleButton
-					 MenuListItem  BorderThin " onmousedown="LayoutNext(0)">
+					 MenuListItem  BorderThin " onmousedown="LayoutSelectNext(0)">
 											View
 										</div>
 									</div>
@@ -418,7 +418,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 						<!-- * -->
 						<div id="BodyConsoleViewButtonCopy" class="ViewToggleBlockContainer">
 							<div id="BodyLayoutToggleCopy" class="BodyLayoutToggle ViewToggleButton
-					 MenuListItem  BorderThin " onmousedown="LayoutNext(0)">
+					 MenuListItem  BorderThin " onmousedown="LayoutSelectNext(0)">
 								View
 							</div>
 						</div>

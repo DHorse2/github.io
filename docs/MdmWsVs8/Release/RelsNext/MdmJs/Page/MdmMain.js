@@ -454,10 +454,11 @@ var layoutStandardFirst = true;
 var layoutReadingModeFirst = true;
 var layoutWindowedFirst = true;
 var layoutReadingModeLeftFirst = true;
+var layoutTopFirst = true;
 //
 var layoutIndex = layoutStandard;
-var layoutRefreshCn = layoutStandard;
-var layoutRefreshCnLast = layoutStandard;
+var layoutIndexCurr = layoutStandard;
+var layoutIndexCurrLast = layoutStandard;
 
 // Current Layout Strategy
 var layoutIsWide = false;

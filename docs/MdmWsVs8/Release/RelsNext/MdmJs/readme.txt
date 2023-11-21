@@ -66,7 +66,7 @@
 // LAYOUT MANAGEMENT
 // 		LayoutCheck
 //		LayoutRefresh
-//		LayoutNext
+//		LayoutSelectNext
 ////////////////////////////////////////////////
 // STANDARD FUNCTIONS
 // Math Functions
@@ -1012,22 +1012,22 @@ window.onresize = function() { WindowResizeLayout(); }
           bodyMainCenterTopRight.className = bodyMainCenterTopRight.className + " CalloutBorderFull";
           //---------------------------------------------------------------//
           // bodyLayoutMenu2 BodyMenuLayout
-          bodyLayoutMenu2 = ElementGetRefFromElement(bodyLayoutMenu1, "BodyMenuLayout2", "BodyMenuLayout2", bodyMainCenterTopRight);
+          bodyLayoutMenu2 = ElementGetFromElement(bodyLayoutMenu1, "BodyMenuLayout2", "BodyMenuLayout2", bodyMainCenterTopRight);
           //---------------------------------------------------------------//
 		      // Right Outer and Inner Decorative Divs
-          bodyMainRightOuter = ElementGetRefFromElement(bodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", bodyMainCenterTopRight);
+          bodyMainRightOuter = ElementGetFromElement(bodyMainLeftOuter, "BodyMainRightOuter", "BodyMainRightOuter", bodyMainCenterTopRight);
           bodyMainLeftOuter.style.paddingLeft = "3%";
           bodyMainLeftOuter.style.width = "97%";
           //
-          bodyMainRightInner = ElementGetRefFromElement(bodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", bodyMainCenterTopRight);
+          bodyMainRightInner = ElementGetFromElement(bodyMainRightInner, "BodyMainRightInner", "BodyMainRightInner", bodyMainCenterTopRight);
           bodyMainRightInner.style.paddingRight = "3%";
           bodyMainRightInner.style.width = "97%";
           bodyMainRightInner.style.paddingTop = 10;
           //---------------------------------------------------------------//
           // Right bodyMenuGroup4, 2, 3
-          bodyMenuGroup4 = ElementGetRefFromElement(bodyMenuGroup4, "MenuGroup4", "MenuGroup4", bodyMainCenterTopRight);
-          bodyMenuGroup5 = ElementGetRefFromElement(bodyMenuGroup5, "MenuGroup5", "MenuGroup5", bodyMainCenterTopRight);
-          bodyMenuGroup6 = ElementGetRefFromElement(bodyMenuGroup6, "MenuGroup6", "MenuGroup6", bodyMainCenterTopRight);
+          bodyMenuGroup4 = ElementGetFromElement(bodyMenuGroup4, "MenuGroup4", "MenuGroup4", bodyMainCenterTopRight);
+          bodyMenuGroup5 = ElementGetFromElement(bodyMenuGroup5, "MenuGroup5", "MenuGroup5", bodyMainCenterTopRight);
+          bodyMenuGroup6 = ElementGetFromElement(bodyMenuGroup6, "MenuGroup6", "MenuGroup6", bodyMainCenterTopRight);
           //---------------------------------------------------------------//
 		      // bodyMenuGroup4
           bodyMenuGroup4.style.posLeft = "-7%";
@@ -1059,7 +1059,7 @@ window.onresize = function() { WindowResizeLayout(); }
     var boxHeight = 0;
     //---------------------------------------------------------------//
     // bodyViewToggle View Toggle and Message Area
-    var bodyViewToggle = ElementGetRefFromElement(bodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", bodyMainCenterTop);
+    var bodyViewToggle = ElementGetFromElement(bodyViewToggle, "BodyViewToggleCenter", "BodyViewToggleCenter", bodyMainCenterTop);
     boxHeight += bodyViewToggle.scrollHeight;
     // Banner Should be zero, don't use..,
     boxHeight += bodyBannerTop.scrollHeight;
@@ -1071,7 +1071,7 @@ window.onresize = function() { WindowResizeLayout(); }
     }
     boxHeight += bodyLayoutMenu1.style.posHeight;
     //
-    bodyMainCenterTopColBreak = ElementGetRefFromElement(bodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", bodyMainCenterTop);
+    bodyMainCenterTopColBreak = ElementGetFromElement(bodyMainCenterTopColBreak, "BodyMainCenterTopColBreak", "BodyMainCenterTopColBreak", bodyMainCenterTop);
     boxHeight += bodyMainCenterTopColBreak.scrollHeight;
     //
     // BodyViewToggle + Banner + Left/Right
