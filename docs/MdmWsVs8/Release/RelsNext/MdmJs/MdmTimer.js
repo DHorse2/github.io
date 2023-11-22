@@ -148,9 +148,9 @@ var timerStepMax = 0;
 var timerInterval = 0;
 var timerDelay = 0;
 // Timer Usage:
-var timerMethodGroup = 1; // One timer per each group
-var timerMethodItem = 2; // One timer per each item in a group
-var timerMethod = timerMethodGroup;
+// var timerMethodGroup = 1; // One timer per each group
+// var timerMethodItem = 2; // One timer per each item in a group
+// var timerMethod = timerMethodGroup;
 // Timer Pause before Start
 // Included a setTimeout in BODY onload to delay start of text movement.
 // oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
@@ -339,7 +339,7 @@ function TimerMoveStepDo(timerItemKeyPassed) {
 // Timer Pause then Start
 ////////////////////////////////////////////////
 // Included a setTimeout in BODY onload to delay start of text movement.
-function TimerStart(timerItemKeyPassed, timerFunctionPassed, timerDelayPassed) {
+function TimerStartFunc(timerItemKeyPassed, timerFunctionPassed, timerDelayPassed) {
     script_state = "MdmTimer:TimerStart";
     timerTen = 0;
     timerStarted = true;
@@ -359,17 +359,17 @@ function TimerStart(timerItemKeyPassed, timerFunctionPassed, timerDelayPassed) {
 // Timer Set
 ////////////////////////////////////////////////
 // Set up interval at which the moveDiv function will be called.
-function TimerSet(timerItemKeyPassed) {
-    script_state = "MdmTimer:TimerSet";
-    var tempFunc = "";
-    tempFunc = function () { TimerMoveStepDo(timerItemKeyPassed); };
-    //
-    vtimerGroupItem = window.setInterval(
-        tempFunc,
-        timerInterval
-    );
-    timerObj[timerItemKeyPassed].timerIntervalId = vtimerGroupItem;
-}
+// function TimerSet(timerItemKeyPassed) {
+//     script_state = "MdmTimer:TimerSet";
+//     var tempFunc = "";
+//     tempFunc = function () { TimerMoveStepDo(timerItemKeyPassed); };
+//     //
+//     vtimerGroupItem = window.setInterval(
+//         tempFunc,
+//         timerInterval
+//     );
+//     timerObj[timerItemKeyPassed].timerIntervalId = vtimerGroupItem;
+// }
 // Timer Move Box (Element, i.e. Div)
 ////////////////////////////////////////////////
 // This function incrementally repositions divMove.
@@ -768,10 +768,10 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
     timerGroupItemCurr = timerGroupItem;
     var timerIsRunning = false;
     var debugFunctionIsOn = false;
-    if (UseLogTimer && (
+    if (
         (timerMethod == timerMethodItem && UseLogTimerDetail)
         || (timerMethod == timerMethodGroup)
-    )) {
+    ) {
         if (UseLogTimerTransition && timerType == timerTypeTransition) { debugFunctionIsOn = true; }
         if (UseLogTimerMove && timerType == timerTypeMove) { debugFunctionIsOn = true; }
     }
@@ -868,10 +868,10 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
         timerFunctionPassed(timerType, timerGroup, timerGroupItem);
     };// TimerMoveStepDo
     var debugFunctionIsOn = false;
-    if (UseLogTimer && (
+    if (
         (timerMethod == timerMethodItem && UseLogTimerDetail)
         || (timerMethod == timerMethodGroup)
-    )) {
+    ) {
         if ((UseLogTimerTransition && timerType == timerTypeTransition)
             || (UseLogTimerMove && timerType == timerTypeMove)) {
             debugFunctionIsOn = true;
@@ -992,30 +992,7 @@ function TimerIntervalText(oObjNext, timerType, timerGroup, timerGroupItem, UseR
     tempString = 'Timer (' + tempString + ')';
     return 'Timer (' + ((tempInterval).toString()).substring(1, 5) + ')';
 }
-function TimerIntervalTextOld(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey) {
-    script_state = "MdmTimer:TimerIntervalTextOld";
-    if (UseRootKey) {
-        if (timerObj[timerRootKey]) {
-            // Note: Syntax difference between native string "(target).substring(1, 5);"
-            // as compared to:
-            // tempString = 100000 + timerObj [timerRootKey].timerIntervalId;
-            // tempString = 'Timer (' + tempString.substring(1, 5) + ')';;
-            // return 'Timer (' + tempString.substring(1, 5) + ')';
-            // String does not work!
-            //
-            // That is, the MS String Object's "target.substring(1, 5);" is unsupported.
-            // Use Javascript's:
-            // var tempString = (100000 + timerObj [timerRootKey].timerIntervalId).toString().substring(1, 5);
-            // typically:
-            return 'Timer (' + ((100000 + timerObj[timerRootKey].timerIntervalId).toString()).substring(1, 5) + ')';
-        } else { return 'Timer (None.)'; }
-    } else {
-        if (timerObj[timerItemKey]) {
-            // tempString = 100000 + timerObj [timerItemKey].timerIntervalId;
-            return 'Timer (' + ((100000 + timerObj[timerItemKey].timerIntervalId).toString()).substring(1, 5) + ')';
-        } else { return 'Timer (None.)'; }
-    }
-}
+
 function TimerRootKeyText(oObjNext, timerType, timerGroup, timerGroupItem) {
     script_state = "MdmTimer:TimerRootKeyText";
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;

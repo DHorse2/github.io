@@ -82,23 +82,23 @@ var bodyMainCenterTopColBreak;
 var layoutBodyColumnType1 = true;
 // Global Objects - GLOBAL / COMMON
 // ------------------------------------------------------------------------------------- _//
-// MENUS - Menu Image Objects, Menu Image Pointers
-var oObjIndex = 1;
-var oObjGroupIndex = 1;
-var oObjParentIndex = 1;
-var oObjRootIndex = 0;
-// Menu Image Objects
-var oObj;
-var oObjImage;
-var oObjParent;
-var oObjLarge;
-var oObjImageLarge;
-var oObjText = "";
-// Menu Image Size
-var oObjImageSizeSmall = 150;
-var oObjImageSizeLarge = 600;
-var oObjImageSizeRatio = 0.7;
-var oObjImageSize = 0;
+// // MENUS - Menu Image Objects, Menu Image Pointers
+// var oObjIndex = 1;
+// var oObjGroupIndex = 1;
+// var oObjParentIndex = 1;
+// var oObjRootIndex = 0;
+// // Menu Image Objects
+// var oObj;
+// var oObjImage;
+// var oObjParent;
+// var oObjLarge;
+// var oObjImageLarge;
+// var oObjText = "";
+// // Menu Image Size
+// var oObjImageSizeSmall = 150;
+// var oObjImageSizeLarge = 600;
+// var oObjImageSizeRatio = 0.7;
+// var oObjImageSize = 0;
 // Menu Image Position
 var oObjLeft;
 var oObjTop;
@@ -424,8 +424,9 @@ function ElementObjectCreate() {
 	} finally {
 		// ...................................... //
 		try {
-		if (UseLog) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+			if ((UseLog || UseDebug)
+				&& UseLogConsole) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				'Form Element Object creation completed.',
 				script_state, 1211, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);

@@ -1,7 +1,8 @@
+//
 function MenuObjectSetAll(oObjGroupCn, oObjCn) {
     script_state = "MdmMenuImageCollection:MenuObjectSetAll";
-    if (oObjGroupCn) { script_state += ':' + oObjGroupCn}
-    if (oObjCn) { script_state += ':' + oObjCn}
+    if (oObjGroupCn) { script_state += ':' + oObjGroupCn }
+    if (oObjCn) { script_state += ':' + oObjCn }
 
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
@@ -259,8 +260,8 @@ function MenuObjectSetAll(oObjGroupCn, oObjCn) {
 ////////////////////////////////////////////////
 function MenuObjectTextSet(oObjGroupCn, oObjCn) {
     script_state = "MdmMenuImageCollection:MenuObjectTextSet";
-    if (oObjGroupCn) { script_state += ':' + oObjGroupCn}
-    if (oObjCn) { script_state += ':' + oObjCn}
+    if (oObjGroupCn) { script_state += ':' + oObjGroupCn }
+    if (oObjCn) { script_state += ':' + oObjCn }
 
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
@@ -333,8 +334,8 @@ function MenuObjectTextSet(oObjGroupCn, oObjCn) {
 ////////////////////////////////////////////////
 function MenuObjectNameSet(oObjGroupCn, oObjCn) {
     script_state = "MdmMenuImageCollection:MenuObjectNameSet";
-    if (oObjGroupCn) { script_state += ':' + oObjGroupCn}
-    if (oObjCn) { script_state += ':' + oObjCn}
+    if (oObjGroupCn) { script_state += ':' + oObjGroupCn }
+    if (oObjCn) { script_state += ':' + oObjCn }
 
     oObjIndex = oObjCn;
     oObjGroupIndex = oObjGroupCn;
@@ -409,7 +410,7 @@ function MenuObjectNameSet(oObjGroupCn, oObjCn) {
 function MenuIndexSetByElement(oObjPassed) {
     script_state = "MdmMenuImageCollection:MenuIndexSetByElement";
     // if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
-    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id}
+    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id }
 
     var elementObject;
     if (oObjPassed && oObjPassed.id) {
@@ -424,13 +425,13 @@ function MenuIndexSetByElement(oObjPassed) {
 function MenuIndexGroupGetByName(oObjNextIdPassed) {
     script_state = "MdmMenuImageCollection:MenuIndexGroupGetByName";
     // if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
-    if (oObjNextIdPassed && oObjNextIdPassed.length) { script_state += ':' + oObjNextIdPassed}
+    if (oObjNextIdPassed && oObjNextIdPassed.length) { script_state += ':' + oObjNextIdPassed }
 
     var temp, tempfunc, tempResult;
     try {
-    temp = oObjNextIdPassed;
-    tempResult = null;
-    tempfunc = eval('tempResult = ' + temp + '; return tempResult');
+        temp = oObjNextIdPassed;
+        tempResult = null;
+        tempfunc = eval('tempResult = ' + temp + '; return tempResult');
     } catch (e) {
         return null;
     }
@@ -442,8 +443,8 @@ function MenuIndexGroupGetByName(oObjNextIdPassed) {
 ////////////////////////////////////////////////
 function MenuIndexGroupSet(oObjGroupIndex, oObjPassed) {
     script_state = "MdmMenuImageCollection:MenuIndexGroupSet";
-    if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
-    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id}
+    if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex }
+    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id }
     switch (oObjGroupIndex) {
         ////////////////////////////////////////////////
         // Non Groups
@@ -539,7 +540,7 @@ function MenuIndexGroupSet(oObjGroupIndex, oObjPassed) {
 function MenuIndexGroupSetByName(oObjPassed) {
     script_state = "MdmMenuImageCollection:MenuIndexGroupSetByName";
     // if (oObjGroupIndex) { script_state += ':' + oObjGroupIndex}
-    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id}
+    if (oObjPassed && oObjPassed.id) { script_state += ':' + oObjPassed.id }
 
     for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
         //    alert(imgCn + "--" + imgUsedCn + "--" + imgMax);

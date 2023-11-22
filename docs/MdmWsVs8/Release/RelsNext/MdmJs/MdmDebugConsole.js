@@ -88,15 +88,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseLogAnimation = !UseLogAnimation; }
 				if (DoSetValuePassed) { UseLogAnimation = elementValuePassed }
 				if (!UseLogAnimation) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Mouse Over Menus is OFF',
-						'ConsoleToggle', 8307, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Mouse Over Menus is OFF',
+							'ConsoleToggle', 8307, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Mouse Over Menus is ON',
-						'ConsoleToggle', 8314, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Mouse Over Menus is ON',
+							'ConsoleToggle', 8314, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				consoleToggleResult = UseLogAnimation;
 				break;
@@ -109,15 +115,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { consoleBoxButton = !consoleBoxButton; }
 				if (DoSetValuePassed) { consoleBoxButton = elementValuePassed }
 				if (!consoleBoxButton) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Consoles showing is OFF',
-						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Consoles showing is OFF',
+							'ConsoleToggle', 8377, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Consoles showing is ON',
-						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Consoles showing is ON',
+							'ConsoleToggle', 8387, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
@@ -129,15 +141,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { consoleErrorBoxButton = !consoleErrorBoxButton; }
 				if (DoSetValuePassed) { consoleErrorBoxButton = elementValuePassed }
 				if (!consoleErrorBoxButton) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Message Log showing is OFF',
-						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Message Log showing is OFF',
+							'ConsoleToggle', 8377, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Message Log showing is ON',
-						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Message Log showing is ON',
+							'ConsoleToggle', 8387, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
@@ -149,15 +167,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { consoleEventBoxButton = !consoleEventBoxButton; }
 				if (DoSetValuePassed) { consoleEventBoxButton = elementValuePassed }
 				if (!consoleEventBoxButton) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Event Log showing is OFF',
-						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Event Log showing is OFF',
+							'ConsoleToggle', 8377, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Event Log showing is ON',
-						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Event Log showing is ON',
+							'ConsoleToggle', 8387, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
@@ -170,15 +194,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoSetValuePassed) { consoleStateBoxButton = elementValuePassed }
 				if (loadFirstDebugState) { ConsoleFormElementSyncLocal(false); }
 				if (!consoleStateBoxButton) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'State console showing is OFF',
-						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'State console showing is OFF',
+							'ConsoleToggle', 8377, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'State console showing is ON',
-						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'State console showing is ON',
+							'ConsoleToggle', 8387, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkNoVisibleConsole = true;
 				checkBoxSize = true;
@@ -252,10 +282,13 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleClear:" + DoTogglePassed;
 				consoleErrorTextBox.innerHTML = '';
 				errorMessage = 'Error and Log Console has been cleared...';
-				MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-					errorMessage,
-					'ConsoleToggle', 8235, 0, null, null,
-					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+				if ((UseLog || UseDebug)
+					&& UseLogConsole) {
+					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+						errorMessage,
+						'ConsoleToggle', 8235, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+				}
 				//
 				errorSeverityHighest = errorDidNotOccur;
 				errorSeverityColorHighestBg = consoleViewToggleBackgroud;
@@ -304,17 +337,23 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (consoleDebugButton) {
 					// UseDebugOnAll = true;
 					// UseDebugOnError = true;
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug buttons showing is OFF',
-						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug buttons showing is OFF',
+							'ConsoleToggle', 8377, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
 					// UseDebugOnAll = false;
 					// UseDebugOnError = false;
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug buttons showing is ON',
-						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug buttons showing is ON',
+							'ConsoleToggle', 8387, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkLogMode = true;
 				checkLogModeSeeEvents = false;
@@ -329,15 +368,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseDebugOnError = !UseDebugOnError; }
 				if (DoSetValuePassed) { UseDebugOnError = elementValuePassed }
 				if (!UseDebugOnError) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug On Error in debugger is OFF',
-						'ConsoleToggle', 8377, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug On Error in debugger is OFF',
+							'ConsoleToggle', 8377, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug On Error in debugger is ON',
-						'ConsoleToggle', 8387, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug On Error in debugger is ON',
+							'ConsoleToggle', 8387, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkLogMode = true;
 				checkLogModeSeeEvents = false;
@@ -351,15 +396,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseDebugOnAll = !UseDebugOnAll; }
 				if (DoSetValuePassed) { UseDebugOnAll = elementValuePassed }
 				if (!UseDebugOnAll) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug All messages (in the debugger) is OFF',
-						'ConsoleToggle', 8399, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug All messages (in the debugger) is OFF',
+							'ConsoleToggle', 8399, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug All messages (in the debugger) is ON',
-						'ConsoleToggle', 8406, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug All messages (in the debugger) is ON',
+							'ConsoleToggle', 8406, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkLogMode = true;
 				checkLogModeSeeEvents = false;
@@ -374,23 +425,35 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseLogTimerMove = !UseLogTimerMove; }
 				if (DoSetValuePassed) { UseLogTimerMove = elementValuePassed }
 				if (!UseLogTimerMove) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Animation Movement is OFF',
-						'ConsoleToggle ConsoleDebugMove', 8313, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-					if (!UseLogTimerMove && !UseLogTimerTransition && UseLogTimer) {
-						// ConsoleToggle(DoSetValue, false, DoNotUseToggle, 'UseLogTimer');
-						UseLogTimer = false;
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						if ((UseLog || UseDebug)
+							&& UseLogConsole) {
+							MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+								'Debug Animation Movement is OFF',
+								'ConsoleToggle ConsoleDebugMove', 8313, 0, null, null,
+								errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+						}
 					}
+					// if (!UseLogTimerMove && !UseLogTimerTransition && UseLogTimer) {
+					// 	// ConsoleToggle(DoSetValue, false, DoNotUseToggle, 'UseLogTimer');
+					// 	UseLogTimer = false;
+					// }
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Animation Movement is ON',
-						'ConsoleToggle ConsoleDebugMove', 8323, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-					if (UseLogTimerMove || UseLogTimerTransition && !UseLogTimer) {
-						// ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'UseLogTimer');
-						UseLogTimer = true;
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						if ((UseLog || UseDebug)
+							&& UseLogConsole) {
+							MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+								'Debug Animation Movement is ON',
+								'ConsoleToggle ConsoleDebugMove', 8323, 0, null, null,
+								errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+						}
 					}
+					// if (UseLogTimerMove || UseLogTimerTransition && !UseLogTimer) {
+					// 	// ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'UseLogTimer');
+					// 	UseLogTimer = true;
+					// }
 				}
 				checkLogMode = true;
 				checkNoVisibleConsole = true;
@@ -405,19 +468,25 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseLogTimerTransition = !UseLogTimerTransition; }
 				if (DoSetValuePassed) { UseLogTimerTransition = elementValuePassed }
 				if (!UseLogTimerTransition) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Animation Transition is OFF',
-						'ConsoleToggle', 8331, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug Animation Transition is OFF',
+							'ConsoleToggle', 8331, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 					if (!UseLogTimerMove && !UseLogTimerTransition && UseLogTimer) {
 						// ConsoleToggle(DoSetValue, false, DoNotUseToggle, 'UseLogTimer');
 						UseLogTimer = false;
 					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Animation Transition is ON',
-						'ConsoleToggle', 8341, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug Animation Transition is ON',
+							'ConsoleToggle', 8341, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 					if (UseLogTimerMove || UseLogTimerTransition && !UseLogTimer) {
 						// ConsoleToggle(DoSetValue, true, DoNotUseToggle, 'UseLogTimer');
 						UseLogTimer = true;
@@ -434,15 +503,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseLogTimerDetail = !UseLogTimerDetail; }
 				if (DoSetValuePassed) { UseLogTimerDetail = elementValuePassed }
 				if (!UseLogTimerDetail) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Detail is OFF',
-						'ConsoleToggle', 8355, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug Detail is OFF',
+							'ConsoleToggle', 8355, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Detail is ON',
-						'ConsoleToggle', 8365, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug Detail is ON',
+							'ConsoleToggle', 8365, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				}
 				checkLogMode = true;
 				checkNoVisibleConsole = true;
@@ -455,15 +530,21 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				if (DoTogglePassed) { UseLogEvents = !UseLogEvents; }
 				if (DoSetValuePassed) { UseLogEvents = elementValuePassed }
 				if (!UseLogEvents) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug (Mouse) Events is OFF',
-						'ConsoleToggle', 8423, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug (Mouse) Events is OFF',
+							'ConsoleToggle', 8423, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug (Mouse) Events is ON',
-						'ConsoleToggle', 8430, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug (Mouse) Events is ON',
+							'ConsoleToggle', 8430, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 					// Open events panel?
 				}
 				checkLogMode = true;
@@ -481,16 +562,22 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				}
 				if (DoSetValuePassed) { UseLogHover = elementValuePassed }
 				if (!UseLogHover) {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Hover highlighting is OFF',
-						'ConsoleToggle', 8423, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug Hover highlighting is OFF',
+							'ConsoleToggle', 8423, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 					LayoutFontCssTagHoverDisable();
 				} else {
-					MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
-						'Debug Hover highlighting is ON',
-						'ConsoleToggle', 8430, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					if ((UseLog || UseDebug)
+						&& UseLogConsole) {
+						MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
+							'Debug Hover highlighting is ON',
+							'ConsoleToggle', 8430, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					}
 					LayoutFontCssTagHoverEnable();
 				}
 				checkLogMode = true;
@@ -533,7 +620,9 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 	} finally {
 		// ...................................... //
 		// try {
-		if (UseLog) {
+		if ((UseLog || UseDebug)
+			&& UseLogConsole
+			&& UseLogDetailsAll) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				'Setting:' + ConsoleBlockPassed + ' Toggle:' + DoTogglePassed
 				+ ' State:' + script_state

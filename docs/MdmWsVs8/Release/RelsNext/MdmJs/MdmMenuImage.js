@@ -484,7 +484,9 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
             //
             menuImageLocked[oObjGroupIndex][oObjIndex] = false;
             // Objects
-            oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
+            ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+            // oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
+
             if (HideImage) {
                 if (oObj.style.display = "block") {
                     MenuImgHide(IsImageLarge, oObjParent, oObjImage, oObj, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
@@ -504,7 +506,8 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
 ////////////////////////////////////////////////
 function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-    oObjIndex = oObjGroupItemIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    oObjIndex = oObjGroupItemIndex;
+    // MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     if (oObjNext.style.display = "none") {
         MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
     } else {
@@ -527,7 +530,7 @@ function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oO
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
     startObjoObjIndex = startIndex;
-    endObjoObjIndex = oObjGroupItemIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    endObjoObjIndex = oObjGroupItemIndex;
     var oObjIndex = startObjoObjIndex;
     while (oObjIndex < 1 + endObjoObjIndex) {
         //
@@ -548,11 +551,13 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
     oObjNext.style.zIndex = imgZindex;
     //
     startoObjIndex = 1;
-    endoObjIndex = MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    // endoObjIndex = MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    endoObjIndex = oObjGroupItemIndex;
     oObjIndex = startoObjIndex;
     while (oObjIndex < 1 + endoObjIndex) {
         // Objects
-        oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
+        ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+        // oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
         // Set Lock State
         // if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
         if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex] = oObjLocked; }
@@ -570,10 +575,10 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     //
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     //
-    oObjIndex = oObjGroupItemIndex;// MenuIndexGroupSet(oObjGroupIndex, oObjNext);
+    oObjIndex = oObjGroupItemIndex;
     LastTouchedId = oObjNext.id;
     //
-    DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
+    // DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
     //
     WindowClientWidth();
     //
@@ -917,7 +922,15 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         // Filter Apply Command
         ////////////////////////////////////////////////
         if (filterCheck && (moveIsOn || filterIsOn)) {
-            MenuImageFilterPlayAgain(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjIndex, false, true);
+            oObjNext.style.display = "block";
+
+            // MenuImageFilterPlayAgain(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjIndex, false, true);
+
+            playDirection = playDirectionForward;
+            // playDirection = playDirectionReverse;
+            ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
+
+
             // oObjNextImage.filters[0].apply();
             // oObjNextImage.filters[1].apply();
             // oObjNextImage.filters.item("DXImageTransform.Microsoft.Wheel").apply();

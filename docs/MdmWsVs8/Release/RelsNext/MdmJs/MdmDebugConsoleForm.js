@@ -842,8 +842,9 @@ function ConsoleFormElementSync(fromForm) {
 	} finally {
 		// ...................................... //
 		// try {
-			if (UseLog || UseDebug) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+			if ((UseLog || UseDebug)
+			&& UseLogConsole) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				script_state + ' Console Form synchonized.',
 				'MdmDebugConsole: ConsoleFormElementSync', 1211, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);

@@ -22,6 +22,7 @@ var DoNotUseAlert = false;
 // Debugging and Console
 // ...................................... //
 var UseDebug = DoNotUseDebug;
+var UseDebugNext = DoNotUseDebug;
 var UseLog = DoUseLog;
 var UseAlert = DoUseAlert;
 
@@ -247,6 +248,12 @@ var eventLastRootId = '';
 var eventParentName = new String();
 var eventCurrRootObj;
 
+// Timer Usage:
+// ...................................... //
+var timerMethodGroup = 1; // One timer per each group
+var timerMethodItem = 2; // One timer per each item in a group
+var timerMethod = timerMethodGroup;
+
 // Standard characters
 // ...................................... //
 var lt = String.fromCharCode(60)
@@ -335,23 +342,24 @@ var sTemp = "";
 // Section Menu Image (Standard) Objects
 // ..................................................................................... _//
 // Storage Location for Group and Menu Item / Image
-var oObjGroupIndex = 1;
-var oObjRootIndex = 0;
-//
-var indexGroup = 0; // location of Group / Roots in arrays
-//
-// Menu Image Objects
-var oObj = document.createElement('div');
+// MENUS - Menu Image Objects, Menu Image Pointers
 var oObjIndex = 1;
-var oObjImage = document.createElement('img');
-//
-var oObjParent = document.createElement('div');
+var oObjGroupIndex = 1;
 var oObjParentIndex = 1;
-//
-var oObjLarge = document.createElement('div');
-var oObjImageLarge = document.createElement('img');
-//
-var oObjText = new String();
+var oObjRootIndex = 0;
+// Menu Image Objects
+var oObj;
+var oObjImage;
+var oObjParent;
+var oObjLarge;
+var oObjImageLarge;
+var oObjText = "";
+// Menu Image Size
+var oObjImageSizeSmall = 150;
+var oObjImageSizeLarge = 600;
+var oObjImageSizeRatio = 0.7;
+var oObjImageSize = 0;
+
 //
 var IsSmall = 0;
 var IsLarge = 1;

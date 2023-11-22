@@ -109,15 +109,16 @@ UseDebugOnError = false;
 UseDebugOnAll = false;
 // consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
+// Console
+UseLogConsole = false;
 // Page
-UseLogPage = true;
+UseLogPage = false;
 // Window
-UseLogWindow = true;
+UseLogWindow = false;
 
 // Animation
 // ...................................... //
 UseLogAnitmation = true;
-UseLogTimer = false;
 
 // case 'ConsoleDebugMove':
 UseLogTimerMove = false;
@@ -194,8 +195,7 @@ errorResultOnFail = errorDidNotOccur;
 // ...................................... //
 //      These are normalized Areas
 //      main features and components.
-// Console and error code:
-UseLogConsole = true;
+
 // Images
 UseLogImages = true;
 // Menus
@@ -355,9 +355,7 @@ var elementMoveMethod = elementMoveMethodRandom; // Use random
 // SectionBlock Timers
 // ...................................... //
 // Timers by Group or Item
-var timerMethodItem = 1; // one timer per Menu Group Image
-var timerMethodGroup = 2; // one timer per Menu Group of images
-var timerMethod = timerMethodItem;
+timerMethod = timerMethodItem;
 //
 // Timer Movement
 var timerDuration = elementMoveDuration;

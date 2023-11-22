@@ -134,15 +134,14 @@ function ElementEventMouse(e) {
 	ElementEventCurrSet(e);
 	ElementEventCurrRootObjSet();
 	//
-	oObjIndex = ElementItemIndexSetFromObj(eventCurrRootObj);
-	// Objects
-	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+	ElementItemIndexSetFromObj(eventCurrRootObj);
 	//
-	var eventTextColor = 'black';
-	var eventTextColorBg = 'white';
-
-	// ...................................... //
 	if (!oObjNotFound) {
+		// Object found
+		ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+		//
+		var eventTextColor = 'black';
+		var eventTextColorBg = 'white';
 		//
 		// ...................................... //
 		var HideImage = false;
@@ -300,7 +299,8 @@ function ElementEventMouse(e) {
 		}
 	}
 
-	if (UseLog && (UseLogEvents || timerMoveBusy)) {
+	if ((UseLog || UseDebug)
+		&& UseLogEvents) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
 			'Mouse Event', eventTextColor, eventTextColorBg,
 			'ElementEventMouse', 141);

@@ -514,7 +514,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				// bodyMainCenterTopLeft.style.height = layoutMenuSizeSideHorzTallest + 'px';
 				// bodyMainCenterTopRight.style.height = layoutMenuSizeSideHorzTallest + 'px';
 				// bodyMainCenterTop.style.height = layoutMenuSizeSideHorzTallest + 'px';// boxHeight
-				// bodyMainCenterCenter.style.top = layoutMenuSizeSideHorzTallest + 'px';// 
+				// bodyMainCenterCenter.style.top = layoutMenuSizeSideHorzTallest + 'px';//
 				//
 				//
 				//............................................................---//

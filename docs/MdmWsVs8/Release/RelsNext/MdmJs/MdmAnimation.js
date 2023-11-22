@@ -872,7 +872,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
         } else {
             // Set succeeded
             if ((UseLog || UseDebug)
-                && (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition)) {
+                && (UseLogTimerDetail || UseLogTimerTransition)) {
                 if (UseLog || UseDebug) {
                     MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                         'Filter(' + filterIdPassed + ') of ' + filterIndexCn
@@ -1506,7 +1506,7 @@ function TimerStartFilter(playDirection,
             oObjGroupIndex, oObjGroupItemIndex,
             filterObjIdPassed, filterIdPassed)
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerTransition)) {
+            && (UseLogTimerTransition)) {
             // && UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
@@ -1524,7 +1524,7 @@ function TimerStartFilter(playDirection,
     } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer exists and is currently busy.
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerTransition)) {
+            && (UseLogTimerTransition)) {
             // && UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
@@ -1551,7 +1551,7 @@ function TimerStartFilter(playDirection,
     //
     // ...................................... //
     if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerTransition)) {
+        && (UseLogTimerTransition)) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                 timerObj[timerItemKey].playDirection, 'Timer Start')
@@ -1607,7 +1607,7 @@ function TimerStartMove(playDirection,
             filterObjIdPassed, filterIdPassed);
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerMove)) {
+            && (UseLogTimerMove)) {
             // && UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
@@ -1625,7 +1625,7 @@ function TimerStartMove(playDirection,
     } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer Already Exists...
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerMove)) {
+            && (UseLogTimerMove)) {
             // || UseLogTimerDetail
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
@@ -1696,7 +1696,7 @@ function TimerStartMove(playDirection,
     //
     // ...................................... //
     if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerMove)) {
+        && (UseLogTimerMove)) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
             + ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1738,7 +1738,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
     timerObj[timerRootKey].timerIntervalStep += 1;
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerTransition)) {
+        && (UseLogTimerTransition)) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
             + ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1800,7 +1800,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
         //
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerTransition)) {
+            && (UseLogTimerTransition)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                     timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -1813,7 +1813,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
     }
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerTransition)) {
+        && (UseLogTimerTransition)) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group Out')
@@ -1825,16 +1825,16 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
             'MdmAnimation:TimerGroupDoStepFilter', 1777, 0, null, null,
             errorIsComment, true, false);
         //
-        if ((UseLog || UseDebug)
-            && (!timerIsActive && (!timerObj[timerRootKey].timerIsRunning || timerObj[timerRootKey].timerInstance < 1))) {
-            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
-                    timerObj[timerRootKey].playDirection, 'Group End')
-                + ', Finished Group'
-                + '.',
-                'MdmAnimation:TimerGroupDoStepFilter', 1786, 0, null, null,
-                errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-        }
+    }
+    if ((UseLog || UseDebug)
+        && (!timerIsActive && (!timerObj[timerRootKey].timerIsRunning || timerObj[timerRootKey].timerInstance < 1))) {
+        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+            TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                timerObj[timerRootKey].playDirection, 'Group End')
+            + ', Finished Group'
+            + '.',
+            'MdmAnimation:TimerGroupDoStepFilter', 1786, 0, null, null,
+            errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
     }
 }
 //
@@ -1935,7 +1935,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
             if (timerIntervalId) { window.clearInterval(timerIntervalId); }
             //
             if ((UseLog || UseDebug)
-                && (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition)) {
+                && (UseLogTimerDetail || UseLogTimerTransition)) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                         timerObj[timerItemKey].playDirection, 'Stop')
@@ -1988,7 +1988,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
         tempFilterInProgress || tempTimeOrStepsCompleted
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition)) {
+            && (UseLogTimerDetail || UseLogTimerTransition)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Stop')
@@ -2002,7 +2002,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
         }
     } else {
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerDetail || UseLogTimerTransition)) {
+            && (UseLogTimerDetail || UseLogTimerTransition)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'SkipItem')
@@ -2038,7 +2038,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
     timerObj[timerRootKey].timerIntervalStep += 1;
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerMove)) {
+        && (UseLogTimerMove)) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group In')
@@ -2105,7 +2105,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
         } else { timerObj[timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerMove)) {
+            && (UseLogTimerMove)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                     timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -2117,7 +2117,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
     }
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerMove)) {
+        && (UseLogTimerMove)) {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             TimerLogText(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group Out')
@@ -2237,7 +2237,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
     // StepStopItem
     // Stop if maximum # of steps exceeded
     // increment vertical step
-    if (timerObj[timerItemKey].elMoveStepTop > timerObj[timerItemKey].timerStepMax) {
+    if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMax) {
         MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
             TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                 timerObj[timerItemKey].playDirection, 'StepStopItem')
@@ -2414,7 +2414,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         timerTen + 0.1;
     }
     //
-    if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
+    if (UseLogTimerDetail && UseLogTimerMove) {
         var tempDetails = ', At: ( step ' + timerObj[timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : m' + tempMoveInProgress + ' : l5747 ' + ')'
     }
     //
@@ -2432,7 +2432,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
             // Item Timer
             // Turn Off Timer
             if ((UseLog || UseDebug)
-                && (UseLogTimer || UseLogTimerDetail || UseLogTimerMove)) {
+                && (UseLogTimerDetail || UseLogTimerMove)) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                         timerObj[timerItemKey].playDirection, 'Stop')
@@ -2473,7 +2473,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         }
         //
         if ((UseLog || UseDebug)
-        && (UseLogTimer || UseLogTimerDetail || UseLogTimerMove)) {
+            && (UseLogTimerDetail || UseLogTimerMove)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Stop')
@@ -2485,7 +2485,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         }
     } else {
         if ((UseLog || UseDebug)
-            && (UseLogTimer || UseLogTimerDetail || UseLogTimerMove)) {
+            && (UseLogTimerDetail || UseLogTimerMove)) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerLogText(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item')
@@ -2553,8 +2553,7 @@ function TimerStartMoveBusy(timerTypePassed, timerGroupPassed, timerGroupItemPas
     var timerGroupItem = timerGroupItemPassed;
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
-    script_state = "MdmAnimation:TimerStartMoveBusy:" + timerItemKey;
-
+    // script_state = "MdmAnimation:TimerStartMoveBusy:" + timerItemKey;
     var timerMoveBusy = false;
     if (timerObj) {
         if (timerObj[timerItemKey]) {
@@ -2563,13 +2562,14 @@ function TimerStartMoveBusy(timerTypePassed, timerGroupPassed, timerGroupItemPas
             }
         }
     }
+    script_state += ":Busy:" + timerMoveBusy;
     //
     if (UseLog && (UseLogEvents || timerMoveBusy)) {
         ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
             'Timer Busy: ' + timerItemKey, 'black', 'light yellow',
             'ElementEventCheckDuplicate', 2529);
     }
-    //
+    return timerMoveBusy;
 }
 // Timer Move Box (Element, i.e. Div)
 // ...................................... //
