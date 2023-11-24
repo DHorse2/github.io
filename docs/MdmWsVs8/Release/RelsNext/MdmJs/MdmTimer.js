@@ -182,7 +182,7 @@ function TimerMoveStepDo(timerItemKeyPassed) {
     ////////////////////////////////////////////////
     // Set Style Left for menu image box
     timerObj[timerItemKeyPassed].timerStepCurr += 1;
-    if (timerObj[timerItemKeyPassed].timerStepCurr = 1) {
+    if (timerObj[timerItemKeyPassed].timerStepCurr == 1) {
         tempMoveInProgress = false;
     }
     //
@@ -340,6 +340,7 @@ function TimerMoveStepDo(timerItemKeyPassed) {
 ////////////////////////////////////////////////
 // Included a setTimeout in BODY onload to delay start of text movement.
 function TimerStartFunc(timerItemKeyPassed, timerFunctionPassed, timerDelayPassed) {
+    // Execute Function after Delay
     script_state = "MdmTimer:TimerStart";
     timerTen = 0;
     timerStarted = true;
@@ -527,8 +528,8 @@ function TimerCreate() {
         timerObj = new Array(bodyMenuGroupUsedCn);
         for (timerGroupCn = 0; timerGroupCn < 1 + bodyMenuGroupUsedCn; timerGroupCn++) {
             timerObj[timerGroupCn] = new Array(imgMaxByGroup[timerGroupCn]);
-            for (timerGroupObjectCn = 0; timerGroupObjectCn < 1 + imgMaxByGroup[timerGroupCn]; timerGroupObjectCn++) {
-                timerObj[timerGroupCn][timerGroupObjectCn] = new Object;
+            for (timerGroupItemCn = 0; timerGroupItemCn < 1 + imgMaxByGroup[timerGroupCn]; timerGroupItemCn++) {
+                timerObj[timerGroupCn][timerGroupItemCn] = new Object;
             }
         }
     } else { timerObj = new Array(); }
@@ -812,7 +813,7 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
                     }
                     if (debugFunctionIsOn) {
                         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                            TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem,
+                            TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
                                 (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
                                 timerObj[timerItemKey].playDirection, 'Timer Pending')
                             + ', Timer Delayed Start '
@@ -843,7 +844,7 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
         //
         if (debugFunctionIsOn) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Timer Running')
                 + ', Already running'
                 + '.',
@@ -891,7 +892,8 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
         //
         if (debugFunctionIsOn) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, timerObj[timerItemKey].playDirection, 'Interval Started')
+                TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, timerObj[timerItemKey].playDirection, 'Interval Started')
+                + ', Timer set delayed start done'
                 + '.',
                 'MdmTimer:TimerSet', 921, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
@@ -905,7 +907,7 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
         //
         if (debugFunctionIsOn) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Interval Running')
                 + ', Items:' + timerObj[timerRootKey].timerInstance
                 + ', Already running, delayed start not done'
@@ -922,21 +924,21 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
 //
 // ..................................................................................... _//
 // ...................................... //
-function TimerLogText(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
-    script_state = "MdmTimer:TimerLogText";
+function TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
+    script_state = "MdmTimer:TimerTextLog";
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var DoUseWord = true;
     var LogText = '';
-    LogText += TimerTypeText(oObjNext, timerType, DoUseWord);
-    LogText += ', ' + TimerIntervalText(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey);
-    LogText += ', ' + TimerActionText(oObjNext, timerAction);
-    LogText += ', ' + TimerKeyText(oObjNext, timerType, timerGroup, timerGroupItem);
-    LogText += ', ' + TimerDirectionText(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction);
+    LogText += TimerTextType(oObjNext, timerType, DoUseWord);
+    LogText += ', ' + TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey);
+    LogText += ', ' + TimerTextAction(oObjNext, timerAction);
+    LogText += ', ' + TimerTextKey(oObjNext, timerType, timerGroup, timerGroupItem);
+    LogText += ', ' + TimerTextDirection(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction);
     return LogText;
 }
-function TimerDirectionText(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
-    script_state = "MdmTimer:TimerDirectionText";
+function TimerTextDirection(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
+    script_state = "MdmTimer:TimerTextDirection";
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var LogText = '';
@@ -956,18 +958,18 @@ function TimerDirectionText(oObjNext, timerType, timerGroup, timerGroupItem, Use
     } else { LogText += 'Item Direction undefined'; }
     return LogText;
 }
-function TimerActionText(oObjNext, timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substring(0, 25); }
-function TimerTypeText(oObjNext, timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substring(0, 10)); }
-function TimerKeyText(oObjNext, timerType, timerGroup, timerGroupItem) {
+function TimerTextAction(oObjNext, timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substring(0, 25); }
+function TimerTextType(oObjNext, timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substring(0, 10)); }
+function TimerTextKey(oObjNext, timerType, timerGroup, timerGroupItem) {
     var tmp = 'Object: (';
     if (oObjNext && oObjNext.id && oObjNext.id.length) {
         tmp += oObjNext.id + ', ';
     }
-    tmp += (TimerTypeText(oObjNext, timerType, false));
+    tmp += (TimerTextType(oObjNext, timerType, false));
     tmp += ', ' + timerGroup + ', ' + timerGroupItem + ')';
     return tmp;
 }
-function TimerIntervalText(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey) {
+function TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey) {
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     // var tempString = new String();
@@ -993,8 +995,8 @@ function TimerIntervalText(oObjNext, timerType, timerGroup, timerGroupItem, UseR
     return 'Timer (' + ((tempInterval).toString()).substring(1, 5) + ')';
 }
 
-function TimerRootKeyText(oObjNext, timerType, timerGroup, timerGroupItem) {
-    script_state = "MdmTimer:TimerRootKeyText";
+function TimerTextRootKey(oObjNext, timerType, timerGroup, timerGroupItem) {
+    script_state = "MdmTimer:TimerTextRootKey";
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var timerGroupItemCurr;
     var timerGroupItemCnMax = timerObj.length;

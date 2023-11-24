@@ -109,21 +109,24 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	// ...................................... //
 	if (oObjValid) {
 		oObj = ElementGetRef(oObj, oObjId, oObjId);
-		if (!oObj) { oObjValid = false;}
-		oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
-		// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-		// oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
-		if (!oObjParent) {
-	        oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+		if (!oObj) { oObjValid = false; } else {
+			oObjNotFound = false;
+			oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+			// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
+			// oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
+			if (!oObjParent) {
+				oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+			}
+			if (!oObjParent) { oObjValid = false; }
+			// oObjImage = ElementGetRef(oObjImage, oObjId, oObjId);
+			oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
+			oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
+			oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
+			oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
 		}
-		if (!oObjParent) { oObjValid = false; }
-		// oObjImage = ElementGetRef(oObjImage, oObjId, oObjId);
-		oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
-		oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
-		oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
-		oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
 	}
 	if (!oObjValid) {
+		oObjNotFound = true;
 		// todo error
 		debugger;
 		oObj = null;

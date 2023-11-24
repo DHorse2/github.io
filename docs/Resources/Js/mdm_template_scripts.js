@@ -1602,7 +1602,7 @@ function fnTimerStart(timerType, timerGroup, timerGroupItem,
                     //
                     if (debugFunctionIsOn) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-								fnTimerLogText(null, timerType, timerGroup, timerGroupItem,
+								fnTimerTextLog(null, timerType, timerGroup, timerGroupItem,
 									(timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
 									timerObj[timerGroup] [timerItemKey].playDirection, 'Timer Pending')
                                 + ', Timer Delayed Start '
@@ -1635,7 +1635,7 @@ function fnTimerStart(timerType, timerGroup, timerGroupItem,
 	    //
 		if (debugFunctionIsOn) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Timer Running')
 					+ ', Already running'
 					+ '.',
@@ -1683,7 +1683,7 @@ function fnTimerSet(timerType, timerGroup, timerGroupItem,
         //
         if (debugFunctionIsOn) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, timerObj[timerGroup] [timerItemKey].playDirection, 'Interval Started')
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, timerObj[timerGroup] [timerItemKey].playDirection, 'Interval Started')
 					+ '.',
 					'fnTimerSet', 4633, null, null,
 					errorComment, errorDoNotDisplayTag, DoNotUseAlert);
@@ -1697,7 +1697,7 @@ function fnTimerSet(timerType, timerGroup, timerGroupItem,
 	    //
         if (debugFunctionIsOn) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Interval Running')
 					+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
 					+ ', Already running, delayed start not done'
@@ -1758,7 +1758,7 @@ function fnTimerStartFilter(playDirection,
         if (UseLogTimer && UseLogTimerTransition) {
 			// && UseLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Item Add')
                     + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
                     + ', Item added to group'
@@ -1775,7 +1775,7 @@ function fnTimerStartFilter(playDirection,
         if (UseLogTimer && UseLogTimerTransition) {
 			// && UseLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerRootKey].playDirection, 'Timing DoStep')
                     + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
                     + ', Already running, perform single step'
@@ -1798,7 +1798,7 @@ function fnTimerStartFilter(playDirection,
     // ...................................... //
     if (UseLogTimer && UseLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Timer Start')
 					+ ', Timer Start command being issued now'
 					+ '.',
@@ -1858,7 +1858,7 @@ function fnTimerStartMove(playDirection,
         if (UseLogTimer && UseLogTimerMove) {
 			// && UseLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Item Add')
                     + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
                     + ', Item added to group'
@@ -1875,7 +1875,7 @@ function fnTimerStartMove(playDirection,
         if (UseLogTimer && UseLogTimerMove) {
 			// && UseLogTimerDetail
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Timing DoStep')
                     + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
                     + ', Already running, perform single step'
@@ -1947,7 +1947,7 @@ function fnTimerStartMove(playDirection,
     // ...................................... //
     if (UseLogTimer && UseLogTimerMove) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
                 + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
                 + ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
                 + ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )'
@@ -1983,7 +1983,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem)
 	//
     if (UseLogTimer && UseLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-			fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
+			fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
             + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
             + ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
             + ', Time:' + Date()
@@ -2007,7 +2007,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem)
 	//
     if ( timerObj[timerGroup] [timerRootKey].timerStepCurr > timerObj[timerGroup] [timerRootKey].timerStepMax)  {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
-			fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group Step Max')
+			fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group Step Max')
             + ', Transition Group Timer Maximum (' + timerObj[timerGroup] [timerRootKey].timerStepMax
             + ') number of interval steps (' + timerObj[timerGroup] [timerRootKey].timerStepCurr
             + ') exceeded'
@@ -2038,7 +2038,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem)
         //
         if (UseLogTimer && UseLogTimerTransition) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 					timerObj[timerGroup] [timerRootKey].playDirection, 'Group Stop Timer')
                     + ', Interval Stopped'
 					+ ', Stopping Group Timer'
@@ -2050,7 +2050,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem)
 	//
     if (UseLogTimer && UseLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-			fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+			fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 			timerObj[timerGroup] [timerRootKey].playDirection, 'Group Out')
             + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
             + ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
@@ -2062,7 +2062,7 @@ function fnTimerGroupDoStepFilter(timerType, timerGroup, timerGroupItem)
         //
         if (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerGroup] [timerRootKey].playDirection, 'Group End')
                 + ', Finished Group'
 				+ '.',
@@ -2092,9 +2092,9 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerGroupItem)
     if (!timerObj[timerGroup] [timerItemKey]) {
         errorLogLine = 'Invalid Timer Object Error!';
 	    errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += fnTimerKeyText(timerType, timerGroup, timerGroupItem);
+        errorLogLine += fnTimerTextKey(timerType, timerGroup, timerGroupItem);
 	    errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += fnTimerRootKeyText(timerType, timerGroup, timerGroupItem);
+        errorLogLine += fnTimerTextRootKey(timerType, timerGroup, timerGroupItem);
         fnWindowError(errorLogLine, 'fnTimerItemDoStepFilter', 4257);
     }
     //
@@ -2131,7 +2131,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerGroupItem)
     // Stop if maximum # of steps exceeded
     if ( timerObj[timerGroup] [timerItemKey].timerStepCurr > timerObj[timerGroup] [timerItemKey].timerStepMax)  {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
 				+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
 				+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
@@ -2169,7 +2169,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerGroupItem)
           	//
             if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
 					+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
 					+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
@@ -2221,7 +2221,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerGroupItem)
         //
         if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
 				+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
 				+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
@@ -2234,7 +2234,7 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerGroupItem)
 	} else {
         if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'SkipItem')
 				+ ', At: ( t' + timerObj[timerGroup] [timerItemKey].oObj.style.top
 				+ ', l' + timerObj[timerGroup] [timerItemKey].oObj.style.left
@@ -2266,7 +2266,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerGroupItem)
     //
     if (UseLogTimer && UseLogTimerMove) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-			fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+			fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 			timerObj[timerGroup] [timerItemKey].playDirection, 'Group In')
             + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
             + ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
@@ -2291,7 +2291,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerGroupItem)
 	//
     if ( timerObj[timerGroup] [timerRootKey].timerStepCurr > timerObj[timerGroup] [timerRootKey].timerStepMax)  {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerGroup] [timerRootKey].playDirection, 'Group Step Max')
                 + 'Move.. Group Timer Maximum (' + timerObj[timerGroup] [timerRootKey].timerStepMax
                 + ') number of interval steps (' + timerObj[timerGroup] [timerRootKey].timerStepCurr
@@ -2320,7 +2320,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerGroupItem)
         //
         if (UseLogTimer && UseLogTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerGroup] [timerRootKey].playDirection, 'Group Stop Timer')
 				+ ', Stopping Group Timer'
 				+ '.',
@@ -2331,7 +2331,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerGroupItem)
 	//
     if (UseLogTimer && UseLogTimerMove) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-			fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+			fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 			timerObj[timerGroup] [timerRootKey].playDirection, 'Group Out')
             + ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
             + ', Step:' + timerObj[timerGroup] [timerRootKey].timerStepCurr
@@ -2343,7 +2343,7 @@ function fnTimerGroupDoStepMove(timerType, timerGroup, timerGroupItem)
         //
 	    if (!timerIsActive && timerObj[timerGroup] [timerRootKey].timerInstance < 1) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoUseRoot,
 				timerObj[timerGroup] [timerRootKey].playDirection, 'End')
                 + ', Finished Group'
 				+ '.',
@@ -2386,9 +2386,9 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
     if (!timerObj[timerGroup] [timerItemKey]) {
         var errorLogLine = 'Invalid Timer Object Error!';
 	    errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += fnTimerKeyText(timerType, timerGroup, timerGroupItem);
+        errorLogLine += fnTimerTextKey(timerType, timerGroup, timerGroupItem);
 	    errorLogLine += charNewLineTag + charTextIndex;
-        errorLogLine += fnTimerRootKeyText(timerType, timerGroup, timerGroupItem);
+        errorLogLine += fnTimerTextRootKey(timerType, timerGroup, timerGroupItem);
         fnWindowError(errorLogLine, 'fnTimerItemDoStepFilter', 4258);
     }
 	// ...................................... //
@@ -2451,7 +2451,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
 	// increment vertical step
     if ( timerObj[timerGroup] [timerItemKey].elMoveStepTop > timerObj[timerGroup] [timerItemKey].timerStepMax)  {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
 				+ ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
                 + '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
@@ -2469,7 +2469,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
 	/*
     if ( timerObj[timerGroup] [timerItemKey].elMoveStepLeft > timerObj[timerGroup] [timerItemKey].timerStepMax) {
         ConsoleMessageLog(DoNotUseDebug, DoNotUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'StepStopItem')
 				+ ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
                 + '.  Move.. Maximum (' + timerObj[timerGroup] [timerItemKey].timerStepMax
@@ -2645,7 +2645,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
           	//
             if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 					timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
 					+ tempDetails
 					+ ', Stopping Item Timer'
@@ -2682,7 +2682,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
 		//
         if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'Stop')
 				+ tempDetails
                 + ', Item Interval Timer Stopped'
@@ -2693,7 +2693,7 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
 	} else {
         if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
 				timerObj[timerGroup] [timerItemKey].playDirection, 'Item')
 				+ tempDetails
 				+ ', Elapsed:' + timerObj[timerGroup] [timerItemKey].timerElapsed / 1000
@@ -2805,23 +2805,23 @@ function fnTimerMoveTest(timerType, timerGroup, timerGroupItem)
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerLogText(temp, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction)
+function fnTimerTextLog(temp, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction)
  {
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
 	var DoUseWord = true;
 	var LogText = '';
-	LogText += 		fnTimerTypeText(timerType, DoUseWord);
-	LogText += ', ' + fnTimerIntervalText(timerType, timerGroup, timerGroupItem, UseRootKey);
-	LogText += ', ' + fnTimerActionText(timerAction);
-	LogText += ', ' + fnTimerKeyText(timerType, timerGroup, timerGroupItem);
-	LogText += ', ' + fnTimerDirectionText(timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction);
+	LogText += 		fnTimerTextType(timerType, DoUseWord);
+	LogText += ', ' + fnTimerTextInterval(timerType, timerGroup, timerGroupItem, UseRootKey);
+	LogText += ', ' + fnTimerTextAction(timerAction);
+	LogText += ', ' + fnTimerTextKey(timerType, timerGroup, timerGroupItem);
+	LogText += ', ' + fnTimerTextDirection(timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction);
 	return LogText;
 }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerDirectionText(timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction)
+function fnTimerTextDirection(timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction)
 {
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
@@ -2845,22 +2845,22 @@ function fnTimerDirectionText(timerType, timerGroup, timerGroupItem, UseRootKey,
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerActionText(timerAction)
+function fnTimerTextAction(timerAction)
 { return ('Action: ' + (timerAction + ':' + '.........................')).substring(0, 25); }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerTypeText(timerType, UseWord)
+function fnTimerTextType(timerType, UseWord)
 { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substring(0, 10)); }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerKeyText(timerType, timerGroup, timerGroupItem)
-{ return 'Object: (' + (fnTimerTypeText(timerType, false)) + ', ' + timerGroup + ', ' + timerGroupItem + ')'; }
+function fnTimerTextKey(timerType, timerGroup, timerGroupItem)
+{ return 'Object: (' + (fnTimerTextType(timerType, false)) + ', ' + timerGroup + ', ' + timerGroupItem + ')'; }
 //
 // ..................................................................................... _//
 // ...................................... //
-function fnTimerIntervalText(timerType, timerGroup, timerGroupItem, UseRootKey)
+function fnTimerTextInterval(timerType, timerGroup, timerGroupItem, UseRootKey)
  {
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
@@ -2886,7 +2886,7 @@ function fnTimerIntervalText(timerType, timerGroup, timerGroupItem, UseRootKey)
 	tempString = 'Timer (' + tempString + ')';
 	return 'Timer (' + ((tempInterval).toString()).substring(1, 5) + ')';
 }
-function fnTimerIntervalTextOld(timerType, timerGroup, timerGroupItem, UseRootKey)
+function fnTimerTextIntervalOld(timerType, timerGroup, timerGroupItem, UseRootKey)
  {
     if (UseRootKey) {
 		if (timerObj[timerGroup] [timerRootKey]) {
@@ -7571,7 +7571,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     //
     if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
                 + ', Play command requested'
 				+ '.',
                 'fnElementPlay', 3819, null, null,
@@ -7588,7 +7588,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// playDirection is different (while running)
 				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-							fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+							fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
 							+ ', Already running, deactivating'
 							+ '.',
@@ -7601,7 +7601,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// playDirection the same (while running)
 				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-							fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+							fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
 							+ ', Already running, performing a Transition step instead'
 							+ '.',
@@ -7626,7 +7626,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsDisplayed)  {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-							fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+							fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
 							+ ', Item is already displayed'
 							+ '.',
@@ -7642,7 +7642,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsNotDisplayed)  {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-								fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 								+ ', Play Reverse command NOT issued'
 								+ ', Item is already hidden'
 								+ '.',
@@ -7670,7 +7670,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// playDirection is different (while running)
 				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-							fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+							fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
 							+ ', Already running, deactivating'
 							+ '.',
@@ -7683,7 +7683,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				// playDirection the same (while running)
 				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-							fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+							fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 							+ ', Items:' + timerObj[timerGroup] [timerRootKey].timerInstance
 							+ ', Already running, performing a Move step instead'
 							+ '.',
@@ -7708,7 +7708,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsDisplayed)  {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-								fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 								+ ', Play Forward command NOT issued'
 								+ ', Item is already displayed...',
 								'fnElementPlay', 3956, null, null,
@@ -7723,7 +7723,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsNotDisplayed)  {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-								fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 								+ ', Play Reverse command NOT issued'
 								+ ', Item is already hidden...',
 								'fnElementPlay', 3971, null, null,
@@ -7785,7 +7785,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 	//
 	if (UseLogTimer && UseLogTimerMove) {
 		ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
+				fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 				+ ', Item orgin and destination set'
                 + ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
                 + ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
@@ -7811,7 +7811,7 @@ function fnElementPlay(playDirection, IsImageLarge,
         //
         if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
                     + ', Filter Get command issued'
 					+ '.',
                     'fnElementPlay', 4055, null, null,
@@ -7841,7 +7841,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 		// if (filterObj[filterIdPassed].filterDoEnable) {
             if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-						fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
+						fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
 						+ ', Filter Enable command issued'
 						+ '.',
                         'fnElementPlay', 4085, null, null,
@@ -7860,7 +7860,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 		// if (filterObj[filterIdPassed].filterDoApply) {
             if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-						fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
+						fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
 						+ ', Filter Apply command issued'
 						+ '.',
                         'fnElementPlay', 4104, null, null,
@@ -7875,7 +7875,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     	//
         if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 					+ ', Filter Start command issued'
 					+ '.',
                     'fnElementPlay', 4119, null, null,
@@ -7891,7 +7891,7 @@ function fnElementPlay(playDirection, IsImageLarge,
 		// if (filterObj[filterIdPassed].filterDoPlay) {
             if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-						fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
+						fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
                         + ', Filter Vendor Play command issued'
 						+ '.',
                         'fnElementPlay', 4135, null, null,
@@ -7930,7 +7930,7 @@ function fnElementPlay(playDirection, IsImageLarge,
         //
         if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
             ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-					fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
+					fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
                     + ', Move Start command issued'
 					+ '.',
                     'fnElementPlay', 4174, null, null,
@@ -7950,7 +7950,7 @@ function fnElementPlay(playDirection, IsImageLarge,
             //
             if (UseLogTimer && UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition)) {
                 ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-						fnTimerLogText(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
+						fnTimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
                         + ', Resize command issued'
 						+ '.',
                         'fnElementPlay', 4194, null, null,
@@ -8208,7 +8208,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 		//
 		if (UseLogTimer && UseLogTimerTransition) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerKeyText('Show', oObjGroupIndex, oObjIndex)
+				fnTimerTextKey('Show', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
 				+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 				+ ', Time:' + Date()
@@ -8664,7 +8664,7 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] [IsImageLarge] == true)  {
 		if (UseLogTimer && UseLogTimerTransition) {
 			ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-				fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
+				fnTimerTextKey('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
 				+ ', Do not hide locked item'
 				+ ', Time:' + Date()
@@ -8677,7 +8677,7 @@ function fnElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 	//
     if (UseLogTimer && UseLogTimerTransition) {
         ConsoleMessageLog(DoNotUseDebug, DoUseSingleLine,
-			fnTimerKeyText('Hide', oObjGroupIndex, oObjIndex)
+			fnTimerTextKey('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
 			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
             + ', Time:' + Date()

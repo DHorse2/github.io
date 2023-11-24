@@ -67,17 +67,17 @@ consoleBoxButton = false;
 // consoleToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleError':
-consoleErrorBoxButton = false;
+consoleErrorBoxButton = true;
 // consoleErrorBox.style.display = 'block';
 // consoleErrorToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleEvent':
-consoleEventBoxButton = false;
+consoleEventBoxButton = true;
 // consoleEventBox.style.display = 'block';
 // consoleEventToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleState':
-consoleStateBoxButton = false;
+consoleStateBoxButton = true;
 // consoleStateBox.style.display = 'block';
 // consoleStateToggle.style.borderColor = buttonIsOnColor;
 

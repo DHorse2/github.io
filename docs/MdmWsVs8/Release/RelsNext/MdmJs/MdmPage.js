@@ -232,21 +232,48 @@ function ElementObjectBlockCount() {
 }
 // Create all Elements used in Layout
 function ElementObjectContainerCreate() {
+	script_state = "MdmPage:ElementObjectContainerCreate.";
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
-	body = ElementGetRef(body, 'BodyBox', 'BodyBox');
-	bodyMainContainer = ElementGetRef(bodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
-	// Body Center Area References
-	bodyMainCenter = ElementGetRef(bodyMainCenter, 'BodyMainCenter', 'BodyMainCenter');
-	// Body Left Area Copy
-	bodyMainLeft = ElementGetRef(bodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
-	// Body Right Area Copy
-	bodyMainRight = ElementGetRef(bodyMainRight, 'BodyMainRight', 'BodyMainRight');
-	//
-	bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
-	//
-	// layoutBodyColumnType1 = ElementGetRef(layoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
+	try {
+		body = ElementGetRef(body, 'BodyBox', 'BodyBox');
+		bodyMainContainer = ElementGetRef(bodyMainContainer, 'BodyMainContainer', 'BodyMainContainer');
+		// Body Center Area References
+		bodyMainCenter = ElementGetRef(bodyMainCenter, 'BodyMainCenter', 'BodyMainCenter');
+		// Body Left Area Copy
+		bodyMainLeft = ElementGetRef(bodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
+		// Body Right Area Copy
+		bodyMainRight = ElementGetRef(bodyMainRight, 'BodyMainRight', 'BodyMainRight');
+		//
+		bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
+		//
+		// layoutBodyColumnType1 = ElementGetRef(layoutBodyColumnType1,'layoutBodyColumnType1','layoutBodyColumnType1');
+		//............................................................---//
+		script_state = "MdmPage:ElementObjectContainerCreate completed.";
+
+	} catch (elementObjectCreateErr) {
+		// Errors:
+		// ...................................... //
+		ErrorCaught(elementObjectCreateErr, script_state, errorIsSevere);
+		// script_state = "Form sync: aborted with an error";
+	} finally {
+		// ...................................... //
+		try {
+			if ((UseLog || UseDebug)
+				&& UseLogConsole) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					'Page Main Element Object creation completed.',
+					script_state, 1211, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+			}
+			//
+		} catch (elementObjectCreateErr) {
+			script_state = "Logging is offline";
+			ErrorCaught(elementObjectCreateErr, script_state, errorIsSevere);
+			script_state = "'Page Main Element Object creation aborted with an error";
+		}
+	}
 }
 
 // Create all Elements used in Layout
@@ -312,21 +339,20 @@ function ElementObjectCreate() {
 		//
 		bodyMainCenterTopColBreak = ElementGetRef(bodyMainCenterTopColBreak, 'BodyMainCenterTopColBreak', 'BodyMainCenterTopColBreak');
 		//
-		bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter,'BodyMainCenterCenter','BodyMainCenterCenter');
+		bodyMainCenterCenter = ElementGetRef(bodyMainCenterCenter, 'BodyMainCenterCenter', 'BodyMainCenterCenter');
 		//
 		bodyMainCenterBottom = ElementGetRef(bodyMainCenterBottom, 'BodyMainCenterBottom', 'BodyMainCenterBottom');
 
-		// bodyViewToggle View Toggle and Message Area
+		// Toggle buttons
 		//............................................................---//
 		bodyViewToggleContainerLeft = ElementGetRef(bodyViewToggleContainer, 'BodyViewToggleContainerLeft', 'BodyViewToggleContainerLeft');
 		bodyViewToggleContainer = ElementCopy(false, "", null, bodyViewToggleContainer, bodyViewToggleContainerLeft, 'block');
-		// Toggle buttons
 		ElementObjectToggleCreate(false, "", bodyViewToggleContainerLeft);
 
 		// Body Left Area Copy
 		//............................................................---//
 		// bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');// createElement
-		bodyMainLeft = ElementGetRef(bodyMainLeft,'BodyMainLeft','BodyMainLeft');
+		bodyMainLeft = ElementGetRef(bodyMainLeft, 'BodyMainLeft', 'BodyMainLeft');
 		bodyMainLeftCopy = ElementCopy(false, "", bodyMainLeftCopy, bodyMainLeftFirst, bodyMainLeft, 'block');
 		bodyMainLeftCurr = ElementCopy(false, "", bodyMainLeftCurr, bodyMainLeftFirst, bodyMainLeft, 'block');
 		bodyMainLeftOrig = ElementCopy(false, "", bodyMainLeftOrig, bodyMainLeftFirst, bodyMainLeft, 'block');
@@ -369,7 +395,7 @@ function ElementObjectCreate() {
 		//............................................................---//
 		// Body Right Area Copy
 		//............................................................---//
-		bodyMainRight = ElementGetRef(bodyMainRight,'BodyMainRight','BodyMainRight');
+		bodyMainRight = ElementGetRef(bodyMainRight, 'BodyMainRight', 'BodyMainRight');
 		bodyMainRightCopy = ElementCopy(false, "", bodyMainRightCopy, bodyMainRightFirst, bodyMainRight, 'block');
 		bodyMainRightCurr = ElementCopy(false, "", bodyMainRightCurr, bodyMainRightFirst, bodyMainRight, 'block');
 		bodyMainRightOrig = ElementCopy(false, "", bodyMainRightOrig, bodyMainRightFirst, bodyMainRight, 'block');
@@ -427,11 +453,11 @@ function ElementObjectCreate() {
 			if ((UseLog || UseDebug)
 				&& UseLogConsole) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				'Form Element Object creation completed.',
-				script_state, 1211, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-		}
-		//
+					'Form Element Object creation completed.',
+					script_state, 1211, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+			}
+			//
 		} catch (elementObjectCreateErr) {
 			script_state = "Logging is offline";
 			ErrorCaught(elementObjectCreateErr, script_state, errorIsSevere);

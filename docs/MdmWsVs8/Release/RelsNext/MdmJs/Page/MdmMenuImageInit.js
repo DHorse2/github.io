@@ -25,30 +25,30 @@ var imgGroupBoxCount;
 // Image Object Array
 // var menuImage = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 //
-var imgGroupCnStart;
-var imgGroupCnEnd;
+var imgGroupCnStart = 0;
+var imgGroupCnEnd = 0;
 
 // Current Image Position
-var oObjNextTop;
-var oObjNextLeft;
+var oObjNextTop = 0;
+var oObjNextLeft = 0;
 // Current Image Position Offset
-var oObjNextOffsetTop;
-var oObjNextOffsetLeft;
+var oObjNextOffsetTop = 0;
+var oObjNextOffsetLeft = 0;
 // Image Postioning Offsets
 // These are layout postion patterns to be applied
 // Menu Images (by Groups) - Image Object Array
 ////////////////////////////////////////////////
-var menuImageTimerCn;
+var menuImageTimerCn = 0;
 // ...................................... //
 // Image Postioning Offsets - Large
-var menuImageOffsetLeftLarge;
-var menuImageOffsetTopLarge;
+var menuImageOffsetLeftLarge = 0;
+var menuImageOffsetTopLarge = 0;
 //
 // ...................................... //
 // Image Postioning Offsets - Small
 // These are layout postion patterns to be applied
-var menuImageOffsetLeftAll;
-var menuImageOffsetTopAll;
+var menuImageOffsetLeftAll = 0;
+var menuImageOffsetTopAll = 0;
 // ...................................... //
 // SectionBlock Heading Image Group
 // ...................................... //

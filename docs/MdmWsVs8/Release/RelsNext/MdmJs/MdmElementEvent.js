@@ -121,7 +121,11 @@ function ElementEventClick(menuImage) {
 }
 // Mouse Element Event Mouse
 // ...................................... //
+var eventTextColor;
+var eventTextColorBg;
 function ElementEventMouse(e) {
+	script_state += ":Mouse";
+
 	if (!imgLoadUseEventHandler && !imgLoadEventTest) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'You have conflicting event handling options...',
@@ -136,17 +140,19 @@ function ElementEventMouse(e) {
 	//
 	ElementItemIndexSetFromObj(eventCurrRootObj);
 	//
+	script_state += ":" + eventType + ' (' + oObjGroupIndex + ', ' + oObjIndex + ')';
+	eventTextColor = 'black';
+	eventTextColorBg = 'light gray';
+	//
 	if (!oObjNotFound) {
 		// Object found
 		ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
-		//
-		var eventTextColor = 'black';
-		var eventTextColorBg = 'white';
 		//
 		// ...................................... //
 		var HideImage = false;
 		var HideImageLarge = false;
 		var NextIsImageLarge = IsImageLarge;
+		eventTextColorBg = 'white';
 		//
 		if (eventType == 'mousedown') { NextIsImageLarge = IsLarge; }
 		if (IsImageLarge) {

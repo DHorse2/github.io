@@ -137,7 +137,7 @@
 									class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 									<div id="BodyConsoleMouseOverToggle"
 										class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
-										onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver');">
+										onmousedown="ConsoleToggle(false, null, true, 'ConsoleMouseOver');">
 										MoOv
 										<span class="tooltipText tooltipBottom">
 											Toggles image Animation.
@@ -153,7 +153,7 @@
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyConsoleToggle"
 											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleAll');">
 											C
 											<span class="tooltipText tooltipBottom">
 												You can hide or show the console using this button.
@@ -161,7 +161,7 @@
 											</div>
 										<div id="BodyConsoleErrorToggle"
 											class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleError');">
 											e
 											<span class="tooltipText tooltipBottom">
 												Shows or hides the Error and Logging Messages Window.
@@ -169,7 +169,7 @@
 										</div>
 										<div id="BodyConsoleEventToggle"
 											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleEvent');">
 											v
 											<span class="tooltipText tooltipBottom">
 												Shows or hides the Mouse Event Messages Window.
@@ -177,7 +177,7 @@
 										</div>
 										<div id="BodyConsoleStateToggle"
 											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleState');">
 											s
 											<span class="tooltipText tooltipBottom">
 												Shows or hides the State Management Window.
@@ -189,7 +189,7 @@
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleTestToggle"
 												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleTest');">
 												T
 												<span class="tooltipText tooltipBottom">
 													Test the debug console message, error and type handling.
@@ -198,7 +198,7 @@
 												</div>
 											<div id="BodyConsoleClearToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleClear');">
 												c
 												<span class="tooltipText tooltipBottom">
 													Clicking this button clears the messages from the display console.
@@ -215,7 +215,7 @@
 										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 										<div id="BodyConsoleDebugToggle"
 											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebug');">
 											D
 											<span class="tooltipText tooltipBottom">
 												You can turn all of the debug features on or off using this button.
@@ -223,7 +223,7 @@
 										</div>
 										<div id="BodyConsoleDebugOnErrorToggle"
 											class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugOnError');">
 											o
 											<span class="tooltipText tooltipBottom">
 												Enter the debuger after any ERROR.
@@ -231,7 +231,7 @@
 										</div>
 										<div id="BodyConsoleDebugAllToggle"
 											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll');">
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAll');">
 											a
 											<span class="tooltipText tooltipBottom">
 												Enter the debuger after any MESSAGE.
@@ -242,7 +242,7 @@
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
 											<div id="BodyConsoleDebugMoveToggle"
 												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugMove');">
 												m
 												<span class="tooltipText tooltipBottom">
 													Generates trace and debug messages for any animated move.
@@ -250,7 +250,7 @@
 												</div>
 											<div id="BodyConsoleDebugTransitionToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugTransition');">
 												t
 												<span class="tooltipText tooltipBottom">
 													Generates trace and debug messages for the transition effects.
@@ -258,7 +258,7 @@
 												</div>
 											<div id="BodyConsoleDebugDetailToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugDetail');">
 												d
 												<span class="tooltipText tooltipBottom">
 													Outputs detailed verbose messages rather than summary tracing.
@@ -268,7 +268,7 @@
 												</div>
 											<div id="BodyConsoleDebugEventsToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugEvents');">
 												v
 												<span class="tooltipText tooltipBottom">
 													Generates trace and debug messages for (mouse) events.
@@ -276,7 +276,7 @@
 												</div>
 											<div id="BodyConsoleDebugHoverToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugHover');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugHover');">
 												h
 												<span class="tooltipText tooltipBottom">
 													Highlights page elements by type.

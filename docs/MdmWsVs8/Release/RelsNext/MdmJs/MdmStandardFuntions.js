@@ -66,6 +66,7 @@ var DoUseFileNameByLine = 4;
 // Social media, logs, database info, and so on.
 var UseLogOrder = DoUseAscendingDate;
 // todo a button on each view to toggle it
+var UseLogScroll = true;
 var UseLogScrollError = true;
 var UseLogScrollEvent = true;
 

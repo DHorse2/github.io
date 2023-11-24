@@ -446,7 +446,9 @@ function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObj
     //  alert(oObj.name);
     //	oObj.class= "MenuThumbHide";
     //
+    script_state += ":Hide:" + oObjNext.id;
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+
     var oObjNextIndex = oObjIndex = oObjGroupItemIndex;
     // MenuIndexGroupSet(oObjNextGroupIndex, oObjNext);
     // oObj = MenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
@@ -577,6 +579,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     //
     oObjIndex = oObjGroupItemIndex;
     LastTouchedId = oObjNext.id;
+    script_state += ":Show:" + oObjNext.id;
     //
     // DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
     //

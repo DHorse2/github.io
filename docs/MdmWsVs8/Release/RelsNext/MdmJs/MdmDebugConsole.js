@@ -65,7 +65,7 @@ var consoleDebugHoverToggle;
 // Body ViewToggle - Console
 // ..................................................................................... _//
 var BodyConsoleBoxButtons = true;
-function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, ConsoleBlockPassed) {
+function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, ConsoleToggleNamePassed) {
 	var checkBoxSize = false;
 	var checkNoVisibleDebug = false;
 	var checkNoVisibleConsole = false;
@@ -74,13 +74,13 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 	var checkLogModeSeeErrors = false;
 	var consoleToggleResult = null;
 	//
-	script_state = 'Toggle is ' + DoTogglePassed + ' for ' + ConsoleBlockPassed + '.';
+	script_state = 'Toggle is ' + DoTogglePassed + ' for ' + ConsoleToggleNamePassed + '.';
 	try {
 		// Body Element Creation
 		if (loadFirstJava) { ElementObjectCreate(); }
 		//
 		// ...................................... //
-		switch (ConsoleBlockPassed) {
+		switch (ConsoleToggleNamePassed) {
 			// ...................................... //
 			// ...................................... //
 			case 'ConsoleMouseOver':
@@ -217,14 +217,12 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 			// ...................................... //
 			case 'ConsoleTest':
 				script_state = "ConsoleToggle:ConsoleTest:" + DoTogglePassed;
-				errorMessage = '';
+				errorMessage = ''; // 8225
 				try {
 					consoleToggleResult = false;
-					if (consoleBox.style.display != 'block') {
-						consoleTestBox.style.display = 'block';
-					}
-					//
-					if (consoleTestBox.style.display != 'block') {
+					if (consoleBox.style.display != 'block'
+						|| consoleTestBox.style.display != 'block') {
+						consoleBox.style.display = 'block';
 						consoleTestBox.style.display = 'block';
 						consoleTestTextBox.style.display = 'block';
 						consoleTestToggle.style.borderColor = buttonIsOnColor;
@@ -238,7 +236,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 					errorMessage = 'This is a test Warning! message for checking the console display.';
 					MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
 						errorMessage,
-						script_state, 8225, 0, null, null,
+						script_state, 8225, 0, bodyViewToggleContainerLeft, bodyViewToggleContainerLeft,
 						errorIsWarning, errorDoDisplayTag, DoNotUseAlert);
 					errorMessage = 'This is a test comment message for checking the console display.';
 					MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
@@ -264,7 +262,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 					if (UseLog) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							'State Test completed.',
-							script_state, 1211, 0, null, null,
+							script_state, 265, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
 					//
@@ -609,7 +607,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 		// 	}
 		// 	if (consoleStateBoxButton) { ConsoleToggle(DoSetValue, null, DoUseToggle, 'ConsoleState'); }
 		// }
-		// ConsoleShowEach(DoTogglePassed, ConsoleBlockPassed, consoleToggleResult, checkNoVisibleConsole, checkNoVisibleDebug);
+		// ConsoleShowEach(DoTogglePassed, ConsoleToggleNamePassed, consoleToggleResult, checkNoVisibleConsole, checkNoVisibleDebug);
 
 	} catch (consoleToggleErr) {
 		// Errors:
@@ -624,7 +622,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 			&& UseLogConsole
 			&& UseLogDetailsAll) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				'Setting:' + ConsoleBlockPassed + ' Toggle:' + DoTogglePassed
+				'Setting:' + ConsoleToggleNamePassed + ' Toggle:' + DoTogglePassed
 				+ ' State:' + script_state
 				+ ' Resulting in ' + consoleToggleResult
 				+ ' Console Toggle done.',
@@ -636,7 +634,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 	}
 	return consoleToggleResult;
 }
-function ConsoleShowEach(DoTogglePassed, ConsoleBlockPassed, consoleToggleResult, checkNoVisibleConsole, checkNoVisibleDebug) {
+function ConsoleShowEach(DoTogglePassed, ConsoleToggleNamePassed, consoleToggleResult, checkNoVisibleConsole, checkNoVisibleDebug) {
 	//
 	// Check if any Console Box settings are on or content is visible
 	if (checkNoVisibleConsole) {
@@ -670,7 +668,7 @@ function ConsoleShowEach(DoTogglePassed, ConsoleBlockPassed, consoleToggleResult
 		}
 	}
 	//
-	switch (ConsoleBlockPassed) {
+	switch (ConsoleToggleNamePassed) {
 		case 'ConsoleAllIsOff':
 			checkBoxSize = true;
 			if (DoTogglePassed) {
@@ -1234,7 +1232,7 @@ function ConsoleToggleButtonSet() {
 
 	// case 'ConsoleDebugEvents':
 	if (UseLogEvents) {
-		consoleDebugEventsToggle.style.borderColor = buttonIsOffColor;
+		consoleDebugEventsToggle.style.borderColor = buttonIsOnColor;
 	} else {
 		consoleDebugEventsToggle.style.borderColor = buttonIsOffColor;
 	}
@@ -1320,8 +1318,9 @@ function ConsoleToggleButtonSet() {
 }
 
 function ConsoleStateTest() {
-	//
 	var testVar = 253 / 'xxx';
+	var testVar2 = bodyNothing;
+	testVar2 += 200;
 }
 //
 script_state = "MdmDebugConsole loaded";

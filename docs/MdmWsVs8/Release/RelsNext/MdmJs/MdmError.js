@@ -506,14 +506,14 @@ function ConsoleEventLog(eventCurrPassed, eventType, eventObject, eventCurrRootO
             + ' ' + eventObject.id
             + ' ' + eventCurrRootObj.id
             + ' ' + eventText;
-        eventMessage = charNoWrapTagStart + eventMessage + charNoWrapTagEnd;
+        // eventMessage = charNoWrapTagStart + eventMessage + charNoWrapTagEnd;
         //
         MessageLogAdd(consoleEventTextBox,
             UseLogLengthMax, UseLogLengthTrim, consoleEventLogScrollCn,
             eventMessage,
             tagSpan, tagSpanEnd,
             eventTextColor, eventTextColorBg,
-            false, UseLogOrder, UseLogScroll
+            1, UseLogOrder, UseLogScroll
         );
     }
     //
@@ -528,7 +528,7 @@ function MessageLogAdd(MessageTextBoxPassed,
     messagePassed,
     tagSpanPassed, tagSpanEndPassed,
     errorSeverityColorPassed, errorSeverityColorBgPassed,
-    UseNewLinePassed, UseLogOrderPassed, UseLogScrollPassed
+    AddNewLinePassed, UseLogOrderPassed, UseLogScrollPassed
 ) {
     // Message
     if (MessageTextBoxPassed) {
@@ -538,7 +538,10 @@ function MessageLogAdd(MessageTextBoxPassed,
         }
         tempInnerHTML += tagClose;
         tempInnerHTML += messagePassed;
-        if (UseNewLinePassed) { tempInnerHTML += charNewLineTag; }
+        for (ln = 1; ln < 1 + AddNewLinePassed; ln++) {
+            tempInnerHTML += charNewLineTag;
+        }
+        // if (AddNewLinePassed) { tempInnerHTML += charNewLineTag; }
         tempInnerHTML += tagSpanEndPassed;
         //
         if (UseLogOrderPassed = DoUseAscendingDate) {
@@ -741,49 +744,58 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
     // consoleErrorTextBox.innerHTML = charNewLineTag + consoleErrorTextBox.innerHTML;
     // Message
     if (consoleErrorTextBox) {
-        var tempInnerHTML = charNewLineTag + tagSpan;
-        tempInnerHTML += ' style="color:' + errorSeverityColor + '; background-color:' + errorSeverityColorBg + '"' + gt;
-        tempInnerHTML += messageFinal + charNewLineTag + tagSpanEnd;
-        //
-        if (UseLogOrder == DoUseAscendingDate) {
-            consoleErrorTextBox.innerHTML += tempInnerHTML;
-            // Trim length for memory management
-            if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
-                consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(UseLogLengthMax - UseLogLengthTrim);
-            }
-            if (UseLogScrollError) {
-                // Scroll to bottom when not in view
-                if (browserIsOld && browserIsIE) {
-                    while (consoleErrorLogScrollCn > 20) {
-                        consoleErrorTextBox.doScroll('scrollbarPageDn');
-                        consoleErrorLogScrollCn -= 20;
-                    }
-                } else {
-                    // TODO scrolling for other browsers
-                    // scrollIntoView(false);
-                    consoleErrorTextBox.scrollTo(0, consoleErrorTextBox.scrollHeight);
-                }
-            }
-        } else {
-            consoleErrorTextBox.innerHTML = tempInnerHTML + consoleErrorTextBox.innerHTML;;
-            // Trim length for memory management
-            if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
-                consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(0, UseLogLengthTrim);
-            }
-            if (UseLogScrollError) {
-                // Scroll to top when not in view
-                if (browserIsOld && browserIsIE) {
-                    while (consoleErrorLogScrollCn > 20) {
-                        consoleErrorTextBox.doScroll('scrollbarPageUp');
-                        consoleErrorLogScrollCn -= 20;
-                    }
-                } else {
-                    // TODO scrolling for other browsers
-                    // scrollIntoView(true);
-                    consoleErrorTextBox.scrollTo(0, 0);
-                }
-            }
-        }
+        // use standard text box
+        MessageLogAdd(consoleErrorTextBox,
+            UseLogLengthMax, UseLogLengthTrim, consoleErrorLogScrollCn,
+            messageFinal,
+            tagSpan, tagSpanEnd,
+            errorSeverityColor, errorSeverityColorBg,
+            true, UseLogOrder, UseLogScroll
+        );
+
+        // var tempInnerHTML = charNewLineTag + tagSpan;
+        // tempInnerHTML += ' style="color:' + errorSeverityColor + '; background-color:' + errorSeverityColorBg + '"' + gt;
+        // tempInnerHTML += messageFinal + charNewLineTag + tagSpanEnd;
+        // //
+        // if (UseLogOrder == DoUseAscendingDate) {
+        //     consoleErrorTextBox.innerHTML += tempInnerHTML;
+        //     // Trim length for memory management
+        //     if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
+        //         consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(UseLogLengthMax - UseLogLengthTrim);
+        //     }
+        //     if (UseLogScrollError) {
+        //         // Scroll to bottom when not in view
+        //         if (browserIsOld && browserIsIE) {
+        //             while (consoleErrorLogScrollCn > 20) {
+        //                 consoleErrorTextBox.doScroll('scrollbarPageDn');
+        //                 consoleErrorLogScrollCn -= 20;
+        //             }
+        //         } else {
+        //             // TODO scrolling for other browsers
+        //             // scrollIntoView(false);
+        //             consoleErrorTextBox.scrollTo(0, consoleErrorTextBox.scrollHeight);
+        //         }
+        //     }
+        // } else {
+        //     consoleErrorTextBox.innerHTML = tempInnerHTML + consoleErrorTextBox.innerHTML;;
+        //     // Trim length for memory management
+        //     if ((consoleErrorTextBox.innerHTML).length > UseLogLengthMax) {
+        //         consoleErrorTextBox.innerHTML = (consoleErrorTextBox.innerHTML).substring(0, UseLogLengthTrim);
+        //     }
+        //     if (UseLogScrollError) {
+        //         // Scroll to top when not in view
+        //         if (browserIsOld && browserIsIE) {
+        //             while (consoleErrorLogScrollCn > 20) {
+        //                 consoleErrorTextBox.doScroll('scrollbarPageUp');
+        //                 consoleErrorLogScrollCn -= 20;
+        //             }
+        //         } else {
+        //             // TODO scrolling for other browsers
+        //             // scrollIntoView(true);
+        //             consoleErrorTextBox.scrollTo(0, 0);
+        //         }
+        //     }
+        // }
     }
     // Logging and Action
     MessageLogAction(eventCurrPassed, tempPrefix + messagePassed, messageFinal,
