@@ -36,7 +36,7 @@
 /* </div>  */
 
 .tooltipTop {
-    width: 120px;
+    min-width: 120px;
     bottom: 100%;
     left: 50%;
     margin-left: -60px;
@@ -78,7 +78,7 @@
 }
 
 .tooltipLeft {
-    width: 120px;
+    min-width: 120px;
     top: -5px;
     right: 105%;
 }
@@ -96,7 +96,7 @@
 }
 
 .tooltipRight {
-    width: 120px;
+    min-width: 120px;
     top: 25px;
     left: 110%;
 }

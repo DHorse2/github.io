@@ -71,6 +71,7 @@ var layoutIndexCurrLast = layoutStandard;
 // Body Layout Font Size
 // Zoom
 function LayoutFontSize(zoomCommandPassed) {
+	script_state += ", LayoutFontSize";
 	switch (zoomCommandPassed) {
 		case 'BodyFontZoomIn':
 			break;
@@ -83,23 +84,27 @@ function LayoutFontSize(zoomCommandPassed) {
 }
 // Font Size todo buttons
 function LayoutFontSizeReset() {
+	script_state += ", LayoutFontSizeReset";
 	layoutFontRatio = 1.0;
 	LayoutFontSizeSet(layoutFontRatio);
 }
 // Font Size
 function LayoutFontSizeBigger() {
+	script_state += ", LayoutFontSizeBigger";
 	if (layoutFontRatio >= 5) { return; }
 	layoutFontRatio += 0.1;
 	LayoutFontSizeSet(layoutFontRatio);
 }
 // Font Size
 function LayoutFontSizeSmaller() {
+	script_state += ", LayoutFontSizeSmaller";
 	if (layoutFontRatio < 0.21) { return; }
 	layoutFontRatio -= 0.1;
 	LayoutFontSizeSet(layoutFontRatio);
 }
 // TagHover toggle
 function LayoutFontCssTagHoverToggle() {
+	script_state += ", LayoutFontCssTagHoverToggle";
 	var UseLogHover = !UseLogHover;
 	if (UseLogHover) {
 		LayoutFontCssTagHoverEnable();
@@ -109,14 +114,17 @@ function LayoutFontCssTagHoverToggle() {
 	return UseLogHover;
 }
 function LayoutFontCssTagHoverEnable() {
+	script_state += ", LayoutFontCssTagHoverEnable";
 	LayoutFontCssChange('MdmDebugTagHoverStyles', '~ENABLE', '', 0, false);
 }
 // TagHover enable
 function LayoutFontCssTagHoverDisable() {
+	script_state += ", LayoutFontCssTagHoverDisable";
 	LayoutFontCssChange('MdmDebugTagHoverStyles', '~DISABLE', '', 0, false);
 }
 
 function LayoutFontSizeSet(passedLayoutFontRatio) {
+	script_state += ", LayoutFontSizeSet";
 	var fontUnits, fontCalc;
 	// Units,
 	if (layoutStyleUnits == layoutStyleUnitsEm) {
@@ -172,6 +180,7 @@ var sheetName;
 var sheetCurrent;
 var sheetId;
 function LayoutFontCssChange(passedSheetId, selector, cssProp, cssValue, isStyle) {
+	script_state += ", LayoutFontCssChange (" + passedSheetId + ")";
 	// StyleSheets.title (from idxSheet) (removed ===) added Id's
 	var idxSheetStart = 0;
 	var sheetRules;
@@ -249,7 +258,7 @@ function LayoutFontCssChangeTest() {
 // Body Layout Selection
 // Forces the layout calculations.
 function LayoutSelectByIndex(layoutIndexPassed) {
-	//
+	script_state += ", Select Layout by Index";
 	// Layouts:
 	// var layoutStandard = 1;
 	// var layoutReadingMode = 2;
@@ -706,11 +715,13 @@ function LayoutBlockWidthGet() {
 	} else {
 		layoutBlockWidth = layoutBlockWidthNarrow;
 	}
+	script_state += ", LayoutBlockWidthGet(" + layoutBlockWidth + ")";
 }
 
 // Layout Next
 ///////////////////////////////////////////////
 function LayoutSelectNext(layoutIndexPassed) {
+	script_state += ", Select Next Layout";
 	// LayoutSelectNext will validate the resulting layout.
 	//
 	if (layoutIndexPassed > 0) {
@@ -720,6 +731,11 @@ function LayoutSelectNext(layoutIndexPassed) {
 	}
 	// todo maybe limit the number?
 	if (layoutIndexCurr > layoutIndexMax) { layoutIndexCurr = 1; }
+	WindowClientWidth();
+	if (layoutDocumentWidth / 2.5 < layoutParaWidthMin && layoutIndexCurr == layoutStandard) {
+		script_state += ", for narrow window";
+		layoutIndexCurr = layoutReadingMode;
+	}
 	LayoutRefresh(layoutIndexCurr);
 }
 
@@ -730,6 +746,7 @@ function LayoutCheck(layoutPrefered) {
 
 // Layout Refresh
 function LayoutRefresh(layoutIndexPassed) {
+	script_state += ", Layout Refresh";
 	// Keeps the passed layout. Detects duplicate requests.
 	if (layoutIndexPassed != layoutIndexCurrLast) {
 		// Choose Standard Layout

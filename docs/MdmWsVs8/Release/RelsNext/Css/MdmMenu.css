@@ -151,7 +151,7 @@
 #MenuBar {
     /* Position */
     height: 3em;
-    width: 56.0em;
+    /* width: 56.0em; */
     /* min-width: 56.0em; */
     overflow-x: visible;
     text-align: center;

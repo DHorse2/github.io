@@ -412,10 +412,29 @@ var SysTimeStoped;
 var SysTimeStarted;
 var SysTimeStopedOkMin = 100;
 var SysTimeTick;
-var errorDoNotDisplayNoDebugMsg = false;
-var consoleBoxExpandOnce = true;
+
+// var errorDisplayNoDebugMsg = true;
+// var consoleBoxExpandOnce = true;
+// var alertCn = 0;
+// var alertCnMax = 10;
 // - start debugging
-function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed) {
+function WindowErrorAlert(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, DoUseAlertPassed, UseDebugPassed) {
+    // (ignore spontaneous requests.)
+    alertCn++;
+    if (alertCn < alertCnMax) {
+        alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine));
+    }
+    if (alertCn == alertCnMax) {
+        alert("Too many alerts issued." + charNewLine
+            + "In order to not block the UI," + charNewLine
+            + "no more alerts will be issued." + charNewLine
+            + "Check the console messages."
+        );
+    }
+    return false;
+}
+
+function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, DoUseAlertPassed, UseDebugPassed) {
     messageUrl = eventFileNamePassed;
     // ErrorSet(); // todo ???
     //
@@ -439,28 +458,26 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
                 debugger;
             }
             var SysTimeStarted = new Date().getTime();
-            if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
-                // document.getElementById('test').innerHTML = 'on';
-                // maybe not all options:
-                if (ConsoleStateDebugOn()) {
-                    // (ignore spontaneous requests.)
-                    if (!errorDoNotDisplayNoDebugMsg) {
-                        alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine)
-                            // alert(StringTextReplace(messagePassed + charNewLineTag, charNewLineTag, charNewLine)
+            if (errorDisplayNoDebugMsg) {
+                if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
+                    // document.getElementById('test').innerHTML = 'on';
+                    // maybe not all options:
+                    if (ConsoleStateDebugOn()) {
+                        var alertMsg = StringTextReplace(messagePassed, charNewLineTag, charNewLine)
                             // + charNewLine
                             + '   ' + charTextIndent
                             + ' You are not currently in the debugger.'
                             + ' Your setting suggest you need to be.'
-                            + ' Enter F12 to enter it now.');
-                        // errorDoNotDisplayNoDebugMsg = true;
-                    }
-                    if (browserIsIE) {
-                        debugger;
+                            + ' Enter F12 to enter it now.';
+                        var errorDoDebugAbort = WindowErrorAlert(eventCurrPassed, alertMsg, eventFileNamePassed, eventFileLinePassed, DoUseAlertPassed, UseDebugPassed);
+                        if (browserIsIE) {
+                            debugger;
+                        } else {
+                            debugger;
+                        }
                     } else {
-                        debugger;
+                        // don't enter debbuger error.
                     }
-                } else {
-                    // can't enter debbuger error.
                 }
             }
         }
@@ -475,9 +492,6 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
 // ...................................... //
 function DebugStart(debugOptionPassed, debugmessagePassed) {
     if (!UseDebug) { return; }
-    if (UseAlert) {
-        alert('Ready to debug: ' + debugmessagePassed + '(' + debugOptionPassed + ')');
-    }
     if (browserIsTEST) {
         debugger;
     } else if (browserIsIE) {
@@ -494,7 +508,7 @@ function DebugStart(debugOptionPassed, debugmessagePassed) {
 }
 // Error Message Log
 function ConsoleEventLog(eventCurrPassed, eventType, eventObject, eventCurrRootObj,
-    eventText, eventTextColor, eventTextColorBg, eventFileNamePassed, eventFileLinePassed) {
+    eventText, eventTextColorPassed, eventTextColorBgPassed, eventFileNamePassed, eventFileLinePassed) {
     consoleEventLogCn += 1;
     // messageUrl = eventUrl;
     eventCurr = eventCurrPassed;
@@ -508,18 +522,37 @@ function ConsoleEventLog(eventCurrPassed, eventType, eventObject, eventCurrRootO
             + ' ' + eventText;
         // eventMessage = charNoWrapTagStart + eventMessage + charNoWrapTagEnd;
         //
+        if (!eventTextColorPassed.length && !eventTextColorBgPassed.length) {
+            eventTextColorPassed = 'Black';
+            eventTextColorBgPassed = 'White';
+            switch (eventType) {
+                case 'mousedown':
+                    eventTextColorBgPassed = 'LightGreen';
+                    break;
+                case 'mouseout':
+                    eventTextColorBgPassed = 'LightBlue';
+                    break;
+                case 'mouseover':
+                    eventTextColorBgPassed = 'LightOrange';
+                    break;
+                default:
+                    eventTextColorBgPassed = 'LightGray';
+                    break;
+            }
+        }
+        //
         MessageLogAdd(consoleEventTextBox,
             UseLogLengthMax, UseLogLengthTrim, consoleEventLogScrollCn,
             eventMessage,
             tagSpan, tagSpanEnd,
-            eventTextColor, eventTextColorBg,
+            eventTextColorPassed, eventTextColorBgPassed,
             1, UseLogOrder, UseLogScroll
         );
     }
     //
     if ((UseLog || UseDebug)
         && UseDebugOnAll) {
-        WindowErrorDebug(eventCurr, eventMessage, eventFileNamePassed, eventFileLinePassed, 0);
+        WindowErrorDebug(eventCurr, eventMessage, eventFileNamePassed, eventFileLinePassed, 0, false, false);
     }
     //
 }
@@ -544,7 +577,7 @@ function MessageLogAdd(MessageTextBoxPassed,
         // if (AddNewLinePassed) { tempInnerHTML += charNewLineTag; }
         tempInnerHTML += tagSpanEndPassed;
         //
-        if (UseLogOrderPassed = DoUseAscendingDate) {
+        if (UseLogOrderPassed == DoUseAscendingDate) {
             MessageTextBoxPassed.innerHTML += tempInnerHTML;
             // Trim length for memory management
             if (MessageTextBoxLengthMaxPassed && MessageTextBoxPassed.innerHTML.length > MessageTextBoxLengthMaxPassed) {
@@ -750,7 +783,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
             messageFinal,
             tagSpan, tagSpanEnd,
             errorSeverityColor, errorSeverityColorBg,
-            true, UseLogOrder, UseLogScroll
+            2, UseLogOrder, UseLogScroll
         );
 
         // var tempInnerHTML = charNewLineTag + tagSpan;
@@ -837,13 +870,20 @@ function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
         // can't happen?
     }
     // Alert
-    if (DoUseAlertPassed || UseAlert || !consoleErrorTextBox) {
-        alert(StringTextReplace(messagePassed, charNewLineTag, charNewLine));
+    if (UseAlert && (DoUseAlertPassed || !consoleErrorTextBox)) {
+        var errorDoDebugAbort = WindowErrorAlert(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, DoUseAlertPassed, UseDebugPassed);
+        if (errorDoDebugAbort) {
+            WindowErrorAbort(); // does nothing.
+        }
     }
     //
     // Abort & Debug
-    if (UseDebug) {
-        var errorDoDebugAbort = WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed);
+    if (UseDebug
+        && (UseDebugPassed
+        || (UseDebugNext && UseDebugOnError)
+        || UseDebugOnAll)
+    ) {
+        var errorDoDebugAbort = WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, DoUseAlertPassed, UseDebugPassed);
         if (errorDoDebugAbort) {
             WindowErrorAbort(); // does nothing.
         }

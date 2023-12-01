@@ -42,7 +42,7 @@
     top: 0em;
     left: 20.0em;
     /* Size */
-    width: 60.0em;
+    width: 20.0em;
     height: inherit;
     /* Background */
     background: url(../Images/TransparentWhiteBg50.png);
@@ -131,7 +131,7 @@
     width: 25.0em;
     height: 20.0em;
     float: none;
-    border-color: grey;
+    border-color: Grey;
 }
 
 .BodyParaBoxBg {

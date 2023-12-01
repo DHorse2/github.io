@@ -141,8 +141,6 @@ function ElementEventMouse(e) {
 	ElementItemIndexSetFromObj(eventCurrRootObj);
 	//
 	script_state += ":" + eventType + ' (' + oObjGroupIndex + ', ' + oObjIndex + ')';
-	eventTextColor = 'black';
-	eventTextColorBg = 'light gray';
 	//
 	if (!oObjNotFound) {
 		// Object found
@@ -152,8 +150,6 @@ function ElementEventMouse(e) {
 		var HideImage = false;
 		var HideImageLarge = false;
 		var NextIsImageLarge = IsImageLarge;
-		eventTextColorBg = 'white';
-		//
 		if (eventType == 'mousedown') { NextIsImageLarge = IsLarge; }
 		if (IsImageLarge) {
 			HideImageLarge = true;
@@ -174,9 +170,6 @@ function ElementEventMouse(e) {
 		switch (eventType) {
 			// ...................................... //
 			case 'mousedown':
-				//
-				eventTextColorBg = 'light green';
-				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -184,32 +177,26 @@ function ElementEventMouse(e) {
 						startIndex = oObjIndex;
 						endIndex = oObjIndex;
 						//
-						// ElementItemToggle(  true true true (IsImagelarge LockValue IgnoreLock)
+						// ElementItemToggleId(  true true true (IsImagelarge LockValue IgnoreLock)
 						NextIsImageLarge = IsLarge; oObjLocked = true; IgnoreLock = true;
 						//
-						ElementItemToggle(
+						ElementItemToggleId(
 							NextIsImageLarge,
 							oObj.id, oObjImageLarge.id, oObjLarge.id,
 							oObjImageSizeLarge,
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);
 						break;
-					//
 					// ...................................... //
 					case IsLarge:
 					default:
 						break;
-					//
 				}
 				break;
-			//
+			// ...................................... //
 			case 'mouseout':
-				//
-				eventTextColorBg = 'light blue';
-				//
 				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
-				// ...................................... //
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -222,7 +209,6 @@ function ElementEventMouse(e) {
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, oObjLocked);
 						break;
-					//
 					// ...................................... //
 					case IsLarge:
 					default:
@@ -235,20 +221,13 @@ function ElementEventMouse(e) {
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);
 						break;
-					//
 				}
-				//
 				break;
-			//
 			// ...................................... //
 			case 'mouseover':
-				//
-				eventTextColorBg = 'light orange';
-				//
 				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
-				// ...................................... //
-				if (UseLogAnimation) { return; }
+				if (UseAnimation) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
 					case IsSmall:
@@ -266,14 +245,13 @@ function ElementEventMouse(e) {
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);
 						break;
-					//
 					// ...................................... //
 					case IsLarge:
 					default:
 						// Large
 						/*
 						// ElementItemShow(';Small false Curr false
-						NextIsImageLarge = IsSmall;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
+						NextIsImageLarge = IsSmall; oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
 						//
 						ElementItemShow(
 								NextIsImageLarge,
@@ -286,29 +264,24 @@ function ElementEventMouse(e) {
 						// if the small is locked then the large is locked...
 						// ElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
 						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall]; IgnoreLock = false;
-						//
+						// Bring to front or show
 						ElementItemShow(
 							NextIsImageLarge,
 							oObj, oObjImageLarge, oObjLarge, oObjLarge,
 							oObjImageSizeLarge,
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);
-						//
 						break;
-					//
 				}
 				break;
-			//
 			default:
 				break;
-			//
 		}
 	}
-
 	if ((UseLog || UseDebug)
 		&& UseLogEvents) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Mouse Event', eventTextColor, eventTextColorBg,
+			'Mouse Event', '', '',
 			'ElementEventMouse', 141);
 	}
 }
@@ -376,12 +349,9 @@ function ElementEventCheckDuplicate(UseLog) {
 	if (!eventCurrRootObj.id) { return false; }
 	var IsDuplicate = false;
 	var DoStoreLast = true;
-	var eventTextColor = 'black';
-	var eventTextColorBg = 'white';
 	switch (eventType) {
 		// ...................................... //
 		case 'mousedown':
-			eventTextColorBg = 'light green';
 			break;
 		// ...................................... //
 		case 'mouseover':
@@ -392,7 +362,6 @@ function ElementEventCheckDuplicate(UseLog) {
 				IsDuplicate = true;
 				DoStoreLast = false;// do not store last mouseover on box
 			}
-			eventTextColorBg = 'light blue';
 			break;
 		// ...................................... //
 		case 'mouseout':
@@ -410,7 +379,6 @@ function ElementEventCheckDuplicate(UseLog) {
 					&& eventLastRootId == eventCurrRootObj.id
 				)) { IsDuplicate = false; } else { IsDuplicate = true; }
 			}
-			eventTextColorBg = 'light orange';
 			break;
 		default:
 			IsDuplicate = false; break;
@@ -419,7 +387,7 @@ function ElementEventCheckDuplicate(UseLog) {
 	if (UseLog && (UseLogEvents || timerMoveBusy)
 		&& IsDuplicate && UseLogEventDuplicates) {
 		ConsoleEventLog(eventCurr, eventType, eventObject, eventCurrRootObj,
-			'Duplicate Event', eventTextColor, eventTextColorBg,
+			'Duplicate Event', '', '',
 			'ElementEventCheckDuplicate', 0);
 	}
 	//

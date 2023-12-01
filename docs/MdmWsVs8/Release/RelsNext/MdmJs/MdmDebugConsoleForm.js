@@ -80,9 +80,9 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 			<p>
 				Mouse Hover activation of image display:<br>
 			</p>
-			<label for="formEventMouseOverEnabled">UseLogAnimation </label>
+			<label for="formEventMouseOverEnabled">UseAnimation </label>
 			<input id="formEventMouseOverEnabled" type="checkbox"
-				onchange="DebugParameterSet(this, 'UseLogAnimation', 'Toggle');">
+				onchange="DebugParameterSet(this, 'UseAnimation', 'Toggle');">
 		</fieldset>
 		<!-- * -->
 		<!-- x ------------------------------------------------------------------------------------- -->
@@ -453,9 +453,9 @@ function ConsoleFormElementSync(fromForm) {
 		script_state += ", Using mouse hover";
 		elementObject = document.getElementById('formEventMouseOverEnabled');
 		if (fromForm) {
-			if (elementObject.checked) { UseLogAnimation = true; } else { UseLogAnimation = false; }
+			if (elementObject.checked) { UseAnimation = true; } else { UseAnimation = false; }
 		} else {
-			if (UseLogAnimation) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (UseAnimation) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 
 		// Animation Control

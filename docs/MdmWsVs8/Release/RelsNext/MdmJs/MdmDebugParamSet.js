@@ -20,9 +20,9 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { imgLoadUseDOM = false; } else { imgLoadUseDOM = true; }
 				break;
 			// User Interface Features
-			case 'UseLogAnimation':
+			case 'UseAnimation':
 				// Control image display using mouse hover
-				if (elementPassed.checked) { UseLogAnimation = false; } else { UseLogAnimation = true; }
+				if (elementPassed.checked) { UseAnimation = false; } else { UseAnimation = true; }
 				break;
 			// Animation Control
 			case 'moveIsOn':

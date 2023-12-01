@@ -121,7 +121,7 @@
 <br>		ElementGroupShowRange
 <br>		ElementItemShowIndex
 <br>		ElementGroupShowStack
-<br>		ElementItemToggle
+<br>		ElementItemToggleId
 <br>		ElementItemShow
 <br>Menu Hide
 <br>		ElementGroupToggleRange

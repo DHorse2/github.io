@@ -179,7 +179,7 @@ function ElementCopy(UsePrefixPassed, prefixPassed, elementPassed, elementLayout
                 ElementEventsCopy(elementPassed, elementSourcePassed, elementPassed.id, elementSourcePassed.id)
             }
         }
-        // if (elementPassed.innerHTML = null || elementPassed.innerHTML.length = 0) {
+        // if (elementPassed.innerHTML == null || elementPassed.innerHTML.length = 0) {
         // elementPassed.innerHTML = elementSourcePassed.innerHTML;
         // }
         elementPassed.style.display = elementStyleDisplayPassed;
@@ -424,11 +424,11 @@ function ElementPosCalculate(elementPassed) {
     if (elementPassed.offsetParent) {
         var oObjCurr = elementPassed;
         do {
-            // while (oObjPassed = oObjPassed.offsetParent) {
+            // while (oObjPassed == oObjPassed.offsetParent) {
             currLeft += oObjCurr.offsetLeft;
             currTop += oObjCurr.offsetTop;
             // }
-        } while ((oObjCurr = oObjCurr.offsetParent));
+        } while ((oObjCurr == oObjCurr.offsetParent));
         oObjTop = currTop;
         oObjLeft = currLeft;
         oObjWidth = elementPassed.offsetWidth;

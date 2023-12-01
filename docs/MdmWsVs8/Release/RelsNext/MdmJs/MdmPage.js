@@ -143,7 +143,6 @@ function MouseOverImg(menuImage) {
 	}
 	var tempTop = menuImage.parentNode.top;
 	var tempLeft = menuImage.parentNode.left;
-	if (UseAlert) { alert("top: " + tempTop); }
 }
 // Mouse Out
 ////////////////////////////////////////////////
@@ -196,7 +195,6 @@ function MouseClickImg(menuImage) {
 	//  alert(document.parentWindow.parent);
 	//  document.parentWindow.tabframe.imgSelect = menuImageCn;
 	//  alert(document.parentWindow.tabframe);
-	//  alert("ready to go");
 	//  cookies!!!!!
 }
 // ..................................................................................... _//
@@ -522,22 +520,42 @@ function ElementObjectToggleCreate(UsePrefixPassed, prefixPassed, bodyViewToggle
 	//
 	consoleDebugToggle = ElementGetFromElement(consoleDebugToggle, 'BodyConsoleDebugToggle' + prefixPassed, 'BodyConsoleDebugToggle', bodyViewToggleContainerPassed)
 	// consoleDebugToggle = ElementGetRef(consoleDebugToggle, 'BodyConsoleDebugToggle', 'BodyConsoleDebugToggle');
+
+	// Animation
+	consoleDebugAnimationToggle = ElementGetFromElement(consoleDebugAnimationToggle, 'BodyConsoleDebugAnimationToggle' + prefixPassed, 'BodyConsoleDebugAnimationToggle', bodyViewToggleContainerPassed)
+	// consoleDebugAnimationToggle = ElementGetRef(consoleDebugAnimationToggle, 'BodyConsoleDebugAnimationToggle', 'BodyConsoleDebugAnimationToggle');
+
 	consoleDebugMoveToggle = ElementGetFromElement(consoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle' + prefixPassed, 'BodyConsoleDebugMoveToggle', bodyViewToggleContainerPassed)
 	// consoleDebugMoveToggle = ElementGetRef(consoleDebugMoveToggle, 'BodyConsoleDebugMoveToggle', 'BodyConsoleDebugMoveToggle');
 	consoleDebugTransitionToggle = ElementGetFromElement(consoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle' + prefixPassed, 'BodyConsoleDebugTransitionToggle', bodyViewToggleContainerPassed)
 	// consoleDebugTransitionToggle = ElementGetRef(consoleDebugTransitionToggle, 'BodyConsoleDebugTransitionToggle', 'BodyConsoleDebugTransitionToggle');
 	consoleDebugDetailToggle = ElementGetFromElement(consoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle' + prefixPassed, 'BodyConsoleDebugDetailToggle', bodyViewToggleContainerPassed)
 	// consoleDebugDetailToggle = ElementGetRef(consoleDebugDetailToggle, 'BodyConsoleDebugDetailToggle', 'BodyConsoleDebugDetailToggle');
+
 	consoleDebugAllToggle = ElementGetFromElement(consoleDebugAllToggle, 'BodyConsoleDebugAllToggle' + prefixPassed, 'BodyConsoleDebugAllToggle', bodyViewToggleContainerPassed)
 	// consoleDebugAllToggle = ElementGetRef(consoleDebugAllToggle, 'BodyConsoleDebugAllToggle', 'BodyConsoleDebugAllToggle');
 	consoleDebugOnErrorToggle = ElementGetFromElement(consoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle' + prefixPassed, 'BodyConsoleDebugOnErrorToggle', bodyViewToggleContainerPassed)
 	// consoleDebugOnErrorToggle = ElementGetRef(consoleDebugOnErrorToggle, 'BodyConsoleDebugOnErrorToggle', 'BodyConsoleDebugOnErrorToggle');
+	consoleDebugAllDetailToggle = ElementGetFromElement(consoleDebugAllDetailToggle, 'BodyConsoleDebugAllDetailToggle' + prefixPassed, 'BodyConsoleDebugAllDetailToggle', bodyViewToggleContainerPassed)
+	// consoleDebugAllDetailToggle = ElementGetRef(consoleDebugAllDetailToggle, 'BodyConsoleDebugAllDetailToggle', 'BodyConsoleDebugAllDetailToggle');
+
 	consoleDebugEventsToggle = ElementGetFromElement(consoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle' + prefixPassed, 'BodyConsoleDebugEventsToggle', bodyViewToggleContainerPassed)
 	// consoleDebugEventsToggle = ElementGetRef(consoleDebugEventsToggle, 'BodyConsoleDebugEventsToggle', 'BodyConsoleDebugEventsToggle');
+
 	consoleDebugHoverToggle = ElementGetFromElement(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle' + prefixPassed, 'BodyConsoleDebugHoverToggle', bodyViewToggleContainerPassed)
 	// consoleDebugHoverToggle = ElementGetRef(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle', 'BodyConsoleDebugHoverToggle');
 
+	// Layout & framework
+	consoleDebugConsoleToggle = ElementGetFromElement(consoleDebugConsoleToggle, 'BodyConsoleDebugConsoleToggle' + prefixPassed, 'BodyConsoleDebugConsoleToggle', bodyViewToggleContainerPassed)
+	// consoleDebugConsoleToggle = ElementGetRef(consoleDebugConsoleToggle, 'BodyConsoleDebugConsoleToggle', 'BodyConsoleDebugConsoleToggle');
+	consoleDebugLayoutToggle = ElementGetFromElement(consoleDebugLayoutToggle, 'BodyConsoleDebugLayoutToggle' + prefixPassed, 'BodyConsoleDebugLayoutToggle', bodyViewToggleContainerPassed)
+	// consoleDebugLayoutToggle = ElementGetRef(consoleDebugLayoutToggle, 'BodyConsoleDebugLayoutToggle', 'BodyConsoleDebugLayoutToggle');
+	consoleDebugWindowToggle = ElementGetFromElement(consoleDebugWindowToggle, 'BodyConsoleDebugWindowToggle' + prefixPassed, 'BodyConsoleDebugWindowToggle', bodyViewToggleContainerPassed)
+	// consoleDebugWindowToggle = ElementGetRef(consoleDebugWindowToggle, 'BodyConsoleDebugWindowToggle', 'BodyConsoleDebugWindowToggle');
+
 	ConsoleToggleButtonSet();
+	consoleDebugHoverToggle = ElementGetFromElement(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle' + prefixPassed, 'BodyConsoleDebugHoverToggle', bodyViewToggleContainerPassed)
+	// consoleDebugHoverToggle = ElementGetRef(consoleDebugHoverToggle, 'BodyConsoleDebugHoverToggle', 'BodyConsoleDebugHoverToggle');
 }
 script_state = "Mdm Standard Page functions loaded. (Body Elements, Element Object, MouseEvent)";
 if (debugLoadIsOn) { debugger; }

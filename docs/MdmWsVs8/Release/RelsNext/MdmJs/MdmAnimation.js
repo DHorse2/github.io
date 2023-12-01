@@ -533,7 +533,7 @@ var filterIndexEffectMax = 59;
 // var vTimerStop;
 //
 ///////////////////////////////////////////////
-// var timerStarted = false;
+var timerStarted = 0;
 // //
 // var timerDuration = elementMoveDuration;
 // var timerInterval = elementMoveInterval;
@@ -573,7 +573,7 @@ var filterObj = null;
 // ...................................... //
 function FilterControlCreate(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage, oObjGroupIndex, oObjGroupItemIndex, filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterControlCreate:" + filterObjIdPassed;
+    script_state += "MdmAnimation:FilterControlCreate:" + filterObjIdPassed;
     // filterId is this program's index number
     //
     if (!filterObj) { filterObj = new Array(30); } // todo
@@ -606,7 +606,7 @@ function FilterControlCreate(filterPlayAll, startIndex, endIndex,
 // FilterStore Filter Store / Restore
 // ...................................... //
 function FilterStore(oObjPassed, filterIndexPassed) {
-    script_state = "MdmAnimation:FilterStore:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterStore:" + filterIndexPassed;
     // this can't be right
     // oldFilter = oObjPassed.onfilterchange;
     // oObjPassed.onfilterchange = null;
@@ -615,7 +615,7 @@ function FilterStore(oObjPassed, filterIndexPassed) {
 // FilterRestore
 // ...................................... //
 function FilterRestore(oObjPassed, filterIndexPassed) {
-    script_state = "MdmAnimation:FilterRestore:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterRestore:" + filterIndexPassed;
     if (oldFilter != null) {
         // ???? oObjPassed.onfilterchange = oldFilter;
         oObjPassed.filters[0].item = oldFilter;
@@ -625,7 +625,7 @@ function FilterRestore(oObjPassed, filterIndexPassed) {
 // ...................................... //
 // FilterResetThenAnimate
 function FilterResetThenAnimate(oObjPassed, filterIndexPassed) {
-    script_state = "MdmAnimation:FilterResetThenAnimate:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterResetThenAnimate:" + filterIndexPassed;
     switch (filterIndexPassed) {
         // Non Groups
         case filterClassMatrix:
@@ -651,7 +651,7 @@ function FilterResetThenAnimate(oObjPassed, filterIndexPassed) {
 // Animate Object
 // ...................................... //
 function FilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
-    script_state = "MdmAnimation:FilterAnimate:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterAnimate:" + filterIndexPassed;
     switch (filterIndexPassed) {
         // Matrix
         case filterClassMatrix:
@@ -667,7 +667,7 @@ function FilterAnimate(oObjPassed, filterIndexPassed, flMultiplier) {
 // StyleBackground
 // ...................................... //
 function FilterBackgroundToggle(oObjPassed, filterIndexPassed) {
-    script_state = "MdmAnimation:FilterBackgroundToggle:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterBackgroundToggle:" + filterIndexPassed;
     if (filterStyleBackgroundToggle) {
         filterStyleBackgroundToggle = 0;
         oObjPassed.style.backgroundColor = 'gold';
@@ -683,7 +683,7 @@ function FilterBackgroundToggle(oObjPassed, filterIndexPassed) {
 //  Slide Style Toggle
 // ...................................... //
 function SlideStyleToggle(oObjPassed, filterIndexPassed) {
-    script_state = "MdmAnimation:SlideStyleToggle:" + filterIndexPassed;
+    script_state += "MdmAnimation:SlideStyleToggle:" + filterIndexPassed;
     // Use the array index to update and display  the slideStyle used.
     var iStyleIndex = filterSlideStyleIndexCount % 3; // MOD function avoids resetting the counter.
     oObjPassed.filters[0].slideStyle = arrSlideStyles[filterSlideStyleIndexCount];
@@ -699,7 +699,7 @@ function SlideStyleToggle(oObjPassed, filterIndexPassed) {
 // FilterSpin
 // ...................................... //
 function FilterSpin(oObjPassed, filterIndexPassed) {
-    script_state = "MdmAnimation:FilterSpin:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterSpin:" + filterIndexPassed;
     switch (filterIndexPassed) {
         // Non Groups
         case filterClassMatrix:
@@ -739,7 +739,7 @@ function FilterSpin(oObjPassed, filterIndexPassed) {
 // ...................................... //
 //oObj input requires that a matrix filter be applied.
 function FilterSetRotation(oObjPassed, filterIndexPassed, deg) {
-    script_state = "MdmAnimation:FilterSetRotation:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterSetRotation:" + filterIndexPassed;
     rad = deg * deg2radians;
     costheta = Math.cos(rad);
     sintheta = Math.sin(rad);
@@ -755,7 +755,7 @@ function FilterSetRotation(oObjPassed, filterIndexPassed, deg) {
 // oObj input requires that a matrix filter be applied.
 // flMultiplier input defines the amount by which the oObj is resized.
 function FilterResize(oObjPassed, filterIndexPassed, flMultiplier) {
-    script_state = "MdmAnimation:FilterResize:" + filterIndexPassed;
+    script_state += "MdmAnimation:FilterResize:" + filterIndexPassed;
     if (!browserAnimationIsIe) { return; }
     // oObj.filters['DXImageTransform.Microsoft.Matrix']
     switch (filterIndexPassed) {
@@ -800,7 +800,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterGet:" + filterIdPassed;
+    script_state += "MdmAnimation:FilterGet:" + filterIdPassed;
     filterGetExit = false;// Set failure
     var filterIndexCn = 0;// Filter being set
     var filterCommandEval = new String();// Filter Set Command
@@ -859,7 +859,9 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
         //
         if (filterIndexCn < 1) {
             // Error - Set failed
-            if (UseLog || UseDebug) {
+            if ((UseLog || UseDebug)
+                // && (UseLogTimerDetail || UseLogTimerTransition)
+            ) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     'Invalid filter(' + filterIdPassed + ') error! On filter # ' + filterIndex + ' '
                     + charNewLineTag + filterCommandEval,
@@ -872,16 +874,14 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
         } else {
             // Set succeeded
             if ((UseLog || UseDebug)
-                && (UseLogTimerDetail || UseLogTimerTransition)) {
-                if (UseLog || UseDebug) {
-                    MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                        'Filter(' + filterIdPassed + ') of ' + filterIndexCn
-                        + ' set successfully! Random filter # ' + filterIndex + ' '
-                        + charNewLineTag + filterCommandEval,
-                        'MdmAnimation:FilterGet', 865, 0, null, null,
-                        errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-                }
-                //
+                && (UseLogTimerDetail || UseLogTimerTransition)
+            ) {
+                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                    'Filter(' + filterIdPassed + ') of ' + filterIndexCn
+                    + ' set successfully! Random filter # ' + filterIndex + ' '
+                    + charNewLineTag + filterCommandEval,
+                    'MdmAnimation:FilterGet', 865, 0, null, null,
+                    errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
             }
         }
     }
@@ -894,7 +894,7 @@ function FilterGet(filterPlayAll, startIndex, endIndex,
 function FilterSet(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage, filterObjIdPassed, filterIdPassed,
     filterCommand) {
-    script_state = "MdmAnimation:FilterSet:" + filterIdPassed;
+    script_state += "MdmAnimation:FilterSet:" + filterIdPassed;
     // Evaluate the filter commands and apply elements.
     if (browserAnimationIsIe) {
         if (filterCommand.length) {
@@ -912,7 +912,7 @@ function FilterEnable(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterEnable:" + filterIdPassed;
+    script_state += "MdmAnimation:FilterEnable:" + filterIdPassed;
     if (browserAnimationIsIe) {
         if (filterResizeIsOn && filterIsOn) {
             // 0
@@ -942,7 +942,7 @@ function FilterApply(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterApply:" + filterIdPassed;
+    script_state += "MdmAnimation:FilterApply:" + filterIdPassed;
     if (browserAnimationIsIe) {
         if (filterResizeIsOn && filterIsOn) {
             // 0
@@ -975,7 +975,7 @@ function FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterPlay:" + filterIdPassed;
+    script_state += "MdmAnimation:FilterPlay:" + filterIdPassed;
     //
     if (!filterDuration) { filterDuration = elementMoveDuration; }
     //
@@ -1025,7 +1025,7 @@ function FilterStop(filterPlayAll, startIndex, endIndex,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterStop:" + filterIdPassed;
+    script_state += "MdmAnimation:FilterStop:" + filterIdPassed;
     if (filterMethod == filterMethodPlay) {
         if (filterResizeIsOn && filterIsOn) {
             if (browserAnimationIsIe) {
@@ -1070,13 +1070,13 @@ function FilterStop(filterPlayAll, startIndex, endIndex,
 // Filter Timing Get By Index
 // ...................................... //
 function FilterTimingGetByIndex() {
-    script_state = "MdmAnimation:FilterTimingGetByIndex";
+    script_state += "MdmAnimation:FilterTimingGetByIndex";
     return;
 }
 // Filter Timing Get Random
 // ...................................... //
 function FilterTimingGetRandom() {
-    script_state = "MdmAnimation:FilterTimingGetRandom";
+    script_state += "MdmAnimation:FilterTimingGetRandom";
     return;
 }
 // SectionBlock Filter Get / Set function (s)
@@ -1094,7 +1094,7 @@ function FilterGetByIndex(
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterGetByIndex:" + filterObjIdPassed;
+    script_state += "MdmAnimation:FilterGetByIndex:" + filterObjIdPassed;
     // get interger
     filterKey = '';
     filterKeyPrefix = 'progid:';
@@ -1439,7 +1439,7 @@ function FilterGetByIndex(
 // Filter Get By Tag
 // ...................................... //
 function FilterGetByTagName(filterTagNamePassed) {
-    script_state = "MdmAnimation:FilterGetByTagName:" + filterTagNamePassed;
+    script_state += "MdmAnimation:FilterGetByTagName:" + filterTagNamePassed;
     //
     filterTagName = 'div';
     return null;
@@ -1449,7 +1449,7 @@ function FilterGetByTagName(filterTagNamePassed) {
 function FilterGetRandom(filterClassSingle, filterClassDynamic, filterIndex,
     filterDataCommand, filterCompletion,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:FilterGetRandom:" + filterObjIdPassed;
+    script_state += "MdmAnimation:FilterGetRandom:" + filterObjIdPassed;
     filterRandom = '';
     if (filterRangeLowPassed < filterRangeLow) { filterRangeLowPassed = filterRangeLow; }
     if (filterRangeLowPassed > filterRangeHigh) { filterRangeLowPassed = filterRangeHigh; }
@@ -1474,7 +1474,7 @@ function TimerStartFilter(playDirection,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:TimerStartFilter:" + filterObjIdPassed;
+    script_state += "MdmAnimation:TimerStartFilter:" + filterObjIdPassed;
     //
     var timerType = timerTypeTransition;
     var timerGroup = oObjGroupIndex;
@@ -1506,8 +1506,8 @@ function TimerStartFilter(playDirection,
             oObjGroupIndex, oObjGroupItemIndex,
             filterObjIdPassed, filterIdPassed);
         if ((UseLog || UseDebug)
-            && (UseLogTimerTransition)) {
-            // && UseLogTimerDetail
+            && (UseLogTimerDetail || UseLogTimerTransition)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item Add')
@@ -1524,8 +1524,8 @@ function TimerStartFilter(playDirection,
     } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer exists and is currently busy.
         if ((UseLog || UseDebug)
-            && (UseLogTimerTransition)) {
-            // && UseLogTimerDetail
+            && (UseLogTimerDetail || UseLogTimerTransition)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerRootKey].playDirection, 'Timing DoStep')
@@ -1551,7 +1551,8 @@ function TimerStartFilter(playDirection,
     //
     // ...................................... //
     if ((UseLog || UseDebug)
-        && (UseLogTimerTransition)) {
+        && (UseLogTimerDetail || UseLogTimerTransition)
+    ) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                 timerObj[timerItemKey].playDirection, 'Timer Start')
@@ -1576,7 +1577,7 @@ function TimerStartMove(playDirection,
     oObjNext, oObjNextImage,
     oObjGroupIndex, oObjGroupItemIndex,
     filterObjIdPassed, filterIdPassed) {
-    script_state = "MdmAnimation:TimerStartMove:" + filterObjIdPassed;
+    script_state += "MdmAnimation:TimerStartMove:" + filterObjIdPassed;
     //
     var timerType = timerTypeMove;
     var timerGroup = oObjGroupIndex;
@@ -1607,8 +1608,8 @@ function TimerStartMove(playDirection,
             filterObjIdPassed, filterIdPassed);
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimerMove)) {
-            // && UseLogTimerDetail
+            && (UseLogTimerDetail || UseLogTimerMove)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item Add')
@@ -1625,8 +1626,8 @@ function TimerStartMove(playDirection,
     } else if (timerObj[timerItemKey].timerIsRunning) {
         // Timer Already Exists...
         if ((UseLog || UseDebug)
-            && (UseLogTimerMove)) {
-            // || UseLogTimerDetail
+            && (UseLogTimerDetail || UseLogTimerMove)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Timing DoStep')
@@ -1696,7 +1697,8 @@ function TimerStartMove(playDirection,
     //
     // ...................................... //
     if ((UseLog || UseDebug)
-        && (UseLogTimerMove)) {
+        && (UseLogTimerDetail || UseLogTimerMove)
+    ) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Timer Start')
             + ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1727,7 +1729,7 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
     var timerGroupItem = timerGroupItemPassed;
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
-    script_state = "MdmAnimation:TimerGroupDoStepFilter:" + timerItemKey;
+    script_state += "MdmAnimation:TimerGroupDoStepFilter:" + timerItemKey;
     //
     var timerGroupItemCurr;
     var timerGroupItemCnMax = timerObj.length;
@@ -1738,7 +1740,8 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
     timerObj[timerRootKey].timerIntervalStep += 1;
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimerTransition)) {
+        && (UseLogTimerDetail || UseLogTimerTransition)
+    ) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerTextLog(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot, null, 'Group In')
             + ', Items:' + timerObj[timerRootKey].timerInstance
@@ -1786,10 +1789,12 @@ function TimerGroupDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupIte
     ) {
         // Turn Off Timer
         var timerIntervalId = timerObj[timerRootKey].timerIntervalId;
-        if (timerIntervalId) { window.clearInterval(timerIntervalId); }
+        if (timerIntervalId && timerObj[timerRootKey].timerIsRunning) {
+            window.clearInterval(timerIntervalId);
+        }
         timerStarted -= 1;
         timerObj[timerRootKey].timerIntervalIdPrev = timerIntervalId;
-        timerObj[timerRootKey].timerIntervalId = 0;
+        // timerObj[timerRootKey].timerIntervalId = 0;
         timerObj[timerRootKey].timerInstance = 0;
         timerObj[timerRootKey].timerDateEnd = new Date();
         timerObj[timerRootKey].timerIsRunning = false;
@@ -1848,7 +1853,8 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var timerStopKey;
-    script_state = "MdmAnimation:TimerItemDoStepFilter:" + timerItemKey;
+    var timerIntervalId;
+    script_state += "MdmAnimation:TimerItemDoStepFilter:" + timerItemKey;
 
     var tempFilterInProgress = true;
     var tempTimeOrStepsCompleted = false;
@@ -1890,7 +1896,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                 tempMoveInProgress = false;// ******* what? *******
             }
             //
-            // if (timerObj[timerItemKey].timerIntervalId = -1) {
+            // if (timerObj[timerItemKey].timerIntervalId == -1) {
             //     timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
             // }
             //
@@ -1948,12 +1954,12 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                     // Group Timer
                     timerIntervalId = timerObj[timerRootKey].timerIntervalId;
                     timerStopKey = timerRootKey;
-                    if (timerIntervalId) {
-                        window.clearInterval(timerIntervalId);
-                    } else if (timerObj[timerRootKey].timerIntervalIdPrev) {
-                        // error.
-                        window.clearInterval(timerObj[timerRootKey].timerIntervalIdPrev);
-                    }
+                    // if (timerIntervalId) {
+                    //     window.clearInterval(timerIntervalId);
+                    // } else if (timerObj[timerRootKey].timerIntervalIdPrev) {
+                    //     // error.
+                    //     window.clearInterval(timerObj[timerRootKey].timerIntervalIdPrev);
+                    // }
                     //
                     //
                     timerStarted -= 1;
@@ -1961,7 +1967,8 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                     timerObj[timerRootKey].timerIntervalId = 0;
                     //
                     if ((UseLog || UseDebug)
-                        && (UseLogTimerDetail || UseLogTimerTransition)) {
+                        && (UseLogTimerDetail || UseLogTimerTransition)
+                    ) {
                         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                             TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                                 timerObj[timerItemKey].playDirection, 'Stop Group Timer')
@@ -1978,11 +1985,11 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                     // Turn Off Timer
                     timerIntervalId = timerObj[timerItemKey].timerIntervalId;
                     timerStopKey = timerItemKey;
-                    if (timerIntervalId) { window.clearInterval(timerIntervalId); }
+                    // if (timerIntervalId) { window.clearInterval(timerIntervalId); }
                     //
                     timerStarted -= 1;
                     timerObj[timerItemKey].timerIntervalIdPrev = timerIntervalId;
-                    timerObj[timerItemKey].timerIntervalId = 0;
+                    // timerObj[timerItemKey].timerIntervalId = 0;
                     //
                     if ((UseLog || UseDebug)
                         && (UseLogTimerDetail || UseLogTimerTransition)) {
@@ -2000,7 +2007,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                 }
 
                 timerIntervalId = timerObj[timerStopKey].timerIntervalId;
-                if (timerIntervalId) {
+                if (timerIntervalId && timerObj[timerStopKey].timerIsRunning) {
                     window.clearInterval(timerIntervalId);
                 } else if (timerObj[timerStopKey].timerIntervalIdPrev) {
                     // error.
@@ -2020,10 +2027,6 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                         'MdmAnimation:TimerItemDoStepFilter', 1893, 0, null, null,
                         errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
                 }
-
-
-
-
                 //
                 if (filterResizeIsOn && !timerObj[timerItemKey].elementIsDisplayed) {
                     var temp;
@@ -2049,7 +2052,7 @@ function TimerItemDoStepFilter(timerTypePassed, timerGroupPassed, timerGroupItem
                 timerObj[timerItemKey].timerDateEnd = new Date();
                 timerObj[timerItemKey].timerIsRunning = false;
                 //
-                if (timerObj[timerItemKey].playDirection = playDirectionForward) {
+                if (timerObj[timerItemKey].playDirection == playDirectionForward) {
                     timerObj[timerItemKey].elementIsDisplayed = elementIsDisplayed;
                 } else {
                     if (elementMoveDuration < filterDuration) {
@@ -2105,7 +2108,7 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
     var timerGroupItem = timerGroupItemPassed;
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
-    script_state = "MdmAnimation:TimerGroupDoStepMove:" + timerItemKey;
+    script_state += "MdmAnimation:TimerGroupDoStepMove:" + timerItemKey;
 
     var timerGroupItemCurr;
     var timerGroupItemCnMax = timerObj.length;
@@ -2115,7 +2118,8 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
     timerObj[timerRootKey].timerIntervalStep += 1;
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimerMove)) {
+        && (UseLogTimerDetail || UseLogTimerMove)
+    ) {
         MessageLog(null, DoNotUseDebug, DoUseSingleLine,
             TimerTextLog(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group In')
@@ -2177,12 +2181,13 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
         timerObj[timerRootKey].timerDateEnd = new Date();
         timerObj[timerRootKey].timerIsRunning = false;
         //
-        if (timerObj[timerRootKey].playDirection = playDirectionForward) {
+        if (timerObj[timerRootKey].playDirection == playDirectionForward) {
             timerObj[timerRootKey].elementIsDisplayed = elementIsDisplayed;
         } else { timerObj[timerRootKey].elementIsDisplayed = elementIsNotDisplayed; }
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimerMove)) {
+            && (UseLogTimerDetail || UseLogTimerMove)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                     timerObj[timerRootKey].playDirection, 'Group Stop Timer')
@@ -2194,7 +2199,8 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
     }
     //
     if ((UseLog || UseDebug)
-        && (UseLogTimerMove)) {
+        && (UseLogTimerDetail || UseLogTimerMove)
+    ) {
         MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
             TimerTextLog(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
                 timerObj[timerRootKey].playDirection, 'Group Out')
@@ -2206,27 +2212,24 @@ function TimerGroupDoStepMove(timerTypePassed, timerGroupPassed, timerGroupItemP
             'MdmAnimation:TimerGroupDoStepMove', 2054, 0, null, null,
             errorIsComment, true, false);
         //
-        if (UseLog || UseDebug) {
-            if (!timerIsActive && timerObj[timerRootKey].timerInstance < 1) {
-                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                    TimerTextLog(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
-                        timerObj[timerRootKey].playDirection, 'End')
-                    + ', Finished Group'
-                    + '.',
-                    'MdmAnimation:TimerGroupDoStepMove', 2063, 0, null, null,
-                    errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-            }
+        if (!timerIsActive && timerObj[timerRootKey].timerInstance < 1) {
+            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                TimerTextLog(timerObj[timerRootKey].oObj, timerType, timerGroup, timerGroupItem, DoUseRoot,
+                    timerObj[timerRootKey].playDirection, 'End')
+                + ', Finished Group'
+                + '.',
+                'MdmAnimation:TimerGroupDoStepMove', 2063, 0, null, null,
+                errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
         }
     }
 }
 
 // ...................................... //
 function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
-
     // Set Id's
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
-    script_state = "MdmAnimation:TimerItemDoStepMove:" + timerItemKey;
+    script_state += "MdmAnimation:TimerItemDoStepMove:" + timerItemKey;
     // ...................................... //
     // initialize completion variables
     var tempMoveInProgress = false;
@@ -2436,7 +2439,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
                 // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
                 // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
                 // Slide Side
-            } else if (timerObj[timerItemKey].elementMoveMethod = elementMoveMethodSlideSide
+            } else if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideSide
                 && timerCompletionCurr > 0.5) {
                 // horizontal movement stops after half way
                 // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
@@ -2447,12 +2450,12 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
                 timerCompletionTemp = timerCompletionCurr;
                 // Slide Down
                 // horizontal movement is at doubled speed.
-                if (timerObj[timerItemKey].elementMoveMethod = elementMoveMethodSlideDown) {
+                if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideDown) {
                     timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
                 }
                 // Slide Side
                 // horizontal movement is at doubled speed.
-                if (timerObj[timerItemKey].elementMoveMethod = elementMoveMethodSlideSide) {
+                if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideSide) {
                     timerCompletionTemp = 2 * timerCompletionCurr;
                 }
                 //
@@ -2520,6 +2523,9 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
                     errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
             }
             //
+
+            TimerStop(timerType, timerGroup, timerGroupItem, 0);
+
             timerIntervalId = timerObj[timerItemKey].timerIntervalId;
             if (timerIntervalId) { window.clearInterval(timerIntervalId); }
             //
@@ -2550,7 +2556,8 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         }
         //
         if ((UseLog || UseDebug)
-            && (UseLogTimerDetail || UseLogTimerMove)) {
+            && (UseLogTimerDetail || UseLogTimerMove)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Stop')
@@ -2562,7 +2569,8 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
         }
     } else {
         if ((UseLog || UseDebug)
-            && (UseLogTimerDetail || UseLogTimerMove)) {
+            && (UseLogTimerDetail || UseLogTimerMove)
+        ) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                     timerObj[timerItemKey].playDirection, 'Item')
@@ -2593,7 +2601,7 @@ function TimerItemDoStepMove(timerType, timerGroup, timerGroupItem) {
 // oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
 function TimerGetElapsed(timerType, timerGroup, timerGroupItem) {
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
-    script_state = "MdmAnimation:TimerGetElapsed:" + timerItemKey;
+    script_state += "MdmAnimation:TimerGetElapsed:" + timerItemKey;
     timerDateCurr = new Date();
     // timerDateElps  = timerDateStart - timerDateCurr;
     var timerDateStartMin = timerObj[timerItemKey].timerDateStart.getMinutes();
@@ -2653,7 +2661,7 @@ function TimerStartMoveBusy(timerTypePassed, timerGroupPassed, timerGroupItemPas
 // This test incrementally repositions an element.
 // It loops through a set number of times.
 function TimerMoveTest(timerTypePassed, timerGroupPassed, timerGroupItemPassed) {
-    script_state = "MdmAnimation:TimerMoveTest";
+    script_state += "MdmAnimation:TimerMoveTest";
     var timerType = timerTypePassed;
     var timerGroup = timerGroupPassed;
     var timerGroupItem = timerGroupItemPassed;

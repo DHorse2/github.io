@@ -54,7 +54,7 @@ BodyParaBox1 {
     /* Position */
     position: relative;
     /* Size */
-    min-width: 25.0em;
+    /* min-width: 25.0em; */
     min-height: .0em;
     /* Alignment */
     /* padding:0.5em; */

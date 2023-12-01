@@ -8,7 +8,6 @@ serverIsOn = false;
 // Override server settings.
 PageBuild = "RelsNext";
 PageMode = "Dev";
-
 // ...................................... //
 // STANDARD VARIABLES
 // ...................................... //
@@ -52,7 +51,7 @@ UseAlert = DoUseAlert;
 
 // ...................................... //
 // case 'ConsoleMouseOver':
-UseLogAnimation = true;
+UseAnimation = true;
 // consoleMouseOverToggle.style.borderColor = buttonIsOnColor;
 // ...................................... //
 // case 'FONTS'
@@ -96,8 +95,8 @@ consoleClearButton = false;
 consoleDebugButton = false;
 // consoleDebugMainToggle.style.borderColor = buttonIsOnColor;
 
-// case 'ConsoleDebugDetailAll':
-UseLogDetailsAll = false;
+// case 'ConsoleDebugAllDetail':
+UseLogAllDetail = false;
 // consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
 // ...................................... //
@@ -109,23 +108,31 @@ UseDebugOnError = false;
 UseDebugOnAll = false;
 // consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
-// Console
+// ...................................... //
+// case 'ConsoleDebugConsole':
 UseLogConsole = false;
-// Page
+
+// case 'ConsoleDebugLayout':
+// Page Layout
 UseLogPage = false;
-// Window
+
+// Window, Standard Functions, Other
+// case 'ConsoleDebugWindow':
 UseLogWindow = false;
 
 // Animation
 // ...................................... //
-UseLogAnitmation = true;
+// Basic Commands
+UseLogAnitmation = false;
 
 // case 'ConsoleDebugMove':
+// Movement steps
 UseLogTimerMove = false;
 
 // consoleDebugMoveToggle.style.borderColor = buttonIsOnColor;
 
 // case 'ConsoleDebugTransition':
+// Animation Filters and Transitions
 UseLogTimerTransition = false;
 // consoleDebugTransitionToggle.style.borderColor = buttonIsOnColor;
 
@@ -157,7 +164,7 @@ var filterResizeIsOn = true; // Growing image
 var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
 
 // Mouse Hover activation of image display
-// var UseLogAnimation = true;
+// var UseAnimation = true;
 // Type of Image Group Page Generation
 var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
@@ -188,6 +195,16 @@ UseLogEventDuplicates = false;
 
 errorMessage = "Page settings initializing";
 errorResultOnFail = errorDidNotOccur;
+
+// Display an alert if debugger statement failed.
+var errorDisplayNoDebugMsg = true;
+// Open and display the Console on first error.
+var consoleBoxExpandOnce = true;
+// Count of alerts.
+var alertCn = 0;
+// Maximum allowed number of alerts.
+// to prevent getting trapped and the UI blocked.
+var alertCnMax = 5;
 
 // AREA Debug.
 // This AREA is for controlling javascript debugging.
@@ -360,12 +377,10 @@ timerMethod = timerMethodItem;
 // Timer Movement
 var timerDuration = elementMoveDuration;
 var timerInterval = elementMoveInterval;
-var timerStepMax = elMoveStepMax;
 var timerDelay = elementMoveDelay;
-
 // Steps
 // var timerStep = 0;
-var timerStepMin = 10;
+var timerStepMin = 30;
 var timerStepMax = elMoveStepMax;
 var timerStepsPerSecond = 10;
 
@@ -457,6 +472,7 @@ var layoutTopFirst = true;
 var layoutIndex = layoutStandard;
 var layoutIndexCurr = layoutStandard;
 var layoutIndexCurrLast = layoutStandard;
+var layoutIndexRestore = null;
 
 // Current Layout Strategy
 var layoutIsWide = false;

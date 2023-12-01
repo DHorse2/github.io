@@ -94,7 +94,7 @@ function WindowOnload() {
     if (!loadDelayDebugState) { ConsoleStateInit(); }
 
     // Timers
-    TimerCreate();
+    TimerCreateAll();
     TimerFunctionSet();
     // Intervals and Duration
     TimerDurationSet();
@@ -450,7 +450,7 @@ function WindowResizeLayout() {
             if (layoutIndexCurrLast == layoutStandard) {
                 script_state += ", LayoutRefresh for narrow window";
                 // layoutIndex = layoutReadingMode;
-                LayoutSelectNext(layoutWindowed);
+                LayoutSelectNext(layoutReadingMode);
             }
         }
         // Width over layoutMenuDocWidthWide
@@ -732,7 +732,7 @@ function WindowResizeLayout() {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 'Window Resize Excessive Usage (Possible Error)',
                 'MdmWindow:WindowResizeLayout', 779, 0, null, null,
-                errorIsSevere, errorDoNotDisplayTag, DoUseAlert);
+                errorIsWarning, errorDoNotDisplayTag, DoUseAlert);
             layoutResizeCn = 0;
             // layoutMenuSizeHorzMax = 2000;
         }

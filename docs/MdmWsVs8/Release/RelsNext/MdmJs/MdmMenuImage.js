@@ -29,6 +29,549 @@ function BodyImagesHtmlBuild() {
 // MenuImagesHtmlBuild();
 ////////////////////////////////////////////////
 function MenuImagesHtmlBuild() {
+    var oName, oNameParent, oNamePrev;
+    // Filter in use is Type Checkerboard;
+    filterIndexPassed = filterTypeCheckerBoard;
+    // + ', ' + filterTypeCheckerBoard + ')
+    //
+    bodyImageContainer = ElementGetRef(BodyImageContainer, "BodyImageContainer", "BodyImageContainer");
+    //
+    imgHtml = "";
+    // imgHtml += lt + 'div id="BodyImageContainer"' + gt;
+    for (imgGroupCn = 0; imgGroupCn < 1 + bodyMenuGroupMax; imgGroupCn++) {
+        oNamePrev = '';
+        for (imgCn = 0; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
+            oName = MenuObjectNameSet(imgGroupCn, imgCn);
+            // Parent
+            if (imgCn > 1) {
+                // Previous (Small) Image Id
+                oNameParent = oNamePrev;
+                // oNameParent = MenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1; // Previous (Small) Image Id
+            } else {
+                oNameParent = '';
+                // oNameParent = MenuObjectNameSet(imgGroupCn, imgCn - 1); // Menu Container Id
+            }
+
+            // imgHtml += '    ' + lt + '1-- Image ' + imgGroupCn + ',' + imgCn + ' --' + gt;
+            // Image Small
+
+            // Element Div
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += '	' + lt + 'div id="' + oName + '"'; // Image Small Id
+            // imgHtml += "	" + lt + "div id=" + oName + imgGroupCn + imgCn + ""; // Image Small Id
+            imgHtml += '		 class= "imgThumbSmall MenuImageBox MenuImageBoxBorder"';// Class
+
+            // Events:
+            // Mouse Over Small Image
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += '   		 onmouseover= "';
+            imgHtml += 'ElementGroupShowStack(';
+
+            // Is NOT a Large Image
+            imgHtml += 'false, ';
+
+            // Parent Object ID
+            imgHtml += '"' + oNameParent + '"';// Previous (Small) Image Id
+            imgHtml += ', ';
+
+            // Image Small
+            imgHtml += '"' + oName + 'Image"'
+            imgHtml += ', ';
+
+            // Object ID
+            imgHtml += '"' + oName + '"'
+            imgHtml += ', ';
+
+            // Object Large ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+
+            // Small Image Size
+            imgHtml += 'oObjImageSizeSmall';
+            imgHtml += ', ';
+
+            // Group
+            imgHtml += imgGroupCn + ', ';
+
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+
+            // Current Show Lock
+            imgHtml += 'false, ';
+            imgHtml += 'true';// Ignore Show Lock
+
+            // Close function call
+            imgHtml += ');';
+            imgHtml += '"';
+            // end of mouseover
+
+            // Events:
+            // Mouse Out Small Image
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += '      	 onmouseout= "';
+            imgHtml += 'ElementItemHideId(';
+
+            // Small Image
+            imgHtml += 'false, ';
+            // Parent Object ID
+            imgHtml += '"' + oNameParent + '"';// Previous (Small) Image Id
+            imgHtml += ', ';
+            // Image Small
+            imgHtml += '"' + oName + 'Image"'
+            imgHtml += ', ';
+            // Object ID
+            imgHtml += '"' + oName + '"'
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+            // Small Image Size
+            imgHtml += 'oObjImageSizeSmall';
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'false, ';
+            imgHtml += 'true';// Ignore Show Lock
+
+            imgHtml += ');';
+            imgHtml += '"';
+            // end of mouseout
+
+            // Events:
+            // On Change Small Image
+            // ------------------------------------------------------------------------------------- _//
+            /*--
+            imgHtml += '      	 onfilterchange= "';
+            imgHtml += 			 'ElementPlayFirst(';
+                    // Parent Object
+                    if (imgCn > 1) {
+                       imgHtml += (MenuObjectNameSet(imgGroupCn, imgCn-1) + imgGroupCn + imgCn-1);// Previous (Small) Image Id
+                    } else {
+                       imgHtml += (MenuObjectNameSet(imgGroupCn, imgCn-1));// Menu Container Id
+                    }
+            imgHtml += ', ';
+            imgHtml += oName + 'Image' + ', ';// Small Image
+            imgHtml += oName + ', ';// Small Id
+            imgHtml += oObjImageSizeSmall + ', ';// Small Image Size
+            imgHtml += imgGroupCn + ', ';// Menu Group
+            imgHtml += 'false, ';// Current Show Lock
+            imgHtml += 'false';// Ignore Show Lock
+            imgHtml += ');';
+            imgHtml += '"';
+            --*/
+            // end of onfilterchange
+
+            // Layout
+            // ------------------------------------------------------------------------------------- _//
+            // Size
+            // imgHtml += '      	 width= " 0em" ';// Width
+            // imgHtml += '      	 height= " 0em" ';// Height
+            imgHtml += '		 style= "display:none" ';// Display (visibility)
+            imgHtml += '		 ' + gt;
+
+            // Small Image Link
+            // ------------------------------------------------------------------------------------- _//
+
+            // Element: A
+            // ------------------------------------------------------------------------------------- _//
+            // Text Link
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += lt + 'a id="' + oName + 'LinkUpper' + '"';// Link Id
+            // imgHtml += lt + 'a id="' + oName + 'LinkUpper' + imgGroupCn + imgCn + '"';// Link Id
+            imgHtml += '    		   class= "MenuImageBox MenuImageBoxLink"';// Class
+
+            // Source
+            imgHtml += '    		   href= "../MdmWebPages/' + oName + '.shtml"';// Link
+            imgHtml += '    		   ' + gt;
+
+            // Element: P
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + '"' + gt;// Link Text
+            // imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += '         	   ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '		' + lt + 'br clear= "all"' + gt;
+            imgHtml += lt + '/span' + gt;
+            // imgHtml += lt + 'br' + gt;
+            imgHtml += lt + '/a' + gt;
+
+            // ------------------------------------------------------------------------------------- _//
+            // Element: Img
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += lt + 'img id="' + oName + 'Image' + '" ';// Image Id
+            // imgHtml += lt + 'img id="' + oName + 'Image' + imgGroupCn + imgCn + '" ';// Image Id
+            imgHtml += '        	 src= "../Images/Thumbnails/' + oName + '.jpg" ';// Image Source src
+            imgHtml += '        	 class= "MenuThumb" ';// Class
+
+            // Events:
+            // Mouse Down Small Image
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += '      	 	 onmousedown= "';
+            /*--
+            // Filter
+            // Start Animation Filter
+            // Filter Reset
+            // imgHtml += ' FilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
+            imgHtml += 'FilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+            // imgHtml += ' FilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            --*/
+            //
+            // Image Show Toggle Large Image
+            imgHtml += 'ElementItemToggleId(';
+
+            // Large Image
+            imgHtml += 'true, ';
+            // Parent Object ID (Small Id)
+            imgHtml += '"' + oName + '"';// Previous (Small) Image Id
+            imgHtml += ', ';
+            // Image Large
+            imgHtml += '"' + oName + 'LargeImage"'
+            imgHtml += ', ';
+            // Object ID
+            imgHtml += '"' + oName + 'Large"'; // (Large Id)
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+            // Large Image Size
+            imgHtml += 'oObjImageSizeLarge';
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'false, ';
+            imgHtml += 'false'; // Ignore Show Lock
+
+            // imgHtml += 'true, ';// Is Large Image
+            // imgHtml += oName + ', ';// Small Id
+            // imgHtml += oName + 'LargeImage' + ', ';// Large Image Object
+            // imgHtml += oName + 'Large' + ', ';// Large Id
+            // // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            // // imgHtml += oName + 'LargeImage' + imgGroupCn + imgCn + ', ';// Large Image Object
+            // // imgHtml += oName + 'Large' + imgGroupCn + imgCn + ', ';// Large Id
+            // imgHtml += 'oObjImageSizeLarge, ';// Image Large Size
+            // imgHtml += imgGroupCn + ', ';// Menu Group
+            // imgHtml += imgCn + ', ';// Menu Group
+            // imgHtml += 'false, ';// Current Show Lock
+            // imgHtml += 'false';// Ignore Show Lock
+
+            imgHtml += ');';
+            imgHtml += '"';
+            // end of mousedown
+            //
+            // Play Filter
+            // imgHtml += ' onfilterchange= "FilterSpin(this + ', ' + filterIndexPassed + ');';// Spin this Image
+            // imgHtml += ' onfilterchange= "FilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', filterIndexPassed);';// Spin Large Image
+            // imgHtml += '" ';
+            //
+            // Size
+            imgHtml += '        	 width= "' + oObjImageSizeSmall + 'px"';// Width
+            // Set Height using Global height and ratio
+            imgHtml += '        	 height= "' + (oObjImageSizeSmall * oObjImageSizeRatio) + 'px"';// Height
+            // Alt
+            imgHtml += '			 alt= "' + MenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
+            imgHtml += '        	 ' + gt;
+            //
+            // ------------------------------------------------------------------------------------- _//
+            // Element: A
+            // Text Link
+            imgHtml += lt + 'a id="' + oName + 'LinkLower' + imgGroupCn + imgCn + '"';// Link Id
+            imgHtml += '    		   class= "MenuImageBox MenuImageBoxLink"';// Class
+            // Source
+            imgHtml += '    		   href= "../MdmWebPages/' + oName + '.shtml"';// Link
+            imgHtml += '    		   ' + gt;
+            // ------------------------------------------------------------------------------------- _//
+            // Element: P
+            imgHtml += lt + 'span id= "' + oName + 'LinkTextLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += '        	  ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += lt + '/span' + gt;
+            imgHtml += lt + '/a' + gt;
+            //
+            imgHtml += lt + '/div' + gt;
+            //
+            // ------------------------------------------------------------------------------------- _//
+            // ------------------------------------------------------------------------------------- _//
+            // Image Large
+            // ------------------------------------------------------------------------------------- _//
+            // ------------------------------------------------------------------------------------- _//
+            //
+            // ------------------------------------------------------------------------------------- _//
+            // Element: Div
+            imgHtml += lt + 'div id="' + oName + 'Large' + '"';// Id
+            // imgHtml += lt + 'div id="' + oName + 'Large' + imgGroupCn + imgCn + '"';// Id
+            imgHtml += '		 class= "imgThumbLarge MenuImageBoxBorder MenuImageBox"';// Class
+            // MenuImageContainer
+
+            // Events:
+            // Mouse Out Large Image
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += '      	 onmouseout= "';
+
+            imgHtml += 'ElementItemHideId(';
+
+            // Large Image
+            imgHtml += 'true, ';
+            // Parent Object ID
+            imgHtml += '"' + oNameParent + '"'; // Previous (Small) Image Id
+            imgHtml += ', ';
+            // Image Small
+            imgHtml += '"' + oName + '"'
+            imgHtml += ', ';
+            // Object ID
+            imgHtml += '"' + oName + '"'
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+            // Small Image Size
+            imgHtml += 'oObjImageSizeSmall';
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
+            imgHtml += 'false';// Ignore Show Lock
+
+            imgHtml += ');';
+            imgHtml += '"';
+            // end of mouseout
+
+            // Events:
+            // Mouse Over Large Image
+            // ------------------------------------------------------------------------------------- _//
+            // Show Image Small
+            imgHtml += '      	 onmouseover= "';
+            imgHtml += 'ElementItemShowId(';
+
+            // Small Image
+            imgHtml += 'false, ';
+            // Parent Object ID
+            imgHtml += '"' + oNameParent + '"';// Previous (Small) Image Id
+            imgHtml += ', ';
+            // Image Small
+            imgHtml += '"' + oName + 'Image"'
+            imgHtml += ', ';
+            // Small Object ID
+            imgHtml += '"' + oName + '"'
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+            // Small Image Size
+            imgHtml += 'oObjImageSizeSmall';
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
+            imgHtml += 'false' + ', ';// Ignore Show Lock
+
+            // imgHtml += 'false' + ', ';// Is Large Image
+            // // Parent Object Name
+            // if (imgCn > 1) {
+            //     imgHtml += (MenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
+            // } else {
+            //     imgHtml += (MenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
+            // }
+            // imgHtml += ', ';
+            // imgHtml += oName + 'Image' + ', ';// Small Image Object
+            // imgHtml += oName + ', ';// Small Id
+            // // imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image Object
+            // // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
+            // imgHtml += 'oObjImageSizeSmall, '; // Image Small Size
+            // imgHtml += imgGroupCn + ', ';// Menu Group
+            // imgHtml += imgCn + ', ';// Menu Group Box
+
+            // imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
+            // imgHtml += 'false';// Ignore Show Lock
+
+            imgHtml += ');';
+            imgHtml += ' ';
+
+            // Show Image Large
+            // ------------------------------------------------------------------------------------- _//
+            // imgHtml += 'MenuImgShow(';
+            imgHtml += 'ElementItemShowId(';
+
+            // Small Image
+            imgHtml += 'true, ';
+            // Parent Object ID
+            imgHtml += '"' + oName + '"'; // Previous (Small) Image Id
+            imgHtml += ', ';
+            // Image Large
+            imgHtml += '"' + oName + 'LargeImage"'
+            imgHtml += ', ';
+            // Object ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += '"' + oName + 'Large"'
+            imgHtml += ', ';
+            // Small Image Size
+            imgHtml += 'oObjImageSizeLarge';
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
+            imgHtml += 'false' + ', ';// Ignore Show Lock
+
+            // // Large Image
+            // imgHtml += 'true, ';
+            // // Parent Object ID (Small Id)
+            // imgHtml += '"' + oName + '"';// Previous (Small) Image Id
+            // imgHtml += ', ';
+            // // Image Large
+            // imgHtml += '"' + oName + 'LargeImage"'
+            // imgHtml += ', ';
+            // // Object ID
+            // imgHtml += '"' + oName + 'Large"'; // (Large Id)
+            // imgHtml += ', ';
+            // // Object Large ID
+            // imgHtml += '"' + oName + 'Large"'
+            // imgHtml += ', ';
+            // // Large Image Size
+            // imgHtml += 'oObjImageSizeLarge';
+            // imgHtml += ', ';
+            // // Group
+            // imgHtml += imgGroupCn + ', ';
+            // // Group Menu Line
+            // imgHtml += imgCn + ', ';
+            // // Current Show Lock
+            // imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
+            // imgHtml += 'false';// Ignore Show Lock
+
+            imgHtml += ');';
+
+            // Start Animation Filter
+            // ------------------------------------------------------------------------------------- _//
+            // Filter Reset
+            // imgHtml += ' FilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
+            // imgHtml += ' FilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
+            // imgHtml += ' FilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            //
+            imgHtml += '"';
+            // end of mouseover
+
+            // Play Filter
+            // ------------------------------------------------------------------------------------- _//
+            // imgHtml += '      	onfilterchange= "FilterSpin(this, filterIndexPassed);';// Spin this Image
+            // imgHtml += '      	onfilterchange= "FilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
+            // imgHtml += '" ';
+
+            // Div Size
+            // ------------------------------------------------------------------------------------- _//
+            imgHtml += '      	 width= "' + oObjImageSizeLarge + 'px"';// Image Large Width
+            imgHtml += '      	 height= "' + (oObjImageSizeLarge * oObjImageSizeRatio) + 'px"';// Image Large Height
+            // Div Style
+            imgHtml += '		 style= "display:none;';
+            //
+            // ------------------------------------------------------------------------------------- _//
+            /*--
+            imgHtml += '         filter:';
+            //
+            // imgHtml += 'progid:DXImageTransform.Microsoft.MotionBlur(strength= 13, direction= 310) ';
+            // filterIndexPassed = filterTypeBlinds;
+            // imgHtml += 'progid:DXImageTransform.Microsoft.Blur(pixelradius= 2) ';
+            // filterIndexPassed = filterTypeBlinds;
+            // imgHtml += 'progid:DXImageTransform.Microsoft.Wheel(duration= 3);"';
+            // filterIndexPassed = filterTypeBlinds;
+            //
+            // imgHtml += 'progid:DXImageTransform.Microsoft.Blinds(Bands= 10, Duration= 2, Direction= down);" ';
+            // filterIndexPassed = filterTypeBlinds;
+            // CheckerBoard
+            // filterTypeCheckerBoard
+            imgHtml += 'progid:DXImageTransform.Microsoft.CheckerBoard(Duration= 3, Direction= left);';
+            // Wheel
+            // imgHtml += 'progid:DXImageTransform.Microsoft.Wheel(Duration= 1.0000);" ';
+            // filterIndexPassed = filterTypeBlinds;
+            // Matrix
+            // imgHtml += 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod= auto expand, duration= 1.5);" ';
+            // filterIndexPassed = filterTypeBlinds;
+            --*/
+            // ------------------------------------------------------------------------------------- _//
+            //
+            imgHtml += '"';
+            // end of style
+            //
+            imgHtml += '		' + gt;
+            //
+            // ------------------------------------------------------------------------------------- _//
+            // Image & Text Link
+            // ------------------------------------------------------------------------------------- _//
+            // Element: A
+            imgHtml += lt + 'a id= "' + oName + 'LargeLinkUpper' + '"';
+            // imgHtml += lt + 'a id= "' + oName + 'LargeLinkUpper' + imgGroupCn + imgCn + '"';
+            imgHtml += '		   class= "MenuImageBox MenuImageBoxLink"';
+            imgHtml += '		   href= "../MdmWebPages/' + oName + '.shtml"';
+            imgHtml += '		   ' + gt;
+            //
+            // ------------------------------------------------------------------------------------- _//
+            // Element: P
+            imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + '"' + gt;// Link Text
+            // imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += '         ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '		' + lt + 'br' + gt;
+            // imgHtml += '		' + lt + 'br clear= "all"' + gt;
+            imgHtml += lt + '/span' + gt;
+            //
+            // ------------------------------------------------------------------------------------- _//
+            // Element: Img
+            imgHtml += lt + 'img id= "' + oName + 'LargeImage' + '"';
+            // imgHtml += lt + 'img id= "' + oName + 'LargeImage' + imgGroupCn + imgCn + '"';
+            imgHtml += '    		 src= "../Images/Thumbnails/' + oName + '.jpg"';// Image Source src
+            imgHtml += '    		 class= "MenuThumbLarge"';
+            // Alt
+            imgHtml += '			 alt= "' + MenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
+            imgHtml += '    		 ' + gt;
+            // ------------------------------------------------------------------------------------- _//
+            // Link Text
+            imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + '"' + gt;// Link Text
+            // imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            // imgHtml += '		 ' + lt + 'br clear= "all"' + gt;
+            imgHtml += '         ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += lt + '/span' + gt;
+            //
+            imgHtml += lt + '/a' + gt;
+            //
+            imgHtml += lt + '/div' + gt;
+            // ------------------------------------------------------------------------------------- _//
+        }
+    }
+    //
+    // ------------------------------------------------------------------------------------- _//
+    imgHtml += '	' + lt + '/div> ';
+    // document.write(imgHtml);
+    // bodyImageContainer = ElementGetRef(bodyImageContainer, "BodyImageContainer", "BodyImageContainer");
+    //
+    bodyImageContainer.innerHTML = imgHtml;
+    if (!imgLoadUseEventHandler && !imgLoadEventTest) {
+        bodyImageContainer.onmouseover = null;
+        bodyImageContainer.onmouseout = null;
+        bodyImageContainer.onmousedown = null;
+    } else {
+        bodyImageContainer.addEventListener("mouseover", (e) => { ElementEventMouse(e); });
+        bodyImageContainer.addEventListener("mousedown", (e) => { ElementEventMouse(e); });
+        bodyImageContainer.addEventListener("mouseout", (e) => { ElementEventMouse(e); });
+    }
+    //
+    loadFirstMenuImage = false;
+    //
+    return bodyImageContainer;
+}
+// MenuImagesHtmlBuild();
+////////////////////////////////////////////////
+function MenuImagesHtmlBuildOld() {
     // Filter in use is Type Checkerboard;
     filterIndexPassed = filterTypeCheckerBoard;
     // + ', ' + filterTypeCheckerBoard + ')
@@ -475,9 +1018,10 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
     startObjoObjIndex = startIndex;
     endObjoObjIndex = endIndex;
     oObjIndex = startObjoObjIndex;
-    if (oObjNext.style.display = "none") {
-        oObjLocked = true;
-        IgnoreLock = false;
+	//
+	if (oObjNext.style.display == 'none') {
+		oObjLocked = true;
+		IgnoreLock = false;
         MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
     } else {
         oObjLocked = false;
@@ -490,12 +1034,12 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
             // oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
 
             if (HideImage) {
-                if (oObj.style.display = "block") {
+                if (oObj.style.display == "block") {
                     MenuImgHide(IsImageLarge, oObjParent, oObjImage, oObj, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
                 }
             }
             if (HideImageLarge) {
-                if (oObjImageLarge.style.display = "block") {
+                if (oObjImageLarge.style.display == "block") {
                     MenuImgHide(IsImageLarge, oObj, oObjImageLarge, oObjLarge, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
                 }
             }
@@ -510,7 +1054,7 @@ function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     oObjIndex = oObjGroupItemIndex;
     // MenuIndexGroupSet(oObjGroupIndex, oObjNext);
-    if (oObjNext.style.display = "none") {
+    if (oObjNext.style.display == "none") {
         MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
     } else {
         if (IsImageLarge) {
@@ -550,7 +1094,7 @@ function MenuImgShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
 function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
     imgZindex += 1;
-    oObjNext.style.zIndex = imgZindex;
+    // oObjNext.style.zIndex = imgZindex;
     //
     startoObjIndex = 1;
     // endoObjIndex = MenuIndexGroupSet(oObjGroupIndex, oObjNext);
@@ -561,7 +1105,7 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
         ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
         // oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
         // Set Lock State
-        // if (oObjLocked = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
+        // if (oObjLocked) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
         if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex] = oObjLocked; }
         // Reveal Hidden Images
         MenuImgShow(IsImageLarge, oObjParent, oObjImage, oObj, iImageSize, oObjGroupIndex, oObjIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
@@ -581,8 +1125,6 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     LastTouchedId = oObjNext.id;
     script_state += ":Show:" + oObjNext.id;
     //
-    // DebugStart(0, "testing image show");// XXXXXXXX DEBUG XXXXXXXXX
-    //
     WindowClientWidth();
     //
     // if (IsImageLarge) {
@@ -595,15 +1137,15 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     if (oObjNext.style.display == "none") {
         //
         // document.recalc();
-        //
-        ////////////////////////////////////////////////
+
         // Width and Height
+        ////////////////////////////////////////////////
         //	oObj.class= "MenuThumbShow";
         //	oObj.position= "absolute";
         LastId = oObjNext.id
-        //
-        ////////////////////////////////////////////////
+
         // Image Size
+        ////////////////////////////////////////////////
         // oObjNext.style.width = "auto";
         // oObjNext.style.height = "auto";
         // oObjNext.style.width = iImageSize + 10;
@@ -613,17 +1155,17 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         // oObjNext.style.height = iImageSize * oObjImageSizeRatio + 50;
         oObjNextImage.style.width = iImageSize;
         oObjNextImage.style.height = iImageSize * oObjImageSizeRatio;
-        //
-        ////////////////////////////////////////////////
+
         // Filters
+        ////////////////////////////////////////////////
         var filterCheck = false;
         if (oObjNext.style.filter != "") { filterCheck = true; }
         filterCheck = true;// XXX TEST XXX
         // if (oObjNext.filters.item(0) != "") { filterCheck = true; }
         // var filterCheck = oObjNextImage.filters && oObjNextImage.filters.length > 0;
-        //
-        ////////////////////////////////////////////////
+
         // Mouse Events
+        ////////////////////////////////////////////////
         // if(true = false) {
         // oObjNext.onfilterchange= "FilterSpin(" + oObjNext.id + ", filterIndexPassed)";
         // oObjNext.onmouseover   = "";
@@ -645,15 +1187,12 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         // + ";"
         // + "FilterResetThenAnimate(" + oObjNext.id + ");";
         // onmouseover= "MenuImgShowStack(MenuContainerRight1, MdmImportTld4Image, MdmImportTld4, oObjImageSizeSmall, 4, false, false)"
-        ////////////////////////////////////////////////
         // }
 
         // Position
         ////////////////////////////////////////////////
-
         // Parent Postion
         ////////////////////////////////////////////////
-
         // Get the offset width of that parent element
         ////////////////////////////////////////////////
         ElementPosGetFromObj(oObjNextParent);
@@ -734,13 +1273,14 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                 } else { oObjNextTop += 100; }
             }
         }
+
         // Set Style Top for menu image box
         ////////////////////////////////////////////////
         oObjNext.style.posTop = oObjNextTop;
         // oObjNext.style.posTop = oObjNext.style.top;
-        //
-        ////////////////////////////////////////////////
+
         // Menu Thumb Link Postioning (Top or Bottom)
+        ////////////////////////////////////////////////
         // Large Image Handling
         if (!IsImageLarge) {
             // Small Image
@@ -768,9 +1308,9 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                 oObjNext.childNodes[0].childNodes[2].style.display = "block";
             }
         }
+
         // Left Position
         ////////////////////////////////////////////////
-
         // Cascase Direction (Right or Left)
         ////////////////////////////////////////////////
         if (menuImageOffsetLeftAll[oObjGroupIndex][indexGroup] > 0) {
@@ -797,14 +1337,14 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         ////////////////////////////////////////////////
         // Adjust Left Position for Page Overflow
 
-        // Cascade Maximum exceeded (Left)
         // Cascase Direction
         ////////////////////////////////////////////////
         if (layoutCascadeRight) {
             ////////////////////////////////////////////////
             // Left Column (Left)
-            // One First Column of Row
+            // Cascade Maximum exceeded (Left)
             if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
+                // One First Column of Row
                 if (layoutIndex == layoutWindowed) {
                     oObjNextOffsetLeft = 0;
                     oObjNextLeft = ((oObjGroupIndex - 1) / 6 * layoutWidth)
@@ -906,7 +1446,6 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         // Set Object Style Left
         ////////////////////////////////////////////////
         oObjNext.style.left = oObjNext.style.posLeft;
-
         // Store Postion
         ////////////////////////////////////////////////
         menuImagePositionLeft[oObjGroupIndex][oObjIndex] = oObjNext.style.posLeft;
@@ -916,23 +1455,18 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
 
         // Filters
         ////////////////////////////////////////////////
-
         // Z Index
         ////////////////////////////////////////////////
         imgZindex += 1;
         oObjNext.style.zIndex = imgZindex + oObjIndex;
-
         // Filter Apply Command
         ////////////////////////////////////////////////
         if (filterCheck && (moveIsOn || filterIsOn)) {
             oObjNext.style.display = "block";
-
             // MenuImageFilterPlayAgain(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjIndex, false, true);
-
             playDirection = playDirectionForward;
             // playDirection = playDirectionReverse;
             ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
-
 
             // oObjNextImage.filters[0].apply();
             // oObjNextImage.filters[1].apply();
@@ -985,6 +1519,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         ////////////////////////////////////////////////
         // end of display "none"
     } else {
+        // Displayed objects - Bring to front but skip.
         // Z Index
         ////////////////////////////////////////////////
         imgZindex += 1;

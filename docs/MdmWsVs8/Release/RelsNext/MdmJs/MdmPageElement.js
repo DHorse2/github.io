@@ -4,6 +4,7 @@
 // Menu Image Play First
 function ElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementPlayFirst:";
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
@@ -14,6 +15,7 @@ function ElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextI
 // ...................................... //
 function ElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementPlayNext:";
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
@@ -24,6 +26,7 @@ function ElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextIm
 // ...................................... //
 function ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementPlayAgain:";
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
@@ -36,22 +39,25 @@ function ElementPlay(playDirection, IsImageLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	//
 	var timerType = timerTypeMove;
-    var timerGroup = oObjGroupIndex;
-    var timerGroupItem = oObjGroupItemIndex;
-    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
-    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+	var timerGroup = oObjGroupIndex;
+	var timerGroupItem = oObjGroupItemIndex;
+	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+	var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
 	//
 	var timerItemMoveKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeMove;
 	var timerItemTransitionKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeTransition;
-    //
+	//
+	script_state += "MdmPageElement:ElementPlay:" + timerItemKey;
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
 	if ((UseLog || UseDebug)
-	&& (UseLogTimerDetail || (UseLogTimerMove || UseLogTimerTransition))) {
+		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+	) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
+			+ ', ' + ((playDirection = playDirectionForward) ? 'Forward' : 'Reverse')
 			+ '.',
 			'MdmPageElement:ElementPlay', 54, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
@@ -60,13 +66,15 @@ function ElementPlay(playDirection, IsImageLarge,
 	//
 	// Bug for testing: var timerGroupItem = oObjNext.id;
 	// Checking Transition
-	if (!timerObj) { TimerCreate(); }
+	if (!timerObj) { TimerCreateAll(); }
 	if (timerObj[timerItemKey]) {
 		if (timerObj[timerItemKey].timerIsRunning) {
 			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeTransition;
 			if (playDirection != timerObj[timerItemKey].playDirection) {
 				// playDirection is different (while running)
-				if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerTransition)) {
+				if ((UseLog || UseDebug)
+					&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -79,7 +87,9 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerTransition)) {
+				if ((UseLog || UseDebug)
+					&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -104,7 +114,9 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
-					if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerTransition)) {
+					if ((UseLog || UseDebug)
+						&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+					) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -120,7 +132,9 @@ function ElementPlay(playDirection, IsImageLarge,
 			} else {
 				// Reverse
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsNotDisplayed) {
-					if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerTransition)) {
+					if ((UseLog || UseDebug)
+						&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+					) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
@@ -148,7 +162,9 @@ function ElementPlay(playDirection, IsImageLarge,
 			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeMove;
 			if (playDirection != timerObj[timerItemKey].playDirection) {
 				// playDirection is different (while running)
-				if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerMove)) {
+				if ((UseLog || UseDebug)
+					&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -161,7 +177,9 @@ function ElementPlay(playDirection, IsImageLarge,
 				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
-				if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerMove)) {
+				if ((UseLog || UseDebug)
+					&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
 						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
@@ -186,7 +204,9 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
-					if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerMove)) {
+					if ((UseLog || UseDebug)
+						&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+					) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Forward command NOT issued'
@@ -200,8 +220,10 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed) {
-					if ((UseLog || UseDebug) && (UseLogTimerDetail && UseLogTimerMove)) {
+				if (timerObj[timerItemKey].elementIsDisplayed == elementIsNotDisplayed) {
+					if ((UseLog || UseDebug)
+						&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+					) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
 							+ ', Play Reverse command NOT issued'
@@ -264,7 +286,9 @@ function ElementPlay(playDirection, IsImageLarge,
 	// elTopDest = oObjNext.style.posTop;
 	//
 	//
-	if ((UseLog || UseDebug) && (UseLogTimerMove)) {
+	if ((UseLog || UseDebug)
+		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+	) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
 			+ ', Item orgin and destination set'
@@ -290,7 +314,9 @@ function ElementPlay(playDirection, IsImageLarge,
 	startIndex = 1; endIndex = 18;
 	if (filterIsOn || filterResizeIsOn) {
 		//
-		if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
 				+ ', Filter Get command issued'
@@ -320,7 +346,9 @@ function ElementPlay(playDirection, IsImageLarge,
 	if (filterIsOn) {
 		//
 		// if (filterObj[filterIdPassed].filterDoEnable) {
-		if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
 				+ ', Filter Enable command issued'
@@ -339,7 +367,9 @@ function ElementPlay(playDirection, IsImageLarge,
 		// oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
 		//
 		// if (filterObj[filterIdPassed].filterDoApply) {
-		if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
 				+ ', Filter Apply command issued'
@@ -354,7 +384,9 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterIdIndex);
 		// }
 		//
-		if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Filter Start command issued'
@@ -370,7 +402,9 @@ function ElementPlay(playDirection, IsImageLarge,
 			filterObjId, filterIdIndex);
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
-		if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
 				+ ', Filter Vendor Play command issued'
@@ -409,7 +443,9 @@ function ElementPlay(playDirection, IsImageLarge,
 		// Visibility
 		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
 		//
-		if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
 				+ ', Move Start command issued'
@@ -429,7 +465,9 @@ function ElementPlay(playDirection, IsImageLarge,
 		// **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
 		if (filterResizeIsOn && !elementIsDisplayed) {
 			//
-			if ((UseLog || UseDebug) && (UseLogTimerDetail && (UseLogTimerMove || UseLogTimerTransition))) {
+			if ((UseLog || UseDebug)
+				&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
 					+ ', Resize command issued'
@@ -453,7 +491,7 @@ function ElementPlay(playDirection, IsImageLarge,
 // 		ElementGroupShowRange
 //		ElementItemShowIndex
 //		ElementGroupShowStack
-//		ElementItemToggle
+//		ElementItemToggleId
 //		ElementItemShow
 // Menu Hide
 // 		ElementGroupToggleRange
@@ -464,8 +502,11 @@ function ElementPlay(playDirection, IsImageLarge,
 // ElementGroupToggleRange
 // ...................................... //
 function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementGroupToggleRange (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	// Set succeeded
-	if (UseLogAnitmation) {
+	if ((UseLog || UseDebug)
+		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+	) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Range(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
 			+ 'Started: Hide small/large: ' + HideImage + ', ' + HideImageLarge + '. '
@@ -523,11 +564,12 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 				oObjIndexCurr++;
 			}
 		}
-	} else { ErrorOccured("MdmPageElement:ElementGroupToggleRange", 524, 0 , null, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+	} else { ErrorOccured("MdmPageElement:ElementGroupToggleRange", 524, 0, null, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 }
 // Menu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
-function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+function ElementItemToggleId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementItemToggleId (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
@@ -556,18 +598,22 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 				oObjNext.style.display = 'none';
 			}
 		}
-	} else { ErrorOccured("MdmPageElement", 557, 0,Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+	} else { ErrorOccured("MdmPageElement", 557, 0, Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 	//
 }
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
 function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-	if (UseLogAnitmation) {
+	script_state += "MdmPageElement:ElementGroupShowStack (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
+	if ((UseLog || UseDebug)
+		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+	) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Group Show Stack ' + oObjNextImageId.id
 			+ ' (' + oObjGroupIndex + ', ' + oObjGroupItemIndex + ')'
 			+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
-			+ charNewLineTag,
+			// + charNewLineTag
+			,
 			'MdmPageElement:ElementGroupShowStack', 569, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 		//
@@ -582,7 +628,7 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 	// Don't process the event on the parent elements.
 	if (eventCurrId == oObjNextParentId
 		&& eventType == 'mouseover'
-		&& !UseLogAnimation
+		&& !UseAnimation
 	) {
 		return;
 	}
@@ -608,9 +654,9 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 	if (oObjNextValid && oObjNext) {
 		// Handle and cascade event
 		if (((eventType == 'mousedown' || eventType == 'mouseover')
-			&& UseLogAnimation)
+			&& UseAnimation)
 			|| (oObjNext.style.display == 'block'
-			&& !UseLogAnimation)
+				&& !UseAnimation)
 		) {
 			//
 			imgZindex += 1;
@@ -633,11 +679,12 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		} else {
 			// skipped due to mouse event settings
 		}
-	} else { ErrorOccured("MdmPageElement", 627, 0,Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+	} else { ErrorOccured("MdmPageElement", 627, 0, Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
 }
 // ElementGroupShowRange
 // ...................................... //
 function ElementGroupShowRangeToDo(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementGroupShowRangeToDo:" + startIndex + ", " + endIndex;
 	// ...................................... //
 	// Build Menu Images Div
 	if (loadFirstJava) { ElementObjectCreate(); }
@@ -656,15 +703,17 @@ function ElementGroupShowRangeToDo(startIndex, endIndex, IsImageLarge, oObjNextP
 // Show using index #
 // ...................................... //
 function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementItemShowIndex (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	ElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // Menu Menu Show Item (Mouse Over function)
 // ...................................... //
-function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+function ElementItemShowId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementItemShowId (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	// look for duplicate mouse over events (bubbling)
-	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(null, UseLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -695,7 +744,9 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
-	if ((UseLog || UseDebug) && (UseLogAnitmation || UseLogTimer || UseLogTimerTransition)) {
+	if ((UseLog || UseDebug)
+		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+	) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			'Group Show Item '
 			+ TimerTextKey('Show', oObjGroupIndex, oObjGroupItemIndex)
@@ -1108,9 +1159,10 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 // ...................................... //
 // ElementItemHideId
 // ...................................... //
-function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementItemHideId (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	// load and validate event and objects
-	if (!ElementEventFromHtmlCheck(e, UseLogEvents)) { return; }
+	if (!ElementEventFromHtmlCheck(null, UseLogEvents)) { return; }
 	//
 	// Objects
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -1128,18 +1180,25 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 // Menu ElementItemHide
 // ...................................... //
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	script_state += "MdmPageElement:ElementItemHide (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 	//
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	var oObjNextIndex = oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
 	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
+	// playDirection = playDirectionForward;
+	var playDirection = playDirectionReverse;
+	var iImageSize;
 	//
 	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
-		if ((UseLog || UseDebug) && (UseLogTimerTransition)) {
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextKey('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
+				+ ', ' + ((playDirection = playDirectionForward) ? 'Forward' : 'Reverse')
 				+ ', Do not hide locked item'
 				+ ', Time:' + Date()
 				+ '.',
@@ -1149,7 +1208,9 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		return;
 	}
 	//
-	if ((UseLog || UseDebug) && (UseLogTimerTransition)) {
+	if ((UseLog || UseDebug)
+		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+	) {
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerTextKey('Hide', oObjGroupIndex, oObjIndex)
 			+ ', ' + oObjNext.id
@@ -1162,9 +1223,6 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	//
 	if (moveIsOn || filterIsOn) {
 		//
-		// playDirection = playDirectionForward;
-		var playDirection = playDirectionReverse;
-		var iImageSize;
 		if (IsImageLarge) { iImageSize = oObjImageSizeLarge; } else { iImageSize = oObjImageSizeSmall; }
 		ElementPlayAgain(playDirection, IsImageLarge,
 			oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
@@ -1200,6 +1258,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 // ElementItemIndexSetFromName
 // ...................................... //
 function ElementItemIndexSetFromName(oObjPassed) {
+	script_state += "MdmPageElement:ElementItemIndexSetFromName";
 	if (!oObjPassed) {
 		oObjNotFound = false;
 		oObjGroupIndex = 4; oObjIndex = 1; // todo might be wrong

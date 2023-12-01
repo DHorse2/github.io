@@ -26,7 +26,7 @@ var LastTouchedId = "";
 window.onload = function () { WindowOnload(); }
 
 // Timers
-// TimerCreate();
+// TimerCreateAll();
 // TimerFunctionSet();
 // // Intervals and Duration
 // TimerDurationSet();

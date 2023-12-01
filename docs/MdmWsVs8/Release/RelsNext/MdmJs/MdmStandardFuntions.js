@@ -1,37 +1,12 @@
 
 // STANDARD VARIABLES
 // ...................................... //
-// UseDebug means differenct things depending on context
-// i.e. it may refer to debugging or to content button target selection
-var DoUseLog = true;
-var DoNotUseLog = false;
-//
-var DoUseDebug = true;
-var DoNotUseDebug = false;
-
-var DoSetValue = true;
-var DoNotSetValue = false;
-
-var DoUseToggle = true;
-var DoNotUseToggle = false;
-
-// Display messages using alerts.
-var DoUseAlert = true;
-var DoNotUseAlert = false;
-
-// Debugging and Console
-// ...................................... //
-var UseDebug = DoNotUseDebug;
-var UseDebugNext = DoNotUseDebug;
-var UseLog = DoUseLog;
-var UseAlert = DoUseAlert;
-
 // Console buttons and variables
 // ...................................... //
 // View
 // Fonts
 // Animation
-var UseLogAnimation = false;
+var UseAnimation = false;
 // Console Button
 var consoleBoxButton = false;
 var consoleErrorBoxButton = false;
@@ -53,7 +28,7 @@ var UseLogEvents = false;
 // Hover
 var UseLogHover = false;
 // hidden functions
-var UseLogDetailsAll = false;
+var UseLogAllDetail = false;
 
 // Formatting
 // ...................................... //
@@ -83,8 +58,35 @@ var UseScroll = DoUseScroll;
 // ...................................... //
 var errorDoDisplayTag = true;
 var errorDoNotDisplayTag = false;
-var DoUseAlert = false;
+
+var DoUseAlert = true;
 var DoNotUseAlert = false;
+
+// UseDebug means differenct things depending on context
+// i.e. it may refer to debugging or to content button target selection
+var DoUseLog = true;
+var DoNotUseLog = false;
+//
+var DoUseDebug = true;
+var DoNotUseDebug = false;
+
+var DoSetValue = true;
+var DoNotSetValue = false;
+
+var DoUseToggle = true;
+var DoNotUseToggle = false;
+
+// Display messages using alerts.
+var DoUseAlert = true;
+var DoNotUseAlert = false;
+
+// Debugging and Console
+// ...................................... //
+var UseDebug = DoNotUseDebug;
+var UseDebugNext = DoNotUseDebug;
+
+var UseLog = DoUseLog;
+var UseAlert = DoUseAlert;
 
 // Other settings
 var DoUseHide = true;

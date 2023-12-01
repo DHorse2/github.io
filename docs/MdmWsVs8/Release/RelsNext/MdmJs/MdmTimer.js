@@ -85,9 +85,8 @@ var timerGroupItemPrev = "";
 
 var timerFunction = "TimerMoveStepDo";
 //
-var vtimerGroupItem;
-var vTimerStart;
-var vTimerStop;
+// var vTimerStart;
+// var vTimerStop;
 
 // Started
 var timerStarted = false;
@@ -133,9 +132,9 @@ var timerStepCompletion = 0;
 // Java Interval Timer
 var timerBusy = false;
 var timerStarted = 0;
-var vtimerGroupItem;
-var vTimerStart;
-var vTimerStop;
+// var vtimerGroupItem;
+// var vTimerStart;
+// var vTimerStop;
 
 // var timerItemKey;
 // var timerRootKey;
@@ -343,6 +342,9 @@ function TimerStartFunc(timerItemKeyPassed, timerFunctionPassed, timerDelayPasse
     // Execute Function after Delay
     script_state = "MdmTimer:TimerStart";
     timerTen = 0;
+    var vTimerStart;
+    var vtimerGroupItem;
+
     timerStarted = true;
     timerObj[timerItemKeyPassed].timerBusy = true;
     timerObj[timerItemKeyPassed].timerDateStart = new Date();
@@ -480,6 +482,7 @@ function TimerItemDeactivate(timerType, timerGroup, timerGroupItem, UseRoot) {
     if (UseRoot == DoUseRoot || UseRoot == DoUseBoth) { LevelCnStart = 0; } // Timer Group Item
     //
     for (var LevelCn = LevelCnStart; LevelCn < 2; LevelCn += 1) {
+        timerStarted -= 1;
         if (LevelCn == 0) {
             timerLevelKey = timerRootKey;
         } else { timerLevelKey = timerItemKey; }
@@ -521,8 +524,8 @@ function TimerItemAbort(timerType, timerGroup, timerGroupItem, UseRoot) {
     // delete timerObj [timerLevelKey];
 }
 var timerUseArray = false;
-function TimerCreate() {
-    script_state = "MdmTimer:TimerCreate";
+function TimerCreateAll() {
+    script_state = "MdmTimer:TimerCreateAll";
     if (timerUseArray) {
         // depreciated
         timerObj = new Array(bodyMenuGroupUsedCn);
@@ -550,12 +553,12 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     // Timer Group and Image Box
-    if (!timerObj) { TimerCreate(); }
+    if (!timerObj) { TimerCreateAll(); }
     // Group Level
     // Timer Group Creation
     var timerGroupNew = false;
     var timerItemNew = false;
-    // if (!timerObj) { TimerCreate(); }
+    // if (!timerObj) { TimerCreateAll(); }
     // if (!timerObj) { timerObj = new Array(imgGroupImageArraySize); }
     // if (!timerObj) { timerObj = new Array(imgMaxByGroup); }
     // Timer Group Creation
@@ -759,14 +762,16 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     timerDelayPassed
 ) {
-    script_state = "MdmTimer:TimerStart";
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     timerTen = 0;
+    var vTimerStart;
     timerStarted += 1;
     timerObj[timerItemKey].timerElapsed = 0;
     timerObj[timerItemKey].timerCompletion = 0;
     timerGroupItemCurr = timerGroupItem;
+    script_state = "MdmTimer:TimerStart:" + timerItemKey;
+
     var timerIsRunning = false;
     var debugFunctionIsOn = false;
     if (
@@ -782,7 +787,7 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
             || !timerObj[timerRootKey].timerIsRunning
         ) {
             // One timer per Item or Element (per Timer Type)
-            // Start this Item's Group Timer is it is not already running
+            // Start this Item's Group Timer if it is not already running
             //
             var tempMethodFunc;
             if (timerMethod == timerMethodGroup) {
@@ -854,6 +859,93 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
         }
     }
 }
+// Timer Pause then Start
+// Included a setTimeout in BODY onload to delay start of text movement.
+function TimerStop(timerType, timerGroup, timerGroupItem, timerDelayPassed) {
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+    timerTen = 0;
+    var vTimerStart;
+    var timerStopKey;
+    timerStarted -= 1;
+    if (timerMethod == timerMethodItem) {
+        timerStopKey = timerRootKey;
+    } else if (timerMethod == timerMethodItem) {
+        timerStopKey = timerItemKey;
+    }
+    timerObj[timerStopKey].timerElapsed = 0;
+    timerObj[timerStopKey].timerCompletion = 0;
+    timerGroupItemCurr = timerGroupItem;
+    script_state = "MdmTimer:TimerStop:" + timerStopKey;
+    var timerIsRunning = false;
+    // console debugging
+    var debugFunctionIsOn = false;
+    if (
+        (timerMethod == timerMethodItem && UseLogTimerDetail)
+        || (timerMethod == timerMethodGroup)
+    ) {
+        if (UseLogTimerTransition && timerType == timerTypeTransition) { debugFunctionIsOn = true; }
+        if (UseLogTimerMove && timerType == timerTypeMove) { debugFunctionIsOn = true; }
+    }
+    // Verify Timer
+    if (!timerObj[timerStopKey].timerIsRunning) {
+        // Call shouldn't have occurred. Warning.
+        timerIsRunning = false;
+    } else {
+        if (timerObj[timerStopKey].timerIntervalId) {
+            // Timer to Stop
+            timerIntervalId = timerObj[timerStopKey].timerIntervalId;
+            // Clear system timer
+            if (timerIntervalId) {
+                window.clearInterval(timerIntervalId);
+            } else if (timerObj[timerStopKey].timerIntervalIdPrev) {
+                // error.
+                window.clearInterval(timerObj[timerStopKey].timerIntervalIdPrev);
+            }
+            if (debugFunctionIsOn) {
+                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                    TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
+                        (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
+                        timerObj[timerStopKey].playDirection, 'Timer Pending')
+                    + ', Timer Stop '
+                    + (vTimerStart ? 'Ok' + vTimerStart : 'Failed')
+                    + (vTimerStart ? '.' : '!!!'),
+                    'MdmTimer:TimerStart', 850, 0, null, null,
+                    errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+            }
+        } else {
+            // Error, running with no timer set.
+        }
+        //
+        timerObj[timerStopKey].timerIsRunning = false;
+        timerObj[timerStopKey].timerDateStop = new Date();
+
+        // Root update
+        if (!timerObj[timerRootKey].timerIsRunning) {
+            // date is reset on any call here,
+            // allows items to be added late in the cycle...
+            // timerObj[timerRootKey].timerIsRunning = true;
+            timerObj[timerRootKey].timerDateStart = new Date();
+        }
+    }
+
+    if (timerIsRunning) {
+        if (timerMethod == timerMethodGroup) {
+            timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+        }
+        //
+        if (debugFunctionIsOn) {
+            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                    timerObj[timerItemKey].playDirection, 'Timer Running')
+                + ', Already running'
+                + '.',
+                'MdmTimer:TimerStart', 879, 0, null, null,
+                errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+            //
+        }
+    }
+}
 // Timer Set
 // Set up interval at which the timer will fire.
 function TimerSet(timerType, timerGroup, timerGroupItem,
@@ -863,6 +955,10 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
     script_state = "MdmTimer:TimerSet";
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
+
+    var vTimerStart;
+    var vtimerGroupItem;
+
     var tempFunc; // = new String();
     tempFunc = function () {
         script_state = 'Timer:Step:' + timerFunctionPassed.toString() + ':' + timerGroup + ':' + timerGroupItem + ':' + timerType + ':';
@@ -879,14 +975,13 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
         }
     }
     //
-    if ((timerMethod == timerMethodItem && !(timerObj[timerItemKey].timerIntervalId > 0))
-        || !(timerObj[timerRootKey].timerIntervalId > 0)
+    if ((timerMethod == timerMethodItem && !timerObj[timerItemKey].timerIntervalId > 0)
+        || !timerObj[timerRootKey].timerIntervalId > 0
     ) {
         vtimerGroupItem = window.setInterval(
             tempFunc,
             timerInterval
         );
-        //
         timerObj[timerItemKey].timerIntervalId = vtimerGroupItem;
         if (timerMethod == timerMethodGroup) { timerObj[timerRootKey].timerIntervalId = vtimerGroupItem; }
         //
@@ -900,7 +995,6 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
             //
         }
     } else {
-        //
         if (timerMethod == timerMethodGroup) {
             timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
         }
@@ -931,8 +1025,8 @@ function TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKe
     var DoUseWord = true;
     var LogText = '';
     LogText += TimerTextType(oObjNext, timerType, DoUseWord);
-    LogText += ', ' + TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey);
-    LogText += ', ' + TimerTextAction(oObjNext, timerAction);
+    LogText += ', ' + TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, DoUseWord);
+    LogText += ', ' + TimerTextAction(oObjNext, timerAction, DoUseWord);
     LogText += ', ' + TimerTextKey(oObjNext, timerType, timerGroup, timerGroupItem);
     LogText += ', ' + TimerTextDirection(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction);
     return LogText;
@@ -958,8 +1052,8 @@ function TimerTextDirection(oObjNext, timerType, timerGroup, timerGroupItem, Use
     } else { LogText += 'Item Direction undefined'; }
     return LogText;
 }
-function TimerTextAction(oObjNext, timerAction) { return ('Action: ' + (timerAction + ':' + '.........................')).substring(0, 25); }
-function TimerTextType(oObjNext, timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + (timerType + '...............').substring(0, 10)); }
+function TimerTextAction(oObjNext, timerAction, UseWord) { return ((UseWord ? 'Action: ' : '') + timerAction); }
+function TimerTextType(oObjNext, timerType, UseWord) { return ((UseWord ? 'Type: ' : '') + timerType); }
 function TimerTextKey(oObjNext, timerType, timerGroup, timerGroupItem) {
     var tmp = 'Object: (';
     if (oObjNext && oObjNext.id && oObjNext.id.length) {
@@ -969,11 +1063,11 @@ function TimerTextKey(oObjNext, timerType, timerGroup, timerGroupItem) {
     tmp += ', ' + timerGroup + ', ' + timerGroupItem + ')';
     return tmp;
 }
-function TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey) {
+function TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, UseWord) {
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
-    // var tempString = new String();
-    var tempString;
+    var tempString = new String();
+    // var tempString;
     var tempInterval;
     if (UseRootKey) {
         if (timerObj[timerRootKey]) {
@@ -991,8 +1085,10 @@ function TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseR
     tempInterval = 100000 + tempInterval;
     tempString = (tempInterval).toString();
     tempString = (tempString).substring(1, 5);
-    tempString = 'Timer (' + tempString + ')';
-    return 'Timer (' + ((tempInterval).toString()).substring(1, 5) + ')';
+    // tempString = 'Timer (' + tempString + ')';
+    // return 'Timer (' + ((tempInterval).toString()).substring(1, 5) + ')';
+    tempString = (UseWord ? 'TimerInterval: ' : '') + tempString;
+    return tempString;
 }
 
 function TimerTextRootKey(oObjNext, timerType, timerGroup, timerGroupItem) {
