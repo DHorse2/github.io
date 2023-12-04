@@ -104,6 +104,10 @@ var oObjLeft;
 var oObjTop;
 var oObjWidth;
 var oObjHeight;
+// Page Z Index
+var layoutZindex = 100; // foreground
+// Menu Z Index
+var menuZindex = 110;
 // Menu Image Z Index
 var imgZindex = 120;
 // Standard Functions

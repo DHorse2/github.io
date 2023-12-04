@@ -173,14 +173,17 @@ function ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnP
 
 function ErrorCaught(errorObjectPassed, script_statePassed, errorSeverityPassed) {
     if (!(errorObjectPassed instanceof Error)) { errorObjectPassed = new Error(errorObjectPassed); }
+    //
+    eventObject = errorObjectPassed;
     errorCurr = errorObjectPassed;
     errorSeverity = errorSeverityPassed;
     ErrorSet(errorCurr);
-    // display this todo
-    //
-    // ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, eventCurr, consoleStateBox, consoleStateBox, 'Cannot access Console Form.', errorIsSevere, errorDoNotDisplayTag, DoNotUseAlert);
-    //
-    WindowErrorDisplay(errorSeverity, eventCurr,
+    // display this
+    // ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
+        // eventCurr, consoleStateBox, consoleStateBox,
+        // 'Cannot access Console Form.',
+        // errorSeverityPassed, errorDoNotDisplayTag, DoNotUseAlert);
+    WindowErrorDisplay(errorSeverityPassed, eventCurr,
         script_statePassed,
         eventFileName, eventFileLine, eventFileColumn);
 }
@@ -436,7 +439,7 @@ function WindowErrorAlert(eventCurrPassed, messagePassed, eventFileNamePassed, e
 
 function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed, DoUseAlertPassed, UseDebugPassed) {
     messageUrl = eventFileNamePassed;
-    // ErrorSet(); // todo ???
+    // ErrorSet(); // 7) todo ???
     //
     // if (errorDebugLevel < 1+errorSeverityPassed) { // ignore this when called to allow override...
     //
@@ -591,7 +594,7 @@ function MessageLogAdd(MessageTextBoxPassed,
                         MessageTextBoxScrollCnPassed -= 20;
                     }
                 } else {
-                    // TODO scrolling for other browsers
+                    // 7) todo scrolling for other browsers
                     // scrollIntoView(false);
                     MessageTextBoxPassed.scrollTo(0, MessageTextBoxPassed.scrollHeight);
                 }
@@ -610,7 +613,7 @@ function MessageLogAdd(MessageTextBoxPassed,
                         MessageTextBoxScrollCnPassed -= 20;
                     }
                 } else {
-                    // TODO scrolling for other browsers
+                    // 7) todo scrolling for other browsers
                     // scrollIntoView(true);
                     MessageTextBoxPassed.scrollTo(0, 0);
                 }
@@ -804,7 +807,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         //                 consoleErrorLogScrollCn -= 20;
         //             }
         //         } else {
-        //             // TODO scrolling for other browsers
+        //             // 7) todo scrolling for other browsers
         //             // scrollIntoView(false);
         //             consoleErrorTextBox.scrollTo(0, consoleErrorTextBox.scrollHeight);
         //         }
@@ -823,7 +826,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         //                 consoleErrorLogScrollCn -= 20;
         //             }
         //         } else {
-        //             // TODO scrolling for other browsers
+        //             // 7) todo scrolling for other browsers
         //             // scrollIntoView(true);
         //             consoleErrorTextBox.scrollTo(0, 0);
         //         }
@@ -912,7 +915,7 @@ window.onerror = function (eventMessagePassed, eventFileNamePassed, eventFileLin
 //     eventFileColumn = arguments[3];
 // }
 
-// todo this also doesn't work.
+// 7) todo this also doesn't work.
 // this loads the error handling stack
 // not the stack where the error occured.
 // eventStack = new Error().stack;

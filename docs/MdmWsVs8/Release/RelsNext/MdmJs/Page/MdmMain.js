@@ -353,10 +353,10 @@ var elLeftDest = 0;
 var elTopDest = 0;
 
 // Transition stepping
-var elementMoveDuration = 3;
+var elementMoveDuration = 5;
 var elMoveStepMax = 50;
 var elementMoveInterval = 10;
-var elementMoveDelay = 0;
+var elementMoveDelay = 10;
 
 // Movement Patterns:
 // ...................................... //
@@ -499,10 +499,10 @@ var layoutDocumentWidthMax = 10000; // px (when landscape mode kicks in)
 // Absolute maximums (for reading)
 var layoutMenuDocWidthWide = 1000; // px
 // The maximum width for paragraphs
-var layoutParaWidthMax = 600; // todo Off currently
+var layoutParaWidthMax = 600; // px
 // The point at which callout boxes are put in-line
 // (instead of floating) (px)
-var layoutParaWidthMin = 200;
+var layoutParaWidthMin = 200; // px
 
 // Columns across page
 // ...................................... //
@@ -522,8 +522,8 @@ var layoutStyleUnitsEm = 1;
 var layoutStyleUnitsPx = 2;
 var layoutSytleUnitsPercent = 3;
 
-// IMPORTANT NOTE: Percent no longer works on firefox todo
-// borders and margins. (Possibly) todo
+// 1) todo IMPORTANT NOTE: Percent no longer works on firefox
+// 1) todo borders and margins. (Possibly)
 var layoutStyleUnits = layoutStyleUnitsEm;
 // This variable is the multiplier that will reflect font-size;
 // Using a 1em font is the default (1em = 1.0 EmRation)
@@ -562,12 +562,12 @@ var MenuListItem = 1.0;
 
 // Columns in pixels
 // When will it add more columns in the display
-var layoutBlockCol4Min = 1800; // px // todo
+var layoutBlockCol4Min = 1800; // px
 var layoutBlockCol3Min = 1200; // px
 var layoutBlockCol2Min = 600; // px
 var layoutBlockCol1Min = 0; // float
 //
-// var layoutBlockCol4Min = 1400; // px // todo
+// var layoutBlockCol4Min = 1400; // px
 // var layoutBlockCol3Min = 1000; // px
 // var layoutBlockCol2Min = 500; // px
 // var layoutBlockCol1Min = 0; // float
@@ -597,7 +597,7 @@ var calloutBoxWidth = 0;
 var bodyMainCenterTopClass = "";
 
 // Document Window Resize
-// Adjustments: todo is this used?
+// 2) todo Adjustments: is this used?
 var layoutWidthMargin = 60; // ??? really?
 var layoutHeightMargin = 50;
 var layoutMenuSizeMax = 0;

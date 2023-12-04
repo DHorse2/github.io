@@ -34,6 +34,7 @@ border-width: .7em;
 border:solid;
 border-color: #3e3d66;
 border-style:outset;
+border-radius: 1em;
 -moz-border-radius: 1em;
 -webkit-border-radius: 1em;
 }
@@ -43,7 +44,7 @@ border-style:outset;
 /* Position */
 position:static;
 /* Size */
-min-width:10.0em;
+min-width:6.0em;
 min-height:6.0em;
 /* Alignment */
 text-align:center;
@@ -142,10 +143,11 @@ padding:1.0em 1em 1em 1em;
 border-color:Grey;
 /* Background */
 background:#F5FEFF;
+opacity: 0.65;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=65);
+/* [if !Gecko] filter:alpha(opacity=65); */
 /* CSS3 standard */
-[if !Gecko] opacity:0.65;
+/* [if !Gecko] opacity:0.65; */
 }
 
 /* -- Body Paragraph Content -- */
@@ -161,18 +163,20 @@ border-color:Grey;
 background:#F5FEFF;
 /* Background */
 /* for IE */
-[if !Gecko] filter:alpha(opacity=99);
+/* [if !Gecko] filter:alpha(opacity=99); */
 /* CSS3 standard */
-[if !Gecko] opacity:0.99;
+/* [if !Gecko]  */
+opacity:0.99;
 }
 
 .BodyParaBoxBg{
 /* Background */
 background:#F5FEFF;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=65);
+/* [if !Gecko] filter:alpha(opacity=65); */
 /* CSS3 standard */
-[if !Gecko] opacity:0.65;
+/* [if !Gecko]  */
+opacity:0.65;
 }
 
 p.BodyAddrPara  {
@@ -186,9 +190,10 @@ margin: 0em 1em 0em 1em;
 /* Background */
 background:#F5FEFF;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=100);
+/* [if !Gecko] filter:alpha(opacity=100); */
 /* CSS3 standard */
-[if !Gecko] opacity:1;
+/* [if !Gecko]  */
+opacity:1;
 }
 
 p.BodyPara  {
@@ -203,9 +208,10 @@ margin: 0em 1em 0em 1em;
 /* Background */
 background:#F5FEFF;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=100);
+/* [if !Gecko] filter:alpha(opacity=100); */
 /* CSS3 standard */
-[if !Gecko] opacity:1;
+/* [if !Gecko]  */
+opacity:1;
 }
 
 p.BodyPara  {
@@ -220,9 +226,10 @@ float:left;
 /* Background */
 background:none;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=100);
+/* [if !Gecko] filter:alpha(opacity=100); */
 /* CSS3 standard */
-[if !Gecko] opacity:1.0;
+/* [if !Gecko]  */
+opacity:1.0;
 }
 
 .BodyParaRight{
@@ -231,9 +238,10 @@ float:right;
 /* Background */
 background:none;
 /* for IE */
-[if !Gecko] filter:alpha(opacity=100);
+/* [if !Gecko] filter:alpha(opacity=100); */
 /* CSS3 standard */
-[if !Gecko] opacity:1.0;
+/* [if !Gecko]  */
+opacity:1.0;
 }
 
 /* -- Body Callouts -- */
@@ -242,7 +250,7 @@ background:none;
 margin: 0em 0em 0em 0em;
 padding: 0em 0em 0em 0em;
 text-align:justify;
-z-index:;
+/* z-index: ; */
 }
 
 .CalloutBorder{
@@ -253,6 +261,7 @@ border-width: .8em;
 /* border:solid; */
 border-color:#999933; /* cPcd */
 /* Border */
+border-radius: 1em;
 -moz-border-radius: 1em;
 -webkit-border-radius: 1em;
 /* Background */
@@ -271,6 +280,7 @@ border-width: .8em;
 /* border:solid; */
 border-color:#999933; /* cPcd */
 /* Border */
+border-radius: 1em;
 -moz-border-radius: 1em;
 -webkit-border-radius: 1em;
 /* Background */

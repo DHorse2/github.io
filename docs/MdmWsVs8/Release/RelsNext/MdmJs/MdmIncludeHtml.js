@@ -21,7 +21,7 @@ function IncludeHtmlFileAll() {
   /* Loop through a collection of all HTML elements: */
   elArray = document.getElementsByClassName("w3-include")
   // elArray = document.getElementsByTagName("*");
-  // todo console elArray element tag of interest
+  // 7) todo console elArray element tag of interest
   for (eiIndex = 0; eiIndex < elArray.length; eiIndex++) {
     element = elArray[eiIndex];
     element.classList.remove("w3-include");
@@ -50,11 +50,11 @@ function IncludeHtmlFileAll() {
       } else {
         // Invalid Release
         includeValid = false;
-        // todo console invalid release skipped
+        // 7) todo console invalid release skipped
       }
       if (includeHtmlAttributes) {
-        // todo console
-        // todo you could evaluate the expressions or do something with attributes
+        // 7) todo console
+        // 7) todo you could evaluate the expressions or do something with attributes
         // includeValid = false;
       }
       // Remove the attributes
@@ -94,11 +94,11 @@ function junk() {
         // file not found
         includeValid = false;
         element.innerHTML = "Page not found.";
-        // todo console
+        // 7) todo console
       } else {
         includeValid = false;
         messageTemp = "Unknown Status:" + this.status;
-        // todo console
+        // 7) todo console
       }
       // recursively call this function once more:
       // note: DHorse2/dgh: I don't think this is needed.
@@ -107,7 +107,7 @@ function junk() {
 
       // IncludeHtmlFileAll();
     } else {
-      // todo console some other readyState reporting;
+      // 7) todo console some other readyState reporting;
       messageTemp = "Request Ready State:" + this.readyState;
     }
     /* Exit the function: */
@@ -116,7 +116,7 @@ function junk() {
   xhttpWorker.open("GET", includeHtmlFile, true);
   xhttpWorker.send();
 }
-// Async requests todo
+// Async requests 7) todo
 // ..................................................................................... _//
 async function makeRequestAsync(method, url) {
   // await code here
@@ -187,7 +187,7 @@ function MdmIncludeFileAll() {
   /* Loop through a collection of all HTML elements: */
   elArray = document.getElementsByClassName("mdm-include")
   // elArray = document.getElementsByTagName("*");
-  // todo console elArray element tag of interest
+  // 7) todo console elArray element tag of interest
   for (eiIndex = 0; eiIndex < elArray.length; eiIndex++) {
     element = elArray[eiIndex];
     element.classList.remove("mdm-include");
@@ -216,11 +216,11 @@ function MdmIncludeFileAll() {
       } else {
         // Invalid Release
         includeValid = false;
-        // todo console invalid release skipped
+        // 7) todo console invalid release skipped
       }
       if (includeHtmlAttributes) {
-        // todo console
-        // todo you could evaluate the expressions or do something with attributes
+        // 7) todo console
+        // 7) todo you could evaluate the expressions or do something with attributes
         // includeValid = false;
       }
       // Remove the attributes

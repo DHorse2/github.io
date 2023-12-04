@@ -267,7 +267,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 	//
 	// Pointers:
 	layoutIndex = layoutIndexPassed;
-	layoutZindex = 20;
+	layoutZindex = 20; // reset below images
 	//
 	// Window Width
 	script_state = "SelectByIndex: Started " + layoutIndex;
@@ -568,8 +568,8 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				//
 				bodyMainCenter.style.top = '0%';
 				if (layoutUseAbsolute) { bodyMainCenter.style.left = 3; }
-				bodyMainCenter.style.posWidth = layoutWidth - 6;
-				bodyMainCenter.style.width = bodyMainCenter.style.posWidth;
+				// bodyMainCenter.style.posWidth = layoutWidth - 6;
+				// bodyMainCenter.style.width = bodyMainCenter.style.posWidth;
 				// bodyMainCenter.style.height = 'auto';
 				//
 				//............................................................---//

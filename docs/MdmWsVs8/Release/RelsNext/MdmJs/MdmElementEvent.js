@@ -285,13 +285,13 @@ function ElementEventMouse(e) {
 			'ElementEventMouse', 141);
 	}
 }
-// ElementEventCurrRootObjSet todo
+// ElementEventCurrRootObjSet
 // ...................................... //
 function ElementEventCurrRootObjSet() {
 	eventCurrRootObj = eventObject;
-	// currently the parent is limited to navigate upward three nodes. todo
-	// and must be below the Body container level
-	// todo you should be able to specify the tag or id to stop at (ie Div vs Div29)
+	// 8) todo currently the parent is limited to navigate upward three nodes.
+	// 8) todo and must be below the Body container level
+	// 8) todo you should be able to specify the tag or id to stop at (ie Div vs Div29)
 	tmpMax = 3; loopContinue = true;
 	while (loopContinue) {
 		if (eventCurrRootObj) {

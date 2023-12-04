@@ -26,18 +26,18 @@ var browserIsMobile = false;
 var browserIsTouch = false;
 
 var browserIsTEST;
-var browserIsOld; // todo
-var browserIsUnknown; // todo
+var browserIsOld; // 5) todo review code
+var browserIsUnknown; // 5) todo review purpose
 
-var browserIsIE; // Internet Explorer
+var browserIsIE; // 5) Internet Explorer implement and test
 var browserIsCH; // Chrome
 var browserIsFF; // FireFox
 var browserIsSA; // Safari
 var browserIsOP; // Opera
-var browserIsNE; // Netschape??
-var browserIsLynx; // Lynx text only
-var browserIsEdge; // todo
-var browserIsTor; // todo
+var browserIsNE; // Netschape?? depreciated
+var browserIsLynx; // Lynx text only not implemented
+var browserIsEdge; // 5) todo implement and test
+var browserIsTor; // 5) todo implement and test
 
 var browserUserAgent;
 var browserType;

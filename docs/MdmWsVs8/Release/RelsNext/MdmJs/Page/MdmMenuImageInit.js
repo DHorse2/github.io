@@ -40,16 +40,6 @@ var oObjNextOffsetLeft = 0;
 ////////////////////////////////////////////////
 var menuImageTimerCn = 0;
 // ...................................... //
-// Image Postioning Offsets - Large
-var menuImageOffsetLeftLarge = 0;
-var menuImageOffsetTopLarge = 0;
-//
-// ...................................... //
-// Image Postioning Offsets - Small
-// These are layout postion patterns to be applied
-var menuImageOffsetLeftAll = 0;
-var menuImageOffsetTopAll = 0;
-// ...................................... //
 // SectionBlock Heading Image Group
 // ...................................... //
 var headingGroupPointer;
@@ -68,23 +58,17 @@ var menuImageBorderWidth = 6;
 // SectionBlock Group and Item Image Array Initialization
 // ...................................... //
 // Current Image and Position
-// Current Image Index By Group
-var imgCnByGroup;
 // Maximum # of Images By Group
 var imgMaxByGroup;
 // Maximum # of Images Per Cascading Row By Group
 var oObjectRowMax;
 // Image Display (Visible) Locked Array
-
 var menuImageLocked;
 
 // First Image
 // ...................................... //
 // First Image Offset By Group, By Top, Left
 var menuImageOffsetFirstAll;
-// These are layout postion patterns to be applied
-var menuImageOffsetLeftAll;
-var menuImageOffsetTopAll;
 
 // Image Position
 // ...................................... //
@@ -130,8 +114,6 @@ function MdmMenuImageInit() {
     // imgGroupArraySize = imgGroupCount;
     // imgGroupImageArraySize = imgGroupBoxCount + 1;
 
-    // Current Image Index By Group
-    imgCnByGroup = new Array(imgGroupArraySize);
     // Maximum # of Images By Group
     imgMaxByGroup = new Array(imgGroupArraySize);
     // Maximum # of Images Per Cascading Row By Group
@@ -181,13 +163,6 @@ function MdmMenuImageInit() {
 
     // Images per Group
     ////////////////////////////////////////////////
-    // Images per Group
-    imgCnByGroup[0] = 0;
-    imgCnByGroup[1] = 1;
-    imgCnByGroup[2] = 1;
-    imgCnByGroup[3] = 1;
-    imgCnByGroup[4] = 1;
-    // todo: clarify these two variables:
     // Menu Maximum Images per each Group
     imgMaxByGroup[0] = 0;
     imgMaxByGroup[1] = 8;

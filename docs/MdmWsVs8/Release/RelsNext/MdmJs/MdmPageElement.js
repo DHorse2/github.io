@@ -38,14 +38,12 @@ function ElementPlay(playDirection, IsImageLarge,
 	oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	oObjImageSizePassed, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	//
+	// Timers (and filter transitions) are attached to the Move
 	var timerType = timerTypeMove;
 	var timerGroup = oObjGroupIndex;
 	var timerGroupItem = oObjGroupItemIndex;
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
 	var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
-	//
-	var timerItemMoveKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeMove;
-	var timerItemTransitionKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeTransition;
 	//
 	script_state += "MdmPageElement:ElementPlay:" + timerItemKey;
 	filterPlayIndex = 1;
@@ -57,7 +55,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 			TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
 			+ ', Play command requested'
-			+ ', ' + ((playDirection = playDirectionForward) ? 'Forward' : 'Reverse')
+			+ ', ' + ((playDirection == playDirectionForward) ? 'Forward' : 'Reverse')
 			+ '.',
 			'MdmPageElement:ElementPlay', 54, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
@@ -67,18 +65,29 @@ function ElementPlay(playDirection, IsImageLarge,
 	// Bug for testing: var timerGroupItem = oObjNext.id;
 	// Checking Transition
 	if (!timerObj) { TimerCreateAll(); }
+
+	var timerPlayKey;
+	if (timerMethod == timerMethodGroup) {
+		timerPlayKey = timerRootKey;
+	} else if (timerMethod == timerMethodItem) {
+		timerPlayKey = timerItemKey;
+	}
+	//
+	var timerItemMoveKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeMove;
+	var timerItemTransitionKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerTypeTransition;
+	//
 	if (timerObj[timerItemKey]) {
-		if (timerObj[timerItemKey].timerIsRunning) {
-			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeTransition;
-			if (playDirection != timerObj[timerItemKey].playDirection) {
+		if (timerObj[timerItemTransitionKey].timerIsRunning) {
+			// Running
+			if (playDirection != timerObj[timerItemTransitionKey].playDirection) {
 				// playDirection is different (while running)
 				if ((UseLog || UseDebug)
 					&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
 				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
-						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
-						+ ', Already running, deactivating'
+						+ ', Items:' + timerObj[timerItemTransitionKey].timerInstance
+						+ ', Already running in opposite direction, deactivating'
 						+ '.',
 						'MdmPageElement:ElementPlay', 73, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
@@ -92,7 +101,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
-						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+						+ ', Items:' + timerObj[timerItemTransitionKey].timerInstance
 						+ ', Already running, performing a Transition step instead'
 						+ '.',
 						'MdmPageElement:ElementPlay', 86, 0, null, null,
@@ -114,6 +123,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			if (playDirection == playDirectionForward) {
 				// Forward
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsDisplayed) {
+					// Already displayed
 					if ((UseLog || UseDebug)
 						&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
 					) {
@@ -125,13 +135,13 @@ function ElementPlay(playDirection, IsImageLarge,
 							'MdmPageElement:ElementPlay', 111, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
-					//
-					PlayAbort = true;// skip issuing play command
-					//
+					// skip issuing play command
+					PlayAbort = true;
 				}
 			} else {
 				// Reverse
 				if (timerObj[timerItemKey].elementIsDisplayed == elementIsNotDisplayed) {
+					// Already hidden
 					if ((UseLog || UseDebug)
 						&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
 					) {
@@ -143,11 +153,10 @@ function ElementPlay(playDirection, IsImageLarge,
 							'MdmPageElement:ElementPlay', 127, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 					}
-					//
-					PlayAbort = true;// skip issuing play command
-					//
+					// skip issuing play command
+					PlayAbort = true;
 				} // end of not displayed
-			} // end of playDirection is Forward or Reverse
+			} // end of transition playDirection is Forward or Reverse
 		} // end of Transition is running or not
 	} // end of Transition exists
 	//
@@ -157,24 +166,24 @@ function ElementPlay(playDirection, IsImageLarge,
 	//		or no action.
 	//
 	// Checking Move
-	if (timerObj[timerItemKey]) {
-		if (timerObj[timerItemKey].timerIsRunning) {
-			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeMove;
-			if (playDirection != timerObj[timerItemKey].playDirection) {
+	if (timerObj[timerItemMoveKey]) {
+		if (timerObj[timerItemMoveKey].timerIsRunning) {
+			// Timer is Running
+			if (playDirection != timerObj[timerItemMoveKey].playDirection) {
 				// playDirection is different (while running)
 				if ((UseLog || UseDebug)
 					&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
 				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
-						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+						+ ', Items:' + timerObj[timerItemMoveKey].timerInstance
 						+ ', Already running, deactivating'
 						+ '.',
 						'MdmPageElement:ElementPlay', 155, 0, null, null,
 						errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
 				}
 				// Item will be deactivate and the play command issued
-				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
+				TimerItemDeactivate(timerTypeMove, timerGroup, timerGroupItem, DoNotUseRoot);
 			} else {
 				// playDirection the same (while running)
 				if ((UseLog || UseDebug)
@@ -182,7 +191,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				) {
 					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
-						+ ', Items:' + timerObj[timerGroup][timerRootKey].timerInstance
+						+ ', Items:' + timerObj[timerItemMoveKey].timerInstance
 						+ ', Already running, performing a Move step instead'
 						+ '.',
 						'MdmPageElement:ElementPlay', 168, 0, null, null,
@@ -246,6 +255,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	//
 	// Check if new play aborted
 	if (PlayAbort) {
+		// Do NOT issue a command
 		return;
 	} // skip issuing play command
 	//
@@ -262,16 +272,16 @@ function ElementPlay(playDirection, IsImageLarge,
 	// POSITION
 	// elLeftOrig, elTopOrig, elLeftDest, elTopDest,
 	var oObjIndexTemp = oObjIndex;
-	if (!IsImageLarge) { oObjIndexTemp = oObjRootIndex; }
+	// if (!IsImageLarge) { oObjIndexTemp = oObjRootIndex; }
 	elLeftOrig = menuImagePositionLeft[oObjGroupIndex][oObjIndexTemp][IsSmall];
 	// if CascadeRight
 	if (!IsImageLarge) {
-		if (oObjGroupIndex < 3) {
+		if (oObjGroupIndex < bodyMenuGroupUsedLeftCn) {
 			elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjIndexTemp][IsSmall];
 		}
 	}
 	if (IsImageLarge) {
-		if (oObjGroupIndex >= 3) {
+		if (oObjGroupIndex >= bodyMenuGroupUsedLeftCn) {
 			elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjIndexTemp][IsSmall];
 		}
 	}
@@ -280,6 +290,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	// 		elTopOrig += menuImagePositionHeight[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 	// }
 	//
+	// todo is this correct?
 	elLeftDest = menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsImageLarge];
 	elTopDest = menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge];
 	// elLeftDest = oObjNext.style.posLeft;
@@ -347,7 +358,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		// if (filterObj[filterIdPassed].filterDoEnable) {
 		if ((UseLog || UseDebug)
-			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			&& (UseLogTimerTransition || UseLogTimerDetail)
 		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
@@ -368,7 +379,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		// if (filterObj[filterIdPassed].filterDoApply) {
 		if ((UseLog || UseDebug)
-			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			&& (UseLogTimerTransition || UseLogTimerDetail)
 		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
@@ -385,7 +396,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		// }
 		//
 		if ((UseLog || UseDebug)
-			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			&& (UseLogTimerTransition || UseLogTimerDetail)
 		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
@@ -403,7 +414,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 		// if (filterObj[filterIdPassed].filterDoPlay) {
 		if ((UseLog || UseDebug)
-			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			&& (UseLogTimerTransition || UseLogTimerDetail)
 		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
@@ -444,7 +455,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
 		//
 		if ((UseLog || UseDebug)
-			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			&& (UseLogTimerMove || UseLogTimerDetail)
 		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
@@ -466,7 +477,7 @@ function ElementPlay(playDirection, IsImageLarge,
 		if (filterResizeIsOn && !elementIsDisplayed) {
 			//
 			if ((UseLog || UseDebug)
-				&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+				&& (UseLogTimerTransition || UseLogTimerDetail)
 			) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
@@ -554,7 +565,7 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 				}
 				if (HideImageLarge) {
 					if (oObjLarge.style.display == 'block') {
-						ElementItemHide(true,
+						ElementItemHide(IsImageLarge,
 							oObj, oObjImageLarge, oObjLarge, oObjLarge,
 							oObjGroupIndex, oObjIndexCurr,
 							oObjLocked, IgnoreLock);
@@ -710,7 +721,7 @@ function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjN
 }
 // Menu Menu Show Item (Mouse Over function)
 // ...................................... //
-function ElementItemShowId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+function ElementItemShowId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	script_state += "MdmPageElement:ElementItemShowId (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	// look for duplicate mouse over events (bubbling)
 	if (!ElementEventFromHtmlCheck(null, UseLogEvents)) { return; }
@@ -740,7 +751,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
 	//
-	script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Client";
+	script_state += ":Client";
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
 	//
@@ -767,7 +778,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// oObjLarge.style.display= 'block';
 	// oObjImageLarge.style.display= 'block';
 	// }
-	script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Calculate";
+	script_state += ":Calculate";
 	if (oObjNext.style.display != 'block') {
 		//
 		// Width and Height
@@ -830,7 +841,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Top Position
 		// ...................................... //
 		// Offset
-		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Offset";
+		script_state += ":Offset";
 		if (IsImageLarge) {
 			oObjNextOffsetTop = menuImageOffsetTopLarge[oObjGroupIndex];
 			oObjNextOffsetTop += menuImageOffsetTopLarge[indexGroup];
@@ -875,36 +886,37 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Set Style Top for menu image box
 		// ...................................... //
 		oObjNext.style.top = oObjNextTop + 'px';
+		script_state += ":Top:" + oObjNextTop;
 		// Menu Thumb Link Postioning (Top or Bottom)
 		// ...................................... //
 		// Large Image Handling
-		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Cascade";
-		if (!IsImageLarge) {
-			// Small Image
-			// Link Text Position Up or Down
-			//      (determined by Cascade Direction)
-			if (layoutCascadeDown) {
-				// Display Top
-				oObjNext.childNodes[0].style.display = 'block';
-				oObjNext.childNodes[2].style.display = 'none';
-			} else {
-				// Display Bottom
-				oObjNext.childNodes[0].style.display = 'none';
-				oObjNext.childNodes[2].style.display = 'block';
-			}
+		script_state += ":Cascade";
+		// if (!IsImageLarge) {
+		// Small Image
+		// Link Text Position Up or Down
+		//      (determined by Cascade Direction)
+		if (layoutCascadeDown) {
+			// Display Top
+			oObjNext.childNodes[0].style.display = 'block';
+			oObjNext.childNodes[2].style.display = 'none';
 		} else {
-			// Large Image
-			// Link Text Position Up or Down
-			if (layoutCascadeDown) {
-				// Display Top
-				oObjNext.childNodes[0].childNodes[0].style.display = 'block';
-				oObjNext.childNodes[0].childNodes[2].style.display = 'none';
-			} else {
-				// Display Bottom
-				oObjNext.childNodes[0].childNodes[0].style.display = 'none';
-				oObjNext.childNodes[0].childNodes[2].style.display = 'block';
-			}
+			// Display Bottom
+			oObjNext.childNodes[0].style.display = 'none';
+			oObjNext.childNodes[2].style.display = 'block';
 		}
+		// } else {
+		// 	// Large Image
+		// 	// Link Text Position Up or Down
+		// 	if (layoutCascadeDown) {
+		// 		// Display Top
+		// 		oObjNext.childNodes[0].childNodes[0].style.display = 'block';
+		// 		oObjNext.childNodes[0].childNodes[2].style.display = 'none';
+		// 	} else {
+		// 		// Display Bottom
+		// 		oObjNext.childNodes[0].childNodes[0].style.display = 'none';
+		// 		oObjNext.childNodes[0].childNodes[2].style.display = 'block';
+		// 	}
+		// }
 		// Cascase Direction (Right or Left)
 		// ...................................... //
 		if (menuImageOffsetLeftAll[oObjGroupIndex][indexGroup] > 0) {
@@ -936,6 +948,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				filterMotionDirection = 'leftup';
 			}
 		}
+		script_state += ":Direction:" + filterMotionDirection;
 		// Left Position
 		// ...................................... //
 		// Offset
@@ -1026,6 +1039,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Set Left for menu image box
 		// ...................................... //
 		oObjNext.style.left = oObjNextLeft + 'px';
+		script_state += ":Left:" + oObjNextLeft;
 		// Column Overflow
 		// ...................................... //
 		// Left Column (Left)
@@ -1040,7 +1054,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		//
 		ElementPosGet(UseScroll, UseBase, bodyMainCenterCenter, 0, 0);
 
-		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Positions";
+		script_state += ":Positions";
 		bodyLeftEdge = oObjLeft;
 		bodyRightEdge = oObjLeft + oObjWidth;
 		// bodyLeftEdge = ElementLeftMaxGet(DoNotUseScroll, UseBase, bodyMainCenterCenter);
@@ -1076,6 +1090,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
 		menuImagePositionWidth[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
 		menuImagePositionHeight[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjHeight;// oObjNext.offsetHeight;
+		script_state += "(t" + oObjTop + ",l" + oObjLeft + ",w" + oObjWidth + ",h" + oObjHeight + ")";
 		// Filters
 		// ...................................... //
 		// Z Index
@@ -1084,10 +1099,11 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		oObjNext.style.zIndex = imgZindex + oObjIndex;
 		// Filter Apply Command
 		// ...................................... //
-		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Play";
+		script_state += ":Play";
 		if (moveIsOn || filterIsOn) {
 			playDirection = playDirectionForward;
 			// playDirection = playDirectionReverse;
+			script_state += ":PlayAgain";
 			ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
 			// oObjNext.filters[0].apply();
 			// oObjNext.filters[1].apply();
@@ -1139,14 +1155,13 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		script_state = "MdmPageElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":????";
 		imgZindex += 1;
 		if (IsImageLarge) {
-			oObjNext.style.zIndex = imgZindex + oObjGroupItemIndex;
-			oObjNextParent.style.zIndex = imgZindex + oObjGroupItemIndex;
-			if (oObjNextParent.style.display != 'block') {
-				oObjNextParent.style.display = 'block';
-			}
+			oObjNextLarge.style.zIndex = imgZindex + oObjGroupItemIndex;
+			oObjNextLarge.style.display = 'block';
+			oObjNextParent.style.zIndex = imgZindex + oObjGroupItemIndex + 1;
+			if (oObjNextParent.style.display != 'block') { oObjNextParent.style.display = 'block'; }
 		} else {
 			oObjNext.style.zIndex = imgZindex + oObjGroupItemIndex;
-			if (oObjNextLarge.style.display = 'block') { oObjNextLarge.style.zIndex = imgZindex + oObjGroupItemIndex; }
+			if (oObjNextLarge.style.display == 'block') { oObjNextLarge.style.zIndex = imgZindex + oObjGroupItemIndex; }
 		}
 	}
 	// Dispaly Lock vs MouseOut Disappear
@@ -1159,7 +1174,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 // ...................................... //
 // ElementItemHideId
 // ...................................... //
-function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextLargeId, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	script_state += "MdmPageElement:ElementItemHideId (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	// load and validate event and objects
 	if (!ElementEventFromHtmlCheck(null, UseLogEvents)) { return; }
@@ -1174,7 +1189,9 @@ function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
 	//
-	ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
+	ElementItemHide(IsImageLarge,
+		oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+		oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 	//
 }
 // Menu ElementItemHide
@@ -1198,7 +1215,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextKey('Hide', oObjGroupIndex, oObjIndex)
 				+ ', ' + oObjNext.id
-				+ ', ' + ((playDirection = playDirectionForward) ? 'Forward' : 'Reverse')
+				+ ', ' + ((playDirection == playDirectionForward) ? 'Forward' : 'Reverse')
 				+ ', Do not hide locked item'
 				+ ', Time:' + Date()
 				+ '.',

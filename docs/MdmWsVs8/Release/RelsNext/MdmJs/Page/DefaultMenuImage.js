@@ -32,10 +32,6 @@ var bodyMenuGroupMax = 4;
 var imgGroupCnStart = 1;
 var imgGroupCnEnd = 4;
 ////////////////////////////////////////////////
-imgCnByGroup[1] = 1;
-imgCnByGroup[2] = 1;
-imgCnByGroup[3] = 1;
-imgCnByGroup[4] = 1;
 // Menu Maximum Images per each Group
 imgMaxByGroup[1] = 7;
 imgMaxByGroup[2] = 4;

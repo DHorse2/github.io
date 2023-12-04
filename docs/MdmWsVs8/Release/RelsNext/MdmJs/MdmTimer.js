@@ -357,7 +357,8 @@ function TimerStartFunc(timerItemKeyPassed, timerFunctionPassed, timerDelayPasse
         tempFunc,
         timerDelayPassed);
 
-    timerDelay = timerDelayPassed;
+    // timerDelay = timerDelayPassed;
+    return vTimerStart;
 }
 // Timer Set
 ////////////////////////////////////////////////
@@ -482,18 +483,24 @@ function TimerItemDeactivate(timerType, timerGroup, timerGroupItem, UseRoot) {
     if (UseRoot == DoUseRoot || UseRoot == DoUseBoth) { LevelCnStart = 0; } // Timer Group Item
     //
     for (var LevelCn = LevelCnStart; LevelCn < 2; LevelCn += 1) {
-        timerStarted -= 1;
         if (LevelCn == 0) {
             timerLevelKey = timerRootKey;
         } else { timerLevelKey = timerItemKey; }
         //
+        if (!timerObj) { timerObj = new Object(); }
+        if (!timerObj[timerLevelKey]) { timerObj[timerLevelKey] = new Object(); }
         if (timerObj) {
             if (timerObj[timerLevelKey]) {
+                timerObj[timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
+                timerObj[timerLevelKey].timerBusy = false;
+                timerObj[timerLevelKey].timerDuration = 0;
                 timerObj[timerLevelKey].timerInstance = 0;
-                timerObj[timerLevelKey].timerIsRunning = false;
+                // timerObj[timerLevelKey].timerInstanceCn = 0;
                 timerObj[timerLevelKey].timerIntervalId = 0;
                 timerObj[timerLevelKey].timerIntervalIdPrev = 0;
-                timerObj[timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
+                timerObj[timerRootKey].timerIntervalIdStart = 0;
+                timerObj[timerLevelKey].timerIsRunning = false;
+                timerObj[timerLevelKey].timerStepCurr = 0;
             }
         }
         // deconstruct
@@ -564,6 +571,7 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
     // Timer Group Creation
     if (!timerObj[timerRootKey]) {
         timerGroupNew = true;
+        // Create missing root object (new)
         timerObj[timerRootKey] = new Object;
         TimerItemDeactivate(timerType, timerGroup, timerGroupItem, true);
     }
@@ -571,6 +579,7 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
     // Timer Item Creation
     if (!timerObj[timerItemKey]) {
         timerItemNew = true;
+        // Create missing item object (new)
         timerObj[timerItemKey] = new Object;
         TimerItemDeactivate(timerType, timerGroup, timerGroupItem, false);
         //
@@ -579,10 +588,9 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
     }
     //
     if (timerObj[timerRootKey].timerInstance < 1) {
-        //
         timerGroupNew = true;
         if (timerType == timerTypeMove) {
-            if (elementMoveMethod != 0) {
+            if (elementMoveMethod) {
                 timerObj[timerRootKey].elementMoveMethod = elementMoveMethod;
             } else {
                 if (playDirection == playDirectionForward) {
@@ -598,26 +606,10 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
     }
     // Timer Type
     var timerLevelKey = new String;
-    //
-    var LevelCnStart = 1;// Timer Element Item
-    // Timer Group Item
-    if (timerGroupNew) {
-        LevelCnStart = 0;
-    } else {
-        timerObj[timerRootKey].timerInstance += 1;
-        // Date is reset any time item is added
-        // Maximum time is measured from the time the last item was added.
-        // This will not slow down Items in motion as the have their own
-        // time and steps independent of the Group.
-        timerObj[timerRootKey].timerDateStart = new Date();
-    }
-    //
-    for (var LevelCn = LevelCnStart; LevelCn < 2; LevelCn += 1) {
+    for (var LevelCn = 0; LevelCn < 2; LevelCn += 1) {
         if (LevelCn == 0) {
             timerLevelKey = timerRootKey;
         } else { timerLevelKey = timerItemKey; }
-        timerObj[timerLevelKey].timerInstance = 0;
-
         //
         switch (timerType) {
             //
@@ -625,8 +617,7 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
                 // Filter Effects and Transitions applied to the element (Box)
                 // for a period of time.  This is usually sychronized with
                 // a concurrent Move & Resize.
-                // Duration
-                // Timing Moving the object from Origin to Destination (Position)
+                // Duration                // Timing Moving the object from Origin to Destination (Position)
                 //
                 timerObj[timerLevelKey].timerDuration = filterDuration;
                 timerObj[timerLevelKey].timerInterval = filterInterval;
@@ -719,6 +710,9 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
         timerObj[timerLevelKey].timerStepCurr = 0;
         // Image
         timerObj[timerLevelKey].oObjImage = oObjNextImage;
+        // Control
+        timerObj[timerLevelKey].timerInstance += 1;
+        timerObj[timerLevelKey].timerInstanceCn += 1;
         timerObj[timerLevelKey].timerDateStart = new Date();
         timerObj[timerLevelKey].timerDateEnd = null;
         timerObj[timerLevelKey].timerElapsed = 0;
@@ -739,11 +733,9 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
         timerObj[timerLevelKey].startIndex = startIndex;
         timerObj[timerLevelKey].endIndex = endIndex;
         //
-        timerObj[timerLevelKey].timerInstance += 1;
-        //
         if (LevelCn == 1) {
             if (timerMethod == timerMethodGroup) {
-                timerObj[timerLevelKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+                // timerObj[timerLevelKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
                 timerObj[timerLevelKey].elementMoveMethod = timerObj[timerRootKey].elementMoveMethod;
                 timerObj[timerLevelKey].playDirection = timerObj[timerRootKey].playDirection;
             } else {
@@ -752,7 +744,9 @@ function TimerInitialize(timerType, timerGroup, timerGroupItem,
             // Display / visibility (& Filter triggering)
             timerObj[timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
         } else {
-            timerObj[timerRootKey].playDirection = playDirection;
+            // Root Key
+            timerObj[timerLevelKey].playDirection = playDirection;
+            // timerObj[timerLevelKey].elementIsDisplayed = elementIsNotDisplayed;
         }
     }
 }
@@ -765,87 +759,92 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     timerTen = 0;
-    var vTimerStart;
-    timerStarted += 1;
-    timerObj[timerItemKey].timerElapsed = 0;
-    timerObj[timerItemKey].timerCompletion = 0;
+    var vTimerStart = 0;
+    var tempMethodFunc;
+
     timerGroupItemCurr = timerGroupItem;
     script_state = "MdmTimer:TimerStart:" + timerItemKey;
 
     var timerIsRunning = false;
     var debugFunctionIsOn = false;
-    if (
-        (timerMethod == timerMethodItem && UseLogTimerDetail)
-        || (timerMethod == timerMethodGroup)
-    ) {
-        if (UseLogTimerTransition && timerType == timerTypeTransition) { debugFunctionIsOn = true; }
-        if (UseLogTimerMove && timerType == timerTypeMove) { debugFunctionIsOn = true; }
+    if (UseLogTimerDetail
+        || (UseLogTimerTransition && timerType == timerTypeTransition)
+        || (UseLogTimerMove && timerType == timerTypeMove)) {
+        debugFunctionIsOn = true;
     }
     //
-    if (timerObj[timerItemKey].timerIsRunning) { timerIsRunning = true; } else {
-        if ((timerMethod == timerMethodItem && !timerObj[timerItemKey].timerIsRunning)
-            || !timerObj[timerRootKey].timerIsRunning
-        ) {
+    timerStarted += 1;
+    var timerStartKey;
+    if (timerMethod == timerMethodGroup) {
+        timerStartKey = timerRootKey;
+        tempMethodFunc = timerFunctionGroupPassed;
+    } else if (timerMethod == timerMethodItem) {
+        timerStartKey = timerItemKey;
+        tempMethodFunc = timerFunctionItemPassed;
+    }
+    //
+    timerObj[timerStartKey].timerInstance += 1;
+    timerObj[timerStartKey].timerInstanceCn += 1;
+    timerObj[timerStartKey].timerElapsed = 0;
+    timerObj[timerStartKey].timerCompletion = 0;
+    timerObj[timerStartKey].timerDelay = timerDelayPassed;
+    //
+    if (timerObj[timerStartKey].timerIsRunning) {
+        timerIsRunning = true;
+    } else {
+        if (!timerObj[timerStartKey].timerIsRunning) {
             // One timer per Item or Element (per Timer Type)
             // Start this Item's Group Timer if it is not already running
             //
-            var tempMethodFunc;
-            if (timerMethod == timerMethodGroup) {
-                tempMethodFunc = timerFunctionGroupPassed;
-            } else {
-                tempMethodFunc = timerFunctionItemPassed;
-            }
-            //
-            if ((timerMethod == timerMethodItem
-                && !timerObj[timerItemKey].timerIsRunning)
-                || (timerMethod == timerMethodGroup
-                    && !timerObj[timerRootKey].timerIsRunning)
-            ) {
-                if (!timerObj[timerRootKey].timerIntervalId) {
-                    var tempFunc = function () {
-                        TimerSet(
-                            timerType, timerGroup, timerGroupItem,
-                            tempMethodFunc, timerDelayPassed,
-                            timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
-                    };
-                    //
-                    vTimerStart = window.setTimeout(
-                        tempFunc,
-                        timerDelayPassed);
-                    if (vTimerStart) {
-                        timerObj[timerItemKey].timerIntervalId = -1;
-                        if (timerMethod == timerMethodGroup) { timerObj[timerRootKey].timerIntervalId = -1; }
-                    }
-                    if (debugFunctionIsOn) {
-                        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                            TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
-                                (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
-                                timerObj[timerItemKey].playDirection, 'Timer Pending')
-                            + ', Timer Delayed Start '
-                            + (vTimerStart ? 'Ok' : 'Failed')
-                            + (vTimerStart ? '.' : '!!!'),
-                            'MdmTimer:TimerStart', 850, 0, null, null,
-                            errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
-                    }
+            vTimerStart = timerObj[timerStartKey].timerIntervalId;
+            if (!vTimerStart) {
+                var tempFunc = function () {
+                    TimerSet(timerType, timerGroup, timerGroupItem,
+                        tempMethodFunc, timerDelayPassed,
+                        timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
+                };
+                //
+                vTimerStart = window.setTimeout(
+                    tempFunc,
+                    timerDelayPassed);
+                if (vTimerStart) { timerObj[timerStartKey].timerIntervalIdStart = vTimerStart; }
+                if (debugFunctionIsOn) {
+                    MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                        TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
+                            (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
+                            timerObj[timerStartKey].playDirection, 'Timer Pending')
+                        + ', Timer ' + vTimerStart + ' Delayed (' + timerDelayPassed + ') Start '
+                        + (vTimerStart ? 'Ok' : 'Failed')
+                        + (vTimerStart ? '.' : '!!!'),
+                        'MdmTimer:TimerStart', 850, 0, null, null,
+                        errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
                 }
-            } else { timerIsRunning = true; }
-            //
-            if (!timerObj[timerRootKey].timerIsRunning) {
-                // date is reset on any call here,
-                // allows items to be added late in the cycle...
-                timerObj[timerRootKey].timerIsRunning = true;
-                timerObj[timerRootKey].timerDateStart = new Date();
+            } else {
+                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                    TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
+                        (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
+                        timerObj[timerStartKey].playDirection, 'Timer Pending')
+                    + ', Timer ' + vTimerStart + ' Delayed (' + timerDelayPassed + ')'
+                    + " isn't" + ' running but was not terminated correctly, '
+                    + 'timer ' + (vTimerStart ? 'already exists' : 'ready')
+                    + (!vTimerStart ? '.' : '!!!'),
+                    'MdmTimer:TimerStart', 833, 0, null, null,
+                    errorIsSevere, errorDoNotDisplayTag, DoUseAlert);
             }
         } else { timerIsRunning = true; }
         //
-        timerObj[timerItemKey].timerIsRunning = true;
-        timerObj[timerItemKey].timerDateStart = new Date();
+        if (!timerObj[timerStartKey].timerIsRunning) {
+            // date is reset on any call here,
+            // allows items to be added late in the cycle...
+            timerObj[timerStartKey].timerIsRunning = true;
+            timerObj[timerStartKey].timerDateStart = new Date();
+        } else { timerIsRunning = true; }
     }
 
     if (timerIsRunning) {
-        if (timerMethod == timerMethodGroup) {
-            timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
-        }
+        // if (timerMethod == timerMethodGroup) {
+        //     timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+        // }
         //
         if (debugFunctionIsOn) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
@@ -867,25 +866,32 @@ function TimerStop(timerType, timerGroup, timerGroupItem, timerDelayPassed) {
     timerTen = 0;
     var vTimerStart;
     var timerStopKey;
+
     timerStarted -= 1;
-    if (timerMethod == timerMethodItem) {
+
+    if (timerMethod == timerMethodGroup) {
         timerStopKey = timerRootKey;
     } else if (timerMethod == timerMethodItem) {
         timerStopKey = timerItemKey;
     }
-    timerObj[timerStopKey].timerElapsed = 0;
-    timerObj[timerStopKey].timerCompletion = 0;
+
+    timerObj[timerStopKey].timerInstance -= 1;
+    timerObj[timerStopKey].timerDateEnd = new Date();
+    timerObj[timerStopKey].timerIsRunning = false;
+    // timerObj[timerStopKey].timerElapsed = 0;
+    // timerObj[timerStopKey].timerCompletion = 0;
+
     timerGroupItemCurr = timerGroupItem;
     script_state = "MdmTimer:TimerStop:" + timerStopKey;
     var timerIsRunning = false;
     // console debugging
     var debugFunctionIsOn = false;
-    if (
-        (timerMethod == timerMethodItem && UseLogTimerDetail)
-        || (timerMethod == timerMethodGroup)
+    if ((UseLog || UseDebug)
+        && (UseLogTimerDetail
+            || (UseLogTimerTransition && timerType == timerTypeTransition)
+            || (UseLogTimerMove && timerType == timerTypeMove))
     ) {
-        if (UseLogTimerTransition && timerType == timerTypeTransition) { debugFunctionIsOn = true; }
-        if (UseLogTimerMove && timerType == timerTypeMove) { debugFunctionIsOn = true; }
+        debugFunctionIsOn = true;
     }
     // Verify Timer
     if (!timerObj[timerStopKey].timerIsRunning) {
@@ -893,30 +899,40 @@ function TimerStop(timerType, timerGroup, timerGroupItem, timerDelayPassed) {
         timerIsRunning = false;
     } else {
         if (timerObj[timerStopKey].timerIntervalId) {
+            var clearDone = false;
+            // Prevent delayed start
+            timerIntervalId = timerObj[timerStopKey].timerIntervalIdStart;
+            if (timerIntervalId) {
+                window.clearInterval(timerIntervalId);
+                clearDone = true;
+            }
             // Timer to Stop
             timerIntervalId = timerObj[timerStopKey].timerIntervalId;
             // Clear system timer
             if (timerIntervalId) {
                 window.clearInterval(timerIntervalId);
-            } else if (timerObj[timerStopKey].timerIntervalIdPrev) {
-                // error.
-                window.clearInterval(timerObj[timerStopKey].timerIntervalIdPrev);
+                clearDone = true;
+            } else if (timerObj[timerStopKey].timerIntervalIdPrev != timerIntervalId) {
+                // error. request not needed.
+                timerIntervalId = timerObj[timerStopKey].timerIntervalIdPrev;
+                window.clearInterval(timerIntervalId);
+                clearDone = true;
             }
             if (debugFunctionIsOn) {
                 MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                     TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
                         (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
                         timerObj[timerStopKey].playDirection, 'Timer Pending')
-                    + ', Timer Stop '
-                    + (vTimerStart ? 'Ok' + vTimerStart : 'Failed')
-                    + (vTimerStart ? '.' : '!!!'),
-                    'MdmTimer:TimerStart', 850, 0, null, null,
+                    + (clearDone ? ', Timer Stopped' : ', Timers are missing')
+                    + (clearDone ? '.' : '!!!'),
+                    'MdmTimer:TimerStop', 850, 0, null, null,
                     errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
             }
         } else {
             // Error, running with no timer set.
         }
         //
+        if (clearDone) { timerObj[timerStopKey].timerIntervalIdPrev = timerIntervalId; }
         timerObj[timerStopKey].timerIsRunning = false;
         timerObj[timerStopKey].timerDateStop = new Date();
 
@@ -940,7 +956,7 @@ function TimerStop(timerType, timerGroup, timerGroupItem, timerDelayPassed) {
                     timerObj[timerItemKey].playDirection, 'Timer Running')
                 + ', Already running'
                 + '.',
-                'MdmTimer:TimerStart', 879, 0, null, null,
+                'MdmTimer:TimerStop', 879, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
             //
         }
@@ -958,6 +974,8 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
 
     var vTimerStart;
     var vtimerGroupItem;
+    var timerSetKey;
+    var timerIntervalId;
 
     var tempFunc; // = new String();
     tempFunc = function () {
@@ -965,44 +983,39 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
         timerFunctionPassed(timerType, timerGroup, timerGroupItem);
     };// TimerMoveStepDo
     var debugFunctionIsOn = false;
-    if (
-        (timerMethod == timerMethodItem && UseLogTimerDetail)
-        || (timerMethod == timerMethodGroup)
-    ) {
-        if ((UseLogTimerTransition && timerType == timerTypeTransition)
-            || (UseLogTimerMove && timerType == timerTypeMove)) {
-            debugFunctionIsOn = true;
-        }
+    if (UseLogTimerDetail
+        || (UseLogTimerTransition && timerType == timerTypeTransition)
+        || (UseLogTimerMove && timerType == timerTypeMove)) {
+        debugFunctionIsOn = true;
     }
     //
-    if ((timerMethod == timerMethodItem && !timerObj[timerItemKey].timerIntervalId > 0)
-        || !timerObj[timerRootKey].timerIntervalId > 0
-    ) {
-        vtimerGroupItem = window.setInterval(
+    timerSetKey = timerItemKey;
+    if (timerMethod == timerMethodGroup) { timerSetKey = timerRootKey; }
+    timerIntervalId = timerObj[timerSetKey].timerIntervalId;
+    //
+    if (!timerIntervalId) {
+        vTimerStart = window.setInterval(
             tempFunc,
             timerInterval
         );
-        timerObj[timerItemKey].timerIntervalId = vtimerGroupItem;
-        if (timerMethod == timerMethodGroup) { timerObj[timerRootKey].timerIntervalId = vtimerGroupItem; }
+        if (vTimerStart) {
+            timerObj[timerSetKey].timerIntervalId = vTimerStart;
+        }
         //
         if (debugFunctionIsOn) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, timerObj[timerItemKey].playDirection, 'Interval Started')
-                + ', Timer set delayed start done'
+                + ', Timer ' + vTimerStart + 'delayed start completed'
                 + '.',
                 'MdmTimer:TimerSet', 921, 0, null, null,
                 errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
             //
         }
     } else {
-        if (timerMethod == timerMethodGroup) {
-            timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
-        }
-        //
         if (debugFunctionIsOn) {
             MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                 TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
-                    timerObj[timerItemKey].playDirection, 'Interval Running')
+                    timerObj[timerSetKey].playDirection, 'Interval Running')
                 + ', Items:' + timerObj[timerRootKey].timerInstance
                 + ', Already running, delayed start not done'
                 + '.',
@@ -1013,13 +1026,51 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
     }
     //
 }
+// ...................................... //
+// Timer Calculate current running time
+// ...................................... //
+// Included a setTimeout in BODY onload to delay start of text movement.
+// oObjPassed, elLeftOrig, elTopOrig, elLeftDest, elTopDest)
+function TimerGetElapsed(timerType, timerGroup, timerGroupItem) {
+    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
+    script_state += "MdmTimer:TimerGetElapsed:" + timerItemKey;
+    timerDateCurr = new Date();
+    // timerDateElps  = timerDateStart - timerDateCurr;
+    var timerDateStartMin = timerObj[timerItemKey].timerDateStart.getMinutes();
+    var timerDateStartSec = timerObj[timerItemKey].timerDateStart.getSeconds();
+    var timerDateStartMil = timerObj[timerItemKey].timerDateStart.getMilliseconds();
+    //
+    var timerDateCurrMin = timerDateCurr.getMinutes();
+    var timerDateCurrSec = timerDateCurr.getSeconds();
+    var timerDateCurrMil = timerDateCurr.getMilliseconds();
+    //
+    var timerDateElpsMin =
+        timerDateCurrMin - timerDateStartMin
+        + ((timerDateStartMin > timerDateCurrMin) * 60)
+        - (timerDateStartSec > timerDateCurrSec);
+    var timerDateElpsSec =
+        timerDateCurrSec - timerDateStartSec
+        + ((timerDateStartSec > timerDateCurrSec) * 60)
+        - (timerDateStartMil > timerDateCurrMil);
+    var timerDateElpsMil =
+        timerDateCurrMil - timerDateStartMil
+        + ((timerDateStartMil > timerDateCurrMil) * 1000);
+    //
+    timerObj[timerItemKey].timerElapsed =
+        (((timerDateElpsMin * 60) + timerDateElpsSec) * 1000) + timerDateElpsMil;
+    //
+    return timerObj[timerItemKey].timerElapsed;
+    //
+}
+//
+// ...................................... //
 // SectionBlock Timer User Interface function (s)
 // ...................................... //
 //
 // ..................................................................................... _//
 // ...................................... //
 function TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
-    script_state = "MdmTimer:TimerTextLog";
+    script_state += "MdmTimer:TimerTextLog";
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var DoUseWord = true;
@@ -1032,22 +1083,22 @@ function TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKe
     return LogText;
 }
 function TimerTextDirection(oObjNext, timerType, timerGroup, timerGroupItem, UseRootKey, playDirection, timerAction) {
-    script_state = "MdmTimer:TimerTextDirection";
+    script_state += "MdmTimer:TimerTextDirection";
     var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
     var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
     var LogText = '';
     if (playDirection) {
         // Use passed value if not null
-        LogText += 'Direction (' + ((playDirection - playDirectionForward) ? 'Reverse' : 'Forward') + ')'
+        LogText += 'Direction (' + ((playDirection != playDirectionForward) ? 'Reverse' : 'Forward') + ')'
     } else if (UseRootKey == DoUseRoot) {
         if (timerObj[timerRootKey]) {
-            LogText += 'Direction (' + ((timerObj[timerRootKey].playDirection - playDirectionForward) ? 'Reverse' : 'Forward') + ')'
+            LogText += 'Direction (' + ((timerObj[timerRootKey].playDirection != playDirectionForward) ? 'Reverse' : 'Forward') + ')'
         } else { LogText += 'Group Direction undefined'; }
     } else if (UseRootKey == DoNotUseRoot || UseRootKey == DoUseBoth) {
         if (timerObj[timerItemKey]) {
             // LogText += (timerObj [timerItemKey].playDirection - playDirectionForward);
             // LogText += ((timerObj [timerItemKey].playDirection - playDirectionForward) ? 'Reverse' : 'Forward');
-            LogText += 'Direction (' + ((timerObj[timerItemKey].playDirection - playDirectionForward) ? 'Reverse' : 'Forward') + ')'
+            LogText += 'Direction (' + ((timerObj[timerItemKey].playDirection != playDirectionForward) ? 'Reverse' : 'Forward') + ')'
         } else { LogText += 'Item Direction undefined'; }
     } else { LogText += 'Item Direction undefined'; }
     return LogText;
@@ -1071,20 +1122,20 @@ function TimerTextInterval(oObjNext, timerType, timerGroup, timerGroupItem, UseR
     var tempInterval;
     if (UseRootKey) {
         if (timerObj[timerRootKey]) {
-            if (timerObj[timerRootKey].timerIntervalId >= 0) {
+            if (timerObj[timerRootKey].timerIntervalId) {
                 tempInterval = timerObj[timerRootKey].timerIntervalId;
             } else { tempInterval = 0; }
         } else { tempInterval = 0; }
     } else {
         if (timerObj[timerItemKey]) {
-            if (timerObj[timerItemKey].timerIntervalId >= 0) {
+            if (timerObj[timerItemKey].timerIntervalId) {
                 tempInterval = timerObj[timerItemKey].timerIntervalId;
             } else { tempInterval = 0; }
         } else { tempInterval = 0; }
     }
     tempInterval = 100000 + tempInterval;
     tempString = (tempInterval).toString();
-    tempString = (tempString).substring(1, 5);
+    tempString = (tempString).substring(1, 6);
     // tempString = 'Timer (' + tempString + ')';
     // return 'Timer (' + ((tempInterval).toString()).substring(1, 5) + ')';
     tempString = (UseWord ? 'TimerInterval: ' : '') + tempString;

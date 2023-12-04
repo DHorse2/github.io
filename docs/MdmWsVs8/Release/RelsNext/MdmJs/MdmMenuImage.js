@@ -51,39 +51,33 @@ function MenuImagesHtmlBuild() {
                 oNameParent = '';
                 // oNameParent = MenuObjectNameSet(imgGroupCn, imgCn - 1); // Menu Container Id
             }
-
-            // imgHtml += '    ' + lt + '1-- Image ' + imgGroupCn + ',' + imgCn + ' --' + gt;
             // Image Small
-
             // Element Div
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += '	' + lt + 'div id="' + oName + '"'; // Image Small Id
-            // imgHtml += "	" + lt + "div id=" + oName + imgGroupCn + imgCn + ""; // Image Small Id
+            imgHtml += '	' + lt + 'div id=' + "'" + oName + "'"; // Image Small Id
             imgHtml += '		 class= "imgThumbSmall MenuImageBox MenuImageBoxBorder"';// Class
 
-            // Events:
+            // Events: Mouseover (show) Mouseout (hide) Mousedown(toggle Large)
+
             // Mouse Over Small Image
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += '   		 onmouseover= "';
+            imgHtml += '   		 onmouseover="';
             imgHtml += 'ElementGroupShowStack(';
 
             // Is NOT a Large Image
             imgHtml += 'false, ';
 
             // Parent Object ID
-            imgHtml += '"' + oNameParent + '"';// Previous (Small) Image Id
+            // Image Small
+            imgHtml += "'" + oNameParent + "'";
             imgHtml += ', ';
 
-            // Image Small
-            imgHtml += '"' + oName + 'Image"'
+            // Object Image ID
+            imgHtml += "'" + oName + "'";
             imgHtml += ', ';
 
             // Object ID
-            imgHtml += '"' + oName + '"'
-            imgHtml += ', ';
-
-            // Object Large ID
-            imgHtml += '"' + oName + 'Large"'
+            imgHtml += "'" + oName + "'";
             imgHtml += ', ';
 
             // Small Image Size
@@ -92,13 +86,12 @@ function MenuImagesHtmlBuild() {
 
             // Group
             imgHtml += imgGroupCn + ', ';
-
             // Group Menu Line
             imgHtml += imgCn + ', ';
 
             // Current Show Lock
             imgHtml += 'false, ';
-            imgHtml += 'true';// Ignore Show Lock
+            imgHtml += 'true'; // Ignore Show Lock
 
             // Close function call
             imgHtml += ');';
@@ -108,25 +101,19 @@ function MenuImagesHtmlBuild() {
             // Events:
             // Mouse Out Small Image
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += '      	 onmouseout= "';
+            imgHtml += '      	 onmouseout="';
             imgHtml += 'ElementItemHideId(';
 
             // Small Image
             imgHtml += 'false, ';
             // Parent Object ID
-            imgHtml += '"' + oNameParent + '"';// Previous (Small) Image Id
+            imgHtml += "'" + oNameParent + "'";
             imgHtml += ', ';
             // Image Small
-            imgHtml += '"' + oName + 'Image"'
+            imgHtml += "'" + oName + "'";
             imgHtml += ', ';
             // Object ID
-            imgHtml += '"' + oName + '"'
-            imgHtml += ', ';
-            // Object Large ID
-            imgHtml += '"' + oName + 'Large"'
-            imgHtml += ', ';
-            // Small Image Size
-            imgHtml += 'oObjImageSizeSmall';
+            imgHtml += "'" + oName + "'";
             imgHtml += ', ';
             // Group
             imgHtml += imgGroupCn + ', ';
@@ -134,7 +121,7 @@ function MenuImagesHtmlBuild() {
             imgHtml += imgCn + ', ';
             // Current Show Lock
             imgHtml += 'false, ';
-            imgHtml += 'true';// Ignore Show Lock
+            imgHtml += 'true'; // Ignore Show Lock
 
             imgHtml += ');';
             imgHtml += '"';
@@ -167,48 +154,46 @@ function MenuImagesHtmlBuild() {
             // Layout
             // ------------------------------------------------------------------------------------- _//
             // Size
-            // imgHtml += '      	 width= " 0em" ';// Width
-            // imgHtml += '      	 height= " 0em" ';// Height
-            imgHtml += '		 style= "display:none" ';// Display (visibility)
-            imgHtml += '		 ' + gt;
+            // imgHtml += '      	 width=" 0em" '; // Width
+            // imgHtml += '      	 height=" 0em" '; // Height
+            imgHtml += '		 style="display:none" '; // Display (visibility)
+            imgHtml += '    		   ' + gt;
 
-            // Small Image Link
+            // Contents of Small Div:
+            // Small Image Link/Image/Link
             // ------------------------------------------------------------------------------------- _//
 
             // Element: A
             // ------------------------------------------------------------------------------------- _//
-            // Text Link
+            // Text Link Upper
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += lt + 'a id="' + oName + 'LinkUpper' + '"';// Link Id
-            // imgHtml += lt + 'a id="' + oName + 'LinkUpper' + imgGroupCn + imgCn + '"';// Link Id
-            imgHtml += '    		   class= "MenuImageBox MenuImageBoxLink"';// Class
-
+            imgHtml += lt + 'a id=' + "'" + oName + 'LinkUpper' + "'"; // Link Id
+            imgHtml += '    		   class="MenuImageBox MenuImageBoxLink"'; // Class
             // Source
-            imgHtml += '    		   href= "../MdmWebPages/' + oName + '.shtml"';// Link
+            imgHtml += '    		   href="../MdmWebPages/' + oName + '.shtml"'; // Link
             imgHtml += '    		   ' + gt;
-
             // Element: P
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + '"' + gt;// Link Text
-            // imgHtml += lt + 'span id= "' + oName + 'LinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
+            imgHtml += lt + 'span id=' + "'" + oName + 'LinkTextUpper' + "'" + gt;
+            // Link Text
             imgHtml += '         	   ' + MenuObjectTextSet(imgGroupCn, imgCn);
-            imgHtml += '		' + lt + 'br clear= "all"' + gt;
+            imgHtml += '		' + lt + 'br' + gt;
+            // imgHtml += '		' + lt + 'br clear="all"' + gt;
             imgHtml += lt + '/span' + gt;
-            // imgHtml += lt + 'br' + gt;
+            // Close Text Link Upper
             imgHtml += lt + '/a' + gt;
 
             // ------------------------------------------------------------------------------------- _//
             // Element: Img
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += lt + 'img id="' + oName + 'Image' + '" ';// Image Id
-            // imgHtml += lt + 'img id="' + oName + 'Image' + imgGroupCn + imgCn + '" ';// Image Id
-            imgHtml += '        	 src= "../Images/Thumbnails/' + oName + '.jpg" ';// Image Source src
-            imgHtml += '        	 class= "MenuThumb" ';// Class
+            imgHtml += lt + 'img id=' + "'" + oName + 'Image' + "'"; // Image Id
+            imgHtml += '        	 src= "../Images/Thumbnails/' + oName + '.jpg" '; // Image Source src
+            imgHtml += '        	 class= "MenuThumb" '; // Class
 
-            // Events:
+            // Events: Mousedown, Mouseout
             // Mouse Down Small Image
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += '      	 	 onmousedown= "';
+            imgHtml += '      	 	 onmousedown="';
             /*--
             // Filter
             // Start Animation Filter
@@ -224,16 +209,14 @@ function MenuImagesHtmlBuild() {
             // Large Image
             imgHtml += 'true, ';
             // Parent Object ID (Small Id)
-            imgHtml += '"' + oName + '"';// Previous (Small) Image Id
+            // (the image object div, not the menu div)
+            imgHtml += "'" + oName + 'Image' + "'";
             imgHtml += ', ';
-            // Image Large
-            imgHtml += '"' + oName + 'LargeImage"'
+            // Image ID
+            imgHtml += "'" + oName + "'";
             imgHtml += ', ';
-            // Object ID
-            imgHtml += '"' + oName + 'Large"'; // (Large Id)
-            imgHtml += ', ';
-            // Object Large ID
-            imgHtml += '"' + oName + 'Large"'
+            // Object (Large) ID
+            imgHtml += "'" + oName + 'Large' + "'";
             imgHtml += ', ';
             // Large Image Size
             imgHtml += 'oObjImageSizeLarge';
@@ -244,20 +227,7 @@ function MenuImagesHtmlBuild() {
             imgHtml += imgCn + ', ';
             // Current Show Lock
             imgHtml += 'false, ';
-            imgHtml += 'false'; // Ignore Show Lock
-
-            // imgHtml += 'true, ';// Is Large Image
-            // imgHtml += oName + ', ';// Small Id
-            // imgHtml += oName + 'LargeImage' + ', ';// Large Image Object
-            // imgHtml += oName + 'Large' + ', ';// Large Id
-            // // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
-            // // imgHtml += oName + 'LargeImage' + imgGroupCn + imgCn + ', ';// Large Image Object
-            // // imgHtml += oName + 'Large' + imgGroupCn + imgCn + ', ';// Large Id
-            // imgHtml += 'oObjImageSizeLarge, ';// Image Large Size
-            // imgHtml += imgGroupCn + ', ';// Menu Group
-            // imgHtml += imgCn + ', ';// Menu Group
-            // imgHtml += 'false, ';// Current Show Lock
-            // imgHtml += 'false';// Ignore Show Lock
+            imgHtml += 'true'; // Ignore Show Lock
 
             imgHtml += ');';
             imgHtml += '"';
@@ -269,151 +239,99 @@ function MenuImagesHtmlBuild() {
             // imgHtml += '" ';
             //
             // Size
-            imgHtml += '        	 width= "' + oObjImageSizeSmall + 'px"';// Width
+            imgHtml += '              width="' + oObjImageSizeSmall + 'px"'; // Width
             // Set Height using Global height and ratio
-            imgHtml += '        	 height= "' + (oObjImageSizeSmall * oObjImageSizeRatio) + 'px"';// Height
+            imgHtml += '              height="' + (oObjImageSizeSmall * oObjImageSizeRatio) + 'px"'; // Height
             // Alt
-            imgHtml += '			 alt= "' + MenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
-            imgHtml += '        	 ' + gt;
+            imgHtml += '              alt=' + "'" + MenuObjectTextSet(imgGroupCn, imgCn) + "'"; // Alt (Link) Text;
+
+            // Close image tag
+            imgHtml += '              ' + gt;
             //
             // ------------------------------------------------------------------------------------- _//
             // Element: A
-            // Text Link
-            imgHtml += lt + 'a id="' + oName + 'LinkLower' + imgGroupCn + imgCn + '"';// Link Id
-            imgHtml += '    		   class= "MenuImageBox MenuImageBoxLink"';// Class
+            // Text Lower Link (Small)
+            imgHtml += lt + 'a id=' + "'" + oName + 'LinkLower' + imgGroupCn + imgCn + "'"; // Link Id
+            imgHtml += '              class= "MenuImageBox MenuImageBoxLink"'; // Class
             // Source
-            imgHtml += '    		   href= "../MdmWebPages/' + oName + '.shtml"';// Link
-            imgHtml += '    		   ' + gt;
+            imgHtml += '    		  href= "../MdmWebPages/' + oName + '.shtml"'; // Link
+            imgHtml += '              ' + gt;
             // ------------------------------------------------------------------------------------- _//
             // Element: P
-            imgHtml += lt + 'span id= "' + oName + 'LinkTextLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
-            imgHtml += '        	  ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += lt + 'span id=' + "'" + oName + 'LinkTextLower' + imgGroupCn + imgCn + "'" + gt;// Link Text
+            imgHtml += '              ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '              ' + lt + 'br' + gt;
             imgHtml += lt + '/span' + gt;
+            // Close Small Text Lower Link
             imgHtml += lt + '/a' + gt;
-            //
+            // ------------------------------------------------------------------------------------- _//
+
+            // Close Small Div
             imgHtml += lt + '/div' + gt;
-            //
             // ------------------------------------------------------------------------------------- _//
             // ------------------------------------------------------------------------------------- _//
+
             // Image Large
             // ------------------------------------------------------------------------------------- _//
             // ------------------------------------------------------------------------------------- _//
-            //
-            // ------------------------------------------------------------------------------------- _//
             // Element: Div
-            imgHtml += lt + 'div id="' + oName + 'Large' + '"';// Id
-            // imgHtml += lt + 'div id="' + oName + 'Large' + imgGroupCn + imgCn + '"';// Id
-            imgHtml += '		 class= "imgThumbLarge MenuImageBoxBorder MenuImageBox"';// Class
+            imgHtml += lt + 'div id=' + "'" + oName + 'Large' + "'"; // Id
+            imgHtml += '		 class="imgThumbLarge MenuImageBoxBorder MenuImageBox"'; // Class
             // MenuImageContainer
 
-            // Events:
+            // Events: Mouseout (hide) Mouseover (show both)
+
             // Mouse Out Large Image
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += '      	 onmouseout= "';
-
+            imgHtml += '      	 onmouseout="';
             imgHtml += 'ElementItemHideId(';
+
+            // Hide the Large Image when the mouse moves away.
+            // Large Image
+            imgHtml += 'true, ';
+            // Parent Object ID
+            // Image Small
+            imgHtml += "'" + oName + 'Image' + "'";
+            imgHtml += ', ';
+            // Object ID
+            imgHtml += "'" + oName + "'";
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += "'" + oName + 'Large' + "'";
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
+            imgHtml += 'true'; // Ignore Show Lock
+
+            imgHtml += ');';
+            // end of mouseout
+            imgHtml += '"';
+
+            // Events: Mouseover (show both)
+            // Mouse Over Large Image
+            // ------------------------------------------------------------------------------------- _//
+            // Show Image Small when over the large image
+            imgHtml += '      	 onmouseover="';
+            // Show Image Large
+            // ------------------------------------------------------------------------------------- _//
+            // Bring Large Image to Top
+            // imgHtml += 'MenuImgShow(';
+            imgHtml += 'ElementItemShowId(';
 
             // Large Image
             imgHtml += 'true, ';
             // Parent Object ID
-            imgHtml += '"' + oNameParent + '"'; // Previous (Small) Image Id
+            imgHtml += "'" + oName + 'Image' + "'";
             imgHtml += ', ';
-            // Image Small
-            imgHtml += '"' + oName + '"'
-            imgHtml += ', ';
-            // Object ID
-            imgHtml += '"' + oName + '"'
+            // Image ID
+            imgHtml += "'" + oName + "'";
             imgHtml += ', ';
             // Object Large ID
-            imgHtml += '"' + oName + 'Large"'
-            imgHtml += ', ';
-            // Small Image Size
-            imgHtml += 'oObjImageSizeSmall';
-            imgHtml += ', ';
-            // Group
-            imgHtml += imgGroupCn + ', ';
-            // Group Menu Line
-            imgHtml += imgCn + ', ';
-            // Current Show Lock
-            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
-            imgHtml += 'false';// Ignore Show Lock
-
-            imgHtml += ');';
-            imgHtml += '"';
-            // end of mouseout
-
-            // Events:
-            // Mouse Over Large Image
-            // ------------------------------------------------------------------------------------- _//
-            // Show Image Small
-            imgHtml += '      	 onmouseover= "';
-            imgHtml += 'ElementItemShowId(';
-
-            // Small Image
-            imgHtml += 'false, ';
-            // Parent Object ID
-            imgHtml += '"' + oNameParent + '"';// Previous (Small) Image Id
-            imgHtml += ', ';
-            // Image Small
-            imgHtml += '"' + oName + 'Image"'
-            imgHtml += ', ';
-            // Small Object ID
-            imgHtml += '"' + oName + '"'
-            imgHtml += ', ';
-            // Object Large ID
-            imgHtml += '"' + oName + 'Large"'
-            imgHtml += ', ';
-            // Small Image Size
-            imgHtml += 'oObjImageSizeSmall';
-            imgHtml += ', ';
-            // Group
-            imgHtml += imgGroupCn + ', ';
-            // Group Menu Line
-            imgHtml += imgCn + ', ';
-            // Current Show Lock
-            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
-            imgHtml += 'false' + ', ';// Ignore Show Lock
-
-            // imgHtml += 'false' + ', ';// Is Large Image
-            // // Parent Object Name
-            // if (imgCn > 1) {
-            //     imgHtml += (MenuObjectNameSet(imgGroupCn, imgCn - 1) + imgGroupCn + imgCn - 1);// Previous (Small) Image Id
-            // } else {
-            //     imgHtml += (MenuObjectNameSet(imgGroupCn, imgCn - 1));// Menu Container Id
-            // }
-            // imgHtml += ', ';
-            // imgHtml += oName + 'Image' + ', ';// Small Image Object
-            // imgHtml += oName + ', ';// Small Id
-            // // imgHtml += oName + 'Image' + imgGroupCn + imgCn + ', ';// Small Image Object
-            // // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
-            // imgHtml += 'oObjImageSizeSmall, '; // Image Small Size
-            // imgHtml += imgGroupCn + ', ';// Menu Group
-            // imgHtml += imgCn + ', ';// Menu Group Box
-
-            // imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
-            // imgHtml += 'false';// Ignore Show Lock
-
-            imgHtml += ');';
-            imgHtml += ' ';
-
-            // Show Image Large
-            // ------------------------------------------------------------------------------------- _//
-            // imgHtml += 'MenuImgShow(';
-            imgHtml += 'ElementItemShowId(';
-
-            // Small Image
-            imgHtml += 'true, ';
-            // Parent Object ID
-            imgHtml += '"' + oName + '"'; // Previous (Small) Image Id
-            imgHtml += ', ';
-            // Image Large
-            imgHtml += '"' + oName + 'LargeImage"'
-            imgHtml += ', ';
-            // Object ID
-            imgHtml += '"' + oName + 'Large"'
-            imgHtml += ', ';
-            // Object Large ID
-            imgHtml += '"' + oName + 'Large"'
+            imgHtml += "'" + oName + 'Large' + "'";
             imgHtml += ', ';
             // Small Image Size
             imgHtml += 'oObjImageSizeLarge';
@@ -423,33 +341,36 @@ function MenuImagesHtmlBuild() {
             // Group Menu Line
             imgHtml += imgCn + ', ';
             // Current Show Lock
-            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
-            imgHtml += 'false' + ', ';// Ignore Show Lock
+            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
+            imgHtml += 'true'; // Ignore Show Lock
 
-            // // Large Image
-            // imgHtml += 'true, ';
-            // // Parent Object ID (Small Id)
-            // imgHtml += '"' + oName + '"';// Previous (Small) Image Id
-            // imgHtml += ', ';
-            // // Image Large
-            // imgHtml += '"' + oName + 'LargeImage"'
-            // imgHtml += ', ';
-            // // Object ID
-            // imgHtml += '"' + oName + 'Large"'; // (Large Id)
-            // imgHtml += ', ';
-            // // Object Large ID
-            // imgHtml += '"' + oName + 'Large"'
-            // imgHtml += ', ';
-            // // Large Image Size
-            // imgHtml += 'oObjImageSizeLarge';
-            // imgHtml += ', ';
-            // // Group
-            // imgHtml += imgGroupCn + ', ';
-            // // Group Menu Line
-            // imgHtml += imgCn + ', ';
-            // // Current Show Lock
-            // imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', ';// Current Show Lock
-            // imgHtml += 'false';// Ignore Show Lock
+            imgHtml += ');';
+
+            imgHtml += ' ';
+            imgHtml += 'ElementItemShowId(';
+
+            // Small Image
+            imgHtml += 'false, ';
+            // Parent Object ID
+            // Image Small
+            imgHtml += "'" + oNameParent + "'";
+            imgHtml += ', ';
+            // Small Object ID
+            imgHtml += "'" + oName + "'";
+            imgHtml += ', ';
+            // Object Large ID
+            imgHtml += "'" + oName + "'";
+            imgHtml += ', ';
+            // Small Image Size
+            imgHtml += 'oObjImageSizeSmall';
+            imgHtml += ', ';
+            // Group
+            imgHtml += imgGroupCn + ', ';
+            // Group Menu Line
+            imgHtml += imgCn + ', ';
+            // Current Show Lock
+            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
+            imgHtml += 'true'; // Ignore Show Lock
 
             imgHtml += ');';
 
@@ -459,9 +380,9 @@ function MenuImagesHtmlBuild() {
             // imgHtml += ' FilterResetThenAnimate(this + ', ' + filterIndexPassed + ');'; // Reset this Image
             // imgHtml += ' FilterResetThenAnimate(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Reset Large Image
             // imgHtml += ' FilterSpin(' + oName + 'Large' + imgGroupCn + imgCn + ', ' + filterIndexPassed + ');';// Spin Large Image
-            //
+
+            // end of mouseover Large Div
             imgHtml += '"';
-            // end of mouseover
 
             // Play Filter
             // ------------------------------------------------------------------------------------- _//
@@ -471,10 +392,10 @@ function MenuImagesHtmlBuild() {
 
             // Div Size
             // ------------------------------------------------------------------------------------- _//
-            imgHtml += '      	 width= "' + oObjImageSizeLarge + 'px"';// Image Large Width
-            imgHtml += '      	 height= "' + (oObjImageSizeLarge * oObjImageSizeRatio) + 'px"';// Image Large Height
+            imgHtml += '      	 width="' + oObjImageSizeLarge + 'px"';// Image Large Width
+            imgHtml += '      	 height="' + (oObjImageSizeLarge * oObjImageSizeRatio) + 'px"';// Image Large Height
             // Div Style
-            imgHtml += '		 style= "display:none;';
+            imgHtml += '		 style="display:none;';
             //
             // ------------------------------------------------------------------------------------- _//
             /*--
@@ -501,49 +422,61 @@ function MenuImagesHtmlBuild() {
             --*/
             // ------------------------------------------------------------------------------------- _//
             //
-            imgHtml += '"';
             // end of style
-            //
+            imgHtml += '"';
+
+            // Close of Large Div
             imgHtml += '		' + gt;
-            //
+            // Div content:
             // ------------------------------------------------------------------------------------- _//
-            // Image & Text Link
+
+            // Large Text Link Upper
             // ------------------------------------------------------------------------------------- _//
             // Element: A
-            imgHtml += lt + 'a id= "' + oName + 'LargeLinkUpper' + '"';
-            // imgHtml += lt + 'a id= "' + oName + 'LargeLinkUpper' + imgGroupCn + imgCn + '"';
+            imgHtml += lt + 'a id=' + "'" + oName + 'LargeLinkUpper' + "'";
             imgHtml += '		   class= "MenuImageBox MenuImageBoxLink"';
             imgHtml += '		   href= "../MdmWebPages/' + oName + '.shtml"';
             imgHtml += '		   ' + gt;
-            //
-            // ------------------------------------------------------------------------------------- _//
             // Element: P
-            imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + '"' + gt;// Link Text
-            // imgHtml += lt + 'span id= "' + oName + 'LargeLinkTextUpper' + imgGroupCn + imgCn + '"' + gt;// Link Text
-            imgHtml += '         ' + MenuObjectTextSet(imgGroupCn, imgCn);
-            imgHtml += '		' + lt + 'br' + gt;
-            // imgHtml += '		' + lt + 'br clear= "all"' + gt;
-            imgHtml += lt + '/span' + gt;
-            //
-            // ------------------------------------------------------------------------------------- _//
-            // Element: Img
-            imgHtml += lt + 'img id= "' + oName + 'LargeImage' + '"';
-            // imgHtml += lt + 'img id= "' + oName + 'LargeImage' + imgGroupCn + imgCn + '"';
-            imgHtml += '    		 src= "../Images/Thumbnails/' + oName + '.jpg"';// Image Source src
-            imgHtml += '    		 class= "MenuThumbLarge"';
-            // Alt
-            imgHtml += '			 alt= "' + MenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;
-            imgHtml += '    		 ' + gt;
             // ------------------------------------------------------------------------------------- _//
             // Link Text
-            imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + '"' + gt;// Link Text
-            // imgHtml += lt + 'span id= "' + oName + 'LargeLinkLower' + imgGroupCn + imgCn + '"' + gt;// Link Text
-            // imgHtml += '		 ' + lt + 'br clear= "all"' + gt;
+            imgHtml += lt + 'span id=' + "'" + oName + 'LargeLinkTextUpper' + "'" + gt;
             imgHtml += '         ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '		' + lt + 'br' + gt;
+            imgHtml += '		' + lt + 'br' + gt;
             imgHtml += lt + '/span' + gt;
             //
             imgHtml += lt + '/a' + gt;
+
+            // Large Image
+            // ------------------------------------------------------------------------------------- _//
+            // Element: Img
+            imgHtml += lt + 'img id=' + "'" + oName + 'LargeImage' + "'";
+            imgHtml += '    		 src= "../Images/Thumbnails/' + oName + '.jpg"';
+            imgHtml += '    		 class= "MenuThumbLarge"';
+            // Alt
+            imgHtml += '			 alt= "' + MenuObjectTextSet(imgGroupCn, imgCn) + "'";
+            imgHtml += '    		 ' + gt;
+
+            // Large Link Text Lower
+            // ------------------------------------------------------------------------------------- _//
+            // Element: A
+            imgHtml += lt + 'a id=' + "'" + oName + 'LargeLinkLower' + "'";
+            imgHtml += '		   class= "MenuImageBox MenuImageBoxLink"';
+            imgHtml += '		   href= "../MdmWebPages/' + oName + '.shtml"';
+            imgHtml += '		   ' + gt;
+            // Element: P
+            // ------------------------------------------------------------------------------------- _//
+            // Link Text
+            imgHtml += lt + 'span id=' + "'" + oName + 'LargeLinkTextLower' + "'" + gt;
+            imgHtml += '         ' + MenuObjectTextSet(imgGroupCn, imgCn);
+            imgHtml += '		' + lt + 'br' + gt;
+            imgHtml += '		' + lt + 'br' + gt;
+            imgHtml += lt + '/span' + gt;
             //
+            imgHtml += lt + '/a' + gt;
+
+            // Large Div end tag
             imgHtml += lt + '/div' + gt;
             // ------------------------------------------------------------------------------------- _//
         }
@@ -555,15 +488,15 @@ function MenuImagesHtmlBuild() {
     // bodyImageContainer = ElementGetRef(bodyImageContainer, "BodyImageContainer", "BodyImageContainer");
     //
     bodyImageContainer.innerHTML = imgHtml;
-    if (!imgLoadUseEventHandler && !imgLoadEventTest) {
-        bodyImageContainer.onmouseover = null;
-        bodyImageContainer.onmouseout = null;
-        bodyImageContainer.onmousedown = null;
-    } else {
-        bodyImageContainer.addEventListener("mouseover", (e) => { ElementEventMouse(e); });
-        bodyImageContainer.addEventListener("mousedown", (e) => { ElementEventMouse(e); });
-        bodyImageContainer.addEventListener("mouseout", (e) => { ElementEventMouse(e); });
-    }
+    // if (!imgLoadUseEventHandler && !imgLoadEventTest) {
+    //     bodyImageContainer.onmouseover = null;
+    //     bodyImageContainer.onmouseout = null;
+    //     bodyImageContainer.onmousedown = null;
+    // } else {
+    //     bodyImageContainer.addEventListener("mouseover", (e) => { ElementEventMouse(e); });
+    //     bodyImageContainer.addEventListener("mousedown", (e) => { ElementEventMouse(e); });
+    //     bodyImageContainer.addEventListener("mouseout", (e) => { ElementEventMouse(e); });
+    // }
     //
     loadFirstMenuImage = false;
     //
@@ -1018,10 +951,10 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
     startObjoObjIndex = startIndex;
     endObjoObjIndex = endIndex;
     oObjIndex = startObjoObjIndex;
-	//
-	if (oObjNext.style.display == 'none') {
-		oObjLocked = true;
-		IgnoreLock = false;
+    //
+    if (oObjNext.style.display == 'none') {
+        oObjLocked = true;
+        IgnoreLock = false;
         MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
     } else {
         oObjLocked = false;
@@ -1282,7 +1215,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         // Menu Thumb Link Postioning (Top or Bottom)
         ////////////////////////////////////////////////
         // Large Image Handling
-        if (!IsImageLarge) {
+        // if (!IsImageLarge) {
             // Small Image
             // Link Text Position Up or Down
             //      (determined by Cascade Direction)
@@ -1295,19 +1228,19 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                 oObjNext.childNodes[0].style.display = "none";
                 oObjNext.childNodes[2].style.display = "block";
             }
-        } else {
-            // Large Image
-            // Link Text Position Up or Down
-            if (layoutCascadeDown) {
-                // Display Top
-                oObjNext.childNodes[0].childNodes[0].style.display = "block";
-                oObjNext.childNodes[0].childNodes[2].style.display = "none";
-            } else {
-                // Display Bottom
-                oObjNext.childNodes[0].childNodes[0].style.display = "none";
-                oObjNext.childNodes[0].childNodes[2].style.display = "block";
-            }
-        }
+        // } else {
+        //     // Large Image
+        //     // Link Text Position Up or Down
+        //     if (layoutCascadeDown) {
+        //         // Display Top
+        //         oObjNext.childNodes[0].childNodes[0].style.display = "block";
+        //         oObjNext.childNodes[0].childNodes[2].style.display = "none";
+        //     } else {
+        //         // Display Bottom
+        //         oObjNext.childNodes[0].childNodes[0].style.display = "none";
+        //         oObjNext.childNodes[0].childNodes[2].style.display = "block";
+        //     }
+        // }
 
         // Left Position
         ////////////////////////////////////////////////

@@ -79,7 +79,6 @@
     /* border-right: .4em solid black; */
 }
 
-
 .ViewToggleButton {
     /* Alignment */
     float: left;
@@ -192,6 +191,7 @@ a.MenuBlockLink:visited {
 a.MenuBlockLink:hover {
     /* Background */
     background-image: url(../Images/HoverBg.jpg);
+    z-index: 500;
 }
 
 /* selected link */
@@ -323,6 +323,7 @@ a.MenuBlockLink:active {
     /* Hover verrides font in class */
     background-color: #EEE;
     color: #036;
+    z-index: 500;
 }
 
 /* */

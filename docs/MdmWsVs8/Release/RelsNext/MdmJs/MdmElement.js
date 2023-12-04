@@ -687,7 +687,9 @@ function ElementContainerAdjustGet(element, elementContainer, UsePercent, DoPadd
         }
         return elementAdjust;
     } else {
-        // no element todo
+        // no element
+        var errorLogLine = "Element is null or invalid. It has now width."
+        ErrorOccured("MdmElement:ElementContainerAdjustGet", 692, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
         return 0;
     }
 }

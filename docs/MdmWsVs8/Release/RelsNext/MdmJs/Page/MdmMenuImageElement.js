@@ -3,12 +3,15 @@
 // ElementItemGetAllFromIndex
 // ...................................... //
 function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
-	if (loadFirstJava) { ElementObjectCreate(); } // todo save indexes first?
+	if (loadFirstJava) { ElementObjectCreate(); } // 3) todo save indexes first?
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	oObjValid = true;
 	oObjId = new String();
 	oObjParentId = new String();
+	script_state += " Get(" + oObjGroupCn + ", " + oObjCn + ") ";
+	// script_state += "MdmMenuImageElement:ElementItemGetAllFromIndex(" + oObjGroupCn + ", " + oObjCn + ")";
+
 	// ...................................... //
 	switch (oObjGroupIndex) {
 		// Non Groups
@@ -127,14 +130,14 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	}
 	if (!oObjValid) {
 		oObjNotFound = true;
-		// todo error
-		debugger;
 		oObj = null;
 		oObjImage = null;
 		oObjParent = null;
 		oObjLarge = null;
 		oObjImageLarge = null;
-		oObjText = 'Object Not Found!';
+		oObjText = "Object (" + oObjGroupCn + ", " + oObjCn + ") Not Found!";
+		var errorLogLine = oObjText;
+		ErrorOccured("MdmMenuImageElement:ElementItemGetAllFromIndex", 139, 0, null, null, null, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
 	}
 	//
 }
