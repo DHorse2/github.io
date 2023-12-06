@@ -182,7 +182,7 @@ function ErrorCaught(errorObjectPassed, script_statePassed, errorSeverityPassed)
     // ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
         // eventCurr, consoleStateBox, consoleStateBox,
         // 'Cannot access Console Form.',
-        // errorSeverityPassed, errorDoNotDisplayTag, DoNotUseAlert);
+        // errorSeverityPassed, errorDoNotDisplayTag, UseAlert);
     WindowErrorDisplay(errorSeverityPassed, eventCurr,
         script_statePassed,
         eventFileName, eventFileLine, eventFileColumn);
@@ -348,8 +348,8 @@ function WindowError(eventMessagePassed, eventFileNamePassed, eventFileLinePasse
     localArgs['eventFileColumn'] = eventFileColumn;
     localArgs['eventCurr'] = eventCurr;
     localArgs['scriptState'] = script_state;
-    if (script_state.length) { eventMessage += ' s(' + script_state + ')'; }
-    // eventStack = new Error().stack; // here, not used.
+    // eventStack = new Error().stack; // not used.
+    // localArgs['eventStack'] = eventStack;
     WindowErrorDisplay(errorSeverityPassed, eventCurr, eventMessage, eventFileName, eventFileLine, eventFileColumn);
 }
 
@@ -364,7 +364,7 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
     // messageTemp = ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
     //     eventCurrPassed, messageElement, messageElementSource,
     //     messagePassed,
-    //     errorSeverityPassed, errorDoDisplayTag, DoNotUseAlert);
+    //     errorSeverityPassed, errorDoDisplayTag, UseAlert);
     // ErrorSet(eventCurr);
 
     // error Object: description Property | message Property | name Property | number Property
@@ -455,11 +455,7 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
         //
         if (ConsoleStateDebugOn()) {
             SysTimeStoped = new Date().getTime();
-            if (browserIsIE) {
-                debugger;
-            } else {
-                debugger;
-            }
+            debugger;
             var SysTimeStarted = new Date().getTime();
             if (errorDisplayNoDebugMsg) {
                 if (SysTimeStarted - SysTimeStoped < SysTimeStopedOkMin) { // user had to resume the script manually via opened dev tools
@@ -473,11 +469,7 @@ function WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, e
                             + ' Your setting suggest you need to be.'
                             + ' Enter F12 to enter it now.';
                         var errorDoDebugAbort = WindowErrorAlert(eventCurrPassed, alertMsg, eventFileNamePassed, eventFileLinePassed, DoUseAlertPassed, UseDebugPassed);
-                        if (browserIsIE) {
-                            debugger;
-                        } else {
-                            debugger;
-                        }
+                        debugger;
                     } else {
                         // don't enter debbuger error.
                     }
@@ -734,7 +726,7 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
         // if (!UseSingleLinePassed && messageDetail.length > 30) { messageTemp += charNewLineTag + charTextIndent; }
         messageTemp += charNewLineTag + charTextIndent;
         messageTemp += ' Details: ' + messageDetail;
-        if ((eventFileNamePassed).length) {
+        if (eventFileNamePassed.length) {
             messageTemp += charNewLineTag + charTextIndent;
             messageTemp += ' For: ' + eventFileNamePassed;
         }
@@ -743,6 +735,10 @@ function MessageLog(eventCurrPassed, UseDebugPassed, UseSingleLinePassed, messag
             messageTemp += ' Stack: ';
             messageTemp += charNewLineTag + charTextIndentSmall;
             messageTemp += StringTextNewlineReplace(eventStack, charNewLineTag + charTextIndentSmall);
+        }
+        if (script_state.length) {
+            messageTemp += charNewLineTag + charTextIndent;
+            messageTemp += ' State: ' + script_state;
         }
     }
     messageFinal = messageTemp + messageFinal;

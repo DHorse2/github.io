@@ -1575,11 +1575,11 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
 			// One timer per Item or Element (per Timer Type)
 			// Start this Item's Group Timer is it is not already running
 			//
-			var tempMethodFunc;
+			var timerFunctionTemp;
 			if (timerMethod == timerMethodGroup) {
-				tempMethodFunc = timerFunctionGroupPassed;
+				timerFunctionTemp = timerFunctionGroupPassed;
 			} else {
-				tempMethodFunc = timerFunctionItemPassed;
+				timerFunctionTemp = timerFunctionItemPassed;
 			}
 			//
 			if ((timerMethod == timerMethodItem
@@ -1591,7 +1591,7 @@ function TimerStart(timerType, timerGroup, timerGroupItem,
 					var tempFunc = function () {
 						TimerSet(
 							timerType, timerGroup, timerGroupItem,
-							tempMethodFunc, timerDelayPassed,
+							timerFunctionTemp, timerDelayPassed,
 							timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
 					};
 					//

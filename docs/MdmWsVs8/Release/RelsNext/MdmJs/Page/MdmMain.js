@@ -1,7 +1,7 @@
 menuImageBorderWidth = 6;
 filterMotionDirectionSourceAngle = 292.5;
 
-// Sever SECTION
+// AREA Sever SECTION
 // ServerIsOn (Page came from local or server)
 // ...................................... //
 serverIsOn = false;
@@ -9,7 +9,7 @@ serverIsOn = false;
 PageBuild = "RelsNext";
 PageMode = "Dev";
 // ...................................... //
-// STANDARD VARIABLES
+// AREA STANDARD VARIABLES
 // ...................................... //
 // UseDebug means differenct things depending on context
 // i.e. it may refer to debugging or to content button target selection
@@ -19,7 +19,7 @@ PageMode = "Dev";
 debugLoadIsOn = false;
 script_state = "debugLoadIsOn is" + debugLoadIsOn;
 
-// Page Loading / Optimization SECTION
+// AREA Page Loading / Optimization SECTION
 // ...................................... //
 // Include based file loads:
 var loadDelayIncludes = false;
@@ -41,26 +41,32 @@ var loadFirstDebugState = true;
 // Local Parameter Initialization specified here.
 function ConsoleFormElementSyncLocal(fromForm) { ConsoleFormElementSync(fromForm); } // uses defaults.
 
-// SECTION - general SETTINGS (and in Console Form)
+// AREA SECTION - General Settings
+// (and available in the Console Form.)
+// These settings alter the behavior of the
+// layouts, console and animations.
 // ...................................... //
-// Debugging and Console
+
+// AREA Debugging and Console
 // ...................................... //
 UseDebug = DoUseDebug;
 UseLog = DoUseLog;
-UseAlert = DoUseAlert;
+UseAlert = DoNotUseAlert;
 
-// ...................................... //
 // case 'ConsoleMouseOver':
+// ...................................... //
 UseAnimation = true;
 // consoleMouseOverToggle.style.borderColor = buttonIsOnColor;
-// ...................................... //
+
+
 // case 'FONTS'
+// ...................................... //
 // Smaller
 // Reset
 // Larger
-// ...................................... //
-// ...................................... //
+
 // case 'ConsoleAll':
+// ...................................... //
 consoleBoxButton = false;
 // consoleBox.style.display = 'block';
 // consoleToggle.style.borderColor = buttonIsOnColor;
@@ -80,8 +86,8 @@ consoleStateBoxButton = true;
 // consoleStateBox.style.display = 'block';
 // consoleStateToggle.style.borderColor = buttonIsOnColor;
 
-// ...................................... //
 // case 'ConsoleTest':
+// ...................................... //
 consoleTestBoxButton = false;
 // consoleTestBox.style.display = 'block';
 // consoleTestToggle.style.borderColor = buttonIsOnColor;
@@ -90,8 +96,8 @@ consoleTestBoxButton = false;
 consoleClearButton = false;
 // consoleClearToggle.style.backgroundColor = '';
 
-// ...................................... //
 // case 'ConsoleDebug':
+// ...................................... //
 consoleDebugButton = false;
 // consoleDebugMainToggle.style.borderColor = buttonIsOnColor;
 
@@ -99,8 +105,8 @@ consoleDebugButton = false;
 UseLogAllDetail = false;
 // consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
-// ...................................... //
 // case 'ConsoleDebugOnError':
+// ...................................... //
 UseDebugOnError = false;
 // consoleDebugOnErrorToggle.style.borderColor = buttonIsOnColor;
 
@@ -108,8 +114,8 @@ UseDebugOnError = false;
 UseDebugOnAll = false;
 // consoleDebugAllToggle.style.borderColor = buttonIsOnColor;
 
-// ...................................... //
 // case 'ConsoleDebugConsole':
+// ...................................... //
 UseLogConsole = false;
 
 // case 'ConsoleDebugLayout':
@@ -146,23 +152,24 @@ UseLogTimerDetail = false;
 UseLogEvents = false;
 // consoleDebugEventsToggle.style.borderColor = buttonIsOffColor;
 
-// ...................................... //
 // case 'ConsoleDebugHover':
+// ...................................... //
 UseLogHover = false;
 // consoleDebugHoverToggle.style.borderColor = buttonIsOnColor;
 
+// AREA Block Animation Control
 // ...................................... //
-// ...................................... //
-
-// Block Animation Control AREA
-// ...................................... //
+// Animation Method
+browserAnimationIsIe = false;
+browserAnimationIsMozilla = true;
+// Timers by Group or Item
+timerMethod = timerMethodItem;
 // Basic Options:
 var moveIsOn = true; // Object Move From Origin to Destination
 // Animations and transitions
 var filterIsOn = true; // Transition
 var filterResizeIsOn = true; // Growing image
 var filterDurationOverride = false; // Indicates User has set durations and defaults should not be used.
-
 // Mouse Hover activation of image display
 // var UseAnimation = true;
 // Type of Image Group Page Generation
@@ -179,14 +186,11 @@ consoleErrorLogCnMax = 2000; // total Messages
 UseLogLengthMax = 100000; // total bytes
 UseLogLengthTrim = 85000;
 consoleEventLogCnMax = 5000; // total events
-
 // Detailed logging flag (verbose)
 var UseLogDetails = false;
-
 // Formatting
 UseLogOrder = DoUseAscendingDate;
 UseLogScroll = true;
-
 // Format messages on a SingleLine
 UseSingleLine = DoNotUseSingleLine;
 UseScroll = DoUseScroll;
@@ -196,6 +200,8 @@ UseLogEventDuplicates = false;
 errorMessage = "Page settings initializing";
 errorResultOnFail = errorDidNotOccur;
 
+// AREA Console First error and Alerts
+// ...................................... //
 // Display an alert if debugger statement failed.
 var errorDisplayNoDebugMsg = true;
 // Open and display the Console on first error.
@@ -206,12 +212,10 @@ var alertCn = 0;
 // to prevent getting trapped and the UI blocked.
 var alertCnMax = 5;
 
-// AREA Debug.
-// This AREA is for controlling javascript debugging.
-// AREA Debug Areas
+// AREA Debug
 // ...................................... //
-//      These are normalized Areas
-//      main features and components.
+//      These are manually set normalized Areas
+//      for main features, components or script files.
 
 // Images
 UseLogImages = true;
@@ -246,10 +250,8 @@ errorSeverityLevel = errorDidNotOccur;
 // ...................................... //
 // errorDoDisplayTag = true; // or override
 // errorDoNotDisplayTag = false; // same...
-// DoUseAlert = true;
-// DoNotUseAlert = false;
 
-// Console (debug) SECTION
+// AREA Console (debug) SECTION
 // ...................................... //
 // colour
 // Button colors
@@ -276,7 +278,7 @@ errorSeverityColor = errorSeverityColorComment;
 errorSeverityColorBg = errorSeverityColorCommentBg;
 errorSeverityColorHighestBg = consoleViewToggleBackgroud;
 
-// SectionBlock Object Postion
+// AREA SectionBlock Object Postion
 // ...................................... //
 // The following are here in the event some browsers
 // handles these position fields differently.
@@ -287,9 +289,9 @@ UseOffset = DoUseOffset;
 UseBase = DoUseBase;
 UseScroll = DoUseScroll;
 
-// Section Menu Image (Standard) Objects
+// AREA Section Menu Image (Standard) Objects
 // ...................................... //
-// Storage Location for Group and Menu Item / Image
+// AREA Storage Location for Group and Menu Item / Image
 var oObjGroupIndex = 1;
 // location of Group / Roots in arrays
 var oObjRootIndex = 0;
@@ -340,6 +342,7 @@ var imgMax = 10;
 var boxFormWidth = 75;
 var boxTextLineHeight = 30;
 var imgHeight = 90;
+
 // Animation Timing
 var intervalBase = 900;
 var intervalSet = 0;
@@ -371,9 +374,6 @@ var elementMoveMethod = elementMoveMethodRandom; // Use random
 
 // SectionBlock Timers
 // ...................................... //
-// Timers by Group or Item
-timerMethod = timerMethodItem;
-//
 // Timer Movement
 var timerDuration = elementMoveDuration;
 var timerInterval = elementMoveInterval;

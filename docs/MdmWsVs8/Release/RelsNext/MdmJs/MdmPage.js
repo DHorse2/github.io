@@ -267,7 +267,7 @@ function ElementObjectContainerCreate() {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					'Page Main Element Object creation completed.',
 					script_state, 1211, 0, null, null,
-					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
 			}
 			//
 		} catch (elementObjectCreateErr) {
@@ -457,7 +457,7 @@ function ElementObjectCreate() {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					'Form Element Object creation completed.',
 					script_state, 1211, 0, null, null,
-					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
 			}
 			//
 		} catch (elementObjectCreateErr) {

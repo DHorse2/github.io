@@ -847,7 +847,7 @@ function ConsoleFormElementSync(fromForm) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				script_state + ' Console Form synchonized.',
 				'MdmDebugConsole: ConsoleFormElementSync', 1211, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+				errorIsComment, errorDoNotDisplayTag, UseAlert);
 		}
 		//
 		// } catch (consoleStateFormErr) {

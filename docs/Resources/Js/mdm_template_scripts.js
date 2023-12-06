@@ -1573,11 +1573,11 @@ function fnTimerStart(timerType, timerGroup, timerGroupItem,
 			// One timer per Item or Element (per Timer Type)
 			// Start this Item's Group Timer is it is not already running
 			//
-			var tempMethodFunc;
+			var timerFunctionTemp;
 			if (timerMethod = timerMethodGroup) {
-			    tempMethodFunc = timerFunctionGroupPassed;
+			    timerFunctionTemp = timerFunctionGroupPassed;
 			} else {
-			    tempMethodFunc = timerFunctionItemPassed;
+			    timerFunctionTemp = timerFunctionItemPassed;
 			}
 			//
 		    if ((timerMethod = timerMethodItem
@@ -1588,7 +1588,7 @@ function fnTimerStart(timerType, timerGroup, timerGroupItem,
                 if (!timerObj[timerGroup] [timerRootKey].timerIntervalId) {
 	                var tempFunc = function() { fnTimerSet(
 					        timerType, timerGroup, timerGroupItem,
-					        tempMethodFunc, timerDelayPassed,
+					        timerFunctionTemp, timerDelayPassed,
                             timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed); };
 			        //
                     vTimerStart= window.setTimeout(

@@ -64,7 +64,7 @@ function ElementEventMouseOver(elementCurr) {
 			+ charNewLineTag + 'top: ' + tempTop
 			+ charNewLineTag + 'Left: ' + tempLeft,
 			'MdmElementEvent:ElementEventMouseOver', 65, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+			errorIsComment, errorDoNotDisplayTag, UseAlert);
 		//
 	}
 }
@@ -113,7 +113,7 @@ function ElementEventClick(menuImage) {
 			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
 			+ charNewLineTag + 'Image number selected: ' + menuImageCn,
 			'MdmElementEvent:ElementEventClick', 113, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+			errorIsComment, errorDoNotDisplayTag, UseAlert);
 		//
 	}
 	//  document.parentWindow.parent.imgSelect = menuImageCn;
@@ -130,7 +130,7 @@ function ElementEventMouse(e) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'You have conflicting event handling options...',
 			'MdmElementEvent:ElementEventMouse', 126, 0, null, null,
-			errorIsSevere, errorDoNotDisplayTag, DoUseAlert);
+			errorIsSevere, errorDoNotDisplayTag, UseAlert);
 	}
 	if (loadFirstJava) { ElementObjectCreate(); }
 	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }

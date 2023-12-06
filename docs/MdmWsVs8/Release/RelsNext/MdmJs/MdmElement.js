@@ -688,8 +688,8 @@ function ElementContainerAdjustGet(element, elementContainer, UsePercent, DoPadd
         return elementAdjust;
     } else {
         // no element
-        var errorLogLine = "Element is null or invalid. It has now width."
-        ErrorOccured("MdmElement:ElementContainerAdjustGet", 692, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
+        var errorLogLine = "Element is null or invalid. It has no width."
+        ErrorOccured("MdmElement:ElementContainerAdjustGet", 692, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
         return 0;
     }
 }

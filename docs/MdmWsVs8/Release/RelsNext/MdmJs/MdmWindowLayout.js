@@ -694,7 +694,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 					script_state + '.',
 					'MdmWindowLayout: SelectByIndex', 899, 0, null, null,
-					errorIsComment, errorDoNotDisplayTag, DoNotUseAlert);
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
 			}
 		} catch (bodyLayoutErr) {
 			script_state = "Error in " + script_state;
