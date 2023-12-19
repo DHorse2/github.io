@@ -347,25 +347,25 @@
 			Delay Java initialization functions<br>
 			until after Page Load: <br>
 		</p>
-		<label for="formJavaLoadDelay">loadDelayJava </label>
+		<label for="formJavaLoadDelay">loadJavaDelay </label>
 		<input id="formJavaLoadDelay" type="checkbox" checked
-			onchange="DebugParameterSet(this, 'loadDelayJava', 'Toggle');">
+			onchange="DebugParameterSet(this, 'loadJavaDelay', 'Toggle');">
 		<p>
 			<!-- * -->
 			Delay downloading Body Content images<br>
 			until after Page Load: <br>
 		</p>
-		<label for="formBodyImageLoadDelay">loadDelayBodyImage </label>
+		<label for="formBodyImageLoadDelay">loadBodyImageDelay </label>
 		<input id="formBodyImageLoadDelay" type="checkbox" checked
-			onchange="DebugParameterSet(this, 'loadDelayBodyImage', 'Toggle');">
+			onchange="DebugParameterSet(this, 'loadBodyImageDelay', 'Toggle');">
 		<p>
 			<!-- * -->
 			Delay loading Menu Thumbnail images<br>
 			until after Page Load: <br>
 		</p>
-		<label for="formMenuImageLoadDelay">loadDelayMenuImage </label>
+		<label for="formMenuImageLoadDelay">loadMenuImageDelay </label>
 		<input id="formMenuImageLoadDelay" type="checkbox" checked
-			onchange="DebugParameterSet(this, 'loadDelayMenuImage', 'Toggle');">
+			onchange="DebugParameterSet(this, 'loadMenuImageDelay', 'Toggle');">
 	</fieldset>
 	<!-- * end of Page Load Optimaization -->
 	<!-- * -->

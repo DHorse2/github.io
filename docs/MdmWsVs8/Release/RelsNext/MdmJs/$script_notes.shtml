@@ -152,7 +152,7 @@ LayoutSelectByIndex(layoutStandard);
 // Layout
 //		LayoutSelectByIndex
 //		MouseClickImg
-// Mouse
+// Mouse (todo changed)
 // 		MouseOverImg
 //		MouseOutImg
 //		MouseClickImg

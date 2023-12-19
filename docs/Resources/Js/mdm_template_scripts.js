@@ -3076,8 +3076,8 @@ imgHtmlDivInner += attributeClass + quoteOpen + 'imgThumbSmall MenuImageBox Menu
 // Mouse Over
 // DivSmallOnmouseover
 DivSmallOnmouseoverText = '';
-DivSmallOnmouseoverFunction = fnElementGroupShowStack;
-DivSmallOnmouseoverFunctionName = 'fnElementGroupShowStack';
+DivSmallOnmouseoverFunction = fnElementGroupStackShow;
+DivSmallOnmouseoverFunctionName = 'fnElementGroupStackShow';
 DivSmallOnmouseoverText += '(';
 DivSmallOnmouseoverText += IsSmall + ', ';// Is Small Image
 // Parent Object
@@ -3755,7 +3755,7 @@ function fnElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNa
 // (c) 2011 stack exchange inc;user contributions licensed under cc-wiki with attribution required
 //
 function fnFunctionDoExecuteByName(functionName, context /*, args */) {
-    // ['My']['Namespace']['functionName'](arguments);// succeeds
+    // ['My'] ['Namespace'] ['functionName'](arguments);// succeeds
     // fnFunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
     // fnFunctionDoExecuteByName('Namespace.functionName', My, arguments);
     //
@@ -7314,10 +7314,10 @@ function fnElementEventMouse(e)
         	   	startIndex = 1;
             	endIndex = oObjIndex;
             	//
-    			// fnElementGroupShowStack(';false false true
+    			// fnElementGroupStackShow(';false false true
     			NextIsImageLarge = IsSmall;oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge];IgnoreLock = true;
             	//
-				fnElementGroupShowStack(
+				fnElementGroupStackShow(
         				NextIsImageLarge,
         				oObjParent.id, oObjImage.id, oObj.id,
         				oObjImageSizeLarge,
@@ -7751,7 +7751,7 @@ function fnElementPlay(playDirection, IsImageLarge,
     // Cascase Direction (Down or Up)
     var layoutCascadeDown = true;
     var layoutCascadeRight = true;
-    if (menuImageOffsetTopAll[oObjGroupIndex] [indexGroup] > 0) {
+    if (menuImageOffsetTop[oObjGroupIndex] [indexGroup] > 0) {
     	layoutCascadeDown = true; } else { layoutCascadeDown = false; }
     //
     oObjIndex = oObjGroupItemIndex;// fnElementItemIndexSetFromObj(oObjNext);
@@ -7976,11 +7976,11 @@ function fnElementPlay(playDirection, IsImageLarge,
 // Menu Show
 // 		fnElementGroupShowRange
 //		fnElementItemShowIndex
-//		fnElementGroupShowStack
+//		fnElementGroupStackShow
 //		fnElementItemToggle
 //		fnElementItemShow
 // Menu Hide
-// 		fnElementGroupToggleRange
+// 		fnElementGroupStackToggle
 //		fnElementItemHide
 //
 // ..................................................................................... _//
@@ -7989,9 +7989,9 @@ function fnElementPlay(playDirection, IsImageLarge,
 // ...................................... //
 //
 // ..................................................................................... _//
-// fnElementGroupToggleRange
+// fnElementGroupStackToggle
 // ...................................... //
-function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
+function fnElementGroupStackToggle(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
 {
 	if (javaLoadFirst) { fnElementObjectCreate(); }
 	if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
@@ -8012,7 +8012,7 @@ function fnElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endInd
     if (oObjNext.style.display = 'none') {
 	  	oObjLocked = true;
 	  	IgnoreLock = false;
-	  	fnElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, endIndex, oObjLocked, IgnoreLock);
+	  	fnElementGroupStackShow(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, endIndex, oObjLocked, IgnoreLock);
 		//
 	} else {
 	  	oObjLocked = false;
@@ -8086,7 +8086,7 @@ function fnElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oO
 // ..................................................................................... _//
 // fnMenu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
-function fnElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
+function fnElementGroupStackShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock)
 {
 	// load and validate event and objects
 	fnElementEventFromHtmlCheck(null, UseLogEvents);
@@ -8168,7 +8168,7 @@ function fnElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oOb
 {
 	  if (javaLoadFirst) { fnElementObjectCreate(); }
 	  if (menuImageLoadFirst) { fnMenuImagesHtmlBuild(); }
-	  fnElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
+	  fnElementGroupStackShow(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 //
 // ..................................................................................... _//
@@ -8249,7 +8249,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                 // ...................................... //
                 // Position Control
                 // Save the Left position (of the first image in the group)
-    		  	if (oObjIndex = 1)  {
+    		  	if (oObjIndex == 1)  {
                     // Store Parent Postion (note only first is stored at this time)
                     menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjLeft;
                     menuImagePositionTop[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjTop;
@@ -8276,11 +8276,11 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                 // Cascase Direction (Down or Up)
                 var layoutCascadeDown = true;
                 var layoutCascadeRight = true;
-        	    if (menuImageOffsetTopAll[oObjGroupIndex] [indexGroup] > 0) {
+        	    if (menuImageOffsetTop[oObjGroupIndex] [indexGroup] > 0) {
                     layoutCascadeDown = true; } else { layoutCascadeDown = false; }
                 // ...................................... //
                 // Animation
-                if (layoutIndex = layoutWindowed) {
+                if (layoutIndex == layoutWindowed) {
                     layoutCascadeDown = true;
 					filterMotionDirectionSourceAngle = 292.5;
 					filterMotionDirection= 'rightdown';
@@ -8299,8 +8299,8 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 					//
                     oObjNextTop += oObjNextOffsetTop;
 				} else {
-          			oObjNextOffsetTop = menuImageOffsetTopAll[oObjGroupIndex] [indexGroup];
-          			oObjNextOffsetTop += menuImageOffsetTopAll[oObjGroupIndex] [oObjIndex];
+          			oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex] [indexGroup];
+          			oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex] [oObjIndex];
                     // ...................................... //
               	    // Set Top
             	    // View Option Adjustments
@@ -8367,7 +8367,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                 // ...................................... //
                 // Cascase Direction (Right or Left)
                 // ...................................... //
-        	    if (menuImageOffsetLeftAll[oObjGroupIndex] [indexGroup] > 0) {
+        	    if (menuImageOffsetLeft[oObjGroupIndex] [indexGroup] > 0) {
                     layoutCascadeRight = true; } else { layoutCascadeRight = false; }
 				//
         	    if (layoutCascadeRight) {
@@ -8416,14 +8416,16 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
 					//
                     oObjNextLeft += oObjNextOffsetLeft;
 				} else {
-        		    oObjNextOffsetLeft = menuImageOffsetLeftAll[oObjGroupIndex] [indexGroup];// Group Default Offset
-        			oObjNextOffsetLeft += menuImageOffsetLeftAll[oObjGroupIndex] [oObjIndex];// Item specific default
+        		    oObjNextOffsetLeft = menuImageOffsetLeft[oObjGroupIndex] [indexGroup];// Group Default Offset
+        			oObjNextOffsetLeft += menuImageOffsetLeft[oObjGroupIndex] [oObjIndex];// Item specific default
 					//
                     // ...................................... //
             	    // View First Image Adjustments
-                    var menuImageOffsetFirst = menuImageOffsetFirstAll[oObjGroupIndex] [indexLeft];
+                    var menuImageOffsetFirst = menuImageOffsetFirst[oObjGroupIndex] [indexLeft];
                     // Windowed Layout Format
-        		  	if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirst = 0; }
+        		  	if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) != 1) {
+						menuImageOffsetFirst = 0;
+					}
                     if (layoutIndex = layoutWindowed) {
                         // oObjNextOffsetLeft = oObjNextOffsetLeft * 25 / Math.abs(oObjNextOffsetLeft);
                         menuImageOffsetFirst = 0;
@@ -8495,7 +8497,11 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
       			// Left Column (Left)
                 // Maximum Screen Width Exceeded (Left)
                 // note this should be an adjustable value
-				var oObjNextLeft;var imageLeftEdge;var imageRightEdge;var bodyLeftEdge;var bodyRightEdge;
+				var oObjNextLeft; 
+				var imageLeftEdge;
+				var imageRightEdge;
+				var bodyLeftEdge;
+				var bodyRightEdge;
 				//
 				fnElementPosGet(UseScroll, UseBase, bodyMainCenterCenter, 0, 0);
 				bodyLeftEdge = oObjLeft;
@@ -8510,7 +8516,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
   							+ layoutBlockWidthDefault;
   					//
       				if (imageRightEdge + 10 > bodyRightEdge) {
-          				   oObjNextLeft -= 50;oObjNextLeftChanged = true;
+          				   oObjNextLeft -= 50; oObjNextLeftChanged = true;
   					}
       			} while (imageRightEdge + 10 > bodyRightEdge);
                 //
@@ -8518,7 +8524,7 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
   					imageLeftEdge = oObjNextLeft;
   					//
       				if (imageLeftEdge - 10 < bodyLeftEdge) {
-          				   oObjNextLeft += 50;oObjNextLeftChanged = true;
+          				   oObjNextLeft += 50; oObjNextLeftChanged = true;
   					}
       			} while (imageLeftEdge - 10 < bodyLeftEdge);
 				//
@@ -8530,11 +8536,11 @@ function fnElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext
                 //
                 // ...................................... //
                 // Store Postion
-        		fnElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elHeightDefault);
-menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLeft;// parseInt(oObjNext.style.left);
-menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
-menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
-menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjHeight;// oObjNext.offsetHeight;
+	fnElementPosGet(UseScroll, UseBase, oObjNext, elementWidthDefault, elHeightDefault);
+	menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLeft;// parseInt(oObjNext.style.left);
+	menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
+	menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
+	menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjHeight;// oObjNext.offsetHeight;
                 //
                 // ...................................... //
               	// Filters

@@ -25,7 +25,7 @@
 	<script src="../MdmJs/MdmError.js"></script>
 	<script src="../MdmJs/MdmDebugConsole.js"></script>
 	<script src="../MdmJs/MdmParamSet.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
+	<script src="../MdmJs/MdmAnimationElement.js"></script>
 	<script src="../MdmJs/MdmBrowser.js"></script>
 	<script src="../MdmJs/MdmStandardFuntions.js"></script>
 	<script src="../MdmJs/MdmAnimation.js"></script>

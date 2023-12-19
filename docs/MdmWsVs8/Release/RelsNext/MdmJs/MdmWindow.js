@@ -62,13 +62,14 @@ function WindowOnload() {
     WindowLoadInit();
 
     // Includes
-    if (!loadDelayIncludes && loadIncludes && !loadIncludesDone) {
+    if (!loadIncludesDelay && loadIncludes && !loadIncludesDone) {
         IncludeHtmlFileAll();
+        loadIncludesDone = true;
     }
 
     // Docuement Element Initialize & Store Original Menu Columns.
-    if (!loadDelayJava) {
-        // BodyMenuInit();
+    if (!loadJavaDelay && !loadJavaDone) {
+        // bodyMenuInit();
         // Choose Standard Layout
         // Keeps the passed layout. Detects duplicate requests.
         // LayoutRefresh(layoutStandard);
@@ -76,28 +77,38 @@ function WindowOnload() {
         LayoutSelectNext(layoutStandard);
         // Forces the layout calculations.
         // LayoutSelectByIndex(layoutStandard);
+        loadJavaDone = true;
     }
 
     // Build Body Images Div - depreciated
-    // if (!loadDelayBodyImage) {
+    // if (!loadBodyImageDelay) {
     //     bodyImageContainer = BodyImagesHtmlBuild();
     // }
 
     // Build Menu Images Div
-    if (!loadDelayMenuImage) {
-        MdmMenuImageInit();
+    if (!loadMenuImageDelay && !loadMenuImageDone) {
+        menuImageGroupInitAll();
         // bodyMenuImageContainer =
         MenuImagesHtmlBuild();
+        loadMenuImageDone = true;
     }
 
     // Sync Form
-    if (!loadDelayDebugState) { ConsoleStateInit(); }
+    if (!loadDebugStateDelay && !loadDebugStateDone) {
+        ConsoleStateInit();
+        loadDebugStateDone = true;
+    }
 
     // Timers
-    TimerCreateAll();
-    TimerFunctionSet();
-    // Intervals and Duration
-    TimerDurationSet();
+    if (!loadTimerDelay && !loadTimerDone) {
+        TimerCreateAll();
+        TimerFunctionSet();
+        // Intervals and Duration
+        TimerDurationSet();
+        loadTimerDone = true;
+    }
+
+    // StyleSheets
     // document.styleSheets[1].disabled=true;
     LayoutFontCssTagHoverDisable();
 
@@ -143,8 +154,13 @@ function WindowCookieBuild() {
 ///////////////////////////////////////////////
 //  Document Load Initinitialize Variablesm, Arrays and Default Data
 function WindowLoadInit() {
-    BodyMenuInit();
-    MdmMenuImageInit();
+    bodyMenuInit();
+    // Build Menu Images Div
+    if (!loadMenuImageDelay && !loadMenuImageDone) {
+        menuImageGroupInitAll();
+        // bodyMenuImageContainer =
+        MenuImagesHtmlBuild();
+    }
     ElementObjectCreate();
     // ElementObjectContainerCreate();    // Synchorize Confole Settings Form
     // Resize Window
@@ -247,7 +263,7 @@ function WindowContainerSizeGetAll() {
     // layoutHeight = layoutMenuSizeVertMax;
 }
 
-// bodyMenuContainer[bodyMenuLeft][1]
+// bodyMenuContainer[bodyMenuLeft] [1]
 function WindowContainerSizeGetMenu(elementPassed) {
     // Height of left and right menu containers:
     // Greatest height when layed out side by side
@@ -292,16 +308,16 @@ function WindowContainerSizeGetMenu(elementPassed) {
             AdjustedIndex = SideIndexAdjust + bodyMenuGroupIndex;
             // Load the Menu Group element
             // todo not really correct.
-            // if (!bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex]) {
+            // if (!bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex]) {
             //     if (elementPassed) {
-            //         bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex] = ElementGetFromElement(null, ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), elementPassed);
+            //         bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex] = ElementGetFromElement(null, ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), elementPassed);
             //     }
             // }
-            if (bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex]) {
+            if (bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex]) {
                 // Get the height
                 layoutMenuSizeVert = ElementHeightMaxGet(true, true, bodyMenuGroup[SideIndexAdjust + bodyMenuGroupIndex]);
                 if (layoutMenuSizeVert) {
-                    // bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex] = layoutMenuSizeVert;
+                    // bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex] = layoutMenuSizeVert;
                     bodyMenuGroupHeight[SideIndexAdjust + bodyMenuGroupIndex] = layoutMenuSizeVert;
                     // bodyMenuGroupHeight[1] = ElementHeightMaxGet(true, true, menuGroup1);
                     // You add up the height
@@ -416,7 +432,7 @@ function WindowResizeLayout() {
     try {
         //
         // Initialization (catches variations in use)
-        if (loadFirstJava) { ElementObjectCreate(); }
+        if (loadJavaFirst) { ElementObjectCreate(); }
         // Load Containers if missing
         // ...................................... //
         script_state = "WindowResizeLayout: Started";
@@ -810,7 +826,7 @@ function WindowResizeLayout() {
 function LayoutBuildTop() {
     // (elementLeftPassed, elementRightPassed)
     if (!bodyMainCenterTopLeft || !bodyMainCenterTopRight) { return; } // error
-    // bodyMenuContainer[bodyMenuLeft][1]
+    // bodyMenuContainer[bodyMenuLeft] [1]
     // Height of left and right menu containers:
     // Greatest height when layed out side by side
     layoutBodySizeHorzMax = 0;
@@ -857,20 +873,20 @@ function LayoutBuildTop() {
             AdjustedIndex = SideIndexAdjust + bodyMenuGroupIndex;
             // Load the Menu Group element
             // todo not really correct.
-            // if (!bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex]) {
+            // if (!bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex]) {
             //     if (elementPassed) {
-            //         bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex] = ElementGetFromElement(null, ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), elementPassed);
+            //         bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex] = ElementGetFromElement(null, ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), ('MenuGroup' + (SideIndexAdjust + bodyMenuGroupIndex)), elementPassed);
             //     }
             // }
-            if (bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex]) {
+            if (bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex]) {
                 //
-                // elementCurr = bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex];
+                // elementCurr = bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex];
                 elementCurr = bodyMenuGroup[AdjustedIndex];
                 //
                 // Get the height
                 layoutMenuSizeVert = ElementHeightMaxGet(true, true, elementCurr);
                 if (layoutMenuSizeVert) {
-                    // bodyMenuContainer[bodyContainerSideIndex][bodyMenuGroupIndex] = layoutMenuSizeVert;
+                    // bodyMenuContainer[bodyContainerSideIndex] [bodyMenuGroupIndex] = layoutMenuSizeVert;
                     bodyMenuGroupHeight[SideIndexAdjust + bodyMenuGroupIndex] = layoutMenuSizeVert;
                     // bodyMenuGroupHeight[1] = ElementHeightMaxGet(true, true, menuGroup1);
                     // You add up the height

@@ -111,97 +111,6 @@ var menuZindex = 110;
 // Menu Image Z Index
 var imgZindex = 120;
 // Standard Functions
-// ------------------------------------------------------------------------------------- _//
-// // Base Font Size Increase
-// function FontSizeIncrease() {
-//     return;
-// }
-// // Base Font Size Decrease
-// function FontSizeDecrease() {
-//     return;
-// }
-// MOUSE
-///////////////////////////////////////////////
-// ------------------------------------------------------------------------------------- _//
-////////////////////////////////////////////////
-// Image Standard Mouse Events
-// Mouse
-// 		MouseOverImg
-//		    MouseOutImg
-//		    MouseClickImg
-////////////////////////////////////////////////
-// ------------------------------------------------------------------------------------- _//
-// Mouse Over
-////////////////////////////////////////////////
-function MouseOverImg(menuImage) {
-	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	imgMouseHover[menuImageCn] = 1;
-	if (imgFocus == menuImageCn) {
-		//    menuImage.src = menuImage.name + "/" + menuImage.name + "fh.gif";
-	}
-	else {
-		//    menuImage.src = menuImage.name + "/" + menuImage.name + "bh.gif";
-	}
-	var tempTop = menuImage.parentNode.top;
-	var tempLeft = menuImage.parentNode.left;
-}
-// Mouse Out
-////////////////////////////////////////////////
-function MouseOutImg(menuImage) {
-	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	imgMouseHover[menuImageCn] = 0;
-	if (imgFocus == menuImageCn) {
-		//    menuImage.src = menuImage.name + "/" + menuImage.name + "f.gif";
-	} else {
-		//    menuImage.src = menuImage.name + "/" + menuImage.name + "b.gif";
-	}
-}
-// Mouse Click
-////////////////////////////////////////////////
-function MouseClickImg(menuImage) {
-	menuImageGroup = 0;
-	menuImageItem = 0;
-	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	if (imgFocus == menuImageCn) {
-		return;
-	}
-	// old folder
-	imgFocusOld = imgFocus;
-	//  menuImageOld = oObjIndexSetmenuImage(imgFocusOld);
-	//  menuImageOld.src = menuImageOld.name + "/" + menuImageOld.name + "b.gif";
-	// new front folder
-	//  menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	imgFocus = menuImageCn;
-	//  menuImage.src = menuImage.name + "/" + menuImage.name + "f.gif";
-	// load new page into frame
-	//  imgframe.src = menuImage.name + "/" + menuImage.name + ".htm";
-	//  document.frames.item.
-	//  img0.src = menuImage.name + "lr.gif";
-	//  img0text.src = menuImage.name + "text.txt";
-	if ((UseLog || UseDebug)
-		&& UseLogEvents) {
-		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			"Getting " + menuImageCn + ": " + menuImage.Name,
-			'MdmPage:MouseClickImg', 209, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, UseAlert);
-	}
-	imgSelect = menuImageCn;
-	//  document.parentWindow.parent.imgSelect = menuImageCn;
-	//  alert(document.parentWindow.parent);
-	//  document.parentWindow.tabframe.imgSelect = menuImageCn;
-	//  alert(document.parentWindow.tabframe);
-	//  cookies!!!!!
-}
-// ..................................................................................... _//
 // Create all Elements used in Layout
 // Section Element function (s)
 // SectionBlock Element support function (s)
@@ -277,24 +186,20 @@ function ElementObjectContainerCreate() {
 		}
 	}
 }
-
 // Create all Elements used in Layout
 function ElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
-	loadFirstJava = false;
+	loadJavaFirst = false;
 	// bodyFirst = false;
 	script_state = "ElementObjectCreate in progress.";
 	//............................................................---//
 	// Body Container References
 	//............................................................---//
 	try {
+		if (!bodyMenuContainer) { bodyMenuInit() }
+
 		ElementObjectContainerCreate();
-		//
-		if (!loadDelayMenuImage) {
-			MdmMenuImageInit();
-			// bodyMenuImageContainer =
-			MenuImagesHtmlBuild();
-		}
+
 		//............................................................---//
 		// Banner References (Top Menu, Logo and Graphics)
 		//............................................................---//
@@ -372,22 +277,23 @@ function ElementObjectCreate() {
 		// for (bodyMenuGroupIndex=0; bodyMenuGroupIndex =< bodyMenuGroupUsedCn; bodyMenuGroupIndex++) {
 		// 	//
 		// }
+
 		// Left 1 todo can this be abstracted? or additional script in Page?
-		bodyMenuContainer[bodyMenuLeft][1] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuLeft][1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy, DoFindReturn, null)
-		// bodyMenuContainer[bodyMenuLeft][1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][1],'MenuContainerLeft1','MenuContainerLeft1');
+		bodyMenuContainer[bodyMenuLeft] [1] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuLeft] [1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuContainer[bodyMenuLeft] [1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft] [1],'MenuContainerLeft1','MenuContainerLeft1');
 		bodyMenuGroup[1] = ElementGetFromElementExt(bodyMenuGroup[1], 'MenuGroup1', 'MenuGroup1', bodyMainLeftCopy, DoFindReturn, null)
 		// bodyMenuGroup1 = ElementGetRef(bodyMenuGroup1,'MenuGroup1','MenuGroup1');
 		// bodyMenuGroup1 = ElementGetFromElement(bodyMenuGroup1, bodyMenuGroup1.id, bodyMenuGroup1.name, bodyMainLeft)
 		// var bodyMenuGroupSave[1] = ElementGetRef(bodyMenuGroupSave[1],'MenuGroup1Save','MenuGroup1Save');
 		// Left 2
-		bodyMenuContainer[bodyMenuLeft][2] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuLeft][2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
-		// bodyMenuContainer[bodyMenuLeft][2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][2],'MenuContainerLeft2','MenuContainerLeft2');
+		bodyMenuContainer[bodyMenuLeft] [2] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuLeft] [2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
+		// bodyMenuContainer[bodyMenuLeft] [2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft] [2],'MenuContainerLeft2','MenuContainerLeft2');
 		bodyMenuGroup[2] = ElementGetFromElementExt(bodyMenuGroup[2], 'MenuGroup2', 'MenuGroup2', bodyMainLeftCopy, DoFindReturn, null)
 		// bodyMenuGroup[2] = ElementGetRef(bodyMenuGroup[2],'MenuGroup2','MenuGroup2');
 		// var bodyMenuGroup[2]Save = ElementGetRef(bodyMenuGroup[2]Save,'MenuGroup2Save','MenuGroup2Save');
 		// Left 3
-		bodyMenuContainer[bodyMenuLeft][3] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuLeft][3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy, DoFindReturn, null)
-		// bodyMenuContainer[bodyMenuLeft][3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][3],'MenuContainerLeft3','MenuContainerLeft3');
+		bodyMenuContainer[bodyMenuLeft] [3] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuLeft] [3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy, DoFindReturn, null)
+		// bodyMenuContainer[bodyMenuLeft] [3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft] [3],'MenuContainerLeft3','MenuContainerLeft3');
 		bodyMenuGroup[3] = ElementGetFromElementExt(bodyMenuGroup[3], 'MenuGroup3', 'MenuGroup3', bodyMainLeftCopy, DoFindReturn, null)
 		// bodyMenuGroup[3] = ElementGetRef(bodyMenuGroup[3],'MenuGroup3','MenuGroup3');
 		// var bodyMenuGroup[3]Save = ElementGetRef(bodyMenuGroup[3]Save,'MenuGroup3Save','MenuGroup3Save');
@@ -411,15 +317,15 @@ function ElementObjectCreate() {
 		bodyLayoutMenu2 = ElementGetRef(bodyLayoutMenu2, 'BodyMenuLayout2', 'BodyMenuLayout2');
 		//
 		// Right (4)
-		bodyMenuContainer[bodyMenuRight][1] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuRight][1], 'MenuContainerRight1', 'MenuContainerRight1', bodyMainRightCopy);
+		bodyMenuContainer[bodyMenuRight] [1] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuRight] [1], 'MenuContainerRight1', 'MenuContainerRight1', bodyMainRightCopy);
 		bodyMenuGroup[4] = ElementGetFromElementExt(bodyMenuGroup[4], 'MenuGroup4', 'MenuGroup4', bodyMainRightCopy);
 		// var bodyMenuGroup4Save = ElementGetRef(bodyMenuGroup4Save,'MenuGroup4Save','MenuGroup4Save');
 		// Right (5)
-		bodyMenuContainer[bodyMenuRight][2] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuRight][2], 'MenuContainerRight2', 'MenuContainerRight2', bodyMainRightCopy);
+		bodyMenuContainer[bodyMenuRight] [2] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuRight] [2], 'MenuContainerRight2', 'MenuContainerRight2', bodyMainRightCopy);
 		bodyMenuGroup[5] = ElementGetFromElementExt(bodyMenuGroup[5], 'MenuGroup5', 'MenuGroup5', bodyMainRightCopy);
 		// var bodyMenuGroup5Save = ElementGetRef(bodyMenuGroup5Save,'MenuGroup5Save','MenuGroup5Save');
 		// Right (6)
-		bodyMenuContainer[bodyMenuRight][3] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuRight][3], 'MenuContainerRight3', 'MenuContainerRight3', bodyMainRightCopy);
+		bodyMenuContainer[bodyMenuRight] [3] = ElementGetFromElementExt(bodyMenuContainer[bodyMenuRight] [3], 'MenuContainerRight3', 'MenuContainerRight3', bodyMainRightCopy);
 		bodyMenuGroup[6] = ElementGetFromElementExt(bodyMenuGroup[6], 'MenuGroup6', 'MenuGroup6', bodyMainRightCopy);
 		// var bodyMenuGroup6Save = ElementGetRef(bodyMenuGroup6Save,'MenuGroup6Save','MenuGroup6Save');
 		//
@@ -470,10 +376,9 @@ function ElementObjectCreate() {
 	//
 	// document.recalc();
 	//
-	loadFirstJava = false;
+	loadJavaFirst = false;
 	// bodyFirst = false;
 }
-
 // Create toggle objects
 function ElementObjectToggleCreate(UsePrefixPassed, prefixPassed, bodyViewToggleContainerPassed) {
 	//

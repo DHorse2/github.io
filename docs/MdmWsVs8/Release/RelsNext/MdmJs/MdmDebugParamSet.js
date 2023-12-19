@@ -68,14 +68,14 @@ function DebugParameterSet(elementPassed, varNamePassed, varValuePassed) {
 				if (elementPassed.checked) { UseAlert = false; } else { UseAlert = true; }
 				break;
 			// Page Load Optimaization
-			case 'loadDelayJava':
-				if (elementPassed.checked) { loadDelayJava = false; } else { loadDelayJava = true; }
+			case 'loadJavaDelay':
+				if (elementPassed.checked) { loadJavaDelay = false; } else { loadJavaDelay = true; }
 				break;
-			case 'loadDelayBodyImage':
-				if (elementPassed.checked) { loadDelayBodyImage = false; } else { loadDelayBodyImage = true; }
+			case 'loadBodyImageDelay':
+				if (elementPassed.checked) { loadBodyImageDelay = false; } else { loadBodyImageDelay = true; }
 				break;
-			case 'loadDelayMenuImage':
-				if (elementPassed.checked) { loadDelayMenuImage = false; } else { loadDelayMenuImage = true; }
+			case 'loadMenuImageDelay':
+				if (elementPassed.checked) { loadMenuImageDelay = false; } else { loadMenuImageDelay = true; }
 				break;
 			//
 			default:

@@ -6,14 +6,14 @@ var oObjImageSizeLarge = 500;
 var oObjImageSizeRatio = 0.7;
 var oObjImageSize = 0;
 ////////////////////////////////////////////////
-var loadDelayJava = true;
-var loadFirstJava = true;
+var loadJavaDelay = true;
+var loadJavaFirst = true;
 //
-var loadDelayBodyImage = false;
-var loadFirstBodyImage = true;
+var loadBodyImageDelay = false;
+var loadBodyImageFirst = true;
 //
-var loadDelayMenuImage = false;
-var loadFirstMenuImage = true;
+var loadMenuImageDelay = false;
+var loadMenuImageFirst = true;
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 // note: currently you must search and decomment code:

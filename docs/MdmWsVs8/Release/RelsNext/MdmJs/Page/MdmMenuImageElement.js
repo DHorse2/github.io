@@ -3,7 +3,7 @@
 // ElementItemGetAllFromIndex
 // ...................................... //
 function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
-	if (loadFirstJava) { ElementObjectCreate(); } // 3) todo save indexes first?
+	if (loadJavaFirst) { ElementObjectCreate(); } // 3) todo save indexes first?
 	oObjIndex = oObjCn;
 	oObjGroupIndex = oObjGroupCn;
 	oObjValid = true;

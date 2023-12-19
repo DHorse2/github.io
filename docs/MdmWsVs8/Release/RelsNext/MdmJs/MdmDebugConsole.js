@@ -83,7 +83,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 	script_state = 'Toggle is ' + DoTogglePassed + ' for ' + ConsoleToggleNamePassed + '.';
 	try {
 		// Body Element Creation
-		if (loadFirstJava) { ElementObjectCreate(); }
+		if (loadJavaFirst) { ElementObjectCreate(); }
 		//
 		// ...................................... //
 		switch (ConsoleToggleNamePassed) {
@@ -198,7 +198,7 @@ function ConsoleToggle(DoSetValuePassed, elementValuePassed, DoTogglePassed, Con
 				script_state = "ConsoleToggle:ConsoleState:" + DoTogglePassed;
 				if (DoTogglePassed) { consoleStateBoxButton = !consoleStateBoxButton; }
 				if (DoSetValuePassed) { consoleStateBoxButton = elementValuePassed; }
-				if (loadFirstDebugState) { ConsoleFormElementSyncLocal(false); }
+				if (loadDebugStateFirst) { ConsoleFormElementSyncLocal(false); }
 				if (!consoleStateBoxButton) {
 					if ((UseLog || UseDebug)
 						&& UseLogConsole) {
@@ -869,8 +869,8 @@ function ConsoleShowEach(DoTogglePassed, ConsoleToggleNamePassed, consoleToggleR
 				if (BodyConsoleBoxButtons) {
 					if (consoleBox.style.display != 'block') {
 						//
-						if (loadFirstDebugState) {
-							loadFirstDebugState = false;
+						if (loadDebugStateFirst) {
+							loadDebugStateFirst = false;
 							ConsoleFormElementSyncLocal(false);
 						}
 						//
@@ -1028,7 +1028,7 @@ function ConsoleShowEach(DoTogglePassed, ConsoleToggleNamePassed, consoleToggleR
 function ConsoleShow(DoHide, errorDoDebug) {
 	//............................................................---//
 	// Body Element Creation
-	if (loadFirstJava) { ElementObjectCreate(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
 	//............................................................---//
 	//
 	if (errorDoDebug) {
@@ -1155,8 +1155,8 @@ function ConsoleStateInit() {
 		// // consoleStateForm.addEventListener('focusin', (event) => { ConsoleFormFocusIn(event); })
 		// // consoleStateForm.addEventListener('focusout', (event) => { ConsoleFormFocusOut(event); })
 	}
-	if (loadFirstDebugState) {
-		loadFirstDebugState = false;
+	if (loadDebugStateFirst) {
+		loadDebugStateFirst = false;
 		if (serverIsOn) {
 			ConsoleFormElementSync(false);
 		} else {

@@ -513,6 +513,7 @@ Right
   /* Alignment */
   text-align: center;
   /* More Alignment */
+  word-wrap: break-word;
   overflow-x: auto;
   overflow-y: auto;
   /* Layout / Visibility */
@@ -537,6 +538,7 @@ Right
   /* height:100%; */
   /* Alignment */
   text-align: left;
+  word-wrap: break-word;
   /* More Alignment */
   overflow-x: auto;
   overflow-y: auto;
@@ -554,19 +556,22 @@ Right
 .BodyConsoleErrorBox {
   /* Position */
   /* left: 2%; */
-  left: 0%
+  left: 0%;
+  word-wrap: break-word;
 }
 
 /* -------------------------------------------- */
 .BodyConsoleEventBox {
   /* Position */
   left: 33%;
+  word-wrap: break-word;
 }
 
 /* -------------------------------------------- */
 .BodyConsoleStateBox {
   /* Position */
   left: 66%;
+  word-wrap: break-word;
 }
 
 /* StateTextBox & TestBox is contained in StateBox */
@@ -575,6 +580,7 @@ Right
   left: 0%;
   /* Size */
   width: 46%;
+  word-wrap: break-word;
 }
 
 /* -------------------------------------------- */
@@ -583,6 +589,7 @@ Right
   left: 50%;
   /* Size */
   width: 46%;
+  word-wrap: break-word;
 }
 
 .BodyConsoleTestBoxDisplay {
@@ -604,6 +611,7 @@ Right
   /* Alignment */
   text-align: left;
   /* More Alignment */
+  word-wrap: break-word;
   overflow-x: auto;
   overflow-y: auto;
   /* Layout / Visibility */
@@ -625,6 +633,7 @@ Right
   /* Alignment */
   text-align: left;
   /* More Alignment */
+  word-wrap: break-word;
   overflow-x: visible;
   overflow-y: auto;
 }

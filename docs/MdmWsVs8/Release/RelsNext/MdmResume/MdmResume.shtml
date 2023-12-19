@@ -18,7 +18,7 @@
 	<script src="../MdmJs/MdmParamInit.js"></script>
 	<script src="../MdmJs/MdmParamSet.js"></script>
 	<script src="../MdmJs/MdmPageInit.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
+	<script src="../MdmJs/MdmAnimationElement.js"></script>
 </head>
 <body id="MdmResume" class="BodyBox">
         <div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
@@ -693,7 +693,7 @@ Test Data
         >
         <p id="MenuGroup4Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
+           onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
     	   >
         Software
         Products
@@ -706,7 +706,7 @@ Test Data
               <a id="MdmImportTldMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmImportTld.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 4, 1, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MenuContainerRight1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 4, 1, false, true)"
                   >
               C# database schema<br>
               and data converter </a></li>
@@ -715,7 +715,7 @@ Test Data
               <a id="MdmKBilMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmKBil.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmImportTld', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmImportTld', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
                   >
               K-Bil<br>
               Subscriber Billing<br>
@@ -725,7 +725,7 @@ Test Data
               <a id="MdmNetAppFrame4MenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmNetAppFrame.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmKBil42', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmKBil42', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
                   >
               C# Application Framework</a></li>
               <!-- 4 -->
@@ -733,7 +733,7 @@ Test Data
               <a id="MdmSrtMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmSrt.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
                   >
               SRT Code Conversion Tool</a></li>
               <!-- 5 -->
@@ -741,7 +741,7 @@ Test Data
               <a id="MdmPickTrMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmPickTr.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
                   >
               PickTR Adaptive Communications Protocol</a></li>
               <!-- 6 -->
@@ -749,7 +749,7 @@ Test Data
                   <a id="MdmOutlookSyncMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmOutlookSync.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
                   >
               Outlook folder to disk sync add-on</a></li>
               <!-- 7 -->
@@ -757,7 +757,7 @@ Test Data
                   <a id="MdmPickOssMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmPickOss.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
                   >
               Pick Application Framework</a></li>
               <!-- 8 -->
@@ -765,7 +765,7 @@ Test Data
                   <a id="MdmOtherApps"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmBlank.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
                   >
               Release Management, Accounting,<br>
               and duh not currently available.</a></li>

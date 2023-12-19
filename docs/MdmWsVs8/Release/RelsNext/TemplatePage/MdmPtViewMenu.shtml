@@ -2,7 +2,7 @@
 <div id="MenuGroup5" class="MenuGroup5 BodyMenuGroupLayout">
     <div id="MenuContainerRight2" class="MenuContainer MenuColumnClass fText">
         <p id="MenuGroup5Header" class="MenuColumnHeading h4 cBlack"
-            onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 5, 8, true, false)">
+            onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 5, 8, true, false)">
             Flexibile User Interface Design<br>
             (Toggle these settings)
         </p>

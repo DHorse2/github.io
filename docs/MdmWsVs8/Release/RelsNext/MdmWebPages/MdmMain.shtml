@@ -32,7 +32,7 @@
 	<script id="MdmStandardFuntions" src="../MdmJs/MdmStandardFuntions.js"></script>
 	<script id="MdmError" src="../MdmJs/MdmError.js"></script>
 	<script id="MdmDebugConsole" src="../MdmJs/MdmDebugConsole.js"></script>
-	<!-- // 		Initialization -->
+	<!-- // 	Initialization -->
 	<script id="MdmDebugConsoleForm" src="../MdmJs/MdmDebugConsoleForm.js"></script>
 	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
 	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
@@ -40,26 +40,28 @@
 	<script id="MdmMenuInit" src="../MdmJs/MdmMenuInit.js"></script>
 	<script id="MdmMenuImageInit" src="../MdmJs/Page/MdmMenuImageInit.js"></script>
 	<script id="MdmMenuImageElement" src="../MdmJs/Page/MdmMenuImageElement.js"></script>
-	<!-- //		 -->
+	<!-- // 	Features -->
 	<script id="MdmMenuImage" src="../MdmJs/MdmMenuImage.js"></script>
 	<script id="MdmTimer" src="../MdmJs/MdmTimer.js"></script>
 	<script id="MdmImageZoom" src="../MdmJs/MdmImageZoom.js"></script>
 	<script id="MdmDebugParamSet" src="../MdmJs/MdmDebugParamSet.js"></script>
 	<script id="MdmDebugTagHover" src="../MdmJs/MdmDebugTagHover.js"></script>
-	<!-- // 			Elements (dom) -->
+	<!-- // 	Elements (dom) -->
 	<script id="MdmElement" src="../MdmJs/MdmElement.js"></script>
-	<!-- // 	Components -->
+	<!-- // 	DOM Components -->
 	<!-- //			Window -->
 	<script id="MdmWindow" src="../MdmJs/MdmWindow.js"></script>
-	<!-- // 			Page -->
+	<!-- // 		Page -->
 	<script id="MdmPage" src="../MdmJs/MdmPage.js"></script>
 	<script id="MdmWindowLayout" src="../MdmJs/MdmWindowLayout.js"></script>
-	<!-- // 			Menus -->
+	<!-- // 		Menus -->
 	<script id="MdmMenuImageCollection" src="../MdmJs/Page/MdmMenuImageCollection.js"></script>
-	<!-- // 		Animation -->
-	<script id="MdmAnimation" src="../MdmJs/MdmAnimation.js"></script>
+	<!-- // 		Events -->
 	<script id="MdmElementEvent" src="../MdmJs/MdmElementEvent.js"></script>
-	<script id="MdmPageElement" src="../MdmJs/MdmPageElement.js"></script>
+	<!-- // 		Animation -->
+	<script id="MdmAnimationTimer" src="../MdmJs/MdmAnimationTimer.js"></script>
+	<script id="MdmAnimationFilter" src="../MdmJs/MdmAnimationFilter.js"></script>
+	<script id="MdmAnimationElement" src="../MdmJs/MdmAnimationElement.js"></script>
 	<!-- // 	Initialization -->
 	<script id="MdmPageInit" src="../MdmJs/MdmPageInit.js"></script>
 </head>
@@ -82,292 +84,296 @@
 					<div id="BodyMenuLayout1" class="BodyMenuLayout1 BodyMenuLayout">
 						<!-- * Left Column Content ** -->
 						<!-- ..................................................................................... -->
-						<div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
-							<!-- ..................................................................................... -->
-							<div id="ViewToggleBar" class="ViewToggleBar">
-								<!-- View -->
-								<div id="BodyConsoleViewButton"
-									class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-									<div id="BodyLayoutToggle"
-										class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin tooltip"
-										onmousedown="LayoutSelectNext(0);">
-										View
-										<span class="tooltipText tooltipBottom">
-											Hide the menus or move them.
-											There are four different layouts that the user can use for the page.
-											The view button switches between them with each click.
-											It cycles the view of the menus, showing them to the side, hidden, top,
-											bottom. </span>
-									</div>
-								</div>
-								<!-- ..................................................................................... -->
-								<!-- Font -->
-								<div id="BodyConsoleFontButtons" class="ViewToggleBlockContainerOuterTopZero">
-									<div id="BodyConsoleFontToggles"
-										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-										<!-- <div id="BodyConsoleFontSize" class="ViewToggleBlockContainer"> -->
-										<div id="BodyLayoutFontSmaller"
-											class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="LayoutFontSizeSmaller();">
-											-
-											<span class="tooltipText tooltipBottom">
-												Make the font smaller.
-											</span>
-										</div>
-										<div id="BodyLayoutFontReset"
-											class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="LayoutFontSizeReset();">
-											F
-											<span class="tooltipText tooltipBottom">
-												Reset the fonts to the default size.
-											</span>
-										</div>
-										<div id="BodyLayoutFontBigger"
-											class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="LayoutFontSizeBigger();">
-											+
-											<span class="tooltipText tooltipBottom">
-												Make the font larger.
-											</span>
-										</div>
-										<!-- </div> -->
-									</div>
-								</div>
-								<!-- ..................................................................................... -->
-								<!-- Move -->
-								<div id="BodyConsoleMouseOverButton"
-									class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-									<div id="BodyConsoleMouseOverToggle"
-										class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
-										onmousedown="ConsoleToggle(false, null, true, 'ConsoleMouseOver');">
-										MoOv
-										<span class="tooltipText tooltipBottom">
-											Toggles image Animation.
-											When Mouse Over is turned on pointing the mouse at any menu
-											choice will cause the thumbnail picture to be displayed for that menu item.
-										</span>
-									</div>
-								</div> <!-- end of BodyConsoleMouseOverButton -->
-								<!-- ..................................................................................... -->
-								<!-- Console -->
-								<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
-									<div id="BodyConsoleBoxToggles"
-										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-										<div id="BodyConsoleToggle"
-											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleAll');">
-											C
-											<span class="tooltipText tooltipBottom">
-												You can hide or show the console using this button.
-											</span>
-										</div>
-										<div id="BodyConsoleErrorToggle"
-											class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleError');">
-											e
-											<span class="tooltipText tooltipBottom">
-												Shows or hides the Error and Logging Messages Window.
-											</span>
-										</div>
-										<div id="BodyConsoleEventToggle"
-											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleEvent');">
-											v
-											<span class="tooltipText tooltipBottom">
-												Shows or hides the Mouse Event Messages Window.
-											</span>
-										</div>
-										<div id="BodyConsoleStateToggle"
-											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleState');">
-											s
-											<span class="tooltipText tooltipBottom">
-												Shows or hides the State Management Window.
-												This window also includes the form that allows changes to the various
-												internal program controls and features.
-											</span>
-										</div>
-										<div id="BodyConsoleAuxillaryToggles"
-											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleTestToggle"
-												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleTest');">
-												T
-												<span class="tooltipText tooltipBottom">
-													Test the debug console message, error and type handling.
-													This button sends test output to the console.
-												</span>
-											</div>
-											<div id="BodyConsoleClearToggle"
-												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleClear');">
-												c
-												<span class="tooltipText tooltipBottom">
-													Clicking this button clears the messages from the display console.
-												</span>
-											</div>
-										</div> <!-- end of BodyConsoleAuxillaryToggles -->
-									</div> <!-- end of BodyConsoleBoxToggles -->
-								</div> <!-- end of BodyConsoleBoxButtons -->
-								<!-- ..................................................................................... -->
-								<!-- Debug -->
-								<div id="BodyConsoleDebugButtons" class=" ViewToggleBlockContainerOuterTopZero">
-									<!-- Note: No Hide for buttons -->
-									<div id="BodyConsoleDebugMainToggles"
-										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-										<div id="BodyConsoleDebugToggle"
-											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebug');">
-											D
-											<span class="tooltipText tooltipBottom">
-												You can turn all of the debug features on or off using this button.
-											</span>
-										</div>
-										<div id="BodyConsoleDebugOnErrorToggle"
-											class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugOnError');">
-											o
-											<span class="tooltipText tooltipBottom">
-												Enter the debuger after any ERROR.
-											</span>
-										</div>
-										<div id="BodyConsoleDebugAllToggle"
-											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAll');">
-											a
-											<span class="tooltipText tooltipBottom">
-												Enter the debuger after any MESSAGE.
-											</span>
-										</div>
-										<div id="BodyConsoleDebugAllDetailToggle"
-											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAllDetail');">
-											v
-											<span class="tooltipText tooltipBottom">
-												Use verbose logging wiht all available details.
-											</span>
-										</div>
+						<!-- ..................................................................................... -->
+						<!-- MenuContainerLeft1 (Hide / Show, copy to TopLeft) -->
+						<div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText">
 
-										<!-- * -->
-										<div id="BodyConsoleDebugLayoutToggles"
+							<div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
+								<!-- ..................................................................................... -->
+								<div id="ViewToggleBar" class="ViewToggleBar">
+									<!-- View -->
+									<div id="BodyConsoleViewButton"
+										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+										<div id="BodyLayoutToggle"
+											class="BodyLayoutToggle ViewToggleButton MenuListItem  BorderThin tooltip"
+											onmousedown="LayoutSelectNext(0);">
+											View
+											<span class="tooltipText tooltipBottom">
+												Hide the menus or move them.
+												There are four different layouts that the user can use for the page.
+												The view button switches between them with each click.
+												It cycles the view of the menus, showing them to the side, hidden, top,
+												bottom. </span>
+										</div>
+									</div>
+									<!-- ..................................................................................... -->
+									<!-- Font -->
+									<div id="BodyConsoleFontButtons" class="ViewToggleBlockContainerOuterTopZero">
+										<div id="BodyConsoleFontToggles"
 											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleDebugConsoleToggle"
-												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugConsole');">
+											<!-- <div id="BodyConsoleFontSize" class="ViewToggleBlockContainer"> -->
+											<div id="BodyLayoutFontSmaller"
+												class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+												onmousedown="LayoutFontSizeSmaller();">
+												-
+												<span class="tooltipText tooltipBottom">
+													Make the font smaller.
+												</span>
+											</div>
+											<div id="BodyLayoutFontReset"
+												class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+												onmousedown="LayoutFontSizeReset();">
+												F
+												<span class="tooltipText tooltipBottom">
+													Reset the fonts to the default size.
+												</span>
+											</div>
+											<div id="BodyLayoutFontBigger"
+												class="ConsoleToggle ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+												onmousedown="LayoutFontSizeBigger();">
+												+
+												<span class="tooltipText tooltipBottom">
+													Make the font larger.
+												</span>
+											</div>
+											<!-- </div> -->
+										</div>
+									</div>
+									<!-- ..................................................................................... -->
+									<!-- Move -->
+									<div id="BodyConsoleMouseOverButton"
+										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+										<div id="BodyConsoleMouseOverToggle"
+											class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
+											onmousedown="ConsoleToggle(false, null, true, 'ConsoleMouseOver');">
+											MoOv
+											<span class="tooltipText tooltipBottom">
+												Toggles image Animation.
+												When Mouse Over is turned on pointing the mouse at any menu
+												choice will cause the thumbnail picture to be displayed for that menu
+												item.
+											</span>
+										</div>
+									</div> <!-- end of BodyConsoleMouseOverButton -->
+									<!-- ..................................................................................... -->
+									<!-- Console -->
+									<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
+										<div id="BodyConsoleBoxToggles"
+											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleToggle"
+												class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleAll');">
 												C
 												<span class="tooltipText tooltipBottom">
-													Generates trace and debug messages for the Console.
+													You can hide or show the console using this button.
 												</span>
 											</div>
-											<div id="BodyConsoleDebugLayoutToggle"
-												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugLayout');">
-												p
-												<span class="tooltipText tooltipBottom">
-													Generates messages for Page Layout.
-												</span>
-											</div>
-											<div id="BodyConsoleDebugWindowToggle"
-												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugWindow');">
-												s
-												<span class="tooltipText tooltipBottom">
-													Generates messages for Window and Standard modules.
-												</span>
-											</div>
-										</div>
-										<!-- * -->
-										<div id="BodyConsoleDebugAnimationToggles"
-											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
-											<div id="BodyConsoleDebugAnimationToggle"
+											<div id="BodyConsoleErrorToggle"
 												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAnimation');">
-												A
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleError');">
+												e
 												<span class="tooltipText tooltipBottom">
-													Generates basic messages for any animation.
+													Shows or hides the Error and Logging Messages Window.
 												</span>
 											</div>
-											<div id="BodyConsoleDebugMoveToggle"
-												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugMove');">
-												m
-												<span class="tooltipText tooltipBottom">
-													Generates trace and debug messages for any animated move.
-												</span>
-											</div>
-											<div id="BodyConsoleDebugTransitionToggle"
+											<div id="BodyConsoleEventToggle"
 												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugTransition');">
-												t
-												<span class="tooltipText tooltipBottom">
-													Generates trace and debug messages for the transition effects.
-												</span>
-											</div>
-											<div id="BodyConsoleDebugDetailToggle"
-												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugDetail');">
-												d
-												<span class="tooltipText tooltipBottom">
-													Outputs detailed verbose messages rather than summary tracing.
-													Typically detaile mode applies to menu items where as summary mode
-													refers
-													to the group of menu items.
-												</span>
-											</div>
-											<div id="BodyConsoleDebugEventsToggle"
-												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugEvents');">
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleEvent');">
 												v
 												<span class="tooltipText tooltipBottom">
-													Generates trace and debug messages for (mouse) events.
+													Shows or hides the Mouse Event Messages Window.
 												</span>
 											</div>
-										</div> <!-- end of BodyConsoleDebugTypesToggles -->
-										<div id="BodyConsoleDebugHoverToggle"
-											class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
-											onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugHover');">
-											H
-											<span class="tooltipText tooltipBottom">
-												Highlights page elements by type.
-											</span>
-										</div>
-									</div> <!-- end of BodyConsoleDebugMainToggles -->
-								</div> <!-- end of BodyConsoleDebugButtons -->
-								<!-- ..... onmousedown="LayoutFontCssTagHoverToggle();" .... -->
+											<div id="BodyConsoleStateToggle"
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleState');">
+												s
+												<span class="tooltipText tooltipBottom">
+													Shows or hides the State Management Window.
+													This window also includes the form that allows changes to the
+													various
+													internal program controls and features.
+												</span>
+											</div>
+											<div id="BodyConsoleAuxillaryToggles"
+												class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+												<div id="BodyConsoleTestToggle"
+													class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleTest');">
+													T
+													<span class="tooltipText tooltipBottom">
+														Test the debug console message, error and type handling.
+														This button sends test output to the console.
+													</span>
+												</div>
+												<div id="BodyConsoleClearToggle"
+													class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleClear');">
+													c
+													<span class="tooltipText tooltipBottom">
+														Clicking this button clears the messages from the display
+														console.
+													</span>
+												</div>
+											</div> <!-- end of BodyConsoleAuxillaryToggles -->
+										</div> <!-- end of BodyConsoleBoxToggles -->
+									</div> <!-- end of BodyConsoleBoxButtons -->
+									<!-- ..................................................................................... -->
+									<!-- Debug -->
+									<div id="BodyConsoleDebugButtons" class=" ViewToggleBlockContainerOuterTopZero">
+										<!-- Note: No Hide for buttons -->
+										<div id="BodyConsoleDebugMainToggles"
+											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleDebugToggle"
+												class="ConsoleToggle ViewToggleButton ViewToggleBlockLabel MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebug');">
+												D
+												<span class="tooltipText tooltipBottom">
+													You can turn all of the debug features on or off using this button.
+												</span>
+											</div>
+											<div id="BodyConsoleDebugOnErrorToggle"
+												class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugOnError');">
+												o
+												<span class="tooltipText tooltipBottom">
+													Enter the debuger after any ERROR.
+												</span>
+											</div>
+											<div id="BodyConsoleDebugAllToggle"
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAll');">
+												a
+												<span class="tooltipText tooltipBottom">
+													Enter the debuger after any MESSAGE.
+												</span>
+											</div>
+											<div id="BodyConsoleDebugAllDetailToggle"
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAllDetail');">
+												v
+												<span class="tooltipText tooltipBottom">
+													Use verbose logging wiht all available details.
+												</span>
+											</div>
+
+											<!-- * -->
+											<div id="BodyConsoleDebugLayoutToggles"
+												class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+												<div id="BodyConsoleDebugConsoleToggle"
+													class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugConsole');">
+													C
+													<span class="tooltipText tooltipBottom">
+														Generates trace and debug messages for the Console.
+													</span>
+												</div>
+												<div id="BodyConsoleDebugLayoutToggle"
+													class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugLayout');">
+													p
+													<span class="tooltipText tooltipBottom">
+														Generates messages for Page Layout.
+													</span>
+												</div>
+												<div id="BodyConsoleDebugWindowToggle"
+													class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugWindow');">
+													s
+													<span class="tooltipText tooltipBottom">
+														Generates messages for Window and Standard modules.
+													</span>
+												</div>
+											</div>
+											<!-- * -->
+											<div id="BodyConsoleDebugAnimationToggles"
+												class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+												<div id="BodyConsoleDebugAnimationToggle"
+													class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugAnimation');">
+													A
+													<span class="tooltipText tooltipBottom">
+														Generates basic messages for any animation.
+													</span>
+												</div>
+												<div id="BodyConsoleDebugMoveToggle"
+													class="BodyUseLog ViewToggleButton ViewToggleBlock MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugMove');">
+													m
+													<span class="tooltipText tooltipBottom">
+														Generates trace and debug messages for any animated move.
+													</span>
+												</div>
+												<div id="BodyConsoleDebugTransitionToggle"
+													class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugTransition');">
+													t
+													<span class="tooltipText tooltipBottom">
+														Generates trace and debug messages for the transition effects.
+													</span>
+												</div>
+												<div id="BodyConsoleDebugDetailToggle"
+													class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugDetail');">
+													d
+													<span class="tooltipText tooltipBottom">
+														Outputs detailed verbose messages rather than summary tracing.
+														Typically detaile mode applies to menu items where as summary
+														mode
+														refers
+														to the group of menu items.
+													</span>
+												</div>
+												<div id="BodyConsoleDebugEventsToggle"
+													class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+													onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugEvents');">
+													v
+													<span class="tooltipText tooltipBottom">
+														Generates trace and debug messages for (mouse) events.
+													</span>
+												</div>
+											</div> <!-- end of BodyConsoleDebugTypesToggles -->
+											<div id="BodyConsoleDebugHoverToggle"
+												class="BodyUseLog ViewToggleButton MenuListItem BorderThin tooltip"
+												onmousedown="ConsoleToggle(false, null, true, 'ConsoleDebugHover');">
+												H
+												<span class="tooltipText tooltipBottom">
+													Highlights page elements by type.
+												</span>
+											</div>
+										</div> <!-- end of BodyConsoleDebugMainToggles -->
+									</div> <!-- end of BodyConsoleDebugButtons -->
+									<!-- ..... onmousedown="LayoutFontCssTagHoverToggle();" .... -->
+									<!-- ..................................................................................... -->
+								</div> <!-- end of View Toggle Left -->
+								<br id="BrViewToggleLeft" class="aClearBoth">
 								<!-- ..................................................................................... -->
 							</div> <!-- end of View Toggle Left -->
-							<br id="BrViewToggleLeft" class="aClearBoth">
 							<!-- ..................................................................................... -->
-						</div> <!-- end of View Toggle Left -->
-						<!-- ..................................................................................... -->
-						<h4 id="TitleTopLeft">
-							Come inside...
-						</h4>
-						<!-- ..................................................................................... -->
-						<!-- Menu Box 1 ..................................................................................... -->
-						<!-- MenuGroup1 -->
-						<!-- 1 -->
-						<div id="MenuGroup1" class="MenuGroup1 BodyMenuGroupLayout">
+							<h4 id="TitleTopLeft">
+								Come inside...
+							</h4>
 							<!-- ..................................................................................... -->
-							<!-- MenuContainerLeft1 (Hide / Show, copy to TopLeft) -->
-							<div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText">
+							<!-- Menu Box 1 ..................................................................................... -->
+							<!-- MenuGroup1 -->
+							<!-- 1 -->
+							<div id="MenuGroup1" class="MenuGroup1 BodyMenuGroupLayout">
 								<!-- * -->
 								<p id="MenuGroup1Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false);">
+									onmousedown="ElementGroupToggle(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true);">
 									<span class="fMicro">Click menu headings to see thumbnail menus<br></span>
 									Development Projects
 								</p>
-								<!-- IN PROGRESS NOTE lnumbered altering list presentation...
-onmouseover=ElementGroupShowStack(LeftHeader1)
--->
+								<!-- IN PROGRESS NOTE lnumbered altering list presentation... -->
+								<!-- onmouseover=ElementGroupShow(LeftHeader1) -->
 								<ul id="MenuGroup1List" class="MenuList lNumbered MenuColumnClass">
 									<!-- 1 -->
 									<li class="MenuListItem">
-										<!-- x onmouseover="ElementGroupShowStack(img1MenuLine, img1);"-->
+										<!-- x onmouseover="ElementGroupShow(img1MenuLine, img1);"-->
 										<!-- todo onmouseover, href: generate these? -->
 										<a id="MdmImportTldMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmImportTld.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true);">
+											onmouseover="ElementGroupShow(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, 1, false, true);">
 											Database schema<br>
 											and data converter. (C#)
 										</a>
@@ -376,7 +382,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmNetAppFrameMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmNetAppFrame.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, 1, false, true);">
 											Application framework. (C#)
 										</a>
 									</li>
@@ -384,7 +390,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmWebUiMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmWebUi.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, 1, false, true);">
 											Web Page Templates. JavaScript
 										</a>
 									</li>
@@ -392,7 +398,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmDbUtilClassMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmDbUtilClass.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, 1, false, true);">
 											File System module. (C#)
 										</a>
 									</li>
@@ -400,7 +406,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmOutlookSyncMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmOutlookSync.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, 1, false, true);">
 											Outlook folder integration. VBA
 										</a>
 									</li>
@@ -408,7 +414,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmNetVirListMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmNetVirList.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, 1, false, true);">
 											Virtualized non-generic list. (C++)
 										</a>
 									</li>
@@ -416,7 +422,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmSystemMgntMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmSystemMgnt.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, 1, false, true);">
 											Windows desktop best practices. (Win Uix)
 										</a>
 									</li>
@@ -424,149 +430,150 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem MenuListItemLast">
 										<a id="MdmWebDevMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmWebDev.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, 1, false, true);">
 											Web<br>Development. (Html/POJ) (this)
 										</a>
 									</li>
 									<!-- -->
 								</ul>
-							</div> <!-- end of MenuContainerLeft1 -->
-							<br id="MenuGroup1ColBreak" class="aClearBoth">
-						</div> <!-- end of MenuGroup1 -->
-						<!-- -->
-						<!-- ..................................................................................... -->
-						<div id="DivC21" class="MenuColumnClass CalloutContent CalloutBorderFull">
-							<h5 id="C21H1" class="h5">
-								About this page...
-							</h5>
-							<p id="C21P1" class="aLeft Indent15 Pad5">
-								There is a large number of text boxes on this page to
-								demonstrate the fluid handling of number of columns and their width.
-							</p>
-						</div>
-						<!-- ..................................................................................... -->
-						<!-- MenuGroup2 -->
-						<!-- 2 -->
-						<div id="MenuGroup2" class="MenuGroup2 BodyMenuGroupLayout">
-							<!-- * Left Column Content Second Menu ** -->
-							<!-- Menu Group 2 ..................................................................................... -->
-							<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText">
-								<p id="MenuGroup2Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false);">
-									Career
+								<br id="MenuGroup1ColBreak" class="aClearBoth">
+							</div> <!-- end of MenuGroup1 -->
+							<!-- -->
+							<!-- ..................................................................................... -->
+							<div id="DivC21" class="MenuColumnClass CalloutContent CalloutBorderFull">
+								<h5 id="C21H1" class="h5">
+									About this page...
+								</h5>
+								<p id="C21P1" class="aLeft Indent15 Pad5">
+									There is a large number of text boxes on this page to
+									demonstrate the fluid handling of number of columns and their width.
 								</p>
-								<ul id="MenuGroup2List" class="MenuList">
-									<!-- 1 -->
-									<li class="MenuListItem">
-										<a id="MdmResumeMenuLine" class="MenuListItem"
-											href="../MdmResume/MdmResume.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, false, true);">
-											Career Home
-										</a>
-									</li>
-									<!-- 2 -->
-									<li class="MenuListItem">
-										<a id="MdmRsmItMenuLine" class="MenuListItem" href="../MdmResume/MdmRsmIt.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, false, true);">
-											Resume
-										</a>
-									</li>
-									<!-- 3 -->
-									<li class="MenuListItem">
-										<a id="MdmDghCarBioMenuLine" class="MenuListItem"
-											href="../MdmResume/MdmDghCarBio.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, false, true);">
-											Personal Bio
-										</a>
-									</li>
-									<!-- 4 -->
-									<li class="MenuListItem MenuListItemLast">
-										<a id="MdmDghAccomMenuLine" class="MenuListItem"
-											href="../MdmResume/MdmDghAccom.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true);">
-											Major Accomplishments
-										</a>
-									</li>
-									<!-- -->
-								</ul>
-								<br id="MenuGroup2ColBreak" class="aClearBoth">
-							</div> <!-- end of MenuContainerLeft2 -->
-						</div> <!-- end of MenuGroup2 -->
-						<!-- -->
-						<!-- ..................................................................................... -->
-						<div id="DivC22" class="MenuColumnClass CalloutContent CalloutBorderFull">
-							<h5 id="C22H1" class="h5">
-								Its an educational page...
-							</h5>
-							<p id="C22P1" class="aCenter">
-								It is written for a technical (student) audience and is
-								still under construction. (Vs1.2Beta)
-							</p>
-							<p id="C22P2" class="aCenter">
-								The theme is conservative with soft colour
-								using numerous optionally expanding callouts and images.
-							</p>
-						</div>
-						<!-- ..................................................................................... -->
-						<!-- 3 -->
-						<!-- MenuGroup3 -->
-						<div id="MenuGroup3" class="MenuGroup3 BodyMenuGroupLayout">
-							<!-- Menu Group 3 ..................................................................................... -->
-							<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText">
-								<p id="MenuGroup3Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false);">
-									Applied Research
+							</div>
+							<!-- ..................................................................................... -->
+							<!-- MenuGroup2 -->
+							<!-- 2 -->
+							<div id="MenuGroup2" class="MenuGroup2 BodyMenuGroupLayout">
+								<!-- * Left Column Content Second Menu ** -->
+								<!-- Menu Group 2 ..................................................................................... -->
+								<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText">
+									<p id="MenuGroup2Header" class="MenuColumnHeading h4 cBlack"
+										onmousedown="ElementGroupToggle(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true);">
+										Career
+									</p>
+									<ul id="MenuGroup2List" class="MenuList">
+										<!-- 1 -->
+										<li class="MenuListItem">
+											<a id="MdmResumeMenuLine" class="MenuListItem"
+												href="../MdmResume/MdmResume.shtml"
+												onmouseover="ElementGroupShow(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, 1, false, true);">
+												Career Home
+											</a>
+										</li>
+										<!-- 2 -->
+										<li class="MenuListItem">
+											<a id="MdmRsmItMenuLine" class="MenuListItem"
+												href="../MdmResume/MdmRsmIt.shtml"
+												onmouseover="ElementGroupShow(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, 1, false, true);">
+												Resume
+											</a>
+										</li>
+										<!-- 3 -->
+										<li class="MenuListItem">
+											<a id="MdmDghCarBioMenuLine" class="MenuListItem"
+												href="../MdmResume/MdmDghCarBio.shtml"
+												onmouseover="ElementGroupShow(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, 1, false, true);">
+												Personal Bio
+											</a>
+										</li>
+										<!-- 4 -->
+										<li class="MenuListItem MenuListItemLast">
+											<a id="MdmDghAccomMenuLine" class="MenuListItem"
+												href="../MdmResume/MdmDghAccom.shtml"
+												onmouseover="ElementGroupShow(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, 1, false, true);">
+												Major Accomplishments
+											</a>
+										</li>
+										<!-- -->
+									</ul>
+									<br id="MenuGroup2ColBreak" class="aClearBoth">
+								</div> <!-- end of MenuContainerLeft2 -->
+							</div> <!-- end of MenuGroup2 -->
+							<!-- -->
+							<!-- ..................................................................................... -->
+							<div id="DivC22" class="MenuColumnClass CalloutContent CalloutBorderFull">
+								<h5 id="C22H1" class="h5">
+									Its an educational page...
+								</h5>
+								<p id="C22P1" class="aCenter">
+									It is written for a technical (student) audience and is
+									still under construction. (Vs1.2Beta)
 								</p>
-								<ul id="MenuGroup3List" class="MenuList">
-									<!-- 1 -->
-									<li class="MenuListItem">
-										<a id="MdmTechRsrchMenuLine" href=""
-											onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, false, true);">
-											Applied Technology Research
-										</a>
-									</li>
-									<!-- 2 -->
-									<li class="MenuListItem">
-										<a id="MdmCogSciProjMenuLine" href=""
-											onmouseover="ElementGroupShowStack(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, false, true);">
-											Cognitive Science Project
-										</a>
-									</li>
-									<!-- 3 -->
-									<li class="MenuListItem MenuListItemLast">
-										<a id="MdmMvvmProjMenuLine" href=""
-											onmouseover="ElementGroupShowStack(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true);">
-											C# MVVM / OSS Project
-										</a>
-									</li>
-									<!-- 4 -->
-									<li class="MenuListItem MenuListItemLast">
-										<div id="MdmAccessMenuLine"
-											onmouseover="ElementGroupShowStack(0, 'MdmMvvmProjImage', 'MdmAssistiveImage', 'MdmAssistive', oObjImageSizeSmall, 3, 3, false, true);">
-											Assistive / Accessibility Design
-										</div>
-									</li>
-									<!-- 5 -->
-									<li class="MenuListItem MenuListItemLast">
-										<div id="MdmTimeProjMenuLine"
-											onmouseover="ElementGroupShowStack(0, 'MdmAssistive', 'MdmRealTime35Image', 'MdmRealTime35', oObjImageSizeSmall, 3, 3, false, true);">
-											Time Sensitive Technologies
-										</div>
-									</li>
-								</ul>
-								<br id="MenuGroup3ColBreak" class="aClearBoth">
-							</div> <!-- end of MenuContainerLeft3 -->
-						</div> <!-- end of MenuGroup3 -->
-						<!-- -->
+								<p id="C22P2" class="aCenter">
+									The theme is conservative with soft colour
+									using numerous optionally expanding callouts and images.
+								</p>
+							</div>
+							<!-- ..................................................................................... -->
+							<!-- 3 -->
+							<!-- MenuGroup3 -->
+							<div id="MenuGroup3" class="MenuGroup3 BodyMenuGroupLayout">
+								<!-- Menu Group 3 ..................................................................................... -->
+								<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText">
+									<p id="MenuGroup3Header" class="MenuColumnHeading h4 cBlack"
+										onmousedown="ElementGroupToggle(true, true, 1, 5, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true);">
+										Applied Research
+									</p>
+									<ul id="MenuGroup3List" class="MenuList">
+										<!-- 1 -->
+										<li class="MenuListItem">
+											<a id="MdmTechRsrchMenuLine" href=""
+												onmouseover="ElementGroupShow(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, 1, false, true);">
+												Applied Technology Research
+											</a>
+										</li>
+										<!-- 2 -->
+										<li class="MenuListItem">
+											<a id="MdmCogSciProjMenuLine" href=""
+												onmouseover="ElementGroupShow(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, 1, false, true);">
+												Cognitive Science Project
+											</a>
+										</li>
+										<!-- 3 -->
+										<li class="MenuListItem MenuListItemLast">
+											<a id="MdmMvvmProjMenuLine" href=""
+												onmouseover="ElementGroupShow(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, 1, false, true);">
+												C# MVVM / OSS Project
+											</a>
+										</li>
+										<!-- 4 -->
+										<li class="MenuListItem MenuListItemLast">
+											<div id="MdmAccessMenuLine"
+												onmouseover="ElementGroupShow(0, 'MdmMvvmProjImage', 'MdmAssistiveImage', 'MdmAssistive', oObjImageSizeSmall, 3, 4, 1, false, true);">
+												Assistive / Accessibility Design
+											</div>
+										</li>
+										<!-- 5 -->
+										<li class="MenuListItem MenuListItemLast">
+											<div id="MdmTimeProjMenuLine"
+												onmouseover="ElementGroupShow(0, 'MdmAssistive', 'MdmRealTime35Image', 'MdmRealTime35', oObjImageSizeSmall, 3, 5, 1, false, true);">
+												Time Sensitive Technologies
+											</div>
+										</li>
+									</ul>
+									<br id="MenuGroup3ColBreak" class="aClearBoth">
+								</div> <!-- end of MenuContainerLeft3 -->
+							</div> <!-- end of MenuGroup3 -->
+							<!-- -->
+							<!-- ..................................................................................... -->
+							<br id="MenuGroupEndColBreak" class="aClearBoth">
+						</div> <!-- end of BodyLayout1 -->
+						<br id="MenuGroupEnd2ColBreak" class="aClearBoth">
 						<!-- ..................................................................................... -->
-						<br id="MenuGroupEndColBreak" class="aClearBoth">
-					</div> <!-- end of BodyLayout1 -->
-					<br id="MenuGroupEnd2ColBreak" class="aClearBoth">
-					<!-- ..................................................................................... -->
-					<!-- Left Container, Inner, Outter Closing Divs -->
+						<!-- Left Container, Inner, Outter Closing Divs -->
+					</div>
 				</div>
 			</div>
-		</div>
+		</div> <!-- end of MenuContainerLeft1 -->
 		<!-- end of Left Column -->
 		<!-- ..................................................................................... -->
 		<!-- ..................................................................................... -->
@@ -1646,7 +1653,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 							<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
 							<div id="MenuContainerRight1" class="MenuContainer MenuColumnClass fText">
 								<p id="MenuGroup4Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false);">
+									onmousedown="ElementGroupToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true);">
 									Software
 									Products
 									Available
@@ -1657,7 +1664,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmImportTldMenuLineRight" class="MenuListItem "
 											href="../MdmWebPages/MdmImportTld.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldRightImage', 'MdmImportTldRight', oObjImageSizeSmall, 4, 1, false, true);">
+											onmouseover="ElementGroupShow(0, 'MenuContainerRight1', 'MdmImportTldRightImage', 'MdmImportTldRight', oObjImageSizeSmall, 4, 1, 1, false, true);">
 											C# database schema<br>
 											and data converter </a>
 									</li>
@@ -1665,7 +1672,7 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmKBilMenuLine" class="MenuListItem "
 											href="../AxionWebPages/macdefau.htm"
-											onmouseover="ElementGroupShowStack(0, 'MdmImportTldRight', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmImportTldRight', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, 1, false, true);">
 											K-Bil<br>
 											Subscriber Billing<br>
 											System</a>
@@ -1674,40 +1681,40 @@ onmouseover=ElementGroupShowStack(LeftHeader1)
 									<li class="MenuListItem">
 										<a id="MdmNetAppFrame4MenuLine" class="MenuListItem "
 											href="../MdmWebPages/MdmNetAppFrame.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, 1, false, true);">
 											C# Application Framework</a>
 									</li>
 									<!-- 4 -->
 									<li class="MenuListItem">
 										<a id="MdmSrtMenuLine" class="MenuListItem " href="../MdmWebPages/MdmSrt.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, 1, false, true);">
 											SRT Code Conversion Tool</a>
 									</li>
 									<!-- 5 -->
 									<li class="MenuListItem">
 										<a id="MdmPickTrMenuLine" class="MenuListItem "
 											href="../MdmWebPages/MdmPickTr.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, 1, false, true);">
 											PickTR Adaptive Communications Protocol</a>
 									</li>
 									<!-- 6 -->
 									<li class="MenuListItem">
 										<a id="MdmOutlookSyncMenuLineRight" class="MenuListItem "
 											href="../MdmWebPages/MdmOutlookSync.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, 1, false, true);">
 											Outlook folder to disk sync add-on</a>
 									</li>
 									<!-- 7 -->
 									<li class="MenuListItem">
 										<a id="MdmPickOssMenuLine" class="MenuListItem "
 											href="../MdmWebPages/MdmPickOss.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, 1, false, true);">
 											Pick Application Framework</a>
 									</li>
 									<!-- 8 -->
 									<li class="MenuListItem MenuListItemLast">
 										<a id="MdmOtherApps" class="MenuListItem " href="../MdmWebPages/MdmBlank.shtml"
-											onmouseover="ElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, 1, false, true);">
 											Release Management, Accounting,<br>
 											and duh not currently available.</a>
 									</li>

@@ -355,25 +355,25 @@ function ConsoleFormInit(clearElement, injectElement, passedElement) {
 				Delay Java initialization functions<br>
 				until after Page Load: <br>
 			</p>
-			<label for="formJavaLoadDelay">loadDelayJava </label>
+			<label for="formJavaLoadDelay">loadJavaDelay </label>
 			<input id="formJavaLoadDelay" type="checkbox" checked
-				onchange="DebugParameterSet(this, 'loadDelayJava', 'Toggle');">
+				onchange="DebugParameterSet(this, 'loadJavaDelay', 'Toggle');">
 			<p>
 				<!-- * -->
 				Delay downloading Body Content images<br>
 				until after Page Load: <br>
 			</p>
-			<label for="formBodyImageLoadDelay">loadDelayBodyImage </label>
+			<label for="formBodyImageLoadDelay">loadBodyImageDelay </label>
 			<input id="formBodyImageLoadDelay" type="checkbox" checked
-				onchange="DebugParameterSet(this, 'loadDelayBodyImage', 'Toggle');">
+				onchange="DebugParameterSet(this, 'loadBodyImageDelay', 'Toggle');">
 			<p>
 				<!-- * -->
 				Delay loading Menu Thumbnail images<br>
 				until after Page Load: <br>
 			</p>
-			<label for="formMenuImageLoadDelay">loadDelayMenuImage </label>
+			<label for="formMenuImageLoadDelay">loadMenuImageDelay </label>
 			<input id="formMenuImageLoadDelay" type="checkbox" checked
-				onchange="DebugParameterSet(this, 'loadDelayMenuImage', 'Toggle');">
+				onchange="DebugParameterSet(this, 'loadMenuImageDelay', 'Toggle');">
 		</fieldset>
 		<!-- * end of Page Load Optimaization -->
 		<!-- * -->
@@ -564,23 +564,23 @@ function ConsoleFormElementSync(fromForm) {
 		script_state += ", Page Load Optimaization";
 		elementObject = document.getElementById('formJavaLoadDelay');
 		if (fromForm) {
-			if (elementObject.checked) { loadDelayJava = true; } else { loadDelayJava = false; }
+			if (elementObject.checked) { loadJavaDelay = true; } else { loadJavaDelay = false; }
 		} else {
-			if (loadDelayJava) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (loadJavaDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formBodyImageLoadDelay');
 		if (fromForm) {
-			if (elementObject.checked) { loadDelayBodyImage = true; } else { loadDelayBodyImage = false; }
+			if (elementObject.checked) { loadBodyImageDelay = true; } else { loadBodyImageDelay = false; }
 		} else {
-			if (loadDelayBodyImage) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (loadBodyImageDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 		//
 		elementObject = document.getElementById('formMenuImageLoadDelay');
 		if (fromForm) {
-			if (elementObject.checked) { loadDelayMenuImage = true; } else { loadDelayMenuImage = false; }
+			if (elementObject.checked) { loadMenuImageDelay = true; } else { loadMenuImageDelay = false; }
 		} else {
-			if (loadDelayMenuImage) { elementObject.checked = true; } else { elementObject.checked = false; }
+			if (loadMenuImageDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
 		}
 
 		// Fields with values

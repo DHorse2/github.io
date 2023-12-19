@@ -22,12 +22,14 @@ var headingGroupCnCurr;
 // var imgGroupArraySize;
 var imgGroupBoxCount;
 // var imgGroupImageArraySize;
-// Image Object Array
-// var menuImage = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-//
 var imgGroupCnStart = 0;
 var imgGroupCnEnd = 0;
 
+
+// Image Object Array
+// ...................................... //
+var menuImage = null;
+// var menuImage = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
 // Current Image Position
 var oObjNextTop = 0;
 var oObjNextLeft = 0;
@@ -39,7 +41,7 @@ var oObjNextOffsetLeft = 0;
 // Menu Images (by Groups) - Image Object Array
 ////////////////////////////////////////////////
 var menuImageTimerCn = 0;
-// ...................................... //
+
 // SectionBlock Heading Image Group
 // ...................................... //
 var headingGroupPointer;
@@ -68,7 +70,7 @@ var menuImageLocked;
 // First Image
 // ...................................... //
 // First Image Offset By Group, By Top, Left
-var menuImageOffsetFirstAll;
+var menuImageOffsetFirst;
 
 // Image Position
 // ...................................... //
@@ -83,28 +85,28 @@ var menuImagePositionHeight;
 // Not currently in use
 var menuImageTimerCn;
 
-// Image Postioning Offsets - Large
-// ...................................... //
-var menuImageOffsetLeftLarge;
-var menuImageOffsetTopLarge;
+// // Image Postioning Offsets - Large
+// // ...................................... //
+// var menuImageOffsetLeftLarge;
+// var menuImageOffsetTopLarge;
 
-// Image Postioning Offsets - Small
+// Image Postioning Offsets - Small / Large
 // ...................................... //
 // These are layout postion patterns to be applied
-var menuImageOffsetLeftAll;
-var menuImageOffsetTopAll;
+var menuImageOffsetLeft;
+var menuImageOffsetTop;
 
 // Position All
-function MdmMenuImageInit() {
+function menuImageInit() {
     // Image Group
     // imgGroupCount = imgGroupCount;
     // imgGroupArraySize = imgGroupCount;
     // imgGroupBoxCount = 20;
     // imgGroupImageArraySize = imgGroupBoxCount + 1;
-    // Image Object Array
 
-    // Menu Init?
-    // menuImage = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
+    // Image Object Array
+    if (menuImage == null) { menuImageCreate(); }
+    // menuImageGroupInitAll(bodyMenuGroupMax);
 
     //  imgGroupCnStart = 1;
     imgGroupCnEnd = bodyMenuGroupMax;
@@ -113,43 +115,6 @@ function MdmMenuImageInit() {
     // Image Group Arrays
     // imgGroupArraySize = imgGroupCount;
     // imgGroupImageArraySize = imgGroupBoxCount + 1;
-
-    // Maximum # of Images By Group
-    imgMaxByGroup = new Array(imgGroupArraySize);
-    // Maximum # of Images Per Cascading Row By Group
-    oObjectRowMax = new Array(imgGroupArraySize);
-    // Image Display (Visible) Locked Array
-    menuImageLocked = new Array(imgGroupArraySize);
-    menuImageTimerCn = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-
-    // Image Offsets
-    // By Top, Left (2)
-    menuImageOffsetFirstAll = new Array(imgGroupImageArraySize);
-    // These are layout postion patterns to be applied
-    // Not currently in use
-    // ...................................... //
-    // Image Postioning Offsets - Large
-    menuImageOffsetLeftLarge = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-    menuImageOffsetTopLarge = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-    //
-    // ...................................... //
-    // Image Postioning Offsets - Small
-    // These are layout postion patterns to be applied
-    menuImageOffsetLeftAll = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-    menuImageOffsetTopAll = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-    //
-    menuImageOffsetLeftAll = new Array(imgGroupImageArraySize);
-    menuImageOffsetTopAll = new Array(imgGroupImageArraySize);
-
-    // Image Display (Visible) Locked Array
-    menuImageLocked = new Array(imgGroupArraySize); // By, imgGroupImageArraySize);
-    // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
-    menuImageRootPosition = new Array(imgGroupArraySize); // By Top, Left, Right/Width, Bottom/Height
-
-    imgAniToggle = new Array(imgGroupArraySize);
-    imgMouseHover = new Array(imgGroupArraySize);
-    // imgAniToggle[imgCn] = 0;
-    // imgMouseHover[imgCn] = 0;
 
     // ...................................... //
     // SectionBlock Heading Image Group
@@ -163,101 +128,148 @@ function MdmMenuImageInit() {
 
     // Images per Group
     ////////////////////////////////////////////////
+
     // Menu Maximum Images per each Group
     imgMaxByGroup[0] = 0;
     imgMaxByGroup[1] = 8;
     imgMaxByGroup[2] = 4;
     imgMaxByGroup[3] = 5;
     imgMaxByGroup[4] = 8;
+    imgMaxByGroup[5] = 0;
+    imgMaxByGroup[6] = 0;
+
     // Menu Maximum Images per each Group
     oObjectRowMax[0] = 0;
-    oObjectRowMax[1] = 4;
+    oObjectRowMax[1] = 8;
     oObjectRowMax[2] = 9;
     oObjectRowMax[3] = 9;
-    oObjectRowMax[4] = 6;
+    oObjectRowMax[4] = 8;
+    oObjectRowMax[5] = 0;
+    oObjectRowMax[6] = 0;
+
     // First Image Offset By Group, Top, Left, Right, Bottom
     menuImageRootPosition[0] = 0;
     menuImageRootPosition[1] = 0;
     menuImageRootPosition[2] = 0;
     menuImageRootPosition[3] = 0;
     menuImageRootPosition[4] = 0;
-
-    menuImageGroupInitAll(bodyMenuGroupMax);
-
+    menuImageRootPosition[5] = 0;
+    menuImageRootPosition[6] = 0;
+}
+//
+function menuImageSet() {
     // Heading Image Group
     ////////////////////////////////////////////////
     // imgMaxByGroup[headingGroupCnCurr] = imgGroupBoxCount;
     oObjGroupIndex = 1;
+    //
+    for (var SizeIndex = 0; SizeIndex < 2; SizeIndex++) {
+        // Image Postioning Offsets
+        ////////////////////////////////////////////////
+        // Menu Group Root Index
+        // Default (All)
+        menuImageOffsetTop[0] [indexGroup] [SizeIndex] = 0;
+        menuImageOffsetLeft[0] [indexGroup] [SizeIndex] = 0;
 
-    // Image Postioning Offsets
-    ////////////////////////////////////////////////
-    // Default (All) Groups
-    menuImageOffsetTopAll[indexGroup][indexGroup] = 25;
-    menuImageOffsetLeftAll[indexGroup][indexGroup] = 25;
-    // Menu Group 0
-    // Default (All)
-    menuImageOffsetTopAll[0][indexGroup] = 0;
-    menuImageOffsetLeftAll[0][indexGroup] = 0;
-    // Menu Group 1
-    // Default (All)
-    menuImageOffsetTopAll[1][indexGroup] = 25;
-    menuImageOffsetLeftAll[1][indexGroup] = 25;
-    // Boxes
-    menuImageOffsetTopAll[1][1] = 0; menuImageOffsetLeftAll[1][1] = 0;
-    menuImageOffsetTopAll[1][2] = 0; menuImageOffsetLeftAll[1][2] = 0;
-    menuImageOffsetTopAll[1][3] = 0; menuImageOffsetLeftAll[1][3] = 0;
-    menuImageOffsetTopAll[1][4] = 0; menuImageOffsetLeftAll[1][4] = 0;
-    menuImageOffsetTopAll[1][5] = 0; menuImageOffsetLeftAll[1][5] = 0;
-    menuImageOffsetTopAll[1][6] = 0; menuImageOffsetLeftAll[1][6] = 0;
-    menuImageOffsetTopAll[1][7] = 0; menuImageOffsetLeftAll[1][7] = 0;
-    menuImageOffsetTopAll[1][8] = 0; menuImageOffsetLeftAll[1][8] = 0;
-    // Menu Group 2
-    // Default (All)
-    menuImageOffsetTopAll[2][indexGroup] = -60;
-    menuImageOffsetLeftAll[2][indexGroup] = 50;
-    // Boxes
-    menuImageOffsetTopAll[2][1] = 0; menuImageOffsetLeftAll[2][1] = 0;
-    menuImageOffsetTopAll[2][2] = 0; menuImageOffsetLeftAll[2][2] = 0;
-    menuImageOffsetTopAll[2][3] = 0; menuImageOffsetLeftAll[2][3] = 0;
-    menuImageOffsetTopAll[2][4] = 0; menuImageOffsetLeftAll[2][4] = 0;
-    // Menu Group 3
-    // Default (All)
-    menuImageOffsetTopAll[3][indexGroup] = -20;
-    menuImageOffsetLeftAll[3][indexGroup] = 75;
-    // Boxes
-    menuImageOffsetTopAll[3][1] = 0; menuImageOffsetLeftAll[3][1] = 0;
-    menuImageOffsetTopAll[3][2] = 0; menuImageOffsetLeftAll[3][2] = 0;
-    menuImageOffsetTopAll[3][3] = 0; menuImageOffsetLeftAll[3][3] = 0;
-    // Menu Group 4
-    // Default (All)
-    menuImageOffsetTopAll[4][indexGroup] = 75;
-    menuImageOffsetLeftAll[4][indexGroup] = -15;
-    // Boxes
-    menuImageOffsetTopAll[4][1] = 0; menuImageOffsetLeftAll[4][1] = 0;
-    menuImageOffsetTopAll[4][2] = 0; menuImageOffsetLeftAll[4][2] = 0;
-    menuImageOffsetTopAll[4][3] = 0; menuImageOffsetLeftAll[4][3] = 0;
-    menuImageOffsetTopAll[4][4] = 0; menuImageOffsetLeftAll[4][4] = 0;
-    menuImageOffsetTopAll[4][5] = 0; menuImageOffsetLeftAll[4][5] = 0;
-    menuImageOffsetTopAll[4][6] = 0; menuImageOffsetLeftAll[4][6] = 0;
-    menuImageOffsetTopAll[4][7] = -250; menuImageOffsetLeftAll[4][7] = 0;
-    menuImageOffsetTopAll[4][8] = 0; menuImageOffsetLeftAll[4][8] = 0;
-    // Offsets to adjust First Image Top Left
-    // Default (All)
-    menuImageOffsetFirstAll[indexGroup][indexTop] = 0;
-    menuImageOffsetFirstAll[indexGroup][indexLeft] = 35;
-    // Menu Groups
-    // Menu Group 1
-    menuImageOffsetFirstAll[1][indexTop] = 0;
-    menuImageOffsetFirstAll[1][indexLeft] = 15;
-    // Menu Group 2
-    menuImageOffsetFirstAll[2][indexTop] = 0;
-    menuImageOffsetFirstAll[2][indexLeft] = 15;
-    // Menu Group 3
-    menuImageOffsetFirstAll[3][indexTop] = 0;
-    menuImageOffsetFirstAll[3][indexLeft] = 15;
-    // Menu Group 4
-    menuImageOffsetFirstAll[4][indexTop] = 0;
-    menuImageOffsetFirstAll[4][indexLeft] = -15;
+        // Menu Group 1
+        // Default (All)
+        menuImageOffsetTop[1] [indexGroup] [SizeIndex] = 25;
+        menuImageOffsetLeft[1] [indexGroup] [SizeIndex] = 25;
+        // Boxes
+        menuImageOffsetTop[1] [1] [SizeIndex] = 0; menuImageOffsetLeft[1] [1] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [2] [SizeIndex] = 0; menuImageOffsetLeft[1] [2] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [3] [SizeIndex] = 0; menuImageOffsetLeft[1] [3] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [4] [SizeIndex] = 0; menuImageOffsetLeft[1] [4] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [5] [SizeIndex] = 0; menuImageOffsetLeft[1] [5] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [6] [SizeIndex] = 0; menuImageOffsetLeft[1] [6] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [7] [SizeIndex] = 0; menuImageOffsetLeft[1] [7] [SizeIndex] = 0;
+        menuImageOffsetTop[1] [8] [SizeIndex] = 0; menuImageOffsetLeft[1] [8] [SizeIndex] = 0;
+
+        // Menu Group 2
+        // Default (All)
+        menuImageOffsetTop[2] [indexGroup] [SizeIndex] = -60;
+        menuImageOffsetLeft[2] [indexGroup] [SizeIndex] = 50;
+        // Boxes
+        menuImageOffsetTop[2] [1] [SizeIndex] = 0; menuImageOffsetLeft[2] [1] [SizeIndex] = 0;
+        menuImageOffsetTop[2] [2] [SizeIndex] = 0; menuImageOffsetLeft[2] [2] [SizeIndex] = 0;
+        menuImageOffsetTop[2] [3] [SizeIndex] = 0; menuImageOffsetLeft[2] [3] [SizeIndex] = 0;
+        menuImageOffsetTop[2] [4] [SizeIndex] = 0; menuImageOffsetLeft[2] [4] [SizeIndex] = 0;
+
+        // Menu Group 3
+        // Default (All)
+        menuImageOffsetTop[3] [indexGroup] [SizeIndex] = -20;
+        menuImageOffsetLeft[3] [indexGroup] [SizeIndex] = 75;
+        // Boxes
+        menuImageOffsetTop[3] [1] [SizeIndex] = 0; menuImageOffsetLeft[3] [1] [SizeIndex] = 0;
+        menuImageOffsetTop[3] [2] [SizeIndex] = 0; menuImageOffsetLeft[3] [2] [SizeIndex] = 0;
+        menuImageOffsetTop[3] [3] [SizeIndex] = 0; menuImageOffsetLeft[3] [3] [SizeIndex] = 0;
+
+        // Menu Group 4
+        // Default (All)
+        menuImageOffsetTop[4] [indexGroup] [SizeIndex] = 75;
+        menuImageOffsetLeft[4] [indexGroup] [SizeIndex] = -15;
+        // Boxes
+        menuImageOffsetTop[4] [1] [SizeIndex] = 0; menuImageOffsetLeft[4] [1] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [2] [SizeIndex] = 0; menuImageOffsetLeft[4] [2] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [3] [SizeIndex] = 0; menuImageOffsetLeft[4] [3] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [4] [SizeIndex] = 0; menuImageOffsetLeft[4] [4] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [5] [SizeIndex] = 0; menuImageOffsetLeft[4] [5] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [6] [SizeIndex] = 0; menuImageOffsetLeft[4] [6] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [7] [SizeIndex] = -250; menuImageOffsetLeft[4] [7] [SizeIndex] = 0;
+        menuImageOffsetTop[4] [8] [SizeIndex] = 0; menuImageOffsetLeft[4] [8] [SizeIndex] = 0;
+
+        // Menu Group 5
+        // Default (All)
+        menuImageOffsetTop[5] [indexGroup] [SizeIndex] = 75;
+        menuImageOffsetLeft[5] [indexGroup] [SizeIndex] = -15;
+        // Boxes
+        // todo
+
+        // Menu Group 6
+        // Default (All)
+        menuImageOffsetTop[6] [indexGroup] [SizeIndex] = 75;
+        menuImageOffsetLeft[6] [indexGroup] [SizeIndex] = -15;
+        // Boxes
+        // todo
+
+        // Offsets to adjust First Image Top Left
+        // Default (All)
+        menuImageOffsetFirst[indexGroup] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[indexGroup] [indexLeft] [SizeIndex] = 35;
+        // menuImageOffsetFirst[indexGroup] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[indexGroup] [indexRight] [SizeIndex] = 0;
+        // Menu Groups
+        // Menu Group 1
+        menuImageOffsetFirst[1] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[1] [indexLeft] [SizeIndex] = 15;
+        // menuImageOffsetFirst[1] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[1] [indexRight] [SizeIndex] = 0;
+        // Menu Group 2
+        menuImageOffsetFirst[2] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[2] [indexLeft] [SizeIndex] = 15;
+        // menuImageOffsetFirst[2] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[2] [indexRight] [SizeIndex] = 0;
+        // Menu Group 3
+        menuImageOffsetFirst[3] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[3] [indexLeft] [SizeIndex] = 15;
+        // menuImageOffsetFirst[3] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[3] [indexRight] [SizeIndex] = 0;
+        // Menu Group 4
+        menuImageOffsetFirst[4] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[4] [indexLeft] [SizeIndex] = -15;
+        // menuImageOffsetFirst[4] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[4] [indexRight] [SizeIndex] = 0;
+        // Menu Group 5
+        menuImageOffsetFirst[5] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[5] [indexLeft] [SizeIndex] = -15;
+        // menuImageOffsetFirst[5] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[5] [indexRight] [SizeIndex] = 0;
+        // Menu Group 6
+        menuImageOffsetFirst[6] [indexTop] [SizeIndex] = 0;
+        menuImageOffsetFirst[6] [indexLeft] [SizeIndex] = -15;
+        // menuImageOffsetFirst[6] [indexBottom] [SizeIndex] = 0;
+        // menuImageOffsetFirst[6] [indexRight] [SizeIndex] = 0;
+    }
 }
 var script_state = "Mdm Website Menu (custom) Image settings initialized";
 if (debugLoadIsOn) { debugger; }

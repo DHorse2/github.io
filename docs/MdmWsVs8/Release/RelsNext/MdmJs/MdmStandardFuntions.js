@@ -137,7 +137,7 @@ var AtEnd = IsAtEnd;
 var DoNotUseRoot = 0; // Item only
 var DoUseRoot = 1; // Root only
 var DoUseBoth = 2; // Both
-var DoNotUseEither = 3; // Both
+var DoNotUseEither = -1; // no to Both
 var UseRoot = DoUseRoot;
 
 // Ignores duplicate events. (resize, mouse)
@@ -213,6 +213,11 @@ var filterStepMin = 0;
 var filterStepMax = 0;
 var filterInterval = 0;
 var filterDelay = 0;
+
+// Steps / Iterations
+var timerStep = 0;
+var filterStepsPerSecond = 0;
+var timerStepsPerSecond = 0;
 
 // Section Events (Mouse, load, error)
 // ...................................... //
@@ -362,11 +367,15 @@ var oObjImageSizeSmall = 150;
 var oObjImageSizeLarge = 600;
 var oObjImageSizeRatio = 0.7;
 var oObjImageSize = 0;
-
 //
 var IsSmall = 0;
 var IsLarge = 1;
 var IsImageLarge = IsSmall;
+
+var oObjLockedStackBusy = false;
+// Locks. See menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]
+var oObjLocked = false;
+var IgnoreLock = false;
 
 // Box Size or Box Rectangle Pointers
 // ...................................... //
@@ -497,7 +506,7 @@ function FontPxToPercentageParent(Totalpx, px, ItIsHeight, BaseOfConversionWidth
 // (c) 2011 stack exchange inc;user contributions licensed under cc-wiki with attribution required
 //
 function FunctionDoExecuteByName(functionName, context /*, args */) {
-    // ['My']['Namespace']['functionName'](arguments);// succeeds
+    // ['My'] ['Namespace'] ['functionName'](arguments);// succeeds
     // FunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
     // FunctionDoExecuteByName('Namespace.functionName', My, arguments);
     //

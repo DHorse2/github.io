@@ -120,11 +120,11 @@
 <br>Menu Show
 <br>		ElementGroupShowRange
 <br>		ElementItemShowIndex
-<br>		ElementGroupShowStack
+<br>		ElementGroupStackShow
 <br>		ElementItemToggleId
 <br>		ElementItemShow
 <br>Menu Hide
-<br>		ElementGroupToggleRange
+<br>		ElementGroupStackToggle
 <br>		ElementItemHide
 <br>Menu Object Selection
 <br>		ElementItemGetAllFromIndex

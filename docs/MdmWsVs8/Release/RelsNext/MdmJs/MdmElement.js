@@ -332,10 +332,11 @@ function ElementBreakSet(elementPassed, elementIdPassed, elementLayoutFirstPasse
 // Element Position Get
 ////////////////////////////////////////////////
 function ElementPosGetFromObj(oObjPassed) {
-    oObjTop = 0;
-    oObjLeft = 0;
-    oObjWidth = 0;
-    oObjHeight = 0;
+    var oObjTop = 0;
+    var oObjLeft = 0;
+    var oObjWidth = 0;
+    var oObjHeight = 0;
+
     var currLeft = currTop = 0;
     //
     if (oObjPassed.offsetParent) {
@@ -351,7 +352,8 @@ function ElementPosGetFromObj(oObjPassed) {
         oObjWidth = oObjPassed.offsetWidth;
         oObjHeight = oObjPassed.offsetHeight;
     }
-    return [currTop, currLeft];
+    // return [currTop, currLeft];
+    return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
 }
 // SectionBlock Element Get function (s)
 // ...................................... //
@@ -403,9 +405,15 @@ function ElementCreate(elementPassed, elementLayoutFirstPassed) {
 // Element Position Get
 // ...................................... //
 function ElementPosGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault, elHeightDefault) {
+    var oObjTop = 0;
+    var oObjLeft = 0;
+    var oObjWidth = 0;
+    var oObjHeight = 0;
     oObjTop = ElementTopMaxGet(DoScroll, DoBase, elementPassed);
     oObjLeft = ElementLeftMaxGet(DoScroll, DoBase, elementPassed);
-    if (!oObjTop || !oObjLeft) { ElementPosCalculate(elementPassed) } else {
+    if (!oObjTop || !oObjLeft) {
+        [oObjTop, oObjLeft, oObjWidth, oObjHeight] = ElementPosCalculate(elementPassed)
+    } else {
         oObjWidth = ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault);
         oObjHeight = ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault);
     }
@@ -415,10 +423,10 @@ function ElementPosGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault,
 // Element Position Calculate
 // ...................................... //
 function ElementPosCalculate(elementPassed) {
-    oObjTop = 0;
-    oObjLeft = 0;
-    oObjWidth = 0;
-    oObjHeight = 0;
+    var oObjTop = 0;
+    var oObjLeft = 0;
+    var oObjWidth = 0;
+    var oObjHeight = 0;
     var currLeft = currTop = 0;
     //
     if (elementPassed.offsetParent) {
@@ -550,10 +558,10 @@ function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDef
     // Default width not appropriate here
     // if (thisWidth == 0) { thisWidth = elWidthDefault; }
     // Maximum
-    if (thisWidth > 10000) {
-        // ERROR
-        thisWidth = 10000;
-    }
+    // if (thisWidth > 100000) {
+    //     // ERROR
+    //     thisWidth = 100000;
+    // }
     return thisWidth;
 }
 // Layout Height Get
@@ -620,10 +628,10 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
     // Default height not appropriate here
     // if (thisHeight == 0) { thisHeight = elHeightDefault; }
     // Maximum
-    if (thisHeight > 10000) {
-        // ERROR
-        thisHeight = 10000;
-    }
+    // if (thisHeight > 10000) {
+    //     // ERROR
+    //     thisHeight = 10000;
+    // }
     return thisHeight;
 }
 // Layout Height Note
@@ -689,7 +697,7 @@ function ElementContainerAdjustGet(element, elementContainer, UsePercent, DoPadd
     } else {
         // no element
         var errorLogLine = "Element is null or invalid. It has no width."
-        ErrorOccured("MdmElement:ElementContainerAdjustGet", 692, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
+        ErrorOccured("MdmElement:ElementContainerAdjustGet", 692, 0, null, element, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
         return 0;
     }
 }

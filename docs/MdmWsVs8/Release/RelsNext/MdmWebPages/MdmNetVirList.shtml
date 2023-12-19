@@ -19,7 +19,7 @@
 	<script src="../MdmJs/MdmParamInit.js"></script>
 	<script src="../MdmJs/MdmParamSet.js"></script>
 	<script src="../MdmJs/MdmPageInit.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
+	<script src="../MdmJs/MdmAnimationElement.js"></script>
 </head>
 <body id="BodyBox"
 	  class="BodyBox"
@@ -207,22 +207,22 @@
           <!--*-->
           <p id="MenuGroup1Header"
               	class="MenuColumnHeading eB f12 cBlack"
-onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false)"
+onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false)"
               	>
       	 <span class="fMicro">Click menu headings to see thumbnail menus<br></span>
          Development Projects
          </p>
 <!-- IN PROGRESS NOTE lnumbered altering list presentation...
-onmouseover=ElementGroupShowStack(LeftHeader1)
+onmouseover=ElementGroupStackShow(LeftHeader1)
 -->
     <ul id="MenuGroup1" class="MenuList lNumbered MenuColumnClass">
         <!-- 1 -->
         <li class="MenuListItem">
-		<!-- x onmouseover="ElementGroupShowStack(img1MenuLine, img1)"-->
+		<!-- x onmouseover="ElementGroupStackShow(img1MenuLine, img1)"-->
 		<a id="MdmImportTldMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmImportTld.shtml"
-onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true)"
 		   >
 		Database schema<br>
         and data converter. C#
@@ -233,7 +233,7 @@ onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft1', 'MdmImportTldImage',
 		<a id="MdmNetAppFrameMenuLine"
     		class="MenuListItem"
     		href="../MdmWebPages/MdmNetAppFrame.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true)"
 		   	>
 		Application framework. C#
 		</a>
@@ -243,7 +243,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'Md
 		<a id="MdmWebUiMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmWebUi.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, false, true)"
 		   >
 		Web Page Templates. JavaScript
 		</a>
@@ -253,7 +253,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWeb
 		<a id="MdmDbUtilClassMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmDbUtilClass.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true)"
 		   >
 		File System module. C#
 		</a>
@@ -263,7 +263,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbU
 		<a id="MdmOutlookSyncMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmOutlookSync.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, false, true)"
 		   >
 		Outlook folder integration. VBA
 		</a>
@@ -273,7 +273,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', '
 		<a id="MdmNetVirListMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmNetVirList.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true)"
 		   >
 		Virtualized non-generic list. C++
 		</a>
@@ -283,7 +283,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'M
 		<a id="MdmSystemMgntMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmSystemMgnt.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true)"
 		   >
 		Windows desktop best practices. Cross-cutting.
 		</a>
@@ -293,7 +293,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'Md
 		<a id="MdmWebDevMenuLine"
 		   class="MenuListItem"
 		   href="../MdmWebPages/MdmWebDev.shtml"
-onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true)"
+onmouseover="ElementGroupStackShow(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true)"
 		   >
 		Web <br>Development.
 		</a>
@@ -327,7 +327,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 		   >
            <p id="MenuGroup2Header"
   		   	  class="MenuColumnHeading eB f12 cBlack"
-              onmousedown="ElementGroupToggleRange(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false)"
+              onmousedown="ElementGroupStackToggle(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false)"
   			  >
            Career
            </p>
@@ -337,7 +337,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<a id="MdmResumeMenuLine"
                   		    class="MenuListItem"
     						href="../MdmResume/MdmResume.shtml"
-   		   					onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, false, true)"
+   		   					onmouseover="ElementGroupStackShow(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, false, true)"
     						>
 						Career Home
                 		</a>
@@ -347,7 +347,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<a id="MdmRsmItMenuLine"
                 		    class="MenuListItem"
     						href="../MdmResume/MdmRsmIt.shtml"
-   		   					onmouseover="ElementGroupShowStack(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, false, true)"
+   		   					onmouseover="ElementGroupStackShow(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, false, true)"
     						>
 						Resume
                 		</a>
@@ -357,7 +357,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<a id="MdmDghCarBioMenuLine"
                 		    class="MenuListItem"
     						href="../MdmResume/MdmDghCarBio.shtml"
-   		   					onmouseover="ElementGroupShowStack(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, false, true)"
+   		   					onmouseover="ElementGroupStackShow(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, false, true)"
     						>
 						Personal Bio
                 		</a>
@@ -367,7 +367,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 						<a id="MdmDghAccomMenuLine"
                 		    class="MenuListItem"
     						href="../MdmResume/MdmDghAccom.shtml"
-   		   					onmouseover="ElementGroupShowStack(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true)"
+   		   					onmouseover="ElementGroupStackShow(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true)"
     						>
 						Major Accomplishments
                 		</a>
@@ -401,7 +401,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
 					 >
                     <p id="MenuGroup3Header"
 					   class="MenuColumnHeading eB f12 cBlack"
-                    	onmousedown="ElementGroupToggleRange(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false)"
+                    	onmousedown="ElementGroupStackToggle(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false)"
 					   >
                     Applied Research
                     </p>
@@ -410,7 +410,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
                         <li class="MenuListItem">
 						<a id="MdmTechRsrchMenuLine"
 						   href=""
-   		   				   onmouseover="ElementGroupShowStack(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, false, true)"
+   		   				   onmouseover="ElementGroupStackShow(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, false, true)"
 						   >
 						Applied Technology Research
                 		</a>
@@ -419,7 +419,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
                         <li class="MenuListItem">
 						<a id="MdmCogSciProjMenuLine"
 						   href=""
-   		   				   onmouseover="ElementGroupShowStack(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, false, true)"
+   		   				   onmouseover="ElementGroupStackShow(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, false, true)"
 						   >
 						Cognitive Science Project
                 		</a>
@@ -428,7 +428,7 @@ onmouseover="ElementGroupShowStack(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWeb
                         <li class="MenuListItem MenuListItemLast">
 						<a id="MdmMvvmProjMenuLine"
 						   href=""
-   		   				   onmouseover="ElementGroupShowStack(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true)"
+   		   				   onmouseover="ElementGroupStackShow(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true)"
 						   >
 						C# MVVM / OSS Project
                 		</a>
@@ -948,7 +948,7 @@ Test Data
         >
         <p id="MenuGroup4Header"
     	   class="MenuColumnHeading eB f10 cBlack"
-           onmousedown="ElementGroupToggleRange(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
+           onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
     	   >
         Software
         Products
@@ -961,7 +961,7 @@ Test Data
               <a id="MdmImportTldMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmImportTld.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MenuContainerRight1', 'MdmImportTldRightImage', 'MdmImportTldRight', oObjImageSizeSmall, 4, 1, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MenuContainerRight1', 'MdmImportTldRightImage', 'MdmImportTldRight', oObjImageSizeSmall, 4, 1, false, true)"
                   >
               C# database schema<br>
               and data converter </a></li>
@@ -970,7 +970,7 @@ Test Data
               <a id="MdmKBilMenuLine"
                   class="MenuListItem "
                   href="../AxionWebPages/macdefau.htm"
-                  onmouseover="ElementGroupShowStack(0, 'MdmImportTldRight', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmImportTldRight', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, false, true)"
                   >
               K-Bil<br>
               Subscriber Billing<br>
@@ -980,7 +980,7 @@ Test Data
               <a id="MdmNetAppFrame4MenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmNetAppFrame.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
                   >
               C# Application Framework</a></li>
               <!-- 4 -->
@@ -988,7 +988,7 @@ Test Data
               <a id="MdmSrtMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmSrt.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
                   >
               SRT Code Conversion Tool</a></li>
               <!-- 5 -->
@@ -996,7 +996,7 @@ Test Data
               <a id="MdmPickTrMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmPickTr.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
                   >
               PickTR Adaptive Communications Protocol</a></li>
               <!-- 6 -->
@@ -1004,7 +1004,7 @@ Test Data
                   <a id="MdmOutlookSyncMenuLineRight"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmOutlookSync.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
                   >
               Outlook folder to disk sync add-on</a></li>
               <!-- 7 -->
@@ -1012,7 +1012,7 @@ Test Data
                   <a id="MdmPickOssMenuLine"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmPickOss.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
                   >
               Pick Application Framework</a></li>
               <!-- 8 -->
@@ -1020,7 +1020,7 @@ Test Data
                   <a id="MdmOtherApps"
                   class="MenuListItem "
                   href="../MdmWebPages/MdmBlank.shtml"
-                  onmouseover="ElementGroupShowStack(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
+                  onmouseover="ElementGroupStackShow(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
                   >
               Release Management, Accounting,<br>
               and duh not currently available.</a></li>

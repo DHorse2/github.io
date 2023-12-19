@@ -44,18 +44,16 @@ function ElementEventMouseOver(elementCurr) {
 	if (oObjNotFound) {
 		return;
 	}
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	imgMouseHover[menuImageCn] = 1;
-	if (imgFocus == menuImageCn) {
-		//    menuImage.src = menuImage.name + '/' + menuImage.name + 'fh.gif';
+	// if (eventMenuImageCn > imgUsedCn) { return; }
+	imgMouseHover[eventMenuImageCn] = 1;
+	if (imgFocus == eventMenuImageCn) {
+		//    eventMenuImage.src = eventMenuImage.name + '/' + eventMenuImage.name + 'fh.gif';
 	}
 	else {
-		//    menuImage.src = menuImage.name + '/' + menuImage.name + 'bh.gif';
+		//    eventMenuImage.src = eventMenuImage.name + '/' + eventMenuImage.name + 'bh.gif';
 	}
-	var tempTop = menuImage.parentNode.top;
-	var tempLeft = menuImage.parentNode.left;
+	var tempTop = eventMenuImage.parentNode.top;
+	var tempLeft = eventMenuImage.parentNode.left;
 	if ((UseLog || UseDebug)
 		&& UseLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoNotUseSingleLine,
@@ -70,54 +68,48 @@ function ElementEventMouseOver(elementCurr) {
 }
 // Mouse Out
 // ...................................... //
-function ElementEventMouseOut(menuImage) {
-	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	imgMouseHover[menuImageCn] = 0;
-	if (imgFocus == menuImageCn) {
-		//    menuImage.src = menuImage.name + '/' + menuImage.name + 'f.gif';
+function ElementEventMouseOut(eventMenuImage) {
+	eventMenuImageCn = oObjIndexSetMenuImageCn(eventMenuImage);
+	// if (eventMenuImageCn > imgUsedCn) { return; }
+	imgMouseHover[eventMenuImageCn] = 0;
+	if (imgFocus == eventMenuImageCn) {
+		//    eventMenuImage.src = eventMenuImage.name + '/' + eventMenuImage.name + 'f.gif';
 	} else {
-		//    menuImage.src = menuImage.name + '/' + menuImage.name + 'b.gif';
+		//    eventMenuImage.src = eventMenuImage.name + '/' + eventMenuImage.name + 'b.gif';
 	}
 }
 // Mouse Click
 // ...................................... //
-function ElementEventClick(menuImage) {
-	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	if (imgFocus == menuImageCn) {
-		return;
-	}
+function ElementEventClick(eventMenuImage) {
+	eventMenuImageCn = oObjIndexSetMenuImageCn(eventMenuImage);
+	// if (eventMenuImageCn > imgUsedCn) { return; }
+	if (imgFocus == eventMenuImageCn) { return; }
 	// old folder
 	imgFocusOld = imgFocus;
-	//  menuImageOld = oObjIndexSetmenuImage(imgFocusOld);
-	//  menuImageOld.src = menuImageOld.name + '/' + menuImageOld.name + 'b.gif';
+	//  eventMenuImageOld = oObjIndexSeteventMenuImage(imgFocusOld);
+	//  eventMenuImageOld.src = eventMenuImageOld.name + '/' + eventMenuImageOld.name + 'b.gif';
 	// new front folder
-	//  menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	imgFocus = menuImageCn;
-	//  menuImage.src = menuImage.name + '/' + menuImage.name + 'f.gif';
+	//  eventMenuImageCn = oObjIndexSetMenuImageCn(eventMenuImage);
+	imgFocus = eventMenuImageCn;
+	//  eventMenuImage.src = eventMenuImage.name + '/' + eventMenuImage.name + 'f.gif';
 	// load new page into frame
-	//  imgframe.src = menuImage.name + '/' + menuImage.name + '.htm';
+	//  imgframe.src = eventMenuImage.name + '/' + eventMenuImage.name + '.htm';
 	//  document.frames.item.
-	//  img0.src = menuImage.name + 'Larger.gif';
-	//  img0text.src = menuImage.name + 'text.txt';
-	imgSelect = menuImageCn;
+	//  img0.src = eventMenuImage.name + 'Larger.gif';
+	//  img0text.src = eventMenuImage.name + 'text.txt';
+	imgSelect = eventMenuImageCn;
 	if ((UseLog || UseDebug)
 		&& UseLogEvents) {
 		MessageLog(eventCurr, DoNotUseDebug, DoUseSingleLine,
 			'Move.. Over occured on content image'
-			+ charNewLineTag + 'Menu Image Name: ' + menuImage.name
-			+ charNewLineTag + 'Image number selected: ' + menuImageCn,
+			+ charNewLineTag + 'Menu Image Name: ' + eventMenuImage.name
+			+ charNewLineTag + 'Image number selected: ' + eventMenuImageCn,
 			'MdmElementEvent:ElementEventClick', 113, 0, null, null,
 			errorIsComment, errorDoNotDisplayTag, UseAlert);
 		//
 	}
-	//  document.parentWindow.parent.imgSelect = menuImageCn;
-	//  document.parentWindow.tabframe.imgSelect = menuImageCn;
+	//  document.parentWindow.parent.imgSelect = eventMenuImageCn;
+	//  document.parentWindow.tabframe.imgSelect = eventMenuImageCn;
 }
 // Mouse Element Event Mouse
 // ...................................... //
@@ -132,8 +124,8 @@ function ElementEventMouse(e) {
 			'MdmElementEvent:ElementEventMouse', 126, 0, null, null,
 			errorIsSevere, errorDoNotDisplayTag, UseAlert);
 	}
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadFirsteventMenuImage) { eventMenuImagesHtmlBuild(); }
 	//
 	ElementEventCurrSet(e);
 	ElementEventCurrRootObjSet();
@@ -163,7 +155,7 @@ function ElementEventMouse(e) {
 		var endIndex;
 		//
 		// ...................................... //
-		var oObjLocked;// menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]
+		var oObjLocked; // MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]
 		var IgnoreLock;
 		//
 		// ...................................... //
@@ -195,7 +187,7 @@ function ElementEventMouse(e) {
 				break;
 			// ...................................... //
 			case 'mouseout':
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (TimerStartMoveBusy(IsImageLarge, oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
@@ -214,7 +206,7 @@ function ElementEventMouse(e) {
 					default:
 						// Large
 						// ElementItemHide
-						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = false;
+						NextIsImageLarge = IsLarge; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]; IgnoreLock = false;
 						ElementItemHide(
 							NextIsImageLarge,
 							oObj, oObjImageLarge, oObjLarge, oObjLarge,
@@ -225,7 +217,7 @@ function ElementEventMouse(e) {
 				break;
 			// ...................................... //
 			case 'mouseover':
-				if (TimerStartMoveBusy(oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (TimerStartMoveBusy(IsImageLarge, oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				if (UseAnimation) { return; }
 				switch (IsImageLarge) {
@@ -235,14 +227,14 @@ function ElementEventMouse(e) {
 						startIndex = 1;
 						endIndex = oObjIndex;
 						//
-						// ElementGroupShowStack(';false false true
-						NextIsImageLarge = IsSmall; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = true;
+						// ElementGroupShow(';false false true
+						NextIsImageLarge = IsSmall; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]; IgnoreLock = true;
 						//
-						ElementGroupShowStack(
+						ElementGroupShow(
 							NextIsImageLarge,
 							oObjParent.id, oObjImage.id, oObj.id,
 							oObjImageSizeLarge,
-							oObjGroupIndex, oObjIndex,
+							oObjGroupIndex, oObjIndex, 1,
 							oObjLocked, IgnoreLock);
 						break;
 					// ...................................... //
@@ -251,7 +243,7 @@ function ElementEventMouse(e) {
 						// Large
 						/*
 						// ElementItemShow(';Small false Curr false
-						NextIsImageLarge = IsSmall; oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
+						NextIsImageLarge = IsSmall; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];IgnoreLock = false;
 						//
 						ElementItemShow(
 								NextIsImageLarge,
@@ -263,7 +255,7 @@ function ElementEventMouse(e) {
 						*/
 						// if the small is locked then the large is locked...
 						// ElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
-						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall]; IgnoreLock = false;
+						NextIsImageLarge = IsLarge; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall]; IgnoreLock = false;
 						// Bring to front or show
 						ElementItemShow(
 							NextIsImageLarge,

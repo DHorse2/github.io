@@ -18,7 +18,7 @@
 	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
 	<script src="../../PageBuildStage.js"></script>
 	<script src="../MdmJs/MdmParamSet.js"></script>
-	<script src="../MdmJs/MdmPageElement.js"></script>
+	<script src="../MdmJs/MdmAnimationElement.js"></script>
 	<script src="../MdmJs/MdmParamInit.js"></script>
 	<script src="../MdmJs/MdmPageInit.js"></script>
 </head>

@@ -80,13 +80,13 @@ function FormElementSyncLocal(fromForm) {
 	// ...................................... //
 	// Page Load Optimaization
 	elementObject = document.getElementById('formJavaLoadDelay');
-	if (loadDelayJava) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (loadJavaDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formBodyImageLoadDelay');
-	if (loadDelayBodyImage) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (loadBodyImageDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	elementObject = document.getElementById('formMenuImageLoadDelay');
-	if (loadDelayMenuImage) { elementObject.checked = true; } else { elementObject.checked = false; }
+	if (loadMenuImageDelay) { elementObject.checked = true; } else { elementObject.checked = false; }
 	//
 	// ...................................... //
 	// Fields with values
@@ -220,7 +220,7 @@ function FormElementSyncLocal(fromForm) {
 	// default
 	if (!tempSelected) { document.getElementById('formelementMoveMethod_elementMoveMethodRandom').selected = true; }
 	//
-	loadFirstDebugState = false;
+	loadDebugStateFirst = false;
 	//
 }
 //
@@ -1273,12 +1273,12 @@ function TimerItemDeactivate(timerType, timerGroup, timerGroupItem, UseRoot) {
 		} else { timerLevelKey = timerItemKey; }
 		//
 		if (timerObj[timerGroup]) {
-			if (timerObj[timerGroup][timerLevelKey]) {
-				timerObj[timerGroup][timerLevelKey].timerInstance = 0;
-				timerObj[timerGroup][timerLevelKey].timerIsRunning = false;
-				timerObj[timerGroup][timerLevelKey].timerIntervalId = 0;
-				timerObj[timerGroup][timerLevelKey].timerIntervalIdPrev = 0;
-				timerObj[timerGroup][timerLevelKey].elIsDisplayed = elIsNotDisplayed;
+			if (timerObj[timerGroup] [timerLevelKey]) {
+				timerObj[timerGroup] [timerLevelKey].timerInstance = 0;
+				timerObj[timerGroup] [timerLevelKey].timerIsRunning = false;
+				timerObj[timerGroup] [timerLevelKey].timerIntervalId = 0;
+				timerObj[timerGroup] [timerLevelKey].timerIntervalIdPrev = 0;
+				timerObj[timerGroup] [timerLevelKey].elIsDisplayed = elIsNotDisplayed;
 			}
 		}
 		// deconstruct
@@ -1302,8 +1302,8 @@ function TimerItemAbort(timerType, timerGroup, timerGroupItem, UseRoot) {
 		} else { timerLevelKey = timerItemKey; }
 		//
 		if (timerObj[timerGroup]) {
-			if (timerObj[timerGroup][timerLevelKey]) {
-				timerObj[timerGroup][timerLevelKey].timerDuration = 0;
+			if (timerObj[timerGroup] [timerLevelKey]) {
+				timerObj[timerGroup] [timerLevelKey].timerDuration = 0;
 			}
 		}
 	}
@@ -1401,27 +1401,27 @@ function TimerInitialize(timerTypePassed, timerGroupPassed, timerItemKeyPassed,
 				// Duration
 				// Timing Moving the object from Origin to Destination (Position)
 				//
-				timerObj[timerGroup][timerLevelKey].timerDuration = filterDuration;
-				timerObj[timerGroup][timerLevelKey].timerInterval = filterInterval;
-				timerObj[timerGroup][timerLevelKey].timerDelay = filterDelay;
+				timerObj[timerGroup] [timerLevelKey].timerDuration = filterDuration;
+				timerObj[timerGroup] [timerLevelKey].timerInterval = filterInterval;
+				timerObj[timerGroup] [timerLevelKey].timerDelay = filterDelay;
 				// Step
-				timerObj[timerGroup][timerLevelKey].timerStep = 0;
-				timerObj[timerGroup][timerLevelKey].timerStepsPerSecond = filterStepsPerSecond;
-				timerObj[timerGroup][timerLevelKey].timerStepMin = filterStepMin;
+				timerObj[timerGroup] [timerLevelKey].timerStep = 0;
+				timerObj[timerGroup] [timerLevelKey].timerStepsPerSecond = filterStepsPerSecond;
+				timerObj[timerGroup] [timerLevelKey].timerStepMin = filterStepMin;
 				if (LevelCn == 0) {
-					timerObj[timerGroup][timerLevelKey].timerStepMin =
-						timerObj[timerGroup][timerLevelKey].timerStepMin * imgMaxByGroup[timerGroupItem];
+					timerObj[timerGroup] [timerLevelKey].timerStepMin =
+						timerObj[timerGroup] [timerLevelKey].timerStepMin * imgMaxByGroup[timerGroupItem];
 				}
-				timerObj[timerGroup][timerLevelKey].timerStepMax = filterStepMax;
+				timerObj[timerGroup] [timerLevelKey].timerStepMax = filterStepMax;
 				if (LevelCn == 0) {
-					timerObj[timerGroup][timerLevelKey].timerStepMax =
-						timerObj[timerGroup][timerLevelKey].timerStepMax * imgMaxByGroup[timerGroupItem];
+					timerObj[timerGroup] [timerLevelKey].timerStepMax =
+						timerObj[timerGroup] [timerLevelKey].timerStepMax * imgMaxByGroup[timerGroupItem];
 				}
-				timerObj[timerGroup][timerLevelKey].timerStepCurr = 0;
-				timerObj[timerGroup][timerLevelKey].timerIntervalStep = 0;
+				timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
+				timerObj[timerGroup] [timerLevelKey].timerIntervalStep = 0;
 				//
-				timerObj[timerGroup][timerLevelKey].elMoveStepLeft = 0;
-				timerObj[timerGroup][timerLevelKey].elMoveStepTop = 0;
+				timerObj[timerGroup] [timerLevelKey].elMoveStepLeft = 0;
+				timerObj[timerGroup] [timerLevelKey].elMoveStepTop = 0;
 				//
 				break;
 			//
@@ -1431,26 +1431,26 @@ function TimerInitialize(timerTypePassed, timerGroupPassed, timerItemKeyPassed,
 				// a concurrent Move & Resize.
 				// Timing Moving the object from Origin to Destination (Position)
 				// Duration
-				timerObj[timerGroup][timerLevelKey].timerDuration = elementMoveDuration;
-				timerObj[timerGroup][timerLevelKey].timerInterval = elementMoveInterval;
-				timerObj[timerGroup][timerLevelKey].timerDelay = elementMoveDelay;
+				timerObj[timerGroup] [timerLevelKey].timerDuration = elementMoveDuration;
+				timerObj[timerGroup] [timerLevelKey].timerInterval = elementMoveInterval;
+				timerObj[timerGroup] [timerLevelKey].timerDelay = elementMoveDelay;
 				// Step
-				timerObj[timerGroup][timerLevelKey].timerStep = 0;
-				timerObj[timerGroup][timerLevelKey].timerStepsPerSecond = elMoveStepsPerSecond;
-				timerObj[timerGroup][timerLevelKey].timerStepMin = elMoveStepMin;
+				timerObj[timerGroup] [timerLevelKey].timerStep = 0;
+				timerObj[timerGroup] [timerLevelKey].timerStepsPerSecond = elMoveStepsPerSecond;
+				timerObj[timerGroup] [timerLevelKey].timerStepMin = elMoveStepMin;
 				if (LevelCn == 0) {
-					timerObj[timerGroup][timerLevelKey].timerStepMin =
-						timerObj[timerGroup][timerLevelKey].elMoveStepMin * imgMaxByGroup[timerGroupItem];
+					timerObj[timerGroup] [timerLevelKey].timerStepMin =
+						timerObj[timerGroup] [timerLevelKey].elMoveStepMin * imgMaxByGroup[timerGroupItem];
 				}
-				timerObj[timerGroup][timerLevelKey].timerStepMax = elMoveStepMax;
+				timerObj[timerGroup] [timerLevelKey].timerStepMax = elMoveStepMax;
 				if (LevelCn == 0) {
-					timerObj[timerGroup][timerLevelKey].timerStepMax =
-						timerObj[timerGroup][timerLevelKey].elMoveStepMax * imgMaxByGroup[timerGroupItem];
+					timerObj[timerGroup] [timerLevelKey].timerStepMax =
+						timerObj[timerGroup] [timerLevelKey].elMoveStepMax * imgMaxByGroup[timerGroupItem];
 				}
-				timerObj[timerGroup][timerLevelKey].timerStepCurr = 0;
+				timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
 				//
-				timerObj[timerGroup][timerLevelKey].elMoveStepLeft = 0;
-				timerObj[timerGroup][timerLevelKey].elMoveStepTop = 0;
+				timerObj[timerGroup] [timerLevelKey].elMoveStepLeft = 0;
+				timerObj[timerGroup] [timerLevelKey].elMoveStepTop = 0;
 				//
 				break;
 			default:
@@ -1459,81 +1459,81 @@ function TimerInitialize(timerTypePassed, timerGroupPassed, timerItemKeyPassed,
 				// a concurrent Move & Resize.
 				// Timing Moving the object from Origin to Destination (Position)
 				// Duration
-				timerObj[timerGroup][timerLevelKey].timerDuration = timerDuration;
-				timerObj[timerGroup][timerLevelKey].timerInterval = timerInterval;
-				timerObj[timerGroup][timerLevelKey].timerDelay = timerDelay;
+				timerObj[timerGroup] [timerLevelKey].timerDuration = timerDuration;
+				timerObj[timerGroup] [timerLevelKey].timerInterval = timerInterval;
+				timerObj[timerGroup] [timerLevelKey].timerDelay = timerDelay;
 				// Step
-				timerObj[timerGroup][timerLevelKey].timerStep = 0;
-				timerObj[timerGroup][timerLevelKey].timerStepsPerSecond = timerStepsPerSecond;
-				timerObj[timerGroup][timerLevelKey].timerStepMin = timerStepMin;
+				timerObj[timerGroup] [timerLevelKey].timerStep = 0;
+				timerObj[timerGroup] [timerLevelKey].timerStepsPerSecond = timerStepsPerSecond;
+				timerObj[timerGroup] [timerLevelKey].timerStepMin = timerStepMin;
 				if (LevelCn == 0) {
-					timerObj[timerGroup][timerLevelKey].timerStepMin =
-						timerObj[timerGroup][timerLevelKey].timerStepMin * imgMaxByGroup[timerGroupItem];
+					timerObj[timerGroup] [timerLevelKey].timerStepMin =
+						timerObj[timerGroup] [timerLevelKey].timerStepMin * imgMaxByGroup[timerGroupItem];
 				}
-				timerObj[timerGroup][timerLevelKey].timerStepMax = timerStepMax;
+				timerObj[timerGroup] [timerLevelKey].timerStepMax = timerStepMax;
 				if (LevelCn == 0) {
-					timerObj[timerGroup][timerLevelKey].timerStepMax =
-						timerObj[timerGroup][timerLevelKey].timerStepMax * imgMaxByGroup[timerGroupItem];
+					timerObj[timerGroup] [timerLevelKey].timerStepMax =
+						timerObj[timerGroup] [timerLevelKey].timerStepMax * imgMaxByGroup[timerGroupItem];
 				}
-				timerObj[timerGroup][timerLevelKey].timerStepCurr = 0;
+				timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
 				//
-				timerObj[timerGroup][timerLevelKey].elMoveStepLeft = 0;
-				timerObj[timerGroup][timerLevelKey].elMoveStepTop = 0;
+				timerObj[timerGroup] [timerLevelKey].elMoveStepLeft = 0;
+				timerObj[timerGroup] [timerLevelKey].elMoveStepTop = 0;
 				//
 				break;
 		}
 		//
 		// Element Level Functions
-		timerObj[timerGroup][timerLevelKey].timerType = timerType;
-		timerObj[timerGroup][timerLevelKey].timerGroup = timerGroup;
-		timerObj[timerGroup][timerLevelKey].timerGroupItem = timerGroupItem;
-		timerObj[timerGroup][timerLevelKey].timerRootKey = timerRootKey;
+		timerObj[timerGroup] [timerLevelKey].timerType = timerType;
+		timerObj[timerGroup] [timerLevelKey].timerGroup = timerGroup;
+		timerObj[timerGroup] [timerLevelKey].timerGroupItem = timerGroupItem;
+		timerObj[timerGroup] [timerLevelKey].timerRootKey = timerRootKey;
 		//
 		// For Root objects, the object that started the chain of events.
-		timerObj[timerGroup][timerLevelKey].oObj = oObjNext;
-		timerObj[timerGroup][timerLevelKey].id = oObjNext.id;
+		timerObj[timerGroup] [timerLevelKey].oObj = oObjNext;
+		timerObj[timerGroup] [timerLevelKey].id = oObjNext.id;
 		//
-		timerObj[timerGroup][timerLevelKey].timerStepCurr = 0;
+		timerObj[timerGroup] [timerLevelKey].timerStepCurr = 0;
 		// Image
-		timerObj[timerGroup][timerLevelKey].oObjImage = oObjNextImage;
-		timerObj[timerGroup][timerLevelKey].timerDateStart = new Date();
-		timerObj[timerGroup][timerLevelKey].timerDateEnd = null;
-		timerObj[timerGroup][timerLevelKey].timerElapsed = 0;
-		timerObj[timerGroup][timerLevelKey].timerMethod = timerMethodPassed;
+		timerObj[timerGroup] [timerLevelKey].oObjImage = oObjNextImage;
+		timerObj[timerGroup] [timerLevelKey].timerDateStart = new Date();
+		timerObj[timerGroup] [timerLevelKey].timerDateEnd = null;
+		timerObj[timerGroup] [timerLevelKey].timerElapsed = 0;
+		timerObj[timerGroup] [timerLevelKey].timerMethod = timerMethodPassed;
 		//
-		timerObj[timerGroup][timerLevelKey].FunctionGroup = timerFunctionGroupPassed;
-		timerObj[timerGroup][timerLevelKey].FunctionItm = timerFunctionItemPassed;
+		timerObj[timerGroup] [timerLevelKey].FunctionGroup = timerFunctionGroupPassed;
+		timerObj[timerGroup] [timerLevelKey].FunctionItm = timerFunctionItemPassed;
 		// Origin and Postion of Element
-		timerObj[timerGroup][timerLevelKey].elLeftDest = elLeftDest;
-		timerObj[timerGroup][timerLevelKey].elTopDest = elTopDest;
-		timerObj[timerGroup][timerLevelKey].elLeftOrig = elLeftOrig;
-		timerObj[timerGroup][timerLevelKey].elTopOrig = elTopOrig;
+		timerObj[timerGroup] [timerLevelKey].elLeftDest = elLeftDest;
+		timerObj[timerGroup] [timerLevelKey].elTopDest = elTopDest;
+		timerObj[timerGroup] [timerLevelKey].elLeftOrig = elLeftOrig;
+		timerObj[timerGroup] [timerLevelKey].elTopOrig = elTopOrig;
 		//
 		// Methos, Behaviors, etc...
-		timerObj[timerGroup][timerLevelKey].filterPlayAll = filterPlayAll;
-		timerObj[timerGroup][timerLevelKey].filterObjId = filterObjIdPassed;
-		timerObj[timerGroup][timerLevelKey].filterId = filterIdPassed;
+		timerObj[timerGroup] [timerLevelKey].filterPlayAll = filterPlayAll;
+		timerObj[timerGroup] [timerLevelKey].filterObjId = filterObjIdPassed;
+		timerObj[timerGroup] [timerLevelKey].filterId = filterIdPassed;
 		// Range of objects in group, original command scope
-		timerObj[timerGroup][timerLevelKey].startIndex = startIndex;
-		timerObj[timerGroup][timerLevelKey].endIndex = endIndex;
+		timerObj[timerGroup] [timerLevelKey].startIndex = startIndex;
+		timerObj[timerGroup] [timerLevelKey].endIndex = endIndex;
 		//
-		timerObj[timerGroup][timerLevelKey].timerInstance += 1;
+		timerObj[timerGroup] [timerLevelKey].timerInstance += 1;
 		//
 		if (LevelCn == 1) {
 			if (timerMethod == timerMethodGroup) {
-				timerObj[timerGroup][timerLevelKey].timerIntervalId
+				timerObj[timerGroup] [timerLevelKey].timerIntervalId
 					= timerObj[timerRootKey].timerIntervalId;
 				//
-				timerObj[timerGroup][timerLevelKey].elementMoveMethod =
+				timerObj[timerGroup] [timerLevelKey].elementMoveMethod =
 					timerObj[timerRootKey].elementMoveMethod;
 				//
-				timerObj[timerGroup][timerLevelKey].playDirection =
+				timerObj[timerGroup] [timerLevelKey].playDirection =
 					timerObj[timerRootKey].playDirection;
 			} else {
-				timerObj[timerGroup][timerLevelKey].playDirection = playDirection;
+				timerObj[timerGroup] [timerLevelKey].playDirection = playDirection;
 			}
 			// Display / visibility (& Filter triggering)
-			timerObj[timerGroup][timerLevelKey].elIsDisplayed = elIsNotDisplayed;
+			timerObj[timerGroup] [timerLevelKey].elIsDisplayed = elIsNotDisplayed;
 		} else {
 			timerObj[timerRootKey].playDirection = playDirection;
 		}
@@ -1661,7 +1661,7 @@ function TimerSet(timerType, timerGroup, timerGroupItem,
 	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + 'Type' + timerType;
 	var timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerType;
 	var tempFunc = new String();
-	tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerGroupItem); };// TimerMoveStepDo
+	tempFunc = function () { timerFunctionPassed(timerType, timerGroup, timerGroupItem); }; // TimerMoveStepDo
 	//
 	var debugFunctionIsOn = false;
 	if (UseLogTimer && (
@@ -2974,7 +2974,7 @@ function BodyImagesHtmlBuild() {
 	//
 	// This page has no stock of body images
 	// just text captions.
-	loadFirstBodyImage = false;
+	loadBodyImageFirst = false;
 	//
 	return bodyImageContainer;
 }
@@ -3068,8 +3068,8 @@ function MenuImagesHtmlBuild() {
 			// Mouse Over
 			// DivSmallOnmouseover
 			DivSmallOnmouseoverText = '';
-			DivSmallOnmouseoverFunction = ElementGroupShowStack;
-			DivSmallOnmouseoverFunctionName = 'ElementGroupShowStack';
+			DivSmallOnmouseoverFunction = ElementGroupStackShow;
+			DivSmallOnmouseoverFunctionName = 'ElementGroupStackShow';
 			DivSmallOnmouseoverText += '(';
 			DivSmallOnmouseoverText += IsSmall + ', ';// Is Small Image
 			// Parent Object
@@ -3672,7 +3672,7 @@ function MenuImagesHtmlBuild() {
 	// bodyImageContainer.appendChild(imgHtmlDivSmall);
 	// bodyImageContainer.appendChild(imgHtmlDivLarge);
 	//
-	loadFirstMenuImage = false;
+	loadMenuImageFirst = false;
 	//
 }
 //
@@ -3746,7 +3746,7 @@ function ElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionName
 // (c) 2011 stack exchange inc;user contributions licensed under cc-wiki with attribution required
 //
 function FunctionDoExecuteByName(functionName, context /*, args */) {
-	// ['My']['Namespace']['functionName'](arguments);// succeeds
+	// ['My'] ['Namespace'] ['functionName'](arguments);// succeeds
 	// FunctionDoExecuteByName('My.Namespace.functionName', window, arguments);
 	// FunctionDoExecuteByName('Namespace.functionName', My, arguments);
 	//
@@ -3812,18 +3812,18 @@ window.onload = function () { // function Document Window OnLoad
 	//
 	// ...................................... //
 	// Build Body Images Div
-	if (!loadDelayBodyImage) { BodyImagesHtmlBuild(); }
+	if (!loadBodyImageDelay) { BodyImagesHtmlBuild(); }
 	//
 	// ...................................... //
 	// Build Menu Images Div
-	if (!loadDelayMenuImage) { MenuImagesHtmlBuild(); }
+	if (!loadMenuImageDelay) { MenuImagesHtmlBuild(); }
 	//
 	// ...................................... //
 	// Docuement Element Initialize & Store Original Menu Columns.
-	if (!loadDelayJava) {
+	if (!loadJavaDelay) {
 		// ...................................... //
 		// Body Element Creation
-		if (loadFirstJava) { ElementObjectCreate(); }
+		if (loadJavaFirst) { ElementObjectCreate(); }
 		//
 		// ...................................... //
 		// Choose Standard Layout
@@ -3831,7 +3831,7 @@ window.onload = function () { // function Document Window OnLoad
 		// LayoutSelectByIndex(layoutStandard);
 	}
 	//
-	if (!loadDelayDebugState) {
+	if (!loadDebugStateDelay) {
 		if (serverIsOn) {
 			FormElementSync();
 		} else {
@@ -4058,7 +4058,7 @@ var bodyBlockWidth;
 function WindowResizeLayout() {
 	// Recalculate Screen Display
 	//
-	if (loadFirstJava) { ElementObjectCreate(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
 	//
 	// ...................................... //
 	// Recalculate Globals for Screen
@@ -4438,9 +4438,9 @@ function WindowLoadInit() {
 		for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
 			// imgCnByGroup[imgGroupCn];
 			// imgMaxByGroup[imgGroupCn];
-			menuImage[imgGroupCn][imgCn] = null;
-			menuImageLocked[imgGroupCn][imgCn][IsSmall] = false;
-			menuImageLocked[imgGroupCn][imgCn][IsLarge] = false;
+			menuImage[imgGroupCn] [imgCn] = null;
+			menuImageLocked[imgGroupCn] [imgCn] [IsSmall] = false;
+			menuImageLocked[imgGroupCn] [imgCn] [IsLarge] = false;
 		}
 	}
 	//
@@ -4946,9 +4946,7 @@ function WindowErrorDebug(MessagePassed, messageUrlPassed, MessageLineNumPassed)
 // ...................................... //
 function ElementEventMouseOver(menuImage) {
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
+	// if (eventMenuImageCn > imgUsedCn) { return; }
 	imgMouseHover[menuImageCn] = 1;
 	if (imgFocus == menuImageCn) {
 		//    menuImage.src = menuImage.name + '/' + menuImage.name + 'fh.gif';
@@ -4975,9 +4973,7 @@ function ElementEventMouseOver(menuImage) {
 // ...................................... //
 function ElementEventMouseOut(menuImage) {
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
+	// if (eventMenuImageCn > imgUsedCn) { return; }
 	imgMouseHover[menuImageCn] = 0;
 	if (imgFocus == menuImageCn) {
 		//    menuImage.src = menuImage.name + '/' + menuImage.name + 'f.gif';
@@ -4991,12 +4987,8 @@ function ElementEventMouseOut(menuImage) {
 // ...................................... //
 function ElementEventClick(menuImage) {
 	menuImageCn = oObjIndexSetmenuImageCn(menuImage);
-	if (menuImageCn > imgUsedCn) {
-		return;
-	}
-	if (imgFocus == menuImageCn) {
-		return;
-	}
+	// if (eventMenuImageCn > imgUsedCn) { return; }
+	if (imgFocus == menuImageCn) { return; }
 	// old folder
 	imgFocusOld = imgFocus;
 	//  menuImageOld = oObjIndexSetmenuImage(imgFocusOld);
@@ -5092,7 +5084,7 @@ function ElementObjectContainerCreate() {
 // Create all Elements used in Layout
 function ElementObjectCreate() {
 	// State change at top to avoid duplicate calls.
-	loadFirstJava = false;
+	loadJavaFirst = false;
 	// bodyFirst = false;
 	//............................................................---//
 	// Body Container References
@@ -5202,22 +5194,22 @@ function ElementObjectCreate() {
 	//
 	bodyLayoutMenu1 = ElementGetRefFromElement(bodyLayoutMenu1, 'BodyMenuLayout1', 'BodyMenuLayout1', bodyMainLeftCopy)
 	// bodyLayoutMenu1 = ElementGetRef(bodyLayoutMenu1,'BodyMenuLayout1','BodyMenuLayout1');
-	bodyMenuContainer[bodyMenuLeft][1] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft][1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy)
-	// bodyMenuContainer[bodyMenuLeft][1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][1],'MenuContainerLeft1','MenuContainerLeft1');
+	bodyMenuContainer[bodyMenuLeft] [1] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft] [1], 'MenuContainerLeft1', 'MenuContainerLeft1', bodyMainLeftCopy)
+	// bodyMenuContainer[bodyMenuLeft] [1] = ElementGetRef(bodyMenuContainer[bodyMenuLeft] [1],'MenuContainerLeft1','MenuContainerLeft1');
 	// Left 1
 	bodybodyMenuLeft1 = ElementGetRefFromElement(bodybodyMenuLeft1, 'bodyMenuLeft1', 'bodyMenuLeft1', bodyMainLeftCopy)
 	// bodybodyMenuLeft1 = ElementGetRef(bodybodyMenuLeft1,'bodyMenuLeft1','bodyMenuLeft1');
 	// bodybodyMenuLeft1 = ElementGetRefFromElement(bodybodyMenuLeft1, bodybodyMenuLeft1.id, bodybodyMenuLeft1.name, bodyMainLeft)
 	// var bodybodyMenuLeft1Save = ElementGetRef(bodybodyMenuLeft1Save,'bodyMenuLeft1Save','bodyMenuLeft1Save');
 	// Left 2
-	bodyMenuContainer[bodyMenuLeft][2] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft][2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
-	// bodyMenuContainer[bodyMenuLeft][2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][2],'MenuContainerLeft2','MenuContainerLeft2');
+	bodyMenuContainer[bodyMenuLeft] [2] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft] [2], 'MenuContainerLeft2', 'MenuContainerLeft2', bodyMainLeftCopy)
+	// bodyMenuContainer[bodyMenuLeft] [2] = ElementGetRef(bodyMenuContainer[bodyMenuLeft] [2],'MenuContainerLeft2','MenuContainerLeft2');
 	bodybodyMenuLeft2 = ElementGetRefFromElement(bodybodyMenuLeft2, 'bodyMenuLeft2', 'bodyMenuLeft2', bodyMainLeftCopy)
 	// bodybodyMenuLeft2 = ElementGetRef(bodybodyMenuLeft2,'bodyMenuLeft2','bodyMenuLeft2');
 	// var bodybodyMenuLeft2Save = ElementGetRef(bodybodyMenuLeft2Save,'bodyMenuLeft2Save','bodyMenuLeft2Save');
 	// Left 3
-	bodyMenuContainer[bodyMenuLeft][3] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft][3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy)
-	// bodyMenuContainer[bodyMenuLeft][3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft][3],'MenuContainerLeft3','MenuContainerLeft3');
+	bodyMenuContainer[bodyMenuLeft] [3] = ElementGetRefFromElement(bodyMenuContainer[bodyMenuLeft] [3], 'MenuContainerLeft3', 'MenuContainerLeft3', bodyMainLeftCopy)
+	// bodyMenuContainer[bodyMenuLeft] [3] = ElementGetRef(bodyMenuContainer[bodyMenuLeft] [3],'MenuContainerLeft3','MenuContainerLeft3');
 	bodybodyMenuLeft3 = ElementGetRefFromElement(bodybodyMenuLeft3, 'bodyMenuLeft3', 'bodyMenuLeft3', bodyMainLeftCopy)
 	// bodybodyMenuLeft3 = ElementGetRef(bodybodyMenuLeft3,'bodyMenuLeft3','bodyMenuLeft3');
 	// var bodybodyMenuLeft3Save = ElementGetRef(bodybodyMenuLeft3Save,'bodyMenuLeft3Save','bodyMenuLeft3Save');
@@ -5272,7 +5264,7 @@ function ElementObjectCreate() {
 	//
 	// document.recalc();
 	//
-	loadFirstJava = false;
+	loadJavaFirst = false;
 	// bodyFirst = false;
 }
 //
@@ -5721,10 +5713,10 @@ function ElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
 	if (DoScroll) {
 		if (leftScroll > thisLeft) { thisLeft = leftScroll; }
 	}
-	if (thisLeft > 3000) {
-		// ERROR
-		thisLeft = 3000;
-	}
+	// if (thisLeft > 3000) {
+	// 	// ERROR
+	// 	thisLeft = 3000;
+	// }
 	return thisLeft;
 }
 //
@@ -5919,7 +5911,7 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 		//
 		case 'ConsoleState':
 			if (consoleBox.style.display != 'block') {
-				if (loadFirstDebugState) { FormElementSync(); }
+				if (loadDebugStateFirst) { FormElementSync(); }
 				boxStyleSaved = consoleStateBox.style.display;
 				ConsoleToggle(true, 'ConsoleAll');
 				consoleStateBox.style.display = boxStyleSaved;
@@ -6234,7 +6226,7 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 			if (BodyConsoleBoxButtons) {
 				if (consoleBox.style.display != 'block') {
 					//
-					if (loadFirstDebugState) { FormElementSync(); }
+					if (loadDebugStateFirst) { FormElementSync(); }
 					//
 					// consoleTop.style.display = 'block';
 					//
@@ -6363,7 +6355,7 @@ function ConsoleToggle(true, ConsoleBlockPassed) {
 function ConsoleShow(DoHide, errorDoDebug) {
 	//............................................................---//
 	// Body Element Creation
-	if (loadFirstJava) { ElementObjectCreate(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
 	//............................................................---//
 	//
 	if (errorDoDebug) {
@@ -6507,7 +6499,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 	if (bodyFirst) {
 		//............................................................---//
 		//      Body Element Creation
-		if (loadFirstJava) { ElementObjectCreate(); }
+		if (loadJavaFirst) { ElementObjectCreate(); }
 		//............................................................---//
 		//      Body Main Container (contains Left Center and Right
 		if (!bodyMainContainer) { bodyMainContainer = document.getElementById('BodyMainContainer'); }
@@ -7155,8 +7147,8 @@ function ElementEventMouse(e) {
 			'ElementEventMouse', 9555, null, null,
 			errorSevere, errorDoNotDisplayTag, DoUseAlert);
 	}
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	//
 	ElementEventCurrSet(e);
 	//
@@ -7250,7 +7242,7 @@ function ElementEventMouse(e) {
 					default:
 						// Large
 						// ElementItemHide
-						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = false;
+						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]; IgnoreLock = false;
 						ElementItemHide(
 							NextIsImageLarge,
 							oObj, oObjImageLarge, oObjLarge, oObjLarge,
@@ -7276,10 +7268,10 @@ function ElementEventMouse(e) {
 						startIndex = 1;
 						endIndex = oObjIndex;
 						//
-						// ElementGroupShowStack(';false false true
-						NextIsImageLarge = IsSmall; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = true;
+						// ElementGroupStackShow(';false false true
+						NextIsImageLarge = IsSmall; oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]; IgnoreLock = true;
 						//
-						ElementGroupShowStack(
+						ElementGroupStackShow(
 							NextIsImageLarge,
 							oObjParent.id, oObjImage.id, oObj.id,
 							oObjImageSizeLarge,
@@ -7305,7 +7297,7 @@ function ElementEventMouse(e) {
 						*/
 						// if the small is locked then the large is locked...
 						// ElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
-						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall]; IgnoreLock = false;
+						NextIsImageLarge = IsLarge; oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall]; IgnoreLock = false;
 						//
 						ElementItemShow(
 							NextIsImageLarge,
@@ -7534,10 +7526,10 @@ function ElementPlay(playDirection, IsImageLarge,
 	//
 	// Bug for testing: var timerGroupItem = oObjNext.id;
 	// Checking Transition
-	if (timerObj[timerGroup][timerItemTransitionKey]) {
-		if (timerObj[timerGroup][timerItemTransitionKey].timerIsRunning) {
+	if (timerObj[timerGroup] [timerItemTransitionKey]) {
+		if (timerObj[timerGroup] [timerItemTransitionKey].timerIsRunning) {
 			timerRootKey = timerRootId + timerTypeTransition;
-			if (playDirection != timerObj[timerGroup][timerItemTransitionKey].playDirection) {
+			if (playDirection != timerObj[timerGroup] [timerItemTransitionKey].playDirection) {
 				// playDirection is different (while running)
 				if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 					MessageLog(DoNotUseDebug, DoUseSingleLine,
@@ -7576,7 +7568,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			// Check if displayed or not...
 			if (playDirection == playDirectionForward) {
 				// Forward
-				if (timerObj[timerGroup][timerItemTransitionKey].elIsDisplayed = elIsDisplayed) {
+				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsDisplayed) {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7592,7 +7584,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerGroup][timerItemTransitionKey].elIsDisplayed = elIsNotDisplayed) {
+				if (timerObj[timerGroup] [timerItemTransitionKey].elIsDisplayed = elIsNotDisplayed) {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerTransition) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7616,10 +7608,10 @@ function ElementPlay(playDirection, IsImageLarge,
 	//		or no action.
 	//
 	// Checking Move
-	if (timerObj[timerGroup][timerItemMoveKey]) {
-		if (timerObj[timerGroup][timerItemMoveKey].timerIsRunning) {
+	if (timerObj[timerGroup] [timerItemMoveKey]) {
+		if (timerObj[timerGroup] [timerItemMoveKey].timerIsRunning) {
 			timerRootKey = timerRootId + 'Group' + timerGroup + 'Type' + timerTypeMove;
-			if (playDirection != timerObj[timerGroup][timerItemMoveKey].playDirection) {
+			if (playDirection != timerObj[timerGroup] [timerItemMoveKey].playDirection) {
 				// playDirection is different (while running)
 				if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 					MessageLog(DoNotUseDebug, DoUseSingleLine,
@@ -7658,7 +7650,7 @@ function ElementPlay(playDirection, IsImageLarge,
 			// Check if displayed or not...
 			if (playDirection == playDirectionForward) {
 				// Forward
-				if (timerObj[timerGroup][timerItemMoveKey].elIsDisplayed = elIsDisplayed) {
+				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsDisplayed) {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7673,7 +7665,7 @@ function ElementPlay(playDirection, IsImageLarge,
 				}
 			} else {
 				// Reverse
-				if (timerObj[timerGroup][timerItemMoveKey].elIsDisplayed = elIsNotDisplayed) {
+				if (timerObj[timerGroup] [timerItemMoveKey].elIsDisplayed = elIsNotDisplayed) {
 					if (UseLogTimer && UseLogTimerDetail && UseLogTimerMove) {
 						MessageLog(DoNotUseDebug, DoUseSingleLine,
 							TimerTextLog(null, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
@@ -7704,7 +7696,7 @@ function ElementPlay(playDirection, IsImageLarge,
 	// Cascase Direction (Down or Up)
 	var layoutCascadeDown = true;
 	var layoutCascadeRight = true;
-	if (menuImageOffsetTopAll[oObjGroupIndex][indexGroup] > 0) {
+	if (menuImageOffsetTop[oObjGroupIndex] [indexGroup] > 0) {
 		layoutCascadeDown = true;
 	} else { layoutCascadeDown = false; }
 	//
@@ -7714,25 +7706,25 @@ function ElementPlay(playDirection, IsImageLarge,
 	// elLeftOrig, elTopOrig, elLeftDest, elTopDest,
 	var oObjIndexTemp = oObjIndex;
 	if (!IsImageLarge) { oObjIndexTemp = oObjRootIndex; }
-	elLeftOrig = menuImagePositionLeft[oObjGroupIndex][oObjIndexTemp][IsSmall];
+	elLeftOrig = menuImagePositionLeft[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 	// if CascadeRight
 	if (!IsImageLarge) {
 		if (oObjGroupIndex < 3) {
-			elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjIndexTemp][IsSmall];
+			elLeftOrig += menuImagePositionWidth[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 		}
 	}
 	if (IsImageLarge) {
 		if (oObjGroupIndex >= 3) {
-			elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjIndexTemp][IsSmall];
+			elLeftOrig += menuImagePositionWidth[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 		}
 	}
-	elTopOrig = menuImagePositionTop[oObjGroupIndex][oObjIndexTemp][IsSmall];
+	elTopOrig = menuImagePositionTop[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 	// if (layoutCascadeDown && IsImageLarge) {
 	// 		elTopOrig += menuImagePositionHeight[oObjGroupIndex] [oObjIndexTemp] [IsSmall];
 	// }
 	//
-	elLeftDest = menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsImageLarge];
-	elTopDest = menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge];
+	elLeftDest = menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge];
+	elTopDest = menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge];
 	// elLeftDest = oObjNext.style.posLeft;
 	// elTopDest = oObjNext.style.posTop;
 	//
@@ -7930,11 +7922,11 @@ function ElementPlay(playDirection, IsImageLarge,
 // Menu Show
 // 		ElementGroupShowRange
 //		ElementItemShowIndex
-//		ElementGroupShowStack
+//		ElementGroupStackShow
 //		ElementItemToggle
 //		ElementItemShow
 // Menu Hide
-// 		ElementGroupToggleRange
+// 		ElementGroupStackToggle
 //		ElementItemHide
 //
 // ..................................................................................... _//
@@ -7943,11 +7935,11 @@ function ElementPlay(playDirection, IsImageLarge,
 // ...................................... //
 //
 // ..................................................................................... _//
-// ElementGroupToggleRange
+// ElementGroupStackToggle
 // ...................................... //
-function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+function ElementGroupStackToggle(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	//
 	// Objects
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -7965,14 +7957,14 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 	if (oObjNext.style.display == 'none') {
 		oObjLocked = true;
 		IgnoreLock = false;
-		ElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, endIndex, oObjLocked, IgnoreLock);
+		ElementGroupStackShow(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, endIndex, oObjLocked, IgnoreLock);
 		//
 	} else {
 		oObjLocked = false;
 		IgnoreLock = true;
 		while (oObjIndexCurr < 1 + endObjoObjIndex) {
 			//
-			menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = false;
+			menuImageLocked[oObjGroupIndex] [oObjIndexCurr] [IsImageLarge] = false;
 			// Objects
 			ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
 			//
@@ -8000,27 +7992,27 @@ function ElementGroupToggleRange(HideImage, HideImageLarge, startIndex, endIndex
 // Menu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
 function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	//
 	// Objects
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
-		oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
+		oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];
 	} else {
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 		// oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];
 	}
 	//
 	if (oObjNext.style.display == 'none') {
-		ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], IgnoreLock);
+		ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], IgnoreLock);
 		oObjNext.style.display = 'block';
 	} else {
 		if (IsImageLarge) {
 			// Is this wrong?
-			ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge], true);
+			ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], true);
 		} else {
 			ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, true, IgnoreLock);
 			// ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge], IgnoreLock);
@@ -8038,7 +8030,7 @@ function ElementItemToggle(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 // ..................................................................................... _//
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
-function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
+function ElementGroupStackShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	// load and validate event and objects
 	ElementEventFromHtmlCheck(null, UseLogEvents);
 	if (eventCurrId == oObjNextParentId
@@ -8048,8 +8040,8 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 		return;
 	}
 	//
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	//
 	// Objects
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -8076,9 +8068,9 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 			ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
 			// Set Lock Test
 			// if (oObjLocked == true) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLocked; }
-			if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = oObjLocked; }
+			if (!IgnoreLock) { menuImageLocked[oObjGroupIndex] [oObjIndexCurr] [IsImageLarge] = oObjLocked; }
 			// Reveal Hidden Images
-			ElementItemShow(IsImageLarge, oObjParent, oObjImage, oObj, oObjLarge, iImageSize, oObjGroupIndex, oObjIndexCurr, menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge], true);
+			ElementItemShow(IsImageLarge, oObjParent, oObjImage, oObj, oObjLarge, iImageSize, oObjGroupIndex, oObjIndexCurr, menuImageLocked[oObjGroupIndex] [oObjIndexCurr] [IsImageLarge], true);
 			oObjIndexCurr++;
 		}
 		// done
@@ -8094,8 +8086,8 @@ function ElementGroupShowStack(IsImageLarge, oObjNextParentId, oObjNextImageId, 
 function ElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	// ...................................... //
 	// Build Menu Images Div
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	//
 	var startObjoObjIndex = startIndex;
 	var endObjoObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -8115,9 +8107,9 @@ function ElementGroupShowRange(startIndex, endIndex, IsImageLarge, oObjNextParen
 // Show using index #
 // ...................................... //
 function ElementItemShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
-	ElementGroupShowStack(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
+	ElementGroupStackShow(IsImageLarge, oObjNextParent.id, oObjNextImage.id, oObjNext.id, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 //
 // ..................................................................................... _//
@@ -8132,7 +8124,7 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
-		oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
+		oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];
 	} else {
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
@@ -8147,8 +8139,8 @@ function ElementItemShowId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	if (TimerStartMoveBusy(timerTypeMove, oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) { return; }
 	//
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	//
 	oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 	LastTouchedId = oObjNext.id;
@@ -8198,10 +8190,10 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Save the Left position (of the first image in the group)
 		if (oObjIndex == 1) {
 			// Store Parent Postion (note only first is stored at this time)
-			menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjLeft;
-			menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjTop;
-			menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjWidth;
-			menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjHeight;
+			menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjLeft;
+			menuImagePositionTop[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjTop;
+			menuImagePositionWidth[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjWidth;
+			menuImagePositionHeight[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjHeight;
 			//
 			// Cascase Direction
 			// Adjust the Left position for the image width
@@ -8223,7 +8215,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// Cascase Direction (Down or Up)
 		var layoutCascadeDown = true;
 		var layoutCascadeRight = true;
-		if (menuImageOffsetTopAll[oObjGroupIndex][indexGroup] > 0) {
+		if (menuImageOffsetTop[oObjGroupIndex] [indexGroup] > 0) {
 			layoutCascadeDown = true;
 		} else { layoutCascadeDown = false; }
 		// ...................................... //
@@ -8241,14 +8233,14 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			oObjNextOffsetTop = menuImageOffsetTopLarge[oObjGroupIndex];
 			oObjNextOffsetTop += menuImageOffsetTopLarge[indexGroup];
 			if (!layoutCascadeDown) { oObjNextOffsetTop = -oObjNextOffsetTop; }
-			oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjIndex][IsSmall];
+			oObjNextTop = menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsSmall];
 			//
 			// oObjNextTop += menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [IsSmall];
 			//
 			oObjNextTop += oObjNextOffsetTop;
 		} else {
-			oObjNextOffsetTop = menuImageOffsetTopAll[oObjGroupIndex][indexGroup];
-			oObjNextOffsetTop += menuImageOffsetTopAll[oObjGroupIndex][oObjIndex];
+			oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex] [indexGroup];
+			oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex] [oObjIndex];
 			// ...................................... //
 			// Set Top
 			// View Option Adjustments
@@ -8266,7 +8258,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 					oObjNextTop = oObjTop;
 				} else {
 					// oObjNextTop = oObjTop;
-					oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjIndex - 1][IsImageLarge];
+					oObjNextTop = menuImagePositionTop[oObjGroupIndex] [oObjIndex - 1] [IsImageLarge];
 				}
 				oObjNextTop += oObjNextOffsetTop;
 				if (IsImageLarge) {
@@ -8315,7 +8307,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// ...................................... //
 		// Cascase Direction (Right or Left)
 		// ...................................... //
-		if (menuImageOffsetLeftAll[oObjGroupIndex][indexGroup] > 0) {
+		if (menuImageOffsetLeft[oObjGroupIndex] [indexGroup] > 0) {
 			layoutCascadeRight = true;
 		} else { layoutCascadeRight = false; }
 		//
@@ -8354,10 +8346,10 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			oObjNextOffsetLeft += menuImageOffsetLeftLarge[indexGroup];
 			if (!layoutCascadeRight) { oObjNextOffsetLeft = -oObjNextOffsetLeft; }
 			//
-			oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsSmall];
+			oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsSmall];
 			//
 			if (layoutCascadeRight) {
-				oObjNextLeft += menuImagePositionWidth[oObjGroupIndex][oObjIndex][IsSmall];
+				oObjNextLeft += menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsSmall];
 			} else {
 				oObjNextLeft -= layoutBlockWidthDefault;
 				// menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge];
@@ -8365,12 +8357,12 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			//
 			oObjNextLeft += oObjNextOffsetLeft;
 		} else {
-			oObjNextOffsetLeft = menuImageOffsetLeftAll[oObjGroupIndex][indexGroup];// Group Default Offset
-			oObjNextOffsetLeft += menuImageOffsetLeftAll[oObjGroupIndex][oObjIndex];// Item specific default
+			oObjNextOffsetLeft = menuImageOffsetLeft[oObjGroupIndex] [indexGroup];// Group Default Offset
+			oObjNextOffsetLeft += menuImageOffsetLeft[oObjGroupIndex] [oObjIndex];// Item specific default
 			//
 			// ...................................... //
 			// View First Image Adjustments
-			var menuImageOffsetFirst = menuImageOffsetFirstAll[oObjGroupIndex][indexLeft];
+			var menuImageOffsetFirst = menuImageOffsetFirst[oObjGroupIndex] [indexLeft];
 			// Windowed Layout Format
 			if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirst = 0; }
 			if (layoutIndex == layoutWindowed) {
@@ -8399,14 +8391,14 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 							+ oObjNextOffsetLeft;// (ie. Right Top)
 						// XXXXXXXX client width etc (refreshing?)                              } else {
 						// Use Parent Position plus offset
-						oObjNextLeft = (menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge]
-							+ menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge])
+						oObjNextLeft = (menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge]
+							+ menuImagePositionWidth[oObjGroupIndex] [oObjRootIndex] [IsImageLarge])
 							+ menuImageOffsetFirst
 							+ oObjNextOffsetLeft;// (ie. Right Top)
 					}
 				} else {
 					// Cascade Next Left Column By Top and Left Offsets
-					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjIndex - 1][IsImageLarge]
+					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjIndex - 1] [IsImageLarge]
 						+ oObjNextOffsetLeft;// Right Edge of Parent
 					// oObjNextLeft = (oObjLeft)
 				}
@@ -8419,7 +8411,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 					if (layoutIndex == layoutWindowed) {
 						oObjNextLeft = ((oObjGroupIndex - 1) / 6 * layoutWidth);
 					} else {
-						oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge]
+						oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge]
 							- (iImageSize + 10)
 							+ menuImageOffsetFirst
 							+ oObjNextOffsetLeft;// (ie. Left Top)
@@ -8428,7 +8420,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				} else {
 					// (oObjLeft)
 					if (layoutIndex == layoutWindowed) { menuImageOffsetFirst = 0; }
-					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjIndex - 1][IsImageLarge]
+					oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjIndex - 1] [IsImageLarge]
 						+ oObjNextOffsetLeft;// Right Edge of Parent
 				}
 			} // end of Cascade Right or Left
@@ -8480,10 +8472,10 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		// ...................................... //
 		// Store Postion
 		ElementPosGet(UseScroll, UseBase, oObjNext, layoutBlockWidthDefault, elHeightDefault);
-		menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjLeft;// parseInt(oObjNext.style.left);
-		menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
-		menuImagePositionWidth[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
-		menuImagePositionHeight[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjHeight;// oObjNext.offsetHeight;
+		menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLeft;// parseInt(oObjNext.style.left);
+		menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjTop;// parseInt(oObjNext.style.top);
+		menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjWidth;// oObjNext.offsetWidth;
+		menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjHeight;// oObjNext.offsetHeight;
 		//
 		// ...................................... //
 		// Filters
@@ -8568,7 +8560,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	// ...................................... //
 	// Dispaly Lock vs MouseOut Disappear
 	// if (oObjLocked == true) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLocked; }
-	if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjLocked; }
+	if (!IgnoreLock) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLocked; }
 }
 //
 // ..................................................................................... _//
@@ -8588,7 +8580,7 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 	ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
 	if (IsImageLarge) {
 		oObjNext = oObjLarge; oObjNextImage = oObjImageLarge; oObjNextParent = oObj; oObjNextLarge = oObjLarge;
-		oObjLocked = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
+		oObjLocked = menuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall];
 	} else {
 		oObjNext = oObj; oObjNextImage = oObjImage; oObjNextParent = oObjParent; oObjNextLarge = oObjLarge;
 	}
@@ -8603,12 +8595,12 @@ function ElementItemHideId(e, IsImageLarge, oObjNextParentId, oObjNextImageId, o
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
 	if (TimerStartMoveBusy(oObjNext.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 	//
-	if (loadFirstJava) { ElementObjectCreate(); }
-	if (loadFirstMenuImage) { MenuImagesHtmlBuild(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
+	if (loadMenuImageFirst) { MenuImagesHtmlBuild(); }
 	var oObjNextIndex = oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
 	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
 	//
-	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
+	if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] [IsImageLarge] == true) {
 		if (UseLogTimer && UseLogTimerTransition) {
 			MessageLog(DoNotUseDebug, DoUseSingleLine,
 				TimerTextKey('Hide', oObjGroupIndex, oObjIndex)
@@ -8661,7 +8653,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 	}
 	//
 	//
-	if (!IgnoreLock) { menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] = oObjLocked; }
+	if (!IgnoreLock) { menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] [IsImageLarge] = oObjLocked; }
 	//
 	// oObj.width= 0;
 	// oObj.height= 0;
@@ -8690,7 +8682,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	var oObjId = new String();
 	var oObjParentId = new String();
 	//
-	if (loadFirstJava) { ElementObjectCreate(); }
+	if (loadJavaFirst) { ElementObjectCreate(); }
 	// ...................................... //
 	switch (oObjGroupIndex) {
 		// Non Groups

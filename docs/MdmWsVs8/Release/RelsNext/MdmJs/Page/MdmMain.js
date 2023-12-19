@@ -19,24 +19,32 @@ PageMode = "Dev";
 debugLoadIsOn = false;
 script_state = "debugLoadIsOn is" + debugLoadIsOn;
 
-// AREA Page Loading / Optimization SECTION
+// AREA Page (lazy) Loading / Optimization SECTION
 // ...................................... //
 // Include based file loads:
-var loadDelayIncludes = false;
-var loadIncludes = true;
+var loadIncludes = false;
+var loadIncludesDelay = false;
 var loadIncludesDone = false;
 // Java Initilization Functions:
-var loadDelayJava = true;
-var loadFirstJava = true;
+var loadJavaDelay = false;
+var loadJavaFirst = true;
+var loadJavaDone = false;
 // Body (Content) Images:
-var loadDelayBodyImage = false;
-var loadFirstBodyImage = true;
+var loadBodyImageDelay = false;
+var loadBodyImageFirst = true;
+var loadBodyImageDone = false;
 // Menu Thumbnail Images:
-var loadDelayMenuImage = false;
-var loadFirstMenuImage = true;
-// Testing / Debug State Window
-var loadDelayDebugState = false;
-var loadFirstDebugState = true;
+var loadMenuImageDelay = false;
+var loadMenuImageFirst = true;
+var loadMenuImageDone = false;
+// Console, Testing, Debug State Window
+var loadDebugStateDelay = false;
+var loadDebugStateFirst = true;
+var loadDebugStateDone = false;
+// Timers
+var loadTimerDelay = false;
+var loadTimerFirst = true;
+var loadTimerDone = false;
 
 // Local Parameter Initialization specified here.
 function ConsoleFormElementSyncLocal(fromForm) { ConsoleFormElementSync(fromForm); } // uses defaults.
@@ -328,16 +336,16 @@ var bodyMenuGroupColBreak; // = new Array(bodyMenuGroupUsedCn);
 // // Image Group
 var imgGroupBoxCount = 20; // depreciated
 var imgGroupCount = bodyMenuGroupMax + 1;
-var imgGroupArraySize = bodyMenuGroupMax + 1;
-var imgGroupImageArraySize = bodyMenuGroupMax + 1;
+var imgGroupArraySize = bodyMenuGroupMax;
+var imgGroupImageArraySize = bodyMenuGroupMax;
 
 // Animated Images
 // ...................................... //
 // Image State
 // set the following to the number of images
 // then add the correct number of img objects
-var imgUsedCn = 5; // ? 6 ?
-var imgMax = 10;
+var imgUsedCn = 20;
+var imgMax = 20;
 // Image Layout Adjustables
 var boxFormWidth = 75;
 var boxTextLineHeight = 30;
@@ -382,7 +390,7 @@ var timerDelay = elementMoveDelay;
 // var timerStep = 0;
 var timerStepMin = 30;
 var timerStepMax = elMoveStepMax;
-var timerStepsPerSecond = 10;
+timerStepsPerSecond = 3;
 
 // Timer Object & Indexes
 var timerGroupIndexMax = bodyMenuGroupMax;
@@ -410,6 +418,7 @@ filterStepMin = 0;
 filterStepMax = 0;
 filterInterval = 0;
 filterDelay = 0;
+filterStepsPerSecond = 3;
 
 // Filter Settings for Animation
 // ...................................... //

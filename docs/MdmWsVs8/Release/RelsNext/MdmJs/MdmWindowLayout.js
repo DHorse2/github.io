@@ -239,11 +239,11 @@ function LayoutFontCssChange(passedSheetId, selector, cssProp, cssValue, isStyle
 	}
 	return false; // sheet not found
 }
-// if (document.styleSheets[idxSheet][cssRules]) {
-// 	for (idx = 0, len = document.styleSheets[idxSheet][cssRules].length; idx < len; idx++) {
+// if (document.styleSheets[idxSheet] [cssRules]) {
+// 	for (idx = 0, len = document.styleSheets[idxSheet] [cssRules].length; idx < len; idx++) {
 // 		// if (StyleSheets.title == sheetId) {
-// 		if (document.styleSheets[idxSheet][cssRules][idx].selectorText == selector) {
-// 			document.styleSheets[idxSheet][cssRules][idx].style[cssProp] = cssVal;
+// 		if (document.styleSheets[idxSheet] [cssRules] [idx].selectorText == selector) {
+// 			document.styleSheets[idxSheet] [cssRules] [idx].style[cssProp] = cssVal;
 // 			return;
 // 		}
 // 	}
@@ -308,7 +308,7 @@ function LayoutSelectByIndex(layoutIndexPassed) {
 			script_state = "SelectByIndex: bodyFirst: Initialize elements " + layoutIndex;
 			//      Body Element Creation
 			//............................................................---//
-			if (loadFirstJava) { ElementObjectCreate(); }
+			if (loadJavaFirst) { ElementObjectCreate(); }
 			//      Body Main Container (contains Left Center and Right
 			//............................................................---//
 			if (!bodyMainContainer) {
