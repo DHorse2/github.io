@@ -125,7 +125,7 @@ function ElementEventMouse(e) {
 			errorIsSevere, errorDoNotDisplayTag, UseAlert);
 	}
 	if (loadJavaFirst) { ElementObjectCreate(); }
-	if (loadFirsteventMenuImage) { eventMenuImagesHtmlBuild(); }
+	if (loadFirsteventMenuImage) { eventmenuImageGroupInitAll(); }
 	//
 	ElementEventCurrSet(e);
 	ElementEventCurrRootObjSet();
@@ -135,9 +135,23 @@ function ElementEventMouse(e) {
 	script_state += ":" + eventType + ' (' + oObjGroupIndex + ', ' + oObjIndex + ')';
 	//
 	if (!oObjNotFound) {
-		// Object found
-		ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
-		//
+		var oObject =
+			ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+		// if (oObject.oObjValid) {
+			if (IsImageLarge) {
+				oObjNext = oObject.oObjLarge;
+				oObjNextImage = oObject.oObjImageLarge;
+				oObjNextParent = oObject.oObj;
+				oObjNextLarge = oObject.oObjLarge;
+				oObjLockedPassed = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
+			} else {
+				oObjNext = oObject.oObj;
+				oObjNextImage = oObject.oObjImage;
+				oObjNextParent = oObject.oObjParent;
+				oObjNextLarge = oObject.oObjLarge;
+			}
+			//
+		// }
 		// ...................................... //
 		var HideImage = false;
 		var HideImageLarge = false;
@@ -174,7 +188,7 @@ function ElementEventMouse(e) {
 						//
 						ElementItemToggleId(
 							NextIsImageLarge,
-							oObj.id, oObjImageLarge.id, oObjLarge.id,
+							oObject.oObj.id, oObject.oObjImageLarge.id, oObject.oObjLarge.id,
 							oObjImageSizeLarge,
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);
@@ -187,7 +201,7 @@ function ElementEventMouse(e) {
 				break;
 			// ...................................... //
 			case 'mouseout':
-				if (TimerStartMoveBusy(IsImageLarge, oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
+				if (TimerStartMoveBusy(IsImageLarge, oObject.oObj.id + 'Move', oObjGroupIndex, oObjIndex, UseLogEvents)) { return; }
 				if (ElementEventCheckDuplicate(UseLogEvents)) { return; }
 				switch (IsImageLarge) {
 					// ...................................... //
@@ -197,7 +211,7 @@ function ElementEventMouse(e) {
 						NextIsImageLarge = IsSmall; oObjLocked = false; IgnoreLock = false;
 						ElementItemHide(
 							NextIsImageLarge,
-							oObjParent, oObjImage, oObj, oObjLarge,
+							oObject.oObjParent, oObject.oObjImage, oObject.oObj, oObject.oObjLarge,
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, oObjLocked);
 						break;
@@ -206,10 +220,10 @@ function ElementEventMouse(e) {
 					default:
 						// Large
 						// ElementItemHide
-						NextIsImageLarge = IsLarge; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]; IgnoreLock = false;
+						NextIsImageLarge = IsLarge; oObjLocked = MenuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = false;
 						ElementItemHide(
 							NextIsImageLarge,
-							oObj, oObjImageLarge, oObjLarge, oObjLarge,
+							oObject.oObj, oObject.oObjImageLarge, oObject.oObjLarge, oObject.oObjLarge,
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);
 						break;
@@ -228,11 +242,11 @@ function ElementEventMouse(e) {
 						endIndex = oObjIndex;
 						//
 						// ElementGroupShow(';false false true
-						NextIsImageLarge = IsSmall; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge]; IgnoreLock = true;
+						NextIsImageLarge = IsSmall; oObjLocked = MenuImageLocked[oObjGroupIndex][oObjIndex][IsImageLarge]; IgnoreLock = true;
 						//
 						ElementGroupShow(
 							NextIsImageLarge,
-							oObjParent.id, oObjImage.id, oObj.id,
+							oObject.oObjParent.id, oObject.oObjImage.id, oObject.oObj.id,
 							oObjImageSizeLarge,
 							oObjGroupIndex, oObjIndex, 1,
 							oObjLocked, IgnoreLock);
@@ -247,7 +261,7 @@ function ElementEventMouse(e) {
 						//
 						ElementItemShow(
 								NextIsImageLarge,
-								oObjParent, oObjImage, oObj, oObjLarge,
+								oObject.oObjParent, oObject.oObjImage, oObject.oObj, oObject.oObjLarge,
 								oObjImageSizeSmall,
 								oObjGroupIndex, oObjIndex,
 								oObjLocked, IgnoreLock);
@@ -255,11 +269,11 @@ function ElementEventMouse(e) {
 						*/
 						// if the small is locked then the large is locked...
 						// ElementItemShow(';Large true Curr false (IsImagelarge LockValue IgnoreLock)
-						NextIsImageLarge = IsLarge; oObjLocked = MenuImageLocked[oObjGroupIndex] [oObjIndex] [IsSmall]; IgnoreLock = false;
+						NextIsImageLarge = IsLarge; oObjLocked = MenuImageLocked[oObjGroupIndex][oObjIndex][IsSmall]; IgnoreLock = false;
 						// Bring to front or show
 						ElementItemShow(
 							NextIsImageLarge,
-							oObj, oObjImageLarge, oObjLarge, oObjLarge,
+							oObject.oObj, oObject.oObjImageLarge, oObject.oObjLarge, oObject.oObjLarge,
 							oObjImageSizeLarge,
 							oObjGroupIndex, oObjIndex,
 							oObjLocked, IgnoreLock);

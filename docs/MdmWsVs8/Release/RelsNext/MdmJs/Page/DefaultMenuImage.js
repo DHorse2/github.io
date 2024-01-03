@@ -81,56 +81,62 @@ menuImageOffsetFirst[3] [indexLeft] = 15;
 // Menu Group 4
 menuImageOffsetFirst[4] [indexTop] = 0;
 menuImageOffsetFirst[4] [indexLeft] = -15;
+// Menu Group 5
+menuImageOffsetFirst[5] [indexTop] = 0;
+menuImageOffsetFirst[5] [indexLeft] = -15;
+// Menu Group 6
+menuImageOffsetFirst[6] [indexTop] = 0;
+menuImageOffsetFirst[6] [indexLeft] = -15;
 
 // Offsets for cascading diaply
 ////////////////////////////////////////////////
-for (var SizeIndex = 0; SizeIndex < 2; SizeIndex++) {
-    // SizeIndex = IsImageSmall;
+for (var oSizeIndex = 0; oSizeIndex < 2; oSizeIndex++) {
+    // oSizeIndex = IsImageSmall;
     // Default (All) Groups
-    menuImageOffsetTop[indexGroup] [indexGroup] [SizeIndex] = 25;
-    menuImageOffsetLeft[indexGroup] [indexGroup] [SizeIndex] = 25;
+    menuImageOffsetTop[indexGroup] [indexGroup] [oSizeIndex] = 25;
+    menuImageOffsetLeft[indexGroup] [indexGroup] [oSizeIndex] = 25;
     // Menu Group 1
     // Default (All)
-    menuImageOffsetTop[1] [indexGroup] [SizeIndex] = 25;
-    menuImageOffsetLeft[1] [indexGroup] [SizeIndex] = 25;
+    menuImageOffsetTop[1] [indexGroup] [oSizeIndex] = 25;
+    menuImageOffsetLeft[1] [indexGroup] [oSizeIndex] = 25;
     // Boxes
-    menuImageOffsetTop[1] [1] [SizeIndex] = 0; menuImageOffsetLeft[1] [1] [SizeIndex] = 0;
-    menuImageOffsetTop[1] [2] [SizeIndex] = 0; menuImageOffsetLeft[1] [2] [SizeIndex] = 0;
-    menuImageOffsetTop[1] [3] [SizeIndex] = 0; menuImageOffsetLeft[1] [3] [SizeIndex] = 0;
-    menuImageOffsetTop[1] [4] [SizeIndex] = 0; menuImageOffsetLeft[1] [4] [SizeIndex] = 0;
-    menuImageOffsetTop[1] [5] [SizeIndex] = 0; menuImageOffsetLeft[1] [5] [SizeIndex] = 0;
-    menuImageOffsetTop[1] [6] [SizeIndex] = 0; menuImageOffsetLeft[1] [6] [SizeIndex] = 0;
-    menuImageOffsetTop[1] [7] [SizeIndex] = 0; menuImageOffsetLeft[1] [7] [SizeIndex] = 0;
+    menuImageOffsetTop[1] [1] [oSizeIndex] = 0; menuImageOffsetLeft[1] [1] [oSizeIndex] = 0;
+    menuImageOffsetTop[1] [2] [oSizeIndex] = 0; menuImageOffsetLeft[1] [2] [oSizeIndex] = 0;
+    menuImageOffsetTop[1] [3] [oSizeIndex] = 0; menuImageOffsetLeft[1] [3] [oSizeIndex] = 0;
+    menuImageOffsetTop[1] [4] [oSizeIndex] = 0; menuImageOffsetLeft[1] [4] [oSizeIndex] = 0;
+    menuImageOffsetTop[1] [5] [oSizeIndex] = 0; menuImageOffsetLeft[1] [5] [oSizeIndex] = 0;
+    menuImageOffsetTop[1] [6] [oSizeIndex] = 0; menuImageOffsetLeft[1] [6] [oSizeIndex] = 0;
+    menuImageOffsetTop[1] [7] [oSizeIndex] = 0; menuImageOffsetLeft[1] [7] [oSizeIndex] = 0;
     // Menu Group 2
     // Default (All)
-    menuImageOffsetTop[2] [indexGroup] [SizeIndex] = -60;
-    menuImageOffsetLeft[2] [indexGroup] [SizeIndex] = 50;
+    menuImageOffsetTop[2] [indexGroup] [oSizeIndex] = -60;
+    menuImageOffsetLeft[2] [indexGroup] [oSizeIndex] = 50;
     // Boxes
-    menuImageOffsetTop[2] [1] [SizeIndex] = 0; menuImageOffsetLeft[2] [1] [SizeIndex] = 0;
-    menuImageOffsetTop[2] [2] [SizeIndex] = 0; menuImageOffsetLeft[2] [2] [SizeIndex] = 0;
-    menuImageOffsetTop[2] [3] [SizeIndex] = 0; menuImageOffsetLeft[2] [3] [SizeIndex] = 0;
-    menuImageOffsetTop[2] [4] [SizeIndex] = 0; menuImageOffsetLeft[2] [4] [SizeIndex] = 0;
+    menuImageOffsetTop[2] [1] [oSizeIndex] = 0; menuImageOffsetLeft[2] [1] [oSizeIndex] = 0;
+    menuImageOffsetTop[2] [2] [oSizeIndex] = 0; menuImageOffsetLeft[2] [2] [oSizeIndex] = 0;
+    menuImageOffsetTop[2] [3] [oSizeIndex] = 0; menuImageOffsetLeft[2] [3] [oSizeIndex] = 0;
+    menuImageOffsetTop[2] [4] [oSizeIndex] = 0; menuImageOffsetLeft[2] [4] [oSizeIndex] = 0;
     // Menu Group 3
     // Default (All)
-    menuImageOffsetTop[3] [indexGroup] [SizeIndex] = -20;
-    menuImageOffsetLeft[3] [indexGroup] [SizeIndex] = 75;
+    menuImageOffsetTop[3] [indexGroup] [oSizeIndex] = -20;
+    menuImageOffsetLeft[3] [indexGroup] [oSizeIndex] = 75;
     // Boxes
-    menuImageOffsetTop[3] [1] [SizeIndex] = 0; menuImageOffsetLeft[3] [1] [SizeIndex] = 0;
-    menuImageOffsetTop[3] [2] [SizeIndex] = 0; menuImageOffsetLeft[3] [2] [SizeIndex] = 0;
-    menuImageOffsetTop[3] [3] [SizeIndex] = 0; menuImageOffsetLeft[3] [3] [SizeIndex] = 0;
+    menuImageOffsetTop[3] [1] [oSizeIndex] = 0; menuImageOffsetLeft[3] [1] [oSizeIndex] = 0;
+    menuImageOffsetTop[3] [2] [oSizeIndex] = 0; menuImageOffsetLeft[3] [2] [oSizeIndex] = 0;
+    menuImageOffsetTop[3] [3] [oSizeIndex] = 0; menuImageOffsetLeft[3] [3] [oSizeIndex] = 0;
     // Menu Group 4
     // Default (All)
-    menuImageOffsetTop[4] [indexGroup] [SizeIndex] = 75;
-    menuImageOffsetLeft[4] [indexGroup] [SizeIndex] = -15;
+    menuImageOffsetTop[4] [indexGroup] [oSizeIndex] = 75;
+    menuImageOffsetLeft[4] [indexGroup] [oSizeIndex] = -15;
     // Boxes
-    menuImageOffsetTop[4] [1] [SizeIndex] = 0; menuImageOffsetLeft[4] [1] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [2] [SizeIndex] = 0; menuImageOffsetLeft[4] [2] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [3] [SizeIndex] = 0; menuImageOffsetLeft[4] [3] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [4] [SizeIndex] = 0; menuImageOffsetLeft[4] [4] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [5] [SizeIndex] = 0; menuImageOffsetLeft[4] [5] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [6] [SizeIndex] = 0; menuImageOffsetLeft[4] [6] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [7] [SizeIndex] = -250; menuImageOffsetLeft[4] [7] [SizeIndex] = 0;
-    menuImageOffsetTop[4] [8] [SizeIndex] = 0; menuImageOffsetLeft[4] [8] [SizeIndex] = 0;
+    menuImageOffsetTop[4] [1] [oSizeIndex] = 0; menuImageOffsetLeft[4] [1] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [2] [oSizeIndex] = 0; menuImageOffsetLeft[4] [2] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [3] [oSizeIndex] = 0; menuImageOffsetLeft[4] [3] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [4] [oSizeIndex] = 0; menuImageOffsetLeft[4] [4] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [5] [oSizeIndex] = 0; menuImageOffsetLeft[4] [5] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [6] [oSizeIndex] = 0; menuImageOffsetLeft[4] [6] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [7] [oSizeIndex] = -250; menuImageOffsetLeft[4] [7] [oSizeIndex] = 0;
+    menuImageOffsetTop[4] [8] [oSizeIndex] = 0; menuImageOffsetLeft[4] [8] [oSizeIndex] = 0;
 
 }
 script_state = "MdmStandard Default Menu Image definitions";

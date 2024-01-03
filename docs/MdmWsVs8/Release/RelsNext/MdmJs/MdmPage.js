@@ -107,9 +107,9 @@ var oObjHeight;
 // Page Z Index
 var layoutZindex = 100; // foreground
 // Menu Z Index
-var menuZindex = 110;
+var menuZindex = 510;
 // Menu Image Z Index
-var imgZindex = 120;
+var imgZindex = 1010;
 // Standard Functions
 // Create all Elements used in Layout
 // Section Element function (s)

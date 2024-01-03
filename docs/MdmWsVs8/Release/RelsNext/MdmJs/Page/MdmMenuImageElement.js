@@ -26,7 +26,8 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 			switch (oObjCn) {
 				case 0: break;
 				case 1:
-					oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
+					oObjId = 'MdmImportTld'; oObjParentId = 'MenuGroup1Header'; break;
+					// oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
 				case 2:
 					oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmImportTld'; break;
 				case 3:
@@ -52,7 +53,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 			switch (oObjCn) {
 				case 0: break;
 				case 1:
-					oObjId = 'MdmResume'; oObjParentId = 'MenuContainerLeft2'; break;
+					oObjId = 'MdmResume'; oObjParentId = 'MenuGroup2Header'; break;
 				case 2:
 					oObjId = 'MdmRsmIt'; oObjParentId = 'MdmResume'; break;
 				case 3:
@@ -69,7 +70,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 		case 3: switch (oObjCn) {
 			case 0: break;
 			case 1:
-				oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuContainerLeft3'; break;
+				oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuGroup3Header'; break;
 			case 2:
 				oObjId = 'MdmCogSciProj'; oObjParentId = 'MdmTechRsrch'; break;
 			case 3:
@@ -112,7 +113,9 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 	// ...................................... //
 	if (oObjValid) {
 		oObj = ElementGetRef(oObj, oObjId, oObjId);
-		if (!oObj) { oObjValid = false; } else {
+		if (!oObj) {
+			oObjValid = false;
+		} else {
 			oObjNotFound = false;
 			oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
 			// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
@@ -140,6 +143,28 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 		ErrorOccured("MdmMenuImageElement:ElementItemGetAllFromIndex", 139, 0, null, null, null, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
 	}
 	//
+	var oObject = {
+		oObjGroupCn,
+		oObjCn,
+		oObjValid,
+		oObj,
+		oObjImage,
+		oObjParent,
+		oObjLarge,
+		oObjImageLarge,
+		oObjText
+	}
+	//
+	return oObject;
+	// group: oObjGroupCn,
+	// item: oObjCn,
+	// valid: oObjValid,
+	// object: oObj,
+	// image: oObjImage,
+	// parent: oObjParent,
+	// large: oObjLarge,
+	// imageLarge: oObjImageLarge,
+	// text: oObjText
 }
 // ElementItemGetDescription
 // ...................................... //

@@ -259,8 +259,8 @@ function ElementEventsCopy(elementObject, elementSourceObject, elementObjectId, 
     // Currently, SourceObject is not used.
     var elementItems = elementObject.getElementsByTagName('div');
     for (var item = 0; elementItems[item]; item++) {
-    // if (elementPassed.childNodes.length)
-    // for (elmCn = 1; elmCn < 1 + elementObject.childNodes.length; elmCn++) {
+        // if (elementPassed.childNodes.length)
+        // for (elmCn = 1; elmCn < 1 + elementObject.childNodes.length; elmCn++) {
         // elementChildObject = elementObject.childNodes[elmCn];
         elementChildObject = elementItems[item];
         if (elementChildObject) {
@@ -353,7 +353,12 @@ function ElementPosGetFromObj(oObjPassed) {
         oObjHeight = oObjPassed.offsetHeight;
     }
     // return [currTop, currLeft];
-    return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
+    return {
+        Top: oObjTop,
+        Left: oObjLeft,
+        Width: oObjWidth,
+        Height: oObjHeight
+    };
 }
 // SectionBlock Element Get function (s)
 // ...................................... //
@@ -405,20 +410,7 @@ function ElementCreate(elementPassed, elementLayoutFirstPassed) {
 // Element Position Get
 // ...................................... //
 function ElementPosGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault, elHeightDefault) {
-    var oObjTop = 0;
-    var oObjLeft = 0;
-    var oObjWidth = 0;
-    var oObjHeight = 0;
-    oObjTop = ElementTopMaxGet(DoScroll, DoBase, elementPassed);
-    oObjLeft = ElementLeftMaxGet(DoScroll, DoBase, elementPassed);
-    if (!oObjTop || !oObjLeft) {
-        [oObjTop, oObjLeft, oObjWidth, oObjHeight] = ElementPosCalculate(elementPassed)
-    } else {
-        oObjWidth = ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault);
-        oObjHeight = ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault);
-    }
-    //
-    return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
+    return ElementPosCalculate(elementPassed);
 }
 // Element Position Calculate
 // ...................................... //
@@ -428,93 +420,200 @@ function ElementPosCalculate(elementPassed) {
     var oObjWidth = 0;
     var oObjHeight = 0;
     var currLeft = currTop = 0;
+    var elTopDefault = 0;
+    var elLeftDefault = 0;
+    var elHeightDefault = 0;
+    var elBottomDefault = 0;
     //
+    oObjLeft = ElementLeftMaxGet(true, true, elementPassed, elLeftDefault);
+    oObjTop = ElementTopMaxGet(true, true, elementPassed, elTopDefault);
+    oObjWidth = ElementWidthMaxGet(true, true, elementPassed, layoutBlockWidthDefault);
+    oObjHeight = ElementHeightMaxGet(true, true, elementPassed, elHeightDefault);
+    // todo what does this do?
     if (elementPassed.offsetParent) {
         var oObjCurr = elementPassed;
         do {
             // while (oObjPassed == oObjPassed.offsetParent) {
-            currLeft += oObjCurr.offsetLeft;
-            currTop += oObjCurr.offsetTop;
+            currLeft += parseInt(oObjCurr.offsetLeft);
+            currTop += parseInt(oObjCurr.offsetTop);
             // }
         } while ((oObjCurr == oObjCurr.offsetParent));
         oObjTop = currTop;
         oObjLeft = currLeft;
-        oObjWidth = elementPassed.offsetWidth;
-        oObjHeight = elementPassed.offsetHeight;
+        // oObjWidth = parseInt(oObjCurr.offsetWidth);
+        // oObjHeight = parseInt(oObjCurr.offsetHeight);
+        // oObjWidth = parseInt(elementPassed.offsetWidth);
+        // oObjHeight = parseInt(elementPassed.offsetHeight);
     }
-    return [oObjTop, oObjLeft, oObjWidth, oObjHeight];
+    return {
+        Top: oObjTop,
+        Left: oObjLeft,
+        Width: oObjWidth,
+        Height: oObjHeight
+    };
 }
 // Layout Top Get
-function ElementTopMaxGet(DoScroll, DoBase, elementPassed) {
+function ElementTopMaxGet(DoScroll, DoBase, elementPassed, elTopDefault) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
     var thisTop = 0;
-    var topBase = parseInt(elementPassed.style.top);
-    var topOffset = parseInt(elementPassed.offsetTop);
-    var topScroll = parseInt(elementPassed.scrollTop);
+    var topBase = 0;
+    var topOffset = 0;
+    var topScroll = 0;
+    var topClient = 0;
+    if (elementPassed.style) {
+        if (browserIsOld) {
+            topBase = parseInt(elementPassed.style.top);
+            topOffset = parseInt(elementPassed.offsetTop);
+            topScroll = parseInt(elementPassed.scrollTop);
+            topClient = parseInt(elementPassed.clientTop);
+        } else {
+            topBase = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('Top'));
+            topOffset = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetTop'));
+            topScroll = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollTop'));
+            topClient = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('clientTop'));
+        }
+        //
+        if (DoBase) {
+            if (topBase > thisTop) { thisTop = topBase; }
+        }
+        if (DoOffset) {
+            if (topOffset > thisTop) { thisTop = topOffset; }
+        }
+        if (DoScroll) {
+            if (topScroll > thisTop) { thisTop = topScroll; }
+        }
+        //
+        if (thisTop == 0 && topClient) { thisTop = topClient; }
+    }
     //
-    if (DoBase) {
-        if (topBase > thisTop) { thisTop = topBase; }
+    if (thisTop == 0) {
+        // Dom Add:
+        // all else failed so use the protype approach...
+        var bodyTempContainer = document.getElementById('BodyTempContainer');
+        bodyTempContainer.appendChild(elementPassed.cloneNode(true));
+        topNode = bodyTempContainer.childNodes[0].offsetTop;
+        bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
+        if (topNode > thisTop) { thisTop = topNode; }
+        //
+        // Bounding Rect:
+        // Or this approach...
+        if (!browserIsIE) {
+            // if (elementPassed.getClientRects) {
+            var topRects = thisTop;
+            var clientRects = elementPassed.getClientRects();
+            if (clientRects != null) {
+                while (clientRectsIndex < clientRects.length) {
+                    topRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
+                    clientRectsIndex++;
+                }
+                if (topRects > thisTop) { thisTop = topRects; }
+            }
+            // }
+        }
     }
-    if (DoOffset) {
-        if (topOffset > thisTop) { thisTop = topOffset; }
-    }
-    if (DoScroll) {
-        if (topScroll > thisTop) { thisTop = topScroll; }
-    }
-    if (thisTop > 3000) {
-        // ERROR
-        thisTop = 3000;
-    }
+    //
+    // Minimum or default
+    // Default top not appropriate here
+    if (thisTop == 0 && elTopDefault) { thisTop = elTopDefault; }
+    // Maximum
+    // if (thisTop > 3000) {
+    //     // ERROR
+    //     thisTop = 3000;
+    // }
     return thisTop;
 }
 // Layout Left Get
-function ElementLeftMaxGet(DoScroll, DoBase, elementPassed) {
+function ElementLeftMaxGet(DoScroll, DoBase, elementPassed, elLeftDefault) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
     var thisLeft = 0;
-    var leftBase = parseInt(elementPassed.style.left);
-    var leftOffset = parseInt(elementPassed.offsetLeft);
-    var leftScroll = parseInt(elementPassed.scrollLeft);
+    var leftBase = 0;
+    var leftOffset = 0;
+    var leftScroll = 0;
+    var leftClient = 0;
+    if (elementPassed.style) {
+        if (browserIsOld) {
+            leftBase = parseInt(elementPassed.style.left);
+            leftOffset = parseInt(elementPassed.offsetLeft);
+            leftScroll = parseInt(elementPassed.scrollLeft);
+            leftClient = parseInt(elementPassed.clientLeft);
+        } else {
+            leftBase = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('Left'));
+            leftOffset = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetLeft'));
+            leftScroll = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollLeft'));
+            leftClient = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('clientLeft'));
+        }
+        //
+        if (DoBase) {
+            if (leftBase > thisLeft) { thisLeft = leftBase; }
+        }
+        if (DoOffset) {
+            if (leftOffset > thisLeft) { thisLeft = leftOffset; }
+        }
+        if (DoScroll) {
+            if (leftScroll > thisLeft) { thisLeft = leftScroll; }
+        }
+        //
+        if (thisLeft == 0 && leftClient) { thisLeft = leftClient; }
+    }
     //
-    if (DoBase) {
-        if (leftBase > thisLeft) { thisLeft = leftBase; }
+    if (thisLeft == 0) {
+        // Dom Add:
+        // all else failed so use the protype approach...
+        var bodyTempContainer = document.getElementById('BodyTempContainer');
+        bodyTempContainer.appendChild(elementPassed.cloneNode(true));
+        var leftNode = bodyTempContainer.childNodes[0].offsetLeft;
+        bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
+        if (leftNode > thisLeft) { thisLeft = leftNode; }
+        //
+        // Bounding Rect:
+        // Or this approach...
+        if (!browserIsIE) {
+            // if (elementPassed.getClientRects) {
+            var leftRects = thisLeft;
+            var clientRects = elementPassed.getClientRects();
+            if (clientRects != null) {
+                while (clientRectsIndex < clientRects.length) {
+                    leftRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
+                    clientRectsIndex++;
+                }
+                if (leftRects > thisLeft) { thisLeft = leftRects; }
+            }
+            // }
+        }
     }
-    if (DoOffset) {
-        if (leftOffset > thisLeft) { thisLeft = leftOffset; }
-    }
-    if (DoScroll) {
-        if (leftScroll > thisLeft) { thisLeft = leftScroll; }
-    }
-    if (thisLeft > 3000) {
-        // ERROR
-        thisLeft = 3000;
-    }
+    //
+    // Minimum or default
+    // Default left not appropriate here
+    if (thisLeft == 0 && elLeftDefault) { thisLeft = elLeftDefault; }
+    // Maximum
+    // if (thisLeft > 3000) {
+    //     // ERROR
+    //     thisLeft = 3000;
+    // }
     return thisLeft;
 }
 // Layout Width Get
-function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDefault) {
+function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, elWidthDefault) {
     var DoOffset = true;
     if (!elementPassed) { return 0; }
     if (!elementPassed.style) { return 0; }
     var thisWidth = 0;
     if (elementPassed.style) {
         if (browserIsOld) {
-            widthBase = parseFloat(elementPassed.style.width);
-            widthOffset = parseFloat(elementPassed.offsetWidth);
-            widthScroll = parseFloat(elementPassed.scrollWidth);
-            widthClient = parseFloat(elementPassed.clientWidth);
+            widthBase = parseInt(elementPassed.style.width);
+            widthOffset = parseInt(elementPassed.offsetWidth);
+            widthScroll = parseInt(elementPassed.scrollWidth);
+            widthClient = parseInt(elementPassed.clientWidth);
         } else {
-            widthBase = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('Width'));
-            widthOffset = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetWidth'));
-            widthScroll = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollWidth'));
-            widthClient = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('clientWidth'));
+            widthBase = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('Width'));
+            widthOffset = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetWidth'));
+            widthScroll = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollWidth'));
+            widthClient = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('clientWidth'));
         }
-        widthNode = 0;
-        widthRects = 0;
-        clientRectsIndex = 0;
         //
         if (DoBase && widthBase) {
             if (widthBase > thisWidth) { thisWidth = widthBase; }
@@ -534,16 +633,19 @@ function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDef
         // all else failed so use the protype approach...
         var bodyTempContainer = document.getElementById('BodyTempContainer');
         bodyTempContainer.appendChild(elementPassed.cloneNode(true));
-        widthNode = bodyTempContainer.childNodes[0].offsetWidth;
+        var widthNode = bodyTempContainer.childNodes[0].offsetWidth;
         bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
         if (widthNode > thisWidth) { thisWidth = widthNode; }
         //
         // Bounding Rect:
         // Or this approach...
+        var widthRects = thisWidth;
         if (!browserIsIE) {
             // if (elementPassed.getClientRects) {
+            var widthRects = thisWidth;
             var clientRects = elementPassed.getClientRects();
             if (clientRects != null) {
+                var clientRectsIndex = 0;
                 while (clientRectsIndex < clientRects.length) {
                     widthRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
                     clientRectsIndex++;
@@ -556,7 +658,7 @@ function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, layoutBlockWidthDef
     //
     // Minimum or default
     // Default width not appropriate here
-    // if (thisWidth == 0) { thisWidth = elWidthDefault; }
+    if (thisWidth == 0 && elWidthDefault) { thisWidth = elWidthDefault; }
     // Maximum
     // if (thisWidth > 100000) {
     //     // ERROR
@@ -572,15 +674,15 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
     var thisHeight = 0;
     if (elementPassed.style) {
         if (browserIsOld) {
-            heightBase = parseFloat(elementPassed.style.height);
-            heightOffset = parseFloat(elementPassed.offsetHeight);
-            heightScroll = parseFloat(elementPassed.scrollHeight);
-            heightClient = parseFloat(elementPassed.clientHeight);
+            heightBase = parseInt(elementPassed.style.height);
+            heightOffset = parseInt(elementPassed.offsetHeight);
+            heightScroll = parseInt(elementPassed.scrollHeight);
+            heightClient = parseInt(elementPassed.clientHeight);
         } else {
-            heightBase = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('Height'));
-            heightOffset = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetHeight'));
-            heightScroll = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollHeight'));
-            heightClient = parseFloat(window.getComputedStyle(elementPassed, null).getPropertyValue('clientHeight'));
+            heightBase = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('Height'));
+            heightOffset = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('offsetHeight'));
+            heightScroll = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('scrollHeight'));
+            heightClient = parseInt(window.getComputedStyle(elementPassed, null).getPropertyValue('clientHeight'));
         }
         heightNode = 0;
         heightRects = 0;
@@ -604,7 +706,7 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
         // all else failed so use the protype approach...
         var bodyTempContainer = document.getElementById('BodyTempContainer');
         bodyTempContainer.appendChild(elementPassed.cloneNode(true));
-        heightNode = bodyTempContainer.childNodes[0].offsetHeight;
+        var heightNode = bodyTempContainer.childNodes[0].offsetHeight;
         bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
         if (heightNode > thisHeight) { thisHeight = heightNode; }
         //
@@ -612,8 +714,10 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
         // Or this approach...
         if (!browserIsIE) {
             // if (elementPassed.getClientRects) {
+            var heightRects = thisHeight;
             var clientRects = elementPassed.getClientRects();
             if (clientRects != null) {
+                var clientRectsIndex = 0;
                 while (clientRectsIndex < clientRects.length) {
                     heightRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
                     clientRectsIndex++;
@@ -626,7 +730,7 @@ function ElementHeightMaxGet(DoScroll, DoBase, elementPassed, elHeightDefault) {
     //
     // Minimum or default
     // Default height not appropriate here
-    // if (thisHeight == 0) { thisHeight = elHeightDefault; }
+    if (thisHeight == 0 && elHeightDefault) { thisHeight = elHeightDefault; }
     // Maximum
     // if (thisHeight > 10000) {
     //     // ERROR
@@ -660,16 +764,16 @@ function ElementContainerAdjustGet(element, elementContainer, UsePercent, DoPadd
         if (element.style) {
             if (!browserIsOld) {
                 if (DoPadding) {
-                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-left'));
-                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('padding-right'));
+                    elementRaw += parseInt(window.getComputedStyle(element, null).getPropertyValue('padding-left'));
+                    elementRaw += parseInt(window.getComputedStyle(element, null).getPropertyValue('padding-right'));
                 }
                 if (DoMargin) {
-                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('margin-left'));
-                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('margin-right'));
+                    elementRaw += parseInt(window.getComputedStyle(element, null).getPropertyValue('margin-left'));
+                    elementRaw += parseInt(window.getComputedStyle(element, null).getPropertyValue('margin-right'));
                 }
                 if (DoBorder) {
-                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('border-left'));
-                    elementRaw += parseFloat(window.getComputedStyle(element, null).getPropertyValue('border-right'));
+                    elementRaw += parseInt(window.getComputedStyle(element, null).getPropertyValue('border-left'));
+                    elementRaw += parseInt(window.getComputedStyle(element, null).getPropertyValue('border-right'));
                 }
             } else {
                 if (DoPadding) {

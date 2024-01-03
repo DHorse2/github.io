@@ -161,7 +161,7 @@ function ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnP
     errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed) {
     //
     messageTemp = ErrorAnalysis(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
-        eventCurrPassed, UseDebugPassed, UseSingleLinePassed,
+        eventCurrPassed, UseDebug, DoNotUseSingleLine,
         elementPassed, elementSourcePassed,
         messagePassed,
         errorSeverityPassed, errorDoDisplayTagPassed, DoUseAlertPassed);

@@ -88,9 +88,6 @@ function WindowOnload() {
     // Build Menu Images Div
     if (!loadMenuImageDelay && !loadMenuImageDone) {
         menuImageGroupInitAll();
-        // bodyMenuImageContainer =
-        MenuImagesHtmlBuild();
-        loadMenuImageDone = true;
     }
 
     // Sync Form
@@ -154,15 +151,11 @@ function WindowCookieBuild() {
 ///////////////////////////////////////////////
 //  Document Load Initinitialize Variablesm, Arrays and Default Data
 function WindowLoadInit() {
-    bodyMenuInit();
     // Build Menu Images Div
     if (!loadMenuImageDelay && !loadMenuImageDone) {
         menuImageGroupInitAll();
-        // bodyMenuImageContainer =
-        MenuImagesHtmlBuild();
     }
     ElementObjectCreate();
-    // ElementObjectContainerCreate();    // Synchorize Confole Settings Form
     // Resize Window
     // WindowResizeLayout();
 }

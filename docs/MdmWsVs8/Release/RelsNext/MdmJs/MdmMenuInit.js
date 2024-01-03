@@ -14,12 +14,12 @@ function bodyMenuInit() {
     bodyMenuContainerGroupIndex[bodyMenuRight] = new Array(bodyMenuGroupUsedRightCn);
 
     for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupUsedLeftCn; bodyMenuGroupIndex++) {
-        bodyMenuContainer[bodyMenuLeft] [bodyMenuGroupIndex] = null;
-        bodyMenuContainerGroupIndex[bodyMenuLeft] [bodyMenuGroupIndex] = bodyMenuGroupIndex;
+        bodyMenuContainer[bodyMenuLeft][bodyMenuGroupIndex] = null;
+        bodyMenuContainerGroupIndex[bodyMenuLeft][bodyMenuGroupIndex] = bodyMenuGroupIndex;
     }
     for (bodyMenuGroupIndex = 0; bodyMenuGroupIndex < 1 + bodyMenuGroupUsedRightCn; bodyMenuGroupIndex++) {
-        bodyMenuContainer[bodyMenuRight] [bodyMenuGroupIndex] = null;
-        bodyMenuContainerGroupIndex[bodyMenuRight] [bodyMenuGroupIndex] = bodyMenuGroupIndex;
+        bodyMenuContainer[bodyMenuRight][bodyMenuGroupIndex] = null;
+        bodyMenuContainerGroupIndex[bodyMenuRight][bodyMenuGroupIndex] = bodyMenuGroupIndex;
     }
 
     // Groups
@@ -37,6 +37,7 @@ function bodyMenuInit() {
     }
 }
 function menuImageGroupInitAll(bodyMenuGroupMax) {
+    if (loadMenuImageDone) { return; }
     // Image Object Array
     if (menuImage == null) { menuImageCreate(); }
     menuImageInit();
@@ -44,7 +45,10 @@ function menuImageGroupInitAll(bodyMenuGroupMax) {
         menuImageGroupInit(imgGroupIndex, imgMaxByGroup[imgGroupIndex])
     }
     menuImageSet();
+    // bodyMenuImageContainer =
+    MenuImagesHtmlBuild();
     loadMenuImageDone = true;
+    loadMenuImageFirst = true;
 }
 //
 function menuImageCreate() {
@@ -76,6 +80,8 @@ function menuImageCreate() {
     menuImageRootPosition = new Array(imgGroupImageArraySize); // By Top, Left, Right/Width, Bottom/Height
 
     // Image Position
+    menuImagePositionOrgin = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
+    menuImagePositionDest = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
     ////////////////////////////////////////////////
     // Position of Parent Image (Parent of First only stored at this time)
     menuImagePositionLeft = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
@@ -117,8 +123,6 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
 
     // menuImage[oObjGroupIndex] = new Array(oObjGroupIndex);
 
-    // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
-    menuImageRootPosition[oObjGroupIndex] = new Array(4); // By Top, Left, Right/Width, Bottom/Height
 
     // Image Display (Visible) Locked Array
     ////////////////////////////////////////////////
@@ -126,6 +130,8 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
     menuImageLocked[oObjGroupIndex] = new Array(oObjGroupIndexMax);
 
     // Image Position
+    menuImagePositionOrgin[oObjGroupIndex] = new Array(oObjGroupIndexMax);
+    menuImagePositionDest[oObjGroupIndex] = new Array(oObjGroupIndexMax);
     ////////////////////////////////////////////////
     // Position of Parent Image (Parent of First only stored at this time)
     menuImagePositionLeft[oObjGroupIndex] = new Array(oObjGroupIndexMax);
@@ -145,13 +151,18 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
     // Image Postioning Offsets
     ////////////////////////////////////////////////
     // These are layout postion patterns to be applied
+    // First Image Parent Postion By Group, Top, Left, Right/Width, Bottom/Height
+    menuImageRootPosition[oObjGroupIndex] = new Array(4); // By Top, Left Bottom Right
     // Menu Images (by Groups) - Image Object Array
     menuImageOffsetFirst[oObjGroupIndex] = new Array(4); // By Top, Left (2)
+
     for (oPosIndex = 0; oPosIndex < 4; oPosIndex++) {
+        menuImageRootPosition[oObjGroupIndex][oPosIndex] = new Array(2);
         // Menu Images (by Groups) - Image Object Array
-        menuImageOffsetFirst[oObjGroupIndex] [oPosIndex] = new Array(2);
-        for (SizeIndex = 0; SizeIndex < 2; SizeIndex++) {
-            menuImageOffsetFirst[oObjGroupIndex] [oPosIndex] [SizeIndex] = 0;
+        menuImageOffsetFirst[oObjGroupIndex][oPosIndex] = new Array(2);
+        for (oSizeIndex = 0; oSizeIndex < 2; oSizeIndex++) {
+            menuImageRootPosition[oObjGroupIndex][oPosIndex][oSizeIndex] = 0;
+            menuImageOffsetFirst[oObjGroupIndex][oPosIndex][oSizeIndex] = 0;
         }
     }
 
@@ -163,41 +174,52 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
     ////////////////////////////////////////////////
     for (oObjIndex = 0; oObjIndex < 1 + oObjGroupIndexMax; oObjIndex++) {
         // These are layout postion patterns to be applied
-        menuImageOffsetLeft[oObjGroupIndex] [oObjIndex] = new Array(2);
-        menuImageOffsetTop[oObjGroupIndex] [oObjIndex] = new Array(2);
+        menuImageOffsetLeft[oObjGroupIndex][oObjIndex] = new Array(2);
+        menuImageOffsetTop[oObjGroupIndex][oObjIndex] = new Array(2);
 
         // Timers and locks
-        menuImageTimerCn[oObjGroupIndex] [oObjIndex] = new Array(2);
-        menuImageLocked[oObjGroupIndex] [oObjIndex] = new Array(2);
+        menuImageTimerCn[oObjGroupIndex][oObjIndex] = new Array(2);
+        menuImageLocked[oObjGroupIndex][oObjIndex] = new Array(2);
 
         // Mouse tracking
         ////////////////////////////////////////////////
-        imgAniToggle[oObjGroupIndex] [oObjIndex] = new Array(2);
-        imgMouseHover[oObjGroupIndex] [oObjIndex] = new Array(2);
+        imgAniToggle[oObjGroupIndex][oObjIndex] = new Array(2);
+        imgMouseHover[oObjGroupIndex][oObjIndex] = new Array(2);
 
         // Image Postioning Offsets
         // These are layout postion patterns to be applied
-        menuImagePositionLeft[oObjGroupIndex] [oObjIndex] = new Array(2);
-        menuImagePositionTop[oObjGroupIndex] [oObjIndex] = new Array(2);
-        menuImagePositionWidth[oObjGroupIndex] [oObjIndex] = new Array(2);
-        menuImagePositionHeight[oObjGroupIndex] [oObjIndex] = new Array(2);
+        menuImagePositionOrgin[oObjGroupIndex][oObjIndex] = new Array(2);
+        menuImagePositionDest[oObjGroupIndex][oObjIndex] = new Array(2);
+
+        menuImagePositionLeft[oObjGroupIndex][oObjIndex] = new Array(2);
+        menuImagePositionTop[oObjGroupIndex][oObjIndex] = new Array(2);
+        menuImagePositionWidth[oObjGroupIndex][oObjIndex] = new Array(2);
+        menuImagePositionHeight[oObjGroupIndex][oObjIndex] = new Array(2);
         //
-        for (SizeIndex = 0; SizeIndex < 2; SizeIndex++) {
+        for (oSizeIndex = 0; oSizeIndex < 2; oSizeIndex++) {
             // offsets
-            menuImageOffsetLeft[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
-            menuImageOffsetTop[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
+            menuImageOffsetLeft[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            menuImageOffsetTop[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
             // timers
-            menuImageTimerCn[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
-            menuImageLocked[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
+            menuImageTimerCn[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            menuImageLocked[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
             // Mouse tracking
             ////////////////////////////////////////////////
-            imgAniToggle[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
-            imgMouseHover[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
+            imgAniToggle[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            imgMouseHover[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+
             // position
-            menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
-            menuImagePositionTop[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
-            menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
-            menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [SizeIndex] = 0;
+            menuImagePositionOrgin[oObjGroupIndex][oObjIndex][oSizeIndex] = new Array(4);
+            menuImagePositionDest[oObjGroupIndex][oObjIndex][oSizeIndex] = new Array(4);
+            for (oSideIndex = 0; oSideIndex < 4; oSideIndex++) {
+                menuImagePositionOrgin[oObjGroupIndex][oObjIndex][oSizeIndex][oSideIndex] = 0;
+                menuImagePositionDest[oObjGroupIndex][oObjIndex][oSizeIndex][oSideIndex] = 0;
+            }
+
+            menuImagePositionLeft[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            menuImagePositionTop[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            menuImagePositionWidth[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            menuImagePositionHeight[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
         }
     }
 }
