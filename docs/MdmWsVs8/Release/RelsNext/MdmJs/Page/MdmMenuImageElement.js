@@ -3,168 +3,178 @@
 // ElementItemGetAllFromIndex
 // ...................................... //
 function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
-	if (loadJavaFirst) { ElementObjectCreate(); } // 3) todo save indexes first?
-	oObjIndex = oObjCn;
-	oObjGroupIndex = oObjGroupCn;
-	oObjValid = true;
-	oObjId = new String();
-	oObjParentId = new String();
-	script_state += " Get(" + oObjGroupCn + ", " + oObjCn + ") ";
-	// script_state += "MdmMenuImageElement:ElementItemGetAllFromIndex(" + oObjGroupCn + ", " + oObjCn + ")";
+	try {
+		if (loadJavaFirst) { ElementObjectCreate(); } // 3) todo save indexes first?
+		oObjIndex = oObjCn;
+		oObjGroupIndex = oObjGroupCn;
+		oObjValid = true;
+		oObjId = new String();
+		oObjParentId = new String();
+		script_state += " Get(" + oObjGroupCn + ", " + oObjCn + ") ";
+		// script_state += "MdmMenuImageElement:ElementItemGetAllFromIndex(" + oObjGroupCn + ", " + oObjCn + ")";
 
-	// ...................................... //
-	switch (oObjGroupIndex) {
-		// Non Groups
-		case 101: oObjValid = false; break;
-		case 102: oObjValid = false; break;
-		case 103: oObjValid = false; break;
-		case 104: oObjValid = false; break;
 		// ...................................... //
-		// Group 1
-		case 1:
-			//
-			switch (oObjCn) {
-				case 0: break;
-				case 1:
-					oObjId = 'MdmImportTld'; oObjParentId = 'MenuGroup1Header'; break;
-					// oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
-				case 2:
-					oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmImportTld'; break;
-				case 3:
-					oObjId = 'MdmWebUi'; oObjParentId = 'MdmNetAppFrame'; break;
-				case 4:
-					oObjId = 'MdmDbUtilClass'; oObjParentId = 'MdmWebUi'; break;
-				case 5:
-					oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmDbUtilClass'; break;
-				case 6:
-					oObjId = 'MdmNetVirList'; oObjParentId = 'MdmOutlookSync'; break;
-				case 7:
-					oObjId = 'MdmSystemMgnt'; oObjParentId = 'MdmNetVirList'; break;
-				case 8:
-					oObjId = 'MdmWebDev'; oObjParentId = 'MdmSystemMgnt'; break;
-				default:
-					oObjValid = false;
-					oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
-			}
-			break;
-		// ...................................... //
-		// Group 2
-		case 2:
-			switch (oObjCn) {
-				case 0: break;
-				case 1:
-					oObjId = 'MdmResume'; oObjParentId = 'MenuGroup2Header'; break;
-				case 2:
-					oObjId = 'MdmRsmIt'; oObjParentId = 'MdmResume'; break;
-				case 3:
-					oObjId = 'MdmDghCarBio'; oObjParentId = 'MdmRsmIt'; break;
-				case 4:
-					oObjId = 'MdmDghAccom'; oObjParentId = 'MdmDghCarBio'; break;
-				default:
-					oObjValid = false;
-					oObjId = 'MdmResume'; oObjParentId = 'MenuContainerLeft2'; break;
-			}
+		switch (oObjGroupIndex) {
+			// Non Groups
+			case 101: oObjValid = false; break;
+			case 102: oObjValid = false; break;
+			case 103: oObjValid = false; break;
+			case 104: oObjValid = false; break;
 			// ...................................... //
-			break;
-		// Group 3
-		case 3: switch (oObjCn) {
-			case 0: break;
+			// Group 1
 			case 1:
-				oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuGroup3Header'; break;
+				//
+				switch (oObjCn) {
+					case 0: break;
+					case 1:
+						oObjId = 'MdmImportTld'; oObjParentId = 'MenuGroup1Header'; break;
+					// oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
+					case 2:
+						oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmImportTld'; break;
+					case 3:
+						oObjId = 'MdmWebUi'; oObjParentId = 'MdmNetAppFrame'; break;
+					case 4:
+						oObjId = 'MdmDbUtilClass'; oObjParentId = 'MdmWebUi'; break;
+					case 5:
+						oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmDbUtilClass'; break;
+					case 6:
+						oObjId = 'MdmNetVirList'; oObjParentId = 'MdmOutlookSync'; break;
+					case 7:
+						oObjId = 'MdmSystemMgnt'; oObjParentId = 'MdmNetVirList'; break;
+					case 8:
+						oObjId = 'MdmWebDev'; oObjParentId = 'MdmSystemMgnt'; break;
+					default:
+						oObjValid = false;
+						oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
+				}
+				break;
+			// ...................................... //
+			// Group 2
 			case 2:
-				oObjId = 'MdmCogSciProj'; oObjParentId = 'MdmTechRsrch'; break;
-			case 3:
-				oObjId = 'MdmMvvmProj'; oObjParentId = 'MdmCogSciProj'; break;
+				switch (oObjCn) {
+					case 0: break;
+					case 1:
+						oObjId = 'MdmResume'; oObjParentId = 'MenuGroup2Header'; break;
+					case 2:
+						oObjId = 'MdmRsmIt'; oObjParentId = 'MdmResume'; break;
+					case 3:
+						oObjId = 'MdmDghCarBio'; oObjParentId = 'MdmRsmIt'; break;
+					case 4:
+						oObjId = 'MdmDghAccom'; oObjParentId = 'MdmDghCarBio'; break;
+					default:
+						oObjValid = false;
+						oObjId = 'MdmResume'; oObjParentId = 'MenuContainerLeft2'; break;
+				}
+				// ...................................... //
+				break;
+			// Group 3
+			case 3: switch (oObjCn) {
+				case 0: break;
+				case 1:
+					oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuGroup3Header'; break;
+				case 2:
+					oObjId = 'MdmCogSciProj'; oObjParentId = 'MdmTechRsrch'; break;
+				case 3:
+					oObjId = 'MdmMvvmProj'; oObjParentId = 'MdmCogSciProj'; break;
+				default:
+					oObjValid = false;
+					oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuContainerLeft3'; break;
+			}
+				break;
+			// ...................................... //
+			// Group 4
+			case 4:
+				switch (oObjCn) {
+					case 0: break;
+					case 1:
+						oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerRight1'; break;
+					case 2:
+						oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTld'; break;
+					case 3:
+						oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmKBil'; break;
+					case 4:
+						oObjId = 'MdmSrt'; oObjParentId = 'MdmNetAppFrame'; break;
+					case 5:
+						oObjId = 'MdmPickTr'; oObjParentId = 'MdmSrt'; break;
+					case 6:
+						oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmPickTr'; break;
+					case 7:
+						oObjId = 'MdmPickOss'; oObjParentId = 'MdmOutlookSync'; break;
+					case 8:
+						oObjId = 'MdmBlank'; oObjParentId = 'MdmPickOss'; break;
+					default:
+						oObjValid = false;
+						oObjId = 'MdmImportTldRight'; oObjParentId = 'MenuContainerRight1'; break;
+				}
+				break;
 			default:
 				oObjValid = false;
-				oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuContainerLeft3'; break;
+				oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
 		}
-			break;
 		// ...................................... //
-		// Group 4
-		case 4:
-			switch (oObjCn) {
-				case 0: break;
-				case 1:
-					oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerRight1'; break;
-				case 2:
-					oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTld'; break;
-				case 3:
-					oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmKBil'; break;
-				case 4:
-					oObjId = 'MdmSrt'; oObjParentId = 'MdmNetAppFrame'; break;
-				case 5:
-					oObjId = 'MdmPickTr'; oObjParentId = 'MdmSrt'; break;
-				case 6:
-					oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmPickTr'; break;
-				case 7:
-					oObjId = 'MdmPickOss'; oObjParentId = 'MdmOutlookSync'; break;
-				case 8:
-					oObjId = 'MdmBlank'; oObjParentId = 'MdmPickOss'; break;
-				default:
-					oObjValid = false;
-					oObjId = 'MdmImportTldRight'; oObjParentId = 'MenuContainerRight1'; break;
-			}
-			break;
-		default:
-			oObjValid = false;
-			oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
-	}
-	// ...................................... //
-	if (oObjValid) {
-		oObj = ElementGetRef(oObj, oObjId, oObjId);
-		if (!oObj) {
-			oObjValid = false;
-		} else {
-			oObjNotFound = false;
-			oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
-			// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-			// oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
-			if (!oObjParent) {
+		if (oObjValid) {
+			oObj = ElementGetRef(oObj, oObjId, oObjId);
+			if (!oObj) {
+				oObjValid = false;
+			} else {
+				oObjNotFound = false;
 				oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+				// oObjParent = ElementGetRef(oObjParent, oObjId + 'MenuLine', oObjId + 'MenuLine');
+				// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
+				// oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
+				// if (!oObjParent) {
+				// 	// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
+				// 	oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+				// }
+				if (!oObjParent) { oObjValid = false; }
+				oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
+				oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
+				oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
+				oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
 			}
-			if (!oObjParent) { oObjValid = false; }
-			// oObjImage = ElementGetRef(oObjImage, oObjId, oObjId);
-			oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
-			oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
-			oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
-			oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
 		}
-	}
-	if (!oObjValid) {
-		oObjNotFound = true;
-		oObj = null;
-		oObjImage = null;
-		oObjParent = null;
-		oObjLarge = null;
-		oObjImageLarge = null;
-		oObjText = "Object (" + oObjGroupCn + ", " + oObjCn + ") Not Found!";
-		var errorLogLine = oObjText;
-		ErrorOccured("MdmMenuImageElement:ElementItemGetAllFromIndex", 139, 0, null, null, null, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
+		if (!oObjValid) {
+			oObjNotFound = true;
+			oObj = null;
+			oObjImage = null;
+			oObjParent = null;
+			oObjLarge = null;
+			oObjImageLarge = null;
+			oObjText = "Object " + oObjId + " (" + oObjGroupCn + ", " + oObjCn + ") Not Found!";
+			var errorLogLine = oObjText;
+			ErrorOccured("MdmMenuImageElement:ElementItemGetAllFromIndex", 139, 0, null, null, null, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
+		}
+		//
+		var oObject = {
+			oObjGroupCn,
+			oObjCn,
+			oObjValid,
+			oObj,
+			oObjImage,
+			oObjParent,
+			oObjLarge,
+			oObjImageLarge,
+			oObjText
+		}
+		//
+		return oObject;
+		// group: oObjGroupCn,
+		// item: oObjCn,
+		// valid: oObjValid,
+		// object: oObj,
+		// image: oObjImage,
+		// parent: oObjParent,
+		// large: oObjLarge,
+		// imageLarge: oObjImageLarge,
+		// text: oObjText
+		//
+	} catch (bodyLayoutErr) {
+		// Errors:
+		// ...................................... //
+		script_state = "Item " + oObjId + "Show Error in " + script_state + "::MdmMenuImageElement:ElementItemGetAllFromIndex";
+		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
 	}
 	//
-	var oObject = {
-		oObjGroupCn,
-		oObjCn,
-		oObjValid,
-		oObj,
-		oObjImage,
-		oObjParent,
-		oObjLarge,
-		oObjImageLarge,
-		oObjText
-	}
-	//
-	return oObject;
-	// group: oObjGroupCn,
-	// item: oObjCn,
-	// valid: oObjValid,
-	// object: oObj,
-	// image: oObjImage,
-	// parent: oObjParent,
-	// large: oObjLarge,
-	// imageLarge: oObjImageLarge,
-	// text: oObjText
 }
 // ElementItemGetDescription
 // ...................................... //

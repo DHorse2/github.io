@@ -154,6 +154,7 @@ function menuImageInit() {
 }
 //
 function menuImageSet() {
+    // Dead code
     // Heading Image Group
     ////////////////////////////////////////////////
     // imgMaxByGroup[headingGroupCnCurr] = imgGroupBoxCount;

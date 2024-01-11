@@ -40,515 +40,523 @@ function ElementPlay(playDirection, IsImageLarge,
 	// if (oObjLocked) { return; } else { oObjLocked = true; }
 	//
 	// Timers (and filter transitions) are attached to the Move
-	var timerType = timerTypeMove;
-	var timerGroup = oObjGroupIndex;
-	var timerGroupItem = oObjGroupItemIndex;
-	var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
-	var timerRootKey = timerRootId + 'Group' + timerGroup + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
-	//
-	script_state += "MdmAnimationElement:ElementPlay:" + timerItemKey;
+	try {
+		var timerType = timerTypeMove;
+		var timerGroup = oObjGroupIndex;
+		var timerGroupItem = oObjGroupItemIndex;
+		var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
+		var timerRootKey = timerRootId + 'Group' + timerGroup + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
+		//
+		script_state += "MdmAnimationElement:ElementPlay:" + timerItemKey;
 
-	var oObjSize = {
-		Top: 0,
-		Left: 0,
-		Width: 0,
-		Height: 0
-	};
-	// var oObjTop = 0;
-	// var oObjLeft = 0;
-	// var oObjWidth = 0;
-	// var oObjHeight = 0;
+		var oObjSize = {
+			Top: 0,
+			Left: 0,
+			Width: 0,
+			Height: 0
+		};
+		// var oObjTop = 0;
+		// var oObjLeft = 0;
+		// var oObjWidth = 0;
+		// var oObjHeight = 0;
 
-	filterPlayIndex = 1;
-	var HideImage = false;
-	var HideImageLarge = false;
-	//
-	if ((UseLog || UseDebug)
-		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
-	) {
-		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
-			+ ', Play command requested'
-			+ ', ' + ((playDirection == playDirectionForward) ? 'Forward' : 'Reverse')
-			+ '.',
-			'MdmAnimationElement:ElementPlay', 54, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, UseAlert);
-	}
-	var PlayAbort = false;
-	//
-	// Bug for testing: var timerGroupItem = oObjNext.id;
-	// Checking Transition
-	if (!timerObj) { TimerCreateAll(); }
+		filterPlayIndex = 1;
+		var HideImage = false;
+		var HideImageLarge = false;
+		//
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseEither, playDirection, 'Request')
+				+ ', Play command requested'
+				+ ', ' + ((playDirection == playDirectionForward) ? 'Forward' : 'Reverse')
+				+ '.',
+				'MdmAnimationElement:ElementPlay', 54, 0, null, null,
+				errorIsComment, errorDoNotDisplayTag, UseAlert);
+		}
+		var PlayAbort = false;
+		//
+		// Bug for testing: var timerGroupItem = oObjNext.id;
+		// Checking Transition
+		if (!timerObj) { TimerCreateAll(); }
 
-	var debugFunctionIsOn = false;
-	if (UseLogTimerDetail
-		|| (UseLogTimerTransition && timerType == timerTypeTransition)
-		|| (UseLogTimerMove && timerType == timerTypeMove)) {
-		debugFunctionIsOn = true; // || UseLogAnitmation
-	}
-	//
-	var timerPlayKey;
-	if (timerMethod == timerMethodGroup) {
-		timerPlayKey = timerRootKey;
-	} else if (timerMethod == timerMethodItem) {
-		timerPlayKey = timerItemKey;
-	}
-	//
-	var timerItemMoveKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerTypeMove;
-	var timerItemTransitionKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerTypeTransition;
-	//
-	if (timerObj[timerItemTransitionKey]) {
-		if (timerObj[timerItemTransitionKey].timerIsRunning) {
-			// Running
-			if (playDirection != timerObj[timerItemTransitionKey].playDirection) {
-				// playDirection is different (while running)
-				if (debugFunctionIsOn || UseLogAnitmation) {
-					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
-						+ ', Items:' + timerObj[timerItemTransitionKey].timerInstance
-						+ ', Already running in opposite direction, deactivating'
-						+ '.',
-						'MdmAnimationElement:ElementPlay', 73, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, UseAlert);
-				}
-				// Item will be deactivate and the play command issued
-				TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
-			} else {
-				// playDirection the same (while running)
-				if (debugFunctionIsOn || UseLogAnitmation) {
-					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
-						+ ', Items:' + timerObj[timerItemTransitionKey].timerInstance
-						+ ', Already running, performing a Transition step instead'
-						+ '.',
-						'MdmAnimationElement:ElementPlay', 86, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, UseAlert);
-				}
-				// the next step will be performed and the new play command skipped
-				if (timerMethod == timerMethodGroup) {
-					TimerGroupDoStepFilter(timerTypeTransition, timerGroup, timerGroupItem);
-				} else {
-					TimerItemDoStepFilter(timerTypeTransition, timerGroup, timerGroupItem);
-				}
-				//
-				PlayAbort = true;// skip issuing play command
-				//
-			} // end of playDirection match
-		} else {
-			// Transition is NOT running
-			// Check if displayed or not...
-			if (playDirection == playDirectionForward) {
-				// Forward
-				if (timerObj[timerItemTransitionKey].elementIsDisplayed == elementIsDisplayed
-					&& playDirection == timerObj[timerItemTransitionKey].playDirection
-				) {
-					// Already displayed
+		var debugFunctionIsOn = false;
+		if (UseLogTimerDetail
+			|| (UseLogTimerTransition && timerType == timerTypeTransition)
+			|| (UseLogTimerMove && timerType == timerTypeMove)) {
+			debugFunctionIsOn = true; // || UseLogAnitmation
+		}
+		//
+		var timerPlayKey;
+		if (timerMethod == timerMethodGroup) {
+			timerPlayKey = timerRootKey;
+		} else if (timerMethod == timerMethodItem) {
+			timerPlayKey = timerItemKey;
+		}
+		//
+		var timerItemMoveKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerTypeMove;
+		var timerItemTransitionKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerTypeTransition;
+		//
+		if (timerObj[timerItemTransitionKey]) {
+			if (timerObj[timerItemTransitionKey].timerIsRunning) {
+				// Running
+				if (playDirection != timerObj[timerItemTransitionKey].playDirection) {
+					// playDirection is different (while running)
 					if (debugFunctionIsOn || UseLogAnitmation) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
-							+ ', Play Forward command NOT issued'
-							+ ', Item is already displayed at destination'
+							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+							+ ', Items:' + timerObj[timerItemTransitionKey].timerInstance
+							+ ', Already running in opposite direction, deactivating'
 							+ '.',
-							'MdmAnimationElement:ElementPlay', 111, 0, null, null,
+							'MdmAnimationElement:ElementPlay', 73, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, UseAlert);
 					}
-					// skip issuing play command
-					PlayAbort = true;
-				}
-			} else {
-				// Reverse
-				if (timerObj[timerItemTransitionKey].elementIsDisplayed == elementIsNotDisplayed
-					&& playDirection == timerObj[timerItemTransitionKey].playDirection
-				) {
-					// Already hidden
+					// Item will be deactivate and the play command issued
+					TimerItemDeactivate(timerTypeTransition, timerGroup, timerGroupItem, DoNotUseRoot);
+				} else {
+					// playDirection the same (while running)
 					if (debugFunctionIsOn || UseLogAnitmation) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
-							+ ', Play Reverse command NOT issued'
-							+ ', Item should be already hidden'
+							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+							+ ', Items:' + timerObj[timerItemTransitionKey].timerInstance
+							+ ', Already running, performing a Transition step instead'
 							+ '.',
-							'MdmAnimationElement:ElementPlay', 127, 0, null, null,
+							'MdmAnimationElement:ElementPlay', 86, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, UseAlert);
 					}
-					// skip issuing play command
-					PlayAbort = true;
-				} // end of not displayed
-			} // end of transition playDirection is Forward or Reverse
-		} // end of Transition is running or not
-	} // end of Transition exists
-	//
-	// Transition now:
-	//		reset (direction change),
-	//		continued (via a step),
-	//		or no action.
-	//
-	// Checking Move
-	if (timerObj[timerItemMoveKey]) {
-		if (timerObj[timerItemMoveKey].timerIsRunning) {
-			// Timer is Running
-			if (playDirection != timerObj[timerItemMoveKey].playDirection) {
-				// playDirection is different (while running)
-				if (debugFunctionIsOn || UseLogAnitmation) {
-					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
-						+ ', Items:' + timerObj[timerItemMoveKey].timerInstance
-						+ ', Already running, deactivating'
-						+ '.',
-						'MdmAnimationElement:ElementPlay', 155, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, UseAlert);
-				}
-				// Item will be deactivate and the play command issued
-				TimerItemDeactivate(timerType, timerGroup, timerGroupItem, DoNotUseRoot);
-			} else {
-				// playDirection the same (while running)
-				if (debugFunctionIsOn || UseLogAnitmation) {
-					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
-						+ ', Items:' + timerObj[timerItemMoveKey].timerInstance
-						+ ', Already running, performing a Move step instead'
-						+ '.',
-						'MdmAnimationElement:ElementPlay', 168, 0, null, null,
-						errorIsComment, errorDoNotDisplayTag, UseAlert);
-				}
-				//
-				if (timerMethod == timerMethodGroup) {
-					TimerGroupDoStepMove(timerTypeMove, timerGroup, timerGroupItem);
-				} else {
-					TimerItemDoStepMove(timerTypeMove, timerGroup, timerGroupItem);
-				}
-				//
-				PlayAbort = true;// skip issuing play command
-				//
-			} // end of playDirection match
-		} else {
-			// Move is NOT running
-			// Check if displayed or not...
-			if (playDirection == playDirectionForward) {
-				// Forward
-				if (timerObj[timerItemMoveKey].elementIsDisplayed == elementIsDisplayed) {
-					if (debugFunctionIsOn || UseLogAnitmation) {
-						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
-							+ ', Play Forward command NOT issued'
-							+ ', Item is already displayed...',
-							'MdmAnimationElement:ElementPlay', 192, 0, null, null,
-							errorIsComment, errorDoNotDisplayTag, UseAlert);
+					// the next step will be performed and the new play command skipped
+					if (timerMethod == timerMethodGroup) {
+						TimerGroupDoStepFilter(timerTypeTransition, timerGroup, timerGroupItem);
+					} else {
+						TimerItemDoStepFilter(timerTypeTransition, timerGroup, timerGroupItem);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
 					//
-				}
+				} // end of playDirection match
 			} else {
-				// Reverse
-				if (timerObj[timerItemMoveKey].elementIsDisplayed == elementIsNotDisplayed) {
+				// Transition is NOT running
+				// Check if displayed or not...
+				if (playDirection == playDirectionForward) {
+					// Forward
+					if (timerObj[timerItemTransitionKey].elementIsDisplayed == elementIsDisplayed
+						&& playDirection == timerObj[timerItemTransitionKey].playDirection
+					) {
+						// Already displayed
+						if (debugFunctionIsOn || UseLogAnitmation) {
+							MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+								TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								+ ', Play Forward command NOT issued'
+								+ ', Item is already displayed at destination'
+								+ '.',
+								'MdmAnimationElement:ElementPlay', 111, 0, null, null,
+								errorIsComment, errorDoNotDisplayTag, UseAlert);
+						}
+						// skip issuing play command
+						PlayAbort = true;
+					}
+				} else {
+					// Reverse
+					if (timerObj[timerItemTransitionKey].elementIsDisplayed == elementIsNotDisplayed
+						&& playDirection == timerObj[timerItemTransitionKey].playDirection
+					) {
+						// Already hidden
+						if (debugFunctionIsOn || UseLogAnitmation) {
+							MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+								TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								+ ', Play Reverse command NOT issued'
+								+ ', Item should be already hidden'
+								+ '.',
+								'MdmAnimationElement:ElementPlay', 127, 0, null, null,
+								errorIsComment, errorDoNotDisplayTag, UseAlert);
+						}
+						// skip issuing play command
+						PlayAbort = true;
+					} // end of not displayed
+				} // end of transition playDirection is Forward or Reverse
+			} // end of Transition is running or not
+		} // end of Transition exists
+		//
+		// Transition now:
+		//		reset (direction change),
+		//		continued (via a step),
+		//		or no action.
+		//
+		// Checking Move
+		if (timerObj[timerItemMoveKey]) {
+			if (timerObj[timerItemMoveKey].timerIsRunning) {
+				// Timer is Running
+				if (playDirection != timerObj[timerItemMoveKey].playDirection) {
+					// playDirection is different (while running)
 					if (debugFunctionIsOn || UseLogAnitmation) {
 						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
-							+ ', Play Reverse command NOT issued'
-							+ ', Item is already hidden...',
-							'MdmAnimationElement:ElementPlay', 207, 0, null, null,
+							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Deactivate')
+							+ ', Items:' + timerObj[timerItemMoveKey].timerInstance
+							+ ', Already running, deactivating'
+							+ '.',
+							'MdmAnimationElement:ElementPlay', 155, 0, null, null,
 							errorIsComment, errorDoNotDisplayTag, UseAlert);
+					}
+					// Item will be deactivate and the play command issued
+					TimerItemDeactivate(timerType, timerGroup, timerGroupItem, DoNotUseRoot);
+				} else {
+					// playDirection the same (while running)
+					if (debugFunctionIsOn || UseLogAnitmation) {
+						MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+							TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate DoStep')
+							+ ', Items:' + timerObj[timerItemMoveKey].timerInstance
+							+ ', Already running, performing a Move step instead'
+							+ '.',
+							'MdmAnimationElement:ElementPlay', 168, 0, null, null,
+							errorIsComment, errorDoNotDisplayTag, UseAlert);
+					}
+					//
+					if (timerMethod == timerMethodGroup) {
+						TimerGroupDoStepMove(timerTypeMove, timerGroup, timerGroupItem);
+					} else {
+						TimerItemDoStepMove(timerTypeMove, timerGroup, timerGroupItem);
 					}
 					//
 					PlayAbort = true;// skip issuing play command
 					//
-				} // end of not displayed
-			} // end of playDirection is Forward or Reverse
-		} // end of Move is running or not
-	} // end of Move Item exists
-	//
-	// Move or Transition now:
-	//		reset (direction change),
-	//		continued (via a step),
-	//		or no action.
-	//
-	// Check if new play aborted
-	if (PlayAbort) {
-		// Do NOT issue a command
-		return;
-	} // skip issuing play command
-
-	// ...................................... //
-	// Show item
-	// ...................................... //
-	LastId = oObjNext.id
-
-	// Image Size
-	// ...................................... //
-	var layoutBlockWidthDefault = iImageSize + (menuImageBorderWidth * 2);
-	var elHeightDefault = (iImageSize * oObjImageSizeRatio) + (menuImageBorderWidth * 2);
-
-	//
-	// Position
-	////////////////////////////////////////////////
-	// Parent Postion
-	////////////////////////////////////////////////
-	// Get the offset width of that parent element
-	////////////////////////////////////////////////
-	// oObjSize = ElementPosCalculate(oObjNextParent);
-
-	// // Position Control
-	// ////////////////////////////////////////////////
-	// // Save the Left position (of the first image in the group)
-	// if (oObjGroupItemIndex < 2) {
-	// 	menuImageRootPosition[oObjGroupIndex][indexTop][IsImageLarge] = oObjSize.Top;// oObjNextTop;// Top
-	// 	menuImageRootPosition[oObjGroupIndex][indexLeft][IsImageLarge] = oObjSize.Left;// oObjNextLeft;// Left
-	// 	menuImageRootPosition[oObjGroupIndex][indexWidth][IsImageLarge] = oObjSize.Width;// Right
-	// 	menuImageRootPosition[oObjGroupIndex][indexHeight][IsImageLarge] = oObjSize.Height;// Bottom
-	// 	//
-	// 	// Store first Parent Postion in Root (note only first is stored at this time)
-	// 	menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
-	// 	menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
-	// 	menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
-	// 	menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
-	// 	//
-	// }
-	// // Store Parent Postion (note only first is stored at this time)
-	// menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Left;
-	// menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Top;
-	// menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Width;
-	// menuImagePositionHeight[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Height;
-
-	// POSITION
-	// elLeftOrig, elTopOrig, elLeftDest, elTopDest,
-	elTopOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
-	elLeftOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
-
-	// var oObjGroupItemIndexTemp = oObjGroupItemIndex;
-	// // if (!IsImageLarge) { oObjGroupItemIndexTemp = oObjRootIndex; }
-	// //
-	// elLeftOrig = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndexTemp][IsImageLarge];
-	// // if CascadeRight
-	// if (!IsImageLarge) {
-	// 	if (oObjGroupIndex < bodyMenuGroupUsedLeftCn) {
-	// 		elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndexTemp][IsImageLarge];
-	// 	}
-	// } else {
-	// 	if (oObjGroupIndex >= bodyMenuGroupUsedLeftCn) {
-	// 		elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndexTemp][IsImageLarge];
-	// 	}
-	// }
-	// elTopOrig = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndexTemp][IsSmall];
-
-
-	// if (layoutCascadeDown && IsImageLarge) {
-	// 		elTopOrig += menuImagePositionHeight[oObjGroupIndex] [oObjGroupItemIndexTemp] [IsImageLarge];
-	// }
-	//
-	// todo is this correct?
-	elTopDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
-	elLeftDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
-	// A: no this is this starting value
-	// elLeftDest = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
-	// elTopDest = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
-	// elLeftDest = oObjNext.style.posLeft;
-	// elTopDest = oObjNext.style.posTop;
-	//
-	//
-
-
-	// Cascade Control
-	// ...................................... //
-	// Cascase Row and Column
-	var cascadeRow = 1;
-	var cascadeColumn = 1;
-	cascadeColumn = (oObjGroupItemIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
-	cascadeRow = Math.floor((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
-	// (oObjGroupItemIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
-
-	// ...................................... //
-	// Cascase Direction (Down or Up)
-	var layoutCascadeDown = true;
-	var layoutCascadeRight = true;
-	// a negative offset?
-	if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] < 0) {
-		layoutCascadeDown = false;
-	} else { layoutCascadeDown = true; }
-
-	// Animation
-	// ...................................... //
-	if (layoutIndex == layoutWindowed) {
-		layoutCascadeDown = true;
-		filterMotionDirectionSourceAngle = 292.5;
-		filterMotionDirection = 'rightdown';
-	}
-
-	if (debugFunctionIsOn || UseLogAnitmation) {
-		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
-			+ ', Item orgin and destination set'
-			+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
-			+ ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
-			'MdmAnimationElement:ElementPlay', 271, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, UseAlert);
-	}
-	//
-	// DURATION
-	// elementMoveDuration = 2;// 2 / 90
-	// elMoveStepMax = 100;// 100 / 200
-	// elementMoveInterval = 5;// 5 / 10
-	// elementMoveDelay = 0;
-	//
-	// Play Animation for this image
-	var filterObjId = oObjNext.id;
-	var filterIdIndex = 1;
-	//
-	// FILTER
-	filterCommand = '';
-	// These are filter indexes not object
-	startIndex = 1; endIndex = 18;
-	if (filterIsOn || filterResizeIsOn) {
-		if (debugFunctionIsOn) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
-				+ ', Filter Get command issued'
-				+ '.',
-				'MdmAnimationElement:ElementPlay', 296, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, UseAlert);
-		}
+				} // end of playDirection match
+			} else {
+				// Move is NOT running
+				// Check if displayed or not...
+				if (playDirection == playDirectionForward) {
+					// Forward
+					if (timerObj[timerItemMoveKey].elementIsDisplayed == elementIsDisplayed) {
+						if (debugFunctionIsOn || UseLogAnitmation) {
+							MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+								TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								+ ', Play Forward command NOT issued'
+								+ ', Item is already displayed...',
+								'MdmAnimationElement:ElementPlay', 192, 0, null, null,
+								errorIsComment, errorDoNotDisplayTag, UseAlert);
+						}
+						//
+						PlayAbort = true;// skip issuing play command
+						//
+					}
+				} else {
+					// Reverse
+					if (timerObj[timerItemMoveKey].elementIsDisplayed == elementIsNotDisplayed) {
+						if (debugFunctionIsOn || UseLogAnitmation) {
+							MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+								TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Duplicate Ignored')
+								+ ', Play Reverse command NOT issued'
+								+ ', Item is already hidden...',
+								'MdmAnimationElement:ElementPlay', 207, 0, null, null,
+								errorIsComment, errorDoNotDisplayTag, UseAlert);
+						}
+						//
+						PlayAbort = true;// skip issuing play command
+						//
+					} // end of not displayed
+				} // end of playDirection is Forward or Reverse
+			} // end of Move is running or not
+		} // end of Move Item exists
 		//
-		FilterGet(filterPlayAll, startIndex, endIndex,
-			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupItemIndex,
-			filterObjId, filterIdIndex);
-	}
-	//
-	// ...................................... //
-	// Visibility
-	// oObjNext.style.display= 'block';
-	// oObjNextImage.style.display= 'block';
-	// ...................................... //
-	//
-	// ...................................... //
-	// Run Animation
-	// ...................................... //
-	//
-	// ...................................... //
-	// Play the Randomly Selected Filter Effect
-	if (filterIsOn) {
-		// if (filterObj[filterIdPassed].filterDoEnable) {
-		if (debugFunctionIsOn) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
-				+ ', Filter Enable command issued'
-				+ '.',
-				'MdmAnimationElement:ElementPlay', 326, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, UseAlert);
-		}
+		// Move or Transition now:
+		//		reset (direction change),
+		//		continued (via a step),
+		//		or no action.
 		//
-		FilterEnable(filterPlayAll, startIndex, endIndex,
-			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupItemIndex,
-			filterObjId, filterIdIndex);
-		// }
-		//
-		// // Each form below accesses the alpha filter of the object.
-		// oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
-		//
-		// if (filterObj[filterIdPassed].filterDoApply) {
-		if (debugFunctionIsOn) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
-				+ ', Filter Apply command issued'
-				+ '.',
-				'MdmAnimationElement:ElementPlay', 345, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, UseAlert);
-		}
-		//
-		FilterApply(filterPlayAll, startIndex, endIndex,
-			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupItemIndex,
-			filterObjId, filterIdIndex);
-		// }
-		//
-		if (debugFunctionIsOn) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
-				+ ', Filter Start command issued'
-				+ '.',
-				'MdmAnimationElement:ElementPlay', 360, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, UseAlert);
-		}
-		//
-		TimerStartFilter(playDirection, timerMethod, TimerGroupDoStepFilter, TimerItemDoStepFilter,
-			filterPlayAll, startIndex, endIndex,
-			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupItemIndex,
-			filterObjId, filterIdIndex);
-		//
-		// if (filterObj[filterIdPassed].filterDoPlay) {
-		if (debugFunctionIsOn) {
-			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
-				+ ', Filter Vendor Play command issued'
-				+ '.',
-				'MdmAnimationElement:ElementPlay', 376, 0, null, null,
-				errorIsComment, errorDoNotDisplayTag, UseAlert);
-		}
-		//
-		FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
-			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupItemIndex,
-			filterObjId, filterIdIndex);
-		// }
-	}
-	//
-	// ...................................... //
-	// Begin Movement from Origin to Position
-	// Element Move
-	if (moveIsOn) {
-		//
-		var tempSize;
-		if (playDirection == playDirectionReverse) {
-			tempSize = 1.0;
-			oObjNext.style.left = elLeftDest + 'px';
-			oObjNext.style.top = elTopDest + 'px';
-		} else {
-			tempSize = 0.05;
-			oObjNext.style.left = elLeftOrig + 'px';
-			oObjNext.style.top = elTopOrig + 'px';
-		}
-		//
-		if (filterIsOn || filterResizeIsOn) {
-			if (filterResizeIsOn) { FilterResize(oObjNext, filterClassMatrix, tempSize); }
-		}
+		// Check if new play aborted
+		if (PlayAbort) {
+			// Do NOT issue a command
+			return;
+		} // skip issuing play command
+
 		// ...................................... //
-		// Visibility
-		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
+		// Show item
+		// ...................................... //
+		LastId = oObjNext.id
+
+		// Image Size
+		// ...................................... //
+		var layoutBlockWidthDefault = iImageSize + (menuImageBorderWidth * 2);
+		var elHeightDefault = (iImageSize * oObjImageSizeRatio) + (menuImageBorderWidth * 2);
+
 		//
-		if (debugFunctionIsOn) {
+		// Position
+		////////////////////////////////////////////////
+		// Parent Postion
+		////////////////////////////////////////////////
+		// Get the offset width of that parent element
+		////////////////////////////////////////////////
+		// oObjSize = ElementPosCalculate(oObjNextParent);
+
+		// // Position Control
+		// ////////////////////////////////////////////////
+		// // Save the Left position (of the first image in the group)
+		// if (oObjGroupItemIndex < 2) {
+		// 	menuImageRootPosition[oObjGroupIndex][indexTop][IsImageLarge] = oObjSize.Top;// oObjNextTop;// Top
+		// 	menuImageRootPosition[oObjGroupIndex][indexLeft][IsImageLarge] = oObjSize.Left;// oObjNextLeft;// Left
+		// 	menuImageRootPosition[oObjGroupIndex][indexWidth][IsImageLarge] = oObjSize.Width;// Right
+		// 	menuImageRootPosition[oObjGroupIndex][indexHeight][IsImageLarge] = oObjSize.Height;// Bottom
+		// 	//
+		// 	// Store first Parent Postion in Root (note only first is stored at this time)
+		// 	menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
+		// 	menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
+		// 	menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
+		// 	menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
+		// 	//
+		// }
+		// // Store Parent Postion (note only first is stored at this time)
+		// menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Left;
+		// menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Top;
+		// menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Width;
+		// menuImagePositionHeight[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge] = oObjSize.Height;
+
+		// POSITION
+		// elLeftOrig, elTopOrig, elLeftDest, elTopDest,
+		elTopOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+		elLeftOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+
+		// var oObjGroupItemIndexTemp = oObjGroupItemIndex;
+		// // if (!IsImageLarge) { oObjGroupItemIndexTemp = oObjRootIndex; }
+		// //
+		// elLeftOrig = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndexTemp][IsImageLarge];
+		// // if CascadeRight
+		// if (!IsImageLarge) {
+		// 	if (oObjGroupIndex < bodyMenuGroupUsedLeftCn) {
+		// 		elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndexTemp][IsImageLarge];
+		// 	}
+		// } else {
+		// 	if (oObjGroupIndex >= bodyMenuGroupUsedLeftCn) {
+		// 		elLeftOrig += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndexTemp][IsImageLarge];
+		// 	}
+		// }
+		// elTopOrig = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndexTemp][IsSmall];
+
+
+		// if (layoutCascadeDown && IsImageLarge) {
+		// 		elTopOrig += menuImagePositionHeight[oObjGroupIndex] [oObjGroupItemIndexTemp] [IsImageLarge];
+		// }
+		//
+		// todo is this correct?
+		elTopDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+		elLeftDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+		// A: no this is this starting value
+		// elLeftDest = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
+		// elTopDest = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
+		// elLeftDest = oObjNext.style.posLeft;
+		// elTopDest = oObjNext.style.posTop;
+		//
+		//
+
+
+		// Cascade Control
+		// ...................................... //
+		// Cascase Row and Column
+		var cascadeRow = 1;
+		var cascadeColumn = 1;
+		cascadeColumn = (oObjGroupItemIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
+		cascadeRow = Math.floor((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
+		// (oObjGroupItemIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
+
+		// ...................................... //
+		// Cascase Direction (Down or Up)
+		var layoutCascadeDown = true;
+		var layoutCascadeRight = true;
+		// a negative offset?
+		if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] < 0) {
+			layoutCascadeDown = false;
+		} else { layoutCascadeDown = true; }
+
+		// Animation
+		// ...................................... //
+		if (layoutIndex == layoutWindowed) {
+			layoutCascadeDown = true;
+			filterMotionDirectionSourceAngle = 292.5;
+			filterMotionDirection = 'rightdown';
+		}
+
+		if (debugFunctionIsOn || UseLogAnitmation) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
-				+ ', Move Start command issued'
-				+ '.',
-				'MdmAnimationElement:ElementPlay', 415, 0, null, null,
+				TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirectionNotPassed, 'Item Position')
+				+ ', Item orgin and destination set'
+				+ ', Orig: ( ' + elTopOrig + ', ' + elLeftOrig + ' )'
+				+ ', Dest: ( ' + elTopDest + ', ' + elLeftDest + ' )',
+				'MdmAnimationElement:ElementPlay', 271, 0, null, null,
 				errorIsComment, errorDoNotDisplayTag, UseAlert);
 		}
 		//
-		TimerStartMove(playDirection, timerMethod, TimerGroupDoStepMove, TimerItemDoStepMove,
-			filterPlayAll, startIndex, endIndex,
-			oObjNext, oObjNextImage,
-			oObjGroupIndex, oObjGroupItemIndex,
-			filterObjId, filterIdIndex);
+		// DURATION
+		// elementMoveDuration = 2;// 2 / 90
+		// elMoveStepMax = 100;// 100 / 200
+		// elementMoveInterval = 5;// 5 / 10
+		// elementMoveDelay = 0;
 		//
-	} else if (filterIsOn || filterResizeIsOn) {
-		// **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
-		if (filterResizeIsOn && !elementIsDisplayed) {
+		// Play Animation for this image
+		var filterObjId = oObjNext.id;
+		var filterIdIndex = 1;
+		//
+		// FILTER
+		filterCommand = '';
+		// These are filter indexes not object
+		startIndex = 1; endIndex = 18;
+		if (filterIsOn || filterResizeIsOn) {
 			if (debugFunctionIsOn) {
 				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
-					+ ', Resize command issued'
+					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Get')
+					+ ', Filter Get command issued'
 					+ '.',
-					'MdmAnimationElement:ElementPlay', 425, 0, null, null,
+					'MdmAnimationElement:ElementPlay', 296, 0, null, null,
 					errorIsComment, errorDoNotDisplayTag, UseAlert);
 			}
 			//
-			FilterResize(oObjNext, filterClassMatrix, 0.05);
+			FilterGet(filterPlayAll, startIndex, endIndex,
+				oObjNext, oObjNextImage,
+				oObjGroupIndex, oObjGroupItemIndex,
+				filterObjId, filterIdIndex);
 		}
+		//
 		// ...................................... //
 		// Visibility
-		if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
+		// oObjNext.style.display= 'block';
+		// oObjNextImage.style.display= 'block';
+		// ...................................... //
 		//
+		// ...................................... //
+		// Run Animation
+		// ...................................... //
+		//
+		// ...................................... //
+		// Play the Randomly Selected Filter Effect
+		if (filterIsOn) {
+			// if (filterObj[filterIdPassed].filterDoEnable) {
+			if (debugFunctionIsOn) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Enable')
+					+ ', Filter Enable command issued'
+					+ '.',
+					'MdmAnimationElement:ElementPlay', 326, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
+			}
+			//
+			FilterEnable(filterPlayAll, startIndex, endIndex,
+				oObjNext, oObjNextImage,
+				oObjGroupIndex, oObjGroupItemIndex,
+				filterObjId, filterIdIndex);
+			// }
+			//
+			// // Each form below accesses the alpha filter of the object.
+			// oObjNext.filters.item('DXImageTransform.Microsoft.Alpha').enabled = 0     // Named index
+			//
+			// if (filterObj[filterIdPassed].filterDoApply) {
+			if (debugFunctionIsOn) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Apply')
+					+ ', Filter Apply command issued'
+					+ '.',
+					'MdmAnimationElement:ElementPlay', 345, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
+			}
+			//
+			FilterApply(filterPlayAll, startIndex, endIndex,
+				oObjNext, oObjNextImage,
+				oObjGroupIndex, oObjGroupItemIndex,
+				filterObjId, filterIdIndex);
+			// }
+			//
+			if (debugFunctionIsOn) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
+					+ ', Filter Start command issued'
+					+ '.',
+					'MdmAnimationElement:ElementPlay', 360, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
+			}
+			//
+			TimerStartFilter(playDirection, timerMethod, TimerGroupDoStepFilter, TimerItemDoStepFilter,
+				filterPlayAll, startIndex, endIndex,
+				oObjNext, oObjNextImage,
+				oObjGroupIndex, oObjGroupItemIndex,
+				filterObjId, filterIdIndex);
+			//
+			// if (filterObj[filterIdPassed].filterDoPlay) {
+			if (debugFunctionIsOn) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Play')
+					+ ', Filter Vendor Play command issued'
+					+ '.',
+					'MdmAnimationElement:ElementPlay', 376, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
+			}
+			//
+			FilterPlay(playDirection, filterPlayAll, startIndex, endIndex,
+				oObjNext, oObjNextImage,
+				oObjGroupIndex, oObjGroupItemIndex,
+				filterObjId, filterIdIndex);
+			// }
+		}
+		//
+		// ...................................... //
+		// Begin Movement from Origin to Position
+		// Element Move
+		if (moveIsOn) {
+			//
+			var tempSize;
+			if (playDirection == playDirectionReverse) {
+				tempSize = 1.0;
+				oObjNext.style.left = elLeftDest + 'px';
+				oObjNext.style.top = elTopDest + 'px';
+			} else {
+				tempSize = 0.05;
+				oObjNext.style.left = elLeftOrig + 'px';
+				oObjNext.style.top = elTopOrig + 'px';
+			}
+			//
+			if (filterIsOn || filterResizeIsOn) {
+				if (filterResizeIsOn) { FilterResize(oObjNext, filterClassMatrix, tempSize); }
+			}
+			// ...................................... //
+			// Visibility
+			if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
+			//
+			if (debugFunctionIsOn) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Start')
+					+ ', Move Start command issued'
+					+ '.',
+					'MdmAnimationElement:ElementPlay', 415, 0, null, null,
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
+			}
+			//
+			TimerStartMove(playDirection, timerMethod, TimerGroupDoStepMove, TimerItemDoStepMove,
+				filterPlayAll, startIndex, endIndex,
+				oObjNext, oObjNextImage,
+				oObjGroupIndex, oObjGroupItemIndex,
+				filterObjId, filterIdIndex);
+			//
+		} else if (filterIsOn || filterResizeIsOn) {
+			// **if (browserAnimationIsIe && filterCommand.length) { eval(filterCommand);filterCommand = ''; }
+			if (filterResizeIsOn && !elementIsDisplayed) {
+				if (debugFunctionIsOn) {
+					MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+						TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot, playDirection, 'Resize')
+						+ ', Resize command issued'
+						+ '.',
+						'MdmAnimationElement:ElementPlay', 425, 0, null, null,
+						errorIsComment, errorDoNotDisplayTag, UseAlert);
+				}
+				//
+				FilterResize(oObjNext, filterClassMatrix, 0.05);
+			}
+			// ...................................... //
+			// Visibility
+			if (oObjNext.style.display != 'block') { oObjNext.style.display = 'block'; }
+			//
+		}
+		//
+	} catch (bodyLayoutErr) {
+		// Errors:
+		// ...................................... //
+		script_state = "Item Show Error in " + script_state + "::MdmAnimationElement:ElementPlay";
+		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
 	}
 	//
 }
@@ -569,61 +577,70 @@ function ElementPlay(playDirection, IsImageLarge,
 // ElementGroupToggle
 // ...................................... //
 function ElementGroupToggle(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
-	script_state += "MdmAnimationElement:ElementGroupToggle (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
-	// Log event
-	if ((UseLog || UseDebug)
-		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
-	) {
-		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			'Range(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
-			+ 'Started: Toggle small,large: ' + HideImage + ', ' + HideImageLarge + '. '
-			+ charNewLineTag,
-			'MdmAnimationElement:ElementGroupToggle', 471, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, UseAlert);
-		//
-	}
-	if (loadJavaFirst) { ElementObjectCreate(); }
-	if (loadMenuImageDone) { menuImageGroupInitAll(); }
-	//
-	// Objects
-	if (ElementGroupSetBusy()) {
-		// Framework isn't busy, proceed.
-		// Object
-		var oObject =
-			ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
-		if (oObject.oObjValid) {
-			if (IsImageLarge) {
-				oObjNext = oObject.oObjLarge;
-				oObjNextImage = oObject.oObjImageLarge;
-				oObjNextParent = oObject.oObj;
-				oObjNextLarge = oObject.oObjLarge;
-			} else {
-				oObjNext = oObject.oObj;
-				oObjNextImage = oObject.oObjImage;
-				oObjNextParent = oObject.oObjParent;
-				oObjNextLarge = oObject.oObjLarge;
-			}
-			var startObjoObjIndex = startIndex;
-			var endObjoObjIndex = endIndex;
-			var oObjIndexCurr = startObjoObjIndex;
-
-			var oObjNextId = oObjNext.id
-			var oObjNextDisplay = oObjNext.style.display;
-			var oObjNextParentId = oObjNextParent.id;
-			var oObjNextImageId = oObjNextImage.id;
-			oObjLockedStackBusy = false;
+	script_state = "MdmAnimationElement:ElementGroupToggle (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
+	try {
+		// Log event
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+				'Range(' + startIndex + ', ' + endIndex + ') size:' + iImageSize + '. '
+				+ 'Started: Toggle small,large: ' + HideImage + ', ' + HideImageLarge + '. '
+				+ charNewLineTag,
+				'MdmAnimationElement:ElementGroupToggle', 471, 0, null, null,
+				errorIsComment, errorDoNotDisplayTag, UseAlert);
 			//
-			if (oObjNextDisplay != 'block') {
-				// oObjLockedPassed = true;
-				// IgnoreLockPassed = false;
-				ElementGroupShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, endIndex, startIndex, oObjLockedPassed, IgnoreLockPassed);
+		}
+		if (loadJavaFirst) { ElementObjectCreate(); }
+		if (loadMenuImageDone) { menuImageGroupInitAll(); }
+		//
+		// Objects
+		if (ElementGroupSetBusy()) {
+			// Framework isn't busy, proceed.
+			// Object
+			var oObject =
+				ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
+			if (oObject.oObjValid) {
+				if (IsImageLarge) {
+					oObjNext = oObject.oObjLarge;
+					oObjNextImage = oObject.oObjImageLarge;
+					oObjNextParent = oObject.oObj;
+					oObjNextLarge = oObject.oObjLarge;
+				} else {
+					oObjNext = oObject.oObj;
+					oObjNextImage = oObject.oObjImage;
+					oObjNextParent = oObject.oObjParent;
+					oObjNextLarge = oObject.oObjLarge;
+				}
+				var startObjoObjIndex = startIndex;
+				var endObjoObjIndex = endIndex;
+				var oObjIndexCurr = startObjoObjIndex;
+
+				var oObjNextId = oObjNext.id
+				var oObjNextDisplay = oObjNext.style.display;
+				var oObjNextParentId = oObjNextParent.id;
+				var oObjNextImageId = oObjNextImage.id;
+				oObjLockedStackBusy = false;
 				//
-			} else {
-				ElementGroupHide(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, endIndex, startIndex, oObjLockedPassed, IgnoreLockPassed);
-			}
-		} else { ErrorOccured("MdmAnimationElement:ElementGroupToggle", 525, 0, null, oObjNext, oObj, "Invalid object or type", errorIsWarning, true, false); }
-		oObjLockedStackBusy = false;
-	} else { ErrorOccured("MdmAnimationElement:ElementGroupToggle", 526, 0, null, null, null, "Animation framework busy", errorIsWarning, true, false); }
+				if (oObjNextDisplay != 'block') {
+					// oObjLockedPassed = true;
+					// IgnoreLockPassed = false;
+					ElementGroupShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, endIndex, startIndex, oObjLockedPassed, IgnoreLockPassed);
+					//
+				} else {
+					ElementGroupHide(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, endIndex, startIndex, oObjLockedPassed, IgnoreLockPassed);
+				}
+			} else { ErrorOccured("MdmAnimationElement:ElementGroupToggle", 525, 0, null, oObjNext, oObj, "Invalid object or type", errorIsWarning, true, false); }
+			oObjLockedStackBusy = false;
+		} else { ErrorOccured("MdmAnimationElement:ElementGroupToggle", 526, 0, null, null, null, "Animation framework busy", errorIsWarning, true, false); }
+		//
+	} catch (bodyLayoutErr) {
+		// Errors:
+		// ...................................... //
+		script_state = "Item Show Error in " + script_state + "::MdmAnimationElement:ElementGroupToggle";
+		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
+	}
+	//
 }
 // Menu Toggle Menu Show Item (Mouse Down function)
 // ...................................... //
@@ -669,47 +686,57 @@ function ElementItemToggleId(IsImageLarge, oObjNextParentId, oObjNextImageId, oO
 }
 // Hide Stack of items
 function ElementGroupHide(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, startIndex, oObjLockedPassed, IgnoreLockPassed) {
-	if (!ElementGroupSetBusy()) {
-		ErrorOccured("MdmAnimationElement:ElementGroupHide", 660, 0, null, oObjNext, oObj, "Animation framework busy", errorIsWarning, true, false);
-		return;
-	}
-	var startObjoObjIndex = startIndex;
-	var endObjoObjIndex = oObjGroupItemIndex;
-	var oObjIndexCurr = startObjoObjIndex;
-	//
-	while (oObjIndexCurr < 1 + endObjoObjIndex) {
+	script_state = "MdmAnimationElement:ElementGroupHide (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
+	try {
+		if (!ElementGroupSetBusy()) {
+			ErrorOccured("MdmAnimationElement:ElementGroupHide", 660, 0, null, oObjNext, oObj, "Animation framework busy", errorIsWarning, true, false);
+			return;
+		}
+		var startObjoObjIndex = startIndex;
+		var endObjoObjIndex = oObjGroupItemIndex;
+		var oObjIndexCurr = startObjoObjIndex;
 		//
-		if (IgnoreLockPassed || !menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge]) {
-			menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = false;
-			// Objects
-			var oObject =
-				ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
-			// Objects
-			if (oObject.oObjValid) {
-				oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
-				if (IsImageLarge) {
-					oObjNext = oObject.oObjLarge;
-					oObjNextImage = oObject.oObjImageLarge;
-					oObjNextParent = oObject.oObj;
-					oObjNextLarge = oObject.oObjLarge;
-				} else {
-					oObjNext = oObject.oObj;
-					oObjNextImage = oObject.oObjImage;
-					oObjNextParent = oObject.oObjParent;
-					oObjNextLarge = oObject.oObjLarge;
-				}
-				//
-				if (oObjNext.style.display == 'block') {
-					ElementItemHide(IsImageLarge,
-						oObj, oObjImageLarge, oObjLarge, oObjLarge,
-						oObjGroupIndex, oObjIndexCurr,
-						oObjLockedPassed, IgnoreLockPassed);
-				}
-			} else { ErrorOccured("MdmAnimationElement:ElementGroupHide", 640, 0, Event, oObjNext, oObj, "Image is locked and can't be hidden", errorIsWarning, true, false); }
-		} else { ErrorOccured("MdmAnimationElement:ElementGroupHide", 640, 0, Event, oObjNext, oObj, "No next image to hide", errorIsWarning, true, false); }
-		oObjIndexCurr++;
+		while (oObjIndexCurr < 1 + endObjoObjIndex) {
+			//
+			if (IgnoreLockPassed || !menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge]) {
+				menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = false;
+				// Objects
+				var oObject =
+					ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+				// Objects
+				if (oObject.oObjValid) {
+					oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
+					if (IsImageLarge) {
+						oObjNext = oObject.oObjLarge;
+						oObjNextImage = oObject.oObjImageLarge;
+						oObjNextParent = oObject.oObj;
+						oObjNextLarge = oObject.oObjLarge;
+					} else {
+						oObjNext = oObject.oObj;
+						oObjNextImage = oObject.oObjImage;
+						oObjNextParent = oObject.oObjParent;
+						oObjNextLarge = oObject.oObjLarge;
+					}
+					//
+					if (oObjNext.style.display == 'block') {
+						ElementItemHide(IsImageLarge,
+							oObj, oObjImageLarge, oObjLarge, oObjLarge,
+							oObjGroupIndex, oObjIndexCurr,
+							oObjLockedPassed, IgnoreLockPassed);
+					}
+				} else { ErrorOccured("MdmAnimationElement:ElementGroupHide", 640, 0, Event, oObjNext, oObj, "Image is locked and can't be hidden", errorIsWarning, true, false); }
+			} else { ErrorOccured("MdmAnimationElement:ElementGroupHide", 640, 0, Event, oObjNext, oObj, "No next image to hide", errorIsWarning, true, false); }
+			oObjIndexCurr++;
+		}
+		oObjLockedStackBusy = false;
+		//
+	} catch (bodyLayoutErr) {
+		// Errors:
+		// ...................................... //
+		script_state = "Item Show Error in " + script_state + "::MdmAnimationElement:ElementGroupHide";
+		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
 	}
-	oObjLockedStackBusy = false;
+	//
 }
 function ElementGroupSetBusy() {
 	// Check busy & duplicates
@@ -736,98 +763,107 @@ function ElementGroupSetBusy() {
 // Menu Menu Show Item and all Previous (Mouse Over function)
 // ...................................... //
 function ElementGroupShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, startIndex, oObjLockedPassed, IgnoreLockPassed) {
-	script_state += "MdmAnimationElement:ElementGroupShow (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
-	// Check busy & duplicates
-	if (!ElementGroupSetBusy()) {
-		ErrorOccured("MdmAnimationElement:ElementGroupShow", 660, 0, null, oObjNext, oObj, "Animation framework busy", errorIsWarning, true, false);
-		return;
-	}
-	if ((UseLog || UseDebug)
-		&& (UseLogAnitmation
-			|| UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
-	) {
-		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			'Group Show Stack ' + oObjNextImageId.id
-			+ ' (' + oObjGroupIndex + ', ' + oObjGroupItemIndex + ')'
-			+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
-			// + charNewLineTag
-			,
-			'MdmAnimationElement:ElementGroupShow', 569, 0, null, null,
-			errorIsComment, errorDoNotDisplayTag, UseAlert);
-		//
-	}
-	if (loadJavaFirst) { ElementObjectCreate(); }
-	if (loadMenuImageDone) { menuImageGroupInitAll(); }
-	//
-	// load and validate event and objects
-	// set eventCurr, eventCurrRootObj
-	ElementEventFromHtmlCheck(null, UseLogEvents);
-	//
-	// Don't process the event on the parent elements.
-	if (eventCurrId == oObjNextParentId
-		&& eventType == 'mouseover'
-		// && !UseAnimation
-	) {
-		oObjLockedStackBusy = false;
-		return;
-	}
-
-	// Handle and cascade event
-	// ...................................... //
-	if ((eventType == 'mousedown' || eventType == 'mouseover')
-		&& UseAnimation
-	) {
-		var oObjNextParent;
-		var oObjNextImage;
-		var oObjNext;
-		var oObjNextLarge;
-
-		// process images in group above and including this location
-		var startoObjIndex = 1;
-		// var endoObjIndex = ElementItemIndexSetFromObj(oObjNext);
-		var endoObjIndex = oObjGroupItemIndex;
-		var oObjIndexCurr = startoObjIndex;
-
-		while (oObjIndexCurr < 1 + endoObjIndex) {
-			//
-			if (!IgnoreLockPassed) {
-				menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = oObjLockedPassed;
-			}
-			// Objects
-			var oObject =
-				ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
-			// Objects
-			if (oObject.oObjValid) {
-				if (IsImageLarge) {
-					oObjNext = oObject.oObjLarge;
-					oObjNextImage = oObject.oObjImageLarge;
-					oObjNextParent = oObject.oObj;
-					oObjNextLarge = oObject.oObjLarge;
-				} else {
-					oObjNext = oObject.oObj;
-					oObjNextImage = oObject.oObjImage;
-					oObjNextParent = oObject.oObjParent;
-					oObjNextLarge = oObject.oObjLarge;
-				}
-				// //
-				// imgZindex += 1;
-				// oObjNext.style.zIndex = imgZindex;
-
-				// Set Lock Test
-				// if (oObjLockedPassed = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLockedPassed; }
-				if (!IgnoreLockPassed) { menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = oObjLockedPassed; }
-
-				// Reveal Hidden Images
-				ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndexCurr, menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge], IgnoreLockPassed);
-
-			} else { ErrorOccured("MdmAnimationElement:ElementGroupShow", 627, 0, Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
-			oObjIndexCurr++;
+	script_state = "MdmAnimationElement:ElementGroupShow (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
+	try {
+		// Check busy & duplicates
+		if (!ElementGroupSetBusy()) {
+			ErrorOccured("MdmAnimationElement:ElementGroupShow", 660, 0, null, oObjNext, oObj, "Animation framework busy", errorIsWarning, true, false);
+			return;
 		}
-		// done
-	} else {
-		// skipped due to mouse event settings
+		if ((UseLog || UseDebug)
+			&& (UseLogAnitmation
+				|| UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+		) {
+			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+				'Group Show Stack ' + oObjNextImageId.id
+				+ ' (' + oObjGroupIndex + ', ' + oObjGroupItemIndex + ')'
+				+ ' Size:' + iImageSize + ', ' + IsImageLarge + ' isLarge. '
+				// + charNewLineTag
+				,
+				'MdmAnimationElement:ElementGroupShow', 569, 0, null, null,
+				errorIsComment, errorDoNotDisplayTag, UseAlert);
+			//
+		}
+		if (loadJavaFirst) { ElementObjectCreate(); }
+		if (loadMenuImageDone) { menuImageGroupInitAll(); }
+		//
+		// load and validate event and objects
+		// set eventCurr, eventCurrRootObj
+		ElementEventFromHtmlCheck(null, UseLogEvents);
+		//
+		// Don't process the event on the parent elements.
+		if (eventCurrId == oObjNextParentId
+			&& eventType == 'mouseover'
+			// && !UseAnimation
+		) {
+			oObjLockedStackBusy = false;
+			return;
+		}
+
+		// Handle and cascade event
+		// ...................................... //
+		if ((eventType == 'mousedown' || eventType == 'mouseover')
+			&& UseAnimation
+		) {
+			var oObjNextParent;
+			var oObjNextImage;
+			var oObjNext;
+			var oObjNextLarge;
+
+			// process images in group above and including this location
+			var startoObjIndex = 1;
+			// var endoObjIndex = ElementItemIndexSetFromObj(oObjNext);
+			var endoObjIndex = oObjGroupItemIndex;
+			var oObjIndexCurr = startoObjIndex;
+
+			while (oObjIndexCurr < 1 + endoObjIndex) {
+				//
+				if (!IgnoreLockPassed) {
+					menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = oObjLockedPassed;
+				}
+				// Objects
+				var oObject =
+					ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
+				// Objects
+				if (oObject.oObjValid) {
+					if (IsImageLarge) {
+						oObjNext = oObject.oObjLarge;
+						oObjNextImage = oObject.oObjImageLarge;
+						oObjNextParent = oObject.oObj;
+						oObjNextLarge = oObject.oObjLarge;
+					} else {
+						oObjNext = oObject.oObj;
+						oObjNextImage = oObject.oObjImage;
+						oObjNextParent = oObject.oObjParent;
+						oObjNextLarge = oObject.oObjLarge;
+					}
+					// //
+					// imgZindex += 1;
+					// oObjNext.style.zIndex = imgZindex;
+
+					// Set Lock Test
+					// if (oObjLockedPassed = true) { menuImageLocked[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjLockedPassed; }
+					if (!IgnoreLockPassed) { menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = oObjLockedPassed; }
+
+					// Reveal Hidden Images
+					ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndexCurr, menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge], IgnoreLockPassed);
+
+				} else { ErrorOccured("MdmAnimationElement:ElementGroupShow", 627, 0, Event, oObjNext, oObj, "No next image to show", errorIsWarning, true, false); }
+				oObjIndexCurr++;
+			}
+			// done
+		} else {
+			// skipped due to mouse event settings
+		}
+		oObjLockedStackBusy = false;
+		//
+	} catch (bodyLayoutErr) {
+		// Errors:
+		// ...................................... //
+		script_state = "Item Show Error in " + script_state + "::MdmAnimationElement:ElementGroupShow";
+		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
 	}
-	oObjLockedStackBusy = false;
+	//
 }
 // SectionBlock (Menu) Show function (s)
 // ...................................... //
@@ -1031,7 +1067,8 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 					} else {
 						// oObjNextTop = oObjSize.Top;
 						// Top of previous image
-						oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge];
+						oObjNextOffsetTop = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge][indexTop];
+						// oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge];
 					}
 					oObjNextTop += oObjNextOffsetTop;
 					if (IsImageLarge) {
@@ -1183,7 +1220,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 						// Use Parent Position plus offset
 						//
 						oObjNextLeft = parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft])
-						// oObjNextLeft = parseInt(menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge])
+							// oObjNextLeft = parseInt(menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge])
 							// + menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge]
 							+ menuImageOffsetFirstLocal
 							+ oObjNextOffsetLeft;// (ie. Right Top)
@@ -1193,7 +1230,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 
 						// oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge]
 						oObjNextLeft = parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft])
-						// oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]
+							// oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]
 							+ oObjNextOffsetLeft;// Right or Left Edge of Parent
 						// oObjNextLeft = (oObjLeft)
 					}
@@ -1291,7 +1328,18 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				// oObjNext.style.left = oObjNextLeft + 'px';
 			}
 
-			// Store Postion
+			// Store position
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop] = oObjSize.Top;
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft] = oObjSize.Left;
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexWidth] = oObjSize.Width;
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexHeight] = oObjSize.Height;
+
+			menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
+			menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
+			menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
+			menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
+
+			// Store Destination
 			// ...................................... //
 			// oObjSize = ElementPosGet(UseScroll, UseBase, oObjNext, layoutBlockWidthDefault, elHeightDefault);
 
@@ -1442,79 +1490,88 @@ function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 // ...................................... //
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state += "MdmAnimationElement:ElementItemHide (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
-	if (TimerStartMoveBusy(IsImageLarge, oObjNext.id + 'Move', oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) { return; }
-	//
-	if (loadJavaFirst) { ElementObjectCreate(); }
-	if (loadMenuImageDone) { menuImageGroupInitAll(); }
-	var oObjNextIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
-	// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
-	// playDirection = playDirectionForward;
-	var playDirection = playDirectionReverse;
-	var iImageSize;
-	//
-	if (!IgnoreLockPassed && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
+	try {
+		if (TimerStartMoveBusy(IsImageLarge, oObjNext.id + 'Move', oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) { return; }
+		//
+		if (loadJavaFirst) { ElementObjectCreate(); }
+		if (loadMenuImageDone) { menuImageGroupInitAll(); }
+		var oObjNextIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
+		// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
+		// playDirection = playDirectionForward;
+		var playDirection = playDirectionReverse;
+		var iImageSize;
+		//
+		if (!IgnoreLockPassed && menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] == true) {
+			if ((UseLog || UseDebug)
+				&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
+			) {
+				MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+					TimerTextKey(oObjNext, 'Hide', oObjGroupIndex, oObjGroupItemIndex)
+					+ ', ' + oObjNext.id
+					+ ', ' + ((playDirection == playDirectionForward) ? 'Forward' : 'Reverse')
+					+ ', Do not hide locked item'
+					+ ', Time:' + Date()
+					+ '.',
+					'MdmAnimationElement:ElementItemHide', 1127, 0, oObjNext, null,
+					errorIsComment, errorDoNotDisplayTag, UseAlert);
+			}
+			return;
+		}
+		//
 		if ((UseLog || UseDebug)
 			&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
 		) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
 				TimerTextKey(oObjNext, 'Hide', oObjGroupIndex, oObjGroupItemIndex)
 				+ ', ' + oObjNext.id
-				+ ', ' + ((playDirection == playDirectionForward) ? 'Forward' : 'Reverse')
-				+ ', Do not hide locked item'
+				+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
 				+ ', Time:' + Date()
 				+ '.',
-				'MdmAnimationElement:ElementItemHide', 1127, 0, oObjNext, null,
+				'MdmAnimationElement:ElementItemHide', 1140, 0, oObjNext, null,
 				errorIsComment, errorDoNotDisplayTag, UseAlert);
 		}
-		return;
-	}
-	//
-	if ((UseLog || UseDebug)
-		&& (UseLogAnitmation || UseLogTimerTransition || UseLogTimerMove || UseLogTimerDetail)
-	) {
-		MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-			TimerTextKey(oObjNext, 'Hide', oObjGroupIndex, oObjGroupItemIndex)
-			+ ', ' + oObjNext.id
-			+ ', ' + ((moveIsOn || filterIsOn) ? 'Animated' : 'Unanimated')
-			+ ', Time:' + Date()
-			+ '.',
-			'MdmAnimationElement:ElementItemHide', 1140, 0, oObjNext, null,
-			errorIsComment, errorDoNotDisplayTag, UseAlert);
-	}
-	//
-	if (moveIsOn || filterIsOn) {
 		//
-		if (IsImageLarge) { iImageSize = oObjImageSizeLarge; } else { iImageSize = oObjImageSizeSmall; }
-		ElementPlayAgain(playDirection, IsImageLarge,
-			oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
-			iImageSize, oObjNextGroupIndex, oObjNextIndex, false, true);
-		// oObjNext.filters[0].apply();
-		// oObjNext.filters[1].apply();
-		// oObjNext.filters.item('DXImageTransform.Microsoft.Wheel').apply();
-		// oObjNext.filters.item('DXImageTransform.Microsoft.Spin').apply();
-		// oObjNext.filters.item[1].apply();
-		// oObjNext.filters.item(1).Apply();
+		if (moveIsOn || filterIsOn) {
+			//
+			if (IsImageLarge) { iImageSize = oObjImageSizeLarge; } else { iImageSize = oObjImageSizeSmall; }
+			ElementPlayAgain(playDirection, IsImageLarge,
+				oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+				iImageSize, oObjNextGroupIndex, oObjNextIndex, false, true);
+			// oObjNext.filters[0].apply();
+			// oObjNext.filters[1].apply();
+			// oObjNext.filters.item('DXImageTransform.Microsoft.Wheel').apply();
+			// oObjNext.filters.item('DXImageTransform.Microsoft.Spin').apply();
+			// oObjNext.filters.item[1].apply();
+			// oObjNext.filters.item(1).Apply();
+			//
+			// Visibility
+			// oObjNext.style.display= 'block';
+		} else {
+			// ...................................... //
+			// Visibility
+			oObjNext.style.display = 'none';
+			// will become a filter play...
+			TimerItemDeactivate(timerTypeMove, oObjNextGroupIndex, oObjNextIndex);
+			TimerItemDeactivate(timerTypeTransition, oObjNextGroupIndex, oObjNextIndex);
+		}
 		//
-		// Visibility
-		// oObjNext.style.display= 'block';
-	} else {
+		//
+		if (!IgnoreLockPassed) { menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] = oObjLockedPassed; }
+		//
+		// oObj.width= 0;
+		// oObj.height= 0;
+		// oObj.style.display= 'none';
+		// oObjImage.style.display= 'none';
+		// oObjLarge.style.display= 'none';
+		// oObjImageLarge.style.display= 'none';
+		//
+	} catch (bodyLayoutErr) {
+		// Errors:
 		// ...................................... //
-		// Visibility
-		oObjNext.style.display = 'none';
-		// will become a filter play...
-		TimerItemDeactivate(timerTypeMove, oObjNextGroupIndex, oObjNextIndex);
-		TimerItemDeactivate(timerTypeTransition, oObjNextGroupIndex, oObjNextIndex);
+		script_state = "Item Show Error in " + script_state + "::MdmAnimationElement:ElementItemHide";
+		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
 	}
 	//
-	//
-	if (!IgnoreLockPassed) { menuImageLocked[oObjNextGroupIndex][oObjNextIndex][IsImageLarge] = oObjLockedPassed; }
-	//
-	// oObj.width= 0;
-	// oObj.height= 0;
-	// oObj.style.display= 'none';
-	// oObjImage.style.display= 'none';
-	// oObjLarge.style.display= 'none';
-	// oObjImageLarge.style.display= 'none';
 }
 // ElementItemIndexSetFromName
 // ...................................... //
@@ -1527,7 +1584,7 @@ function ElementItemIndexSetFromName(oObjPassed) {
 	}
 	//
 	for (imgCn = 0; imgCn < 1 + imgMax; imgCn++) {
-		if (oObjPassed.name == 'img' + imgCn) { return imgCn; }
+		if (oObjPassed.id == 'img' + imgCn || oObjPassed.name == 'img' + imgCn) { return imgCn; }
 	}
 	return 0;
 }
