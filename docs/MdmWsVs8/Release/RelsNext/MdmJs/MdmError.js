@@ -180,10 +180,11 @@ function ErrorCaught(errorObjectPassed, script_statePassed, errorSeverityPassed)
     ErrorSet(errorCurr);
     // display this
     // ErrorOccured(eventFileNamePassed, eventFileLinePassed, eventFileColumnPassed,
-        // eventCurr, consoleStateBox, consoleStateBox,
-        // 'Cannot access Console Form.',
-        // errorSeverityPassed, errorDoNotDisplayTag, UseAlert);
+    // eventCurr, consoleStateBox, consoleStateBox,
+    // 'Cannot access Console Form.',
+    // errorSeverityPassed, errorDoNotDisplayTag, UseAlert);
     WindowErrorDisplay(errorSeverityPassed, eventCurr,
+        null,
         script_statePassed,
         eventFileName, eventFileLine, eventFileColumn);
 }
@@ -373,7 +374,11 @@ function WindowErrorDisplay(errorSeverityPassed, eventCurrPassed, messagePassed,
     // if (!eventFileLinePassed) { eventFileLinePassed = -1; }
     if (!eventFileNamePassed) { eventFileNamePassed = 'no url available'; }
     if (!messagePassed || !messagePassed.length) {
-        messagePassed = 'NO ERROR MESSAGE AVAILABLE!!!';
+        if (eventCurrPassed.message) {
+            messagePassed = eventCurrPassed.message;
+        } else {
+            messagePassed = 'NO ERROR MESSAGE AVAILABLE!!!';
+        }
     }
     //
     if (eventCurrPassed) {
@@ -879,8 +884,8 @@ function MessageLogAction(eventCurrPassed, messagePassed, messageFinalPassed,
     // Abort & Debug
     if (UseDebug
         && (UseDebugPassed
-        || (UseDebugNext && UseDebugOnError)
-        || UseDebugOnAll)
+            || (UseDebugNext && UseDebugOnError)
+            || UseDebugOnAll)
     ) {
         var errorDoDebugAbort = WindowErrorDebug(eventCurrPassed, messagePassed, eventFileNamePassed, eventFileLinePassed, DoUseAlertPassed, UseDebugPassed);
         if (errorDoDebugAbort) {

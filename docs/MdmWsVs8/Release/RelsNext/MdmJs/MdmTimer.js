@@ -573,9 +573,9 @@ function TimerCreateAll() {
         for (timerGroupCn = 0; timerGroupCn < 1 + bodyMenuGroupUsedCn; timerGroupCn++) {
             timerObj[timerGroupCn] = new Array(imgMaxByGroup[timerGroupCn]);
             for (timerGroupItemCn = 0; timerGroupItemCn < 1 + imgMaxByGroup[timerGroupCn]; timerGroupItemCn++) {
-                timerObj[timerGroupCn] [timerGroupItemCn] = new Array(2);
-                timerObj[timerGroupCn] [timerGroupItemCn] [IsSmall] = new Object;
-                timerObj[timerGroupCn] [timerGroupItemCn] [IsLarge] = new Object;
+                timerObj[timerGroupCn][timerGroupItemCn] = new Array(2);
+                timerObj[timerGroupCn][timerGroupItemCn][IsSmall] = new Object;
+                timerObj[timerGroupCn][timerGroupItemCn][IsLarge] = new Object;
             }
         }
     } else { timerObj = new Array(); }
@@ -757,11 +757,18 @@ function TimerInitialize(IsImageLarge, timerType, timerGroup, timerGroupItem,
         //
         timerObj[timerLevelKey].FunctionGroup = timerFunctionGroupPassed;
         timerObj[timerLevelKey].FunctionItm = timerFunctionItemPassed;
+
         // Origin and Postion of Element
-        timerObj[timerLevelKey].elLeftDest = elLeftDest;
-        timerObj[timerLevelKey].elTopDest = elTopDest;
-        timerObj[timerLevelKey].elLeftOrig = elLeftOrig;
-        timerObj[timerLevelKey].elTopOrig = elTopOrig;
+        timerObj[timerLevelKey].elTopOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+        timerObj[timerLevelKey].elLeftOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+        timerObj[timerLevelKey].elTopDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+        timerObj[timerLevelKey].elLeftDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+        // These aren't global!
+        // timerObj[timerLevelKey].elLeftDest = elLeftDest;
+        // timerObj[timerLevelKey].elTopDest = elTopDest;
+        // timerObj[timerLevelKey].elLeftOrig = elLeftOrig;
+        // timerObj[timerLevelKey].elTopOrig = elTopOrig;
+
         // Methos, Behaviors, etc...
         timerObj[timerLevelKey].filterPlayAll = filterPlayAll;
         timerObj[timerLevelKey].filterObjId = filterObjIdPassed;
@@ -793,102 +800,111 @@ function TimerStart(IsImageLarge, timerType, timerGroup, timerGroupItem,
     timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed,
     timerDelayPassed
 ) {
-    var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
-    var timerRootKey = timerRootId + 'Group' + timerGroup + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
-    timerTen = 0;
-    var vTimerStart = 0;
-    var timerFunctionTemp;
+    try {
+        var timerItemKey = 'Group' + timerGroup + 'Item' + timerGroupItem + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
+        var timerRootKey = timerRootId + 'Group' + timerGroup + (IsImageLarge ? 'Large' : '') + 'Type' + timerType;
+        timerTen = 0;
+        var vTimerStart = 0;
+        var timerFunctionTemp;
 
-    timerGroupItemCurr = timerGroupItem;
-    script_state = "MdmTimer:TimerStart:" + timerItemKey;
+        timerGroupItemCurr = timerGroupItem;
+        script_state = "MdmTimer:TimerStart:" + timerItemKey;
 
-    var timerIsRunningAlready = false;
-    var debugFunctionIsOn = false;
-    if (UseLogTimerDetail
-        || (UseLogTimerTransition && timerType == timerTypeTransition)
-        || (UseLogTimerMove && timerType == timerTypeMove)) {
-        debugFunctionIsOn = true;
-    }
-    //
-    var timerStartKey;
-    if (timerMethod == timerMethodGroup) {
-        timerStartKey = timerRootKey;
-        timerFunctionTemp = timerFunctionGroupPassed;
-    } else if (timerMethod == timerMethodItem) {
-        timerStartKey = timerItemKey;
-        timerFunctionTemp = timerFunctionItemPassed;
-    }
-    //
-    timerStarted += 1;
-    //
-    timerObj[timerStartKey].timerInstance += 1;
-    timerObj[timerStartKey].timerInstanceCn += 1;
-    timerObj[timerStartKey].timerElapsed = 0;
-    timerObj[timerStartKey].timerCompletion = 0;
-    timerObj[timerStartKey].timerDelay = timerDelayPassed;
-    //
-    if (timerObj[timerStartKey].timerIsRunning) {
-        timerIsRunningAlready = true;
-    } else {
-        if (!timerObj[timerStartKey].timerIsRunning) {
-            // date is reset on any call here,
-            // allows items to be added late in the cycle...
-            timerObj[timerStartKey].timerIsRunning = true;
-            timerObj[timerStartKey].timerDateStart = new Date();
-            // One timer per Item or Element (per Timer Type)
-            // Start this Item's Group Timer if it is not already running
-            vTimerStart = timerObj[timerStartKey].timerIntervalId;
-            if (!vTimerStart) {
-                // No existing timer
-                // Run with delay
-                var tempFunc = function () {
-                    TimerSet(IsImageLarge, timerType, timerGroup, timerGroupItem,
-                        timerFunctionTemp, timerDelayPassed,
-                        timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
-                };
-                vTimerStart = window.setTimeout(
-                    tempFunc,
-                    timerDelayPassed);
-                if (vTimerStart) { timerObj[timerStartKey].timerIntervalIdStart = vTimerStart; }
-                if (debugFunctionIsOn) {
+        var timerIsRunningAlready = false;
+        var debugFunctionIsOn = false;
+        if (UseLogTimerDetail
+            || (UseLogTimerTransition && timerType == timerTypeTransition)
+            || (UseLogTimerMove && timerType == timerTypeMove)) {
+            debugFunctionIsOn = true;
+        }
+        //
+        var timerStartKey;
+        if (timerMethod == timerMethodGroup) {
+            timerStartKey = timerRootKey;
+            timerFunctionTemp = timerFunctionGroupPassed;
+        } else if (timerMethod == timerMethodItem) {
+            timerStartKey = timerItemKey;
+            timerFunctionTemp = timerFunctionItemPassed;
+        }
+        //
+        timerStarted += 1;
+        //
+        timerObj[timerStartKey].timerInstance += 1;
+        timerObj[timerStartKey].timerInstanceCn += 1;
+        timerObj[timerStartKey].timerElapsed = 0;
+        timerObj[timerStartKey].timerCompletion = 0;
+        timerObj[timerStartKey].timerDelay = timerDelayPassed;
+        //
+        if (timerObj[timerStartKey].timerIsRunning) {
+            timerIsRunningAlready = true;
+        } else {
+            if (!timerObj[timerStartKey].timerIsRunning) {
+                // date is reset on any call here,
+                // allows items to be added late in the cycle...
+                timerObj[timerStartKey].timerIsRunning = true;
+                timerObj[timerStartKey].timerDateStart = new Date();
+                // One timer per Item or Element (per Timer Type)
+                // Start this Item's Group Timer if it is not already running
+                vTimerStart = timerObj[timerStartKey].timerIntervalId;
+                if (!vTimerStart) {
+                    // No existing timer
+                    // Run with delay
+                    var tempFunc = function () {
+                        TimerSet(IsImageLarge, timerType, timerGroup, timerGroupItem,
+                            timerFunctionTemp, timerDelayPassed,
+                            timerMethodPassed, timerFunctionGroupPassed, timerFunctionItemPassed);
+                    };
+                    vTimerStart = window.setTimeout(
+                        tempFunc,
+                        timerDelayPassed);
+                    if (vTimerStart) { timerObj[timerStartKey].timerIntervalIdStart = vTimerStart; }
+                    if (debugFunctionIsOn) {
+                        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                            TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
+                                (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
+                                timerObj[timerStartKey].playDirection, 'Timer Pending')
+                            + ', Timer ' + vTimerStart + ' Delayed (' + timerDelayPassed + ') Start '
+                            + (vTimerStart ? 'Ok' : 'Failed')
+                            + (vTimerStart ? '.' : '!!!'),
+                            'MdmTimer:TimerStart', 850, 0, null, null,
+                            errorIsComment, errorDoNotDisplayTag, UseAlert);
+                    }
+                } else {
+                    // not running but timer present!
                     MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                         TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
                             (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
                             timerObj[timerStartKey].playDirection, 'Timer Pending')
-                        + ', Timer ' + vTimerStart + ' Delayed (' + timerDelayPassed + ') Start '
-                        + (vTimerStart ? 'Ok' : 'Failed')
-                        + (vTimerStart ? '.' : '!!!'),
-                        'MdmTimer:TimerStart', 850, 0, null, null,
-                        errorIsComment, errorDoNotDisplayTag, UseAlert);
+                        + ', Timer ' + vTimerStart + ' Delayed (' + timerDelayPassed + ')'
+                        + " isn't" + ' running but was not terminated correctly, '
+                        + 'timer ' + (vTimerStart ? 'already exists' : 'ready')
+                        + (!vTimerStart ? '.' : '!!!'),
+                        'MdmTimer:TimerStart', 833, 0, null, null,
+                        errorIsSevere, errorDoNotDisplayTag, UseAlert);
                 }
-            } else {
-                // not running but timer present!
-                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                    TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem,
-                        (timerMethod - timerMethodGroup) ? DoNotUseRoot : DoUseRoot,
-                        timerObj[timerStartKey].playDirection, 'Timer Pending')
-                    + ', Timer ' + vTimerStart + ' Delayed (' + timerDelayPassed + ')'
-                    + " isn't" + ' running but was not terminated correctly, '
-                    + 'timer ' + (vTimerStart ? 'already exists' : 'ready')
-                    + (!vTimerStart ? '.' : '!!!'),
-                    'MdmTimer:TimerStart', 833, 0, null, null,
-                    errorIsSevere, errorDoNotDisplayTag, UseAlert);
-            }
-        } else { timerIsRunningAlready = true; }
-    }
-
-    if (timerIsRunningAlready) {
-        if (debugFunctionIsOn) {
-            MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
-                    timerObj[timerItemKey].playDirection, 'Timer Running')
-                + ', Already running'
-                + '.',
-                'MdmTimer:TimerStart', 879, 0, null, null,
-                errorIsComment, errorDoNotDisplayTag, UseAlert);
-            //
+            } else { timerIsRunningAlready = true; }
         }
+
+        if (timerIsRunningAlready) {
+            if (debugFunctionIsOn) {
+                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                    TimerTextLog(oObjNext, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                        timerObj[timerItemKey].playDirection, 'Timer Running')
+                    + ', Already running'
+                    + '.',
+                    'MdmTimer:TimerStart', 879, 0, null, null,
+                    errorIsComment, errorDoNotDisplayTag, UseAlert);
+                //
+            }
+        }
+        //
+    } catch (bodyLayoutErr) {
+        // Errors:
+        // ...................................... //
+        script_state = "Item Show Error in " + script_state + "::MdmTimer:TimerStart";
+        ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
+    //
 }
 // Timer Pause then Start
 // Included a setTimeout in BODY onload to delay start of text movement.

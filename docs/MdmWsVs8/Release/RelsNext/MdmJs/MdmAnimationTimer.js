@@ -480,6 +480,12 @@ function TimerStartMove(playDirection,
         //
         // ...................................... //
         // ElementMove
+		// todo is this correct?
+		var elTopOrig = menuImagePositionOrgin[timerGroup][timerGroupItem][IsImageLarge][indexTop];
+		var elLeftOrig = menuImagePositionOrgin[timerGroup][timerGroupItem][IsImageLarge][indexLeft];
+		//
+		var elTopDest = menuImagePositionDest[timerGroup][timerGroupItem][IsImageLarge][indexTop];
+		var elLeftDest = menuImagePositionDest[timerGroup][timerGroupItem][IsImageLarge][indexLeft];
         //
         // Distance
         moveDistanceLeft = Math.abs(elLeftDest - elLeftOrig);

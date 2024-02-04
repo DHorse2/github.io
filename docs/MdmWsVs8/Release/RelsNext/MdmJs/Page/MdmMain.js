@@ -184,7 +184,7 @@ var filterDurationOverride = false; // Indicates User has set durations and defa
 var imgLoadEventTest = false; // controls clearing of bodyImageContainer for testing
 var imgLoadUseDOM = true; // Add Elements to DOM
 var imgLoadUseInner = false; // Use innerHTML for content
-var imgLoadUseEventHandler = true; // Single Event Listener (dispatcher)
+var imgLoadUseEventHandler = false; // Single Event Listener (dispatcher)
 
 // AREA Log usage
 // ...................................... //

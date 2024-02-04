@@ -36,14 +36,11 @@ function MenuImagesHtmlBuild() {
     //
     bodyImageContainer = ElementGetRef(BodyImageContainer, "BodyImageContainer", "BodyImageContainer");
     //
-    var menuGroupCn = 0;
     imgHtml = "";
     // imgHtml += lt + 'div id="BodyImageContainer"' + gt;
     for (imgGroupCn = 0; imgGroupCn < 1 + bodyMenuGroupMax; imgGroupCn++) {
         oNamePrev = '';
         for (imgCn = 0; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
-            // Increment Id for "MenuGroupX"
-            menuGroupCn++;
             oName = MenuObjectNameSet(imgGroupCn, imgCn);
             // Parent
             // Menu list item or Container Id
@@ -55,7 +52,7 @@ function MenuImagesHtmlBuild() {
             } else {
                 // Menu list item
                 // oNameParent = '';
-                oNameParent = 'MenuGroup' + menuGroupCn;
+                oNameParent = 'MenuGroup' + imgGroupCn + 'Header';
                 // oNameParent = MenuObjectNameSet(imgGroupCn, imgCn);
             }
             // Image Small
@@ -323,66 +320,66 @@ function MenuImagesHtmlBuild() {
 
             // Events: Mouseover (show both)
             // Mouse Over Large Image
-            // ------------------------------------------------------------------------------------- _//
-            // Show Image Small when over the large image
-            imgHtml += '      	 onmouseover="';
-            // Show Image Large
-            // ------------------------------------------------------------------------------------- _//
-            // Bring Large Image to Top
-            // imgHtml += 'MenuImgShow(';
-            imgHtml += 'ElementItemShowId(';
+            // // ------------------------------------------------------------------------------------- _//
+            // // Show Image Small when over the large image
+            // imgHtml += '      	 onmouseover="';
+            // // Show Image Large
+            // // ------------------------------------------------------------------------------------- _//
+            // // Bring Large Image to Top
+            // // imgHtml += 'MenuImgShow(';
+            // imgHtml += 'ElementItemShowId(';
 
-            // Large Image
-            imgHtml += 'true, ';
-            // Parent Object ID
-            imgHtml += "'" + oName + 'Image' + "'";
-            imgHtml += ', ';
-            // Image ID
-            imgHtml += "'" + oName + "'";
-            imgHtml += ', ';
-            // Object Large ID
-            imgHtml += "'" + oName + 'Large' + "'";
-            imgHtml += ', ';
-            // Small Image Size
-            imgHtml += 'oObjImageSizeLarge';
-            imgHtml += ', ';
-            // Group
-            imgHtml += imgGroupCn + ', ';
-            // Group Menu Line
-            imgHtml += imgCn + ', ';
-            // Current Show Lock
-            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
-            imgHtml += 'true'; // Ignore Show Lock
+            // // Large Image
+            // imgHtml += 'true, ';
+            // // Parent Object ID
+            // imgHtml += "'" + oName + 'Image' + "'";
+            // imgHtml += ', ';
+            // // Image ID
+            // imgHtml += "'" + oName + "'";
+            // imgHtml += ', ';
+            // // Object Large ID
+            // imgHtml += "'" + oName + 'Large' + "'";
+            // imgHtml += ', ';
+            // // Small Image Size
+            // imgHtml += 'oObjImageSizeLarge';
+            // imgHtml += ', ';
+            // // Group
+            // imgHtml += imgGroupCn + ', ';
+            // // Group Menu Line
+            // imgHtml += imgCn + ', ';
+            // // Current Show Lock
+            // imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
+            // imgHtml += 'true'; // Ignore Show Lock
 
-            imgHtml += ');';
+            // imgHtml += ');';
 
-            imgHtml += ' ';
-            imgHtml += 'ElementItemShowId(';
+            // imgHtml += ' ';
+            // imgHtml += 'ElementItemShowId(';
 
-            // Small Image
-            imgHtml += 'false, ';
-            // Parent Object ID
-            // Image Small
-            imgHtml += "'" + oNameParent + "'";
-            imgHtml += ', ';
-            // Small Object ID
-            imgHtml += "'" + oName + "'";
-            imgHtml += ', ';
-            // Object Large ID
-            imgHtml += "'" + oName + "'";
-            imgHtml += ', ';
-            // Small Image Size
-            imgHtml += 'oObjImageSizeSmall';
-            imgHtml += ', ';
-            // Group
-            imgHtml += imgGroupCn + ', ';
-            // Group Menu Line
-            imgHtml += imgCn + ', ';
-            // Current Show Lock
-            imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
-            imgHtml += 'true'; // Ignore Show Lock
+            // // Small Image
+            // imgHtml += 'false, ';
+            // // Parent Object ID
+            // // Image Small
+            // imgHtml += "'" + oNameParent + "'";
+            // imgHtml += ', ';
+            // // Small Object ID
+            // imgHtml += "'" + oName + "'";
+            // imgHtml += ', ';
+            // // Object Large ID
+            // imgHtml += "'" + oName + "'";
+            // imgHtml += ', ';
+            // // Small Image Size
+            // imgHtml += 'oObjImageSizeSmall';
+            // imgHtml += ', ';
+            // // Group
+            // imgHtml += imgGroupCn + ', ';
+            // // Group Menu Line
+            // imgHtml += imgCn + ', ';
+            // // Current Show Lock
+            // imgHtml += 'menuImageLocked[' + imgGroupCn + '] [' + imgCn + ']' + ', '; // Current Show Lock
+            // imgHtml += 'true'; // Ignore Show Lock
 
-            imgHtml += ');';
+            // imgHtml += ');';
 
             // Start Animation Filter
             // ------------------------------------------------------------------------------------- _//
@@ -519,6 +516,7 @@ function MenuImagesHtmlBuild() {
             // Large Div end tag
             imgHtml += lt + '/div' + gt;
             // ------------------------------------------------------------------------------------- _//
+            oNamePrev = oName;
         }
     }
     //
@@ -964,17 +962,17 @@ function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObj
     //	oObj.class= "MenuThumbHide";
     //
     script_state += ":Hide:" + oObjNext.id;
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
 
     var oObjNextIndex = oObjIndex = oObjGroupItemIndex;
     // MenuIndexGroupSet(oObjNextGroupIndex, oObjNext);
     // oObj = MenuObjectSetAll(oObjNextGroupIndex, oObjNextIndex);
     //
-    if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] == true) { return; }
+    if (!IgnoreLock && menuImageLocked[oObjNextGroupIndex][oObjNextIndex] == true) { return; }
     //
     oObjNext.style.display = "none";
     //
-    if (!IgnoreLock) { menuImageLocked[oObjNextGroupIndex] [oObjNextIndex] = oObjLocked; }
+    if (!IgnoreLock) { menuImageLocked[oObjNextGroupIndex][oObjNextIndex] = oObjLocked; }
     //
     // oObj.width= 0;
     // oObj.height= 0;
@@ -988,7 +986,7 @@ function MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObj
 // Menu Mouse Out function
 ////////////////////////////////////////////////
 function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
     startObjoObjIndex = startIndex;
     endObjoObjIndex = endIndex;
     oObjIndex = startObjoObjIndex;
@@ -1002,9 +1000,9 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
         IgnoreLock = true;
         while (oObjIndex < 1 + endObjoObjIndex) {
             //
-            menuImageLocked[oObjGroupIndex] [oObjIndex] = false;
+            menuImageLocked[oObjGroupIndex][oObjIndex] = false;
             // Objects
-            ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+            ElementItemGetAllFromIndex(IsImageLarge, oObjNextParent.id, 0, oObjGroupIndex, oObjIndex);
             // oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
 
             if (HideImage) {
@@ -1025,17 +1023,17 @@ function MenuImgToggleRange(HideImage, HideImageLarge, startIndex, endIndex, IsI
 // Menu Toggle Menu Show Item (Mouse Down function)
 ////////////////////////////////////////////////
 function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
     oObjIndex = oObjGroupItemIndex;
     // MenuIndexGroupSet(oObjGroupIndex, oObjNext);
     if (oObjNext.style.display == "none") {
-        MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex], IgnoreLock);
+        MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
     } else {
         if (IsImageLarge) {
             // Is this wrong?
-            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex], true);
+            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
         } else {
-            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex] [oObjIndex], IgnoreLock);
+            MenuImgHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjGroupIndex, oObjGroupItemIndex, menuImageLocked[oObjGroupIndex][oObjIndex], IgnoreLock);
         }
     }
 }
@@ -1047,7 +1045,7 @@ function MenuImgToggle(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iI
 function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     ////////////////////////////////////////////////
     // Build Menu Images Div
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
     //
     startObjoObjIndex = startIndex;
     endObjoObjIndex = oObjGroupItemIndex;
@@ -1060,13 +1058,13 @@ function MenuImgShowRange(startIndex, endIndex, IsImageLarge, oObjNextParent, oO
 // Menu Mouse Over function
 ////////////////////////////////////////////////
 function MenuImgShowIndex(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
     MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock);
 }
 // Menu Menu Show Item and all Previous (Mouse Over function)
 ////////////////////////////////////////////////
 function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
     imgZindex += 1;
     // oObjNext.style.zIndex = imgZindex;
     //
@@ -1076,13 +1074,13 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
     oObjIndex = startoObjIndex;
     while (oObjIndex < 1 + endoObjIndex) {
         // Objects
-        ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+        ElementItemGetAllFromIndex(IsImageLarge, oObjNextParent.id, 0, oObjGroupIndex, oObjIndex);
         // oObj = MenuObjectSetAll(oObjGroupIndex, oObjIndex);
         // Set Lock State
         // if (oObjLocked) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
-        if (!IgnoreLock) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
+        if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex] = oObjLocked; }
         // Reveal Hidden Images
-        MenuImgShow(IsImageLarge, oObjParent, oObjImage, oObj, iImageSize, oObjGroupIndex, oObjIndex, menuImageLocked[oObjGroupIndex] [oObjIndex], true);
+        MenuImgShow(IsImageLarge, oObjParent, oObjImage, oObj, iImageSize, oObjGroupIndex, oObjIndex, menuImageLocked[oObjGroupIndex][oObjIndex], true);
         oObjIndex++;
     }
 }
@@ -1093,7 +1091,7 @@ function MenuImgShowStack(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext,
 ////////////////////////////////////////////////
 function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLocked, IgnoreLock) {
     //
-    if (loadMenuImageDone) { menuImageGroupInitAll(); }
+    if (!loadMenuImageDone) { menuImageGroupInitAll(); }
     //
     oObjIndex = oObjGroupItemIndex;
     LastTouchedId = oObjNext.id;
@@ -1176,21 +1174,21 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         ////////////////////////////////////////////////
         // Save the Left position (of the first image in the group)
         if (oObjIndex == 1) {
-            menuImageRootPosition[oObjGroupIndex] [indexTop] [IsImageLarge] = oObjTop;// oObjNextTop;// Top
-            menuImageRootPosition[oObjGroupIndex] [indexLeft] [IsImageLarge] = oObjLeft;// oObjNextLeft;// Left
-            menuImageRootPosition[oObjGroupIndex] [indexWidth] [IsImageLarge] = oObjWidth;// Right
-            menuImageRootPosition[oObjGroupIndex] [indexHeight] [IsImageLarge] = oObjHeight;// Bottom
+            menuImageRootPosition[oObjGroupIndex][indexTop][IsImageLarge] = oObjTop;// oObjNextTop;// Top
+            menuImageRootPosition[oObjGroupIndex][indexLeft][IsImageLarge] = oObjLeft;// oObjNextLeft;// Left
+            menuImageRootPosition[oObjGroupIndex][indexWidth][IsImageLarge] = oObjWidth;// Right
+            menuImageRootPosition[oObjGroupIndex][indexHeight][IsImageLarge] = oObjHeight;// Bottom
             //
             // Store Parent Postion (note only first is stored at this time)
-            menuImagePositionOrgin[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] [indexTop] = oObjTop;
-            menuImagePositionOrgin[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] [indexLeft] = oObjLeft;
-            menuImagePositionOrgin[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] [indexWidth] = oObjWidth;
-            menuImagePositionOrgin[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] [indexHeight] = oObjHeight;
+            menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexTop] = oObjTop;
+            menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexLeft] = oObjLeft;
+            menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexWidth] = oObjWidth;
+            menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexHeight] = oObjHeight;
 
-            menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjLeft;
-            menuImagePositionTop[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjTop;
-            menuImagePositionWidth[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjWidth;
-            menuImagePositionHeight[oObjGroupIndex] [oObjRootIndex] [IsImageLarge] = oObjHeight;
+            menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjLeft;
+            menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjTop;
+            menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjWidth;
+            menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjHeight;
             //
             // Cascase Direction
             // Adjust the Left position for the image width
@@ -1210,7 +1208,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         ////////////////////////////////////////////////
         var layoutCascadeDown = true;
         var layoutCascadeRight = true;
-        if (menuImageOffsetTop[oObjGroupIndex] [indexGroup] [IsImageLarge] > 0) {
+        if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] > 0) {
             layoutCascadeDown = true;
         } else { layoutCascadeDown = false; }
         ////////////////////////////////////////////////
@@ -1220,8 +1218,8 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
 
         // Offset
         ////////////////////////////////////////////////
-        oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex] [indexGroup] [IsImageLarge];
-        oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex] [oObjIndex] [IsImageLarge];
+        oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge];
+        oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex][oObjIndex][IsImageLarge];
         ////////////////////////////////////////////////
         // Set Top
         // View Option Adjustments
@@ -1244,7 +1242,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                 // oObjNextTop = menuImageRootPosition[oObjGroupIndex] [indexTop] [IsImageLarge] = oObjTop;// oObjNextTop;// Top
             } else {
                 // oObjNextTop = oObjTop;
-                oObjNextTop = menuImagePositionTop[oObjGroupIndex] [oObjIndex - 1];
+                oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjIndex - 1];
             }
             oObjNextTop += oObjNextOffsetTop;
             if (IsImageLarge) {
@@ -1263,18 +1261,18 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         ////////////////////////////////////////////////
         // Large Image Handling
         // if (!IsImageLarge) {
-            // Small Image
-            // Link Text Position Up or Down
-            //      (determined by Cascade Direction)
-            if (layoutCascadeDown) {
-                // Display Top
-                oObjNext.childNodes[0].style.display = "block";
-                oObjNext.childNodes[2].style.display = "none";
-            } else {
-                // Display Bottom
-                oObjNext.childNodes[0].style.display = "none";
-                oObjNext.childNodes[2].style.display = "block";
-            }
+        // Small Image
+        // Link Text Position Up or Down
+        //      (determined by Cascade Direction)
+        if (layoutCascadeDown) {
+            // Display Top
+            oObjNext.childNodes[0].style.display = "block";
+            oObjNext.childNodes[2].style.display = "none";
+        } else {
+            // Display Bottom
+            oObjNext.childNodes[0].style.display = "none";
+            oObjNext.childNodes[2].style.display = "block";
+        }
         // } else {
         //     // Large Image
         //     // Link Text Position Up or Down
@@ -1293,19 +1291,19 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         ////////////////////////////////////////////////
         // Cascase Direction (Right or Left)
         ////////////////////////////////////////////////
-        if (menuImageOffsetLeft[oObjGroupIndex] [indexGroup] [IsImageLarge] > 0) {
+        if (menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge] > 0) {
             layoutCascadeRight = true;
         } else { layoutCascadeRight = false; }
         // Offset
         // Group Root (common) Offset
-        oObjNextOffsetLeft = menuImageOffsetLeft[oObjGroupIndex] [indexGroup] [IsImageLarge];// Group Default Offset
+        oObjNextOffsetLeft = menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge];// Group Default Offset
         // Group Item Offset (additional)
-        oObjNextOffsetLeft += menuImageOffsetLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge];// Item specific default
+        oObjNextOffsetLeft += menuImageOffsetLeft[oObjGroupIndex][oObjIndex][IsImageLarge];// Item specific default
 
         // View Option Adjustments
         ////////////////////////////////////////////////
         // Group First (anchoring) Offset
-        var menuImageOffsetFirstLocal = menuImageOffsetFirst[oObjGroupIndex] [indexLeft];
+        var menuImageOffsetFirstLocal = menuImageOffsetFirst[oObjGroupIndex][indexLeft];
         // Windowed Layout Format
         ////////////////////////////////////////////////
         // Only use Offset First with first row image
@@ -1336,8 +1334,8 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                         + oObjNextOffsetLeft;// (ie. Right Top)
                     // XXXXXXXX client width etc (refreshing?)                } else {
                     // Use Parent Position plus offset
-                    oObjNextLeft = (menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge]
-                        + menuImagePositionWidth[oObjGroupIndex] [oObjRootIndex] [IsImageLarge])
+                    oObjNextLeft = (menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge]
+                        + menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge])
                         + menuImageOffsetFirstLocal
                         + oObjNextOffsetLeft;// (ie. Right Top)
                 }
@@ -1345,7 +1343,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                 // Cascade Next Left Column By Top and Left Offsets
                 if (layoutIndex == layoutWindowed) { menuImageOffsetFirstLocal = 0; }
                 // oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjIndex - 1] [IsImageLarge]
-                oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge]
+                oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsImageLarge]
                     + oObjNextOffsetLeft;
                 // oObjNextLeft = (oObjLeft)
             }
@@ -1358,7 +1356,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
                 if (layoutIndex == layoutWindowed) {
                     oObjNextLeft = ((oObjGroupIndex - 1) / 6 * layoutWidth);
                 } else {
-                    oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjRootIndex] [IsImageLarge]
+                    oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge]
                         - (iImageSize + 10)
                         + menuImageOffsetFirstLocal
                         + oObjNextOffsetLeft;// (ie. Left Top)
@@ -1367,7 +1365,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
             } else {
                 // (oObjLeft)
                 if (layoutIndex == layoutWindowed) { menuImageOffsetFirstLocal = 0; }
-                oObjNextLeft = menuImagePositionLeft[oObjGroupIndex] [oObjIndex - 1] [IsImageLarge] [IsImageLarge]
+                oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjIndex - 1][IsImageLarge][IsImageLarge]
                     + oObjNextOffsetLeft;// Right Edge of Parent
             }
         }
@@ -1433,10 +1431,10 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
         oObjNext.style.left = oObjNext.style.posLeft;
         // Store Postion
         ////////////////////////////////////////////////
-        menuImagePositionLeft[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjNext.style.posLeft;
-        menuImagePositionTop[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjNext.style.posTop;
-        menuImagePositionWidth[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjNext.offsetWidth;
-        menuImagePositionHeight[oObjGroupIndex] [oObjIndex] [IsImageLarge] = oObjNext.offsetHeight;
+        menuImagePositionLeft[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjNext.style.posLeft;
+        menuImagePositionTop[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjNext.style.posTop;
+        menuImagePositionWidth[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjNext.offsetWidth;
+        menuImagePositionHeight[oObjGroupIndex][oObjIndex][IsImageLarge] = oObjNext.offsetHeight;
 
         // Filters
         ////////////////////////////////////////////////
@@ -1451,7 +1449,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
             // MenuImageFilterPlayAgain(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iImageSize, oObjGroupIndex, oObjIndex, false, true);
             playDirection = playDirectionForward;
             // playDirection = playDirectionReverse;
-            ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
+            ElementPlayAgain(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjIndex, false, true);
 
             // oObjNextImage.filters[0].apply();
             // oObjNextImage.filters[1].apply();
@@ -1514,7 +1512,7 @@ function MenuImgShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, iIma
     ////////////////////////////////////////////////
     // Dispaly Lock vs MouseOut Disappear
     // if (oObjLocked == true) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
-    if (!IgnoreLock) { menuImageLocked[oObjGroupIndex] [oObjIndex] = oObjLocked; }
+    if (!IgnoreLock) { menuImageLocked[oObjGroupIndex][oObjIndex] = oObjLocked; }
 }
 
 script_state = "Mdm Standard Image functions loaded. (Build, Hide/Show, Toggle)";

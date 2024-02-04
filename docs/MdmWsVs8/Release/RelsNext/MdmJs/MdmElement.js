@@ -445,11 +445,13 @@ function ElementPosCalculate(elementPassed) {
         // oObjWidth = parseInt(elementPassed.offsetWidth);
         // oObjHeight = parseInt(elementPassed.offsetHeight);
     }
+    var oObjValid = oObjTop + oObjLeft + oObjWidth + oObjHeight;
     return {
         Top: oObjTop,
         Left: oObjLeft,
         Width: oObjWidth,
-        Height: oObjHeight
+        Height: oObjHeight,
+        Valid: oObjValid
     };
 }
 // Layout Top Get

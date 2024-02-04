@@ -2,7 +2,7 @@
 // Object Set: Object, Image, Parent, Index (Image Large & Small)
 // ElementItemGetAllFromIndex
 // ...................................... //
-function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
+function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, oObjGroupCn, oObjCn) {
 	try {
 		if (loadJavaFirst) { ElementObjectCreate(); } // 3) todo save indexes first?
 		oObjIndex = oObjCn;
@@ -11,7 +11,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 		oObjId = new String();
 		oObjParentId = new String();
 		script_state += " Get(" + oObjGroupCn + ", " + oObjCn + ") ";
-		// script_state += "MdmMenuImageElement:ElementItemGetAllFromIndex(" + oObjGroupCn + ", " + oObjCn + ")";
+		// script_state += "MdmMenuImageElement:ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, 0, " + oObjGroupCn + ", " + oObjCn + ")";
 
 		// ...................................... //
 		switch (oObjGroupIndex) {
@@ -45,7 +45,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 						oObjId = 'MdmWebDev'; oObjParentId = 'MdmSystemMgnt'; break;
 					default:
 						oObjValid = false;
-						oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
+						oObjId = 'MenuGroup1Header'; oObjParentId = 'MenuGroup1'; break;
 				}
 				break;
 			// ...................................... //
@@ -63,7 +63,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 						oObjId = 'MdmDghAccom'; oObjParentId = 'MdmDghCarBio'; break;
 					default:
 						oObjValid = false;
-						oObjId = 'MdmResume'; oObjParentId = 'MenuContainerLeft2'; break;
+						oObjId = 'MenuGroup2Header'; oObjParentId = 'MenuGroup2'; break;
 				}
 				// ...................................... //
 				break;
@@ -78,7 +78,7 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 					oObjId = 'MdmMvvmProj'; oObjParentId = 'MdmCogSciProj'; break;
 				default:
 					oObjValid = false;
-					oObjId = 'MdmTechRsrch'; oObjParentId = 'MenuContainerLeft3'; break;
+					oObjId = 'MenuGroup3Header'; oObjParentId = 'MenuGroup3'; break;
 			}
 				break;
 			// ...................................... //
@@ -87,24 +87,52 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 				switch (oObjCn) {
 					case 0: break;
 					case 1:
-						oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerRight1'; break;
+						oObjId = 'MdmImportTldRight'; oObjParentId = 'MenuGroup4Header'; break;
 					case 2:
-						oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTld'; break;
+						oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTldRight'; break;
+					case 2:
+						oObjId = 'MdmNetAppFrameRight'; oObjParentId = 'MdmKBil'; break;
 					case 3:
-						oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmKBil'; break;
+						oObjId = 'MdmWebUiRight'; oObjParentId = 'MdmNetAppFrameRight'; break;
 					case 4:
-						oObjId = 'MdmSrt'; oObjParentId = 'MdmNetAppFrame'; break;
+						oObjId = 'MdmSrt'; oObjParentId = 'MdmNetAppFrameRight'; break;
 					case 5:
 						oObjId = 'MdmPickTr'; oObjParentId = 'MdmSrt'; break;
+					case 5:
+						oObjId = 'MdmDbUtilClass'; oObjParentId = 'MdmSrt'; break;
 					case 6:
-						oObjId = 'MdmOutlookSync'; oObjParentId = 'MdmPickTr'; break;
+						// oObjId = 'MdmOutlookSyncRight'; oObjParentId = 'MdmPickTr'; break;
+						oObjId = 'MdmPickOss'; oObjParentId = 'MdmDbUtilClass'; break;
 					case 7:
-						oObjId = 'MdmPickOss'; oObjParentId = 'MdmOutlookSync'; break;
-					case 8:
 						oObjId = 'MdmBlank'; oObjParentId = 'MdmPickOss'; break;
+					// case 8:
 					default:
 						oObjValid = false;
-						oObjId = 'MdmImportTldRight'; oObjParentId = 'MenuContainerRight1'; break;
+						oObjId = 'MenuGroup4Header'; oObjParentId = 'MenuGroup4'; break;
+				}
+				break;
+			// ...................................... //
+			// Group 5
+			case 5:
+				switch (oObjCn) {
+					case 0: break;
+					default:
+						oObjValid = false;
+						oObjId = 'MenuGroup5Header'; oObjParentId = 'MenuGroup5'; break;
+				}
+				break;
+			// ...................................... //
+			// Group 6
+			case 6:
+				switch (oObjCn) {
+					case 0: break;
+					case 1:
+						oObjId = 'MdmOutlookSyncRight'; oObjParentId = 'MdmDbUtilClass'; break;
+					case 2:
+						oObjId = 'MdmNetVirList'; oObjParentId = 'MdmOutlookSync'; break;
+					default:
+						oObjValid = false;
+						oObjId = 'MenuGroup6Header'; oObjParentId = 'MenuGroup6'; break;
 				}
 				break;
 			default:
@@ -112,20 +140,34 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 				oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
 		}
 		// ...................................... //
+		oObjNotFound = true;
+		oObj = null;
+		oObjImage = null;
+		oObjParent = null;
+		oObjLarge = null;
+		oObjImageLarge = null;
+		oObjText = "Object " + oObjId + " (" + oObjGroupCn + ", " + oObjCn + ") Not Found!";
 		if (oObjValid) {
 			oObj = ElementGetRef(oObj, oObjId, oObjId);
 			if (!oObj) {
 				oObjValid = false;
 			} else {
 				oObjNotFound = false;
-				oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
-				// oObjParent = ElementGetRef(oObjParent, oObjId + 'MenuLine', oObjId + 'MenuLine');
-				// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-				// oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
-				// if (!oObjParent) {
-				// 	// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
-				// 	oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
-				// }
+				oObjParent = null;
+				oObjParent = ElementGetRef(oObjParent, oObjParentId + 'MenuLine', oObjParentId + 'MenuLine');
+				if (oObjParent) { oObjParentId = oObjParentId + 'MenuLine'; }
+
+				if (!oObjParent && oObjNextParentId && oObjNextParentId.length) {
+					oObjParent = ElementGetRef(oObjParent, oObjNextParentId, oObjNextParentId);
+					if (oObjParent) { oObjParentId = oObjNextParentId; }
+				}
+
+				if (!oObjParent && oObjParentId != oObjNextParentId) {
+					oObjParent = ElementGetRef(oObjParent, oObjParentId, oObjParentId);
+					// oObjParent = ElementGetRef(oObjParent, oObjId + 'MenuLine', oObjId + 'MenuLine');
+					// oObj = ElementGetRef(oObj, oObjId + 'MenuLine', oObjId + 'MenuLine');
+				}
+				// If nothing else an object is anchored to the body.
 				if (!oObjParent) { oObjValid = false; }
 				oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
 				oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
@@ -135,25 +177,25 @@ function ElementItemGetAllFromIndex(oObjGroupCn, oObjCn) {
 		}
 		if (!oObjValid) {
 			oObjNotFound = true;
-			oObj = null;
-			oObjImage = null;
-			oObjParent = null;
-			oObjLarge = null;
-			oObjImageLarge = null;
-			oObjText = "Object " + oObjId + " (" + oObjGroupCn + ", " + oObjCn + ") Not Found!";
 			var errorLogLine = oObjText;
 			ErrorOccured("MdmMenuImageElement:ElementItemGetAllFromIndex", 139, 0, null, null, null, errorLogLine, errorIsSevere, errorDoDisplayTag, DoUseAlert);
 		}
 		//
+		var oObjectLocked = false;
+		var oObjectLockIgnored = false;
 		var oObject = {
 			oObjGroupCn,
 			oObjCn,
 			oObjValid,
+			oObjId,
 			oObj,
-			oObjImage,
+			oObjParentId,
 			oObjParent,
-			oObjLarge,
 			oObjImageLarge,
+			oObjImage,
+			oObjLarge,
+			oObjectLocked,
+			oObjectLockIgnored,
 			oObjText
 		}
 		//

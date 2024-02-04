@@ -136,7 +136,7 @@ function ElementEventMouse(e) {
 	//
 	if (!oObjNotFound) {
 		var oObject =
-			ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+			ElementItemGetAllFromIndex(IsImageLarge, "", 0, oObjGroupIndex, oObjIndex);
 		// if (oObject.oObjValid) {
 			if (IsImageLarge) {
 				oObjNext = oObject.oObjLarge;

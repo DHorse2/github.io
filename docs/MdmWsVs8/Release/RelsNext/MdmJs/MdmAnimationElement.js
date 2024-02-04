@@ -2,42 +2,51 @@
 // ...................................... //
 // SectionBlock Element Item Play function (s)
 // Menu Image Play First
-function ElementPlayFirst(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+function ElementPlayFirst(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state += "MdmAnimationElement:ElementPlayFirst:";
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	ElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+	ElementPlay(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 		iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed);
 }
 // ElementPlayNext
 // ...................................... //
-function ElementPlayNext(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+function ElementPlayNext(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state += "MdmAnimationElement:ElementPlayNext:";
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	ElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+	ElementPlay(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 		iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed);
 }
 // ElementPlayAgain
 // ...................................... //
-function ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+function ElementPlayAgain(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state += "MdmAnimationElement:ElementPlayAgain:";
 	filterPlayIndex = 1;
 	HideImage = false; HideImageLarge = false;
 	//
-	ElementPlay(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
+	ElementPlay(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 		iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed);
 }
 // ElementPlay
-function ElementPlay(playDirection, IsImageLarge,
+function ElementPlay(playDirection, oObjCascade, IsImageLarge,
 	oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 	iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	// if (oObjLocked) { return; } else { oObjLocked = true; }
+	//
+	// Origin and Destination
+	var elLeftOrig = 0;
+	var elTopOrig = 0;
+	var elLeftDest = 0;
+	var elTopDest = 0;
+	//
+	var elementIsRoot = false;
+	var filterIdIndex = 1;
 	//
 	// Timers (and filter transitions) are attached to the Move
 	try {
@@ -312,8 +321,8 @@ function ElementPlay(playDirection, IsImageLarge,
 
 		// POSITION
 		// elLeftOrig, elTopOrig, elLeftDest, elTopDest,
-		elTopOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
-		elLeftOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+		// elTopOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+		// elLeftOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
 
 		// var oObjGroupItemIndexTemp = oObjGroupItemIndex;
 		// // if (!IsImageLarge) { oObjGroupItemIndexTemp = oObjRootIndex; }
@@ -337,6 +346,9 @@ function ElementPlay(playDirection, IsImageLarge,
 		// }
 		//
 		// todo is this correct?
+		elTopOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+		elLeftOrig = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+		//
 		elTopDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
 		elLeftDest = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
 		// A: no this is this starting value
@@ -348,31 +360,31 @@ function ElementPlay(playDirection, IsImageLarge,
 		//
 
 
-		// Cascade Control
-		// ...................................... //
-		// Cascase Row and Column
-		var cascadeRow = 1;
-		var cascadeColumn = 1;
-		cascadeColumn = (oObjGroupItemIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
-		cascadeRow = Math.floor((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
-		// (oObjGroupItemIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
+		// // Cascade Control
+		// // ...................................... //
+		// // Cascase Row and Column
+		// cascadeRow = 1;
+		// cascadeColumn = 1;
+		// cascadeColumn = (oObjGroupItemIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
+		// cascadeRow = Math.floor((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
+		// // (oObjGroupItemIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
 
-		// ...................................... //
-		// Cascase Direction (Down or Up)
-		var layoutCascadeDown = true;
-		var layoutCascadeRight = true;
-		// a negative offset?
-		if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] < 0) {
-			layoutCascadeDown = false;
-		} else { layoutCascadeDown = true; }
+		// // ...................................... //
+		// // Cascase Direction (Down or Up)
+		// layoutCascadeDown = true;
+		// layoutCascadeRight = true;
+		// // a negative offset?
+		// if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] < 0) {
+		// 	layoutCascadeDown = false;
+		// } else { layoutCascadeDown = true; }
 
-		// Animation
-		// ...................................... //
-		if (layoutIndex == layoutWindowed) {
-			layoutCascadeDown = true;
-			filterMotionDirectionSourceAngle = 292.5;
-			filterMotionDirection = 'rightdown';
-		}
+		// // Animation
+		// // ...................................... //
+		// if (layoutIndex == layoutWindowed) {
+		// 	layoutCascadeDown = true;
+		// 	filterMotionDirectionSourceAngle = 292.5;
+		// 	filterMotionDirection = 'rightdown';
+		// }
 
 		if (debugFunctionIsOn || UseLogAnitmation) {
 			MessageLog(null, DoNotUseDebug, DoUseSingleLine,
@@ -592,14 +604,14 @@ function ElementGroupToggle(HideImage, HideImageLarge, startIndex, endIndex, IsI
 			//
 		}
 		if (loadJavaFirst) { ElementObjectCreate(); }
-		if (loadMenuImageDone) { menuImageGroupInitAll(); }
+		if (!loadMenuImageDone) { menuImageGroupInitAll(); }
 		//
 		// Objects
 		if (ElementGroupSetBusy()) {
 			// Framework isn't busy, proceed.
 			// Object
 			var oObject =
-				ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
+				ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, 0, oObjGroupIndex, oObjGroupItemIndex);
 			if (oObject.oObjValid) {
 				if (IsImageLarge) {
 					oObjNext = oObject.oObjLarge;
@@ -612,13 +624,9 @@ function ElementGroupToggle(HideImage, HideImageLarge, startIndex, endIndex, IsI
 					oObjNextParent = oObject.oObjParent;
 					oObjNextLarge = oObject.oObjLarge;
 				}
-				var startObjoObjIndex = startIndex;
-				var endObjoObjIndex = endIndex;
-				var oObjIndexCurr = startObjoObjIndex;
-
 				var oObjNextId = oObjNext.id
 				var oObjNextDisplay = oObjNext.style.display;
-				var oObjNextParentId = oObjNextParent.id;
+				// var oObjNextParentId = oObjNextParent.id;
 				var oObjNextImageId = oObjNextImage.id;
 				oObjLockedStackBusy = false;
 				//
@@ -647,13 +655,13 @@ function ElementGroupToggle(HideImage, HideImageLarge, startIndex, endIndex, IsI
 function ElementItemToggleId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjNextId, iImageSize, oObjGroupIndex, oObjGroupItemIndex, startIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state += "MdmAnimationElement:ElementItemToggleId (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	if (loadJavaFirst) { ElementObjectCreate(); }
-	if (loadMenuImageDone) { menuImageGroupInitAll(); }
+	if (!loadMenuImageDone) { menuImageGroupInitAll(); }
 	//
 	// Objects
 	if (ElementGroupSetBusy()) {
 		// Objects
 		var oObject =
-			ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
+			ElementItemGetAllFromIndex(IsImageLarge, '', 0, oObjGroupIndex, oObjGroupItemIndex);
 		// Objects
 		if (oObject.oObjValid) {
 			if (IsImageLarge) {
@@ -702,7 +710,7 @@ function ElementGroupHide(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjN
 				menuImageLocked[oObjGroupIndex][oObjIndexCurr][IsImageLarge] = false;
 				// Objects
 				var oObject =
-					ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+					ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, 0, oObjGroupIndex, oObjIndex);
 				// Objects
 				if (oObject.oObjValid) {
 					oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
@@ -785,7 +793,7 @@ function ElementGroupShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjN
 			//
 		}
 		if (loadJavaFirst) { ElementObjectCreate(); }
-		if (loadMenuImageDone) { menuImageGroupInitAll(); }
+		if (!loadMenuImageDone) { menuImageGroupInitAll(); }
 		//
 		// load and validate event and objects
 		// set eventCurr, eventCurrRootObj
@@ -823,7 +831,7 @@ function ElementGroupShow(IsImageLarge, oObjNextParentId, oObjNextImageId, oObjN
 				}
 				// Objects
 				var oObject =
-					ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndexCurr);
+					ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, 0, oObjGroupIndex, oObjIndexCurr);
 				// Objects
 				if (oObject.oObjValid) {
 					if (IsImageLarge) {
@@ -878,7 +886,7 @@ function ElementItemShowId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 	if (ElementGroupSetBusy()) {
 		oObjIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNext);
 		var oObject =
-			ElementItemGetAllFromIndex(oObjGroupIndex, oObjIndex);
+			ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, 0, oObjGroupIndex, oObjIndex);
 		if (oObject.oObjValid) {
 			if (IsImageLarge) {
 				oObjNext = oObject.oObjLarge;
@@ -904,13 +912,37 @@ var LastTouchedId;
 // ...................................... //
 function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state = "MdmAnimationElement:ElementItemShow:" + oObjGroupIndex + ', ' + oObjGroupItemIndex + ":Start";
-	if (TimerStartMoveBusy(IsImageLarge, timerTypeMove, oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) {
-		return;
-	}
+	// if (TimerStartMoveBusy(IsImageLarge, timerTypeMove, oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) { return; }
 	//
 	if (loadJavaFirst) { ElementObjectCreate(); }
-	if (loadMenuImageDone) { menuImageGroupInitAll(); }
+	if (loadMenuImageFirst) { menuImageGroupInitAll(); }
 	//
+	var oObjNextLeft = 0;
+	var imageLeftEdge = 0;
+	var imageRightEdge = 0;
+	var oObjContainerSize = 0;
+	var bodyLeftEdge = 0;
+	var bodyRightEdge = 0;
+
+	var oObjSize = {
+		Top: 0,
+		Left: 0,
+		Width: 0,
+		Height: 0
+	};
+
+	// Cascase Row and Column
+	var cascadeRow = 1;
+	var cascadeColumn = 1;
+	var layoutCascadeDown = true;
+	var layoutCascadeRight = true;
+
+	// Offset
+	var oObjNextTop = 0;
+	var oObjNextOffsetTop = 0;
+	var oObjNextLeft = 0;
+	var oObjNextOffsetLeft = 0
+
 	try {
 		script_state += ":Client";
 		oObjIndex = oObjGroupItemIndex; // ElementItemIndexSetFromObj(oObjNext);
@@ -932,29 +964,8 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		//
 		WindowClientWidth();
 		//
-		// if (IsImageLarge) {
-		// Objects
-		// ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
-		// Style Visibility
-		// oObjLarge.style.display= 'block';
-		// oObjImageLarge.style.display= 'block';
-		// }
-
-		// var oObjTop = 0;
-		// var oObjLeft = 0;
-		// var oObjWidth = 0;
-		// var oObjHeight = 0;
-		// const [oObjTop, oObjLeft, oObjWidth, oObjHeight] = [0,0,0,0];
-
-		var oObjSize = {
-			Top: 0,
-			Left: 0,
-			Width: 0,
-			Height: 0
-		};
-
 		script_state += ":Calculate";
-		if (oObjNext.style.display != 'block') {
+		if (oObjNext.style.display != 'block') { // should use isdisplayed todo
 			// Show item
 			LastId = oObjNext.id
 			oObjNext.style.display = 'block';
@@ -964,63 +975,24 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 			var layoutBlockWidthDefault = iImageSize + (menuImageBorderWidth * 2);
 			var elHeightDefault = (iImageSize * oObjImageSizeRatio) + (menuImageBorderWidth * 2);
 
-			// Offset
-			// ...................................... //
-			var oObjNextTop = 0;
-			var oObjNextOffsetTop = 0;
-			var oObjNextLeft = 0;
-			var oObjNextOffsetLeft = 0
-			var menuImageOffsetFirstLocal = 0;
-			// Position
-			// ...................................... //
-
-			// Parent Postion
-			// ...................................... //
-			// Get the offset width of that parent element
-			oObjSize = ElementPosCalculate(oObjNextParent);
-			bodyLeftEdge = oObjSize.Left;
-			bodyRightEdge = oObjSize.Left + oObjSize.Width;
-
-			// Position Control
-			// ...................................... //
-			// Save the Left position (of the first image in the group)
-			if (oObjGroupItemIndex == 1) {
-				// Store Parent Postion (note only first is stored at this time)
-				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexTop] = oObjSize.Top;
-				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexLeft] = oObjSize.Left;
-				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexWidth] = oObjSize.Width;
-				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexHeight] = oObjSize.Height;
-			}
-			// Store position
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop] = oObjSize.Top;
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft] = oObjSize.Left;
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexWidth] = oObjSize.Width;
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexHeight] = oObjSize.Height;
-
-			menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
-			menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
-			menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
-			menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
-
-			// oObjNext.style.left = oObjNextLeft + 'px';
-			// oObjNext.style.top = oObjNextTop + 'px';
-
 			// Cascade Control
 			// ...................................... //
 			// Cascase Row and Column
-			var cascadeRow = 1;
-			var cascadeColumn = 1;
 			cascadeColumn = (oObjGroupItemIndex - 1) % oObjectRowMax[oObjGroupIndex] + 1;
 			cascadeRow = Math.floor((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex]) + 1;
 			// (oObjGroupItemIndex - cascadeColumn + oObjectRowMax[oObjGroupIndex]) / oObjectRowMax[oObjGroupIndex];
 
-			// ...................................... //
 			// Cascase Direction (Down or Up)
-			var layoutCascadeDown = true;
-			var layoutCascadeRight = true;
-			if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] > 0) {
-				layoutCascadeDown = true;
-			} else { layoutCascadeDown = false; }
+			// ...................................... //
+			if (menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] < 0) {
+				layoutCascadeDown = false;
+			} else { layoutCascadeDown = true; }
+
+			// Cascade Direction (Right or Left)
+			// ...................................... //
+			if (menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge] < 0) {
+				layoutCascadeRight = false;
+			} else { layoutCascadeRight = true; }
 
 			// Animation
 			// ...................................... //
@@ -1030,67 +1002,9 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				filterMotionDirection = 'rightdown';
 			}
 
-			// Top Position
-			// ...................................... //
-			// Offset
-			// ...................................... //
-			//
-			script_state += ":Offset";
-			if (IsImageLarge) {
-				oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] + 0;
-				oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
-				if (!layoutCascadeDown) { oObjNextOffsetTop = -oObjNextOffsetTop; }
-				//
-				oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
-				oObjNextTop += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
-				// oObjNextTop += menuImagePositionHeight[oObjGroupIndex] [oObjGroupItemIndex] [IsSmall];
-				oObjNextTop += oObjNextOffsetTop;
-			} else {
-				// Small Image
-				oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] + 0;
-				oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
-				// ...................................... //
-				// Set Top
-				// View Option Adjustments
-				// Windowed Layout Format
-				if (layoutIndex == layoutWindowed) {
-					oObjNextOffsetTop = 30;
-					// Set Top
-					oObjNextOffsetTop += bodyMainCenterTop.offsetHeight;
-					oObjNextTop = ((oObjGroupItemIndex - 1) * 50) + oObjNextOffsetTop;
-					if (IsImageLarge) { oObjNextTop += 100; }
-				} else {
-					//  Standard Side Menu Layout Format
-					// Set Top
-					if (oObjGroupItemIndex == 1) {
-						oObjNextTop = oObjSize.Top;
-					} else {
-						// oObjNextTop = oObjSize.Top;
-						// Top of previous image
-						oObjNextOffsetTop = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge][indexTop];
-						// oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge];
-					}
-					oObjNextTop += oObjNextOffsetTop;
-					if (IsImageLarge) {
-						if (oObjNextOffsetTop > 50) {
-							oObjNextTop += oObjNextOffsetTop;
-						} else { oObjNextTop += 100; }
-					}
-					//
-				}
-			}
-			// Style Top for menu image box
-			// ...................................... //
-			// oObjNext.style.top = oObjNextTop + 'px';
-			script_state += ":Top:" + oObjNextTop;
-
 			// Menu Thumb Link Postioning (Top or Bottom)
-
-			// Image Handling
 			// ...................................... //
-			script_state += ":Content:" + layoutCascadeDown;
-			// Content
-			// ...................................... //
+			script_state += ":Link:Above:" + layoutCascadeDown;
 			// Show content (link) above or below image.
 			// if (!IsImageLarge) {
 			// Small (curently also Large) Image
@@ -1105,166 +1019,207 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				oObjNext.childNodes[0].style.display = 'none';
 				oObjNext.childNodes[2].style.display = 'block';
 			}
-			// } else {
-			// 	// Large Image
-			// 	// Link Text Position Up or Down
-			// 	if (layoutCascadeDown) {
-			// 		// Display Top
-			// 		oObjNext.childNodes[0].childNodes[0].style.display = 'block';
-			// 		oObjNext.childNodes[0].childNodes[2].style.display = 'none';
-			// 	} else {
-			// 		// Display Bottom
-			// 		oObjNext.childNodes[0].childNodes[0].style.display = 'none';
-			// 		oObjNext.childNodes[0].childNodes[2].style.display = 'block';
-			// 	}
-			// }
 
-			script_state += ":Cascade";
-			// Cascase Direction (Right or Left)
+			// Position Control
+			// Orgin Parent Postion
 			// ...................................... //
-			if (menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge] > 0) {
-				layoutCascadeRight = true;
-			} else { layoutCascadeRight = false; }
-			//
-			if (layoutCascadeRight) {
-				// Left Column (Left)
-				// ...................................... //
-				if (layoutCascadeDown) {
-					filterMotionDirectionSourceAngle = 315;
-					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 270;
-					filterMotionDirection = 'rightdown';
-				} else {
-					filterMotionDirectionSourceAngle = 225;
-					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 180;
-					filterMotionDirection = 'rightup';
-				}
-			} else {
-				// Right Column
-				// ...................................... //
-				if (layoutCascadeDown) {
-					filterMotionDirectionSourceAngle = 45;
-					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45);
-					filterMotionDirection = 'leftdown';
-				} else {
-					filterMotionDirectionSourceAngle = 135;
-					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 90;
-					filterMotionDirection = 'leftup';
-				}
+			// Get the offset width of that parent element
+			oObjSize = ElementPosCalculate(oObjNextParent);
+			// Save the Left position (of the first image parent in the small group)
+			// todo large image root correct?
+			if ((IsImageLarge == IsSmall && oObjGroupItemIndex == 1)
+				|| (IsImageLarge == IsLarge && oObjSize.Valid)) {
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsSmall][indexTop] = oObjSize.Top;
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsSmall][indexLeft] = oObjSize.Left;
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsSmall][indexWidth] = oObjSize.Width;
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsSmall][indexHeight] = oObjSize.Height;
+
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsLarge][indexTop] = oObjSize.Top;
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsLarge][indexLeft] = oObjSize.Left;
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsLarge][indexWidth] = oObjSize.Width;
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsLarge][indexHeight] = oObjSize.Height;
+				// Store Parent Postion (note only first is stored at this time)
+				// menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexTop] = oObjSize.Top;
+				// menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexLeft] = oObjSize.Left;
+				// menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexWidth] = oObjSize.Width;
+				// menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexHeight] = oObjSize.Height;
 			}
-			script_state += ":Direction:" + filterMotionDirection;
+			// Store position
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop] = oObjSize.Top;
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft] = oObjSize.Left;
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexWidth] = oObjSize.Width;
+			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexHeight] = oObjSize.Height;
+
+			menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
+			menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
+			menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
+			menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
+
+			if (layoutCascadeRight) {
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexLeft] += oObjSize.Width;
+				menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft] += oObjSize.Width;
+			}
+			if (layoutCascadeDown) {
+				menuImagePositionOrgin[oObjGroupIndex][oObjRootIndex][IsImageLarge][indexTop] += oObjSize.Height;
+				menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop] += oObjSize.Height;
+			}
+			// oObjNext.style.left = oObjNextLeft + 'px';
+			// oObjNext.style.top = oObjNextTop + 'px';
+
+
+			script_state += ":Destination:";
+			// Destination
+			// ...................................... //
+			// Top Position
+			// ...................................... //
+			// Offset
+			// ...................................... //
+			//
+			script_state += ":OffsetTop:";
+			// Group First (anchoring) Offset
+			menuImageOffsetFirstTop = menuImageOffsetFirst[oObjGroupIndex][indexTop][IsImageLarge];
+			menuImageOffsetFirstLeft = menuImageOffsetFirst[oObjGroupIndex][indexLeft][IsImageLarge];
+			oObjNextOffsetTop = 0;
+			oObjNextOffsetLeft = 0;
+			// Only use Offset First with first row image
+			// if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirstLeft = 0; }
+			// Windowed
+			// if (layoutIndex == layoutWindowed) { menuImageOffsetFirstLeft = 20; }
+			// if (IsImageLarge) {
+			// 	oObjNextOffsetTop = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsSmall][indexTop];
+			// 	// oObjNextOffsetTop = menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge] + 0;
+			// 	// oObjNextOffsetTop += menuImageOffsetTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
+			// 	// if (!layoutCascadeDown) { oObjNextOffsetTop = -oObjNextOffsetTop; }
+			// 	// //
+			// 	// oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
+			// 	// oObjNextTop += menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsSmall];
+			// 	// // oObjNextTop += menuImagePositionHeight[oObjGroupIndex] [oObjGroupItemIndex] [IsSmall];
+			// 	// oObjNextTop += oObjNextOffsetTop;
+			// } else {
+			// Small Image
+			// Origin
+			oObjNextOffsetTop = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop];
+			// Offset for start position
+			oObjNextOffsetTop += menuImageOffsetFirst[oObjGroupIndex][indexTop][IsImageLarge];
+			// Row Calculation
+			// Group offset
+			var NextOffsetTop = menuImageOffsetTop[oObjGroupIndex][indexGroup][IsImageLarge];
+			// Item specific additional offset
+			NextOffsetTop += menuImageOffsetTop[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
+			// Multiplied by row number
+			NextOffsetTop = NextOffsetTop * (oObjGroupItemIndex - 1);
+			// Total OffsetTop
+			oObjNextOffsetTop += NextOffsetTop;
+			// }
+			script_state += ":Top:" + oObjNextTop + ":" + oObjNextOffsetTop;
+			oObjNextTop = oObjNextOffsetTop;
+			// ...................................... //
+			// Set Top
+			// View Option Adjustments
+			// Windowed Layout Format
+			// if (layoutIndex == layoutWindowed) {
+			// 	oObjNextOffsetTop = 30;
+			// 	// Set Top
+			// 	oObjNextOffsetTop += bodyMainCenterTop.offsetHeight;
+			// 	oObjNextTop = ((oObjGroupItemIndex - 1) * 50) + oObjNextOffsetTop;
+			// 	if (IsImageLarge) { oObjNextTop += 100; }
+			// } else {
+			// 	//  Standard Side Menu Layout Format
+			// 	// Set Top
+			// 	if (oObjGroupItemIndex == 1) {
+			// 		oObjNextTop = oObjSize.Top;
+			// 	} else {
+			// 		// oObjNextTop = oObjSize.Top;
+			// 		// Top of previous image
+			// 		oObjNextOffsetTop = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge][indexTop];
+			// 		// oObjNextTop = menuImagePositionTop[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge];
+			// 	}
+			// 	oObjNextTop += oObjNextOffsetTop;
+			// 	if (IsImageLarge) {
+			// 		if (oObjNextOffsetTop > 50) {
+			// 			oObjNextTop += oObjNextOffsetTop;
+			// 		} else { oObjNextTop += 100; }
+			// 	}
+			// 	//
+			// }
+			// Style Top for menu image box
+			// ...................................... //
+			// oObjNext.style.top = oObjNextTop + 'px';
 
 			// Left Position
 			// ...................................... //
 			// Offset
+			// if (IsImageLarge) {
+			// 	// Group Default Offset
+			// 	oObjNextOffsetLeft = parseInt(menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge]);
+			// 	// Item specific default
+			// 	oObjNextOffsetLeft += parseInt(menuImageOffsetLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]);
+			// 	// oObjNextOffsetLeft = menuImageOffsetLeftLarge[oObjGroupIndex] + 0;
+			// 	// oObjNextOffsetLeft += menuImageOffsetLeftLarge[indexGroup];
+
+			// 	if (!layoutCascadeRight) { oObjNextOffsetLeft = -oObjNextOffsetLeft; }
+			// 	//
+			// 	oObjNextLeft = parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft]);
+			// 	// oObjNextLeft = parseInt(menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsSmall]);
+			// 	//
+			// 	if (layoutCascadeRight) {
+			// 		// on left side anchor is on the right side of parent.
+			// 		// so this is Left + Width. On the right side it's Left.
+			// 		oObjNextLeft += parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsSmall][indexWidth]);
+			// 		// oObjNextLeft += parseInt(menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsSmall]);
+			// 	} else {
+			// 		oObjNextLeft -= parseInt(layoutBlockWidthDefault);
+			// 		// menuImagePositionWidth[oObjGroupIndex] [oObjGroupItemIndex] [IsImageLarge];
+			// 	}
+			// 	//
+			// // 	oObjNextLeft += oObjNextOffsetLeft;
+			// // } else {
+			// // Small image
+			// // Group Default Offset
+			// oObjNextOffsetLeft = parseInt(menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge]);
+			// // Item specific default
+			// oObjNextOffsetLeft += parseInt(menuImageOffsetLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]);
+
+			// // View First Image Adjustments
+			// // ...................................... //
+			// menuImageOffsetFirstLeft = parseInt(menuImageOffsetFirst[oObjGroupIndex][indexLeft]);
+			// // Windowed Layout Format
+			// if (parseInt(oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirstLeft = 0; }
+			// // if (layoutIndex == layoutWindowed) {
+			// // 	// oObjNextOffsetLeft = oObjNextOffsetLeft * 25 / Math.abs(oObjNextOffsetLeft);
+			// // 	menuImageOffsetFirstLeft = 0;
+			// // 	// oObjNextOffsetLeft = 0;// some hard coded setting?
+			// // }
+			// // if (layoutIndex == layoutWindowed) { oObjNextOffsetTop = Math.abs(oObjNextOffsetTop); }
+
+			// // Left Position Calculation
+			// // ...................................... //
+			script_state += ":OffsetLeft:";
+			// Only use Offset First with first row image
+			// if ((oObjIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirstLeft = 0; }
+			// Windowed
+			if (layoutIndex == layoutWindowed) { menuImageOffsetFirstLeft = 20; }
+			// Origin
 			if (IsImageLarge) {
-				// Group Default Offset
-				oObjNextOffsetLeft = parseInt(menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge]);
-				// Item specific default
-				oObjNextOffsetLeft += parseInt(menuImageOffsetLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]);
-				// oObjNextOffsetLeft = menuImageOffsetLeftLarge[oObjGroupIndex] + 0;
-				// oObjNextOffsetLeft += menuImageOffsetLeftLarge[indexGroup];
-
-				if (!layoutCascadeRight) { oObjNextOffsetLeft = -oObjNextOffsetLeft; }
-				//
-				oObjNextLeft = parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft]);
-				// oObjNextLeft = parseInt(menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsSmall]);
-				//
-				if (layoutCascadeRight) {
-					// on left side anchor is on the right side of parent.
-					// so this is Left + Width. On the right side it's Left.
-					oObjNextLeft += parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsSmall][indexWidth]);
-					// oObjNextLeft += parseInt(menuImagePositionWidth[oObjGroupIndex][oObjGroupItemIndex][IsSmall]);
-				} else {
-					oObjNextLeft -= parseInt(layoutBlockWidthDefault);
-					// menuImagePositionWidth[oObjGroupIndex] [oObjGroupItemIndex] [IsImageLarge];
-				}
-				//
-				oObjNextLeft += oObjNextOffsetLeft;
+				oObjNextLeft = menuImagePositionDest[oObjGroupIndex][oObjGroupItemIndex][IsSmall][indexLeft];
 			} else {
-				// Group Default Offset
-				oObjNextOffsetLeft = parseInt(menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge]);
-				// Item specific default
-				oObjNextOffsetLeft += parseInt(menuImageOffsetLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]);
-
-				// View First Image Adjustments
-				// ...................................... //
-				menuImageOffsetFirstLocal = parseInt(menuImageOffsetFirst[oObjGroupIndex][indexLeft]);
-				// Windowed Layout Format
-				if (parseInt(oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) != 1) { menuImageOffsetFirstLocal = 0; }
-				// if (layoutIndex == layoutWindowed) {
-				// 	// oObjNextOffsetLeft = oObjNextOffsetLeft * 25 / Math.abs(oObjNextOffsetLeft);
-				// 	menuImageOffsetFirstLocal = 0;
-				// 	// oObjNextOffsetLeft = 0;// some hard coded setting?
-				// }
-				// if (layoutIndex == layoutWindowed) { oObjNextOffsetTop = Math.abs(oObjNextOffsetTop); }
-
-				// Left Position Calculation
-				// ...................................... //
-				// Adjust Left Position for Page Overflow
-				// Cascade Maximum exceeded (Left)
-				// Cascase Direction
-				if (layoutCascadeRight) {
-
-					// Left Column (Left)
-					// ...................................... //
-					// One First Column of Row
-					if (parseInt(oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
-						// indicates both First and First of Next Row
-						// if (layoutIndex == layoutWindowed) {
-						oObjNextOffsetLeft = 0;
-						// oObjNextLeft = ((oObjGroupIndex - 1) / 6 * layoutWidth)
-						// oObjNextLeft = ((oObjGroupItemIndex - 1) / oObjectRowMax[oObjGroupIndex] * layoutWidth)
-						// 	+ menuImageOffsetFirstLocal
-						// 	+ oObjNextOffsetLeft;// (ie. Right Top)
-						// XXXXXXXX client width etc (refreshing?)
-						// Use Parent Position plus offset
-						//
-						oObjNextLeft = parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft])
-							// oObjNextLeft = parseInt(menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge])
-							// + menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge]
-							+ menuImageOffsetFirstLocal
-							+ oObjNextOffsetLeft;// (ie. Right Top)
-						// }
-					} else {
-						// Cascade Next Left Column By Top and Left Offsets
-
-						// oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge]
-						oObjNextLeft = parseInt(menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft])
-							// oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge]
-							+ oObjNextOffsetLeft;// Right or Left Edge of Parent
-						// oObjNextLeft = (oObjLeft)
-					}
-					//
-				} else {
-					// Right Column
-					// ...................................... //
-
-					// Cascade Maximum exceeded (Right)
-					// ...................................... //
-					if ((oObjGroupItemIndex % oObjectRowMax[oObjGroupIndex]) == 1) {
-						if (layoutIndex == layoutWindowed) {
-							//
-							oObjNextLeft = ((oObjGroupIndex - 1) / oObjectRowMax[oObjGroupIndex] * layoutWidth);
-							// oObjNextLeft = ((oObjGroupIndex - 1) / 6 * layoutWidth);
-						} else {
-							oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge]
-								- (iImageSize + 10)
-								+ menuImageOffsetFirstLocal
-								+ oObjNextOffsetLeft;// (ie. Left Top)
-						}
-						// if (layoutIndex == layoutWindowed && oObjGroupIndex > 2) { oObjNextLeft += 75; }
-					} else {
-						// (oObjLeft)
-						if (layoutIndex == layoutWindowed) { menuImageOffsetFirstLocal = 0; }
-						oObjNextLeft = menuImagePositionLeft[oObjGroupIndex][oObjGroupItemIndex - 1][IsImageLarge]
-							+ oObjNextOffsetLeft;// Right Edge of Parent
-					}
-				} // end of Cascade Right or Left
-			} // end of Large or Small
+				// Small Image
+				oObjNextLeft = menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft];
+			}
+			// Offset for start position
+			oObjNextOffsetLeft = menuImageOffsetFirst[oObjGroupIndex][indexLeft][IsImageLarge];
+			// Group offset
+			var NextOffsetLeft = menuImageOffsetLeft[oObjGroupIndex][indexGroup][IsImageLarge];
+			// Item specific additional offset
+			NextOffsetLeft += menuImageOffsetLeft[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge];
+			// Column Calculation
+			NextOffsetLeft = NextOffsetLeft * (cascadeColumn - 1);
+			oObjNextOffsetLeft += NextOffsetLeft;
 			// Set Left for menu image box
 			// ...................................... //
 			// oObjNext.style.left = oObjNextLeft + 'px';
-			script_state += ":Left:" + oObjNextLeft;
+			script_state += ":Left:" + oObjNextLeft + ":Offset:" + oObjNextOffsetLeft;
+			oObjNextLeft += oObjNextOffsetLeft;
 
 			// Destination Results
 			oObjSize.Left = oObjNextLeft;
@@ -1272,17 +1227,12 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 
 			// Column Overflow Adjustment
 			// ...................................... //
-
+			// Adjust Left Position for Page Overflow
+			// Cascade Maximum exceeded (Left)
 			// Left Column (Left)
 			// ...................................... //
 			// Maximum Screen Width Exceeded (Left)
 			// note this should be an adjustable value
-			var oObjNextLeft;
-			var imageLeftEdge;
-			var imageRightEdge;
-			var oObjContainerSize;
-			var bodyLeftEdge;
-			var bodyRightEdge;
 			//
 			if (IsImageLarge) {
 				// start at top right edge of menus if present.
@@ -1328,16 +1278,51 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				// oObjNext.style.left = oObjNextLeft + 'px';
 			}
 
-			// Store position
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop] = oObjSize.Top;
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft] = oObjSize.Left;
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexWidth] = oObjSize.Width;
-			menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexHeight] = oObjSize.Height;
+			script_state += ":Cascade:Angle";
+			// Cascade Angle
+			if (layoutCascadeRight) {
+				// Left Column (Left)
+				// ...................................... //
+				if (layoutCascadeDown) {
+					filterMotionDirectionSourceAngle = 315;
+					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 270;
+					filterMotionDirection = 'rightdown';
+				} else {
+					filterMotionDirectionSourceAngle = 225;
+					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 180;
+					filterMotionDirection = 'rightup';
+				}
+			} else {
+				// Right Column
+				// ...................................... //
+				if (layoutCascadeDown) {
+					filterMotionDirectionSourceAngle = 45;
+					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45);
+					filterMotionDirection = 'leftdown';
+				} else {
+					filterMotionDirectionSourceAngle = 135;
+					filterMotionDirectionSourceAngle = Math.abs(oObjNextOffsetTop / oObjNextOffsetLeft * 45) + 90;
+					filterMotionDirection = 'leftup';
+				}
+			}
+			var oObjCascade = {
+				layoutCascadeDown,
+				layoutCascadeRight,
+				filterMotionDirection,
+				filterMotionDirectionSourceAngle
+			}
+			script_state += ":Direction:" + filterMotionDirection;
 
-			menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
-			menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
-			menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
-			menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
+			// Store position
+			// menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexTop] = oObjSize.Top;
+			// menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexLeft] = oObjSize.Left;
+			// menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexWidth] = oObjSize.Width;
+			// menuImagePositionOrgin[oObjGroupIndex][oObjGroupItemIndex][IsImageLarge][indexHeight] = oObjSize.Height;
+
+			// menuImagePositionLeft[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Left;
+			// menuImagePositionTop[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Top;
+			// menuImagePositionWidth[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Width;
+			// menuImagePositionHeight[oObjGroupIndex][oObjRootIndex][IsImageLarge] = oObjSize.Height;
 
 			// Store Destination
 			// ...................................... //
@@ -1382,7 +1367,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				playDirection = playDirectionForward;
 				// playDirection = playDirectionReverse;
 				script_state += ":PlayAgain";
-				ElementPlayAgain(playDirection, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, false, true);
+				ElementPlayAgain(playDirection, oObjCascade, IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, iImageSize, oObjGroupIndex, oObjGroupItemIndex, false, true);
 				// oObjNext.filters[0].apply();
 				// oObjNext.filters[1].apply();
 				// oObjNext.filters.item('DXImageTransform.Microsoft.Wheel').apply();
@@ -1390,7 +1375,7 @@ function ElementItemShow(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 				// oObjNext.filters.item[1].apply();
 				// oObjNext.filters.item(1).Apply();
 				// Visibility
-				oObjNext.style.display = 'block';
+				// oObjNext.style.display = 'block';
 			} else {
 				// Visibility
 				// ...................................... //
@@ -1463,7 +1448,7 @@ function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 	// Objects
 	if (ElementGroupSetBusy()) {
 		var oObject =
-			ElementItemGetAllFromIndex(oObjGroupIndex, oObjGroupItemIndex);
+			ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, 0, oObjGroupIndex, oObjGroupItemIndex);
 		if (oObject.oObjValid) {
 			if (IsImageLarge) {
 				oObjNext = oObject.oObjLarge;
@@ -1491,12 +1476,12 @@ function ElementItemHideId(IsImageLarge, oObjNextParentId, oObjNextImageId, oObj
 function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge, oObjNextGroupIndex, oObjGroupItemIndex, oObjLockedPassed, IgnoreLockPassed) {
 	script_state += "MdmAnimationElement:ElementItemHide (" + oObjGroupIndex + ", " + oObjGroupItemIndex + ")";
 	try {
-		if (TimerStartMoveBusy(IsImageLarge, oObjNext.id + 'Move', oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) { return; }
+		// if (TimerStartMoveBusy(IsImageLarge, oObjNext.id + 'Move', oObjGroupIndex, oObjGroupItemIndex, UseLogEvents)) { return; }
 		//
 		if (loadJavaFirst) { ElementObjectCreate(); }
-		if (loadMenuImageDone) { menuImageGroupInitAll(); }
+		if (!loadMenuImageDone) { menuImageGroupInitAll(); }
 		var oObjNextIndex = oObjGroupItemIndex;// ElementItemIndexSetFromObj(oObjNextGroupIndex, oObjNext);
-		// ElementItemGetAllFromIndex(oObjNextGroupIndex, oObjNextIndex);
+		// ElementItemGetAllFromIndex(IsImageLarge, oObjNextParent.id, 0, oObjNextGroupIndex, oObjNextIndex);
 		// playDirection = playDirectionForward;
 		var playDirection = playDirectionReverse;
 		var iImageSize;
@@ -1534,7 +1519,7 @@ function ElementItemHide(IsImageLarge, oObjNextParent, oObjNextImage, oObjNext, 
 		if (moveIsOn || filterIsOn) {
 			//
 			if (IsImageLarge) { iImageSize = oObjImageSizeLarge; } else { iImageSize = oObjImageSizeSmall; }
-			ElementPlayAgain(playDirection, IsImageLarge,
+			ElementPlayAgain(playDirection, null, IsImageLarge,
 				oObjNextParent, oObjNextImage, oObjNext, oObjNextLarge,
 				iImageSize, oObjNextGroupIndex, oObjNextIndex, false, true);
 			// oObjNext.filters[0].apply();

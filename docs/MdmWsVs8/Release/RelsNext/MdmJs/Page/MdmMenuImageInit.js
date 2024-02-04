@@ -144,12 +144,12 @@ function menuImageInit() {
 
     // Menu Maximum Images per each Group
     oObjectRowMax[0] = 0;
-    oObjectRowMax[1] = 8;
+    oObjectRowMax[1] = 4;
     oObjectRowMax[2] = 9;
     oObjectRowMax[3] = 9;
-    oObjectRowMax[4] = 8;
-    oObjectRowMax[5] = 0;
-    oObjectRowMax[6] = 0;
+    oObjectRowMax[4] = 3;
+    oObjectRowMax[5] = 9;
+    oObjectRowMax[6] = 9;
 
 }
 //
@@ -221,7 +221,7 @@ function menuImageSet() {
         // Menu Group 4
         // Default (All)
         menuImageOffsetTop[4][indexGroup][oSizeIndex] = 75;
-        menuImageOffsetLeft[4][indexGroup][oSizeIndex] = -15;
+        menuImageOffsetLeft[4][indexGroup][oSizeIndex] = -25;
         // Boxes
         menuImageOffsetTop[4][1][oSizeIndex] = 0; menuImageOffsetLeft[4][1][oSizeIndex] = 0;
         menuImageOffsetTop[4][2][oSizeIndex] = 0; menuImageOffsetLeft[4][2][oSizeIndex] = 0;
@@ -235,7 +235,7 @@ function menuImageSet() {
         // Menu Group 5
         // Default (All)
         menuImageOffsetTop[5][indexGroup][oSizeIndex] = 75;
-        menuImageOffsetLeft[5][indexGroup][oSizeIndex] = -15;
+        menuImageOffsetLeft[5][indexGroup][oSizeIndex] = -50;
         // Boxes
         // todo
 
@@ -253,7 +253,7 @@ function menuImageSet() {
         // menuImageOffsetFirst[indexGroup] [indexBottom] [oSizeIndex] = 0;
         // menuImageOffsetFirst[indexGroup] [indexRight] [oSizeIndex] = 0;
         // Menu Groups
-        // Menu Group 1
+        // Menu Group 1 (Cascade Right)
         menuImageOffsetFirst[1][indexTop][oSizeIndex] = 0;
         menuImageOffsetFirst[1][indexLeft][oSizeIndex] = 15;
         // menuImageOffsetFirst[1] [indexBottom] [oSizeIndex] = 0;
@@ -268,7 +268,7 @@ function menuImageSet() {
         menuImageOffsetFirst[3][indexLeft][oSizeIndex] = 15;
         // menuImageOffsetFirst[3] [indexBottom] [oSizeIndex] = 0;
         // menuImageOffsetFirst[3] [indexRight] [oSizeIndex] = 0;
-        // Menu Group 4
+        // Menu Group 4 (Cascade Left)
         menuImageOffsetFirst[4][indexTop][oSizeIndex] = 0;
         menuImageOffsetFirst[4][indexLeft][oSizeIndex] = -15;
         // menuImageOffsetFirst[4] [indexBottom] [oSizeIndex] = 0;

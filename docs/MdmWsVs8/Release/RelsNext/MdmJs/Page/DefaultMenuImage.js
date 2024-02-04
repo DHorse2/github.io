@@ -69,6 +69,7 @@ imgMaxByGroup[headingGroupCnCurr] = imgGroupBoxCount;
 menuImageOffsetFirst[indexGroup] [indexTop] = 0;
 menuImageOffsetFirst[indexGroup] [indexLeft] = 35;
 // Menu Groups
+// Cascade right
 // Menu Group 1
 menuImageOffsetFirst[1] [indexTop] = 0;
 menuImageOffsetFirst[1] [indexLeft] = 15;
@@ -78,6 +79,7 @@ menuImageOffsetFirst[2] [indexLeft] = 15;
 // Menu Group 3
 menuImageOffsetFirst[3] [indexTop] = 0;
 menuImageOffsetFirst[3] [indexLeft] = 15;
+// Cascade left
 // Menu Group 4
 menuImageOffsetFirst[4] [indexTop] = 0;
 menuImageOffsetFirst[4] [indexLeft] = -15;
@@ -97,6 +99,7 @@ for (var oSizeIndex = 0; oSizeIndex < 2; oSizeIndex++) {
     menuImageOffsetLeft[indexGroup] [indexGroup] [oSizeIndex] = 25;
     // Menu Group 1
     // Default (All)
+    // Down Right
     menuImageOffsetTop[1] [indexGroup] [oSizeIndex] = 25;
     menuImageOffsetLeft[1] [indexGroup] [oSizeIndex] = 25;
     // Boxes
@@ -109,6 +112,7 @@ for (var oSizeIndex = 0; oSizeIndex < 2; oSizeIndex++) {
     menuImageOffsetTop[1] [7] [oSizeIndex] = 0; menuImageOffsetLeft[1] [7] [oSizeIndex] = 0;
     // Menu Group 2
     // Default (All)
+    // Up Right
     menuImageOffsetTop[2] [indexGroup] [oSizeIndex] = -60;
     menuImageOffsetLeft[2] [indexGroup] [oSizeIndex] = 50;
     // Boxes
