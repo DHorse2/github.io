@@ -2091,9 +2091,9 @@ function fnTimerItemDoStepFilter(timerType, timerGroup, timerGroupItem)
     //
     if (!timerObj[timerGroup] [timerItemKey]) {
         errorLogLine = 'Invalid Timer Object Error!';
-	    errorLogLine += charNewLineTag + charTextIndex;
+	    errorLogLine += charNewLineTag + charTextIndent;
         errorLogLine += fnTimerTextKey(timerType, timerGroup, timerGroupItem);
-	    errorLogLine += charNewLineTag + charTextIndex;
+	    errorLogLine += charNewLineTag + charTextIndent;
         errorLogLine += fnTimerTextRootKey(timerType, timerGroup, timerGroupItem);
         fnWindowError(errorLogLine, 'fnTimerItemDoStepFilter', 4257);
     }
@@ -2385,9 +2385,9 @@ function fnTimerItemDoStepMove(timerType, timerGroup, timerGroupItem)
     // Validate Object
     if (!timerObj[timerGroup] [timerItemKey]) {
         var errorLogLine = 'Invalid Timer Object Error!';
-	    errorLogLine += charNewLineTag + charTextIndex;
+	    errorLogLine += charNewLineTag + charTextIndent;
         errorLogLine += fnTimerTextKey(timerType, timerGroup, timerGroupItem);
-	    errorLogLine += charNewLineTag + charTextIndex;
+	    errorLogLine += charNewLineTag + charTextIndent;
         errorLogLine += fnTimerTextRootKey(timerType, timerGroup, timerGroupItem);
         fnWindowError(errorLogLine, 'fnTimerItemDoStepFilter', 4258);
     }
@@ -2937,16 +2937,16 @@ function fnTimerRootKeyText(timerType, timerGroup, timerGroupItem)
 		}
 	}
 	timerRootText += timerIsRunningText + ' ' + timerIsDisplayedText;
-	timerRootText += charNewLineTag + charTextIndex;
+	timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' Instance: ' + timerObj[timerGroup] [timerRootKey].timerInstance;
     timerRootText += ' Step: ' + timerObj[timerGroup] [timerRootKey].timerStep;
     timerRootText += ' StartIndex: ' + timerObj[timerGroup] [timerRootKey].startIndex;
     timerRootText += ' EndIndex: ' + timerObj[timerGroup] [timerRootKey].endIndex;
-	timerRootText += charNewLineTag + charTextIndex;
+	timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' DateStart: ' + timerObj[timerGroup] [timerRootKey].timerDateStart;
-	timerRootText += charNewLineTag + charTextIndex;
+	timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' ..DateEnd: ' + timerObj[timerGroup] [timerRootKey].timerDateEnd;
-	timerRootText += charNewLineTag + charTextIndex;
+	timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' Elapsed: ' + timerObj[timerGroup] [timerRootKey].timerElapsed
     // timerRootText += ' x: ' + timerObj[timerGroup] [timerRootKey].
     // timerRootText += ' x: ' + timerObj[timerGroup] [timerRootKey].

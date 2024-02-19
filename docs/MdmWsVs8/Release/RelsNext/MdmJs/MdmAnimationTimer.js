@@ -395,7 +395,7 @@ function TimerStartFilter(playDirection,
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerStartFilter";
+        script_state = "Timer Start Filter error in " + script_state + "::MdmAnimationTimer:TimerStartFilter";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -571,7 +571,7 @@ function TimerStartMove(playDirection,
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerStartMove";
+        script_state = "Timer Start Move error in " + script_state + "::MdmAnimationTimer:TimerStartMove";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -711,7 +711,7 @@ function TimerGroupDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed,
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerGroupDoStepFilter";
+        script_state = "Do Step Filter error in " + script_state + "::MdmAnimationTimer:TimerGroupDoStepFilter";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -742,7 +742,6 @@ function TimerItemDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed, 
             timerFilterKey = timerRootKey;
         } else if (timerMethod == timerMethodItem) {
             timerFilterKey = timerItemKey;
-            timerObj[timerRootKey].timerIntervalStep += 1;
         }
         var tempFilterInProgress = true;
         var tempTimeOrStepsCompleted = false;
@@ -756,21 +755,21 @@ function TimerItemDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed, 
         //
         if (!timerObj[timerRootKey]) {
             errorLogLine = 'Invalid Timer Root (Group) Object Error: ' + timerRootKey;
-            errorLogLine += charNewLineTag + charTextIndex;
+            errorLogLine += charNewLineTag + charTextIndent;
             errorLogLine += TimerTextKey(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem);
-            errorLogLine += charNewLineTag + charTextIndex;
+            errorLogLine += charNewLineTag + charTextIndent;
             errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
             ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
             timerCompletion = 100;
             timerInstanceIsSkip = true;
         } else {
             timerObj[timerRootKey].timerStepCurr += 1;
-            //
+            // Redundant check when timerMethodGroup
             if (!timerObj[timerFilterKey]) {
                 errorLogLine = 'Invalid Timer Object Error!';
-                errorLogLine += charNewLineTag + charTextIndex;
+                errorLogLine += charNewLineTag + charTextIndent;
                 errorLogLine += TimerTextKey(timerObj[timerFilterKey].oObj, timerType, timerGroup, timerGroupItem);
-                errorLogLine += charNewLineTag + charTextIndex;
+                errorLogLine += charNewLineTag + charTextIndent;
                 errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
                 ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
                 timerCompletion = 101;
@@ -936,7 +935,7 @@ function TimerItemDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed, 
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerItemDoStepFilter";
+        script_state = "Do Step Filter error in " + script_state + "::MdmAnimationTimer:TimerItemDoStepFilter";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -1083,7 +1082,7 @@ function TimerGroupDoStepMove(IsImageLarge, timerTypePassed, timerGroupPassed, t
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerGroupDoStepMove";
+        script_state = "Do Step Move error in " + script_state + "::MdmAnimationTimer:TimerGroupDoStepMove";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -1139,9 +1138,9 @@ function TimerItemDoStepMove(IsImageLarge, timerType, timerGroup, timerGroupItem
         // Validate Object
         if (!timerObj[timerItemKey]) {
             var errorLogLine = 'Invalid Timer Object Error!';
-            errorLogLine += charNewLineTag + charTextIndex;
+            errorLogLine += charNewLineTag + charTextIndent;
             errorLogLine += TimerTextKey(timerObj[timerFilterKey].oObj, timerType, timerGroup, timerGroupItem);
-            errorLogLine += charNewLineTag + charTextIndex;
+            errorLogLine += charNewLineTag + charTextIndent;
             errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
             ErrorOccured("MdmAnimation:TimerItemDoStepMove", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
         }
@@ -1462,7 +1461,7 @@ function TimerItemDoStepMove(IsImageLarge, timerType, timerGroup, timerGroupItem
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerItemDoStepMove";
+        script_state = "Do Step Move error in " + script_state + "::MdmAnimationTimer:TimerItemDoStepMove";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -1505,7 +1504,7 @@ function TimerStartMoveBusy(IsImageLarge, timerTypePassed, timerGroupPassed, tim
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerStartMoveBusy";
+        script_state = "Item Show error in " + script_state + "::MdmAnimationTimer:TimerStartMoveBusy";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -1545,7 +1544,7 @@ function TimerMoveTest(IsImageLarge, timerTypePassed, timerGroupPassed, timerGro
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmAnimationTimer:TimerMoveTest";
+        script_state = "Timer Move Test error in " + script_state + "::MdmAnimationTimer:TimerMoveTest";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //

@@ -83,11 +83,12 @@ function menuImageCreate() {
     menuImagePositionOrgin = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
     menuImagePositionDest = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
     ////////////////////////////////////////////////
+    // Depreciated - Orgin and Dest used instead
     // Position of Parent Image (Parent of First only stored at this time)
-    menuImagePositionLeft = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
-    menuImagePositionTop = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
-    menuImagePositionWidth = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
-    menuImagePositionHeight = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
+    // menuImagePositionLeft = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
+    // menuImagePositionTop = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
+    // menuImagePositionWidth = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
+    // menuImagePositionHeight = new Array(imgGroupImageArraySize); // By, imgGroupImageArraySize);
 
     // Animation Timer by Group by Image
     ////////////////////////////////////////////////
@@ -134,10 +135,10 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
     menuImagePositionDest[oObjGroupIndex] = new Array(oObjGroupIndexMax);
     ////////////////////////////////////////////////
     // Position of Parent Image (Parent of First only stored at this time)
-    menuImagePositionLeft[oObjGroupIndex] = new Array(oObjGroupIndexMax);
-    menuImagePositionTop[oObjGroupIndex] = new Array(oObjGroupIndexMax);
-    menuImagePositionWidth[oObjGroupIndex] = new Array(oObjGroupIndexMax);
-    menuImagePositionHeight[oObjGroupIndex] = new Array(oObjGroupIndexMax);
+    // menuImagePositionLeft[oObjGroupIndex] = new Array(oObjGroupIndexMax);
+    // menuImagePositionTop[oObjGroupIndex] = new Array(oObjGroupIndexMax);
+    // menuImagePositionWidth[oObjGroupIndex] = new Array(oObjGroupIndexMax);
+    // menuImagePositionHeight[oObjGroupIndex] = new Array(oObjGroupIndexMax);
 
     // Animation Timer by Group by Image
     menuImageTimerCn[oObjGroupIndex] = new Array(oObjGroupIndexMax);
@@ -191,10 +192,10 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
         menuImagePositionOrgin[oObjGroupIndex][oObjIndex] = new Array(2);
         menuImagePositionDest[oObjGroupIndex][oObjIndex] = new Array(2);
 
-        menuImagePositionLeft[oObjGroupIndex][oObjIndex] = new Array(2);
-        menuImagePositionTop[oObjGroupIndex][oObjIndex] = new Array(2);
-        menuImagePositionWidth[oObjGroupIndex][oObjIndex] = new Array(2);
-        menuImagePositionHeight[oObjGroupIndex][oObjIndex] = new Array(2);
+        // menuImagePositionLeft[oObjGroupIndex][oObjIndex] = new Array(2);
+        // menuImagePositionTop[oObjGroupIndex][oObjIndex] = new Array(2);
+        // menuImagePositionWidth[oObjGroupIndex][oObjIndex] = new Array(2);
+        // menuImagePositionHeight[oObjGroupIndex][oObjIndex] = new Array(2);
         //
         for (oSizeIndex = 0; oSizeIndex < 2; oSizeIndex++) {
             // offsets
@@ -216,10 +217,10 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
                 menuImagePositionDest[oObjGroupIndex][oObjIndex][oSizeIndex][oSideIndex] = 0;
             }
 
-            menuImagePositionLeft[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
-            menuImagePositionTop[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
-            menuImagePositionWidth[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
-            menuImagePositionHeight[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            // menuImagePositionLeft[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            // menuImagePositionTop[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            // menuImagePositionWidth[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            // menuImagePositionHeight[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
         }
     }
 }

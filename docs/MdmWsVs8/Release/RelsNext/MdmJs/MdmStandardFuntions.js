@@ -809,3 +809,91 @@ function EventCallerFunctionNameFind(callerFunc) {
 
 script_state = "Mdm Standard Functions loaded. (cross-cutting)";
 if (debugLoadIsOn) { debugger; }
+
+// ...................................... //
+// Window Timer Management
+// todo implement? IE Scan list for expired timers.
+// window.timeoutList = new Array();
+// window.intervalList = new Array();
+
+// window.oldSetTimeout = window.setTimeout;
+// window.oldSetInterval = window.setInterval;
+// window.oldClearTimeout = window.clearTimeout;
+// window.oldClearInterval = window.clearInterval;
+
+// window.setTimeout = function(code, delay) {
+//     var retval = window.oldSetTimeout(code, delay);
+//     window.timeoutList.push(retval);
+//     return retval;
+// };
+// window.clearTimeout = function(id) {
+//     var ind = window.timeoutList.indexOf(id);
+//     if(ind >= 0) {
+//         window.timeoutList.splice(ind, 1);
+//     }
+//     var retval = window.oldClearTimeout(id);
+//     return retval;
+// };
+// window.setInterval = function(code, delay) {
+//     var retval = window.oldSetInterval(code, delay);
+//     window.intervalList.push(retval);
+//     return retval;
+// };
+// window.clearInterval = function(id) {
+//     var ind = window.intervalList.indexOf(id);
+//     if(ind >= 0) {
+//         window.intervalList.splice(ind, 1);
+//     }
+//     var retval = window.oldClearInterval(id);
+//     return retval;
+// };
+// window.clearAllTimeouts = function() {
+//     for(var i in window.timeoutList) {
+//         window.oldClearTimeout(window.timeoutList[i]);
+//     }
+//     window.timeoutList = new Array();
+// };
+// window.clearAllIntervals = function() {
+//     for(var i in window.intervalList) {
+//         window.oldClearInterval(window.intervalList[i]);
+//     }
+//     window.intervalList = new Array();
+// };
+// window.clearAllExpiredIntervals = function() {
+// };
+// window.logAllIntervals = function() {
+// };
+// window.testIntervals = function() {
+//     setInterval('console.log(\'a\')', 1000);
+//     setInterval('console.log(\'b\')', 500);
+//     setInterval('console.log(\'c\')', 750);
+//     setTimeout('clearAllIntervals()', 10000);
+// };
+// ...................................... //
+// Modal Pop-up Window (allowing fields) todo
+// Get the modal
+var PopupModal = document.getElementById("PopupModal");
+PopupModal.style.display = "none";
+// Get the button that opens the modal
+// var btn = document.getElementById("myBtn"); // form button
+
+// Get the <span> element that closes the modal
+var PopupModalCloseBtn = document.getElementById("PopupClose")[0];
+// When the user clicks the button, open the modal
+// btn.onclick = function() {
+//   PopupModal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+PopupModalCloseBtn.onclick = function() {
+    PopupModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == PopupModal) {
+    PopupModal.style.display = "none";
+  }
+}
+
+// ...................................... //

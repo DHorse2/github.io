@@ -671,12 +671,6 @@ function TimerInitialize(IsImageLarge, timerType, timerGroup, timerGroupItem,
                     timerObj[timerLevelKey].timerStepMax =
                         timerObj[timerLevelKey].timerStepMax * imgMaxByGroup[timerGroupItem];
                 }
-                timerObj[timerLevelKey].timerStepCurr = 0;
-                timerObj[timerLevelKey].timerIntervalStep = 0;
-                timerObj[timerLevelKey].timerIntervalStepFilter = 0;
-                //
-                timerObj[timerLevelKey].elMoveStepLeft = 0;
-                timerObj[timerLevelKey].elMoveStepTop = 0;
                 break;
             //
             case timerTypeMove:
@@ -743,6 +737,13 @@ function TimerInitialize(IsImageLarge, timerType, timerGroup, timerGroupItem,
         // For Root objects, the object that started the chain of events.
         timerObj[timerLevelKey].oObj = oObjNext;
         timerObj[timerLevelKey].id = oObjNext.id;
+        // Steps
+        timerObj[timerLevelKey].timerStepCurr = 0;
+        timerObj[timerLevelKey].timerIntervalStep = 0;
+        timerObj[timerLevelKey].timerIntervalStepFilter = 0;
+        //
+        timerObj[timerLevelKey].elMoveStepLeft = 0;
+        timerObj[timerLevelKey].elMoveStepTop = 0;
         //
         timerObj[timerLevelKey].timerStepCurr = 0;
         // Image
@@ -901,7 +902,7 @@ function TimerStart(IsImageLarge, timerType, timerGroup, timerGroupItem,
     } catch (bodyLayoutErr) {
         // Errors:
         // ...................................... //
-        script_state = "Item Show Error in " + script_state + "::MdmTimer:TimerStart";
+        script_state = "Timer Start error in " + script_state + "::MdmTimer:TimerStart";
         ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
     }
     //
@@ -1252,17 +1253,17 @@ function TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem) {
         }
     }
     timerRootText += timerIsRunningText + ' ' + timerIsDisplayedText;
-    timerRootText += charNewLineTag + charTextIndex;
+    timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' Instance: ' + timerObj[timerRootKey].timerInstance;
     timerRootText += ' Total run: ' + timerObj[timerRootKey].timerInstanceCn;
     timerRootText += ' Step: ' + timerObj[timerRootKey].timerStep;
     timerRootText += ' StartIndex: ' + timerObj[timerRootKey].startIndex;
     timerRootText += ' EndIndex: ' + timerObj[timerRootKey].endIndex;
-    timerRootText += charNewLineTag + charTextIndex;
+    timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' DateStart: ' + timerObj[timerRootKey].timerDateStart;
-    timerRootText += charNewLineTag + charTextIndex;
+    timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' ..DateEnd: ' + timerObj[timerRootKey].timerDateEnd;
-    timerRootText += charNewLineTag + charTextIndex;
+    timerRootText += charNewLineTag + charTextIndent;
     timerRootText += ' Elapsed: ' + timerObj[timerRootKey].timerElapsed
     // timerRootText += ' x: ' + timerObj [timerRootKey].
     // timerRootText += ' x: ' + timerObj [timerRootKey].

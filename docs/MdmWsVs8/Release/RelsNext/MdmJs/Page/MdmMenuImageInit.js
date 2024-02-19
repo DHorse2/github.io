@@ -77,10 +77,11 @@ var menuImagePositionOrgin;
 var menuImagePositionDest;
 // ...................................... //
 // Position of Parent Image (Parent of First only stored at this time)
-var menuImagePositionLeft;
-var menuImagePositionTop;
-var menuImagePositionWidth;
-var menuImagePositionHeight;
+// ! Depreciated 20240201 - Use menuImagePositionOrgin/Dest
+// var menuImagePositionLeft;
+// var menuImagePositionTop;
+// var menuImagePositionWidth;
+// var menuImagePositionHeight;
 
 var menuImageRootPosition;
 

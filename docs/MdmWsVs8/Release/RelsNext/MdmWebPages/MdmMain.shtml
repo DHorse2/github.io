@@ -373,7 +373,7 @@
 										<!-- todo onmouseover, href: generate these? MenuContainerLeft1? -->
 										<a id="MdmImportTldMenuLine" class="MenuListItem"
 											href="../MdmWebPages/MdmImportTld.shtml"
-											onmouseover="ElementGroupShow(0, 'MenuGroup1Header', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, 1, false, true);">
+											onmouseover="ElementGroupShow(0, 'MdmImportTld', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, 1, false, true);">
 											Database schema<br>
 											and data converter. (C#)
 										</a>
@@ -1810,6 +1810,23 @@
 	<!-- Section BodyConsoleContainer -->
 	<div id="BodyConsoleContainer" class="BodyConsoleContainer">
 	</div> <!-- end of BodyImageContainer -->
+	<!-- ..................................................................................... -->
+	<!-- ..................................................................................... -->
+	<!-- Section BodyPopupContainer -->
+	<div id="BodyPopupContainer" class="BodyPopupContainer">
+		<!-- The Modal -->
+		<div id="PopupModal" class="Popup Modal">
+			<!-- Modal content -->
+			<div id="PopupContentBox" class="PopupContentBox">
+				<p id="PopupText" class="PopupText PopupContent">
+					Error, the text was not set.
+					<span id="PopupClose" class="PopupClose PopupContent">
+						&times;
+					</span>
+				</p>
+			</div>
+		</div>
+	</div> <!-- end of BodyTempContainer -->
 	<!-- ..................................................................................... -->
 	<!-- ..................................................................................... -->
 	<!-- Section BodyTempContainer -->

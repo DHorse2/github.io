@@ -386,20 +386,21 @@ function MenuObjectNameSet(oObjGroupCn, oObjCn) {
         ////////////////////////////////////////////////
         // Group 4
         case 4:
-        default:
             switch (oObjCn) {
                 case 0: return "MenuContainerRight1";
-                case 1: return "MdmImportTld";
+                case 1: return "MdmImportTldRight";
                 case 2: return "MdmKBil";
-                case 3: return "MdmNetAppFrame";
+                case 3: return "MdmWebUiRight";
                 case 4: return "MdmSrt";
                 case 5: return "MdmPickTr";
-                case 6: return "MdmOutlookSync";
+                case 6: return "MdmOutlookSyncRight";
                 case 7: return "MdmPickOss";
-                case 8: return "MdmBlank";
+                case 8: return "MdmDbUtilClass";
                 default: return "MdmImportTld";
             }
             return;
+        default:
+            return "MISSING";
     }
     //
 }

@@ -4,7 +4,7 @@
 // ...................................... //
 function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, oObjGroupCn, oObjCn) {
 	try {
-		if (loadJavaFirst) { ElementObjectCreate(); } // 3) todo save indexes first?
+		// if (loadJavaFirst) { ElementObjectCreate(); } // 3) todo save indexes first?
 		oObjIndex = oObjCn;
 		oObjGroupIndex = oObjGroupCn;
 		oObjValid = true;
@@ -27,7 +27,8 @@ function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, 
 				switch (oObjCn) {
 					case 0: break;
 					case 1:
-						oObjId = 'MdmImportTld'; oObjParentId = 'MenuGroup1Header'; break;
+						oObjId = 'MdmImportTld'; oObjParentId = 'MdmImportTld'; break;
+						// oObjId = 'MdmImportTld'; oObjParentId = 'MenuGroup1Header'; break;
 					// oObjId = 'MdmImportTld'; oObjParentId = 'MenuContainerLeft1'; break;
 					case 2:
 						oObjId = 'MdmNetAppFrame'; oObjParentId = 'MdmImportTld'; break;
@@ -90,22 +91,18 @@ function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, 
 						oObjId = 'MdmImportTldRight'; oObjParentId = 'MenuGroup4Header'; break;
 					case 2:
 						oObjId = 'MdmKBil'; oObjParentId = 'MdmImportTldRight'; break;
-					case 2:
-						oObjId = 'MdmNetAppFrameRight'; oObjParentId = 'MdmKBil'; break;
 					case 3:
 						oObjId = 'MdmWebUiRight'; oObjParentId = 'MdmNetAppFrameRight'; break;
 					case 4:
 						oObjId = 'MdmSrt'; oObjParentId = 'MdmNetAppFrameRight'; break;
 					case 5:
 						oObjId = 'MdmPickTr'; oObjParentId = 'MdmSrt'; break;
-					case 5:
-						oObjId = 'MdmDbUtilClass'; oObjParentId = 'MdmSrt'; break;
 					case 6:
-						// oObjId = 'MdmOutlookSyncRight'; oObjParentId = 'MdmPickTr'; break;
-						oObjId = 'MdmPickOss'; oObjParentId = 'MdmDbUtilClass'; break;
+						oObjId = 'MdmOutlookSyncRight'; oObjParentId = 'MdmPickTr'; break;
 					case 7:
-						oObjId = 'MdmBlank'; oObjParentId = 'MdmPickOss'; break;
-					// case 8:
+						oObjId = 'MdmPickOss'; oObjParentId = 'MdmDbUtilClass'; break;
+					case 8:
+						oObjId = 'MdmDbUtilClass'; oObjParentId = 'MdmSrt'; break;
 					default:
 						oObjValid = false;
 						oObjId = 'MenuGroup4Header'; oObjParentId = 'MenuGroup4'; break;
@@ -169,9 +166,13 @@ function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, 
 				}
 				// If nothing else an object is anchored to the body.
 				if (!oObjParent) { oObjValid = false; }
-				oObjImage = ElementGetRef(oObjImage, oObjId + 'Image', oObjId + 'Image');
-				oObjLarge = ElementGetRef(oObjLarge, oObjId + 'Large', oObjId + 'Large');
+
+				var oObjImageId = oObjId;
+				if (oObjImageId.slice(-5) == "Right") { oObjImageId = oObjImageId.substring(0, oObjImageId.length - 5); }
+				oObjImage = ElementGetRef(oObjImage, oObjImageId + 'Image', oObjImageId + 'Image');
+				oObjLarge = ElementGetRef(oObjLarge, oObjImageId + 'Large', oObjImageId + 'Large');
 				oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
+
 				oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
 			}
 		}
@@ -213,7 +214,7 @@ function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, 
 	} catch (bodyLayoutErr) {
 		// Errors:
 		// ...................................... //
-		script_state = "Item " + oObjId + "Show Error in " + script_state + "::MdmMenuImageElement:ElementItemGetAllFromIndex";
+		script_state = "Get All From Index (" + oObjId + ") error in " + script_state + "::MdmMenuImageElement:ElementItemGetAllFromIndex";
 		ErrorCaught(bodyLayoutErr, script_state, errorIsSevere);
 	}
 	//
