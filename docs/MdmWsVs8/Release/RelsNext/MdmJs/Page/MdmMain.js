@@ -63,7 +63,7 @@ UseAlert = DoNotUseAlert;
 
 // case 'ConsoleMouseOver':
 // ...................................... //
-UseAnimation = true;
+UseAnimation = false;
 // consoleMouseOverToggle.style.borderColor = buttonIsOnColor;
 
 

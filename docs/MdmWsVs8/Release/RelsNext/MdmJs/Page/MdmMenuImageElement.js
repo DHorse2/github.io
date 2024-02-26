@@ -170,9 +170,12 @@ function ElementItemGetAllFromIndex(IsImageLarge, oObjNextParentId, oObjAnchor, 
 				var oObjImageId = oObjId;
 				if (oObjImageId.slice(-5) == "Right") { oObjImageId = oObjImageId.substring(0, oObjImageId.length - 5); }
 				oObjImage = ElementGetRef(oObjImage, oObjImageId + 'Image', oObjImageId + 'Image');
+				if (!oObjImage) {
+					var errorLogLine = oObjText + 'Image' + oObjImageId + ' not found!';
+					ErrorOccured("MdmMenuImageElement:ElementItemGetAllFromIndex", 139, 0, null, null, null, errorLogLine, errorIsWarning, errorDoDisplayTag, DoUseAlert);
+				}
 				oObjLarge = ElementGetRef(oObjLarge, oObjImageId + 'Large', oObjImageId + 'Large');
 				oObjImageLarge = ElementGetRef(oObjImageLarge, oObjId + 'Large' + 'Image', oObjId + 'Large' + 'Image');
-
 				oObjText = ElementItemGetDescription(oObjGroupCn, oObjCn);
 			}
 		}

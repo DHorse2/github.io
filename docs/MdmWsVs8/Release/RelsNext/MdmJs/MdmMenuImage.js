@@ -29,7 +29,7 @@ function BodyImagesHtmlBuild() {
 // MenuImagesHtmlBuild();
 ////////////////////////////////////////////////
 function MenuImagesHtmlBuild() {
-    var oName, oNameParent, oNamePrev;
+    var oName, oNameImage, oNameParent, oNamePrev;
     // Filter in use is Type Checkerboard;
     filterIndexPassed = filterTypeCheckerBoard;
     // + ', ' + filterTypeCheckerBoard + ')
@@ -42,6 +42,8 @@ function MenuImagesHtmlBuild() {
         oNamePrev = '';
         for (imgCn = 0; imgCn < 1 + imgMaxByGroup[imgGroupCn]; imgCn++) {
             oName = MenuObjectNameSet(imgGroupCn, imgCn);
+            oNameImage = oName;
+            if (oNameImage.slice(-5) == "Right") { oNameImage = oNameImage.substring(0, oNameImage.length - 5); }
             // Parent
             // Menu list item or Container Id
             if (imgCn > 1) {
@@ -194,7 +196,7 @@ function MenuImagesHtmlBuild() {
             // Element: Img
             // ------------------------------------------------------------------------------------- _//
             imgHtml += lt + 'img id=' + '"' + oName + 'Image' + '"'; // Image Id
-            imgHtml += '        	 src= "../Images/Thumbnails/' + oName + '.jpg" '; // Image Source src
+            imgHtml += '        	 src= "../Images/Thumbnails/' + oNameImage + '.jpg" '; // Image Source src
             imgHtml += '        	 class= "MenuThumb" '; // Class
 
             // Events: Mousedown, Mouseout
@@ -459,7 +461,7 @@ function MenuImagesHtmlBuild() {
             // ------------------------------------------------------------------------------------- _//
             // Element: Img
             imgHtml += lt + 'img id=' + '"' + oName + 'LargeImage' + '"';
-            imgHtml += '    		 src="../Images/Thumbnails/' + oName + '.jpg"';
+            imgHtml += '    		 src="../Images/Thumbnails/' + oNameImage + '.jpg"';
             imgHtml += '    		 class="MenuThumbLarge"';
             // Alt
             imgHtml += '			 alt= ' + '"' + MenuObjectTextSet(imgGroupCn, imgCn) + '"';
@@ -684,7 +686,7 @@ function MenuImgHtmlBuild() {
             // Element: Img
             imgHtml += lt + 'img id="' + oName + 'Image' + '" ';// Image Id
             // imgHtml += lt + 'img id="' + oName + 'Image' + imgGroupCn + imgCn + '" ';// Image Id
-            imgHtml += '        	 src= "../Images/Thumbnails/' + oName + '.jpg" ';// Image Source src
+            imgHtml += '        	 src= "../Images/Thumbnails/' + oNameImage + '.jpg" ';// Image Source src
             imgHtml += '        	 class= "MenuThumb" ';// Class
             // Events:
             // Mouse Down
@@ -699,11 +701,23 @@ function MenuImgHtmlBuild() {
             --*/
             //
             // Image Show Toggle
-            imgHtml += 'MenuImgToggle(';
+            imgHtml += 'MenuImgToggleId(';
             imgHtml += 'true, ';// Is Large Image
-            imgHtml += oName + ', ';// Small Id
-            imgHtml += oName + 'LargeImage' + ', ';// Large Image Object
-            imgHtml += oName + 'Large' + ', ';// Large Id
+            // Parent Object ID (Small Id)
+            // (the image object div, not the menu div)
+            imgHtml += "'" + oName + "'";
+            imgHtml += ', ';
+            // Image ID
+            imgHtml += "'" + oName + 'LargeImage' + "'";
+            imgHtml += ', ';
+            // Object (Large) ID
+            imgHtml += "'" + oName + 'Large' + "'";
+            imgHtml += ', ';
+
+            // imgHtml += oName + ', ';// Small Id
+            // imgHtml += oName + 'LargeImage' + ', ';// Large Image Object
+            // imgHtml += oName + 'Large' + ', ';// Large Id
+
             // imgHtml += oName + imgGroupCn + imgCn + ', ';// Small Id
             // imgHtml += oName + 'LargeImage' + imgGroupCn + imgCn + ', ';// Large Image Object
             // imgHtml += oName + 'Large' + imgGroupCn + imgCn + ', ';// Large Id
@@ -894,7 +908,7 @@ function MenuImgHtmlBuild() {
             // Element: Img
             imgHtml += lt + 'img id= "' + oName + 'LargeImage' + '"';
             // imgHtml += lt + 'img id= "' + oName + 'LargeImage' + imgGroupCn + imgCn + '"';
-            imgHtml += '    		 src= "../Images/Thumbnails/' + oName + '.jpg"';// Image Source src
+            imgHtml += '    		 src= "../Images/Thumbnails/' + oNameImage + '.jpg"';// Image Source src
             imgHtml += '    		 class= "MenuThumbLarge"';
             // Alt
             imgHtml += '			 alt= "' + MenuObjectTextSet(imgGroupCn, imgCn) + '"';// Alt (Link) Text;

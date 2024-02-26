@@ -457,7 +457,7 @@
 								<!-- Menu Group 2 ..................................................................................... -->
 								<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText">
 									<p id="MenuGroup2Header" class="MenuColumnHeading h4 cBlack"
-										onmousedown="ElementGroupToggle(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true);">
+										onmousedown="ElementGroupToggle(true, true, 1, 4, 0, '', '', '', oObjImageSizeSmall, 2, 4, false, true);">
 										Career
 									</p>
 									<ul id="MenuGroup2List" class="MenuList">
@@ -520,7 +520,7 @@
 								<!-- Menu Group 3 ..................................................................................... -->
 								<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText">
 									<p id="MenuGroup3Header" class="MenuColumnHeading h4 cBlack"
-										onmousedown="ElementGroupToggle(true, true, 1, 5, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true);">
+										onmousedown="ElementGroupToggle(true, true, 1, 5, 0, '', '', '', oObjImageSizeSmall, 3, 5, false, true);">
 										Applied Research
 									</p>
 									<ul id="MenuGroup3List" class="MenuList">
@@ -1653,7 +1653,7 @@
 							<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
 							<div id="MenuContainerRight1" class="MenuContainer MenuColumnClass fText">
 								<p id="MenuGroup4Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true);">
+									onmousedown="ElementGroupToggle(true, true, 1, 7, 0, '', '', '', oObjImageSizeSmall, 4, 7, false, true);">
 									Software
 									Products
 									Available
@@ -1753,7 +1753,7 @@
 						<div id="MenuGroup6" class="MenuGroup6 BodyMenuGroupLayout">
 							<div id="MenuContainerRight3" class="MenuContainer MenuColumnClass fText f10 ">
 								<p id="MenuGroup6Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 6, 2, false, true);">
+									onmousedown="ElementGroupToggle(true, true, 1, 2, 0, '', '', '', oObjImageSizeSmall, 6, 2, false, true);">
 									Archived Projects
 								</p>
 								<ul id="MenuGroup6List" class="MenuList lNumbered">

@@ -203,7 +203,7 @@ function menuImageGroupInit(oObjGroupIndex, oObjGroupIndexMaxPassed) {
             menuImageOffsetTop[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
             // timers
             menuImageTimerCn[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
-            menuImageLocked[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;
+            menuImageLocked[oObjGroupIndex][oObjIndex][oSizeIndex] = false;
             // Mouse tracking
             ////////////////////////////////////////////////
             imgAniToggle[oObjGroupIndex][oObjIndex][oSizeIndex] = 0;

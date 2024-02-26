@@ -480,17 +480,19 @@ function TimerStartMove(playDirection,
         //
         // ...................................... //
         // ElementMove
-		// todo is this correct?
-		var elTopOrig = menuImagePositionOrgin[timerGroup][timerGroupItem][IsImageLarge][indexTop];
-		var elLeftOrig = menuImagePositionOrgin[timerGroup][timerGroupItem][IsImageLarge][indexLeft];
-		//
-		var elTopDest = menuImagePositionDest[timerGroup][timerGroupItem][IsImageLarge][indexTop];
-		var elLeftDest = menuImagePositionDest[timerGroup][timerGroupItem][IsImageLarge][indexLeft];
+        // todo is this correct?
+        var elTopOrig = menuImagePositionOrgin[timerGroup][timerGroupItem][IsImageLarge][indexTop];
+        var elLeftOrig = menuImagePositionOrgin[timerGroup][timerGroupItem][IsImageLarge][indexLeft];
+        //
+        var elTopDest = menuImagePositionDest[timerGroup][timerGroupItem][IsImageLarge][indexTop];
+        var elLeftDest = menuImagePositionDest[timerGroup][timerGroupItem][IsImageLarge][indexLeft];
         //
         // Distance
+        // moveDistanceLeft = parseInt(elLeftDest - elLeftOrig);
         moveDistanceLeft = Math.abs(elLeftDest - elLeftOrig);
         timerObj[timerItemKey].moveDistanceLeft = moveDistanceLeft;
         //
+        // moveDistanceTop = parseInt(elTopDest - elTopOrig);
         moveDistanceTop = Math.abs(elTopDest - elTopOrig);
         timerObj[timerItemKey].moveDistanceTop = moveDistanceTop;
         //
@@ -639,7 +641,7 @@ function TimerGroupDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed,
                     // && timerObj[timerItemKey].timerGroupItem == timerGroupItem
                     && timerObj[timerItemKey].timerIsRunning
                 ) {
-                    timerInstanceIsDone = TimerItemDoStepFilter(timerObj[timerItemKey].timerType, timerObj[timerItemKey].timerGroup, timerObj[timerItemKey].timerGroupItem);
+                    timerInstanceIsDone = TimerItemDoStepFilterIsImageLarge, (timerObj[timerItemKey].timerType, timerObj[timerItemKey].timerGroup, timerObj[timerItemKey].timerGroupItem);
                     if (!timerInstanceIsDone) { timerIsActive = true; }
                 }
             }
@@ -756,9 +758,9 @@ function TimerItemDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed, 
         if (!timerObj[timerRootKey]) {
             errorLogLine = 'Invalid Timer Root (Group) Object Error: ' + timerRootKey;
             errorLogLine += charNewLineTag + charTextIndent;
-            errorLogLine += TimerTextKey(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem);
-            errorLogLine += charNewLineTag + charTextIndent;
-            errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
+            errorLogLine += TimerTextKey(null, timerType, timerGroup, timerGroupItem);
+            // errorLogLine += charNewLineTag + charTextIndent;
+            // errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
             ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
             timerCompletion = 100;
             timerInstanceIsSkip = true;
@@ -766,9 +768,9 @@ function TimerItemDoStepFilter(IsImageLarge, timerTypePassed, timerGroupPassed, 
             timerObj[timerRootKey].timerStepCurr += 1;
             // Redundant check when timerMethodGroup
             if (!timerObj[timerFilterKey]) {
-                errorLogLine = 'Invalid Timer Object Error!';
+                errorLogLine = 'Invalid Timer Object Error:' + timerFilterKey;
                 errorLogLine += charNewLineTag + charTextIndent;
-                errorLogLine += TimerTextKey(timerObj[timerFilterKey].oObj, timerType, timerGroup, timerGroupItem);
+                errorLogLine += TimerTextKey(null, timerType, timerGroup, timerGroupItem);
                 errorLogLine += charNewLineTag + charTextIndent;
                 errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
                 ErrorOccured("MdmAnimation:TimerItemDoStepFilter", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
@@ -1002,7 +1004,7 @@ function TimerGroupDoStepMove(IsImageLarge, timerTypePassed, timerGroupPassed, t
                     && (timerObj[timerItemKey].timerIsRunning || timerMethod == timerMethodGroup)
                 ) {
 
-                    timerInstanceIsDone = TimerItemDoStepMove(timerObj[timerItemKey].timerType, timerObj[timerItemKey].timerGroup, timerObj[timerItemKey].timerGroupItem);
+                    timerInstanceIsDone = TimerItemDoStepMove(IsImageLarge, timerObj[timerItemKey].timerType, timerObj[timerItemKey].timerGroup, timerObj[timerItemKey].timerGroupItem);
                     if (!timerInstanceIsDone) { timerIsActive = true; }
                 }
             }
@@ -1109,352 +1111,354 @@ function TimerItemDoStepMove(IsImageLarge, timerType, timerGroup, timerGroupItem
         } else if (timerMethod == timerMethodItem) {
             // todo Warning!!! Group funciton used with Item methodology
             timerMoveKey = timerItemKey;
-            timerObj[timerRootKey].timerIntervalStep += 1;
-            timerObj[timerRootKey].timerStepCurr += 1;
         }
-        // ...................................... //
-        // initialize completion variables
-        var tempMoveInProgress = false;
-        var tempTimeOrStepsCompleted = 0;
-        var timerCompletionCurr = 0;
-        var timerCompletionTemp = 0;
-        // ...................................... //
-        // initialize positions, direction and methodology variables
-        var tempPosTop = -1; var tempPosLeft = -1;
-        var playDirection = timerObj[timerMoveKey].playDirection;
-        var elementMoveMethod = timerObj[timerMoveKey].elementMoveMethod;
-        var DoMove = false;
-        var IsRising = false; var IsRisingFactor = 1;
-        var isRightward = false; var isRightwardFactor = -1;
-        // ...................................... //
-        // Increment Current Step
-        timerObj[timerItemKey].timerStepCurr += 1;
-        // ...................................... //
-        // Set Timer for new menu image box
-        // if (timerObj[timerItemKey].timerIntervalId = -1) {
-        //     timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
-        // }
         // ...................................... //
         // Validate Object
         if (!timerObj[timerItemKey]) {
-            var errorLogLine = 'Invalid Timer Object Error!';
+            var errorLogLine = 'Invalid Timer Object Error:' + timerItemKey;
             errorLogLine += charNewLineTag + charTextIndent;
-            errorLogLine += TimerTextKey(timerObj[timerFilterKey].oObj, timerType, timerGroup, timerGroupItem);
-            errorLogLine += charNewLineTag + charTextIndent;
-            errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
+            errorLogLine += TimerTextKey(null, timerType, timerGroup, timerGroupItem);
+            // errorLogLine += charNewLineTag + charTextIndent;
+            // errorLogLine += TimerTextRootKey(IsImageLarge, timerType, timerGroup, timerGroupItem);
             ErrorOccured("MdmAnimation:TimerItemDoStepMove", 1815, 0, null, oObjNext, oObj, errorLogLine, errorIsSevere, errorDoDisplayTag, UseAlert);
-        }
-        timerObj[timerItemKey].elMoveStepTop += 1;
-        // ...................................... //
-        // Set Style and Position for new menu image box
-        if (timerObj[timerItemKey].timerStepCurr == 1) {
-            // Start box in initial position
-            if (playDirection == playDirectionReverse) {
-                timerCompletionTemp = 1.0;
-                // leave the object at its current position (the destination)
-                // timerObj [timerItemKey].oObj.style.top = timerObj [timerItemKey].elTopDest + 'px';
-                // timerObj [timerItemKey].oObj.style.left = timerObj [timerItemKey].elLeftDest + 'px';
-            } else {
-                timerCompletionTemp = 0.05;
-                timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopOrig + 'px';
-                timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftOrig + 'px';
-            }
-            // Resize new object
-            if (filterResizeIsOn && !timerObj[timerItemKey].elementIsDisplayed) {
-                FilterResize(
-                    timerObj[timerItemKey].oObj,
-                    filterClassMatrix,
-                    timerCompletionTemp);
-            }
-        }
-        // ...................................... //
-        // Set Completion based on methodology (Step based or Time Duration based execution)
-        if (timerUseTime) {
-            // (Elapsed) Time based
-            timerObj[timerItemKey].timerDateElps = TimerGetElapsed(IsImageLarge, timerType, timerGroup, timerGroupItem);
-            timerCompletionTemp = timerObj[timerItemKey].timerDateElps / (timerObj[timerItemKey].timerDuration * 1000);
         } else {
-            // Step based
-            timerCompletionTemp = timerObj[timerItemKey].timerStepCurr / timerObj[timerItemKey].timerStepMin;
-            if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMin) {
-                tempTimeOrStepsCompleted = 5497;
-                timerCompletionTemp = timerObj[timerItemKey].timerStepCurr;
-            }
-        }
-        if (timerCompletionTemp >= 1) {
-            tempTimeOrStepsCompleted = 5492;
-            // timerCompletionTemp = 1;
-        }
-        // ...................................... //
-        // Set Completion values
-        timerCompletionCurr = timerObj[timerItemKey].timerCompletion = timerCompletionTemp;
-        if (timerUseTime) { timerObj[timerItemKey].timerTimeCompletion = timerCompletionTemp; }
-        if (!timerUseTime) { timerObj[timerItemKey].timerStepCompletion = timerCompletionTemp; }
-        //
-        if (playDirection == playDirectionReverse) { timerCompletionCurr = 1 - timerCompletionTemp; }
-        //
-        // ...................................... //
-        // StepStopItem
-        // Stop if maximum # of steps exceeded
-        // increment vertical step
-        if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMax) {
-            MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-                TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
-                    timerObj[timerItemKey].playDirection, 'StepStopItem')
-                + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
-                + '.  Move.. Maximum (' + timerObj[timerItemKey].timerStepMax
-                + ') number of interval vertical steps (' + timerObj[timerItemKey].timerStepCurr
-                + ') exceeded'
-                + '!!!',
-                'MdmAnimation:TimerItemDoStepMove', 2175, 0, null, null,
-                errorIsSevere, errorDoNotDisplayTag, UseAlert);
-            tempTimeOrStepsCompleted = 2175;
-        }
-        // increment horizontal step
-        timerObj[timerItemKey].elMoveStepLeft += 1;
-        /*
-        if ( timerObj [timerItemKey].elMoveStepLeft > timerObj [timerItemKey].timerStepMax) {
-        MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
-        TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
-        timerObj [timerItemKey].playDirection, 'StepStopItem')
-        + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
-        + '.  Move.. Maximum (' + timerObj [timerItemKey].timerStepMax
-        + ') number of interval horizontal steps (' + timerObj [timerItemKey].timerStepCurr
-        + ') exceeded'
-        + '!!!',
-        'MdmAnimation:TimerItemDoStepMove', 2193, 0, null, null,
-        errorIsSevere, errorDoNotDisplayTag, UseAlert);
-        tempTimeOrStepsCompleted = 2193;
-        }
-        */
-        //
-        if (!tempTimeOrStepsCompleted) {
-            // Ok to continue
-            DoMove = true;
+            // Valid timer
             // ...................................... //
-            // Determine if Box is Rising or Dropping
-            if (timerObj[timerItemKey].elTopOrig
-                > timerObj[timerItemKey].elTopDest) { IsRising = true; IsRisingFactor = -1; }
+            // initialize completion variables
+            var tempMoveInProgress = false;
+            var tempTimeOrStepsCompleted = 0;
+            var timerCompletionCurr = 0;
+            var timerCompletionTemp = 0;
+            // ...................................... //
+            // initialize positions, direction and methodology variables
+            var tempPosTop = -1; var tempPosLeft = -1;
+            var playDirection = timerObj[timerMoveKey].playDirection;
+            var elementMoveMethod = timerObj[timerMoveKey].elementMoveMethod;
+            var DoMove = false;
+            var IsRising = false; var IsRisingFactor = 1;
+            var isRightward = false; var isRightwardFactor = -1;
+            // ...................................... //
+            // Increment Current Step
+            timerObj[timerItemKey].timerStepCurr += 1;
+            timerObj[timerRootKey].timerIntervalStep += 1;
+            timerObj[timerRootKey].timerStepCurr += 1;
+            // ...................................... //
+            // Set Timer for new menu image box
+            // if (timerObj[timerItemKey].timerIntervalId = -1) {
+            //     timerObj[timerItemKey].timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+            // }
+            timerObj[timerItemKey].elMoveStepTop += 1;
+            // ...................................... //
+            // Set Style and Position for new menu image box
+            if (timerObj[timerItemKey].timerStepCurr == 1) {
+                // Start box in initial position
+                if (playDirection == playDirectionReverse) {
+                    timerCompletionTemp = 1.0;
+                    // leave the object at its current position (the destination)
+                    // timerObj [timerItemKey].oObj.style.top = timerObj [timerItemKey].elTopDest + 'px';
+                    // timerObj [timerItemKey].oObj.style.left = timerObj [timerItemKey].elLeftDest + 'px';
+                } else {
+                    timerCompletionTemp = 0.05;
+                    timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopOrig + 'px';
+                    timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftOrig + 'px';
+                }
+                // Resize new object
+                if (filterResizeIsOn && !timerObj[timerItemKey].elementIsDisplayed) {
+                    FilterResize(
+                        timerObj[timerItemKey].oObj,
+                        filterClassMatrix,
+                        timerCompletionTemp);
+                }
+            }
+            // ...................................... //
+            // Set Completion based on methodology (Step based or Time Duration based execution)
+            if (timerUseTime) {
+                // (Elapsed) Time based
+                timerObj[timerItemKey].timerDateElps = TimerGetElapsed(IsImageLarge, timerType, timerGroup, timerGroupItem);
+                timerCompletionTemp = timerObj[timerItemKey].timerDateElps / (timerObj[timerItemKey].timerDuration * 1000);
+            } else {
+                // Step based
+                timerCompletionTemp = timerObj[timerItemKey].timerStepCurr / timerObj[timerItemKey].timerStepMin;
+                if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMin) {
+                    tempTimeOrStepsCompleted = 5497;
+                    timerCompletionTemp = timerObj[timerItemKey].timerStepCurr;
+                }
+            }
+            if (timerCompletionTemp >= 1) {
+                tempTimeOrStepsCompleted = 5492;
+                // timerCompletionTemp = 1;
+            }
+            // ...................................... //
+            // Set Completion values
+            timerCompletionCurr = timerObj[timerItemKey].timerCompletion = timerCompletionTemp;
+            if (timerUseTime) { timerObj[timerItemKey].timerTimeCompletion = timerCompletionTemp; }
+            if (!timerUseTime) { timerObj[timerItemKey].timerStepCompletion = timerCompletionTemp; }
             //
+            if (playDirection == playDirectionReverse) { timerCompletionCurr = 1 - timerCompletionTemp; }
+            //
+            // ...................................... //
+            // StepStopItem
+            // Stop if maximum # of steps exceeded
+            // increment vertical step
+            if (timerObj[timerItemKey].timerStepCurr > timerObj[timerItemKey].timerStepMax) {
+                MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
+                    TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                        timerObj[timerItemKey].playDirection, 'StepStopItem')
+                    + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5515 ' + ').'
+                    + '.  Move.. Maximum (' + timerObj[timerItemKey].timerStepMax
+                    + ') number of interval vertical steps (' + timerObj[timerItemKey].timerStepCurr
+                    + ') exceeded'
+                    + '!!!',
+                    'MdmAnimation:TimerItemDoStepMove', 2175, 0, null, null,
+                    errorIsSevere, errorDoNotDisplayTag, UseAlert);
+                tempTimeOrStepsCompleted = 2175;
+            }
+            // increment horizontal step
+            timerObj[timerItemKey].elMoveStepLeft += 1;
             /*
-            // ...................................... //
-            // Decide if move needed
-            // Rising
-            // was timerObj [timerItemKey].oObj.style.top
-            if (parseInt(timerObj [timerItemKey].elTopOrig ) < timerObj [timerItemKey].elTopDest) {
-            if (IsRising)  {
-            // if ( playDirection == playDirectionForward) { DoMove = true; }
-            // if ( playDirection == playDirectionReverse) { DoMove = true; }
-            // } else {
-            }
-            }
-            //
-            // Dropping
-            // was timerObj [timerItemKey].oObj.style.top
-            if (parseInt(timerObj [timerItemKey].elTopOrig ) > timerObj [timerItemKey].elTopDest) {
-            if (!IsRising)  {
-            // if ( playDirection == playDirectionForward) { DoMove = true; }
-            // if ( playDirection == playDirectionReverse) { DoMove = true; }
-            // } else {
-            }
+            if ( timerObj [timerItemKey].elMoveStepLeft > timerObj [timerItemKey].timerStepMax) {
+            MessageLog(null, DoNotUseDebug, DoNotUseSingleLine,
+            TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+            timerObj [timerItemKey].playDirection, 'StepStopItem')
+            + ' At: ( t' + tempPosTop + ', l' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ' : m' + tempMoveInProgress + ' : l5525 ' + ')'
+            + '.  Move.. Maximum (' + timerObj [timerItemKey].timerStepMax
+            + ') number of interval horizontal steps (' + timerObj [timerItemKey].timerStepCurr
+            + ') exceeded'
+            + '!!!',
+            'MdmAnimation:TimerItemDoStepMove', 2193, 0, null, null,
+            errorIsSevere, errorDoNotDisplayTag, UseAlert);
+            tempTimeOrStepsCompleted = 2193;
             }
             */
-            // Move needed
-            if (DoMove) {
-                //
+            //
+            if (!tempTimeOrStepsCompleted) {
+                // Ok to continue
+                DoMove = true;
                 // ...................................... //
-                // Set Style Top for Box
+                // Determine if Box is Rising or Dropping
+                if (timerObj[timerItemKey].elTopOrig
+                    > timerObj[timerItemKey].elTopDest) { IsRising = true; IsRisingFactor = -1; }
                 //
-                if (elementMoveMethod == elementMoveMethodSlideDown && timerCompletionCurr > 0.5) {
-                    // SlideDown
-                    tempPosTop = parseInt(timerObj[timerItemKey].oObj.style.top);
-                    // don't change top during second half of SlideDown
-                } else if (elementMoveMethod == elementMoveMethodSlideSide && timerCompletionCurr < 0.5) {
-                    // Slide Side
-                    tempPosTop = parseInt(timerObj[timerItemKey].oObj.style.top);
-                    // don't change top during first half of SlideSide
-                } else {
-                    //
-                    // Slide Diagonally
-                    // always change top during Direct (diagonal) move
-                    timerCompletionTemp = timerCompletionCurr;
-                    //
-                    // SlideDown
-                    if (elementMoveMethod == elementMoveMethodSlideDown) {
-                        timerCompletionTemp = 2 * timerCompletionCurr;
-                        // Slide Side
-                        // Double speed during slide methods
-                    } else if (elementMoveMethod == elementMoveMethodSlideSide) {
-                        timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
-                    }
-                    // calculate top position for Forward and Reverse
-                    tempPosTop = timerObj[timerItemKey].elTopOrig
-                        + (IsRisingFactor * timerCompletionTemp * timerObj[timerItemKey].moveDistanceTop);
-                    //
-                    // tempPosTop = parseInt(tempPosTop);
-                    timerObj[timerItemKey].oObj.style.top = tempPosTop + 'px';
-                    //
-                } // end of Down, Side, or Diagonal movement
-                //
-                tempMoveInProgress = true;
-            }
-            //
-            // ...................................... //
-            // ...................................... //
-            // Set Style Left for menu image box
-            tempPosLeft = -1;
-            //
-            if (DoMove) {
+                /*
                 // ...................................... //
-                // Determine if Box is moving Leftward
-                if (timerObj[timerItemKey].elLeftOrig
-                    < timerObj[timerItemKey].elLeftDest) { isRightward = true; isRightwardFactor = 1; }
-                //
-                // Slide Down
-                if (!timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
-                    && timerCompletionCurr < 0.5) {
-                    // horizontal movement does not start until half way
-                    // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
-                    // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
-
-                } else if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideSide
-                    && timerCompletionCurr > 0.5) {
-                    // Slide Side
-                    // horizontal movement stops after half way
-                    // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
-                    // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
-                } else {
-                    // Slide Diagonally
-                    // always change left during Direct (diagonal) move
-                    timerCompletionTemp = timerCompletionCurr;
-                    //
-                    if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideDown) {
-                        // Slide Down
-                        // horizontal movement is at doubled speed.
-                        timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
-                    }
-                    if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideSide) {
-                        // Slide Side
-                        // horizontal movement is at doubled speed.
-                        timerCompletionTemp = 2 * timerCompletionCurr;
-                    }
-                    // Calculate Left
-                    tempPosLeft = parseInt(timerObj[timerItemKey].elLeftOrig)
-                        + (isRightwardFactor * timerCompletionTemp * timerObj[timerItemKey].moveDistanceLeft);
-                    //
-                    // tempPosLeft = parseInt(tempPosLeft);
-                    timerObj[timerItemKey].oObj.style.left = tempPosLeft + 'px';
-                    //
-                } // end of Down, Side, or Diagonal movement
-                //
-                tempMoveInProgress = true;
-                //
-            }
-            //
-            // Resize
-            if (filterResizeIsOn && tempMoveInProgress
-                && !timerObj[timerItemKey].elementIsDisplayed) {
-                //
-                timerCompletionTemp = parseInt(timerObj[timerItemKey].timerCompletion);
-                //
-                if (playDirection == playDirectionReverse) {
-                    timerCompletionTemp = 1 - timerCompletionTemp;
+                // Decide if move needed
+                // Rising
+                // was timerObj [timerItemKey].oObj.style.top
+                if (parseInt(timerObj [timerItemKey].elTopOrig ) < timerObj [timerItemKey].elTopDest) {
+                if (IsRising)  {
+                // if ( playDirection == playDirectionForward) { DoMove = true; }
+                // if ( playDirection == playDirectionReverse) { DoMove = true; }
+                // } else {
+                }
                 }
                 //
-                FilterResize(
-                    timerObj[timerItemKey].oObj,
-                    filterClassMatrix,
-                    timerCompletionTemp);
+                // Dropping
+                // was timerObj [timerItemKey].oObj.style.top
+                if (parseInt(timerObj [timerItemKey].elTopOrig ) > timerObj [timerItemKey].elTopDest) {
+                if (!IsRising)  {
+                // if ( playDirection == playDirectionForward) { DoMove = true; }
+                // if ( playDirection == playDirectionReverse) { DoMove = true; }
+                // } else {
+                }
+                }
+                */
+                // Move needed
+                if (DoMove) {
+                    //
+                    // ...................................... //
+                    // Set Style Top for Box
+                    //
+                    if (elementMoveMethod == elementMoveMethodSlideDown && timerCompletionCurr > 0.5) {
+                        // SlideDown
+                        tempPosTop = parseInt(timerObj[timerItemKey].oObj.style.top);
+                        // don't change top during second half of SlideDown
+                    } else if (elementMoveMethod == elementMoveMethodSlideSide && timerCompletionCurr < 0.5) {
+                        // Slide Side
+                        tempPosTop = parseInt(timerObj[timerItemKey].oObj.style.top);
+                        // don't change top during first half of SlideSide
+                    } else {
+                        //
+                        // Slide Diagonally
+                        // always change top during Direct (diagonal) move
+                        timerCompletionTemp = timerCompletionCurr;
+                        //
+                        // SlideDown
+                        if (elementMoveMethod == elementMoveMethodSlideDown) {
+                            timerCompletionTemp = 2 * timerCompletionCurr;
+                            // Slide Side
+                            // Double speed during slide methods
+                        } else if (elementMoveMethod == elementMoveMethodSlideSide) {
+                            timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
+                        }
+                        // calculate top position for Forward and Reverse
+                        tempPosTop = timerObj[timerItemKey].elTopOrig
+                            + (IsRisingFactor * timerCompletionTemp * timerObj[timerItemKey].moveDistanceTop);
+                        //
+                        // tempPosTop = parseInt(tempPosTop);
+                        timerObj[timerItemKey].oObj.style.top = tempPosTop + 'px';
+                        //
+                    } // end of Down, Side, or Diagonal movement
+                    //
+                    tempMoveInProgress = true;
+                }
+                //
+                // ...................................... //
+                // ...................................... //
+                // Set Style Left for menu image box
+                tempPosLeft = -1;
+                //
+                if (DoMove) {
+                    // ...................................... //
+                    // Determine if Box is moving Leftward
+                    if (timerObj[timerItemKey].elLeftOrig
+                        < timerObj[timerItemKey].elLeftDest) { isRightward = true; isRightwardFactor = 1; }
+                    //
+                    // Slide Down
+                    if (!timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideDown
+                        && timerCompletionCurr < 0.5) {
+                        // horizontal movement does not start until half way
+                        // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
+                        // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
+
+                    } else if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideSide
+                        && timerCompletionCurr > 0.5) {
+                        // Slide Side
+                        // horizontal movement stops after half way
+                        // tempPosLeft = timerObj [timerItemKey].elLeftOrig;
+                        // tempPosLeft = parseInt(timerObj [timerItemKey].oObj.style.left);
+                    } else {
+                        // Slide Diagonally
+                        // always change left during Direct (diagonal) move
+                        timerCompletionTemp = timerCompletionCurr;
+                        //
+                        if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideDown) {
+                            // Slide Down
+                            // horizontal movement is at doubled speed.
+                            timerCompletionTemp = 2 * (timerCompletionCurr - 0.5);
+                        }
+                        if (timerObj[timerItemKey].elementMoveMethod == elementMoveMethodSlideSide) {
+                            // Slide Side
+                            // horizontal movement is at doubled speed.
+                            timerCompletionTemp = 2 * timerCompletionCurr;
+                        }
+                        // Calculate Left
+                        tempPosLeft = parseInt(timerObj[timerItemKey].elLeftOrig)
+                            + (isRightwardFactor * timerCompletionTemp * timerObj[timerItemKey].moveDistanceLeft);
+                        //
+                        // tempPosLeft = parseInt(tempPosLeft);
+                        timerObj[timerItemKey].oObj.style.left = tempPosLeft + 'px';
+                        //
+                    } // end of Down, Side, or Diagonal movement
+                    //
+                    tempMoveInProgress = true;
+                    //
+                }
+                //
+                // Resize
+                if (filterResizeIsOn && tempMoveInProgress
+                    && !timerObj[timerItemKey].elementIsDisplayed) {
+                    //
+                    timerCompletionTemp = parseInt(timerObj[timerItemKey].timerCompletion);
+                    //
+                    if (playDirection == playDirectionReverse) {
+                        timerCompletionTemp = 1 - timerCompletionTemp;
+                    }
+                    //
+                    FilterResize(
+                        timerObj[timerItemKey].oObj,
+                        filterClassMatrix,
+                        timerCompletionTemp);
+                }
+                // timerStepCompletion
+                //
             }
-            // timerStepCompletion
             //
-        }
-        //
-        if (timerObj[timerItemKey].timerCompletion > timerTen) {
-            // Step by 10% complete (UI?)
-            timerTen + 0.1;
-        }
-        //
-        if (UseLogTimerDetail && UseLogTimerMove) {
-            var tempDetails = ', At: ( step ' + timerObj[timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : find' + tempMoveInProgress + ' : l5747 ' + ')'
-        }
-        //
-        // ...................................... //
-        // End of loop
-        var timerInstanceIsDone = false;
-        if (!tempMoveInProgress || tempTimeOrStepsCompleted) {
-            // Arrived at destinatioin
-            timerInstanceIsDone = true;
-            timerObj[timerRootKey].timerInstance -= 1;
-            if (timerMethod == timerMethodGroup) {
-                // Group Timer
-                timerIntervalId = timerObj[timerRootKey].timerIntervalId;
-            } else if (timerMethod == timerMethodItem) {
-                // Item Timer
-                // Turn Off Timer
+            if (timerObj[timerItemKey].timerCompletion > timerTen) {
+                // Step by 10% complete (UI?)
+                timerTen + 0.1;
+            }
+            //
+            if (UseLogTimerDetail && UseLogTimerMove) {
+                var tempDetails = ', At: ( step ' + timerObj[timerItemKey].timerStepCurr + ' : top ' + tempPosTop + ', left ' + tempPosLeft + ' : c' + tempTimeOrStepsCompleted + ': ' + (timerCompletionCurr * 100) + '%' + ' : find' + tempMoveInProgress + ' : l5747 ' + ')'
+            }
+            //
+            // ...................................... //
+            // End of loop
+            var timerInstanceIsDone = false;
+            if (!tempMoveInProgress || tempTimeOrStepsCompleted) {
+                // Arrived at destinatioin
+                timerInstanceIsDone = true;
+                timerObj[timerRootKey].timerInstance -= 1;
+                if (timerMethod == timerMethodGroup) {
+                    // Group Timer
+                    timerIntervalId = timerObj[timerRootKey].timerIntervalId;
+                } else if (timerMethod == timerMethodItem) {
+                    // Item Timer
+                    // Turn Off Timer
+                    if (debugFunctionIsOn) {
+                        MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                            TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                                timerObj[timerItemKey].playDirection, 'Stop')
+                            + tempDetails
+                            + ', Stopping Item Timer'
+                            + '.',
+                            'MdmAnimation:TimerItemDoStepMove', 2371, 0, null, null,
+                            errorIsComment, errorDoNotDisplayTag, UseAlert);
+                    }
+                    //
+                    TimerStop(IsImageLarge, timerType, timerGroup, timerGroupItem, 0);
+                    //
+                }
+                //
+                // Leave box in final position
+                if (playDirection == playDirectionForward) {
+                    timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopDest + 'px';
+                    timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftDest + 'px';
+                } else {
+                    timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopOrig + 'px';
+                    timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftOrig + 'px';
+                }
+                //
+                if (playDirection == playDirectionForward) {
+                    timerObj[timerItemKey].elementIsDisplayed = elementIsDisplayed;
+                    timerObj[timerItemKey].oObj.style.display = 'block';
+                } else {
+                    // Reverse
+                    if (elementMoveDuration >= filterDuration) {
+                        timerObj[timerItemKey].oObj.style.display = 'none';
+                    }
+                    timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
+                }
+                //
                 if (debugFunctionIsOn) {
                     MessageLog(null, DoNotUseDebug, DoUseSingleLine,
                         TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
                             timerObj[timerItemKey].playDirection, 'Stop')
                         + tempDetails
-                        + ', Stopping Item Timer'
+                        + ', Item Interval Timer Stopped'
                         + '.',
-                        'MdmAnimation:TimerItemDoStepMove', 2371, 0, null, null,
+                        'MdmAnimation:TimerItemDoStepMove', 2408, 0, null, null,
                         errorIsComment, errorDoNotDisplayTag, UseAlert);
                 }
-                //
-                TimerStop(IsImageLarge, timerType, timerGroup, timerGroupItem, 0);
-                //
-            }
-            //
-            // Leave box in final position
-            if (playDirection == playDirectionForward) {
-                timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopDest + 'px';
-                timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftDest + 'px';
             } else {
-                timerObj[timerItemKey].oObj.style.top = timerObj[timerItemKey].elTopOrig + 'px';
-                timerObj[timerItemKey].oObj.style.left = timerObj[timerItemKey].elLeftOrig + 'px';
-            }
-            //
-            if (playDirection == playDirectionForward) {
-                timerObj[timerItemKey].elementIsDisplayed = elementIsDisplayed;
-                timerObj[timerItemKey].oObj.style.display = 'block';
-            } else {
-                // Reverse
-                if (elementMoveDuration >= filterDuration) {
-                    timerObj[timerItemKey].oObj.style.display = 'none';
+                if (debugFunctionIsOn) {
+                    MessageLog(null, DoNotUseDebug, DoUseSingleLine,
+                        TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
+                            timerObj[timerItemKey].playDirection, 'Item')
+                        + tempDetails
+                        + ', Elapsed:' + timerObj[timerItemKey].timerElapsed / 1000
+                        + ', Step:' + timerObj[timerItemKey].timerStepCurr
+                        + ', Time:' + Date()
+                        + ', Move:' + moveDistanceLeft
+                        + ', Rising:' + IsRisingFactor
+                        + ', Compl:' + timerCompletionTemp
+                        + ', Move Top:' + timerObj[timerItemKey].moveDistanceTop
+                        + ', Move Left:' + timerObj[timerItemKey].moveDistanceLeft
+                        + ', Exiting Item'
+                        + '.',
+                        'MdmAnimation:TimerItemDoStepMove', 2427, 0, null, null,
+                        errorIsComment, errorDoNotDisplayTag, UseAlert);
                 }
-                timerObj[timerItemKey].elementIsDisplayed = elementIsNotDisplayed;
-            }
-            //
-            if (debugFunctionIsOn) {
-                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                    TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
-                        timerObj[timerItemKey].playDirection, 'Stop')
-                    + tempDetails
-                    + ', Item Interval Timer Stopped'
-                    + '.',
-                    'MdmAnimation:TimerItemDoStepMove', 2408, 0, null, null,
-                    errorIsComment, errorDoNotDisplayTag, UseAlert);
-            }
-        } else {
-            if (debugFunctionIsOn) {
-                MessageLog(null, DoNotUseDebug, DoUseSingleLine,
-                    TimerTextLog(timerObj[timerItemKey].oObj, timerType, timerGroup, timerGroupItem, DoNotUseRoot,
-                        timerObj[timerItemKey].playDirection, 'Item')
-                    + tempDetails
-                    + ', Elapsed:' + timerObj[timerItemKey].timerElapsed / 1000
-                    + ', Step:' + timerObj[timerItemKey].timerStepCurr
-                    + ', Time:' + Date()
-                    + ', Move:' + moveDistanceLeft
-                    + ', Rising:' + IsRisingFactor
-                    + ', Compl:' + timerCompletionTemp
-                    + ', Move Top:' + timerObj[timerItemKey].moveDistanceTop
-                    + ', Move Left:' + timerObj[timerItemKey].moveDistanceLeft
-                    + ', Exiting Item'
-                    + '.',
-                    'MdmAnimation:TimerItemDoStepMove', 2427, 0, null, null,
-                    errorIsComment, errorDoNotDisplayTag, UseAlert);
             }
         }
         //

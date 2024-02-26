@@ -507,7 +507,7 @@ function ElementTopMaxGet(DoScroll, DoBase, elementPassed, elTopDefault) {
             var clientRects = elementPassed.getClientRects();
             if (clientRects != null) {
                 while (clientRectsIndex < clientRects.length) {
-                    topRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
+                    topRects = clientRects[clientRectsIndex].top;
                     clientRectsIndex++;
                 }
                 if (topRects > thisTop) { thisTop = topRects; }
@@ -567,7 +567,12 @@ function ElementLeftMaxGet(DoScroll, DoBase, elementPassed, elLeftDefault) {
         // all else failed so use the protype approach...
         var bodyTempContainer = document.getElementById('BodyTempContainer');
         bodyTempContainer.appendChild(elementPassed.cloneNode(true));
-        var leftNode = bodyTempContainer.childNodes[0].offsetLeft;
+        var leftNode = 0; // = bodyTempContainer.childNodes[0].offsetLeft;
+        if (browserIsOld) {
+            leftNode += parseInt(bodyTempContainer.childNodes[0].offsetLeft);
+        } else {
+            leftNode += parseInt(window.getComputedStyle(bodyTempContainer.childNodes[0], null).getPropertyValue('offsetLeft'));
+        }
         bodyTempContainer.removeChild(bodyTempContainer.childNodes[0]);
         if (leftNode > thisLeft) { thisLeft = leftNode; }
         //
@@ -579,7 +584,7 @@ function ElementLeftMaxGet(DoScroll, DoBase, elementPassed, elLeftDefault) {
             var clientRects = elementPassed.getClientRects();
             if (clientRects != null) {
                 while (clientRectsIndex < clientRects.length) {
-                    leftRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
+                    leftRects = clientRects[clientRectsIndex].left;
                     clientRectsIndex++;
                 }
                 if (leftRects > thisLeft) { thisLeft = leftRects; }
@@ -649,7 +654,7 @@ function ElementWidthMaxGet(DoScroll, DoBase, elementPassed, elWidthDefault) {
             if (clientRects != null) {
                 var clientRectsIndex = 0;
                 while (clientRectsIndex < clientRects.length) {
-                    widthRects = clientRects[clientRectsIndex].top - clientRects[clientRectsIndex].bottom;
+                    widthRects = clientRects[clientRectsIndex].width
                     clientRectsIndex++;
                 }
                 if (widthRects > thisWidth) { thisWidth = widthRects; }

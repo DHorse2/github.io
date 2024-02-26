@@ -141,7 +141,7 @@ function menuImageInit() {
     imgMaxByGroup[3] = 5;
     imgMaxByGroup[4] = 8;
     imgMaxByGroup[5] = 0;
-    imgMaxByGroup[6] = 0;
+    imgMaxByGroup[6] = 2;
 
     // Menu Maximum Images per each Group
     oObjectRowMax[0] = 0;
@@ -149,8 +149,8 @@ function menuImageInit() {
     oObjectRowMax[2] = 9;
     oObjectRowMax[3] = 9;
     oObjectRowMax[4] = 3;
-    oObjectRowMax[5] = 9;
-    oObjectRowMax[6] = 9;
+    oObjectRowMax[5] = 4;
+    oObjectRowMax[6] = 4;
 
 }
 //
@@ -189,7 +189,7 @@ function menuImageSet() {
         // Menu Group 1
         // Default (All)
         menuImageOffsetTop[1][indexGroup][oSizeIndex] = 25;
-        menuImageOffsetLeft[1][indexGroup][oSizeIndex] = 25;
+        menuImageOffsetLeft[1][indexGroup][oSizeIndex] = 50;
         // Boxes
         menuImageOffsetTop[1][1][oSizeIndex] = 0; menuImageOffsetLeft[1][1][oSizeIndex] = 0;
         menuImageOffsetTop[1][2][oSizeIndex] = 0; menuImageOffsetLeft[1][2][oSizeIndex] = 0;
