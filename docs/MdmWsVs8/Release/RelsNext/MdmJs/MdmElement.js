@@ -812,5 +812,14 @@ function ElementContainerAdjustGet(element, elementContainer, UsePercent, DoPadd
         return 0;
     }
 }
+function ElementShow(IdPassed) {
+    var element = ElementGetFromId(IdPassed);
+    element.style.display = 'block';
+}
+function ElementHide(IdPassed) {
+    var element = ElementGetFromId(IdPassed);
+    element.style.display = 'none';
+}
+
 script_state = "Mdm Standard Element functions loaded.";
 if (debugLoadIsOn) { debugger; }

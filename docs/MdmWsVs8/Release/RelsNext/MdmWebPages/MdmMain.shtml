@@ -360,13 +360,18 @@
 							<div id="MenuGroup1" class="MenuGroup1 BodyMenuGroupLayout">
 								<!-- * -->
 								<p id="MenuGroup1Header" class="MenuColumnHeading h4 cBlack"
-									onmousedown="ElementGroupToggle(true, true, 1, 8, 0, '', '', '', oObjImageSizeSmall, 1, 8, false, true);">
+									onmousedown="ElementGroupToggle(true, true, 1, 8, 0, '', '', '', oObjImageSizeSmall, 1, 8, false, true);"
+									onmouseenter="ElementShow('MenuGroup1List');"
+									onmouseleave="ElementHide('MenuGroup1List');">
 									<span class="fMicro">Click menu headings to see thumbnail menus<br></span>
 									Development Projects
 								</p>
 								<!-- IN PROGRESS NOTE lnumbered altering list presentation... -->
 								<!-- onmouseover=ElementGroupShow(LeftHeader1) -->
-								<ul id="MenuGroup1List" class="MenuList lNumbered MenuColumnClass">
+								<ul id="MenuGroup1List" class="MenuList lNumbered MenuColumnClass"
+									style="display: none;" 
+									onmouseenter="ElementShow('MenuGroup1List');"
+									onmouseleave="ElementHide('MenuGroup1List');">
 									<!-- 1 -->
 									<li class="MenuListItem">
 										<!-- x onmouseover="ElementGroupShow(img1MenuLine, img1);"-->

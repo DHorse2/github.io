@@ -791,6 +791,7 @@ function ErrorEventNew() {
     return ErrorEvent();
 }
 
+
 function EventIdGetNext() {
     return eventCn++;
 }

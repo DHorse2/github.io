@@ -138,19 +138,19 @@ function ElementEventMouse(e) {
 		var oObject =
 			ElementItemGetAllFromIndex(IsImageLarge, "", 0, oObjGroupIndex, oObjIndex);
 		// if (oObject.oObjValid) {
-			if (IsImageLarge) {
-				oObjNext = oObject.oObjLarge;
-				oObjNextImage = oObject.oObjImageLarge;
-				oObjNextParent = oObject.oObj;
-				oObjNextLarge = oObject.oObjLarge;
-				oObjLockedPassed = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
-			} else {
-				oObjNext = oObject.oObj;
-				oObjNextImage = oObject.oObjImage;
-				oObjNextParent = oObject.oObjParent;
-				oObjNextLarge = oObject.oObjLarge;
-			}
-			//
+		if (IsImageLarge) {
+			oObjNext = oObject.oObjLarge;
+			oObjNextImage = oObject.oObjImageLarge;
+			oObjNextParent = oObject.oObj;
+			oObjNextLarge = oObject.oObjLarge;
+			oObjLockedPassed = menuImageLocked[oObjGroupIndex][oObjIndex][IsSmall];
+		} else {
+			oObjNext = oObject.oObj;
+			oObjNextImage = oObject.oObjImage;
+			oObjNextParent = oObject.oObjParent;
+			oObjNextLarge = oObject.oObjLarge;
+		}
+		//
 		// }
 		// ...................................... //
 		var HideImage = false;
@@ -419,16 +419,44 @@ function ElementEventGet(e) {
 	// load and validate event and objects
 	eventCurr = e || window.event;
 }
+// Clone (copy) events from source to target element
+// ...................................... //
+// You can maybe use getEventListeners on nodes? Don't know how the support is, or if it's only supported in the console?
+function ElementEventClone(nodeSource, nodeTarget) {
+	try {
+		// Clone the node, don't clone the childNodes right now...
+		var events = getEventListeners(nodeSource);
+
+		for (var p in events) {
+			// All events is in an array so iterate that array:
+			events[p].forEach(function (ev) {
+				// {listener: Function, useCapture: Boolean}
+				nodeTarget.addEventListener(p, ev.listener, ev.useCapture);
+			});
+		}
+		// Also do the same to all childNodes and append them.
+		if (nodeSource.childNodes.length) {
+			[].slice.call(nodeSource.childNodes).forEach(function (nodeSource) {
+				nodeTarget.appendChild(cloneMassive(nodeSource));
+			});
+		}
+	} catch (error) {
+
+	}
+	return nodeTarget;
+}
+
 // Section Other function (s) (empty)
 // Section Window function (s)
 // SectionBlock Window Events and Methods function (s)
 // Event Add
+// ...................................... //
 function ElementEventAdd(eventNamePassed, eventFunctionPassed, eventFunctionNamePassed, eventFunctionArgsPassed, oObjPassed) {
 	var eventAddSuccess;
 	var eventArgumentsArr = new Array();
 	var tempfunc;
 	var temp;
-	//
+	// todo - this is OLD variant. I think.
 	if (!browserEventsIsFf) {
 		temp = eventFunctionNamePassed + eventFunctionArgsPassed;
 		eval('tempfunc = function() { ' + temp + '; }');
