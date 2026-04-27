@@ -1,0 +1,68 @@
+html,body
+{
+    padding: 10;
+    margin: 10;
+    height: 100%;
+}
+/* td {
+    background:#e1e2e5;
+} */
+p {
+    max-width: inherit;
+    word-wrap: normal;
+}
+
+.DescTable { 
+    /* width: 50%; */
+    /* text-align: start; */
+    /* max-width: max-content;  */
+    vertical-align: text-top;
+    /* border: groove;
+    border-block-color: darkslategrey; */
+    /* table-layout:auto; */
+}
+.DescTableRowLine {
+    float: left;
+    grid-auto-rows:auto;
+}
+.BodyBox {
+    background-image:url("../Resources/Page/BackgroundBlueSpiral.jpg");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    padding: 2.5em 0em 2.5em 0em;
+}
+.bodycentered {
+    align-items: center;
+    /* text-align: center; */
+    margin: auto;
+    align-content: center;
+    align-items: center;
+    align-self: center;    
+}
+/* ----------------- */  
+/* Body Image Background */    
+#BodyBg {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:url("../Resources/Page/BackgroundBlueSpiral.png");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    z-index:-2;
+}
+.BodyMainContainerBg {
+    /* Position */
+    /* position:absolute; */
+    /* Size */
+    /* width:100.0em; */
+    /* min-height:65.0em; */
+    /* Background */
+    background:#e1e2e5;
+    /* for IE */
+    /* filter: alpha(opacity=65); */
+    /* CSS3 standard */
+    /* opacity:0.65; */
+    }
+/* ----------------- */  

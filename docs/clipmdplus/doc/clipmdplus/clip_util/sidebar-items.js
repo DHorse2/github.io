@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Message"],"struct":["ClipMeta","ClipboardHistory","ClipboardMeta","DoSerial","IDataObject","ProgControl"]};

@@ -1,0 +1,68 @@
+/* Default CSS */
+/* DEBUGGING */
+div:hover {
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#FFFF00; /* Yellow */ 
+/* border-color:#FFA615; /* Orangish */ 
+/* Border ------------------------------------------------------------ */
+}
+p:hover {
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#00F40A /* Lime Green */
+/* Border ------------------------------------------------------------ */
+}
+span:hover {
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#FFFFFF; /* Yellow */ 
+/* Border ------------------------------------------------------------ */
+}
+ul:hover {
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#990000; /* Red */ 
+/* Border ------------------------------------------------------------ */
+}
+li:hover {
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#FFA615; /* Orangish */ 
+/* Border ------------------------------------------------------------ */
+}
+a:hover {
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#009900; /* Green */ 
+/* Border ------------------------------------------------------------ */
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover 
+ .h1:hover, .h2:hover, .h3:hover, .h4:hover, .h5:hover, .h6:hover { 
+/* Border ------------------------------------------------------------ */
+border-style:solid;
+/* border-style:groove; */
+border-width: .3em;
+/* border:solid; */
+border-color:#15E0E8; /* Neon Blue */ 
+/* Border ------------------------------------------------------------ */
+}

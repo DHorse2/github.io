@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<!-- Application Framework - Operating System Support (OSS) -->
+<html lang="en">
+
+<head>
+	<title>Application Framework - Operating System Support (OSS)</title>
+	<meta name="Author" content="David G. Horsman">
+	<meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta id="MdmViewport" name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--#include virtual="/mdmsite/RelsNext/TemplatePage/MdmPtDocHeader.shtml"-->
+	<link id="MdmBaseTagsStyles" rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+	<link id="MdmColourPalletStyles" rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+	<link id="MdmBodyHeaderStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+	<link id="MdmMenuStyles" rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+	<link id="MdmMenuImageStyles" rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
+	<link id="MdmBodyBoxStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+	<link id="MdmBodyTextStyles" rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+	<link id="MdmMainStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmMain.css">
+	<link id="ShortcutIcon" rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
+	<link id="ShortcutIconApple" rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
+	<link id="MdmDebugTagHoverStyles" rel="stylesheet" type="text/css" href="../Css/Page/MdmDebugTagHover.css">
+	<!-- // Script -->
+	<!-- // 	Load -->
+	<!-- //			Build Version -->
+	<script id="RelsBuildStage" src="../../RelsBuildStage.js"></script>
+	<!-- // 	Core -->
+	<script id="MdmIncludeHtml" src="../MdmJs/MdmIncludeHtml.js"></script>
+	<!-- <script id="MdmDeclarations" src="../MdmJs/MdmDeclarations.js"></script> -->
+	<script id="MdmBrowser" src="../MdmJs/MdmBrowser.js"></script>
+	<script id="MdmStandardFuntions" src="../MdmJs/MdmStandardFuntions.js"></script>
+	<script id="MdmError" src="../MdmJs/MdmError.js"></script>
+	<script id="MdmDebugConsole" src="../MdmJs/MdmDebugConsole.js"></script>
+	<!-- // 		Initialization -->
+	<script id="MdmPtConsoleFormData" src="../MdmJs/MdmPtConsoleFormData.js"></script>
+	<!-- <script src="../MdmJs/Page/Default.js"></script> -->
+	<!-- <script src="../MdmJs/Page/DefaultMenuImage.js"></script> -->
+	<script id="MdmMain" src="../MdmJs/Page/MdmMain.js"></script>
+	<script id="MdmMenuInit" src="../MdmJs/MdmMenuInit.js"></script>
+	<script id="menuImageInit" src="../MdmJs/Page/menuImageInit.js"></script>
+	<script id="MdmMenuImageElement" src="../MdmJs/Page/MdmMenuImageElement.js"></script>
+	<!-- //		 -->
+	<script id="MdmTimer" src="../MdmJs/MdmTimer.js"></script>
+	<script id="MdmImageZoom" src="../MdmJs/MdmImageZoom.js"></script>
+	<script id="MdmParamSet" src="../MdmJs/MdmParamSet.js"></script>
+	<script id="MdmParamInit" src="../MdmJs/MdmParamInit.js"></script>
+	<script id="MdmDebugTagHover" src="../MdmJs/MdmDebugTagHover.js"></script>
+	<!-- // 			Elements (dom) -->
+	<script id="MdmElement" src="../MdmJs/MdmElement.js"></script>
+	<!-- // 	Components -->
+	<!-- //			Window -->
+	<script id="MdmWindow" src="../MdmJs/MdmWindow.js"></script>
+	<!-- // 			Page -->
+	<script id="MdmPage" src="../MdmJs/MdmPage.js"></script>
+	<script id="MdmWindowLayout" src="../MdmJs/MdmWindowLayout.js"></script>
+	<!-- // 			Menus -->
+	<script id="MdmMenuImageCollection" src="../MdmJs/Page/MdmMenuImageCollection.js"></script>
+	<!-- // 		Animation -->
+	<script id="MdmAnimation" src="../MdmJs/MdmAnimation.js"></script>
+	<script id="MdmElementEvent" src="../MdmJs/MdmElementEvent.js"></script>
+	<script id="MdmAnimationElement" src="../MdmJs/MdmAnimationElement.js"></script>
+	<!-- // 	Initialization -->
+	<script id="MdmPageInit" src="../MdmJs/MdmPageInit.js"></script>
+</head>
+
+<body id="MdmNetAppFrame" class="BodyBox">
+	<!--** Section Body Area **-->
+	<div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!--** Section Left Column **-->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<div id="BodyMainLeft" class="BodyMainLeft">
+			<!--*-->
+			<div id="BodyMainLeftOuter" class="BodyMainLeftOuter">
+				<div id="BodyMainLeftInner" class="BodyMainLeftInner">
+					<!-- x ------------------------------------------------------------------------------------- -->
+					<!-- Layout Area 1 (Left) of 2 -->
+					<div id="BodyMenuLayout1" class="BodyMenuLayout">
+						<!--* Left Column Content **-->
+						<!-- Menu Group 1 ------------------------------------------------------------------------------------- -->
+						<!-- MenuGroup1 -->
+						<!-- 1 -->
+						<div id="MenuGroup1" class="BodyMenuGroupLayout">
+							<!-- x ------------------------------------------------------------------------------------- -->
+							<!-- x ------------------------------------------------------------------------------------- -->
+							<div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
+								<!-- x ------------------------------------------------------------------------------------- -->
+								<div id="ViewToggleBar" class="ViewToggleBar">
+									<!-- * -->
+									<div id="BodyConsoleViewButton"
+										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+										<div id="BodyLayoutToggle" class="BodyLayoutToggle ViewToggleButton
+					 MenuListItem  BorderThin " onmousedown="LayoutSelectNext(0)">
+											View
+										</div>
+									</div>
+									<!-- x ------------------------------------------------------------------------------------- -->
+									<div id="BodyConsoleMouseOverButton"
+										class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+										<div id="BodyConsoleMouseOverToggle" class="ConsoleToggle ViewToggleButton
+						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver')">
+											MoOv
+										</div>
+									</div> <!-- end of BodyConsoleMouseOverButton -->
+									<!-- x ------------------------------------------------------------------------------------- -->
+									<div id="BodyConsoleDebugButtons" class=" ViewToggleBlockContainerOuterTopZero">
+										<!-- Note: No Hide for buttons -->
+										<div id="BodyConsoleDebugToggles"
+											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleDebugButton" class="ViewToggleBlockContainer">
+												<div id="BodyConsoleDebugToggle" class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug')">
+													D
+												</div>
+											</div> <!-- end of BodyConsoleDebugButton -->
+											<!--*-->
+											<div id="BodyConsoleDebugMainToggles" class="ViewToggleBlockContainer">
+												<div id="BodyConsoleDebugOnErrorToggle" class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError')">
+													o
+												</div>
+												<div id="BodyConsoleDebugAllToggle" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll')">
+													a
+												</div>
+											</div> <!-- end of BodyConsoleDebugMainToggles -->
+										</div> <!-- end of BodyConsoleDebugToggles -->
+										<!--*-->
+										<div id="BodyConsoleDebugTypesToggles"
+											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleDebugMoveToggle" class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove')">
+												m
+											</div>
+											<div id="BodyConsoleDebugTransitionToggle" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition')">
+												t
+											</div>
+											<div id="BodyConsoleDebugDetailToggle" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail')">
+												d
+											</div>
+											<div id="BodyConsoleDebugEventsToggle" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents')">
+												v
+											</div>
+										</div> <!-- end of BodyConsoleDebugTypesToggles -->
+									</div> <!-- end of BodyConsoleDebugButtons -->
+									<!-- x ------------------------------------------------------------------------------------- -->
+									<div id="BodyConsoleBoxButtons" class="ViewToggleBlockContainerOuterTopZero">
+										<div id="BodyConsoleBoxToggles"
+											class="ViewToggleBlockContainerOuter ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleBoxButton" class="ViewToggleBlockContainer">
+												<div id="ConsoleToggle" class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll')">
+													C
+												</div>
+											</div> <!-- end of BodyConsoleBoxButton -->
+											<!--*-->
+											<div id="BodyUseLogToggles" class="ViewToggleBlockContainer">
+												<div id="BodyConsoleErrorToggle" class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError')">
+													e
+												</div>
+												<div id="BodyConsoleEventToggle" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent')">
+													v
+												</div>
+												<div id="BodyConsoleStateToggle" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState')">
+													s
+												</div>
+											</div> <!-- end of BodyUseLogToggles -->
+										</div> <!-- end of BodyConsoleBoxToggles -->
+										<!--*-->
+										<div id="BodyConsoleAuxillaryToggles"
+											class="ViewToggleBlockContainer ViewToggleBlockContainerOuterTop">
+											<div id="BodyConsoleTestToggle" class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin" onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest')">
+												T
+											</div>
+											<div id="BodyConsoleClearToggle" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear')">
+												c
+											</div>
+										</div> <!-- end of BodyConsoleAuxillaryToggles -->
+									</div> <!-- end of BodyConsoleBoxButtons -->
+									<!-- x ------------------------------------------------------------------------------------- -->
+								</div> <!-- end of View Toggle Left -->
+								<br id="BrViewToggleLeft" class="aClearBoth">
+								<!-- x ------------------------------------------------------------------------------------- -->
+							</div> <!-- end of View Toggle Left -->
+							<!-- x ------------------------------------------------------------------------------------- -->
+							<!-- x ------------------------------------------------------------------------------------- -->
+							<h4 id="H3TopLeft">
+								Come inside...
+							</h4>
+							<!-- x ------------------------------------------------------------------------------------- -->
+							<!-- x ------------------------------------------------------------------------------------- -->
+							<!-- MenuContainerLeft1 (Hide / Show, copy to TopLeft) -->
+							<div id="MenuContainerLeft1" class="MenuContainer MenuColumnClass fText f10 ">
+								<!--*-->
+								<p id="MenuGroup1Header" class="MenuColumnHeading eB f12 cBlack"
+									onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, true, false)">
+									<span class="fMicro">Click menu headings to see thumbnail menus<br></span>
+									Development Projects
+								</p>
+								<!-- IN PROGRESS NOTE lnumbered altering list presentation...
+onmouseover=ElementGroupStackShow(LeftHeader1)
+-->
+								<ul id="MenuGroup1" class="MenuList lNumbered MenuColumnClass">
+									<!-- 1 -->
+									<li class="MenuListItem">
+										<!-- x onmouseover="ElementGroupStackShow(img1MenuLine, img1)"-->
+										<a id="MdmImportTldMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmImportTld.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MenuContainerLeft1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 1, 1, false, true)">
+											Database schema<br>
+											and data converter. C#
+										</a>
+									</li>
+									<!-- 2 -->
+									<li class="MenuListItem">
+										<a id="MdmNetAppFrameMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmNetAppFrame.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmImportTld', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 1, 2, false, true)">
+											Application framework. C#
+										</a>
+									</li>
+									<!-- 3 -->
+									<li class="MenuListItem">
+										<a id="MdmWebUiMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmWebUi.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmNetAppFrame', 'MdmWebUiImage', 'MdmWebUi', oObjImageSizeSmall, 1, 3, false, true)">
+											Web Page Templates. JavaScript
+										</a>
+									</li>
+									<!-- 4 -->
+									<li class="MenuListItem">
+										<a id="MdmDbUtilClassMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmDbUtilClass.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmWebUi', 'MdmDbUtilClassImage', 'MdmDbUtilClass', oObjImageSizeSmall, 1, 4, false, true)">
+											File System module. C#
+										</a>
+									</li>
+									<!-- 5 -->
+									<li class="MenuListItem">
+										<a id="MdmOutlookSyncMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmOutlookSync.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmDbUtilClass', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 1, 5, false, true)">
+											Outlook folder integration. VBA
+										</a>
+									</li>
+									<!-- 6 -->
+									<li class="MenuListItem">
+										<a id="MdmNetVirListMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmNetVirList.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmOutlookSync', 'MdmNetVirListImage', 'MdmNetVirList', oObjImageSizeSmall, 1, 6, false, true)">
+											Virtualized non-generic list. C++
+										</a>
+									</li>
+									<!-- 7 -->
+									<li class="MenuListItem">
+										<a id="MdmSystemMgntMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmSystemMgnt.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmNetVirList', 'MdmSystemMgntImage', 'MdmSystemMgnt', oObjImageSizeSmall, 1, 7, false, true)">
+											Windows desktop best practices. Cross-cutting.
+										</a>
+									</li>
+									<!-- 8 -->
+									<li class="MenuListItem MenuListItemLast">
+										<a id="MdmWebDevMenuLine" class="MenuListItem"
+											href="../MdmWebPages/MdmWebDev.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmSystemMgnt', 'MdmWebDevImage', 'MdmWebDev', oObjImageSizeSmall, 1, 8, false, true)">
+											Web <br>Development.
+										</a>
+									</li>
+									<!-- x -->
+								</ul>
+							</div> <!-- end of MenuContainerLeft1 -->
+							<br id="MenuGroup1ColBreak">
+						</div> <!-- end of MenuGroup1 -->
+						<!-- x -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<!-- MenuGroup2 -->
+						<!-- 2 -->
+						<div id="MenuGroup2" class="BodyMenuGroupLayout">
+							<!--* Left Column Content Second Menu **-->
+							<div id="DivC21" class="MenuColumnClass CalloutContent CalloutBorderFull">
+								<p id="C21P2" class="eLeft Indent15 Pad5">
+									About this page...
+									<br>
+									It is a fairly
+									busy looking whereas I generally prefer
+									a mostly white look with limited colour
+									accents. Tastes vary.
+								</p>
+							</div>
+							<!-- Menu Group 2 ------------------------------------------------------------------------------------- -->
+							<div id="MenuContainerLeft2" class="MenuContainer MenuColumnClass fText f10 ">
+								<p id="MenuGroup2Header" class="MenuColumnHeading eB f12 cBlack"
+									onmousedown="ElementGroupStackToggle(true, true, 1, 4, 0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, true, false)">
+									Career
+								</p>
+								<ul id="MenuGroup2" class="MenuList">
+									<!-- 1 -->
+									<li class="MenuListItem">
+										<a id="MdmResumeMenuLine" class="MenuListItem"
+											href="../MdmResume/MdmResume.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MenuContainerLeft2', 'MdmResumeImage', 'MdmResume', oObjImageSizeSmall, 2, 1, false, true)">
+											Career Home
+										</a>
+									</li>
+									<!-- 2 -->
+									<li class="MenuListItem">
+										<a id="MdmRsmItMenuLine" class="MenuListItem" href="../MdmResume/MdmRsmIt.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmResume', 'MdmRsmItImage', 'MdmRsmIt', oObjImageSizeSmall, 2, 2, false, true)">
+											Resume
+										</a>
+									</li>
+									<!-- 3 -->
+									<li class="MenuListItem">
+										<a id="MdmDghCarBioMenuLine" class="MenuListItem"
+											href="../MdmResume/MdmDghCarBio.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmRsmIt', 'MdmDghCarBioImage', 'MdmDghCarBio', oObjImageSizeSmall, 2, 3, false, true)">
+											Personal Bio
+										</a>
+									</li>
+									<!-- 4 -->
+									<li class="MenuListItem MenuListItemLast">
+										<a id="MdmDghAccomMenuLine" class="MenuListItem"
+											href="../MdmResume/MdmDghAccom.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmDghCarBio', 'MdmDghAccomImage', 'MdmDghAccom', oObjImageSizeSmall, 2, 4, false, true)">
+											Major Accomplishments
+										</a>
+									</li>
+									<!-- x -->
+								</ul>
+								<br id="MenuGroup2ColBreak">
+							</div> <!-- end of MenuContainerLeft2 -->
+						</div> <!-- end of MenuGroup2 -->
+						<!-- x -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<!-- 3 -->
+						<!-- MenuGroup3 -->
+						<div id="MenuGroup3" class="BodyMenuGroupLayout">
+							<div id="DivC" class="MenuColumnClass CalloutContent CalloutBorderFull">
+								<p id="CP3" class="CalloutContent CP">
+									In this case I wanted a lot
+									of soft colour and the 300 characters needed
+									for search engine requirements.
+								</p>
+								<p id="CP4" class="CalloutContent CP">
+									It is
+									written for a technical audience and is
+									still under construction.
+								</p>
+							</div>
+							<!-- Menu Group 3 ------------------------------------------------------------------------------------- -->
+							<div id="MenuContainerLeft3" class="MenuContainer MenuColumnClass fText f10 ">
+								<p id="MenuGroup3Header" class="MenuColumnHeading eB f12 cBlack"
+									onmousedown="ElementGroupStackToggle(true, true, 1, 3, 0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, true, false)">
+									Applied Research
+								</p>
+								<ul id="MenuGroup3" class="MenuList">
+									<!-- 1 -->
+									<li class="MenuListItem">
+										<a id="MdmTechRsrchMenuLine" href=""
+											onmouseover="ElementGroupStackShow(0, 'MenuContainerLeft3', 'MdmTechRsrchImage', 'MdmTechRsrch', oObjImageSizeSmall, 3, 1, false, true)">
+											Applied Technology Research
+										</a>
+									</li>
+									<!-- 2 -->
+									<li class="MenuListItem">
+										<a id="MdmCogSciProjMenuLine" href=""
+											onmouseover="ElementGroupStackShow(0, 'MdmTechRsrch', 'MdmCogSciProjImage', 'MdmCogSciProj', oObjImageSizeSmall, 3, 2, false, true)">
+											Cognitive Science Project
+										</a>
+									</li>
+									<!-- 3 -->
+									<li class="MenuListItem MenuListItemLast">
+										<a id="MdmMvvmProjMenuLine" href=""
+											onmouseover="ElementGroupStackShow(0, 'MdmCogSciProj', 'MdmMvvmProjImage', 'MdmMvvmProj', oObjImageSizeSmall, 3, 3, false, true)">
+											C# MVVM / OSS Project
+										</a>
+									</li>
+								</ul>
+								<br id="MenuGroup3ColBreak">
+							</div> <!-- end of MenuContainerLeft3 -->
+						</div> <!-- end of MenuGroup3 -->
+						<!-- x -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<br id="MenuGroupEndColBreak">
+					</div> <!-- end of BodyLayout1 -->
+					<br id="MenuGroupEnd2ColBreak">
+					<!-- x ------------------------------------------------------------------------------------- -->
+					<!-- Left Container, Inner, Outter Closing Divs -->
+				</div>
+			</div>
+		</div>
+		<!-- end of Left Column -->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!--** Section Center Main Column **-->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<div id="BodyMainCenter">
+			<!-- BodyMainCenterTop (Hide / Show) -->
+			<!-- BodyMainCenterTopLeft -->
+			<!-- BodyMainCenterTopRight -->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<!-- BodyMainCenterTop (Hide / Show) -->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<div id="BodyMainCenterTop">
+				<!-- x ------------------------------------------------------------------------------------- -->
+				<div id="BodyViewToggleContainerCenter" class="">
+					<!-- x ------------------------------------------------------------------------------------- -->
+					<div id="ViewToggleBarCopy" class="ViewToggleBar">
+						<!-- * -->
+						<div id="BodyConsoleViewButtonCopy" class="ViewToggleBlockContainer">
+							<div id="BodyLayoutToggleCopy" class="BodyLayoutToggle ViewToggleButton
+					 MenuListItem  BorderThin " onmousedown="LayoutSelectNext(0)">
+								View
+							</div>
+						</div>
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<div id="BodyConsoleMouseOverButtonCopy" class="ViewToggleBlockContainer">
+							<div id="BodyConsoleMouseOverToggleCopy" class="ConsoleToggle ViewToggleButton
+						 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver')">
+								MoOv
+							</div>
+						</div> <!-- end of BodyConsoleMouseOverButton -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<div id="BodyConsoleDebugButtonsCopy" class="">
+							<!-- Note: No Hide for buttons -->
+							<div id="BodyConsoleDebugTogglesCopy" class="ViewToggleBlockContainerOuter">
+								<div id="BodyConsoleDebugButtonCopy" class="ViewToggleBlockContainer">
+									<div id="BodyConsoleDebugToggleCopy" class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug')">
+										D
+									</div>
+								</div> <!-- end of BodyConsoleDebugButton -->
+								<!--*-->
+								<div id="BodyConsoleDebugMainTogglesCopy" class="ViewToggleBlockContainer">
+									<div id="BodyConsoleDebugOnErrorToggleCopy" class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError')">
+										o
+									</div>
+									<div id="BodyConsoleDebugAllToggleCopy" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll')">
+										a
+									</div>
+								</div> <!-- end of BodyConsoleDebugMainToggles -->
+							</div> <!-- end of BodyConsoleDebugToggles -->
+							<!--*-->
+							<div id="BodyConsoleDebugTypesTogglesCopy" class="ViewToggleBlockContainer">
+								<div id="BodyConsoleDebugMoveToggleCopy" class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove')">
+									m
+								</div>
+								<div id="BodyConsoleDebugTransitionToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition')">
+									t
+								</div>
+								<div id="BodyConsoleDebugDetailToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail')">
+									d
+								</div>
+								<div id="BodyConsoleDebugEventsToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents')">
+									v
+								</div>
+							</div> <!-- end of BodyConsoleDebugTypesToggles -->
+						</div> <!-- end of BodyConsoleDebugButtons -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<div id="BodyConsoleBoxButtonsCopy" class="">
+							<div id="BodyConsoleBoxTogglesCopy" class="ViewToggleBlockContainerOuter">
+								<div id="BodyConsoleBoxButtonCopy" class="ViewToggleBlockContainer">
+									<div id="ConsoleToggleCopy" class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin" onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll')">
+										C
+									</div>
+								</div> <!-- end of BodyConsoleBoxButton -->
+								<!--*-->
+								<div id="BodyUseLogTogglesCopy" class="ViewToggleBlockContainer">
+									<div id="BodyConsoleErrorToggleCopy" class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError')">
+										e
+									</div>
+									<div id="BodyConsoleEventToggleCopy" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent')">
+										v
+									</div>
+									<div id="BodyConsoleStateToggleCopy" class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState')">
+										s
+									</div>
+								</div> <!-- end of BodyUseLogToggles -->
+							</div> <!-- end of BodyConsoleBoxToggles -->
+							<!--*-->
+							<div id="BodyConsoleAuxillaryTogglesCopy" class="ViewToggleBlockContainer">
+								<div id="BodyConsoleTestToggleCopy" class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin" onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest')">
+									T
+								</div>
+								<div id="BodyConsoleClearToggleCopy" class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin " onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear')">
+									c
+								</div>
+							</div> <!-- end of BodyConsoleAuxillaryToggles -->
+						</div> <!-- end of BodyConsoleBoxButtons -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+					</div> <!-- end of View Toggle Left -->
+					<br id="BrViewToggleCenter" class="aClearBoth">
+					<!-- x ------------------------------------------------------------------------------------- -->
+				</div> <!-- end of View Toggle Center -->
+				<!-- x ------------------------------------------------------------------------------------- -->
+				<!-- x ------------------------------------------------------------------------------------- -->
+				<!-- BodyMainCenterTopLeft -->
+				<div id="BodyMainCenterTopLeft">
+				</div>
+				<!-- BodyMainCenterTopRight -->
+				<div id="BodyMainCenterTopRight">
+				</div>
+				<!-- <br id="BodyMainCenterColBreak1" class="aClearBoth"> -->
+				<div id="BodyBannerTop">
+					<div id="BodyBanner" class="BodyBanner">
+						<!--** Menu Blocks **-->
+						<!--#include virtual="../../PageBuildStage.js"-->
+						<!--#if expr="${PageBuild}=RelsNext" -->
+						<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+						<!--#elif expr="${PageBuild}=RelsCurr" -->
+						<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+						<!--#else -->
+						<!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+						<!--#include virtual="/release/RelsNotSetError.htm"-->
+						<!--#endif -->
+					</div> <!-- end of Banner -->
+				</div> <!-- end of BodyBannerTop -->
+				<!-- * -->
+				<br id="BodyMainCenterTopColBreak" class="aClearBoth">
+				<!-- * -->
+				<!-- * Body Console Toggle and Message Area * -->
+				<!-- * -->
+				<div id="BodyConsoleTop">
+					<div id="BodyConsoleBox" class="BodyConsoleBox">
+						<!-- Errors -->
+						<div id="BodyConsoleErrorBox"
+							class="BodyConsoleErrorBox BodyConsoleDetailBox CalloutBorderFull">
+							Log Messages and Errors<br>
+							<!-- Error Log Display -->
+							<p id="BodyConsoleErrorTextBox" class="BodyConsoleTextBox CalloutBorderFull"></p>
+						</div> <!-- end of Error Console -->
+						<!-- Events -->
+						<div id="BodyConsoleEventBox"
+							class="BodyConsoleEventBox BodyConsoleDetailBox CalloutBorderFull">
+							Mouse Events<br>
+							<!-- Event Log Display -->
+							<p id="BodyConsoleEventTextBox" class="BodyConsoleTextBox CalloutBorderFull"></p>
+						</div> <!-- end of Event Console -->
+						<!-- State -->
+						<div id="BodyConsoleStateBox"
+							class="BodyConsoleStateBox BodyConsoleDetailBox CalloutBorderFull">
+							State<br>
+							<div id="BodyConsoleStateTextBox"
+								class="BodyConsoleStateTextBox BodyConsoleTextBox CalloutBorderFull">State</div>
+							<!-- end of State Inner Console -->
+							<!-- * -->
+							<div id="BodyConsoleTestBox"
+								class="BodyConsoleTestBox BodyConsoleTextBox CalloutBorderFull">
+								Test Console
+								<!-- * -->
+								<div id="BodyConsoleTestBoxInclude"
+									class="BodyConsoleTestBoxInclude BodyConsoleTestTextBox CalloutBorderFull">
+									<!--** Console Blocks **-->
+									<!-- different UI for Current and Next Releases Console -->
+									<!--#include virtual="../../PageBuildStage.js"-->
+									<!--#if expr="${PageBuild}=RelsNext" -->
+									<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"-->
+									<!--#elif expr="${PageBuild}=RelsCurr" -->
+									<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtConsoleForm.shtml"-->
+									<!--#else -->
+									<!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
+									<!--#include virtual="/release/RelsNotSetError.htm"-->
+									<!--#endif -->
+								</div> <!-- end of Test Box Input -->
+								<!-- * -->
+								<br id="BrBodyConsoleTest1" class="aClearBoth">
+								<div id="BodyConsoleTestBoxDisplay"
+									class="BodyConsoleTestBoxDisplay BodyConsoleTestTextBox CalloutBorderFull">
+									Test Data
+								</div> <!-- end of Test Data Display -->
+							</div> <!-- end of Test Box - Inner Console -->
+							<!-- * -->
+						</div> <!-- end of State Box - Console -->
+						<!-- * -->
+					</div> <!-- end of Console -->
+					<!-- * -->
+				</div> <!-- end of BodyConsoleTop -->
+				<!--*-->
+			</div> <!-- end of BodyMainCenterTop -->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<div id="BodyMainCenterCenter" class="BorderThin BodyParaBox">
+				<div id="DivSection1" class="">
+					<!--** Content Blocks **-->
+					<!-- x -->
+					<!--** Block 1 **-->
+					<div id="DivBox11" class="BodyParaLeft layoutBodyColumnType1">
+						<div id="DivB1" class="DivB1 BodyParaBox BorderThin BodyParaBoxBg">
+							<div id="B1C1" class="BodyParaRight CalloutBorder">
+								<a id="B1C1A" href="#" class="CalloutContent CPA">
+									<h4 class="CPA">Why...</h4>
+									<!-- x -->
+									<span id="B1C1L2AP1" class="CalloutContent CPP ">
+										<span class="eB">Objectives:</span><br>
+										<br>
+										Create a consistent user experience while
+										providing a module where content can easily
+										dropped into place.
+										<br><br>
+									</span>
+									<span id="B1C1L2AP2" class="CalloutContent CPP ">
+										To be able to copy IDE screen definitions from
+										various platforms into either an neutral or
+										"current platform" format.
+										<br><br>
+									</span>
+									<span id="B1C1L2AP3" class="CalloutContent CPP ">
+										To be able to copy database definitions from
+										various platforms into either an neutral or
+										"current platform" format.
+										<br><br>
+									</span>
+									<span id="B1C1L2AP4" class="CalloutContent CPP ">
+										To Create a robust applications environment
+										powerful enough to support scheduling, logging
+										and state analysis.
+										<br><br>
+									</span>
+									<span id="B1C1L2AP5" class="CalloutContent CPP ">
+										<br><br>
+									</span>
+								</a>
+							</div>
+							<h3 id="B1D1H1" class="BodyPara cSd CPT">
+								Application Framework<br><br>
+								OSS Operating System Support<br><br>
+								MVVM <br>
+								Model-View View-Model Framework
+							</h3>
+							<p id="B1D1P1" class="BodyPara CP">
+								This framework version includes trace, status line, logging,
+								threaded messaging (both user interface and functions,)
+								console, disk and database file I/O, error handling,
+								start/pause/cancel, progress bar and other features.
+							</p>
+							<!--* B1D2-->
+							<div id="B1D2" class="BodyParaLeft CalloutBorder">
+								<h4 id="B1D2H1" class="BodyPara cSd CPT">
+									Discussion of framework patterns,<br>
+									issues and risks.<br>
+								</h4>
+								<p id="B1D2P1" class="BodyPara CP">
+									I have frequently read statements that imply
+									that all frameworks have an inherent flaw via
+									duplication of operating system (and other) functionality.
+									In the end an anti-design pattern.
+									<br><br>
+									I would generally accept the view that needless duplication
+									should be avoided.
+									But of course the issue is more complex and takes place in a
+									context that includes the user experience,
+									diagnostics, exception handling, component use and more.
+									I would at least argue the above should equally include
+									the full scope of the .Net framework as well.
+									<br>
+									Overriding all of this though is the very nature of components that
+									mediate between the end user and the underlying technologies like
+									.Net or MySQL. An OSS layer in many respects reflects the
+									underlying OS and DB and communications. It must.
+									<br><br>
+									I don't think anyone would reasonably disagree that it is
+									important to fully exploit performance and
+									always avoid duplication where the OS, .Net, and Interop are concerned.
+									Even on that basis the above OS functionality is just one
+									amoung many equally important issues, for example, user experience.
+									<br><br>
+									Enterprise applications can be used by smaller compainies
+									as well as large.
+									For much the same reasons, smaller enterprises are looking for
+									robust feature rich applications that are consistent and reliable.
+									I see an OSS as a tool to help achieve that requirement.
+									<br><br>
+									Complex applications will invariably have a framework layer of some sort.
+									It's not that it is impossible to use other implementation designs each
+									with it's own limitations.
+									But they are all required to addrees user interface and experience and handle
+									exceptions at a minimum.
+									They are certainly increasingly likely to be found as
+									the app's sophistication grows and with
+									the later integration of other robust or complex applications.
+									<br><br>
+									But it seams reasonable that you would take care the OS portion of that code
+									that could lead to duplication as a matter of course.
+									Similar to tuning the DB and optimizing the project critical routines.
+								</p>
+								<p id="B1D2P6" class="BodyPara CP">
+									In a similar way, fully expolioting .Net's functionality
+									is important and duplicating its functionality
+									generaly wasteful.
+									But this is true of many related details, such as the above
+									developing a consistent and helpful user interface for handling exceptions.
+								</p>
+								<p id="B1D2P5" class="BodyPara CP">
+									To some degree, the framework acts as a mediation layer handling the,
+									OS, state, database, etc. while it contributes to a consistent and quality user
+									interface.
+									<br><br>
+									In the end, the line that separates duplication and excessive
+									standardization from a robust implementation of under-lying
+									IDE framework classes seems highly subjective.
+									I think I would far more encourage concern and scrutiny for the
+									framework's impact on performance and resources rather than
+									abandon what is to me, a proven best strategy.
+									<br><br>
+								</p>
+							</div><!--* End of B1D2-->
+							<!--*-->
+							<p id="B1D1P2" class="BodyPara CP">
+								The original OSS application additionally includes secure user
+								sign-on, company control, smart file locking and metrics,
+								hardware usage configuration, scheduled tasks with input,
+								minor accounting controls, resource management and other features.
+								<br><br>
+								That being too broad an initial scope combined with the need to
+								complete detailed evaluation during the first Phase prioir to the finalized design.
+								The above features were placed in a later phase.
+							</p>
+							<div id="B1C2" class="BodyParaRight">
+								<!-- x -->
+								<a id="B1C2A" href="#" class="CalloutBorder CalloutContent CPA">
+									<h4 id="B2C1A1" class="CPA aCenter">
+										MVVM<br>Framework<br>list of<br>methods.
+									</h4>
+									<img id="B1C2Img1Thumb" src="../Images/McontrollerMethodList.jpg"
+										alt="ImportTld Main Page Start" class="CPPImageThumb CPPImageThumbRight CPA">
+									<!-- x -->
+									<!-- <div id="B1C2ImgSet"
+						      							class="CalloutBorder CPP"> -->
+									<img id="B1C2Img1" src="../Images/McontrollerMethodList.jpg"
+										alt="ImportTld Main Page Start"
+										class="CPPImage CPP CPPImageLeft CalloutBorder ">
+									<!-- </div> -->
+									<!-- x -->
+								</a>
+							</div>
+							<h4 class="BodyPara CP h4">Rationelle:</h4>
+							<div id="B1D1P4" class="BodyPara CP">
+								<br>
+								<p id="B1D1P4P1" class="BodyPara CP ">
+									All enterprise level applications share similar issues in the need to
+									provide a consistent, informative approach to such issues as
+									User Interafce, Error Handling and Security.
+									Achieving this requires an OO interface layer of some sort
+									to present an informative and pleasing user interface.
+									I refered to this as the Operating System Support layer or OSS of an
+									application.
+								</p>
+								<p id="B1D1P4P2" class="BodyPara CP ">
+									The database (file system components) need to be included or integrated
+									with the OSS so that messages can be processed and presented to the user.
+									By adding the file system component, the OSS can also explore other levels
+									of the database hierarchy to determine the cause of failure.
+								</p>
+								<p id="B1D1P4P3" class="BodyPara CP ">
+									The scope of an OSS is potentially quite wide
+									including user experience, diagnostics, exception handling,
+									resourse allocation, load distributioin, security,
+									menus, bars and shortcuts, automated testing,
+									demos and kiosks, work-flow, collaboration and more.
+									As the number of users grows it becomes increasingly
+									advantageous to have it or an equavalent.
+								</p>
+								<p id="B1D1P4P4" class="BodyPara CP ">
+									To Create a robust applications environment
+									powerful enough to support scheduling, logging
+									and state analysis.
+								</p>
+								<p id="B1D1P4P5" class="BodyPara CP ">
+									There is first the expectation that a consistent UI will
+									be developed regardless.
+								</p>
+								<p id="B1D1P4P6" class="BodyPara CP ">
+									Second, an application specific design is expected to handle
+									issues like exceptions and cross thread communications gracefully.
+								</p>
+								<p id="B1D1P4P7" class="BodyPara CP ">
+									Finally, there are many feautures so pervasive or cross-cutting that
+									an OO component solution is reasonable.
+								</p>
+							</div><!--* End of B1D1P4-->
+							<!--*-->
+						</div><!--* End of DivB1 -->
+					</div>
+					<!--*-->
+					<!--** Block 2 **-->
+					<div id="DivBox12" class="BodyParaLeft layoutBodyColumnType1">
+						<div id="DivB2" class="BodyParaBox BorderThin BodyParaBoxBg">
+							<!--*-->
+							<div id="B2C1" class="BodyParaRight CalloutBorder">
+								<a id="B2C1A" href="#" class="CalloutContent CPA">
+									<h4 id="B2C1AH4" class="CPA aCenter">
+										Import / Export <br>Management <br>Page
+									</h4>
+									<img id="B2C1AImg1Thumb" src="../Images/ImportTld Main Page Start.jpg"
+										alt="ImportTld Main Page Start" class="CPPImageThumb CPPImageThumbRight CPA">
+									<img id="B2C1AImg1" src="../Images/ImportTld Main Page Start.jpg"
+										alt="ImportTld Main Page Start"
+										class="CalloutBorder CPPImage CPP CPPImageLeft ">
+								</a>
+							</div>
+							<!--*-->
+							<p id="B2D1P1" class="BodyPara CPT">
+								Advanced conversion features launched by an easy
+								to use interface.<br>
+							</p>
+							<p id="B2D1P2" class="BodyPara CP">
+								The main page includes a progress bar and adjustable
+								levels of progress details. It is a diagnostic utility
+								and featurse a real-time raw data windows, pause to
+								examine and detailed exceptions handling.
+							</p>
+							<p id="B2D1P3" class="BodyPara BodyParaLast CP">
+								<br>
+							</p>
+							<!--*-->
+							<p class="FixClear"></p>
+							<!--*-->
+							<!--** Block 6 **-->
+							<div id="DivB6" class="DivB6 BodyParaBox BorderThin BodyParaBoxBg">
+								<!--*-->
+								<div id="B6D1" class="BodyParaLeft">
+									<div id="B6C1" class="BodyParaRight CalloutBorder">
+										<a id="B6C1A" href="#" class="CalloutContent CPA">
+											<h4 id="B6C1A1" class="CPA aCenter">
+												Database <br>Selection <br>Page
+											</h4>
+											<img id="B6C1Img1Thumb" src="../Images/ImportTld Db Page Start.jpg"
+												alt="ImportTld Database Page Start"
+												class="CPPImageThumb CPPImageThumbRight CPA">
+											<img id="B6C1Img1" src="../Images/ImportTld Db Page Start.jpg"
+												alt="ImportTld Database Page Start"
+												class="CalloutBorder CPPImage CPP CPPImageLeft ">
+										</a>
+									</div>
+									<p id="B6D1P1" class="BodyPara CPT">
+										The database information page allows entry of the standard
+										database attributes including server, database, filegroup,
+										user, password, authorization.
+									</p>
+									<p id="B6D1P2" class="BodyPara CP">
+										Implementation of file owner as well as populated drop downs
+										for each database attribute are still pending.
+									</p>
+									<p id="B6D1P3" class="BodyPara BodyParaLast CP">
+										<br>
+									</p>
+								</div>
+								<p class="FixClear"></p>
+							</div>
+							<!--* End of DivB6Box-->
+							<p class="FixClear"></p>
+							<!--*-->
+							<!--** Block 4 **-->
+							<div id="DivB4" class="DivB4 BodyParaBox BorderThin BodyParaBoxBg">
+								<div id="B4D1" class="BodyParaLeft">
+									<div id="B4C1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
+										<a id="B4C1A" href="../MdmWebPages/MdmDbUtilClass.shtml"
+											class="CalloutContent CPA">
+											<h4 class="CPA">Details</h4>
+											<!--*-->
+											<p id="B4C1AP1" class="CalloutContent CPP ">
+												View a conceptual diagram.
+											</p>
+										</a>
+									</div>
+									<h4 id="B4D1H1" class="BodyPara cSd CPT">
+										File Subsystem<br>
+									</h4>
+									<p id="B4D1P1" class="BodyPara CP">
+										Handles SQL, Ascii, Binary and post-relational database files.
+										Equipped with an auxillary connection.
+										Comprehensive data format and schema transformation.
+									</p>
+								</div>
+								<p class="FixClear"></p>
+								<!--*-->
+								<!--*-->
+							</div><!--* End of DivB4Box-->
+							<p class="FixClear"></p>
+							<!--*-->
+							<!--*-->
+						</div>
+					</div>
+					<!--*-->
+					<!--** Block 3 **-->
+					<div id="DivBox13" class="BodyParaLeft layoutBodyColumnType1">
+						<div id="B3D1" class="BodyParaBox BorderThin BodyParaBoxBg">
+							<div id="B3C1" class="BodyParaRight CalloutBorder">
+								<!-- x -->
+								<a id="B3C1A" href="#" class="CalloutBorder CalloutContent CPA">
+									<h4 id="B3C1A1" class="CPA aCenter">
+										Project<br>Classes<br>Delegates<br>and<br>Enumerations
+									</h4>
+									<img id="B3C1Img1Thumb" src="../Images/ProjectScrollView.jpg"
+										alt="ImportTld Main Page Start" class="CPPImageThumb CPPImageThumbRight CPA">
+									<!-- x -->
+									<!-- <div id="B1C2ImgSet" class="CalloutBorder CPP"> -->
+									<img id="B3C1Img1" src="../Images/ProjectScrollView.jpg"
+										alt="ImportTld Main Page Start"
+										class="CPPImage CPP CPPImageLeft CalloutBorder ">
+									<!-- </div> -->
+									<!-- x -->
+								</a>
+							</div>
+							<h3 id="B3D1H1" class="BodyPara cSd CPT">
+								The Project
+							</h3>
+							<p id="B3D1P1" class="BodyPara CP">
+								The requirements for this project were that is first and
+								foremost produce the necessary framework classes
+								that would be used by any typical business application under .Net.
+							</p>
+							<p id="B3D1P2" class="BodyPara CP">
+								Second, was the need to implement a minimum set of
+								features from the existing Axion / MDM OSS module in a manner
+								appropriate for .Net. This would include a small number of
+								enhancements and changes to the components involved in the project.
+							</p>
+							<p id="B3D1P3" class="BodyPara CP">
+								Third, was a desire to implement a small set of usefull
+								language and string extensions and features not already
+								existing in .Net.
+							</p>
+							<p id="B3D1P4" class="BodyPara CP">
+								Fourth involves a trip down the rabbit hole and a number
+								of issues.
+								To deeply explore the effects and costs of deferring the
+								creation of clean classes to save time early in the project.
+								The efficiency of transcription of classes and code from other environments.
+								The manual process of code conversion to C# with a view to
+								automated processes.
+								In general, an further evaluation of the requirements to
+								create OO classes from platforms other than .Net. Later
+								a review of the DLR was added.
+							</p>
+							<p id="B3D1P5" class="BodyPara CP">
+								Six, a more pragmatic approach code conversion where
+								some determination would be made regarding implementing
+								the existing applicaitons under C#.
+								This included the user interface, specifically maintenance
+								and data entry forms as well as existing generated forms.
+								It also included file, database, transaction and distributed
+								processing issues.
+								This would conclude with a followup review of web enabling existing applications
+								by generating HTML rather than text versus generating Silverlight under C# (using the
+								framework.)
+							</p>
+							<p id="B3D1P6" class="BodyPara CP">
+								Finally, I was interested in exploring features of C# that
+								I was not properly familiar with in a hands on fashion.
+								In particular this included weak object types and introspection
+								but also included features such as LINQ, generics, WPF /
+								Silverlight, etc.
+								<br><br>
+							</p>
+						</div>
+						<br>
+					</div>
+					<!--*-->
+					<br class="FixPara">
+				</div>
+			</div><!--** End of BodyMainCenterCenter *-->
+			<!--*-->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<!-- BodyMainCenterBottom (Hide / Show) -->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<div id="BodyMainCenterBottom">
+				<!--*-->
+				<!--*-->
+				<!-- BodyMainCenterTopLeft -->
+				<div id="BodyMainCenterBottomLeft">
+				</div>
+				<!--*-->
+				<!--*-->
+				<!-- BodyMainCenterTopRight -->
+				<div id="BodyMainCenterBottomRight">
+				</div>
+				<!--*-->
+				<!--*-->
+				<div id="BodyBannerBottom">
+					<!--** Menu Blocks **-->
+					<!--#include virtual="../../PageBuildStage.js"-->
+					<!--#if expr="${PageBuild}=RelsNext" -->
+					<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+					<!--#elif expr="${PageBuild}=RelsCurr" -->
+					<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+					<!--#else -->
+					<!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+					<!--#include virtual="/release/RelsNotSetError.htm"-->
+					<!--#endif -->
+				</div> <!-- end of BodyBannerBottom -->
+				<!--*-->
+				<!--*-->
+			</div> <!-- end of BodyMainCenterBottom -->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<!-- x ------------------------------------------------------------------------------------- -->
+			<!--** End of Body Main Center *-->
+		</div> <!-- end of BodyMainCenter -->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!--** Section Right Column ------------------------------------------------------------------------------------- **-->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<div id="BodyMainRight" class="BodyMainRight">
+			<div id="BodyMainRightOuter" class="BodyMainRightOuter">
+				<div id="BodyMainRightInner" class="BodyMainRightInner">
+					<!--* Right Column Content **-->
+					<!-- 2 Layout Area 2 (Right) of 2 -->
+					<div id="BodyMenuLayout2" class="BodyMenuLayout">
+						<!-- MenuGroup4 -->
+						<div id="MenuGroup4" class="BodyMenuGroupLayout">
+							<h4 id="H3TopRight">
+								Come inside...
+							</h4>
+							<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
+							<div id="MenuContainerRight1" class="MenuContainer MenuColumnClass fText f10 ">
+								<p id="MenuGroup4Header" class="MenuColumnHeading eB f10 cBlack"
+									onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)">
+									Software
+									Products
+									Available
+								</p>
+								<!-- IN PROGRESS NOTE lnumbered altering list presentation... -->
+								<ul id="MenuGroup4" class="MenuList lNumbered">
+									<!-- 1 -->
+									<li class="MenuListItem">
+										<a id="MdmImportTldMenuLineRight" class="MenuListItem "
+											href="../MdmWebPages/MdmImportTld.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MenuContainerRight1', 'MdmImportTldRightImage', 'MdmImportTldRight', oObjImageSizeSmall, 4, 1, false, true)">
+											C# database schema<br>
+											and data converter </a>
+									</li>
+									<!-- 2 -->
+									<li class="MenuListItem">
+										<a id="MdmKBilMenuLine" class="MenuListItem "
+											href="../AxionWebPages/macdefau.htm"
+											onmouseover="ElementGroupStackShow(0, 'MdmImportTldRight', 'MdmKBilImage', 'MdmKBil', oObjImageSizeSmall, 4, 2, false, true)">
+											K-Bil<br>
+											Subscriber Billing<br>
+											System</a>
+									</li>
+									<!-- 3 -->
+									<li class="MenuListItem">
+										<a id="MdmNetAppFrame4MenuLine" class="MenuListItem "
+											href="../MdmWebPages/MdmNetAppFrame.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmKBil', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)">
+											C# Application Framework</a>
+									</li>
+									<!-- 4 -->
+									<li class="MenuListItem">
+										<a id="MdmSrtMenuLine" class="MenuListItem " href="../MdmWebPages/MdmSrt.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)">
+											SRT Code Conversion Tool</a>
+									</li>
+									<!-- 5 -->
+									<li class="MenuListItem">
+										<a id="MdmPickTrMenuLine" class="MenuListItem "
+											href="../MdmWebPages/MdmPickTr.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)">
+											PickTR Adaptive Communications Protocol</a>
+									</li>
+									<!-- 6 -->
+									<li class="MenuListItem">
+										<a id="MdmOutlookSyncMenuLineRight" class="MenuListItem "
+											href="../MdmWebPages/MdmOutlookSync.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)">
+											Outlook folder to disk sync add-on</a>
+									</li>
+									<!-- 7 -->
+									<li class="MenuListItem">
+										<a id="MdmPickOssMenuLine" class="MenuListItem "
+											href="../MdmWebPages/MdmPickOss.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)">
+											Pick Application Framework</a>
+									</li>
+									<!-- 8 -->
+									<li class="MenuListItem MenuListItemLast">
+										<a id="MdmOtherApps" class="MenuListItem " href="../MdmWebPages/MdmBlank.shtml"
+											onmouseover="ElementGroupStackShow(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)">
+											Release Management, Accounting,<br>
+											and duh not currently available.</a>
+									</li>
+									<!-- x -->
+								</ul>
+							</div> <!-- end of MenuContainerRight1 -->
+							<br id="MenuGroup4ColBreak" class="aClearBoth">
+						</div> <!-- end of MenuGroup4 -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<!-- MenuGroup5 - BodyViewToggle and BodyConsole -->
+						<div id="MenuGroup5" class="BodyMenuGroupLayout">
+							<!--** Menu Blocks **-->
+							<!--#include virtual="../../PageBuildStage.js"-->
+							<!--#if expr="${PageBuild}=RelsNext" -->
+							<!--#include virtual="/release/RelsNext/TemplatePage/MdmPtViewMenu.shtml"-->
+							<!--#elif expr="${PageBuild}=RelsCurr" -->
+							<!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtViewMenu.shtml"-->
+							<!--#else -->
+							<!--#include virtual="../../TemplatePage/MdmPtViewMenu.shtml"-->
+							<!--#include virtual="/release/RelsNotSetError.htm"-->
+							<!--#endif -->
+						</div> <!-- end of MenuGroup5 -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<!-- MenuGroup6 -->
+						<div id="MenuGroup6" class="BodyMenuGroupLayout">
+							<h4 id="H3BottomRight">
+								Hmmm no<br>advertising...
+							</h4>
+							<div id="MenuContainerRight3" class="MenuContainer MenuColumnClass fText f10 ">
+							</div> <!-- end of MenuContainerRight3 -->
+							<br id="MenuGroup6ColBreak" class="aClearBoth">
+						</div> <!-- end of MenuGroup6 -->
+						<!-- x ------------------------------------------------------------------------------------- -->
+						<br id="bodyMenuRightEndColBreak" class="aClearBoth">
+					</div> <!-- end of BodyLayout2 -->
+					<!-- x ------------------------------------------------------------------------------------- -->
+					<!-- (end of) Left Right, Outer, Inner Closing Divs -->
+				</div>
+			</div>
+		</div>
+		<!-- end of Right Column -->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!-- x ------------------------------------------------------------------------------------- -->
+		<!--** (end of) Content BodyContainer BodyArea BodyBox *-->
+	</div> <!-- end of BodyContainer -->
+	<!-- </div> --> <!-- end of BodyArea -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x Section BodyImageContainer -->
+	<div id="BodyImageContainer">
+	</div> <!-- end of BodyImageContainer -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x Section BodyImageContainer -->
+	<div id="BodyImageContainer">
+		<!-- onmousedown="ElementEventMouse(event);"  -->
+		<!-- onmouseover="ElementEventMouse(event);"  -->
+		<!-- onmouseout="ElementEventMouse(event);" -->
+	</div> <!-- end of BodyImageContainer -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x Section BodyConsoleContainer -->
+	<div id="BodyConsoleContainer">
+	</div> <!-- end of BodyImageContainer -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x Section BodyTempContainer -->
+	<div id="BodyTempContainer"></div> <!-- end of BodyImageContainer -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+	<!-- x ------------------------------------------------------------------------------------- -->
+</body> <!-- end of BodyBox -->
+
+</html>

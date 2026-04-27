@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["attribute_name_to_trait_name","display_as_helper_struct","expand","trait_name_to_attribute_name","trait_name_to_trait_bound"],"struct":["ParseResult","Placeholder","State"]};

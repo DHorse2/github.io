@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Professional and Personal Site for Dave Horsman</title>
+    <meta name="Author" content="David G. Horsman">
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css">
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../Css/MdmJavaDoc.css"> -->
+    <link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon" >
+    <link rel="apple-touch-icon" href="../Images/MdmControlLeft.png" >
+</head>
+<!--END OF HEAD -->
+<!-- * -->
+<body class="BodyBox">
+    <div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
+        <!-- ..................................................................................... -->
+        <div id="BodyMainCenterCenter" class="BorderThin">
+            <!-- ..................................................................................... -->
+                    <div id="DivSection1" class="BodyParaBox">
+                            <!-- * -->
+                            <div id="DivBox11" class="BodyPara aLeft layoutBodyColumnType1">
+                                <p class="BodyPara BodyParaLast">
+<br>
+<br>-------------------------------------------------------------------------------------
+<br>Section function documentation
+<br>-------------------------------------------------------------------------------------
+<br>last updated 2011/06/15
+<br>
+<br>This code is organizised as
+<br>Major Sections:
+<br>     Pre load Head Script
+<br>     HTML
+<br>     Post load Script
+<br>Sections:
+<br>     for example Animation
+<br>SubSections:
+<br>     for example animation is divided into:
+<br>     Filters (transitions)
+<br>     Move Actions
+<br>     Timers.
+<br>SectionBlocks: containing functions, variables or content
+<br>
+<br>The complete list:
+<br>         Section Console / Debug / UI Form Parameters function (s)
+<br>         Section Object Animation function (s)
+<br>         Sub-Section Filter Management function (s)
+<br>         SectionBlock Filter Create / Control function (s)
+<br>         SectionBlock Filter Support function (s):
+<br>         SectionBlock Filter Matrix Control function (s)
+<br>         SectionBlock Filter Primary Command  function (s)
+<br>         SectionBlock Filter Get / Set function (s)
+<br>         Sub-Section Timer Management function (s)
+<br>         SectionBlock Timers Primary Commands function (s)
+<br>         Set Filter &amp; Move function (s) for Timers
+<br>         SectionBlock Timer Task Related (Filter / Move) Commands function (s)
+<br>         SectionBlock Timer Control function (s)
+<br>         SectionBlock Timer User Interface function (s)
+<br>         Section Body Content Images Html Build function (s)
+<br>         Section Menu Images Html Build function (s) (Groups / Items)
+<br>         Section Other function (s) (empty)
+<br>         Section Window function (s)
+<br>         SectionBlock Window Events and Methods function (s)
+<br>         SectionBlock Window Events (Load, Resize) function (s)
+<br>         SectionBlock Window and Container Layout function (s)
+<br>         SectionBlock Window Session function (s)
+<br>         SectionBlock Window Cookies function (s)
+<br>         SectionBlock Window Document function (s)
+<br>         Section Standard and Utility function (s)
+<br>         Standard function (s) - Math
+<br>         Standard function (s) - Font Size
+<br>         Section Debug and Error Management function (s)
+<br>         SectionBlock Application Debug &amp; Error function (s)
+<br>         SectionBlock Window &amp; Script Exceptions &amp; Error function (s)
+<br>         Section Body Content Mouse Events function (s)
+<br>         Section Element function (s)
+<br>         SectionBlock Element support function (s)
+<br>         SectionBlock Element Get function (s)
+<br>         SectionBlock Element Position &amp; Dimension function (s)
+<br>         Section Console function (s)
+<br>         Section Layout Management function (s)
+<br>         Section Mouse Events function (s)
+<br>         Section (Menu Image) Element Item function (s)
+<br>         SectionBlock Element Item Play function (s)
+<br>         SectionBlock Element (Menu Image) Show / Hide function (s)
+<br>         SectionBlock Show Toggle function (s)
+<br>         SectionBlock (Menu) Groups and Ranges Show / Hide function (s)
+<br>         SectionBlock (Menu) Show function (s)
+<br>         SectionBlock (Menu) Hide function (s)
+<br>         SectionBlock Element Item Objects (Menu Images) Get &amp; Index function (s)
+<br>
+<br>------------------------------------------------
+<br>SectionBlock GLOBAL / COMMON function
+<br>------------------------------------------------
+<br>SectionBlock STANDARD function
+<br>------------------------------------------------
+<br>Global
+<br>		 WindowLoadInit
+<br>Elements
+<br>		ElementPosGetFromObj
+<br>Layout
+<br>		LayoutSelectByIndex
+<br>Menu Images
+<br>		MenuImagesHtmlBuild
+<br>Mouse
+<br>		ElementEventMouseOver
+<br>		ElementEventMouseOut
+<br>		ElementEventClick
+<br>
+<br>------------------------------------------------
+<br>SectionBlock Menu function
+<br>------------------------------------------------
+<br>Menu Image Show / Hide
+<br>Menu Show
+<br>		ElementGroupShowRange
+<br>		ElementItemShowIndex
+<br>		ElementGroupStackShow
+<br>		ElementItemToggleId
+<br>		ElementItemShow
+<br>Menu Hide
+<br>		ElementGroupStackToggle
+<br>		ElementItemHide
+<br>Menu Object Selection
+<br>		ElementItemGetAllFromIndex
+<br>		ElementItemGetDescription
+<br>		ElementItemGetName
+<br>		ElementItemIndexSetFromObj
+<br>		ElementItemIndexSetFromName
+<br>
+<br>------------------------------------------------
+<br>SectionBlock LAYOUT MANAGEMENT function
+<br>------------------------------------------------
+<br>		LayoutCheck
+<br>		LayoutRefresh
+<br>		LayoutSelectNext
+<br>
+<br>------------------------------------------------
+<br>SectionBlock STANDARD function
+<br>------------------------------------------------
+<br>Math Functions
+<br>		MathNumberRandomGetByRange
+<br>Font Size Control
+<br>		FontSizeIncrease
+<br>		FontSizeDecrease
+<br>
+<br>------------------------------------------------
+<br>SectionBlock OBJECT ANIMATION function
+<br>------------------------------------------------
+<br>Filter (Transition, Transform) Get by Index or Name
+<br>		FilterGetByIndex
+<br>
+<br>------------------------------------------------
+<br>SectionBlock FILTER MANAGEMENT function
+<br>------------------------------------------------
+<br>General
+<br>		FilterResetThenAnimate
+<br>Filter Store / Restore
+<br>		FilterStore
+<br>		FilterRestore
+<br>Animate Object
+<br>		FilterAnimate
+<br>Filter Specific Functions
+<br>		StyleBackground
+<br>				FilterBackgroundToggle
+<br>		Matrix
+<br>			  	FilterSpin
+<br>				FilterSetRotation
+<br>				FilterResize
+<br>		SlideStyleToggle
+<br>				SlideStyleToggle
+<br>		Other
+<br>			 	OtherFunction...
+<br>Filter Get / Set
+<br>		FilterGetByIndex
+<br>		FilterGetRandom
+<br>Filter Timing Get By Index
+<br>		FilterTimingGetByIndex
+<br>		FilterTimingGetRandom
+<br>
+<br>------------------------------------------------
+<br>SectionBlock DOCUMENT EVENTS function
+<br>------------------------------------------------
+<br>		window.onload
+<br>		window.resize
+<br>		window.error
+<br>
+<br>------------------------------------------------
+<br>
+<br>-------------------------------------------------------------------------------------
+<br>Section Body Layout Objects
+<br>-------------------------------------------------------------------------------------
+<br>
+<br>------------------------------------------------
+<br>SectionBlock GLOBAL LAYOUT Objects
+<br>------------------------------------------------
+<br>Body
+<br>BodyArea
+<br>BodyMainContainer
+<br>
+<br>BodyBanner  (Hide / Show, copy to Bottom)
+<br>BodyBannerBottom  (Hide / Show, copy to Bottom)
+<br>
+<br>BodyMainLeft
+<br>BodyMainLeftSave
+<br>BodyMainLeftOuter
+<br>BodyMainLeftInner
+<br>BodyMenuLayout1
+<br>MenuGroup1
+<br>MenuGroup1Save
+<br>MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+<br>MenuGroup2
+<br>MenuGroup2Save
+<br>MenuContainerLeft2
+<br>MenuGroup3
+<br>MenuGroup3Save
+<br>MenuContainerLeft3
+<br>
+<br>BodyMainCenter
+<br>BodyMainCenterColumns
+<br>
+<br>BodyMainCenterTop (Hide / Show)
+<br>BodyMainCenterTopLeft
+<br>BodyMainCenterTopRight
+<br>BodyBanner  (Hide / Show, copy to Bottom)
+<br>
+<br>BodyMainCenterCenter
+<br>
+<br>BodyMainCenterBottom  (Hide / Show)
+<br>BodyBannerBottom  (Hide / Show, copy to Bottom)
+<br>
+<br>BodyMainRight
+<br>BodyMainRightSave
+<br>BodyMainRightOuter
+<br>BodyMainRightInner
+<br>BodyMenuLayout2
+<br>MenuGroup4
+<br>MenuContainerRight1 (Hide / Show, copy to TopRight)
+<br>MenuGroup5
+<br>MenuContainerRight2
+<br>MenuGroup6
+<br>MenuContainerRight3
+<br>
+<br>BodyMainRightFar
+<br>
+<br>BodyImageContainer
+<br>BodyImageContainer
+<br>
+<br>layoutBodyColumnType1 (Standard Paragraph Box for Wide / Standard Screen Size)
+<br>
+<br>-------------------------------------------------------------------------------------
+<br>-------------------------------------------------------------------------------------
+<br>
+<br>-------------------------------------------------------------------------------------
+<br>Section Body Layout Management
+<br>(STANDARD FUNCTIONS)
+<br>(GLOBAL / COMMON)
+<br>-------------------------------------------------------------------------------------
+<br>
+<br>-----------------------------------------------
+<br>SectionBlock Layout Management Notes / Documentation:
+<br>-----------------------------------------------
+<br>Layouts available:
+<br>
+<br>1 Standard
+<br>	 		 Banner at Top
+<br>			 Body Center
+<br>			 Menu1 at Left
+<br>			 Menu2 at Right
+<br>2 Reading Mode Hide
+<br>			 Body Center
+<br>			 Hidden Menu1 at Left
+<br>			 Hidden Menu2 at Right
+<br>	 		 Hidden Banner at Bottom
+<br>3 Windowed
+<br>			 Body Center
+<br>			 Menu1 at Center Top Left
+<br>			 Menu2 at Center Top Right
+<br>	 		 Banner at Center Bottom
+<br>4 Reading Mode Show
+<br>			 Body Center (Top Left)
+<br>			 All Other at Right
+<br>			 	 Menu1 at Top Left
+<br>			 	 Menu2 at Top Right
+<br>	 		 	 Banner at Bottom
+<br>
+<br>------------------------------------------------
+<br>Layout User Interface Toggles:
+<br>Animation Toggles:
+<br>			  Toggle Step 1 of 2 Step Animations
+<br>			  Toggle 2 Step Animations
+<br>			  Toggle Random Animations
+<br>			  Toggle All Animations
+<br>Layout Toggles:
+<br>		  	  Full Screen
+<br>		  	  Font Sizing Ui
+<br>			  Callout Display
+<br>Analyzed Layout Area Links:
+<br>		  	  Blocks
+<br>			  		Paragraph
+<br>			  		Paragraph
+<br>					   ...
+<br>		  	  Screen Area (Collapsable)
+<br>			  		 Body Area
+<br>			  		 Body Area
+<br>			  		    ...
+<br>Data Entry Field
+<br>
+<br>Console Messages
+<br>
+<br>Instant Messaging Area
+<br>
+<br>------------------------------------------------
+<br>Optoin Toggles:
+<br>	 		 Hidden Banner
+<br>			 Hidden Menu1
+<br>			 Hidden Menu2
+<br>			 Hidden Menu 1 &amp; 2
+<br>			 Hidden All
+<br>
+<br>
+<br>-------------------------------------------------------------------------------------
+<br>-------------------------------------------------------------------------------------
+<br>
+<br>-------------------------------------------------------------------------------------
+<br>SectionBlock Filter / Transition Notes
+<br>
+<br>0 Box in.
+<br>1 Box out.
+<br>2 Circle in.
+<br>3 Circle out.
+<br>4 Wipe up.
+<br>5 Wipe down.
+<br>6 Wipe right.
+<br>7 Wipe left.
+<br>8 Vertical blinds.
+<br>9 Horizontal blinds.
+<br>10 Checkerboard across.
+<br>11 Checkerboard down.
+<br> 12 Random dissolve.
+<br> 13 Split vertical in.
+<br>  Split vertical out.
+<br> 15 Split horizontal in.
+<br> 16 Split horizontal out.
+<br> 17 Strips left down.
+<br> 18 Strips left up.
+<br> 19 Strips right down.
+<br> 20 Strips right up.
+<br> 21 Random bars horizontal.
+<br> 22 Random bars vertical.
+<br> 23 Random transition from above possible values.
+<br>
+<br>------------------------------------------------
+<br> SectionBlock Filter Create / Control function (s)
+<br>------------------------------------------------
+<br>
+<br> Ms:
+<br> Apply, Play, Stop:
+<br> BlendTrans, RevealTrans, Barn, Blinds, Compositor, Fade,
+<br> GradientWipe, Inset, Iris, Pixelate, RadialWipe, RandomBars,
+<br> RandomDissolve, Slide, Spiral, Stretch, Strips, Wheel, Zigzag
+<br> note: Compositor has no stop.
+<br>
+<br> Enabled:
+<br> Alpha, AlphaImageLoader, Barn, BasicImage, Blinds, Blur,
+<br> MotionBlur, BlendTrans, Chroma, DropShadow, Emboss, Engrave,
+<br> Fade, FlipH, FlipV, Glow, Gradient, GradientWipe, Gray, Inset,
+<br> Iris, Invert, Light, MaskFilter, Matrix, Pixelate, RadialWipe,
+<br> RandomBars, RandomDissolve, Redirect, RevealTrans, Shadow,
+<br> Slide, Spiral, Stretch, Strips, Wave, Wheel, Xray, Zigzag
+<br>
+<br> -------------------------------------------------------------------------------------
+<br> -------------------------------------------------------------------------------------
+<br>
+<br> -------------------------------------------------------------------------------------
+<br> Section HTML Body Content
+<br> -------------------------------------------------------------------------------------
+<br> Main Body Layout Objects:
+<br>
+<br> BodyArea
+<br> BodyMainContainer
+<br>
+<br> BodyBanner  (Hide / Show, copy to Bottom)
+<br>
+<br> BodyMainLeft
+<br> MenuGroup1
+<br> MenuContainerLeft1 (Hide / Show, copy to TopLeft)
+<br> MenuGroup2
+<br> MenuContainerLeft2
+<br> MenuGroup3
+<br> MenuContainerLeft3
+<br>
+<br> BodyMainCenter
+<br> BodyMainCenterColumns
+<br>
+<br> BodyMainCenterTop (Hide / Show)
+<br> BodyMainCenterTopLeft
+<br> BodyMainCenterTopRight
+<br>
+<br> BodyMainCenterCenter
+<br>
+<br> BodyMainCenterBottom  (Hide / Show)
+<br> BodyMainCenterBottomBanner
+<br>
+<br> BodyMainRight
+<br> MenuGroup4
+<br> MenuContainerRight1 (Hide / Show, copy to TopRight)
+<br> MenuGroup5
+<br> MenuContainerRight2
+<br> MenuGroup6
+<br> MenuContainerRight3
+<br>
+<br> BodyImageContainer
+<br> BodyImageContainer
+<br>
+<br>
+<br> -------------------------------------------------------------------------------------
+<br> -------------------------------------------------------------------------------------
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+/* Default CSS */
+
+/* ----------------- */
+
+.DivB1Old{
+/* Position */
+position:relative;
+top: 0em;
+left:px;
+/* Size */
+width:60%;
+height:100.0em;
+overflow-y:scroll;
+/* Alignment */
+margin: 2.5em;
+float: left;
+}
+
+
+#B1C1Old {
+max-width:50%;
+float:left;
+}
+
+/* Callout Para Poup */
+#B1C1A .CPP{
+/* Layering */
+display:none;
+}
+
+
+#B1C1A:hover .CPP{
+/* Layering */
+display:block;
+}
+/* ----------------- */
+
+#B1C2A {
+/* Layering */
+z-index:2;
+}
+
+#B1C2A .CPP{
+/* Layering */
+display:none;
+height:25.0em;
+}
+
+#B1C2A:hover .CPP{
+/* Layering */
+/* Size */
+display:block;
+overflow-y:visible;
+}
+
+#B1C2Img1Thumb {
+height:.0em;
+overflow-y:hidden;
+padding:1.0em;
+ }
+
+/* #B1C2ImgSet { */
+/* Size */
+/* Layering */
+/* display:none; */
+/* z-index:4; */
+/* } */
+
+#B1C2Img1 {
+/* Position */
+top: 0em;
+/* Size */
+min-width:40.0em;
+min-height:597.0em;
+overflow:visible;
+/* height:auto; */
+/* Alignment */
+/* Layering */
+display:none;
+z-index:4;
+}
+
+/* ----------------- */
+#B1D1Old {
+/* Size */
+width:20.0em;
+}
+
+/* ----------------- */
+#B1D2Old {
+/* Size */
+/* width:25.0em; */
+width:47%;
+}
+
+/* ----------------- */
+.DivB2BoxOld {
+/* Position */
+position:relative;
+top:0%;
+/* Size */
+width:30%;
+/* Alignment */
+float:right;
+}
+
+/* ----------------- */
+
+.DivB2Old{
+/* Position */
+position:relative;
+top: 0em;
+left: 0em;
+/* Size */
+/* Alignment */
+margin: 2.5em;
+overflow: visible;
+}
+
+/* ----------------- */
+/* Callout Para Poup */
+#B2C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B2C1A:hover .CPP{
+/* Layering */
+display:block;
+}
+
+/* ----------------- */
+
+#B2C1Img1 {
+/* Position */
+/* Size */
+width:50.0em;
+min-height:50.0em;
+/* Alignment */
+overflow:visible;
+/* Layering */
+z-index:4;
+}
+
+#B2C2A {
+/* Layering */
+z-index:2;
+}
+
+#B2C2A .CPP{
+/* Layering */
+display:none;
+}
+
+#B2C2A:hover .CPP{
+/* Layering */
+display:block;
+}
+
+/* ----------------- */
+
+#B2C2Img1 {
+/* Position */
+/* Size */
+width:50.0em;
+min-height:50.0em;
+/* Alignment */
+overflow:visible;
+/* Layering */
+z-index:4;
+}
+
+
+#B2C2Img2 {
+/* Position */
+/* Size */
+width:50.0em;
+min-height:50.0em;
+/* Alignment */
+/* Layering */
+z-index:4;
+}
+
+/* ----------------- */
+/* ----------------- */
+
+.DivB3Old{
+/* Position */
+position:relative;
+/* Size */
+width:80%;
+/* Alignment */
+float: left;
+margin: 2.5em;
+}
+
+/* ----------------- */
+
+#B3C1 {
+overflow-y:visible;
+}
+
+#B3C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B3C1A:hover .CPP{
+/* Layering */
+display:block;
+/* Layering */
+z-index:1;
+}
+
+#B3C1Img1Thumb {
+height:.0em;
+overflow-y:hidden;
+padding:1.0em;
+}
+
+#B3C1Img1 {
+/* Position */
+top: 0em;
+/* Size */
+max-width:40.0em;
+min-height:597.0em;
+overflow-y:visible;
+/* height:auto; */
+/* Alignment */
+/* Layering */
+display:none;
+z-index:4;
+}
+
+/* ----------------- */
+
+.DivB4Old{
+/* Position */
+/* position:absolute; */
+position:relative;
+/* top:44.0em; */
+top: 5em;
+left: 0em;
+/* left:75.0em; */
+/* Size */
+/* Alignment */
+/* Layering */
+z-index:3;
+}
+
+#B4D1P1{
+/* Border */
+border-bottom: .3em solid black;
+}
+
+/* ----------------- */
+
+#B4C1 {
+max-width:50%;
+}
+
+#B4C1A { width: 0em; }
+
+#B4C1A {
+/* Layering */
+z-index:1;
+height:auto;
+}
+
+#B4C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B4C1A:hover .CPP{
+/* Layering */
+display:block;
+}
+
+/* ----------------- */
+
+.DivB6Old{
+/* Position */
+/* position:absolute; */
+/* top:64.0em; */
+position:relative;
+top: 5em;
+left: 0em;
+/* left:75.0em; */
+/* Size */
+/* width:34.0em; */
+/* Alignment */
+margin-bottom: 5em;
+/* Layering */
+z-index:3;
+}
+
+/* Callout Para Poup */
+#B6C1A {
+/* Layering */
+z-index:2;
+}
+
+#B6C1A .CPP{
+/* Layering */
+display:none;
+}
+
+#B6C1A:hover .CPP{
+/* Layering */
+display:block;
+}

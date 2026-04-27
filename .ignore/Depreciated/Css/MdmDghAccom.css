@@ -1,0 +1,27 @@
+/* Mdm Page Template Wide CSS */
+
+#MdmDbUtilClassBody { }
+
+#BodyArea { }
+
+#BodyMainContainer{ }
+
+/* ----------------- */  
+#BodyMainTop { }
+
+/* -- Centre Area-- */
+#BodyMainCenter{ 
+/* Position */
+position:relative;
+/* Size */
+top: 6.3em;
+left:3%;
+width:90%;
+}
+
+/* ----------------- */  
+
+#B7D1 {
+/* Size */
+width: 100%;
+}

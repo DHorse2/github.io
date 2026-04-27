@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AppError","DbError","GuiError","JsonError"],"struct":["DbErrorData","DbErrorDataClient","DbErrorDataDe","DbErrorDataIo","DbErrorDataPostgres","DbErrorDataSer","DbErrorDataStd","JsonErrorData","PhantomError"]};

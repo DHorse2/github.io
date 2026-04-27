@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Career Home Page for Dave Horsman</title>
+    <meta name="Author" content="David G. Horsman" >
+    <meta name="created" content="Sat, 07 Aug 2010 02:13:02 GMT" >
+	<link rel="stylesheet" type="text/css" href="../Css/MdmBaseTags.css" >
+    <link rel="stylesheet" type="text/css" href="../Css/MdmColourPallet.css" >
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyHeader.css" >
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenu.css" >
+    <link rel="stylesheet" type="text/css" href="../Css/MdmMenuImage.css" >
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyBox.css" >
+    <link rel="stylesheet" type="text/css" href="../Css/MdmBodyText.css" >
+	<link rel="stylesheet" type="text/css" href="../Css/Page/MdmResume.css">
+	<link rel="shortcut icon" href="../Images/MdmControlLeft.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="../Images/MdmControlLeft.png">
+	<script src="../../PageBuildStage.js"></script>
+	<script src="../MdmJs/MdmParamInit.js"></script>
+	<script src="../MdmJs/MdmParamSet.js"></script>
+	<script src="../MdmJs/MdmPageInit.js"></script>
+	<script src="../MdmJs/MdmAnimationElement.js"></script>
+</head>
+<body id="MdmResume" class="BodyBox">
+        <div id="BodyMainContainer" class="BodyMainContainer BodyMainBorder">
+            <!--** Section Left Column **-->
+            <div id="BodyMainLeft" class="BodyMainLeft">
+     			 <!--*-->
+                <div id="BodyMainLeftOuter" class="BodyMainLeftOuter">
+                    <div id="BodyMainLeftInner" class="BodyMainLeftInner">
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- Layout Area 1 (Left) of 2 -->
+<div id="BodyMenuLayout1" name="BodyMenuLayout1"
+	 class="BodyMenuLayout"
+	 >
+      <!--* Left Column Content **-->
+<!-- Menu Group 1 ------------------------------------------------------------------------------------- -->
+<!-- MenuLeft1 -->
+<!-- 1 -->
+<div id="MenuLeft1" name="MenuLeft1"
+	 class="BodyMenuGroupLayout "
+	 >
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+    <div id="BodyViewToggleContainerLeft" class=" CalloutBorderFull">
+<!-- x ------------------------------------------------------------------------------------- -->
+        <div id="ViewToggleBar" class="ViewToggleBar" >
+<!-- * -->
+			<div id="BodyConsoleViewButton" class="ViewToggleBlockContainer" >
+                <div id="BodyLayoutToggle"
+            	     class="BodyLayoutToggle ViewToggleButton
+					 MenuListItem  BorderThin "
+                     onmousedown="LayoutNext(0)"
+            	     >
+                    View
+                </div>
+            </div>
+<!-- x ------------------------------------------------------------------------------------- -->
+			<div id="BodyConsoleMouseOverButton" class="ViewToggleBlockContainer" >
+					<div id="BodyConsoleMouseOverToggle"
+						 class="ConsoleToggle ViewToggleButton
+						 ViewToggleBlockLabel MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver')"
+						 >
+						MoOv
+					</div>
+            </div> <!-- end of BodyConsoleMouseOverButton -->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <div id="BodyConsoleDebugButtons" class="">
+				<!-- Note: No Hide for buttons -->
+				<div id="BodyConsoleDebugToggles" class="ViewToggleBlockContainerOuter" >
+					<div id="BodyConsoleDebugButton" class="ViewToggleBlockContainer" >
+						<div id="BodyConsoleDebugToggle"
+							 class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug')"
+							 >
+							D
+						</div>
+					</div> <!-- end of BodyConsoleDebugButton -->
+					<!--*-->
+					<div id="BodyConsoleDebugMainToggles" class="ViewToggleBlockContainer">
+						<div id="BodyConsoleDebugOnErrorToggle"
+							 class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError')"
+							 >
+							o
+						</div>
+						<div id="BodyConsoleDebugAllToggle"
+							 class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll')"
+							 >
+							a
+						</div>
+					</div> <!-- end of BodyConsoleDebugMainToggles -->
+				</div> <!-- end of BodyConsoleDebugToggles -->
+				<!--*-->
+				<div id="BodyConsoleDebugTypesToggles" class="ViewToggleBlockContainer">
+					<div id="BodyConsoleDebugMoveToggle"
+						 class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove')"
+						 >
+						m
+					</div>
+					<div id="BodyConsoleDebugTransitionToggle"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition')"
+						 >
+						t
+					</div>
+					<div id="BodyConsoleDebugDetailToggle"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail')"
+						 >
+						d
+					</div>
+					<div id="BodyConsoleDebugEventsToggle"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents')"
+						 >
+						v
+					</div>
+				</div> <!-- end of BodyConsoleDebugTypesToggles -->
+            </div> <!-- end of BodyConsoleDebugButtons -->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <div id="BodyConsoleBoxButtons" class="" >
+				<div id="BodyConsoleBoxToggles" class="ViewToggleBlockContainerOuter" >
+					<div id="BodyConsoleBoxButton" class="ViewToggleBlockContainer" >
+						<div id="ConsoleToggle"
+							 class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin"
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll')"
+							 >
+							C
+						</div>
+					</div> <!-- end of BodyConsoleBoxButton -->
+					<!--*-->
+					<div id="BodyUseLogToggles" class="ViewToggleBlockContainer" >
+						<div id="BodyConsoleErrorToggle"
+							 class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError')"
+							 >
+							e
+						</div>
+						<div id="BodyConsoleEventToggle"
+							 class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent')"
+							 >
+							v
+						</div>
+						<div id="BodyConsoleStateToggle"
+							 class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState')"
+							 >
+							s
+						</div>
+					</div> <!-- end of BodyUseLogToggles -->
+                </div> <!-- end of BodyConsoleBoxToggles -->
+				<!--*-->
+				<div id="BodyConsoleAuxillaryToggles" class="ViewToggleBlockContainer" >
+					<div id="BodyConsoleTestToggle"
+						 class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin"
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest')"
+						 >
+						T
+					</div>
+					<div id="BodyConsoleClearToggle"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear')"
+						 >
+						c
+					</div>
+				</div> <!-- end of BodyConsoleAuxillaryToggles -->
+            </div> <!-- end of BodyConsoleBoxButtons -->
+<!-- x ------------------------------------------------------------------------------------- -->
+	    </div> <!-- end of View Toggle Left -->
+		<br id="BrViewToggleLeft" class="aClearBoth">
+<!-- x ------------------------------------------------------------------------------------- -->
+    </div> <!-- end of View Toggle Left -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+      <h4 id="H3TopLeft">
+          Come inside...
+      </h4>
+    <!--*-->
+    <!--*-->
+      <!-- MenuContainerLeft1 (Hide / Show, copy to TopLeft) -->
+	  <div class=" ">
+      <div
+	  	   id="MenuContainerLeft1"
+		   class="MenuContainer MenuColumnClass fText f10 MenuColumnHeading"
+		   >
+          <!--*-->
+          <p id="MenuGroup1Header"
+              	class="eB f8 cBlack MenuColumnHeading"
+onmousedown="MenuImgToggleRange(true, true, 1, 7, false, MdmSystemMgnt, MdmWebDevImage, MdmWebDev, oObjImageSizeSmall, 1, 1, true, false)"
+              	>
+      	 <span class="fMicro">Click menu headings to see thumbnail menus<br></span>
+              Career History and Methodology
+         </p>
+         <!--* Left Column Sub-menu 2 Content **-->
+         <div id="LeftMenuContainer1"
+		  	  class="MenuContainer
+					MenuColumnClass
+					fText f10 "
+			  >
+              <p id="LeftHeader1" class="MenuColumnHeading MchDark f10 eB">
+                  Qualifications and History
+              </p>
+              <ul class="MenuList lNumbered MenuColumnClass">
+                  <!-- x -->
+                  <li class="MenuListItem">
+				  <a class="MenuListItem" href="../MdmResume/MdmRsmIt.shtml">
+				  Resume</a></li>
+                  <!-- x -->
+                  <li class="MenuListItem">
+		 		  <a class="MenuListItem" href="../MdmResume/MdmDghCarBio.shtml">
+				  Career Bio</a></li>
+                  <!-- x -->
+                  <li class="MenuListItem">
+				  <a class="MenuListItem" href="../MdmResume/MdmDghAccom.shtml">
+				  Major Accomplishments</a></li>
+                  <!-- x -->
+                  <li class="MenuListItem">
+				  <a class="MenuListItem" href="../MdmResume/MdmDghBio.shtml">
+				  Dave's Biographical</a></li>
+                  <!-- x -->
+                  <li class="MenuListItem">
+				  <a class="MenuListItem" href="../MdmResume/MdmCntrctAv.shtml">
+				  Contract Availability</a></li>
+			</ul>
+			<br id="MenuLeft1ColBreak1" name="MenuLeft1ColBreak1">
+          </div> <!-- end of LeftMenuContainer2 -->
+          <!--* Left Column Sub-menu 2 Content **-->
+          <div id="LeftMenuContainer2" class="MenuContainer MenuColumnClass fText f10">
+              <p id="LeftHeader2" class="MenuColumnHeading MchDark fText eB f8">
+                  Related Information
+               </p>
+              <ul class="LeftMenuList">
+                  <!-- x -->
+                  <li class="MenuListItem"><a href="../MdmResume/MdmCarMgnt.shtml">
+				  The Career Management Study</a></li>
+                  <!-- x -->
+                  <li class="MenuListItem"><a href="MdmRsmConstruction.shtml">
+				  Major Projects and Product</a></li>
+                  <!-- x -->
+                  <li class="MenuListItem"><a href="">
+				  Axion Computer Software &AMP; Systems
+				  Link not active yet...</a></li>
+              </ul>
+			  <br id="MenuLeft1ColBreak2" name="MenuLeft1ColBreak2">
+          </div> <!-- end of LeftMenuContainer2 -->
+    </div> <!-- end of MenuContainerLeft1 -->
+</div>
+</div> <!-- end of MenuLeft1 -->
+<!-- x -->
+<!-- x -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- MenuLeft2 -->
+<!-- 2 -->
+<div id="MenuLeft2" name="MenuLeft2"
+	 class="BodyMenuGroupLayout"
+	 >
+</div> <!-- end of MenuLeft2 -->
+<!-- x -->
+<!-- x -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- MenuLeft3 -->
+<!-- 3 -->
+<div id="MenuLeft3" name="MenuLeft3"
+	 class="BodyMenuGroupLayout"
+	 >
+</div> <!-- end of MenuLeft3 -->
+<!-- x -->
+<!-- x -->
+<!-- x ------------------------------------------------------------------------------------- -->
+</div> <!-- end of BodyLayout1 -->
+<!-- x ------------------------------------------------------------------------------------- -->
+	 <br id="MenuLeftEnd2ColBreak">
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- Left Container, Inner, Outter Closing Divs -->
+                    </div>
+                </div>
+            </div>
+			<!-- end of Left Column -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <!--** Section Center Main Column **-->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <div id="BodyMainCenter">
+<!-- BodyMainCenterTop (Hide / Show) -->
+<!-- BodyMainCenterTopLeft -->
+<!-- BodyMainCenterTopRight -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- BodyMainCenterTop (Hide / Show) -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<div id="BodyMainCenterTop" class="BodyMainCenterTop">
+<!-- x ------------------------------------------------------------------------------------- -->
+    <div id="BodyViewToggleContainerCenter" class="">
+<!-- x ------------------------------------------------------------------------------------- -->
+        <div id="ViewToggleBarCopy" class="ViewToggleBar" >
+<!-- * -->
+			<div id="BodyConsoleViewButtonCopy" class="ViewToggleBlockContainer" >
+                <div id="BodyLayoutToggleCopy"
+            	     class="BodyLayoutToggle ViewToggleButton
+					 MenuListItem  BorderThin "
+                     onmousedown="LayoutNext(0)"
+            	     >
+                    View
+                </div>
+            </div>
+<!-- x ------------------------------------------------------------------------------------- -->
+			<div id="BodyConsoleMouseOverButtonCopy" class="ViewToggleBlockContainer" >
+					<div id="BodyConsoleMouseOverToggleCopy"
+						 class="ConsoleToggle ViewToggleButton
+						 ViewToggleBlockLabel MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleMouseOver')"
+						 >
+						MoOv
+					</div>
+            </div> <!-- end of BodyConsoleMouseOverButton -->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <div id="BodyConsoleDebugButtonsCopy" class="">
+				<!-- Note: No Hide for buttons -->
+				<div id="BodyConsoleDebugTogglesCopy" class="ViewToggleBlockContainerOuter" >
+					<div id="BodyConsoleDebugButtonCopy" class="ViewToggleBlockContainer" >
+						<div id="BodyConsoleDebugToggleCopy"
+							 class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebug')"
+							 >
+							D
+						</div>
+					</div> <!-- end of BodyConsoleDebugButton -->
+					<!--*-->
+					<div id="BodyConsoleDebugMainTogglesCopy" class="ViewToggleBlockContainer">
+						<div id="BodyConsoleDebugOnErrorToggleCopy"
+							 class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugOnError')"
+							 >
+							o
+						</div>
+						<div id="BodyConsoleDebugAllToggleCopy"
+							 class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugAll')"
+							 >
+							a
+						</div>
+					</div> <!-- end of BodyConsoleDebugMainToggles -->
+				</div> <!-- end of BodyConsoleDebugToggles -->
+				<!--*-->
+				<div id="BodyConsoleDebugTypesTogglesCopy" class="ViewToggleBlockContainer">
+					<div id="BodyConsoleDebugMoveToggleCopy"
+						 class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugMove')"
+						 >
+						m
+					</div>
+					<div id="BodyConsoleDebugTransitionToggleCopy"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugTransition')"
+						 >
+						t
+					</div>
+					<div id="BodyConsoleDebugDetailToggleCopy"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugDetail')"
+						 >
+						d
+					</div>
+					<div id="BodyConsoleDebugEventsToggleCopy"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleDebugEvents')"
+						 >
+						v
+					</div>
+				</div> <!-- end of BodyConsoleDebugTypesToggles -->
+            </div> <!-- end of BodyConsoleDebugButtons -->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <div id="BodyConsoleBoxButtonsCopy" class="" >
+				<div id="BodyConsoleBoxTogglesCopy" class="ViewToggleBlockContainerOuter" >
+					<div id="BodyConsoleBoxButtonCopy" class="ViewToggleBlockContainer" >
+						<div id="ConsoleToggleCopy"
+							 class="ConsoleToggle ViewToggleButton
+							 ViewToggleBlockLabel MenuListItem BorderThin"
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleAll')"
+							 >
+							C
+						</div>
+					</div> <!-- end of BodyConsoleBoxButton -->
+					<!--*-->
+					<div id="BodyUseLogTogglesCopy" class="ViewToggleBlockContainer" >
+						<div id="BodyConsoleErrorToggleCopy"
+							 class="BodyUseLog ViewToggleButton
+							 ViewToggleBlock MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleError')"
+							 >
+							e
+						</div>
+						<div id="BodyConsoleEventToggleCopy"
+							 class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleEvent')"
+							 >
+							v
+						</div>
+						<div id="BodyConsoleStateToggleCopy"
+							 class="BodyUseLog ViewToggleButton
+							 MenuListItem BorderThin "
+							 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleState')"
+							 >
+							s
+						</div>
+					</div> <!-- end of BodyUseLogToggles -->
+                </div> <!-- end of BodyConsoleBoxToggles -->
+				<!--*-->
+				<div id="BodyConsoleAuxillaryTogglesCopy" class="ViewToggleBlockContainer" >
+					<div id="BodyConsoleTestToggleCopy"
+						 class="BodyUseLog ViewToggleButton
+						 ViewToggleBlock MenuListItem BorderThin"
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleTest')"
+						 >
+						T
+					</div>
+					<div id="BodyConsoleClearToggleCopy"
+						 class="BodyUseLog ViewToggleButton
+						 MenuListItem BorderThin "
+						 onmousedown="ConsoleToggle(DoNotSetValue, null, DoUseToggle, 'ConsoleClear')"
+						 >
+						c
+					</div>
+				</div> <!-- end of BodyConsoleAuxillaryToggles -->
+            </div> <!-- end of BodyConsoleBoxButtons -->
+<!-- x ------------------------------------------------------------------------------------- -->
+	    </div> <!-- end of View Toggle Left -->
+		<br id="BrViewToggleCenter" class="aClearBoth">
+<!-- x ------------------------------------------------------------------------------------- -->
+    </div> <!-- end of View Toggle Center -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- BodyMainCenterTopLeft -->
+<div id="BodyMainCenterTopLeft">
+</div>
+<!-- BodyMainCenterTopRight -->
+<div id="BodyMainCenterTopRight">
+</div>
+<!-- <br id="BodyMainCenterColBreak1" class="aClearBoth"> -->
+<div id="BodyBannerTop">
+<div id="BodyBanner" class="BodyBanner">
+<!--** Menu Blocks **-->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
+    <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
+    <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+    <!--#include virtual="/release/RelsNotSetError.htm"-->
+<!--#endif -->
+</div> <!-- end of Banner -->
+</div> <!-- end of BodyBannerTop -->
+<!-- * -->
+<br id="BodyMainCenterTopColBreak" class="aClearBoth">
+<!-- * -->
+<!-- * Body Console Toggle and Message Area * -->
+<!-- * -->
+<div id="BodyConsoleTop">
+<div id="BodyConsoleBox" class="BodyConsoleBox">
+<!-- Errors -->
+<div id="BodyConsoleErrorBox" class="BodyConsoleErrorBox BodyConsoleDetailBox CalloutBorderFull">
+Log Messages and Errors<br>
+<!-- Error Log Display -->
+<p id="BodyConsoleErrorTextBox" class="BodyConsoleTextBox CalloutBorderFull"></p>
+</div> <!-- end of Error Console -->
+<!-- Events -->
+<div id="BodyConsoleEventBox" class="BodyConsoleEventBox BodyConsoleDetailBox CalloutBorderFull">
+Mouse Events<br>
+<!-- Event Log Display -->
+<p id="BodyConsoleEventTextBox" class="BodyConsoleTextBox CalloutBorderFull"></p>
+</div> <!-- end of Event Console -->
+<!-- State -->
+<div id="BodyConsoleStateBox" class="BodyConsoleStateBox BodyConsoleDetailBox CalloutBorderFull">
+State<br>
+<div id="BodyConsoleStateTextBox" class="BodyConsoleStateTextBox BodyConsoleTextBox CalloutBorderFull">State</div> <!-- end of State Inner Console -->
+<!-- * -->
+<div id="BodyConsoleTestBox" class="BodyConsoleTestBox BodyConsoleTextBox CalloutBorderFull">
+Test Console
+<!-- * -->
+<div id="BodyConsoleTestBoxInclude" class="BodyConsoleTestBoxInclude BodyConsoleTestTextBox CalloutBorderFull">
+<!--** Console Blocks **-->
+<!-- different UI for Current and Next Releases Console -->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
+    <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtConsoleForm.shtml"-->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
+    <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtConsoleForm.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtConsoleForm.shtml"-->
+    <!--#include virtual="/release/RelsNotSetError.htm"-->
+<!--#endif -->
+</div> <!-- end of Test Box Input -->
+<!-- * -->
+<br id="BrBodyConsoleTest1" class="aClearBoth">
+<div id="BodyConsoleTestBoxDisplay" class="BodyConsoleTestBoxDisplay BodyConsoleTestTextBox CalloutBorderFull">
+Test Data
+</div> <!-- end of Test Data Display -->
+</div> <!-- end of Test Box - Inner Console -->
+<!-- * -->
+</div> <!-- end of State Box - Console -->
+<!-- * -->
+</div> <!-- end of Console -->
+<!-- * -->
+</div> <!-- end of BodyConsoleTop -->
+<!--*-->
+</div> <!-- end of BodyMainCenterTop -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!--*-->
+<!-- x ------------------------------------------------------------------------------------- -->
+<div id="BodyMainCenterCenter">
+<!-- x ------------------------------------------------------------------------------------- -->
+                <!--*-->
+                <div id="DivSection1" class="BodyParaBox">
+                <!--*-->
+                <!--*-->
+                <div id="DivBox1" class="BodyParaLeft layoutBodyColumnType1">
+                    <div id="DivCallout1" class="BodyParaRight CalloutBox CalloutBoxSmall CalloutBorder">
+                        <p id="C1P1" class="BodyCallout aLeft">
+						C# Applications Development.<br>
+						Silverlight, WPF. Web/HTML.<br>
+						Desktop and distributed solutions.<br>
+						Small business consulting.<br>
+                        </p>
+                    </div>
+                    <h3 id="H3Centre1" class="BodyPara cSd">
+						Software Development Services
+						</h3>
+                    <p id="B1P1" class="BodyPara">
+					    I make every possible effort to have as broad a skills
+					    base as is realistically possible.
+						Excellence is based in a strong interest and ethusiasm not only
+						for IT Technology, but for the industries and clients we serve.
+                    </p>
+                    <p id="B1P2" class="BodyPara">
+					   	I have served many types of operations including
+						wholesale, distribution, professional services, retail, regulated
+						services, small industry, proprietors and individuals. The range
+						in client size has been from 1 to 200 staff.
+                    </p>
+                    <p id="B1P3" class="BodyPara">
+						The industries include industrial supply, property management and
+						development, construction management, legal, storage, loans, food
+						processing and distribution, political parties, cable television,
+						broadcasting, communications, wood fibre processing, artists and
+						artisans, and of course software developers.
+                    </p>
+                    <p id="B1P4" class="BodyPara">
+					    Over a long consulting career this is not that remarkable.  To
+						narrow this down to a list that is relevant and current:
+                    </p>
+                    <ul id="B1L1" class="BodyPara BodyList lB0">
+						<li>Application &AMP; database design.</li>
+						<li>.Net development using C#.</li>
+						<li>Code &AMP; data conversion.</li>
+                    </ul>
+                    <h4 id="D3P5" class="BodyPara BodyParaLast">
+					    Several software products available. <br><br>
+                    </h4>
+                <br>
+                </div> <!-- end of DivBox1 -->
+                <!--*-->
+                <!--*-->
+                <div id="DivBox2" class="BodyParaRight layoutBodyColumnType1">
+                    <div id="DivCallout2" class="BodyParaLeft CalloutBox CalloutBoxSmall CalloutBorder">
+                        <p id="C2P1" class="BodyCallout aLeft CP">
+						Don't forget to check the incredible
+						C# project.  MVVM, OSS framework,
+						language virtualization and more.
+                        </p>
+                        <p id="C2P2" class="BodyCallout aLeft">
+						Featuring a schema conversion application.
+                        </p>
+                    </div>
+                    <h3 id="B2H1" class="BodyPara cSd">
+                        Portfolio work will be available on this site
+					</h3>
+                    <p id="B2P1" class="BodyPara">
+					    In 2008 I found myself in the uncomfortable position that my portfolio
+						could only be drawn from of other compainies' proprietary software.
+						Good bragging rights but not something you can actually show anyone...
+                    </p>
+                    <p id="B2P2" class="BodyPara ">
+						In addition, the prototypes, study and research  projects I did have
+						available were not very impressive in my own view.
+						The projects that remained that were both complete and commercially used were
+						all tools and utilities and written on the multivalued platforms.
+						I decided that the main goals of my upgrading for C# and web enabling
+						applications would have to include some significant work that I could
+						distribute however I chose.
+                    </p>
+                    <p id="B2P3" class="BodyPara ">
+						As I add content to this site I will be including much of the work in the
+						form of a portfolio.
+						Keep in mind that although the demonstrated skills don't focus on
+						business applications, that has been the area I have been most active.
+                    </p>
+                    <p id="B2P4" class="BodyPara BodyParaLast">
+						During this site construction phase please feel free
+						to contact me if your needs are specialized enough to require one of the
+						utilities that appear here.
+						None are open source or in the form of downloadable installs at this time
+						so just send me an email.
+                    </p>
+                    <!--*-->
+                    <!--*-->
+				<br>
+                </div> <!-- end of DivBox2 -->
+                <br>
+            </div> <!-- end of DivSection1 -->
+<br id="BodyMainCenterCenterColBreak" name="BodyMainCenterCenterColBreak">
+</div> <!-- end of BodyMainCenterCenter -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- BodyMainCenterBottom (Hide / Show) -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<div id="BodyMainCenterBottom">
+	  <!--*-->
+	  <!--*-->
+      <!-- BodyMainCenterTopLeft -->
+      <div id="BodyMainCenterBottomLeft">
+      </div>
+	  <!--*-->
+	  <!--*-->
+      <!-- BodyMainCenterTopRight -->
+      <div id="BodyMainCenterBottomRight">
+      </div>
+	  <!--*-->
+	  <!--*-->
+      <div id="BodyBannerBottom">
+      <!--** Menu Blocks **-->
+      <!--#include virtual="../../PageBuildStage.js"-->
+      <!--#if expr="${PageBuild}=RelsNext" -->
+          <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtMenuContent.shtml"-->
+      <!--#elif expr="${PageBuild}=RelsCurr" -->
+          <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtMenuContent.shtml"-->
+      <!--#else -->
+          <!--#include virtual="../../TemplatePage/MdmPtMenuContent.shtml"-->
+          <!--#include virtual="/release/RelsNotSetError.htm"-->
+      <!--#endif -->
+	  </div> <!-- end of BodyBannerBottom -->
+	  <!--*-->
+	  <!--*-->
+</div> <!-- end of BodyMainCenterBottom -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!--** End of Body Main Center *-->
+</div> <!-- end of BodyMainCenter -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!--** Section Right Column ------------------------------------------------------------------------------------- **-->
+<!-- x ------------------------------------------------------------------------------------- -->
+            <div id="BodyMainRight" class="BodyMainRight">
+                <div id="BodyMainRightOuter" class="BodyMainRightOuter">
+    				 <div id="BodyMainRightInner" class="BodyMainRightInner">
+<!--* Right Column Content **-->
+<!-- 2 Layout Area 2 (Right) of 2 -->
+<div id="BodyMenuLayout2" class="BodyMenuLayout">
+<!-- bodyMenuRight1 -->
+<div id="bodyMenuRight1" class="BodyMenuGroupLayout">
+    <h4 id="H3TopRight">
+    	Come inside...
+    </h4>
+	<!-- MenuContainerRight1 (Hide / Show, copy to TopRight) -->
+    <div id="MenuContainerRight1"
+        class="MenuContainer MenuColumnClass fText f10 "
+        >
+        <p id="MenuGroup4Header"
+    	   class="MenuColumnHeading eB f10 cBlack"
+           onmousedown="ElementGroupStackToggle(true, true, 1, 8, 0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, true, false)"
+    	   >
+        Software
+        Products
+        Available
+        </p>
+          <!-- IN PROGRESS NOTE lnumbered altering list presentation... -->
+      	<ul id="MenuGroup4" class="MenuList lNumbered">
+              <!-- 1 -->
+              <li class="MenuListItem">
+              <a id="MdmImportTldMenuLineRight"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmImportTld.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MenuContainerRight1', 'MdmImportTldImage', 'MdmImportTld', oObjImageSizeSmall, 4, 1, false, true)"
+                  >
+              C# database schema<br>
+              and data converter </a></li>
+              <!-- 2 -->
+              <li class="MenuListItem">
+              <a id="MdmKBilMenuLine"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmKBil.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmImportTld', 'MdmKBil42Image', 'MdmKBil42', oObjImageSizeSmall, 4, 2, false, true)"
+                  >
+              K-Bil<br>
+              Subscriber Billing<br>
+              System</a></li>
+              <!-- 3 -->
+              <li class="MenuListItem">
+              <a id="MdmNetAppFrame4MenuLine"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmNetAppFrame.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmKBil42', 'MdmNetAppFrameImage', 'MdmNetAppFrame', oObjImageSizeSmall, 4, 3, false, true)"
+                  >
+              C# Application Framework</a></li>
+              <!-- 4 -->
+              <li class="MenuListItem">
+              <a id="MdmSrtMenuLine"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmSrt.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmNetAppFrame', 'MdmSrtImage', 'MdmSrt', oObjImageSizeSmall, 4, 4, false, true)"
+                  >
+              SRT Code Conversion Tool</a></li>
+              <!-- 5 -->
+              <li class="MenuListItem">
+              <a id="MdmPickTrMenuLine"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmPickTr.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmSrt', 'MdmPickTrImage', 'MdmPickTr', oObjImageSizeSmall, 4, 5, false, true)"
+                  >
+              PickTR Adaptive Communications Protocol</a></li>
+              <!-- 6 -->
+              <li class="MenuListItem">
+                  <a id="MdmOutlookSyncMenuLineRight"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmOutlookSync.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmPickTr', 'MdmOutlookSyncImage', 'MdmOutlookSync', oObjImageSizeSmall, 4, 6, false, true)"
+                  >
+              Outlook folder to disk sync add-on</a></li>
+              <!-- 7 -->
+              <li class="MenuListItem">
+                  <a id="MdmPickOssMenuLine"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmPickOss.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmOutlookSync', 'MdmPickOssImage', 'MdmPickOss', oObjImageSizeSmall, 4, 7, false, true)"
+                  >
+              Pick Application Framework</a></li>
+              <!-- 8 -->
+              <li class="MenuListItem MenuListItemLast">
+                  <a id="MdmOtherApps"
+                  class="MenuListItem "
+                  href="../MdmWebPages/MdmBlank.shtml"
+                  onmouseover="ElementGroupStackShow(0, 'MdmPickOss', 'MdmBlankImage', 'MdmBlank', oObjImageSizeSmall, 4, 8, false, true)"
+                  >
+              Release Management, Accounting,<br>
+              and duh not currently available.</a></li>
+              <!-- x -->
+          </ul>
+	</div> <!-- end of MenuContainerRight1 -->
+	<br id="bodyMenuRight1ColBreak" class="aClearBoth">
+</div> <!-- end of bodyMenuRight1 -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- bodyMenuRight2 - BodyViewToggle and BodyConsole -->
+<div id="bodyMenuRight2" class="BodyMenuGroupLayout">
+<!--** Menu Blocks **-->
+<!--#include virtual="../../PageBuildStage.js"-->
+<!--#if expr="${PageBuild}=RelsNext" -->
+    <!--#include virtual="/release/RelsNext/TemplatePage/MdmPtViewMenu.shtml"-->
+<!--#elif expr="${PageBuild}=RelsCurr" -->
+    <!--#include virtual="/release/RelsCurr/TemplatePage/MdmPtViewMenu.shtml"-->
+<!--#else -->
+    <!--#include virtual="../../TemplatePage/MdmPtViewMenu.shtml"-->
+    <!--#include virtual="/release/RelsNotSetError.htm"-->
+<!--#endif -->
+</div> <!-- end of bodyMenuRight2 -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- bodyMenuRight3 -->
+<div id="bodyMenuRight3" class="BodyMenuGroupLayout">
+    <h4 id="H3BottomRight">
+        Hmmm no<br>advertising...
+    </h4>
+    <div id="MenuContainerRight3"
+        class="MenuContainer MenuColumnClass fText f10 "
+        >
+	</div> <!-- end of MenuContainerRight3 -->
+    <br id="bodyMenuRight3ColBreak" class="aClearBoth">
+</div> <!-- end of bodyMenuRight3 -->
+<!-- x ------------------------------------------------------------------------------------- -->
+    <br id="bodyMenuRightEndColBreak" class="aClearBoth">
+</div> <!-- end of BodyLayout2 -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- (end of) Left Right, Outer, Inner Closing Divs -->
+                    </div>
+                </div>
+            </div>
+<!-- end of Right Column -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+    <!--** (end of) Content BodyContainer BodyArea BodyBox *-->
+    </div> <!-- end of BodyContainer -->
+    <!-- </div> --> <!-- end of BodyArea -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x Section BodyImageContainer -->
+<div id="BodyImageContainer" >
+</div> <!-- end of BodyImageContainer -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x Section BodyImageContainer -->
+<div id="BodyMenuImageContainer" >
+    <!-- onmousedown="ElementEventMouse(event);"  -->
+    <!-- onmouseover="ElementEventMouse(event);"  -->
+    <!-- onmouseout="ElementEventMouse(event);" -->
+</div> <!-- end of BodyImageContainer -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x Section BodyConsoleContainer -->
+<div id="BodyConsoleContainer" >
+</div> <!-- end of BodyImageContainer -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x Section BodyTempContainer -->
+<div id="BodyTempContainer" ></div> <!-- end of BodyImageContainer -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x ------------------------------------------------------------------------------------- -->
+<!-- x Section Document Initialization
+// onlayoutcomplete="WindowLoadInit();";
+WindowLoadInit();
+//
+MenuImagesHtmlBuild();
+//
+// Choose Standard Layout
+LayoutSelectByIndex(layoutStandard);
+-->
+<!-- Section Post Document Load Script -->
+<!-- * -->
+</body> <!-- end of BodyBox -->
+<!--*-->
+<!-- * -->
+<!-- ------------------------------------------------------------------------------------- -->
+</html>

@@ -1,0 +1,93 @@
+https://duckduckgo.com/?t=ffab&q=fatal%3A+fsync+error+on+bad+file+descriptor&atb=v330-1&ia=web
+
+EXAMPLES
+
+Start a new Git repository for an existing code base
+
+    $ cd /path/to/my/codebase
+    $ git init      (1)
+    $ git add .     (2)
+    $ git commit    (3)
+
+        Create a /path/to/my/codebase/.git directory.
+
+        Add all existing files to the index.
+
+        Record the pristine state as the first commit in the history.
+
+
+
+
+
+2023-10-29 12:01:10.892 [info] > git add -A -- . [658ms]
+2023-10-29 12:01:10.892 [info] fatal: fsync error on '.git/objects/9b/tmp_obj_G2zo6z': Bad file descriptor
+2023-10-29 12:01:10.963 [info] > git config --get commit.template [68ms]
+2023-10-29 12:01:10.985 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [85ms]
+2023-10-29 12:01:11.136 [info] > git status -z -uall [149ms]
+
+
+THEN:
+
+2023-10-29 12:01:10.892 [info] > git add -A -- . [658ms]
+2023-10-29 12:01:10.892 [info] fatal: fsync error on '.git/objects/9b/tmp_obj_G2zo6z': Bad file descriptor
+2023-10-29 12:01:10.963 [info] > git config --get commit.template [68ms]
+2023-10-29 12:01:10.985 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [85ms]
+2023-10-29 12:01:11.136 [info] > git status -z -uall [149ms]
+2023-10-29 12:02:52.037 [info] > git config --get commit.template [43ms]
+2023-10-29 12:02:52.066 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [66ms]
+2023-10-29 12:02:52.206 [info] > git status -z -uall [137ms]
+2023-10-29 12:02:52.745 [info] > git fetch [754ms]
+2023-10-29 12:02:52.790 [info] > git config --get commit.template [42ms]
+2023-10-29 12:02:52.814 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [60ms]
+2023-10-29 12:02:52.948 [info] > git status -z -uall [132ms]
+2023-10-29 12:02:53.949 [info] > git ls-files --stage -- G:\m\d\Code\mdGitHub\io\github.io\docs\MdmWsVs8\Release\RelsNext\MdmJs\MdmDebugConsole.js [57ms]
+2023-10-29 12:02:53.952 [info] > git ls-files --stage -- G:\m\d\Code\mdGitHub\io\github.io\docs\MdmWsVs8\Release\RelsNext\MdmWebPages\MdmMain.shtml [64ms]
+2023-10-29 12:02:54.017 [info] > git cat-file -s ae67a193587d86567cc75fbd191446faa069079a [63ms]
+2023-10-29 12:02:54.018 [info] > git cat-file -s a27d0133f11726a64c35979e350c446a8ce03d72 [66ms]
+2023-10-29 12:02:54.133 [info] > git show --textconv :docs/MdmWsVs8/Release/RelsNext/MdmJs/MdmDebugConsole.js [108ms]
+2023-10-29 12:02:54.134 [info] > git show --textconv :docs/MdmWsVs8/Release/RelsNext/MdmWebPages/MdmMain.shtml [112ms]
+
+
+RESTART CODIUM:
+
+2023-10-29 12:10:51.377 [info] Log level: Info
+2023-10-29 12:10:51.377 [info] Validating found git in: "C:\Program Files\Git\cmd\git.exe"
+2023-10-29 12:10:51.406 [info] Using git "2.41.0.windows.3" from "C:\Program Files\Git\cmd\git.exe"
+2023-10-29 12:11:09.900 [info] Log level: Info
+2023-10-29 12:11:09.900 [info] Validating found git in: "C:\Program Files\Git\cmd\git.exe"
+2023-10-29 12:11:09.933 [info] Using git "2.41.0.windows.3" from "C:\Program Files\Git\cmd\git.exe"
+2023-10-29 12:11:09.995 [info] > git rev-parse --show-toplevel [56ms]
+2023-10-29 12:11:10.096 [info] > git rev-parse --git-dir --git-common-dir [92ms]
+2023-10-29 12:11:10.104 [info] Open repository: g:\m\d\Code\mdGitHub\io\github.io
+2023-10-29 12:11:10.306 [info] > git config --get commit.template [118ms]
+2023-10-29 12:11:10.354 [info] > git rev-parse --show-toplevel [160ms]
+2023-10-29 12:11:10.380 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [131ms]
+2023-10-29 12:11:10.452 [info] > git rev-parse --show-toplevel [90ms]
+2023-10-29 12:11:10.522 [info] > git rev-parse --show-toplevel [62ms]
+2023-10-29 12:11:10.599 [info] > git rev-parse --show-toplevel [71ms]
+2023-10-29 12:11:10.638 [info] > git status -z -uall [252ms]
+2023-10-29 12:11:10.804 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [151ms]
+2023-10-29 12:11:10.805 [info] > git config --get commit.template [157ms]
+2023-10-29 12:11:10.809 [info] > git rev-parse --show-toplevel [204ms]
+2023-10-29 12:11:10.819 [info] > git check-ignore -v -z --stdin [196ms]
+2023-10-29 12:11:10.901 [info] > git rev-parse --show-toplevel [76ms]
+2023-10-29 12:11:10.978 [info] > git status -z -uall [169ms]
+2023-10-29 12:11:10.984 [info] > git rev-parse --show-toplevel [54ms]
+2023-10-29 12:11:11.002 [info] > git ls-files --stage -- G:\m\d\Code\mdGitHub\io\github.io\docs\MdmWsVs8\Release\RelsNext\Css\MdmMenu.css [89ms]
+2023-10-29 12:11:11.008 [info] > git ls-files --stage -- G:\m\d\Code\mdGitHub\io\github.io\docs\MdmWsVs8\Release\RelsNext\MdmJs\MdmDebugConsole.js [86ms]
+2023-10-29 12:11:11.020 [info] > git show --textconv :docs/MdmWsVs8/Release/RelsNext/MdmJs/MdmDebugConsole.js [102ms]
+2023-10-29 12:11:11.020 [info] > git show --textconv :docs/MdmWsVs8/Release/RelsNext/Css/MdmMenu.css [113ms]
+2023-10-29 12:11:11.041 [info] > git rev-parse --show-toplevel [53ms]
+2023-10-29 12:11:11.063 [info] > git cat-file -s 4e0eaf864493bf7e883e00d33d5fe822b7333516 [56ms]
+2023-10-29 12:11:11.076 [info] > git cat-file -s a27d0133f11726a64c35979e350c446a8ce03d72 [62ms]
+2023-10-29 12:11:11.197 [info] > git fetch [1093ms]
+2023-10-29 12:11:11.249 [info] > git config --get commit.template [48ms]
+2023-10-29 12:11:11.264 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/gh-pages refs/remotes/gh-pages [58ms]
+2023-10-29 12:11:11.402 [info] > git status -z -uall [134ms]
+2023-10-29 12:11:12.376 [info] > git ls-files --stage -- G:\m\d\Code\mdGitHub\io\github.io\docs\MdmWsVs8\Release\RelsNext\Css\MdmMenu.css [75ms]
+2023-10-29 12:11:12.380 [info] > git ls-files --stage -- G:\m\d\Code\mdGitHub\io\github.io\docs\MdmWsVs8\Release\RelsNext\MdmJs\MdmDebugConsole.js [76ms]
+2023-10-29 12:11:12.424 [info] > git cat-file -s 4e0eaf864493bf7e883e00d33d5fe822b7333516 [44ms]
+2023-10-29 12:11:12.456 [info] > git cat-file -s a27d0133f11726a64c35979e350c446a8ce03d72 [73ms]
+2023-10-29 12:11:12.579 [info] > git show --textconv :docs/MdmWsVs8/Release/RelsNext/MdmJs/MdmDebugConsole.js [118ms]
+2023-10-29 12:11:12.610 [info] > git show --textconv :docs/MdmWsVs8/Release/RelsNext/Css/MdmMenu.css [180ms]
+

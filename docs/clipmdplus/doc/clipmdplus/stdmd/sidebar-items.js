@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["app_error","date_std","db_api","hyperlink","types"]};

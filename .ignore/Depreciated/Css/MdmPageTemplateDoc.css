@@ -1,0 +1,80 @@
+/* Mdm Page Template Wide CSS */
+
+/* Height and Width here only */
+#MdmPageDocTemplate { }
+
+#BodyMainContainer { }
+
+#BodyMainCenter{
+padding-top: 1.5em;
+padding-bottom: 1.5em;
+}
+/* ----------------- */  
+#DivB1i {
+position:relative;
+top: 0em;
+left: 0em;
+width:97%;
+min-height:10.0em;
+max-height:25.0em;
+}
+
+#B1D1P4{ border-bottom:1px solid black; }
+#B1C1A .CPP{ display:none; }
+#B1C1A:hover .CPP{
+display:block;
+}
+/* ----------------- */  
+#DivB2c {
+position:relative;
+width:97%;
+min-height:65.0em;
+max-height:195.0em;
+margin:auto;
+}
+
+#DivB2o {
+position:relative;
+width:97%;
+height:inherit;
+margin:auto;
+}
+
+#DivB2i {
+position:relative;
+width:97%;
+height:80%;
+margin:auto;
+overflow-y:visible;
+}
+
+#B2D2P3{ border-bottom:1px solid black; }
+/* Callout Para Poup */
+#B2C1A { z-index:2; }
+#B2C1A .CPP{ display:none; }
+#B2C1A:hover .CPP{ display:block; }
+#B2C1Img1 {
+position:absolute;
+top: 0em;
+left: 0em;
+width:32.5em;
+}
+#B2C2A { z-index:1; }
+#B2C2A .CPP{ display:none; }
+#B2C2A:hover .CPP{ display:block; }
+/* ----------------- */  
+
+#DivB3i {
+position:relative;
+top: 0em;
+width:97%;
+margin:auto;
+}
+
+
+#B3D1P4{ border-bottom:1px solid black; }
+#B3C1A .CPP{ display:none; }
+#B3C1A:hover .CPP{
+}
+/* ----------------- */  
+
